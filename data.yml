@@ -1,0 +1,12 @@
+title : Alexander Bulimov's blog
+tagline: Blog Tagline
+author :
+  name : Alexander Bulimov
+  email : lazywolf0@gmail.com
+  github : abulimov
+
+navigation :
+  - archive
+  - tags
+  - categories
+  - about
