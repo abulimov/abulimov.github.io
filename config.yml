@@ -44,7 +44,7 @@ posts:
     # Always start with a forward slash, as ruhoh will internally respect any base_path you set.
     # url: "/posts/"
   paginator:
-    enable: false
+    enable: true
     # The url your paginated pages will be located: e.g /posts/index/1, /posts/index/2, /posts/index/3
     # Always start with a forward slash, as ruhoh will internally respect any base_path you set.
     url: "/posts/index/"

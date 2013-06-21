@@ -108,7 +108,7 @@ end
 
 Ну и для того, чтобы в preview-режиме мы тоже могли видеть эти картинки, существует файл
 
-previewer.rb
+**previewer.rb**
 
 <pre>
 require 'gruff'
