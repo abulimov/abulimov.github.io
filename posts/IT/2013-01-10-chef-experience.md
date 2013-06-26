@@ -1,6 +1,6 @@
 ---
 title: "Мнение о Chef"
-date: '2013-01-10'
+date: '2013-06-17'
 tags: [ Администреж, IT, Chef ]
 categories: IT
 ---
