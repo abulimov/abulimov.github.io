@@ -3,7 +3,11 @@ tagline: Blog Tagline
 author :
   name : Alexander Bulimov
   email : lazywolf0@gmail.com
-  github : abulimov
+  github: github.com/abulimov
+  vk: vk.com/a_v_bulimov
+  fb: www.facebook.com/profile.php?id=1505350810
+  gplus: plus.google.com/102209846851870884693/about
+  habr: habrahabr.ru/users/lazywolf/
 
 navigation :
   - archive

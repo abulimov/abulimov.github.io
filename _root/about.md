@@ -3,6 +3,14 @@ title : Обо мне
 description:
 ---
 
-Я сисадмин/DevOps из Москвы, работаю с Linux-системами с 2010 года.
-Основная деятельность лежит в сфере DevOps, использую [Ansible](http://www.ansibleworks.com/) и [Chef](http://www.opscode.com/chef/).
+Я сисадмин из Москвы, работаю с Linux-системами с 2010 года.
+Основная деятельность лежит в сфере, именуемой на западе DevOps.
+Использую для управления серверами [Ansible](http://www.ansibleworks.com/), до этого использовал [Chef](http://www.opscode.com/chef/).
 Люблю программировать, автор нескольких модулей к Ansible.
+
+Мой код можно посмотреть на [github/abulimov](https://github.com/abulimov).
+
+[Присутствую](http://{{data.author.habr}}) на Habrahabr.
+
+Общнуться со мной можно в [Google+](https://{{data.author.gplus}}), [VK](https://{{data.author.vk}}) или [Facebook](https://{{data.author.fb}}).
+
