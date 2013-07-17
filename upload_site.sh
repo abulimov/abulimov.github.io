@@ -1,4 +1,5 @@
 #!/bin/bash
+rm -rf compiled
 ruhoh compile
 cd compiled
 git init .
