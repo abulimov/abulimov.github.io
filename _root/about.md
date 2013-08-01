@@ -3,12 +3,13 @@ title : Обо мне
 description:
 ---
 
-Я сисадмин из Москвы, работаю с Linux-системами с 2010 года.
+Меня зовут Александр Викторович Булимов, я сисадмин из Москвы,
+работаю с Linux-системами с 2010 года.
 Основная деятельность лежит в сфере, именуемой на западе DevOps.
 Использую для управления серверами [Ansible](http://www.ansibleworks.com/), до этого использовал [Chef](http://www.opscode.com/chef/).
 Люблю программировать, автор нескольких модулей к Ansible.
 
-Мой код можно посмотреть на [github/abulimov](https://github.com/abulimov).
+Мой код и персональные конфиги можно посмотреть на [github/abulimov](https://github.com/abulimov).
 
 [Присутствую](http://{{data.author.habr}}) на Habrahabr.
 

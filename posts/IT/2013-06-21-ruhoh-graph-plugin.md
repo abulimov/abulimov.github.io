@@ -67,10 +67,14 @@ class Ruhoh
         g.title = dataset['title'] || 'Unknown'
         g.theme_pastel()
         g.y_axis_increment = dataset['step'] if dataset['step']
+        g.y_axis_label = dataset['y_axis_label'] if dataset['y_axis_label']
+        g.x_axis_label = dataset['x_axis_label'] if dataset['x_axis_label']
         g.labels = dataset['labels']
         dataset['data'].each do |data|
           g.data(data[0], data[1])
         end
+        g.minimum_value = dataset['minimum'] if dataset['minimum']
+
         return g
       end
 
