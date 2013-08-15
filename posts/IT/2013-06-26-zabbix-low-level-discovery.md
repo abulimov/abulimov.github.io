@@ -102,7 +102,7 @@ if __name__ == "__main__":
 
     UserParameter=rabbitmq.discovery,sudo /opt/rabbitmq_discovery.py
 
-В моем случае, нужно беспарольное sudo на эту комманду для пользователя zabbix.
+В моем случае, нужно беспарольное sudo на эту команду для пользователя zabbix.
 
 Ну а в самом заббиксе уже создаем в шаблоне обнаружение, в котором используем ключ
 rabbitmq.discovery и макросы {#RABBITMQ\_VHOST\_NAME} и {#RABBITMQ\_QUEUE\_NAME}.
