@@ -13,5 +13,7 @@ description:
 
 [Присутствую](http://{{data.author.habr}}) на Habrahabr.
 
+[Резюме](http://{{data.author.linkedin}}) на LinkedIn.
+
 Общнуться со мной можно в [Google+](https://{{data.author.gplus}}), [VK](https://{{data.author.vk}}) или [Facebook](https://{{data.author.fb}}).
 
