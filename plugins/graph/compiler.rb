@@ -35,12 +35,11 @@ class Ruhoh
         return
         end
         Ruhoh::Friend.say { cyan "#{collection.resource_name.capitalize}: (using gruff and yaml)" }
-        compiled_path = Ruhoh::Utils.url_to_path(@ruhoh.to_url(collection.url_endpoint), @ruhoh.paths.compiled)
-        FileUtils.mkdir_p compiled_path
+        FileUtils.mkdir_p collection.compiled_path
         collection.files.values.each do |file|
           filepath = file['realpath']
           name = File.basename(filepath, '.*')
-          compiled_file = File.join(compiled_path, "#{name}.png")
+          compiled_file = File.join(collection.compiled_path, "#{name}.png")
 
           #load yaml
           dataset = YAML.load_file(filepath)
