@@ -73,6 +73,10 @@ widgets :
 
   google_prettify :
     linenums : true
+  comments :
+    use : disqus
+    # -- config for disqus --
+    short_name : bulimov
 
 #graphs:
   ##use: graph
