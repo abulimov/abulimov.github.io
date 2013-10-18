@@ -1,4 +1,4 @@
-**This is my blog sources. Using [Ruhoh](http://ruhoh.com), version is [v2.1](http://ruhoh.com/docs/2).**
+**This is my blog sources. Using [Ruhoh](http://ruhoh.com), version is [v2.5](http://ruhoh.com/docs/2).**
 
 ## Graph plugin
 
