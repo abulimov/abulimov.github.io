@@ -78,9 +78,8 @@ widgets :
     # -- config for disqus --
     short_name : bulimov
 
-analytics :
-  provider : google
-  google :
+  analytics :
+    use : google
     tracking_id : 'UA-49230997-1'
 
 #graphs:
