@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 rm -rf compiled
 ruhoh compile
 cd compiled
