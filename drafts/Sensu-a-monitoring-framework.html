@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="ru"
+>
+<head>
+    <title>Sensu - фреймворк для мониторинга - Александр Булимов - записки сисадмина.</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://bulimov.ru/drafts/Sensu-a-monitoring-framework.html">
+
+        <meta name="author" content="Alexander Bulimov" />
+        <meta name="description" content="Sensu - фреймворк для мониторинга В 2011 году в DevOps-среде возникло движение, объединившееся под хештегом #monitoringsucks, и критиковавшее существующие системы мониторинга за отсутствие гибкости. Что именно их не устраивало - прекрасно иллюстрирует эта презентация Если вкратце - хочется людям некоего стандарта API для взаимодействия между компонентами мониторинга, ну и появления самих этих компонент, чтоб из них строить гибкий и умный мониторинг. Итогом этой волны недовольства стали массовые обсуждения проблем и привлечение внимания к ..." />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://bulimov.ru/theme/css/bootstrap.slate.min.css" type="text/css"/>
+    <link href="http://bulimov.ru/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://bulimov.ru/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://bulimov.ru/theme/css/style.css" type="text/css"/>
+        <link href="http://bulimov.ru/static/custom.css" rel="stylesheet">
+
+        <link href="http://bulimov.ru/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Александр Булимов - записки сисадмина. ATOM Feed"/>
+        <link href="http://bulimov.ru/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
+              title="Александр Булимов - записки сисадмина. RSS Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://bulimov.ru/" class="navbar-brand">
+Александр Булимов - записки сисадмина.            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://bulimov.ru/archive/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://bulimov.ru/drafts/Sensu-a-monitoring-framework.html"
+                       rel="bookmark"
+                       title="Permalink to Sensu - фреймворк для мониторинга">
+                        Sensu - фреймворк для мониторинга
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2013-12-11T00:00:00"> Ср. 11 Декабрь 2013</time>
+    </span>
+
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <h1>Sensu - фреймворк для мониторинга</h1>
+<p>В 2011 году в DevOps-среде возникло движение, объединившееся под хештегом
+ #monitoringsucks, и критиковавшее существующие системы мониторинга за
+отсутствие гибкости. Что именно их не устраивало - прекрасно иллюстрирует
+<a href="https://speakerdeck.com/obfuscurity/the-state-of-open-source-monitoring">эта презентация</a>
+Если вкратце - хочется людям некоего стандарта API для взаимодействия
+между компонентами мониторинга, ну и появления самих этих компонент,
+чтоб из них строить гибкий и умный мониторинг.</p>
+<p>Итогом этой волны недовольства стали массовые обсуждения проблем
+и привлечение внимания к интересным утилитам типа <a href="http://sensuapp.org/">Sensu</a>
+и <a href="http://riemann.io/">Riemann</a>.</p>
+<p>В 2013 году хештег в сообществе сменился - теперь это #monitoringlove.
+Произошло это благодаря развитию opensource-утилит для мониторинга.</p>
+<p>Из новых утилит наибольший интерес представляет Sensu.
+Riemann я не стал всерьез рассматривать, поскольку на данный момент
+у него нет никаких средств для обеспечения отказоустойчивости, да и
+сама идея писать конфиг на Clojure мне не сильно нравится.</p>
+<p>Именно о Sensu я и расскажу в этой статье, опишу базовые принципы
+работы и приведу пример решения типичной задачи мониторинга.</p>
+<p>Основные факты о Sensu:
+<em> Написан на Ruby, использует EventMachine (я бы предпочел Python, но ладно).
+</em> Конфиги в JSON
+<em> Может использовать плагины от Nagios.
+</em> Работает через RabbitMQ, в PUSH-режиме, когда клиенты сами шлют серверу
+  результаты проверок по мере готовности.
+<em> Есть пакеты DEB, RPM и даже MSI.
+</em> Есть модули для puppet и cookbook для Chef.</p>
+<p>На изображении ниже представлена схема работы Sensu. На мой взгляд,
+все очень логично, и такая схема работы дает масштабирование и отказоустойчивость
+"из коробки".</p>
+<p>[схема работы]</p>
+<p>Установка описана в документации, для последней на данный момент версии 0.12
+она доступна <a href="http://sensuapp.org/docs/0.12/guide">тут</a>.</p>
+<h2>Базовые понятия</h2>
+<p>Для того, чтобы понять, как все это работает, надо разобраться в терминологии.
+Я не ставлю целью перевод официальной документации, а хочу дать базовые понятия,
+чтоб было понятно, о чем будет в дальнейшем идти речь.</p>
+<p>У нас есть следующие сущности:</p>
+<h3>Клиент (Client)</h3>
+<p>Это некий сервер с установленным и настроенным sensu-client, который публикует
+информацию о себе в RabbitMQ и таким образом регистрируется в системе
+мониторинга Sensu. От сервера Sensu он получает набор проверок, и выполняет
+их, складывая результат в RabbitMQ.</p>
+<p>Для самоидентификации ему нужна конфигурация, которая выглядит примерно так
+(взято из документации):
+<pre>
+{
+  "client": {
+    "name": "i-424242",
+    "address": "127.0.0.1",
+    "subscriptions": [
+      "production",
+      "webserver",
+      "mysql"
+    ]
+  }
+}
+</pre></p>
+<p>Все довольно очевидно, за исключением неких "подписок" (subscriptions).
+Подписки представляют собой список ролей, ассоциированных с этим сервером, и
+определяют список выполняющихся на нем проверок. Более тонкая настройка описана
+в <a href="http://sensuapp.org/docs/0.12/clients">официально документации</a>, из полезного
+можно добавить любые поля, значения из которых можно будет использовать в проверках,
+а также интервал времени, который должен пройти для генерации события об
+уходе клиента в оффлайн.</p>
+<h3>Проверка (Check)</h3>
+<p>Проверки определяют команды, которые будут запускаться на клиентах, и их параметры.
+Полностью совместимы с плагинами Nagios, т.е. используют exit code как критерий
+успешности проверки, а STDOUT или STDERR как источник данных.</p>
+<p>Проверки настраиваются в конфигурации sensu-server, типичная проверка выглядит
+так (пример из документации):
+<pre>
+{
+  "checks": {
+    "chef_client": {
+      "command": "check-chef-client.rb",
+      "subscribers": [
+        "production"
+      ],
+      "interval": 60
+      "handlers": [
+        "pagerduty",
+        "irc"
+      ]
+    }
+  }
+}
+</pre>
+Из интересного тут опять-таки подписки и хендлеры.
+Подписки определяют, на каких клиентах будет эта команда запущена.</p>
+<p>А набор хендлеров определяют список команд, которые будут выполнены при
+обработке данных от этой проверки. О них мы дальше поговорим.
+Стоит отметить, что проверка может быть "метрикой" (metric), т.е. данные из ее STDOUT
+будут всегда просто передаваться в хендлеры. Таким образом можно слать данные метрик
+куда-нибудь для хранения или рисования графиков (например, в Graphite).
+Подробности в <a href="http://sensuapp.org/docs/0.12/checks">документации</a></p>
+<h3>Хендлеры (Handlers)</h3>
+<p>Хендлеры определяют команды, которые будут запускаться на сервере мониторинга
+при поступлении данных от проверок, и их параметры.
+Например, этот хендлер при получении от какой-либо проверки не-нулевого exit code
+выполнит команду <code>mail -s 'sensu event' email@address.com</code> (пример из документации):
+<pre>
+{
+  "handlers": {
+    "mail": {
+      "type": "pipe",
+      "command": "mail -s 'sensu event' email@address.com"
+    }
+  }
+}
+</pre></p>
+<p>Тут все очевидно, хендлеров в
+<a href="https://github.com/sensu/sensu-community-plugins">репозитории плагинов</a> куча.
+Можно слать в Pagerduty, и письма отправлять, и в Graylog2 слать в gelf.
+Подробности в <a href="http://sensuapp.org/docs/0.12/handlers">документации</a></p>
+<p>Всего вышеперечисленного уже достаточно, чтобы соорудить работающую систему.
+Есть еще мутаторы, расширения и API, но это нам сейчас не важно.</p>
+<h2>Приступаем к самому интересному</h2>
+<p>Sensu позиционируется именно как "фреймворк для мониторинга", и это значит,
+что "из коробки" в нем ничего привычного по энтерпрайз-системам типа Zabbix нет.
+Вся функциональность добавляется благодаря плагинам.</p>
+<p>Попробуем сделать что-нибудь полезное.
+Возьмем простую задачу - выполнять проверки относительно Redis на клиентах,
+в случае проблем выводить алерт на панель <a href="http://shopify.github.io/dashing/">Dashing</a>,
+а также для истории слать сообщение в Graylog2 и email на адрес admin@example.com.
+А еще снимать метрики с Redis и отправлять на хранение в Graphite,
+а потом по агрегированным значениям keys тоже выполнять проверки.</p>
+<p>Клиенты имеют адреса 192.168.1.2N, Graphite развернут на 192.168.1.80:8082, RabbitMQ и Redis тоже на 192.168.1.80.
+Graylog2 слушает на 192.168.1.81, там же развернута Dashing.</p>
+<h3>Конфигурация</h3>
+<p>Начнем с конфигурации клиентов:
+Допустим, у нас есть N серверов в роли redis, на которых мы будем проверять,
+что Redis не отъел слишком много памяти.</p>
+<p>Конфигурация клиента выглядит так:</p>
+<p>/etc/sensu/config.json
+<pre>
+{
+  "client": {
+    "graphite_server": "192.168.1.80:8082",
+    "address": "192.168.1.2N",
+    "name": "clientN",
+    "subscriptions": [
+      "redis"
+    ]
+  }
+  "rabbitmq": {
+    "vhost": "/sensu",
+    "host": "192.168.1.80",
+    "password": "password",
+    "port": 5672,
+    "user": "sensu"
+  }
+}
+</pre></p>
+<p>и размещается на каждом из N клиентов.</p>
+<p>Все остальные файлы конфигураций только на сервере Sensu.</p>
+<p>Основные настройки:</p>
+<p>/etc/sensu/conf.d/settings.json
+<pre>
+  "api": {
+    "host": "192.168.1.80",
+    "port": 4567
+  },
+  "redis": {
+    "host": "127.0.0.1",
+    "port": 6379
+  },
+  rabbitmq": {
+    "vhost": "/sensu",
+    "host": "192.168.1.80",
+    "password": "password",
+    "port": 5672,
+    "user": "sensu"
+  },
+  "mailer": {
+    "mail_from": "sensu@example.com",
+    "smtp_port": "25",
+    "mail_to": "admin@example.com",
+    "smtp_address": "localhost"
+  },
+  "dashing": {
+    "auth_token": "YOUR_AUTH_TOKEN",
+    "host": "http://192.168.1.81:8088"
+  },
+  "gelf": {
+    "server": "192.168.1.81"
+    "port": "12201",
+  }
+}
+</pre></p>
+<p>Как вы видите, мы настроили не только сам Sensu, но и параметры для
+хендлеров dashing, gelf и mailer.</p>
+<p>Теперь определим сами эти хендлеры:</p>
+<p>/etc/sensu/conf.d/handlers.json
+<pre>
+{
+  "handlers": {
+    "default": {
+      "type": "set",
+      "handlers": [
+        "mailer",
+        "dashing",
+        "gelf"
+      ]
+    },
+    "gelf": {
+      "type": "pipe",
+      "command": "/etc/sensu/handlers/gelf.rb"
+    },
+    "mailer": {
+      "type": "pipe",
+      "command": "/etc/sensu/handlers/mailer.rb"
+    },
+    dashing": {
+      "type": "pipe",
+      "command": "/etc/sensu/handlers/dashing.rb"
+    },
+    "graphite": {
+      "mutator": "only_check_output",
+      "type": "amqp",
+      "exchange": {
+        "durable": true,
+        "type": "topic",
+        "name": "metrics"
+      }
+    }
+  }
+}
+</pre></p>
+<p>Тут все просто. Заметьте, что в Graphite мы данные шлем через AMQP.
+Хендлеры надо разложить на сервере мониторинга в /etc/sensu/handlers.</p>
+<p>Теперь настроим проверки, которые будут выполняться на клиентах:</p>
+<p>/etc/sensu/conf.d/checks.json
+<pre>
+{
+  "checks": {
+    "redis_processes": {
+      "interval": 60,
+      "command": "/etc/sensu/plugins/processes/check-procs.rb -p redis -c 8 -C 0 -w 7 -W 1",
+      "subscribers": [
+        "redis",
+      ],
+      "handlers": [
+        "default"
+      ]
+    },
+    "redis_memory": {
+      "dependencies": [
+        "redis_processes"
+      ],
+      "command": "/etc/sensu/plugins/redis/check-redis-memory.rb -c 204800 -w 51200",
+      "interval": 60,
+      "subscribers": [
+        "redis",
+      ],
+      "handlers": [
+        "default"
+      ]
+    },
+    "redis_metric": {
+      "handlers": [
+        "graphite"
+      ],
+      "interval": 60,
+      "dependencies": [
+        "redis_processes"
+      ],
+      "command": "/etc/sensu/plugins/redis/redis-graphite.rb --scheme stats.:::name:::.redis",
+      "subscribers": [
+        "redis",
+      ],
+      "type": "metric"
+    },
+    "redis_keys_from_graphite": {
+      "interval": 60,
+      "command": "/etc/sensu/plugins/graphite/check-data.rb -s :::graphite_server::: -t stats.:::name:::.redis.db0.keys -w 500 -c 900 -a 120",
+      "subscribers": [
+        "redis"
+      ],
+      "dependencies": [
+        "redis_processes"
+      ],
+      "handlers": [
+        "default"
+      ]
+    }
+  }
+}
+</pre></p>
+<p>Проверки осуществляются плагинами Sensu, которые надо разложить на клиентах
+в /etc/sensu/plugins.
+Для знакомых с Nagios тут ничего нового, интересна только метрика
+redis_metric, из которой мы в Graphite данные кладем, а потом в проверке
+redis_keys_from_graphite достаем и проверяем данные за последние 10 минут.</p>
+<p>Вот и вся конфигурация. Все наглядно, все можно хранить в репозитории,
+и это прекрасно.</p>
+<p>Конечно, надо настроить еще Dashing и Graphite, но это я оставлю за рамками статьи.
+Инструкция по настройке Sensu + Graphite можно найти <a href="http://joemiller.me/2012/02/02/sensu-and-graphite/">тут</a>, а с Dashing все и так понятно.</p>
+<h1>Выводы</h1>
+<p>Как мы видим, Sensu берет на себя только роль маршрутизатора и организатора,
+а вся грязная работа делается внешними программами. Это позволяет сохранять
+небольшой размер исходного кода, и общую простоту системы. Регистрация
+клиентов через RabbitMQ позволяет избавиться от механизма "обнаружения" клиентов,
+что особенно удобно для облаков. Масштабируется все очень просто, пример HA + load balancing можно увидеть <a href="http://failshell.io/sensu/high-availability-sensu/">тут</a>.</p>
+<p>Я использую Sensu в продакшне, параллельно с Zabbix, уже около месяца.
+Гибкость Sensu позволила настроить мониторинг ключевых параметров и метрик
+проекта с выводом на панель Dashing, в то время как Zabbix я использую
+уже очень давно, и занимается он сейчас более комплексным мониторингом.
+В общем, для многих проектов, особенно в облаках, Sensu будет прекрасным выбором,
+поскольку дает возможность гибко маршрутизировать события, а также хорошо
+приспособлен к динамической натуре облаков.
+В презентациях я встречал цифры в тысячи серверов под наблюдением Sensu,
+так что с производительностью проблем нет.</p>
+<p>В заключение хочу указать на минусы и плюсы Sensu (все IMHO):</p>
+<h4>Минусы Sensu</h4>
+<ul>
+<li>Имеющиеся хендлеры уведомлений куцые по настройкам.
+    Это сейчас главный минус, если вы не пользуетесь сервисами типа PagerDuty.
+    Единственное решение - писать свой хитрый хендлер.</li>
+<li>Конфиг в json, а не в yaml.</li>
+<li>Нужен внешний хранитель метрик, он же рисователь графиков.</li>
+<li>Куцая документация.
+    К счастью, проект простой, можно разобраться, просто читая код.</li>
+</ul>
+<h4>Плюсы Sensu</h4>
+<ul>
+<li>Конфиг можно хранить в git, раскладывать все с помощью Chef/Puppet.</li>
+<li>Масштабируемость.</li>
+<li>Отказоустойчивость.</li>
+<li>Гибкость выбора системы хранения данных.</li>
+<li>Поддержка плагинов Nagios.</li>
+<li>Авто-подключение клиентов.</li>
+<li>Механизм подписок.</li>
+<li>Данные публикуются клиентами по мере генерации.</li>
+<li>Результаты проверок можно гибко направлять в разные хендлеры.</li>
+</ul>
+            </div>
+            <!-- /.entry-content -->
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = 'Sensu-a-monitoring-framework';
+                var disqus_url = 'http://bulimov.ru/drafts/Sensu-a-monitoring-framework.html';
+
+            var disqus_config = function () {
+                this.language = "ru";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="aboutme">
+<p>
+    <strong>About Alexander Bulimov</strong><br/>
+    Меня зовут Александр Викторович Булимов, я сисадмин из Москвы, работаю с Linux с 2010 года.<br><br>Практикую методологию DevOps. Использую для управления серверами <a href=http://www.ansible.com/>Ansible</a>, до этого использовал <a href=http://www.opscode.com/chef/>Chef</a>. Люблю программировать, автор нескольких модулей к Ansible.
+</p>        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="https://github.com/abulimov"><i class="fa fa-github-square fa-lg"></i> GitHub</a></li>
+                    <li class="list-group-item"><a href="https://www.facebook.com/profile.php?id=1505350810"><i class="fa fa-facebook-square fa-lg"></i> Facebook</a></li>
+                    <li class="list-group-item"><a href="https://plus.google.com/102209846851870884693/about"><i class="fa fa-google-plus-square fa-lg"></i> Google+</a></li>
+                    <li class="list-group-item"><a href="http://ru.linkedin.com/pub/александр-булимов/7b/692/a92/"><i class="fa fa-linkedin-square fa-lg"></i> LinkedIn</a></li>
+                    <li class="list-group-item"><a href="http://habrahabr.ru/users/lazywolf/"><i class="fa fa-habrahabr-square fa-lg"></i> Habrahabr</a></li>
+                    <li class="list-group-item"><a href="http://vk.com/a_v_bulimov"><i class="fa fa-vk-square fa-lg"></i> VK</a></li>
+                    <li class="list-group-item"><a href="/feeds/all.rss.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
+                  </ul>
+                </li>
+
+
+
+                <li class="list-group-item"><a href="http://bulimov.ru/tags/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                    <ul class="list-group " id="tags">
+                        <li class="list-group-item tag-1">
+                            <a href="http://bulimov.ru/tag/zhizn.html">
+                                Жизнь
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
+                            <a href="http://bulimov.ru/tag/ansible.html">
+                                Ansible
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
+                            <a href="http://bulimov.ru/tag/python.html">
+                                Python
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-2">
+                            <a href="http://bulimov.ru/tag/zabbix.html">
+                                Zabbix
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-2">
+                            <a href="http://bulimov.ru/tag/chef.html">
+                                Chef
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-2">
+                            <a href="http://bulimov.ru/tag/cisco.html">
+                                Cisco
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-3">
+                            <a href="http://bulimov.ru/tag/ruhoh.html">
+                                Ruhoh
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-3">
+                            <a href="http://bulimov.ru/tag/mikrotik.html">
+                                MikroTik
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-3">
+                            <a href="http://bulimov.ru/tag/programmirovanie.html">
+                                Программирование
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-3">
+                            <a href="http://bulimov.ru/tag/sensu.html">
+                                Sensu
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-3">
+                            <a href="http://bulimov.ru/tag/ruby.html">
+                                Ruby
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/nginx.html">
+                                Nginx
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/lua.html">
+                                Lua
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/tmux.html">
+                                tmux
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/iuzveri.html">
+                                Юзвери
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/pelican.html">
+                                Pelican
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/knigi.html">
+                                Книги
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/rancid.html">
+                                Rancid
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/ubuntu.html">
+                                Ubuntu
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/serverspec.html">
+                                serverspec
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/debian.html">
+                                Debian
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/vps.html">
+                                VPS
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/juniper.html">
+                                Juniper
+                            </a>
+                        </li>
+                    </ul>
+                </li>    
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://getpelican.com/" target="_blank">
+                Pelican
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://python.org/" target="_blank">
+                Python.org
+            </a>
+        </li>
+      </ul>
+    </li>
+
+        </ul>
+    </section>
+
+</aside>        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2014 Alexander Bulimov
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://bulimov.ru/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://bulimov.ru/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://bulimov.ru/theme/js/respond.min.js"></script>
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-49230997-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+</body>
+</html>

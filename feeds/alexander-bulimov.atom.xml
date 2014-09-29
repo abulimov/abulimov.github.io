@@ -1,0 +1,1184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Александр Булимов - записки сисадмина.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/alexander-bulimov.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2014-09-29T00:00:00+04:00</updated><entry><title>Инфраструктура как код</title><link href="http://bulimov.ru/it/infrastructure-as-a-code/" rel="alternate"></link><updated>2014-09-29T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-09-29:it/infrastructure-as-a-code/</id><summary type="html">&lt;p&gt;Есть такой тренд сейчас - работать с IT-инфраструктурой как с кодом.
+Хорошо цель этого метода описывается этой цитатой:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“Enable the reconstruction of the business from nothing but a source code repository, an application data backup, and bare metal resources”&lt;/p&gt;
+&lt;p&gt;-- Jesse Robins&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Я полностью поддерживаю эту идею, причем именно в этой трактовке.&lt;/p&gt;
+&lt;p&gt;Если говорить про парадигму, которую нам предлагает этот метод, то вот она:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Поддерживать модульную, легко поддающуюся автоматизации инфраструктуру,
+и &lt;em&gt;описывать&lt;/em&gt; эту инфраструктуру с помощью языка высокого уровня.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Это означает для нас, как сисадминов, что мы должны пользоваться всеми
+наработками разработчиков ПО, такими как:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;версионирование описания инфраструктуры;&lt;/li&gt;
+&lt;li&gt;полноценное тестирование описания с использованием нескольких стадий (dev, QA, staging, prod);&lt;/li&gt;
+&lt;li&gt;внутренние стандарты "кодинга";&lt;/li&gt;
+&lt;li&gt;непрерывная интеграция (continuous integration).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Проблема же, на мой взгляд, заключается в том, что многие понимают
+"Инфраструктуру как код" в другом смысле - "Давайте писать описание нашей
+инфраструктуры с помощью Chef/Puppet, словно это обычный код".
+Причем у Chef это выражено заметно сильнее, поскольку в качестве DSL используется
+чистый Ruby.&lt;/p&gt;
+&lt;p&gt;Конечно, программисты, каким-либо образом ставшие ответственными за
+администрирование серверов с помощью Chef, с радостью начинают использовать
+привычный инструмент (Ruby) привычным же образом, и получается ровно то,
+что они привыкли делать.
+Вместо декларативного описания инфраструктуры, на которое можно натравить какой-нибудь
+инструмент для управления конфигурациями и получить настроенную инфраструктуру,
+на выходе получаем программу с кучей хаков, с множественным ветвлением,
+с выполнением кода на Shell, которая может императивно привести
+систему к нужному состоянию.&lt;/p&gt;
+&lt;p&gt;Примером может являться практически любой стандартный кукбук Chef.
+Взять хотя-бы &lt;a href="https://github.com/miketheman/nginx"&gt;Nginx cookbook&lt;/a&gt;.
+Он умеет ставить Nginx несколькими способами, включая сборку из исходников,
+и содержит в себе тонну переменных, призванных заменить написание вменяемого
+шаблона конфига Nginx заданием значений этой кучи переменных.&lt;/p&gt;
+&lt;p&gt;Это уже сам по себе плохой подход - пытаться впихнуть все возможности
+Nginx (да еще и со сторонними модулями) в один мега-шаблон, и править только
+переменные.&lt;/p&gt;
+&lt;p&gt;Сборка из исходников в кукбуке тоже вызывает массу вопросов. Зачем это делать на
+боевом сервере? Собрать пакет на build-сервере, протестировать его, и
+распространить из своего репозитория по всем серверам - вот это нормальный подход.&lt;/p&gt;
+&lt;p&gt;И все это порождает столько сложностей, столько труда нужно для написания,
+тестирования и поддержания в актуальном состоянии этого кукбука,
+вместо того, чтоб разделить весь процесс на несколько простых шагов:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Собрать пакет Nginx с нужными модулями на build-сервере, протестировать и поместить в репозиторий;&lt;/li&gt;
+&lt;li&gt;Написать шаблон конфига Nginx под ваши задачи, учитывающий различия между
+имеющимися средами (staging/prod);&lt;/li&gt;
+&lt;li&gt;Написать кукбук/манифест/роль, который будет ставить пакет из вашего
+репозитория, заполнять шаблон переменными, которые отличаются в ваших окружениях,
+и класть этот шаблон на сервер.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Вот и все, не нужны тонны кода на Ruby со вставками на Shell, не нужны сотни
+переменных. У нас есть описание процесса сборки пакета (spec-файл или
+Makefile), и декларативное описание требуемого состояния системы.&lt;/p&gt;
+&lt;p&gt;И это прекрасно подходит под один из принципов &lt;a href="https://ru.wikipedia.org/wiki/Экстремальное_программирование"&gt;Экстремального Программирования&lt;/a&gt;, который звучит так:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Do The Simplest Thing That Could Possibly Work&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;То есть, надо сделать так, чтобы наш кукбук/манифест/роль был достаточно простым
+для того, чтобы удовлетворять нашим &lt;em&gt;сегодняшним&lt;/em&gt; требованиям.
+Конечно, увлекаться и делать что-то "в лоб", не думая, будет неверно, но и
+создавать псевдо-универсальных монстров точно не стоит. Во всем нужна мера.&lt;/p&gt;
+&lt;p&gt;Что самое плохое - люди, которые пишут сам Chef, и написали этот кукбук для Nginx.
+Написали хорошо, но написали как программисты, а не как системные администраторы.
+А когда сисадмины пишут кукбуки в таком стиле, на их творения вообще без
+слез не взглянешь.&lt;/p&gt;
+&lt;p&gt;Именно поэтому я выбрал для
+управления серверами Ansible, созданный Michael DeHaan, человеком, который
+работал в Puppet Labs, создал Fabric и Cobbler, а затем, имея большой опыт и видя
+ошибки предшественников, написал Ansible. Ansible заметно проще Chef или Puppet,
+и декларативный yaml-файл с описанием требуемого состояния системы ограничивает
+возможность выстрелить себе в ногу и наворотить лапшеобразного императивного кода.&lt;/p&gt;
+&lt;p&gt;Если эту заметку прочтут программисты, администрирующие сервера - перестаньте
+толковать "Инфраструктуру как код" неверно! Мы берем лучшие наработки из
+мира программирования, но это не традиционное программирование. Не надо
+переизобретать Bash-скрипты на Ruby.&lt;/p&gt;</summary><category term="Chef"></category><category term="Ansible"></category></entry><entry><title>s/Ruhoh/Pelican/</title><link href="http://bulimov.ru/it/from-ruhoh-to-pelican/" rel="alternate"></link><updated>2014-09-25T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-09-25:it/from-ruhoh-to-pelican/</id><summary type="html">&lt;p&gt;Переехал с &lt;a href="http://ruhoh.com"&gt;Ruhoh&lt;/a&gt; на &lt;a href="http://getpelican.com"&gt;Pelican&lt;/a&gt;,
+потому что Python.&lt;/p&gt;
+&lt;p&gt;А если подробнее - потому что Ruhoh написан на Ruby, и не особо развивается.
+А Pelican написан на Python, который является моим основным языком,
+и уже давно и активно развивается, и обладает обширной базой
+&lt;a href="https://github.com/getpelican/pelican-plugins"&gt;плагинов&lt;/a&gt; и
+&lt;a href="https://github.com/getpelican/pelican-themes"&gt;тем&lt;/a&gt;.&lt;/p&gt;</summary><category term="Pelican"></category><category term="Python"></category><category term="Жизнь"></category></entry><entry><title>Выложил немного полезностей</title><link href="http://bulimov.ru/it/%D0%92%D1%8B%D0%BB%D0%BE%D0%B6%D0%B8%D0%BB-%D0%BD%D0%B5%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9/" rel="alternate"></link><updated>2014-09-17T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-09-17:it/Выложил-немного-полезностей/</id><summary type="html">&lt;p&gt;Когда я писал про то, как &lt;a href="/it/Переписал-скрипты-на-ruby-для-sensu"&gt;переписал скрипты для Sensu&lt;/a&gt;,
+я слегка слукавил. Изначально, я написал эти скрипты на Python,
+и только потом на Ruby. Поскольку пользователям других Nagios-совместимых
+систем мониторинга может показаться неудобным использование ruby-скриптов,
+да еще и с зависимостью от гема sensu-plugin, я решил выложить
+и Python-версии скриптов.&lt;/p&gt;
+&lt;p&gt;Если кому хочется мониторить состояние дисков в raid-контроллерах от 3ware или
+HP SmartArray на чистом Python - милости просим, все
+&lt;a href="https://github.com/abulimov/utils/tree/master/nagios"&gt;в моем репозитории&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Также я собрался с силами, и привел в чувства утилиту &lt;strong&gt;zabbix_maintenance.py&lt;/strong&gt;
+для работы с периодами "в обслуживании" в Zabbix,
+которую написал параллельно с &lt;a href="/it/Модуль-zabbix_maintenance"&gt;модулем для Ansible&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Она служит полнофункциональной заменой модуля для Ansible,
+и может создавать, удалять и показывать периоды "в обслуживании".&lt;/p&gt;
+&lt;p&gt;Эта утилита призвана заменить старый вариант на Ruby,
+и обладает большим набором опций командной строки.&lt;/p&gt;
+&lt;p&gt;Написана утилита на Python, и доступна всем желающим &lt;a href="https://github.com/abulimov/utils/blob/master/scripts/zabbix_maintenance.py"&gt;тут&lt;/a&gt;.&lt;/p&gt;</summary><category term="Python"></category><category term="Zabbix"></category></entry><entry><title>Открыл для себя плагины к tmux</title><link href="http://bulimov.ru/it/%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D0%BB-%D0%B4%D0%BB%D1%8F-%D1%81%D0%B5%D0%B1%D1%8F-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%D1%8B-%D0%BA-tmux/" rel="alternate"></link><updated>2014-09-04T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-09-04:it/Открыл-для-себя-плагины-к-tmux/</id><summary type="html">&lt;p&gt;Случилось чудесное - &lt;a href="http://linux.org.ru"&gt;LOR&lt;/a&gt; принес мне пользу.
+Оттуда я узнал о плагине &lt;a href="https://github.com/tmux-plugins/tmux-resurrect"&gt;tmux-resurrect&lt;/a&gt;,
+а точнее, вообще о существовании плагинов для чудесного мультиплексора терминалов &lt;strong&gt;tmux&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;С помощью имеющихся плагинов можно привести конфигурацию в более понятный вид,
+а также заменить свои костыли на костыли, поддерживаемые сообществом.&lt;/p&gt;
+&lt;p&gt;Я, к примеру:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;сильно сократил конфигурацию, используя
+  &lt;a href="https://github.com/tmux-plugins/tmux-sensible"&gt;tmux-sensible&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;с помощью &lt;a href="https://github.com/tmux-plugins/tmux-yank"&gt;tmux-yank&lt;/a&gt;
+  выкинул свои костыли для копирования в буфер обмена;&lt;/li&gt;
+&lt;li&gt;смог убрать настройки для vi-образной навигации между панелями
+  благодаря &lt;a href="https://github.com/tmux-plugins/tmux-pain-control"&gt;tmux-pain-control&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;обрел поиск с помощью &lt;a href="https://github.com/tmux-plugins/tmux-copycat"&gt;tmux-copycat&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;теперь могу открывать выделенные файлы либо URL
+  с помощью &lt;a href="https://github.com/tmux-plugins/tmux-open"&gt;tmux-open&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;наконец, могу сохранять все открытые окна и панели tmux
+  с использованием &lt;a href="https://github.com/tmux-plugins/tmux-resurrect"&gt;tmux-resurrect&lt;/a&gt;;&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="tmux"></category><category term="Жизнь"></category></entry><entry><title>Переписал скрипты на Ruby для Sensu</title><link href="http://bulimov.ru/it/%D0%9F%D0%B5%D1%80%D0%B5%D0%BF%D0%B8%D1%81%D0%B0%D0%BB-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B-%D0%BD%D0%B0-ruby-%D0%B4%D0%BB%D1%8F-sensu/" rel="alternate"></link><updated>2014-09-04T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-09-04:it/Переписал-скрипты-на-ruby-для-sensu/</id><summary type="html">&lt;p&gt;Поскольку я перевел мониторинг с Zabbix на Sensu, пришлось переписать
+свои &lt;a href="/it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware"&gt;скрипты&lt;/a&gt; проверки состояния жестких дисков в raid-контроллерах от 3ware и
+HP SmartArray для использования в Sensu. Ну а раз все равно переписывать - то
+писать я решил на Ruby, чтобы можно было без проблем
+заслать в &lt;a href="https://github.com/sensu/sensu-community-plugins"&gt;sensu-community-plugins&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Скрипты весьма просты, так что проблем при переписывании никаких не было.&lt;/p&gt;
+&lt;p&gt;Если кому надо - все уже отдано сообществу, теперь Sensu может мониторить
+состояние дисков &lt;a href="https://github.com/sensu/sensu-community-plugins/blob/master/plugins/raid/check-3ware-status.rb"&gt;в контроллерах от 3ware&lt;/a&gt;
+и &lt;a href="https://github.com/sensu/sensu-community-plugins/blob/master/plugins/raid/check-smartarray-status.rb"&gt;HP SmartArray&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Ну и на закуску - мониторим &lt;a href="https://github.com/sensu/sensu-community-plugins/blob/master/plugins/riak/check-riak-ringready.rb"&gt;статус Riak Ring&lt;/a&gt;.&lt;/p&gt;</summary><category term="Ruby"></category><category term="Sensu"></category></entry><entry><title>Модуль zabbix_maintenance</title><link href="http://bulimov.ru/it/%D0%9C%D0%BE%D0%B4%D1%83%D0%BB%D1%8C-zabbix_maintenance/" rel="alternate"></link><updated>2014-08-11T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-08-11:it/Модуль-zabbix_maintenance/</id><summary type="html">&lt;p&gt;Свершилось чудо, и мой &lt;a href="https://github.com/ansible/ansible/blob/devel/library/monitoring/zabbix_maintenance"&gt;модуль&lt;/a&gt;
+для Ansible, который умеет создавать и удалять периоды "в обслуживании" в Zabbix,
+наконец-то &lt;a href="https://github.com/ansible/ansible/pull/5062"&gt;приняли&lt;/a&gt; в апстрим.
+Это уже третий мой модуль, принятый в апстрим Ansible.&lt;/p&gt;
+&lt;p&gt;Краткая история:&lt;/p&gt;
+&lt;p&gt;Модуль этот я запушил еще в 26 ноября 2013 года, но 21 декабря
+&lt;a href="https://github.com/cove"&gt;cove&lt;/a&gt; написал в комментарии к моему модулю,
+что планирует выложить целую &lt;a href="https://github.com/ansible/ansible/pull/6034"&gt;пачку&lt;/a&gt;
+модулей для взаимодействия с Zabbix из Ansible.
+Это отложило принятие моего модуля в апстрим почти на 9 месяцев,
+поскольку мы согласовывали интерфейс наших модулей, тестировали и улучшали модули,
+выложенные cove, а очередь pull-requestов у Ansible выросла до 300+.&lt;/p&gt;
+&lt;p&gt;Теперь, когда &lt;em&gt;zabbix_maintenance&lt;/em&gt; уже влит в основную ветку, а модули cove готовы к этому,
+можно будет практически полностью исключить ручное взаимодействие с инопланетным
+интерфейсом Zabbixа.&lt;/p&gt;
+&lt;p&gt;Свой модуль я использую примерно так:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;rolling-update.yml&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;hosts&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;www&lt;/span&gt;
+  &lt;span class="l-Scalar-Plain"&gt;serial&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;1&lt;/span&gt;
+  &lt;span class="l-Scalar-Plain"&gt;vars_prompt&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;name&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;zabbix_user&lt;/span&gt;
+      &lt;span class="l-Scalar-Plain"&gt;prompt&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Username&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;for&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;Zabbix&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;API&amp;quot;&lt;/span&gt;
+      &lt;span class="l-Scalar-Plain"&gt;default&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;false&lt;/span&gt;
+      &lt;span class="l-Scalar-Plain"&gt;private&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;no&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;name&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;zabbix_password&lt;/span&gt;
+      &lt;span class="l-Scalar-Plain"&gt;prompt&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Password&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;for&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;Zabbix&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;API&amp;quot;&lt;/span&gt;
+      &lt;span class="l-Scalar-Plain"&gt;default&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;false&lt;/span&gt;
+      &lt;span class="l-Scalar-Plain"&gt;private&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;yes&lt;/span&gt;
+&lt;span class="l-Scalar-Plain"&gt;pre_tasks&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;name&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;disable server in haproxy&lt;/span&gt;
+      &lt;span class="l-Scalar-Plain"&gt;shell&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;/opt/haproxywrap.sh&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;disable&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;application/{{&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;ansible_hostname&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;}}&amp;quot;&lt;/span&gt;
+      &lt;span class="l-Scalar-Plain"&gt;delegate_to&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;{{&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;item&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;}}&amp;quot;&lt;/span&gt;
+      &lt;span class="l-Scalar-Plain"&gt;with_items&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;groups[&amp;quot;lb&amp;quot;]&lt;/span&gt;
+
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;name&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;create maintenance for server in zabbix&lt;/span&gt;
+      &lt;span class="l-Scalar-Plain"&gt;delegate_to&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;127.0.0.1&lt;/span&gt;
+      &lt;span class="l-Scalar-Plain"&gt;zabbix_maintenance&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;login_user={{ zabbix_user }}&lt;/span&gt;
+                          &lt;span class="l-Scalar-Plain"&gt;login_password={{ zabbix_password }}&lt;/span&gt;
+                          &lt;span class="l-Scalar-Plain"&gt;server_url=https://zabbix.example.com&lt;/span&gt;
+                          &lt;span class="l-Scalar-Plain"&gt;host_name={{ ansible_hostname }}&lt;/span&gt;
+                          &lt;span class="l-Scalar-Plain"&gt;state=present&lt;/span&gt;
+                          &lt;span class="l-Scalar-Plain"&gt;name=&amp;quot;Update of {{ ansible_hostname }}&amp;quot;&lt;/span&gt;
+                          &lt;span class="l-Scalar-Plain"&gt;minutes=30&lt;/span&gt;
+
+&lt;span class="c1"&gt;# тут у меня проход по всем ролям с выполнением кучи&lt;/span&gt;
+&lt;span class="c1"&gt;# действий, но для примера пусть будет так&lt;/span&gt;
+&lt;span class="l-Scalar-Plain"&gt;tasks&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;apt&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;upgrade=dist update_cache=yes&lt;/span&gt;
+
+&lt;span class="l-Scalar-Plain"&gt;post_tasks&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;name&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;enable the server in haproxy&lt;/span&gt;
+      &lt;span class="l-Scalar-Plain"&gt;shell&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;/opt/haproxywrap.sh&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;enable&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;application/{{&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;ansible_hostname&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;}}&amp;quot;&lt;/span&gt;
+      &lt;span class="l-Scalar-Plain"&gt;delegate_to&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;{{&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;item&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;}}&amp;quot;&lt;/span&gt;
+      &lt;span class="l-Scalar-Plain"&gt;with_items&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;groups[&amp;quot;lb&amp;quot;]&lt;/span&gt;
+
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;name&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;remove maintenance for server in zabbix&lt;/span&gt;
+      &lt;span class="l-Scalar-Plain"&gt;delegate_to&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;127.0.0.1&lt;/span&gt;
+      &lt;span class="l-Scalar-Plain"&gt;zabbix_maintenance&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;login_user={{ zabbix_user }}&lt;/span&gt;
+                          &lt;span class="l-Scalar-Plain"&gt;login_password={{ zabbix_password }}&lt;/span&gt;
+                          &lt;span class="l-Scalar-Plain"&gt;server_url=https://zabbix.example.com&lt;/span&gt;
+                          &lt;span class="l-Scalar-Plain"&gt;state=absent&lt;/span&gt;
+                          &lt;span class="l-Scalar-Plain"&gt;name=&amp;quot;Update of {{ ansible_hostname }}&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;В этом плейбуке для каждого хоста по очереди выполняются следующие действия:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;выключаем сервер приложений на балансировщике haproxy, делегируя
+действие хостам из группы "lb"&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;создаем период "в обслуживании" на 30 минут для обновляемого хоста&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;обновляем хост&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;включаем его обратно на балансировщике&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;удаляем период "в обслуживании"&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;P.S. скрипт haproxywrap.sh можно взять &lt;a href="https://github.com/abulimov/utils/blob/master/scripts/haproxywrap.sh"&gt;тут&lt;/a&gt;&lt;/p&gt;</summary><category term="Ansible"></category><category term="Python"></category></entry><entry><title>Ansible и serverspec</title><link href="http://bulimov.ru/it/ansible-%D0%B8-serverspec/" rel="alternate"></link><updated>2014-05-22T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-05-22:it/ansible-и-serverspec/</id><summary type="html">&lt;p&gt;Когда я готовил playbook для &lt;a href="/it/Личный-vps"&gt;своего VPS&lt;/a&gt;, я взял за основу
+&lt;a href="https://github.com/al3x/sovereign"&gt;Sovereign&lt;/a&gt;. В этом репозитории меня
+заинтересовал файл &lt;strong&gt;tests.py&lt;/strong&gt;, содержащий тесты для результирующего сервера.
+У меня сразу же возник вопрос - почему тесты самописные, на голом Python, а
+не на каком-нибудь готовом решении. Я решил изучить, что же есть сейчас для
+TDD-администрирования. Оказалось, что толком ничего и нет, а то, что
+есть - для Ansible не особо нужно.&lt;/p&gt;
+&lt;p&gt;Для начала, что есть. Тут все скучно, есть &lt;a href="http://serverspec.org/"&gt;serverspec&lt;/a&gt;,
+и &lt;a href="https://pypi.python.org/pypi/envassert"&gt;envassert&lt;/a&gt;. Оба эти инструмента
+предоставляют возможность декларативно описать требуемое состояние удаленного
+сервера, и проверить его соответствие реальности по ssh.&lt;/p&gt;
+&lt;p&gt;Вот пример для serverspec с официального сайта:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;require&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;spec_helper&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;describe&lt;/span&gt; &lt;span class="n"&gt;package&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;httpd&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+  &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;should&lt;/span&gt; &lt;span class="n"&gt;be_installed&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="n"&gt;describe&lt;/span&gt; &lt;span class="n"&gt;service&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;httpd&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+  &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;should&lt;/span&gt; &lt;span class="n"&gt;be_enabled&lt;/span&gt;   &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;should&lt;/span&gt; &lt;span class="n"&gt;be_running&lt;/span&gt;   &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="n"&gt;describe&lt;/span&gt; &lt;span class="n"&gt;port&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;80&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+  &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;should&lt;/span&gt; &lt;span class="n"&gt;be_listening&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+
+&lt;span class="n"&gt;describe&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/etc/httpd/conf/httpd.conf&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+  &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;should&lt;/span&gt; &lt;span class="n"&gt;be_file&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="n"&gt;its&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;:content&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;should&lt;/span&gt; &lt;span class="n"&gt;match&lt;/span&gt; &lt;span class="sr"&gt;/ServerName www.example.jp/&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Все чудесно, и для того же Chef это отличный инструмент, поскольку
+сам Chef провоцирует писать императивный код на Ruby, который хорошо было бы
+проверять простым декларативным описанием.&lt;/p&gt;
+&lt;p&gt;Но в случае Ansible, наш playbook &lt;strong&gt;уже&lt;/strong&gt; содержит декларативное описание
+требуемого состояния.&lt;/p&gt;
+&lt;p&gt;Вот фрагмент роли Nginx для Ansible.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;name&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;Ensure nginx package is installed&lt;/span&gt;
+  &lt;span class="l-Scalar-Plain"&gt;apt&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;pkg=nginx state=latest&lt;/span&gt;
+
+&lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;name&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;Ensure nginx service is enabled and started&lt;/span&gt;
+  &lt;span class="l-Scalar-Plain"&gt;service&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;name=nginx state=started enabled=yes&lt;/span&gt;
+
+&lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;name&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;Place nginx.conf&lt;/span&gt;
+  &lt;span class="l-Scalar-Plain"&gt;template&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;src=nginx.conf.j2 dest=/etc/nginx/nginx.conf mode=644&lt;/span&gt;
+  &lt;span class="l-Scalar-Plain"&gt;notify&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;reload nginx&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Как можно заметить, описание Ansible не содержит только проверок портов, зато
+позволяет привести систему к описываемому виду, а не только проверить на соответствие.&lt;/p&gt;
+&lt;p&gt;Таким образом, имеет смысл использовать serverspec с Ansible только для проверки
+таких параметров, как слушающие порты, правила iptables, и настройки сетевых
+интерфейсов - все остальное Ansible и проверяет, и приводит к нужному состоянию.
+Но в боевой системе, или в staging-окружении, эти параметры и так будут проверяться
+системой мониторинга, причем на постоянной основе.&lt;/p&gt;
+&lt;p&gt;Видимо, именно поэтому репозиторий sovereign содержит самописные тесты, которые
+проверяют не столько состояние системы, сколько корректность работы
+сконфигурированных сервисов. К сожалению, инструмент, который бы облегчил задачу
+написания таких тестов, еще не написан, хотя было бы здорово расширить serverspec
+для проверки корректности работы http-сервисов, либо imap-сервера, дополнить его
+более высокоуровневыми проверками.&lt;/p&gt;
+&lt;p&gt;Я для себя пока решил, что написание serverspec-тестов для Ansible избыточно
+при наличии staging-окружения с работающим мониторингом и фунциональными тестами,
+однако инструмент это явно полезный и перспективный.&lt;/p&gt;</summary><category term="Ansible"></category><category term="serverspec"></category></entry><entry><title>Личный VPS</title><link href="http://bulimov.ru/it/%D0%9B%D0%B8%D1%87%D0%BD%D1%8B%D0%B9-vps/" rel="alternate"></link><updated>2014-05-22T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-05-22:it/Личный-vps/</id><summary type="html">&lt;p&gt;Уже 2 недели как я начал использовать свой личный VPS на DigitalOcean, и хочу
+поделиться впечатлениями.
+Это оказалось очень удобно - можно получать все удобства современного
+цифрового мира, но на своих условиях и с уверенностью в сохранности своих
+персональных данных.&lt;/p&gt;
+&lt;p&gt;Раскатывал я все сервисы и конфиги с помощью &lt;a href="http://ansible.com"&gt;Ansible&lt;/a&gt;, взяв за
+основу &lt;a href="https://github.com/al3x/sovereign"&gt;Sovereign&lt;/a&gt;.
+В качестве дистрибутива я ради эксперимента выбрал Ubuntu 14.04 LTS.&lt;/p&gt;
+&lt;p&gt;Сейчас я использую VPS для следующих сервисов:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;почта (Postfix + Dovecot + Roundcube)&lt;/li&gt;
+&lt;li&gt;аналог Dropbox - &lt;a href="http://owncloud.org"&gt;Owncloud&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Сервер синхронизации задач &lt;a href="http://taskwarrior.org/"&gt;taskd&lt;/a&gt;, для
+  task на десктопе и &lt;a href="http://mirakel.azapps.de/index.html"&gt;Mirakel&lt;/a&gt; на смартфоне.&lt;/li&gt;
+&lt;li&gt;Сервер заметок &lt;a href="http://dynalon.github.io/Rainy/"&gt;Rainy&lt;/a&gt;, для
+  Tomboy на десктопе и Tomdroid на смартфоне.&lt;/li&gt;
+&lt;li&gt;Агрегатор RSS &lt;a href="http://tt-rss.org"&gt;Tiny-Tiny-RSS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Хостинг Git с помощью &lt;a href="http://gitolite.com/gitolite/index.html"&gt;gitolite&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;В перспективе я также могу заменить контакты Google на CardDav из Owncloud,
+а пока я очень рад избавлению от Evernote, которым было неудобно пользоваться
+и на смартфоне, и на десктопе через geeknote, и совсем невыносимо через веб-интерфейс.
+Ну и Mirakel + Task Server это тоже весьма удобно, а Tiny-Tiny-RSS экономит
+мне кучу времени и позволяет следить за новостями одинаково удобно и с десктопа,
+и со смартфона благодаря &lt;a href="https://github.com/mboinet/ttrss-mobile"&gt;ttrss-mobile&lt;/a&gt;.&lt;/p&gt;</summary><category term="VPS"></category><category term="Ubuntu"></category></entry><entry><title>Прочитал The Phoenix Project: A Novel About DevOps, and Helping Your Business Win</title><link href="http://bulimov.ru/it/%D0%9F%D1%80%D0%BE%D1%87%D0%B8%D1%82%D0%B0%D0%BB-the-phoenix-project-a-novel-about-devops-and-helping-your-business-win/" rel="alternate"></link><updated>2014-04-15T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-04-15:it/Прочитал-the-phoenix-project-a-novel-about-devops-and-helping-your-business-win/</id><summary type="html">&lt;p&gt;Ну что тут скажешь - прекрасная книга. Написана живым языком, очень легко читается.
+В увлекательной форме рассказывает о ключевых принципах DevOps,
+причем именно так, чтобы было понятно, в ответ на какие проблемы каждый
+из принципов был сформирован.&lt;/p&gt;
+&lt;p&gt;Конечно, главная проблема книги в том, что DevOps преподносится как
+некая чудодейственная методология, и при этом не уделяется внимания
+главному вопросу - кадровому. В книге все сотрудники оказались
+достаточно квалифицированными и открытыми для того, чтобы успешно принять и
+реализовать парадигму DevOps, хотя в реальной жизни лично я
+наблюдаю жесточайший дефицит адекватных кадров, которых можно было бы хотя-бы
+переучить под DevOps, не говоря уже о том, чтоб они сами к этому пришли.
+И даже грамотные специалисты в своей области обладают высокой
+инертностью мышления, которая мешает успешно следовать советам, описанным
+в этой книге.&lt;/p&gt;
+&lt;p&gt;Несмотря на этот явный недостаток, я &lt;strong&gt;крайне рекомендую&lt;/strong&gt; эту книгу к прочтению всем
+IT-специалистам.&lt;/p&gt;</summary><category term="Книги"></category><category term="Жизнь"></category></entry><entry><title>Сдал экзамен Cisco ICND2, он же 200-101</title><link href="http://bulimov.ru/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-cisco-icnd2-%D0%BE%D0%BD-%D0%B6%D0%B5-200-101/" rel="alternate"></link><updated>2014-04-03T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-04-03:it/Сдал-экзамен-cisco-icnd2-он-же-200-101/</id><summary type="html">&lt;p&gt;Теперь я CCNA.&lt;/p&gt;
+&lt;p&gt;Сдал с трудом, 867 из 1000 при проходных 825.
+Экзамен очень мощный, сильно сложнее ICND1, на мой вкус.
+Надо было сдавать единый 200-120, было бы сильно проще.
+Еще больше уверился, что CCNA вполне подходит на роль
+критерия профпригодности для более-менее серьезной
+работы сисадмина.&lt;/p&gt;</summary><category term="Cisco"></category><category term="Жизнь"></category></entry><entry><title>Сдал экзамен Cisco ICND1, он же 100-101</title><link href="http://bulimov.ru/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-cisco-icnd1-%D0%BE%D0%BD-%D0%B6%D0%B5-100-101/" rel="alternate"></link><updated>2014-03-20T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-03-20:it/Сдал-экзамен-cisco-icnd1-он-же-100-101/</id><summary type="html">&lt;p&gt;Сдавал через месяц после курсов ICND1 и ICND2, набрал 907.
+Экзамен хороший, мощный. Теперь вполне понимаю,
+почему многими сданный CCNA расценивается как некое мерило
+профпригодности.&lt;/p&gt;</summary><category term="Cisco"></category><category term="Жизнь"></category></entry><entry><title>Тестирование Ansible Playbook</title><link href="http://bulimov.ru/it/%D0%A2%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-ansible-playbook/" rel="alternate"></link><updated>2014-03-13T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-03-13:it/Тестирование-ansible-playbook/</id><summary type="html">&lt;p&gt;Давно хотел сделать авто-тестирование целостности развертывания, производимого
+с помощью &lt;a href="http://ansible.com"&gt;Ansible&lt;/a&gt;. Чтобы, значит, запушил я новую версию плейбука в репозитория,
+и CI проверила работоспособность системы. Причем не просто корректность синтаксиса,
+а работоспособность проводимого деплоя.&lt;/p&gt;
+&lt;p&gt;Вот наконец до этого дошли руки.&lt;/p&gt;
+&lt;p&gt;Точнее, руки до этого дошли еще в середине 2013 года, но тогда я собрал все это
+с помощью стройной системы костылей, взяв за основу заранее минимально
+сконфигуренные qemu-образы на lvm-снапшотах.&lt;/p&gt;
+&lt;p&gt;Теперь я решил подойти к вопросу серьезнее, взять общепринятые инструменты
+и избавиться от костылей.&lt;/p&gt;
+&lt;h5&gt;План действий&lt;/h5&gt;
+&lt;p&gt;Возвращаясь к исходной задаче - что же нам нужно для тестирования деплоя с нуля?&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Базовый образ уже установленной системы&lt;/li&gt;
+&lt;li&gt;Инструмент для создания виртуалки из базового образа с назначением
+   нужных сетевых настроек и хостнейма.&lt;/li&gt;
+&lt;li&gt;Скрипт для CI, который будет ресетить виртуалки, запускать на них деплой,
+   и проверять корректность результата.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5&gt;Пункт 1&lt;/h5&gt;
+&lt;p&gt;Для реализации первого пункта я сначала взял &lt;a href="https://github.com/jedi4ever/veewee"&gt;Veewee&lt;/a&gt;, но потом заменил его на &lt;a href="http://packer.io"&gt;Packer&lt;/a&gt;, который показался
+мне заметно более удобным и лишенным костылей veewee.
+Оба эти инструмента берут установочный образ нужного нам дистрибутива,
+в моем случае Debian Wheezy, и по описанию создают образ с установленной системой.
+Для Debian используется preseed и набор bash-скриптов.&lt;/p&gt;
+&lt;h5&gt;Пункт 2&lt;/h5&gt;
+&lt;p&gt;Для реализации второго пункта я взял &lt;a href="http://vagrantup.com"&gt;Vagrant&lt;/a&gt;.
+К сожалению, из коробки Vagrant не поддерживает использование qemu-kvm
+в качестве гипервизора, поэтому пришлось использовать также
+плагин &lt;a href="https://github.com/pradels/vagrant-libvirt"&gt;vagrant-libvirt&lt;/a&gt;.
+Для конвертации в образ для Vagrant у Packerа есть готовый преобразователь,
+но с qemu-kvm он тоже пока не работает, так что образ я собираю по
+&lt;a href="https://github.com/pradels/vagrant-libvirt/tree/master/example_box"&gt;этой инструкции&lt;/a&gt;.
+Хочется отметить, что от Vagrant мне нужно только создание-уничтожение виртуалок
+и простейшее начальное конфигурирование - настройка сети и хостнейма. Provisioning
+с использованием Vagrant и Ansible сейчас для моего случая делать невозможно -
+Vagrant генерирует описания групп и хостов для каждой виртуалки отдельно,
+а для корректной работы моих playbookов нужно, чтобы хосты знали друг о друге.&lt;/p&gt;
+&lt;h5&gt;Пункт 3&lt;/h5&gt;
+&lt;p&gt;Третий пункт - единственный "костыльный", поскольку предполагает написание
+скрипта для CI (в моем случае - CruiseControl.rb). Скипт простой, основная
+его задача - корректно выставить переменные окружения, отресетить виртуалки, а затем
+выполнить последовательно 3 playbookа для определенно группы хостов, проверяя
+коды возврата Ansible.&lt;/p&gt;
+&lt;h5&gt;Итог&lt;/h5&gt;
+&lt;p&gt;В итоге, я получил ровно то, что и хотел - на каждый коммит в репозиторий с плейбуками
+запускается полное развертывание всего окружения на голые операционки. Затем
+все нужные компоненты приводятся в требуемое состояние - собираются кластеры,
+настраивается репликация - и проверяется запуск всех сервисов и корректность их
+состояния после старта. В будущем я планирую добавить тесты, ломающие систему
+и проверяющий отказоустойчивость, но это требует больших трудозатрат от наших
+разработчиков, которые и так достаточно нагружены.&lt;/p&gt;</summary><category term="Ansible"></category></entry><entry><title>Влияние курсов Cisco на психику</title><link href="http://bulimov.ru/it/%D0%92%D0%BB%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5-%D0%BA%D1%83%D1%80%D1%81%D0%BE%D0%B2-cisco-%D0%BD%D0%B0-%D0%BF%D1%81%D0%B8%D1%85%D0%B8%D0%BA%D1%83/" rel="alternate"></link><updated>2014-03-05T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-03-05:it/Влияние-курсов-cisco-на-психику/</id><summary type="html">&lt;p&gt;Закончил курсы Cisco ICND1 и ICND2, и сразу захотелось странного.
+Захотелось домой какую-нибудь интересную сетевую железяку.
+Быстрый поиск по каталогам серьезных фирм типа Cisco и Juniper показал, что
+ничего вменяемого для домашнего использования у них нет
+(Cisco Linksys я за вменяемое не считаю, та же фигня, что и D-Link или Asus).
+В итоге этих метаний, выбор пал на оборудование фирмы MikroTik.&lt;/p&gt;
+&lt;p&gt;Движимый душевным порывом, я поменял
+свой древний WiFi роутер D-Link DIR-615 c DD-WRT на борту на MikroTik RouterBoard RB951G-2HnD.
+Получил массу удовольствия от настройки. CLI у RouterOS
+оказался весьма приятным, ну а возможностей более чем достаточно,
+что и не удивительно - внутри у него Linux.&lt;/p&gt;
+&lt;p&gt;Работает эта железка уже вторую неделю, проблем никаких, производительность
+отменная. Единственный минус - отсутствие 5Ghz, но с ним я готов мириться.&lt;/p&gt;</summary><category term="Cisco"></category><category term="MikroTik"></category></entry><entry><title>Побывал на DevOps Meetup 25 января</title><link href="http://bulimov.ru/it/%D0%9F%D0%BE%D0%B1%D1%8B%D0%B2%D0%B0%D0%BB-%D0%BD%D0%B0-devops-meetup-25-%D1%8F%D0%BD%D0%B2%D0%B0%D1%80%D1%8F/" rel="alternate"></link><updated>2014-01-27T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-01-27:it/Побывал-на-devops-meetup-25-января/</id><summary type="html">&lt;p&gt;Из четырех докладов именно доклад про Docker, ради которого
+я и ходил на этот Meetup, оказался единственным плохим.
+Вышел какой-то мальчик из Яндекса, жутко заунывно
+рассказывал банальности про Docker, на все интересные
+вопросы отвечал "я не знаю".&lt;/p&gt;
+&lt;p&gt;Зато остальные доклады были весьма хороши.
+Лично меня особенно порадовал доклад Ивана Евтуховича
+про librarian и Berkshelf. Порадовал тем, что Иван выразил
+мою позицию по поводу community-кукбуков.&lt;/p&gt;
+&lt;p&gt;Вячеслав Кузнецов прочитал отличный доклад о том, к какой
+методологии использования Chef они пришли.&lt;/p&gt;
+&lt;p&gt;Ну и конечно хочу отметить доклад Андрея Смирнова про
+&lt;a href="http://www.aptly.info/"&gt;aply&lt;/a&gt;. Это система управления репозиториями Debian,
+что-то вроде reprepro с человеческим лицом. Сейчас, конечно, очень все сыро,
+но идея здравая, и пишет эту систему Андрей на чистом энтузиазме, что очень
+и очень похвально.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://tech.yandex.ru/events/yagosti/devops/"&gt;Тут&lt;/a&gt;, видимо, выложат записи докладов.&lt;/p&gt;</summary><category term="Жизнь"></category></entry><entry><title>Расширяем возможности Nginx с помощью Lua</title><link href="http://bulimov.ru/it/%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D1%8F%D0%B5%D0%BC-%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8-nginx-%D1%81-%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E-lua/" rel="alternate"></link><updated>2013-11-08T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-11-08:it/Расширяем-возможности-nginx-с-помощью-lua/</id><summary type="html">&lt;p&gt;Встала некоторое время назад передо мной задача -
+фильтровать по полю Serial клиентские сертификаты,
+которые используются для авторизации на одном из сервисов.
+То есть не просто проверять сертификат, но еще и проверять
+наличие серийника в списке разрешенных, на случай утечки клиентского
+сертификата. Сертификаты выдаем не мы, так что отзывать не можем,
+и списка отозванных тоже нет.&lt;/p&gt;
+&lt;p&gt;Решать я эту задачу стал с помощью Nginx, и почти сразу был
+слеплен вариант тупой вариант "в лоб":&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="nv"&gt;$valid_serial&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;false&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="s"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$ssl_client_serial&lt;/span&gt; &lt;span class="p"&gt;~&lt;/span&gt; &lt;span class="sr"&gt;&amp;#39;01&amp;#39;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="kn"&gt;set&lt;/span&gt; &lt;span class="nv"&gt;$valid_serial&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;true&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="s"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$ssl_client_serial&lt;/span&gt; &lt;span class="p"&gt;~&lt;/span&gt; &lt;span class="sr"&gt;&amp;#39;02&amp;#39;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="kn"&gt;set&lt;/span&gt; &lt;span class="nv"&gt;$valid_serial&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;true&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;...&lt;/span&gt;
+&lt;span class="s"&gt;if&lt;/span&gt; &lt;span class="s"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$ssl_client_serial&lt;/span&gt; &lt;span class="p"&gt;~&lt;/span&gt; &lt;span class="sr"&gt;&amp;#39;NN&amp;#39;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="kn"&gt;set&lt;/span&gt; &lt;span class="nv"&gt;$valid_serial&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;true&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="s"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;$valid_serial&lt;/span&gt; &lt;span class="p"&gt;~&lt;/span&gt; &lt;span class="sr"&gt;false)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="kn"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;403&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="kn"&gt;break&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Поскольку конфиг генерируется из Ansible, то шаблон
+вышел простой, и для каждого из серийников генерируется
+нужная строчка с if. Так оно и работала при тестовом списке в
+3-5 серийников, но приближалось время, когда список должен
+был вырасти до 100+, а затем и до 1000+...&lt;/p&gt;
+&lt;p&gt;Поэтому была проведена изыскательская работа, которая привела
+меня к &lt;a href="http://wiki.nginx.org/HttpLuaModule"&gt;модулю Lua для Nginx&lt;/a&gt;.
+Выяснилось, что на нем реализуют весьма сложную логику при приличных
+нагрузках, о чем есть куча статей, даже на Хабре есть вполне годная
+&lt;a href="http://habrahabr.ru/company/2gis/blog/199504/"&gt;статья&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Так что я быстро пересобрал свой пакет с Nginx с модулем Lua,
+и начал ваять, благо логика у моем случае простейшая:&lt;/p&gt;
+&lt;p&gt;1) Загружаем при старте Nginx из файлика с серийниками их список в ngx.shared.DICT&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;lua_shared_dict&lt;/span&gt; &lt;span class="s"&gt;serials&lt;/span&gt; &lt;span class="mi"&gt;1m&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="k"&gt;init_by_lua&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&lt;/span&gt;
+&lt;span class="s"&gt;local&lt;/span&gt; &lt;span class="s"&gt;file&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;io.open(&amp;quot;/etc/nginx/access.list&amp;quot;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;r&amp;quot;)&lt;/span&gt;
+&lt;span class="s"&gt;local&lt;/span&gt; &lt;span class="s"&gt;serials&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;ngx.shared.serials&lt;/span&gt;
+&lt;span class="s"&gt;if&lt;/span&gt; &lt;span class="s"&gt;file&lt;/span&gt; &lt;span class="s"&gt;then&lt;/span&gt;
+  &lt;span class="s"&gt;for&lt;/span&gt; &lt;span class="s"&gt;line&lt;/span&gt; &lt;span class="s"&gt;in&lt;/span&gt; &lt;span class="s"&gt;file:lines()&lt;/span&gt; &lt;span class="s"&gt;do&lt;/span&gt;
+    &lt;span class="s"&gt;local&lt;/span&gt; &lt;span class="s"&gt;stripped_line&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;line:match(&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;^%s*(.-)%s*&lt;/span&gt;&lt;span class="nv"&gt;$&amp;quot;&lt;/span&gt; &lt;span class="s"&gt;)&lt;/span&gt;
+    &lt;span class="s"&gt;local&lt;/span&gt; &lt;span class="s"&gt;succ,&lt;/span&gt; &lt;span class="s"&gt;err,&lt;/span&gt; &lt;span class="s"&gt;forcible&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;serials:safe_set(&lt;/span&gt; &lt;span class="s"&gt;stripped_line,&lt;/span&gt; &lt;span class="s"&gt;true)&lt;/span&gt;
+    &lt;span class="s"&gt;if&lt;/span&gt; &lt;span class="s"&gt;not&lt;/span&gt; &lt;span class="s"&gt;succ&lt;/span&gt; &lt;span class="s"&gt;then&lt;/span&gt;
+        &lt;span class="s"&gt;ngx.log(ngx.ERR,&amp;quot;error&lt;/span&gt; &lt;span class="s"&gt;populating&lt;/span&gt; &lt;span class="s"&gt;serials&lt;/span&gt; &lt;span class="s"&gt;list:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&lt;/span&gt; &lt;span class="s"&gt;..&lt;/span&gt; &lt;span class="s"&gt;err)&lt;/span&gt;
+    &lt;span class="s"&gt;end&lt;/span&gt;
+  &lt;span class="s"&gt;end&lt;/span&gt;
+  &lt;span class="s"&gt;file:close()&lt;/span&gt;
+&lt;span class="s"&gt;else&lt;/span&gt;
+    &lt;span class="s"&gt;ngx.log(ngx.ERR,&amp;quot;access.list&lt;/span&gt; &lt;span class="s"&gt;file&lt;/span&gt; &lt;span class="s"&gt;not&lt;/span&gt; &lt;span class="s"&gt;found&amp;quot;)&lt;/span&gt;
+&lt;span class="s"&gt;end&lt;/span&gt;
+&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;2) При запросе к защищенному контенту проверяем, есть ли такой серийник в списке.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;location&lt;/span&gt; &lt;span class="s"&gt;/&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="kn"&gt;access_by_lua&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&lt;/span&gt;
+  &lt;span class="s"&gt;local&lt;/span&gt; &lt;span class="s"&gt;serial&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;ngx.var.ssl_client_serial&lt;/span&gt;
+  &lt;span class="s"&gt;local&lt;/span&gt; &lt;span class="s"&gt;value,&lt;/span&gt; &lt;span class="s"&gt;flags&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;ngx.shared.serials:get(serial)&lt;/span&gt;
+  &lt;span class="s"&gt;if&lt;/span&gt; &lt;span class="s"&gt;not&lt;/span&gt; &lt;span class="s"&gt;value&lt;/span&gt; &lt;span class="s"&gt;then&lt;/span&gt;
+    &lt;span class="s"&gt;ngx.log(ngx.WARN,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;blocked&lt;/span&gt; &lt;span class="s"&gt;client&lt;/span&gt; &lt;span class="s"&gt;cert&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&lt;/span&gt; &lt;span class="s"&gt;..&lt;/span&gt; &lt;span class="s"&gt;serial)&lt;/span&gt;
+    &lt;span class="s"&gt;ngx.exit(ngx.HTTP_FORBIDDEN)&lt;/span&gt;
+  &lt;span class="s"&gt;end&lt;/span&gt;
+&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="kn"&gt;proxy_pass&lt;/span&gt; &lt;span class="s"&gt;http://upstream&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Весь Lua-код выполняется в отдельных корутинах-песочницах, так что на работу
+в Nginx в целом не влияет.
+И что особенно хорошо, можно будет в дальнейшем список вынести в базу данных,
+к примеру.&lt;/p&gt;
+&lt;p&gt;В общем, я был и без того очень впечатлен
+возможностями Nginx, а с модулем Lua он еще круче.&lt;/p&gt;</summary><category term="Nginx"></category><category term="Lua"></category></entry><entry><title>Auto-backup конфигов активки через Rancid</title><link href="http://bulimov.ru/it/auto-backup-%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D0%BE%D0%B2-%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BA%D0%B8-%D1%87%D0%B5%D1%80%D0%B5%D0%B7-rancid/" rel="alternate"></link><updated>2013-11-01T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-11-01:it/auto-backup-конфигов-активки-через-rancid/</id><summary type="html">&lt;p&gt;На днях помогал коллеге с настройкой автоматического бекапа
+для конфигураций нашей активки (Cisco, Juniper), и нашел
+весьма интересное решение (похоже, вообще единственное) -
+&lt;a href="http://www.shrubbery.net/rancid/"&gt;rancid&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Точнее, его форк &lt;a href="https://github.com/dotwaffle/rancid-git"&gt;rancid-git&lt;/a&gt;,
+поскольку использую везде и всюду git, и ради бекапов городить CVS или
+Subversion было бы неудобно.&lt;/p&gt;
+&lt;p&gt;Конечно, rancid этот - весьма оригинальный пример того, как с помощью
+expect и bash-скриптов соорудить исправно работающее решение, отлично выполняющее
+свою задачу. Если вкратце - оно по крону ходит через telnet/ssh по указанным хостам,
+и с помощью expect запрашивает с них информацию + конфиги, а потом вывод кладет
+в CVS/subversion/git. В итоге - получаем полную историю изменений конфигурации
+и состоянии указанных устройств, в моем случае - в git. Причем rancid-git
+умеет работать с удаленным репозиторием, при этом каждый коммит сопровождается push.&lt;/p&gt;
+&lt;p&gt;Я не буду тут приводить туториал а-ля Хабрахабр с пунктами типа git clone &amp;amp;&amp;amp; make,
+в репозитории rancid-git есть прекрасный readme, в котором по пунктам указано, как
+собрать deb-пакет, а также что и для чего конфигурить.
+Я просто порекомендую этот инструмент всем, кому хочется версионировать конфиги активки в автоматическом режиме.&lt;/p&gt;</summary><category term="Rancid"></category><category term="Cisco"></category><category term="Juniper"></category></entry><entry><title>Включил комментарии</title><link href="http://bulimov.ru/it/%D0%92%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D0%BB-%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B8/" rel="alternate"></link><updated>2013-10-18T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-10-18:it/Включил-комментарии/</id><summary type="html">&lt;p&gt;Включил комментирование через Disqus, может кто-то
+что-нибудь дельное напишет в комментариях.&lt;/p&gt;</summary><category term="Жизнь"></category><category term="Ruhoh"></category></entry><entry><title>Сдал экзамен на RHCE</title><link href="http://bulimov.ru/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-%D0%BD%D0%B0-rhce/" rel="alternate"></link><updated>2013-10-14T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-10-14:it/Сдал-экзамен-на-rhce/</id><summary type="html">&lt;p&gt;Наконец-то пришел результат экзамена, который сдавал в пятницу. 273 из 300 возможных при проходном балле в 210. Это, конечно,
+неприятно - ждать все выходные результата. На RHCSA результат пришел в ту же пятницу около 8 вечера.&lt;/p&gt;
+&lt;p&gt;По самому курсу "Системное Администрирование" и экзамену: читал у меня все три части курса Илья Соболев.
+Курс весьма хорошо продуман и сбалансирован, ну и читает его Соболев отлично. С позиции человека,
+который до этих курсов уже 3 года занимался администрированием Linux-серверов (правда, не RHEL, а Debian),
+могу сказать, что хорошая подача материала позволяет осмыслить многие вещи, которыми пользуешься регулярно,
+но разобраться в сущности которых вечно некогда. Да и вообще мозги прочищаются.&lt;/p&gt;
+&lt;p&gt;Еще в плюсах могу отметить, что охвачены темы, которыми многие пренебрегают из-за больших временных затрат на их
+освоение, типа LVM или SELinux. Лично мне было интересно познакомиться с RHEL-специфичными вещами вроде сборки RPM-пакетов,
+развертывания репозитория с ними, или kickstart.&lt;/p&gt;
+&lt;p&gt;В общем, хорошие, годные курсы по Linux, практически без акцента на конкретный дистрибутив.
+И экзамены (и RHCSA, и RHCE) весьма хороши, задания осмысленные, времени дано как раз, чтобы не расслабляться.&lt;/p&gt;</summary><category term="Жизнь"></category></entry><entry><title>О животных и NetworkManager</title><link href="http://bulimov.ru/it/%D0%9E-%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85-%D0%B8-networkmanager/" rel="alternate"></link><updated>2013-10-02T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-10-02:it/О-животных-и-networkmanager/</id><summary type="html">&lt;p&gt;В комментариях к &lt;a href="http://www.opennet.ru/opennews/art.shtml?num=38016"&gt; интервью с Алексеем Кузнецовым &lt;/a&gt;
+прочитал прекрасное:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;NetworkManager плохой, а какая альтернатива?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;ip addr add 12.34.56.78/24 dev eth0
+ip ro add default via 12.34.56.1&lt;/p&gt;
+&lt;p&gt;Если кому-то нужен какой-то гуй для этого - то он просто животное™.&lt;/p&gt;
+&lt;/blockquote&gt;</summary><category term="Жизнь"></category></entry><entry><title>Вернулся из отпуска</title><link href="http://bulimov.ru/it/%D0%92%D0%B5%D1%80%D0%BD%D1%83%D0%BB%D1%81%D1%8F-%D0%B8%D0%B7-%D0%BE%D1%82%D0%BF%D1%83%D1%81%D0%BA%D0%B0/" rel="alternate"></link><updated>2013-10-01T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-10-01:it/Вернулся-из-отпуска/</id><summary type="html">&lt;p&gt;Вернулись с женой из отпуска, который провели в Индонезии.
+Из IT-наблюдений: во всех отелях и кафе на Бали, Гили и Ломбоке
+встречались мне только и исключительно железки Mikrotik в роли HotSpot.
+Забавно видеть Linux-based решения от Латвийских разработчиков
+в далекой Индонезии.
+На ПК служащих - только Windows XP, никаких Вист и Семерок-восьмерок.&lt;/p&gt;
+&lt;p&gt;Ну и самое ужасное - аэропорт города Денпасар, который на Бали - практически не
+компьютеризирован. На посадочных талонах номер рейса и номер места пишут от руки, проверка
+посадки осуществляется с использованием листка бумаги и ручки.
+Правда, рядом почти достроили новый терминал, мы туда прогулялись - там уже все нормально и современно.&lt;/p&gt;</summary><category term="Жизнь"></category><category term="MikroTik"></category></entry><entry><title>Как я управляю серверами</title><link href="http://bulimov.ru/it/%D0%9A%D0%B0%D0%BA-%D1%8F-%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D1%8F%D1%8E-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%D0%BC%D0%B8/" rel="alternate"></link><updated>2013-09-05T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-09-05:it/Как-я-управляю-серверами/</id><summary type="html">&lt;p&gt;Решил вот описать принципы управления серверами, к которым пришел за эти 3 года.&lt;/p&gt;
+&lt;p&gt;Итак:&lt;/p&gt;
+&lt;h3&gt;принцип №1&lt;/h3&gt;
+&lt;p&gt;Все конфиги лежат в &lt;a href="http://en.wikipedia.org/wiki/Revision_control"&gt;VCS&lt;/a&gt;, я сейчас использую Git.
+Я думаю, в комментариях принцип не нуждается, необходимость централизованного
+хранения конфигов, а также хранения истории изменений с возможностью отката обсуждалась не раз.&lt;/p&gt;
+&lt;h3&gt;принцип №2&lt;/h3&gt;
+&lt;p&gt;Все ПО ставится только из пакетов, никаких ./configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install.
+Если пакета нужной версии нет в репозиториях дистрибутива - ищем готовый пакет, желательно
+от разработчиков, или от солидного стороннего репозитория типа &lt;a href="http://www.dotdeb.org/"&gt;dotdeb&lt;/a&gt;. Если пакета для ПО нет - собираем пакет сами,
+причем процесс сборки документируется, а все нужное для сборки кладется в VCS.
+Все сторонние пакеты собираются в свой репозиторий, в котором как минимум есть разделение на stable и testing.
+Все пакеты из testing, после проверки на стейджинге, перемещаются в stable.
+Таким образом, мы контролируем установленное ПО средствами дистрибутива, что сильно упрощает жизнь сисадмина.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Уже руководствуясь этими двумя принципами, мы можем без лишних усилий развернуть точную копию нужного окружения
+(production или staging), повторяемость которого нам гарантированна.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Но для того, чтобы разворачивать все быстро, и не полагаться на свою память, есть&lt;/p&gt;
+&lt;h3&gt;принцип №3&lt;/h3&gt;
+&lt;p&gt;Последовательность действия для развертывания каждого компонента системы документируется.
+Если не используется система управления конфигурациями - документируется в виде последовательности
+команд с комментариями. Сейчас я использую &lt;a href="http://www.ansibleworks.com/"&gt;Ansible&lt;/a&gt;, и в этом случае сами taskи и playbookи Ansible
+являются отличной документацией. В случае использования &lt;a href="http://www.opscode.com/chef/"&gt;Chef&lt;/a&gt;, грамотно написанные рецепты также
+сами по себе являются документацией.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Теперь мы можем разворачивать нужное окружение в автоматическом режиме.
+А еще, можно тестировать работоспособность всей системы в целом, используя любую
+из систем Continuous Integration, задав задание разворачивать окружение целиком, с нуля,
+в автоматически создаваемых для этого виртуалках.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Теперь, для полного спокойствия в случае падения метеорита на наш production, нам нужен&lt;/p&gt;
+&lt;h3&gt;принцип №4&lt;/h3&gt;
+&lt;p&gt;Для всех данных надо выполнять резервное копирование. Причем нужна и репликация (для failover), и создание резервной копии,
+причем с возможностью отката назад по времени, и создание offsite-копии на случай форс-мажора.
+Я неоднократно выслушивал мнение, что репликация базы данных отлично заменяет
+резервное копирование. На такое заявление я отвечаю предложением подумать, что будет с репликой в случае
+выполнение на master-сервере команды удаления либо изменения наших данных из-за программной ошибки, либо из-за
+действий злоумышленника.&lt;/p&gt;
+&lt;h3&gt;принцип №4а&lt;/h3&gt;
+&lt;p&gt;Резервные копии надо тестировать!
+Я даже вынес этот тезис в отдельный пункт, поскольку именно про него обычно и забывают,
+и оказываются в итоге с неработоспособным бекапом.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Выполняя эти 4 принципа, мы можем быть уверены, что даже в случае падения метеорита на наш production,
+мы сможем его восстановить без нервов, и в разумные минимальные сроки.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;А чтобы не порушить случайно чего-нибудь, есть&lt;/p&gt;
+&lt;h3&gt;принцип №5&lt;/h3&gt;
+&lt;p&gt;Руками на production ничего делаться не должно. Все действия выполняются только с помощью системы управления конфигурациями
+(Chef, Ansible, Puppet и т.п.), причем обязательно тестируются на staging-серверах. Это дает нам уверенность в том, что
+мы не опечатаемся, набирая в команду в 25й раз, и вообще спасает от повторения одних и тех же действий на каждом сервере.
+А еще это дает нам окружение, в котором все сервера находятся в одинаковом, известном заранее состоянии, все
+компоненты для получения которого у нас есть в VCS.&lt;/p&gt;
+&lt;h3&gt;принцип  №6&lt;/h3&gt;
+&lt;p&gt;Если что-то не мониторится, то этого не существует. Если мы не осуществляем мониторинг какого-либо сервиса,
+то мы не можем быть никогда уверены, что этот сервис в данный момент времени вообще функционирует.
+Поэтому, все важные сервисы должны быть под наблюдением. Как и сам сервис мониторинга.
+И, конечно, мониторинг тоже надо тестировать.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Естественно, есть и другие принципы, но это - основа основ, благодаря которой я спокойно сплю по ночам,
+и уверен, что любое обновление на боевых серверах пройдет гладко, а даже если и нет - всегда
+можно откатиться к предыдущему, работоспособному состоянию.&lt;/em&gt;&lt;/p&gt;</summary><category term="Ansible"></category><category term="Chef"></category></entry><entry><title>Низкоуровневое обнаружение в Zabbix, ищем диски в контроллере от 3ware</title><link href="http://bulimov.ru/it/%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5-%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-zabbix-%D0%B8%D1%89%D0%B5%D0%BC-%D0%B4%D0%B8%D1%81%D0%BA%D0%B8-%D0%B2-%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D0%BB%D0%B5%D1%80%D0%B5-%D0%BE%D1%82-3ware/" rel="alternate"></link><updated>2013-08-14T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-08-14:it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware/</id><summary type="html">&lt;p&gt;Я уже &lt;a href="/it/Низкоуровневое-обнаружение-в-zabbix"&gt; писал &lt;/a&gt; про &lt;a href="https://www.zabbix.com/documentation/ru/2.0/manual/discovery/low_level_discovery"&gt;низкоуровневое обнаружение&lt;/a&gt;
+в Zabbix, так что повторять теорию не буду.&lt;/p&gt;
+&lt;p&gt;Теперь мне понадобилось автоматом получать список хардов в массивах
+на контроллерах 3ware, которыми оборудованы у нас многие сервера.&lt;/p&gt;
+&lt;p&gt;Вести руками шаблоны для каждого сервера с иным порядком или количеством дисков
+показалось мне плохой идеей, да и авто-обнаружение само напрашивалось.&lt;/p&gt;
+&lt;p&gt;Вдохновлялся я утилитой 3ware-status, для работы авто-обнаружения нам потребуется
+установленная утилита tw-cli, взять ее для Debian/Ubuntu проще всего &lt;a href="http://hwraid.le-vert.net/"&gt; здесь &lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Работает скрипт примерно так:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Получаем общую информацию командой &lt;code&gt;tw-cli info&lt;/code&gt;, вычленяем оттуда список
+   контроллеров простенькой регуляркой &lt;code&gt;^c[0-9]+$&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Получаем информацию для каждого контроллера &lt;code&gt;tw-cli %controller info&lt;/code&gt;, опять-таки
+   регуляркой &lt;code&gt;^[p][0-9]+$&lt;/code&gt; вытаскиваем оттуда список хардов&lt;/li&gt;
+&lt;li&gt;Отдаем полученный список в формате JSON&lt;/li&gt;
+&lt;li&gt;Используем полученные данные в шаблонах заббикса, в разделе &lt;em&gt;обнаружение&lt;/em&gt;,
+   чтобы вытащить статусы каждого диска в массиве с помощью 3ware-status или tw-cli&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;На выходе должны получить что-то вроде этого:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;quot;data&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;{#3WARE_DISK}&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;c0u0p0&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;{#3WARE_DISK}&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;c0p0u1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;{#3WARE_DISK}&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;c0p1u2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;{#3WARE_DISK}&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;c0p1u3&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Реализовано все на Python, благо он есть по-умолчанию практически в любом дистрибутиве.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3ware_discovery.py&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/env python&lt;/span&gt;
+&lt;span class="c"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+&lt;span class="c"&gt;#&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;subprocess&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;re&lt;/span&gt;
+
+&lt;span class="n"&gt;binary_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;/usr/sbin/tw-cli&amp;quot;&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;_run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cmd&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="c"&gt;# returns (rc, stdout, stderr) from shell command&lt;/span&gt;
+    &lt;span class="n"&gt;process&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Popen&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cmd&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;stdout&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PIPE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                            &lt;span class="n"&gt;stderr&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PIPE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;shell&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;stdout&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;stderr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;process&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;communicate&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;process&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;returncode&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;stdout&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;stderr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;_fail&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;parse_controllers&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;controllers&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;splitlines&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;splitted&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;r&amp;#39;^c[0-9]+$&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;splitted&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]):&lt;/span&gt;
+                &lt;span class="n"&gt;controllers&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;splitted&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;controllers&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;parse_disks&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;controller&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;disks&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;splitlines&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;splitted&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;r&amp;#39;^[p][0-9]+$&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;splitted&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]):&lt;/span&gt;
+                &lt;span class="c"&gt;# &amp;#39;-&amp;#39; means the drive doesn&amp;#39;t belong to any array&lt;/span&gt;
+                &lt;span class="c"&gt;# If is NOT PRESENT too, it just means this is an empty port&lt;/span&gt;
+                &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;splitted&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;-&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;splitted&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;NOT-PRESENT&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+                    &lt;span class="n"&gt;disks&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+                        &lt;span class="s"&gt;&amp;#39;{#3WARE_DISK}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;controller&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;splitted&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;splitted&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+                    &lt;span class="p"&gt;})&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;disks&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;disks_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+
+    &lt;span class="n"&gt;rc&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;raw_data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;err&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;_run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; info&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;binary_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;rc&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;_fail&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;tw-cli command failed with &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;err&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;controllers_list&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;parse_controllers&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;raw_data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;controller&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;controllers_list&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;rc&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;raw_data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;err&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;_run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; info &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;binary_path&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;controller&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;rc&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+            &lt;span class="n"&gt;_fail&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;tw-cli command failed with &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;err&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;disks_list&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;extend&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;parse_disks&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;raw_data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;controller&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+    &lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;#39;data&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;disks_list&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dumps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Ну и конечно нужно создать ключ, по которому заббикс будет список дисков получать.&lt;/p&gt;
+&lt;p&gt;В конфиге заббикса добавляем строку вида&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;UserParameter&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="n"&gt;ware&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;discovery&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;opt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="n"&gt;ware_discovery&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;В этом случае, нужно беспарольное sudo на эту команду для пользователя zabbix.&lt;/p&gt;
+&lt;p&gt;Ну а в самом заббиксе уже создаем в шаблоне обнаружение, в котором используем ключ
+3ware.discovery и макрос {#3WARE_DISK}, например 3ware.disk_status[{#3WARE_DISK}].
+Подробности - в документации.&lt;/p&gt;
+&lt;p&gt;Исходники доступны в моем &lt;a href="https://github.com/abulimov/utils"&gt;репозитории&lt;/a&gt;, в папке &lt;em&gt;zabbix/data_collectors&lt;/em&gt;.&lt;/p&gt;</summary><category term="Zabbix"></category><category term="Python"></category></entry><entry><title>О любви к программированию</title><link href="http://bulimov.ru/it/%D0%9E-%D0%BB%D1%8E%D0%B1%D0%B2%D0%B8-%D0%BA-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8E/" rel="alternate"></link><updated>2013-07-25T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-07-25:it/О-любви-к-программированию/</id><summary type="html">&lt;p&gt;Хоть я и выбрал своей профессией системное администрирование,
+программирование я люблю. Даже очень люблю.&lt;/p&gt;
+&lt;p&gt;Вот решил написать историю моего знакомства с программированием.&lt;/p&gt;
+&lt;h3&gt;Школа&lt;/h3&gt;
+&lt;p&gt;Началось все в школе. Одноклассник ходил на курсы программирования,
+готовясь поступать в какой-то технический вуз, и рассказывал про Delphi.
+Рассказы его так меня увлекли, что я даже сподобился установить этот самый Delphi,
+и даже создал какую-то форму, скопировав код из примеров, присланных одноклассником.
+По итогу этих действий, у меня сложилось впечатление,
+что программирование - это точно не для меня. Я настолько разуверился в своих силах
+после попыток разобраться самостоятельно в Delphi, что до поступления в ВУЗ даже
+не пытался больше лезть в программирование.&lt;/p&gt;
+&lt;h3&gt;Первый-второй курсы, Borland Pascal&lt;/h3&gt;
+&lt;p&gt;Все изменилось на первом курсе специальности "Прикладная математика", которую я
+наивно выбрал при поступлении в ВУЗ. Нас учили азам программирования в Turbo Pascal.
+Как-то само получилось, что к концу первого курса я делал лабораторные работы друзьям
+и однокурсникам. На втором курсе тенденция сохранилась.&lt;/p&gt;
+&lt;h3&gt;Третий курс, Plain C&lt;/h3&gt;
+&lt;p&gt;Программирования давалось мне все легче, когда
+на третьем курсе у нас начался курс "Архитектура ЭВМ и системное программное обеспечение",
+читал который &lt;a href="http://www.stolyarov.info/"&gt;Андрей Викторович Столяров&lt;/a&gt;. Читал он его
+крайне хорошо, да и пособия за его авторством весьма хороши. А еще он отличался пренебрежением к
+проприетарным технологиям, отказом от Windows, и крайне экспрессивной манерой преподавания.
+Именно он зародил во мне зерно интереса к Unix и Linux, хотя на тот момент его отказ от
+Windows и любовь к свободному ПО казались мне чудачеством. Сама мысль о том, что кто-то
+использует бесплатный и свободный Linux всерьез - казалась смешной, ведь окружал
+студентов сплошной Windows. Только на лабораторных работах мы увидели впервые Linux,
+и пытались писать код на Plain C. Ради выполнения лабораторных работ я и поставил тогда впервые Linux.
+Это был дистрибутив Mandariva 2007. Но речь сейчас не о Linux, а о программировании.&lt;/p&gt;
+&lt;p&gt;Итак, нас учили писать на чистом C под Linux. Преподаватель оглушительно орал на людей, некорректно
+форматирующих свой код, и отказывался принимать у них лабораторные работы. Именно он приучил меня
+всегда форматировать код. Сами задания были весьма интересными,
+мы реализовывали списки/стеки, учась в процессе работать с указателями, динамическим выделением памяти, и компилятором gcc.
+Вершиной этих заданий было написание сервера-чата с использованием сокетов, для общения с помощью
+telnet, либо собственноручно написанного клиента.&lt;/p&gt;
+&lt;h3&gt;Четвертый-пятый курсы, C++, Delphi, PHP, SQL&lt;/h3&gt;
+&lt;p&gt;После обучения C, а вместе с ним и основам "взрослого" программирования, нас начали учить
+основам ООП, на базе C++, но без STL. Это было просто потрясающе - абстракции, повторное
+использование кода, инкапсуляция. Мы реализовывали самостоятельно динамические структуры данных (одно- и дву-связные
+списки, векторы, деревья, стеки и очереди), используя шаблоны. Задания мы сдавали через Google Code - так
+нас пытались научить использовать системы контроля версий. Параллельно я "фрилансил" - выполнял
+задания за однокурсников, а также за студентов параллельно специальности "ЭВМ". У них задания были из компьютерной графики,
+на Borland С++, под DOS. Требовалось реализовывать общеизвестные алгоритмы закраски/затенения/отсечения, и с их помощью рисовать
+фигуры в трехмерном пространстве, для чего мной был написан свой "движок",
+позволявший мне отрисовывать любые фигуры, задавая их в виде координат углов полигонов и нормалей к ним.
+Это было интересно и весьма познавательно, обучало не только алгоритмам и структурам данных, но и подходам к разработке.&lt;/p&gt;
+&lt;p&gt;Ну а потом началось знакомство с PHP+MySQL, реализация чего-то вроде справочной системы/магазина,
+и после C/C++ это было совсем уныло... Я до сих пор воспринимаю PHP только как скриптовый язык для Web,
+с ужасом наблюдая все старания прикрутить к нему ООП.&lt;/p&gt;
+&lt;p&gt;Конечно, приходилось писать и на VBA, и на Delphi, но никакого нового опыта это мне не давало.&lt;/p&gt;
+&lt;h3&gt;После обучения&lt;/h3&gt;
+&lt;p&gt;Я получал массу удовольствия от программирования в университете, но мой "студенческий фриланс" дал мне
+возможность понять, что каждодневное напряженное занятие программированием дается мне весьма тяжело.
+Наличие в потоке еще нескольких программистов, не только мне не уступавших, но и превосходивших меня, явно указывало мне,
+что великим программистом мне не стать, и именно это осознание подтолкнуло меня к тому, чтобы принять предложение от друга
+пойти работать на пятом курсе "сисадмином-эникеем".&lt;/p&gt;
+&lt;p&gt;Став сисадмином, я не забросил увлечение программированием, и продолжил писать код и изучать новые языки.&lt;/p&gt;
+&lt;h3&gt;Знакомство с Ruby через Chef&lt;/h3&gt;
+&lt;p&gt;Развиваясь как сисадмин, я пришел к использованию систем управления конфигурациями. Начав работу с Chef,
+я параллельно стал изучать и Ruby, на котором Chef написан. Конечно, после C и C++ обилие синтаксического сахара
+и скорость разработки вскружили мне голову, однако довольно скоро я прочувствовал и все минусы динамической типизации.
+Заодно во мне нарастало недовольство ООП, которое через год вылилось в изучение Haskell.
+Но сам язык Ruby мне понравился, и потому я его с удовольствием &lt;a href="/it/Плагин-к-ruhoh-для-рисования-графиков"&gt;использую&lt;/a&gt; и сейчас.&lt;/p&gt;
+&lt;h3&gt;Haskell и функциональное программирование&lt;/h3&gt;
+&lt;p&gt;Намучившись с изменяемым состоянием объектов, я обратился к чистому функциональному языку Haskell.
+Начав его изучение с чудесной книги &lt;a href="http://learnyouahaskell.com/"&gt;Learn you a Haskell for Great Good&lt;/a&gt;,
+я довольно быстро осознал достоинства функционального подхода к написанию программ. Хоть я и не смог
+найти применения Хаскелю в реальной жизни (а точнее, для меня оказалось слишком сложно держать в голове
+столь большой и сложный язык, при том, что я не программист, и программирую далеко не каждый день),
+я стараюсь использовать основные принципы функционального подхода при разработке на других языках программирования.&lt;/p&gt;
+&lt;h3&gt;Python и Ansible&lt;/h3&gt;
+&lt;p&gt;&lt;a href="/it/Мнение-о-chef"&gt;Наевшись&lt;/a&gt; Chef-ом, я начал использовать Ansible, и, конечно, мне понадобилось писать свои модули.
+Поскольку нативные модули, которые могут принять в апстрим, для Ansible можно писать только на Python, пришлось
+использовать его. К счастью, Python крайне легко читается, и мой опыт с Ruby не прошел впустую, так что начать
+писать модули для Ansible оказалось очень просто. Ну а осознав преимущества Питона (он есть в каждом дистрибутиве по-умолчанию,
+очень легко читается и пишется), я начал использовать его как второй язык для написания различных полезных утилит.
+Первым языком для этого все равно остается Shell, но для более сложных вещей я использую Python.&lt;/p&gt;
+&lt;h3&gt;Заключение&lt;/h3&gt;
+&lt;p&gt;Итак, сейчас в моей копилке целая охапка языков, из которых использую я в основном Shell и Python. Такой выбор, конечно же,
+во многом определен особенностями работы системного администратора, но выбор языка все равно остается за мной.
+Что самое приятное - программирование осталось моим хобби, и я получаю от него огромное удовольствие.&lt;/p&gt;</summary><category term="Программирование"></category><category term="Жизнь"></category></entry><entry><title>Monitoring sucks!</title><link href="http://bulimov.ru/it/monitoring-sucks/" rel="alternate"></link><updated>2014-06-12T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-07-10:it/monitoring-sucks/</id><summary type="html">&lt;p&gt;&lt;strong&gt;TL;DR - тут я Sensu критиковал, но в 2014 году успешно заменил Zabbix на Sensu версии 0.12+&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;В 2012 году появился в среде devops такой хештег, #monitoringsucks.
+В сообщения с этим тегом devopsы писали, что текущее положение дел
+в сфере мониторинга их не устраивает. Что именно - прекрасно иллюстрирует
+&lt;a href="https://speakerdeck.com/obfuscurity/the-state-of-open-source-monitoring"&gt;эта презентация&lt;/a&gt;
+Если вкратце - хочется людям некоего стандарта API для взаимодействия между компонентами
+утилит мониторинга, ну и появления самих этих компонент, чтоб из них строить
+гибкий и умный мониторинг.&lt;/p&gt;
+&lt;p&gt;Итогом этой волны недовольства стали массовые обсуждения проблем
+и привлечение внимания к интересным утилитам типа &lt;a href="http://sensuapp.org/"&gt;Sensu&lt;/a&gt;
+и &lt;a href="http://riemann.io/"&gt;Riemann&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;В 2013 году хештег в сообществе сменился - теперь это #monitoringlove.
+Произошло это благодаря развитию opensource-утилит для мониторинга.
+Глядя на всеобщее воодушевление, я решил в рамках эксперимента
+отринуть верой и правдой служивший мне 2 года &lt;a href="http://www.zabbix.com"&gt;Zabbix&lt;/a&gt;,
+и попробовать в тех же задачах использовать Sensu.
+Riemann я не стал всерьез рассматривать, поскольку на данный момент
+у него нет никаких средств для обеспечения отказоустойчивости, да и
+сама идея писать конфиг на каком-либо языке программирования (а уж тем более
+на Clojure) порочна.&lt;/p&gt;
+&lt;p&gt;Я сравнил на одних и тех же задачах Sensu и Zabbix.
+Задачи простые - мониторинг всего стека приложения для современного веб-сайта,
+т.е. Nginx+Unicorn, Riak, Redis, RabbitMQ, Postgres, и сами сервера.
+Конечно, все эксперименты я делал на виртуалках, имитирующих реальную площадку.&lt;/p&gt;
+&lt;h4&gt;Вот минусы и плюсы Sensu версии 0.9 в сравнении с Zabbix версии 2.0.6:&lt;/h4&gt;
+&lt;h3&gt;Минусы Sensu&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Нет зависимостей между событиями. (UPD 2014 - уже есть).
+    Это безусловно главный минус, и как его будут исправлять - неясно.&lt;/li&gt;
+&lt;li&gt;Уведомления куцые по настройкам.
+    Это второй по важности минус. Я пробовал его обойти с помощью
+    &lt;a href="https://github.com/flpjck/flapjack"&gt;Flapjack&lt;/a&gt;,
+    но поскольку сам Flapjack еще не умеет (хоть и заявляют в целях)
+    зависимости между событиями - то толку с него мало.&lt;/li&gt;
+&lt;li&gt;Конфиг в json, а не в yaml. (для себя решил генерацией конфига из Ansible).&lt;/li&gt;
+&lt;li&gt;Вся логика содержится в проверочных скриптах.
+    (UPD 2014 - сейчас мне это кажется даже плюсом)&lt;/li&gt;
+&lt;li&gt;Нужен внешний хранитель метрик, он же рисователь графиков.
+    (UPD 2014 - после графиков Zabbixа, графики Graphite это просто супер)&lt;/li&gt;
+&lt;li&gt;Куцая документация.
+    (UPD 2014 - документация стала сильно лучше)
+    Хоть и обещают они, что все документировано, но, к примеру, на момент написания
+    этой заметки, документации по созданию фильтров нет вообще.
+    К счастью, проект простой, можно разобраться, просто читая код.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Плюсы Sensu&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Конфиг можно хранить в git.&lt;/li&gt;
+&lt;li&gt;Масштабируемость.&lt;/li&gt;
+&lt;li&gt;Отказоустойчивость.&lt;/li&gt;
+&lt;li&gt;Гибкость выбора системы хранения данных.&lt;/li&gt;
+&lt;li&gt;Поддержка плагинов nagios.&lt;/li&gt;
+&lt;li&gt;Авто-подключение клиентов.&lt;/li&gt;
+&lt;li&gt;Механизм подписок.&lt;/li&gt;
+&lt;li&gt;Данные публикуются клиентами по мере генерации.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Минусы zabbix&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Настройка через веб-морду.
+    Это ужасно, когда я не могу в деплой площадки внести и деплой.
+    мониторинга целиком, вместе с конфигом..&lt;/li&gt;
+&lt;li&gt;Конфиги нельзя хранить в git.&lt;/li&gt;
+&lt;li&gt;Масштабируемость только с помощью proxy.&lt;/li&gt;
+&lt;li&gt;Ресурсоемкость.&lt;/li&gt;
+&lt;li&gt;Данные забираются раз в n минут сервером.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Плюсы zabbix&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Зависимости, сложные условия.&lt;/li&gt;
+&lt;li&gt;Внешние скрипты для уведомлений.&lt;/li&gt;
+&lt;li&gt;UserParameter, которые позволяют проверять что угодно..&lt;/li&gt;
+&lt;li&gt;Авто-обнаружение.&lt;/li&gt;
+&lt;li&gt;Низкоуровневое обнаружение.&lt;/li&gt;
+&lt;li&gt;Большое сообщество, много шаблонов и пользовательских данных.&lt;/li&gt;
+&lt;li&gt;Мощная веб-админка.&lt;/li&gt;
+&lt;li&gt;Встроенные обработки данных.&lt;/li&gt;
+&lt;li&gt;Встроенные графики.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;По итогу эксперимента могу сказать, что, на мой взгляд, жить c Sensu можно, но затрачивать человекочасы на
+доведение мониторинга до ума нужно в огромных объемах, побольше чем в Nagios.
+И уж точно еще рано говорить о замене того же Zabbix или Zenoss на что-то модульное
+на базе какого-нибудь Sensu+Graphite+Flapjack.&lt;/p&gt;
+&lt;p&gt;Лично я остаюсь на Zabbix, несмотря на все его недостатки.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;UPD 2014 - я успешно заменил Zabbix на Sensu версии 0.12+ и Graphite&lt;/strong&gt;&lt;/p&gt;</summary><category term="Zabbix"></category><category term="Sensu"></category></entry><entry><title>Низкоуровневое обнаружение в Zabbix</title><link href="http://bulimov.ru/it/%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5-%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-zabbix/" rel="alternate"></link><updated>2013-06-26T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-06-26:it/Низкоуровневое-обнаружение-в-zabbix/</id><summary type="html">&lt;p&gt;В используемой мной системе мониторинга Zabbix, начиная с версии 2.0,
+появилась такая любопытная штука, как &lt;a href="https://www.zabbix.com/documentation/ru/2.0/manual/discovery/low_level_discovery"&gt;низкоуровневое обнаружение&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Я не буду пересказывать содержимое документации, расскажу лучше о том, как я писал свой тип
+обнаружения для мониторинга очередей RabbitMQ.&lt;/p&gt;
+&lt;p&gt;Проблема в том, что очередей в RabbitMQ может быть много, и, по мере развития веб-проекта,
+они меняются. Так что я решил обнаруживать их автоматически, и написал для этого свой провайдер
+данных для обнаружения заббикса.&lt;/p&gt;
+&lt;p&gt;Порядок действий прост:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Получаем список vhostов командой &lt;code&gt;rabbitmqctl -q list_vhosts name&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Получаем для каждого vhost список очередей командой &lt;code&gt;rabbitmqctl -q list_queues -p %vhost name&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Отдаем полученные пары vhost:queue в формате JSON&lt;/li&gt;
+&lt;li&gt;Используем полученные данные в шаблонах заббикса, в разделе &lt;em&gt;обнаружение&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;PROFIT!&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;На выходе должны получить что-то вроде этого:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;quot;data&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;{#RABBITMQ_VHOST_NAME}&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;&amp;quot;{#RABBITMQ_QUEUE_NAME}&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;hello&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt;
+    &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="nt"&gt;&amp;quot;{#RABBITMQ_VHOST_NAME}&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;/&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nt"&gt;&amp;quot;{#RABBITMQ_QUEUE_NAME}&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;world&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Реализовано все на Python, код предельно прост, в комментариях не нуждается.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;rabbitmq_discovery.py&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/env python&lt;/span&gt;
+&lt;span class="c"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;subprocess&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;json&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;_run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cmd&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="c"&gt;# returns (rc, stdout, stderr) from shell command&lt;/span&gt;
+    &lt;span class="n"&gt;process&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Popen&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;cmd&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;stdout&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PIPE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                            &lt;span class="n"&gt;stderr&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;subprocess&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PIPE&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;shell&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;stdout&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;stderr&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;process&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;communicate&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;process&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;returncode&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;stdout&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;stderr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;parse_vhosts&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;vhosts&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;splitlines&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+        &lt;span class="n"&gt;vhosts&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strip&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;vhosts&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;parse_stat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vhost&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="n"&gt;stat&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;splitlines&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+        &lt;span class="n"&gt;stat&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;({&lt;/span&gt;
+            &lt;span class="s"&gt;&amp;#39;{#RABBITMQ_VHOST_NAME}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;vhost&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+            &lt;span class="s"&gt;&amp;#39;{#RABBITMQ_QUEUE_NAME}&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;strip&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt;
+        &lt;span class="p"&gt;})&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;stat&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;_fail&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+    &lt;span class="n"&gt;rc&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;raw_data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;err&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;_run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;rabbitmqctl -q list_vhosts name&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;rc&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;_fail&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;rabbitmqctl command failed with &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;err&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;vhosts&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;parse_vhosts&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;raw_data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="n"&gt;raw_stats&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+    &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;vhost_name&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;vhosts&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;rc&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;raw_data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;err&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;_run&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;rabbitmqctl -q list_queues -p &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; name&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;vhost_name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;rc&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;_fail&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;rabbitmqctl command failed with &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt; &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;err&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;raw_stats&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;raw_stats&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;parse_stat&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;raw_data&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;vhost_name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+    &lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s"&gt;&amp;#39;data&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;raw_stats&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dumps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Еще нужно создать ключ, по которому заббикс будет всю эту красоту получать.&lt;/p&gt;
+&lt;p&gt;В конфиге заббикса добавляем что-либо вида&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;UserParameter&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;rabbitmq&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;discovery&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;opt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rabbitmq_discovery&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;В моем случае, нужно беспарольное sudo на эту команду для пользователя zabbix.&lt;/p&gt;
+&lt;p&gt;Ну а в самом заббиксе уже создаем в шаблоне обнаружение, в котором используем ключ
+rabbitmq.discovery и макросы {#RABBITMQ_VHOST_NAME} и {#RABBITMQ_QUEUE_NAME}.
+Это подробно описано в документации,
+так что я этого описывать не буду.&lt;/p&gt;
+&lt;p&gt;Исходники доступны в моем &lt;a href="https://github.com/abulimov/utils"&gt;репозитории&lt;/a&gt;, в папке &lt;em&gt;zabbix/data_collectors&lt;/em&gt;.&lt;/p&gt;</summary><category term="Zabbix"></category><category term="Python"></category></entry><entry><title>Плагин к Ruhoh для рисования графиков</title><link href="http://bulimov.ru/it/%D0%9F%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD-%D0%BA-ruhoh-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B8%D1%81%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%BE%D0%B2/" rel="alternate"></link><updated>2013-06-21T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-06-21:it/Плагин-к-ruhoh-для-рисования-графиков/</id><summary type="html">&lt;p&gt;Еще планируя создание статического блога на Hakyll я хотел реализовать рисование
+графиков "на лету" из отдельно хранящихся данных. Но с Hakyll не сложилось,
+и после долгих поисков я остановился на &lt;a href="http://ruhoh.com/"&gt;Ruhoh&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Все нижеописанное относится к &lt;strong&gt;Ruhoh 2.1&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;Цель&lt;/h3&gt;
+&lt;p&gt;Рисовать графики из данных, хранящихся в человеко-читаемом виде.
+Нужно мне это было для визуализации своих спортивных тренировок.&lt;/p&gt;
+&lt;h3&gt;Решение&lt;/h3&gt;
+&lt;p&gt;Конечно, я решил оформить все в виде плагина к Ruhoh, благо возможность такая есть,
+да и программировать я люблю. Язык разработки Ruby, поскольку сам Ruhoh написан на Ruby.&lt;/p&gt;
+&lt;p&gt;Документация конечно не блещет, так что пришлось покопаться в исходном коде Ruhoh.&lt;/p&gt;
+&lt;p&gt;В результате появился плагин, берущий данные из yaml-файлов, и стоящий по ним графики
+с помощью &lt;a href="http://rubygems.org/gems/gruff"&gt;gruff&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Плагин состоит из 3х файлов:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;collection.rb&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;module&lt;/span&gt; &lt;span class="nn"&gt;Ruhoh::Resources::Graphs&lt;/span&gt;
+  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Collection&lt;/span&gt;
+    &lt;span class="kp"&gt;include&lt;/span&gt; &lt;span class="ss"&gt;Ruhoh&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="ss"&gt;:Base&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Collectable&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;url_endpoint&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;/assets/graphs&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;end&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Тут мы кроме url_endpoint ничего особо и не описываeм. Url_endpoint нужен для указания,
+где будут в итоге лежать получившиеся графики&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;compiler.rb&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;require&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;gruff&amp;#39;&lt;/span&gt;
+&lt;span class="nb"&gt;require&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;yaml&amp;#39;&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Ruhoh&lt;/span&gt;
+  &lt;span class="k"&gt;module&lt;/span&gt; &lt;span class="nn"&gt;Compiler&lt;/span&gt;
+    &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Graphs&lt;/span&gt;
+      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;initialize&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ruhoh&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="vi"&gt;@ruhoh&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ruhoh&lt;/span&gt;
+      &lt;span class="k"&gt;end&lt;/span&gt;
+
+      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nc"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;render_graph&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="c1"&gt;#create graph&lt;/span&gt;
+        &lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;type&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;line&amp;#39;&lt;/span&gt;
+        &lt;span class="n"&gt;size&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;size&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="mi"&gt;400&lt;/span&gt;
+        &lt;span class="n"&gt;klass&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="no"&gt;Gruff&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;const_get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;capitalize&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;klass&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;new&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;title&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Unknown&amp;#39;&lt;/span&gt;
+        &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;theme_pastel&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y_axis_increment&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;step&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;step&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+        &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y_axis_label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;y_axis_label&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;y_axis_label&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+        &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x_axis_label&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;x_axis_label&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;x_axis_label&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+        &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;labels&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;labels&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+        &lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;data&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;].&lt;/span&gt;&lt;span class="n"&gt;each&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;
+          &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;end&lt;/span&gt;
+        &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;minimum_value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;minimum&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;minimum&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;g&lt;/span&gt;
+      &lt;span class="k"&gt;end&lt;/span&gt;
+
+      &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;run&lt;/span&gt;
+        &lt;span class="n"&gt;collection&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="vi"&gt;@ruhoh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;collection&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;graphs&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="k"&gt;unless&lt;/span&gt; &lt;span class="n"&gt;collection&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;paths?&lt;/span&gt;
+          &lt;span class="ss"&gt;Ruhoh&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="ss"&gt;:Friend&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;say&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;yellow&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;collection&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;resource_name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;capitalize&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;: directory not found - skipping.&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+          &lt;span class="k"&gt;return&lt;/span&gt;
+        &lt;span class="k"&gt;end&lt;/span&gt;
+        &lt;span class="ss"&gt;Ruhoh&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="ss"&gt;:Friend&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;say&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;cyan&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;collection&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;resource_name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;capitalize&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;: (using gruff and yaml)&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="n"&gt;compiled_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;Ruhoh&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="ss"&gt;:Utils&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;url_to_path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="vi"&gt;@ruhoh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;collection&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;url_endpoint&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="vi"&gt;@ruhoh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;paths&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compiled&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="no"&gt;FileUtils&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mkdir_p&lt;/span&gt; &lt;span class="n"&gt;compiled_path&lt;/span&gt;
+        &lt;span class="n"&gt;collection&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;each&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;
+          &lt;span class="n"&gt;filepath&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;realpath&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+          &lt;span class="nb"&gt;name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="no"&gt;File&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;basename&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filepath&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;.*&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+          &lt;span class="n"&gt;compiled_file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="no"&gt;File&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;compiled_path&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="nb"&gt;name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;.png&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+          &lt;span class="c1"&gt;#load yaml&lt;/span&gt;
+          &lt;span class="n"&gt;dataset&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="no"&gt;YAML&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;load_file&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;filepath&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+          &lt;span class="c1"&gt;#write graph&lt;/span&gt;
+          &lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render_graph&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+          &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;compiled_file&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+          &lt;span class="ss"&gt;Ruhoh&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="ss"&gt;:Friend&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;say&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;green&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;  &amp;gt; &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="nb"&gt;name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;.png&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="k"&gt;end&lt;/span&gt;
+      &lt;span class="k"&gt;end&lt;/span&gt;
+    &lt;span class="k"&gt;end&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Тут все уже интереснее. В методе &lt;em&gt;render_graph&lt;/em&gt; описана сама процедура создания графика,
+а в методе run мы обходим все файлы &lt;em&gt;коллекции&lt;/em&gt;, и из них генерируем этим самым
+методом &lt;em&gt;render_graph&lt;/em&gt; итоговые картинки, и помещаем куда нужно.&lt;/p&gt;
+&lt;p&gt;Ну и для того, чтобы в preview-режиме мы тоже могли видеть эти картинки, существует файл&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;previewer.rb&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;require&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;gruff&amp;#39;&lt;/span&gt;
+&lt;span class="nb"&gt;require&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;yaml&amp;#39;&lt;/span&gt;
+&lt;span class="k"&gt;module&lt;/span&gt; &lt;span class="nn"&gt;Ruhoh::Resources::Graphs&lt;/span&gt;
+  &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Previewer&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;initialize&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ruhoh&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="vi"&gt;@ruhoh&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ruhoh&lt;/span&gt;
+    &lt;span class="k"&gt;end&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;call&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="n"&gt;collection&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="vi"&gt;@ruhoh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;collection&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;graphs&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="n"&gt;file_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="no"&gt;File&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;basename&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;PATH_INFO&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;.*&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;collection&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;find_file&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;file_name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;.yml&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+      &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+        &lt;span class="n"&gt;file_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;realpath&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+        &lt;span class="n"&gt;dataset&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="no"&gt;YAML&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;load_file&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;file_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;Ruhoh&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="ss"&gt;:Compiler&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Graphs&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render_graph&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="c1"&gt;#write graph&lt;/span&gt;
+        &lt;span class="n"&gt;blob&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_blob&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fileformat&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;PNG&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;200&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Content-Type&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;image/png&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;blob&lt;/span&gt;&lt;span class="o"&gt;]]&lt;/span&gt;
+      &lt;span class="k"&gt;else&lt;/span&gt;
+        &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;404&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Content-Type&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;text/html&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;},&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;file_name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt; not found&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;]]&lt;/span&gt;
+      &lt;span class="k"&gt;end&lt;/span&gt;
+    &lt;span class="k"&gt;end&lt;/span&gt;
+  &lt;span class="k"&gt;end&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;В нем описывается, как по запрошенному URL отдать сгенерированную "на лету" картинку,
+используя метод render_graph из compiler.rb.&lt;/p&gt;</summary><category term="Программирование"></category><category term="Ruby"></category><category term="Ruhoh"></category></entry><entry><title>И снова пользователи</title><link href="http://bulimov.ru/it/%D0%98-%D1%81%D0%BD%D0%BE%D0%B2%D0%B0-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D0%B8/" rel="alternate"></link><updated>2013-06-19T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-06-19:it/И-снова-пользователи/</id><summary type="html">&lt;p&gt;Я уже довольно давно понял, что не могу и не хочу работать с людьми,
+и уже около года поддержкой пользователей не занимаюсь.
+Однако сейчас наш офисный сисадмин в отпуске, и я вынужден снова этим заниматься.&lt;/p&gt;
+&lt;p&gt;Вот, к примеру, сегодня подошла ко мне тетя с просьбой помочь в отправлении
+с МФУ скана на email. Сам я этого никогда не делал, но сложности в этом не видел,
+и потому заявил ей, что покажу, как это делается. Однако, в процессе демонстрации
+выяснилось, что тете категорически не надо, чтоб я показал ей принцип. Ей нужно было
+что я &lt;em&gt;за нее&lt;/em&gt; отсканировал и отправил N листов. Причем на мое удивление она выдала
+потрясающую фразу: "Я же женщина, вы что, будете стоять и смотреть, как я сама это делаю?!"
+После такого я просто ушел, оставив тетю на попечение сердобольного пользователя, которому
+все равно было нечем заняться, и потому он рвался помочь ей. В результате, она села ему на шею,
+и он выполнил все за нее, чего она и добивалась.&lt;/p&gt;
+&lt;p&gt;Я, конечно, и сам такое не раз наблюдал, и ездили на мне так многие, пока я не набрался опыта.
+Я даже читал об этом у Лимончелли. Но каждый раз не устаю удивляться таким приспособленным людям...&lt;/p&gt;</summary><category term="Юзвери"></category></entry><entry><title>Что я думаю о Debian на серверах</title><link href="http://bulimov.ru/it/%D0%A7%D1%82%D0%BE-%D1%8F-%D0%B4%D1%83%D0%BC%D0%B0%D1%8E-%D0%BE-debian-%D0%BD%D0%B0-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%D1%85/" rel="alternate"></link><updated>2013-06-18T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-06-18:it/Что-я-думаю-о-debian-на-серверах/</id><summary type="html">&lt;p&gt;С 2010 года, когда я только начал заниматься системным администрированием,
+я использовал как основной серверный дистрибутив Debian.
+Это был изначально осознанный выбор, и на момент написания заметки таковым и остается.
+Конечно, я работал и с другими дистрибутивами, и потому мне есть и было с чем сравнить.
+По итогам работы с Debian и написана эта заметка.&lt;/p&gt;
+&lt;h1&gt;Негатив&lt;/h1&gt;
+&lt;h2&gt;Общесистемные лимиты&lt;/h2&gt;
+&lt;p&gt;В свое время, встала передо мной задача настройки под высокую нагрузку различных сервисов,
+в том числе PostgreSQL + pgbouncer. И конечно мне надо было подтюнить лимит количества
+открытых файлов для пользователя postgres, что я и попытался сделать, отредактировав
+&lt;strong&gt;/etc/security/limits.conf&lt;/strong&gt;. Но толку с этого не было, cat /proc/$PID/limits показывал
+в строке &lt;strong&gt;Max open files&lt;/strong&gt; все то же значение - 1024 файла, хотя ulimit -n от пользователя
+postgres показывал корректное значение (после su - postgres)&lt;/p&gt;
+&lt;p&gt;Я, был удивлен, и полез разбираться. Для начала - в /etc/pam.d
+Там я обнаружил, что отсутствует строчка
+&lt;code&gt;session    required   pam_limits.so&lt;/code&gt;
+в настройках для новой сессии везде, кроме настроек для su.
+Я эту строчку добавил для всех сессий, ради эксперимента.
+Но толку не было - сервисы запускались все так же с лимитом 1024.&lt;/p&gt;
+&lt;p&gt;Я полез разбираться дальше,и вот что выяснил:
+Лимиты применяются с помощью модуля pam_limits, и отлично работают при выполнении через
+su - username, однако при инициализации через start-stop-daemon лимиты не выставляются,
+поскольку start-stop-daemon не использует pam. Сам start-stop-daemon - это debian-специфичная вещь, представляет собой скрипт для запуска демонов, изначально написанный на Perl, а затем
+переписанный на C для ускорения. Что интересно, в RHEL6 и производных тоже используется свой
+инструмент для запуска демонов, но у них он основан на su и использует pam.
+В 2005 году по этому поводу был предложен &lt;a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=302079"&gt;патч&lt;/a&gt;,
+однако его так и не внесли в поставляемую версию start-stop-daemon.
+Также предлагались подобные патчи, основанные на инициализации сессии pam, и каждый раз отклонялись.&lt;/p&gt;
+&lt;h2&gt;Поломанный update-rc.d start/stop/defaults&lt;/h2&gt;
+&lt;p&gt;В &lt;strong&gt;squeeze&lt;/strong&gt; поломали update-rc.d start/stop/defaults, из-за чего не пашет disable service в chef.
+В puppet это &lt;a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=573551"&gt;обошли&lt;/a&gt;,
+а вот в chef - нет, так что пришлось патчить chef-client.&lt;/p&gt;
+&lt;h2&gt;Race condition в скриптах initramfs&lt;/h2&gt;
+&lt;p&gt;Крайне милый баг в &lt;strong&gt;squeeze&lt;/strong&gt;, из-за которого держать рут на lvm опасно.
+&lt;a href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=568838"&gt;Патч&lt;/a&gt; предложен в 2010,
+до сих пор не включен в апстрим, версия 6.0.7 все так же может не найти lvm тома при загрузке.
+У меня, к счастью, проявился только на некотором железе, которое пришло под новый проект,
+и дождалось выхода wheezy, в котором такой проблемы вроде нет.&lt;/p&gt;
+&lt;h2&gt;Инертное коммьюнити, в которое очень непросто пробиться&lt;/h2&gt;
+&lt;p&gt;Как можно заметить из предыдущих минусов, многие важные баги просто не хотят
+править, даже при наличии патчей. Если мейнтейнер конкретной области решит,
+что ваша проблема не стоит внимания - шансов на исправление крайне мало.&lt;/p&gt;
+&lt;h1&gt;Позитив&lt;/h1&gt;
+&lt;h2&gt;Пакетная база&lt;/h2&gt;
+&lt;p&gt;Безусловно, пакетная база Debian - это огромный плюс.
+Несмотря на то, что собрать нужный пакет под тот же RHEL6 не составляет труда, гораздо проще,
+когда этим за тебя занимаются другие люди, следящие за обновлениями.&lt;/p&gt;
+&lt;h2&gt;Относительная стабильность&lt;/h2&gt;
+&lt;p&gt;Несмотря на все недостатки и серьезные баги, система весьма стабильна,
+обновления хорошо тестируются, и проблем в эксплуатации не приносят.
+Тут, на мой взгляд, единственный конкурент Debian - это RHEL и его производные.
+Ключевое ПО все равно приходится ставить с репозиториев разработчиков,
+так что общая замшелость не является недостатком.&lt;/p&gt;</summary><category term="Debian"></category></entry><entry><title>Мнение о Chef</title><link href="http://bulimov.ru/it/%D0%9C%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE-chef/" rel="alternate"></link><updated>2013-06-17T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-06-17:it/Мнение-о-chef/</id><summary type="html">&lt;p&gt;Я использовал Chef для управления IT-инфраструктурой около полутора лет, начав с
+версии 0.10. Сначала, где-то пол-года, использовал только для управления конфигурациями,
+без развертывания ПО с нуля. Затем, уже на другой работе, автоматизировал управления
+конфигурациями и развертывание с нуля веб-проекта (30+ серверов, nginx, ruby, riak, redis,
+sphinx-search, rabbitmq и т.п.).
+Это позволило мне составить собственное мнение o достоинствах и недостатках Chef,
+и в этой заметке я свое мнение излагаю.&lt;/p&gt;
+&lt;p&gt;По итогу вышеописанной деятельности я был настолько утомлен
+недостатками Chef, что начал искать ему замену. Был рассмотрен Puppet и набиравший тогда
+популярность Ansible. Для объективного сравнения я реализовал часть из того,
+что уже было сделано для проекта с помощью Chef, с использованием этих двух SCM.
+По итогу, был выбран Ansible из-за невероятной читабельности получившихся playbook-ов,
+хотя Puppet также во многом обошел Chef. Особенно радовала декларативность Ansible и Puppet,
+а вот неопределенность порядка выполнения в Puppet огорчила.&lt;/p&gt;
+&lt;p&gt;Как-бы то ни было, по итогу работы с Chef у меня сложилось такое мнение:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;В случае комплексной, динамически изменяемой среды, когда требуется на-лету перенастраивать
+софт в автоматическом режиме - Chef идеален. Тут его императивность приходится как раз к месту,
+поскольку действия выполняются сложные, и зависят от состояния системы в конкретный момент.&lt;/li&gt;
+&lt;li&gt;В случае, когда мы имеем ограниченный набор хостов, имеющих каждый свою фиксированную роль, когда
+любое переконфигурирование выполнятся специалистом - Chef избыточен, и даже вреден, поскольку
+провоцирует писать конфиги-программы, а не конфиги-данные.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;Негатив:&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Ruby - язык хороший, но пакетировать и совмещать разные версии это ад.&lt;/li&gt;
+&lt;li&gt;Слабочитаемый конечный конфиг, представляющий собой код на ruby. Это главный минус.&lt;/li&gt;
+&lt;li&gt;Императивный стиль большинства рецептов.&lt;/li&gt;
+&lt;li&gt;Жуткая ruby-мешанина в большинстве публичных рецептов, кроме как LWRP использовать оттуда нечего.&lt;/li&gt;
+&lt;li&gt;Привязанность многих cookbooks к Ubuntu.&lt;/li&gt;
+&lt;li&gt;Сложная, хоть и продуманная архитектура.&lt;/li&gt;
+&lt;li&gt;Море зависимостей у клиента и сервера, проблемы с версиями Ruby. К примеру, для squeeze и ruby1.9.3 пришлось пересобрать более 10 пакетов.&lt;/li&gt;
+&lt;li&gt;Для debian пришлось патчить chef для обхода проблемы с неработающим update-rc.d stop, хотя в puppet уже был рабочий workaround.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;Позитив:&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;Окружения (environments).&lt;/li&gt;
+&lt;li&gt;Версии cookbook для каждого окружения, заморозка пакетов.&lt;/li&gt;
+&lt;li&gt;Готовые cookbooks, полезно для вникания.&lt;/li&gt;
+&lt;li&gt;Knife - отличный инстумент для любителей консоли вроде меня.&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="Chef"></category></entry></feed>

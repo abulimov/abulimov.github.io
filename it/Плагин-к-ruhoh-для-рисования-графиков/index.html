@@ -1,300 +1,487 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="ru"
+>
+<head>
+    <title>Плагин к Ruhoh для рисования графиков - Александр Булимов - записки сисадмина.</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
-    <title>Плагин к Ruhoh для рисования графиков</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Alexander Bulimov">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
 
-    <!-- Le styles -->
-<link href='/assets/stylesheets/bootstrap.min-88238289010db19359d2181e634e95cd.css' type='text/css' rel='stylesheet' media='all'>
-<link href='/assets/stylesheets/style-e81fa375b231bedf6cb2dbc6653570cc.css' type='text/css' rel='stylesheet' media='all'>
-<link href='/assets/stylesheets/google_prettify/sons-of-obsidian-afb0925bfa2d994f17dab93e13fbf999.css' type='text/css' rel='stylesheet' media='all'>
-    <!-- Le fav and touch icons -->
-  <!-- Update these with your own images
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  -->
-  </head>
 
-  <body>
+<link rel="canonical" href="http://bulimov.ru/it/Плагин-к-ruhoh-для-рисования-графиков/">
 
-    <div class="navbar">
-      <div class="navbar-inner">
-        <div class="container-narrow">
-          <a class="brand" href="/">Alexander Bulimov&#39;s blog</a>
-          <ul class="nav">
-              
-                <li><a href="/archive">Статьи</a></li>
-              
-              
-                <li><a href="/tags">Теги</a></li>
-              
-              
-                <li><a href="/categories">Категории</a></li>
-              
-              
-                <li><a href="/about">Обо мне</a></li>
-              
-          </ul>
+        <meta name="author" content="Alexander Bulimov" />
+        <meta name="keywords" content="Программирование,Ruby,Ruhoh" />
+        <meta name="description" content="Еще планируя создание статического блога на Hakyll я хотел реализовать рисование графиков &#34;на лету&#34; из отдельно хранящихся данных. Но с Hakyll не сложилось, и после долгих поисков я остановился на Ruhoh. Все нижеописанное относится к Ruhoh 2.1 Цель Рисовать графики из данных, хранящихся в человеко-читаемом виде. Нужно мне это было для визуализации своих спортивных тренировок. Решение Конечно, я решил оформить все в виде плагина к Ruhoh, благо возможность такая ..." />
+
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://bulimov.ru/theme/css/bootstrap.slate.min.css" type="text/css"/>
+    <link href="http://bulimov.ru/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://bulimov.ru/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://bulimov.ru/theme/css/style.css" type="text/css"/>
+        <link href="http://bulimov.ru/static/custom.css" rel="stylesheet">
+
+        <link href="http://bulimov.ru/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Александр Булимов - записки сисадмина. ATOM Feed"/>
+        <link href="http://bulimov.ru/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
+              title="Александр Булимов - записки сисадмина. RSS Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://bulimov.ru/" class="navbar-brand">
+Александр Булимов - записки сисадмина.            </a>
         </div>
-      </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="http://bulimov.ru/archive/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
+</div> <!-- /.navbar -->
 
-    <div class="container-narrow">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
 
-      <div class="content">
-        
-<div class="page-header">
-  <h1>Плагин к Ruhoh для рисования графиков </h1>
-</div>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://bulimov.ru/it/Плагин-к-ruhoh-для-рисования-графиков/"
+                       rel="bookmark"
+                       title="Permalink to Плагин к Ruhoh для рисования графиков">
+                        Плагин к Ruhoh для рисования графиков
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2013-06-21T00:00:00"> Пт. 21 Июнь 2013</time>
+    </span>
 
-<div class="row-fluid post-full">
-  <div class="span12">
-    <div class="date">
-      <span>2013-06-21</strong>
-    </div>
-    <div class="content">
-      <p>Еще планируя создание статического блога на Hakyll я хотел реализовать рисование
-графиков &quot;на лету&quot; из отдельно хранящихся данных. Но с Hakyll не сложилось,
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
+        /
+	<a href="http://bulimov.ru/tag/ruby.html">Ruby</a>
+        /
+	<a href="http://bulimov.ru/tag/ruhoh.html">Ruhoh</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>Еще планируя создание статического блога на Hakyll я хотел реализовать рисование
+графиков "на лету" из отдельно хранящихся данных. Но с Hakyll не сложилось,
 и после долгих поисков я остановился на <a href="http://ruhoh.com/">Ruhoh</a>.</p>
-
 <p>Все нижеописанное относится к <strong>Ruhoh 2.1</strong></p>
-
-<h3 id="toc_0">Цель</h3>
-
+<h3>Цель</h3>
 <p>Рисовать графики из данных, хранящихся в человеко-читаемом виде.
 Нужно мне это было для визуализации своих спортивных тренировок.</p>
-
-<h3 id="toc_1">Решение</h3>
-
+<h3>Решение</h3>
 <p>Конечно, я решил оформить все в виде плагина к Ruhoh, благо возможность такая есть,
 да и программировать я люблю. Язык разработки Ruby, поскольку сам Ruhoh написан на Ruby.</p>
-
 <p>Документация конечно не блещет, так что пришлось покопаться в исходном коде Ruhoh.</p>
-
 <p>В результате появился плагин, берущий данные из yaml-файлов, и стоящий по ним графики
 с помощью <a href="http://rubygems.org/gems/gruff">gruff</a>.</p>
-
 <p>Плагин состоит из 3х файлов:</p>
-
 <p><strong>collection.rb</strong></p>
+<div class="highlight"><pre><span class="k">module</span> <span class="nn">Ruhoh::Resources::Graphs</span>
+  <span class="k">class</span> <span class="nc">Collection</span>
+    <span class="kp">include</span> <span class="ss">Ruhoh</span><span class="p">:</span><span class="ss">:Base</span><span class="o">::</span><span class="no">Collectable</span>
 
-<pre>
-module Ruhoh::Resources::Graphs
-  class Collection
-    include Ruhoh::Base::Collectable
+    <span class="k">def</span> <span class="nf">url_endpoint</span>
+      <span class="s2">&quot;/assets/graphs&quot;</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
 
-    def url_endpoint
-      "/assets/graphs"
-    end
-  end
-end
-</pre>
 
 <p>Тут мы кроме url_endpoint ничего особо и не описываeм. Url_endpoint нужен для указания,
 где будут в итоге лежать получившиеся графики</p>
-
 <p><strong>compiler.rb</strong></p>
+<div class="highlight"><pre><span class="nb">require</span> <span class="s1">&#39;gruff&#39;</span>
+<span class="nb">require</span> <span class="s1">&#39;yaml&#39;</span>
 
-<pre>
-require 'gruff'
-require 'yaml'
-class Ruhoh
-  module Compiler
-    class Graphs
-      def initialize(ruhoh)
-        @ruhoh = ruhoh
-      end
+<span class="k">class</span> <span class="nc">Ruhoh</span>
+  <span class="k">module</span> <span class="nn">Compiler</span>
+    <span class="k">class</span> <span class="nc">Graphs</span>
+      <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">ruhoh</span><span class="p">)</span>
+        <span class="vi">@ruhoh</span> <span class="o">=</span> <span class="n">ruhoh</span>
+      <span class="k">end</span>
 
-      def self.render_graph(dataset)
+      <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">render_graph</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
 
-        #create graph
-        type = dataset['type'] || 'line'
-        size = dataset['size'] || 400
-        klass = Gruff.const_get(type.capitalize)
-        g = klass.new(size)
-        g.title = dataset['title'] || 'Unknown'
-        g.theme_pastel()
-        g.y_axis_increment = dataset['step'] if dataset['step']
-        g.y_axis_label = dataset['y_axis_label'] if dataset['y_axis_label']
-        g.x_axis_label = dataset['x_axis_label'] if dataset['x_axis_label']
-        g.labels = dataset['labels']
-        dataset['data'].each do |data|
-          g.data(data[0], data[1])
-        end
-        g.minimum_value = dataset['minimum'] if dataset['minimum']
+        <span class="c1">#create graph</span>
+        <span class="n">type</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">[</span><span class="s1">&#39;type&#39;</span><span class="o">]</span> <span class="o">||</span> <span class="s1">&#39;line&#39;</span>
+        <span class="n">size</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">[</span><span class="s1">&#39;size&#39;</span><span class="o">]</span> <span class="o">||</span> <span class="mi">400</span>
+        <span class="n">klass</span> <span class="o">=</span> <span class="no">Gruff</span><span class="o">.</span><span class="n">const_get</span><span class="p">(</span><span class="n">type</span><span class="o">.</span><span class="n">capitalize</span><span class="p">)</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="n">klass</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+        <span class="n">g</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">[</span><span class="s1">&#39;title&#39;</span><span class="o">]</span> <span class="o">||</span> <span class="s1">&#39;Unknown&#39;</span>
+        <span class="n">g</span><span class="o">.</span><span class="n">theme_pastel</span><span class="p">()</span>
+        <span class="n">g</span><span class="o">.</span><span class="n">y_axis_increment</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">[</span><span class="s1">&#39;step&#39;</span><span class="o">]</span> <span class="k">if</span> <span class="n">dataset</span><span class="o">[</span><span class="s1">&#39;step&#39;</span><span class="o">]</span>
+        <span class="n">g</span><span class="o">.</span><span class="n">y_axis_label</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">[</span><span class="s1">&#39;y_axis_label&#39;</span><span class="o">]</span> <span class="k">if</span> <span class="n">dataset</span><span class="o">[</span><span class="s1">&#39;y_axis_label&#39;</span><span class="o">]</span>
+        <span class="n">g</span><span class="o">.</span><span class="n">x_axis_label</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">[</span><span class="s1">&#39;x_axis_label&#39;</span><span class="o">]</span> <span class="k">if</span> <span class="n">dataset</span><span class="o">[</span><span class="s1">&#39;x_axis_label&#39;</span><span class="o">]</span>
+        <span class="n">g</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">[</span><span class="s1">&#39;labels&#39;</span><span class="o">]</span>
+        <span class="n">dataset</span><span class="o">[</span><span class="s1">&#39;data&#39;</span><span class="o">].</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">data</span><span class="o">|</span>
+          <span class="n">g</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">data</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span> <span class="n">data</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span>
+        <span class="k">end</span>
+        <span class="n">g</span><span class="o">.</span><span class="n">minimum_value</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">[</span><span class="s1">&#39;minimum&#39;</span><span class="o">]</span> <span class="k">if</span> <span class="n">dataset</span><span class="o">[</span><span class="s1">&#39;minimum&#39;</span><span class="o">]</span>
 
-        return g
-      end
+        <span class="k">return</span> <span class="n">g</span>
+      <span class="k">end</span>
 
-      def run
-        collection = @ruhoh.collection('graphs')
-        unless collection.paths?
-          Ruhoh::Friend.say { yellow "#{collection.resource_name.capitalize}: directory not found - skipping." }
-        return
-        end
-        Ruhoh::Friend.say { cyan "#{collection.resource_name.capitalize}: (using gruff and yaml)" }
-        compiled_path = Ruhoh::Utils.url_to_path(@ruhoh.to_url(collection.url_endpoint), @ruhoh.paths.compiled)
-        FileUtils.mkdir_p compiled_path
-        collection.files.values.each do |file|
-          filepath = file['realpath']
-          name = File.basename(filepath, '.*')
-          compiled_file = File.join(compiled_path, "#{name}.png")
+      <span class="k">def</span> <span class="nf">run</span>
+        <span class="n">collection</span> <span class="o">=</span> <span class="vi">@ruhoh</span><span class="o">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;graphs&#39;</span><span class="p">)</span>
+        <span class="k">unless</span> <span class="n">collection</span><span class="o">.</span><span class="n">paths?</span>
+          <span class="ss">Ruhoh</span><span class="p">:</span><span class="ss">:Friend</span><span class="o">.</span><span class="n">say</span> <span class="p">{</span> <span class="n">yellow</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">collection</span><span class="o">.</span><span class="n">resource_name</span><span class="o">.</span><span class="n">capitalize</span><span class="si">}</span><span class="s2">: directory not found - skipping.&quot;</span> <span class="p">}</span>
+          <span class="k">return</span>
+        <span class="k">end</span>
+        <span class="ss">Ruhoh</span><span class="p">:</span><span class="ss">:Friend</span><span class="o">.</span><span class="n">say</span> <span class="p">{</span> <span class="n">cyan</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">collection</span><span class="o">.</span><span class="n">resource_name</span><span class="o">.</span><span class="n">capitalize</span><span class="si">}</span><span class="s2">: (using gruff and yaml)&quot;</span> <span class="p">}</span>
+        <span class="n">compiled_path</span> <span class="o">=</span> <span class="ss">Ruhoh</span><span class="p">:</span><span class="ss">:Utils</span><span class="o">.</span><span class="n">url_to_path</span><span class="p">(</span><span class="vi">@ruhoh</span><span class="o">.</span><span class="n">to_url</span><span class="p">(</span><span class="n">collection</span><span class="o">.</span><span class="n">url_endpoint</span><span class="p">),</span> <span class="vi">@ruhoh</span><span class="o">.</span><span class="n">paths</span><span class="o">.</span><span class="n">compiled</span><span class="p">)</span>
+        <span class="no">FileUtils</span><span class="o">.</span><span class="n">mkdir_p</span> <span class="n">compiled_path</span>
+        <span class="n">collection</span><span class="o">.</span><span class="n">files</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span>
+          <span class="n">filepath</span> <span class="o">=</span> <span class="n">file</span><span class="o">[</span><span class="s1">&#39;realpath&#39;</span><span class="o">]</span>
+          <span class="nb">name</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="s1">&#39;.*&#39;</span><span class="p">)</span>
+          <span class="n">compiled_file</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">compiled_path</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">.png&quot;</span><span class="p">)</span>
 
-          #load yaml
-          dataset = YAML.load_file(filepath)
+          <span class="c1">#load yaml</span>
+          <span class="n">dataset</span> <span class="o">=</span> <span class="no">YAML</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
 
-          #write graph
-          g = self.render_graph(dataset)
-          g.write(compiled_file)
-          Ruhoh::Friend.say { green "  > #{name}.png" }
-        end
-      end
-    end
-  end
-end
-</pre>
+          <span class="c1">#write graph</span>
+          <span class="n">g</span> <span class="o">=</span> <span class="nb">self</span><span class="o">.</span><span class="n">render_graph</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
+          <span class="n">g</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">compiled_file</span><span class="p">)</span>
+          <span class="ss">Ruhoh</span><span class="p">:</span><span class="ss">:Friend</span><span class="o">.</span><span class="n">say</span> <span class="p">{</span> <span class="n">green</span> <span class="s2">&quot;  &gt; </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">.png&quot;</span> <span class="p">}</span>
+        <span class="k">end</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+
 
 <p>Тут все уже интереснее. В методе <em>render_graph</em> описана сама процедура создания графика,
 а в методе run мы обходим все файлы <em>коллекции</em>, и из них генерируем этим самым
 методом <em>render_graph</em> итоговые картинки, и помещаем куда нужно.</p>
-
 <p>Ну и для того, чтобы в preview-режиме мы тоже могли видеть эти картинки, существует файл</p>
-
 <p><strong>previewer.rb</strong></p>
+<div class="highlight"><pre><span class="nb">require</span> <span class="s1">&#39;gruff&#39;</span>
+<span class="nb">require</span> <span class="s1">&#39;yaml&#39;</span>
+<span class="k">module</span> <span class="nn">Ruhoh::Resources::Graphs</span>
+  <span class="k">class</span> <span class="nc">Previewer</span>
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">ruhoh</span><span class="p">)</span>
+      <span class="vi">@ruhoh</span> <span class="o">=</span> <span class="n">ruhoh</span>
+    <span class="k">end</span>
 
-<pre>
-require 'gruff'
-require 'yaml'
-module Ruhoh::Resources::Graphs
-  class Previewer
-    def initialize(ruhoh)
-      @ruhoh = ruhoh
-    end
+    <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="n">env</span><span class="p">)</span>
+      <span class="n">collection</span> <span class="o">=</span> <span class="vi">@ruhoh</span><span class="o">.</span><span class="n">collection</span><span class="p">(</span><span class="s1">&#39;graphs&#39;</span><span class="p">)</span>
+      <span class="n">file_name</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">env</span><span class="o">[</span><span class="s2">&quot;PATH_INFO&quot;</span><span class="o">]</span><span class="p">,</span> <span class="s1">&#39;.*&#39;</span><span class="p">)</span>
+      <span class="n">file</span> <span class="o">=</span> <span class="n">collection</span><span class="o">.</span><span class="n">find_file</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">file_name</span><span class="si">}</span><span class="s2">.yml&quot;</span><span class="p">)</span>
+      <span class="k">if</span> <span class="n">file</span> <span class="k">then</span>
+        <span class="n">file_path</span> <span class="o">=</span> <span class="n">file</span><span class="o">[</span><span class="s1">&#39;realpath&#39;</span><span class="o">]</span>
+        <span class="n">dataset</span> <span class="o">=</span> <span class="no">YAML</span><span class="o">.</span><span class="n">load_file</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
 
-    def call(env)
-      collection = @ruhoh.collection('graphs')
-      file_name = File.basename(env["PATH_INFO"], '.*')
-      file = collection.find_file("#{file_name}.yml")
-      if file then
-        file_path = file['realpath']
-        dataset = YAML.load_file(file_path)
+        <span class="n">g</span> <span class="o">=</span> <span class="ss">Ruhoh</span><span class="p">:</span><span class="ss">:Compiler</span><span class="o">::</span><span class="no">Graphs</span><span class="o">.</span><span class="n">render_graph</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
 
-        g = Ruhoh::Compiler::Graphs.render_graph(dataset)
+        <span class="c1">#write graph</span>
+        <span class="n">blob</span> <span class="o">=</span> <span class="n">g</span><span class="o">.</span><span class="n">to_blob</span><span class="p">(</span><span class="n">fileformat</span><span class="o">=</span><span class="s1">&#39;PNG&#39;</span><span class="p">)</span>
+        <span class="o">[</span><span class="mi">200</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;image/png&#39;</span><span class="p">},</span> <span class="o">[</span><span class="n">blob</span><span class="o">]]</span>
+      <span class="k">else</span>
+        <span class="o">[</span><span class="mi">404</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Content-Type&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;text/html&#39;</span><span class="p">},</span> <span class="o">[</span><span class="s2">&quot;</span><span class="si">#{</span><span class="n">file_name</span><span class="si">}</span><span class="s2"> not found&quot;</span><span class="o">]]</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
 
-        #write graph
-        blob = g.to_blob(fileformat='PNG')
-        [200, {'Content-Type' => 'image/png'}, [blob]]
-      else
-        [404, {'Content-Type' => 'text/html'}, ["#{file_name} not found"]]
-      end
-    end
-  end
-end
-</pre>
 
-<p>В нем описывается, как по запрошенному URL отдать сгенерированную &quot;на лету&quot; картинку,
+<p>В нем описывается, как по запрошенному URL отдать сгенерированную "на лету" картинку,
 используя метод render_graph из compiler.rb.</p>
-
-<p>Актуальные версии описанных файлов можно найти в моем <a href="https://github.com/abulimov/abulimov.github.io">репозитории</a>, где хранятся исходники этого блога.</p>
-
-    </div>
-    <ul class="tag_box inline">
-      <li><i class="icon-folder-open"></i></li>
-      <li>
-        <a href="/categories#IT-ref">IT <span>21</span></a>
-      </li>
+            </div>
+            <!-- /.entry-content -->
+<section class="well" id="related-posts">
+    <h4>Related Posts:</h4>
+    <ul>
+        <li><a href="http://bulimov.ru/it/Включил-комментарии/">Включил комментарии</a></li>
+        <li><a href="http://bulimov.ru/it/Переписал-скрипты-на-ruby-для-sensu/">Переписал скрипты на Ruby для Sensu</a></li>
+        <li><a href="http://bulimov.ru/it/О-любви-к-программированию/">О любви к программированию</a></li>
     </ul>
-    <ul class="tag_box inline">
-      <li><i class="icon-tags"></i></li>
-      <li>
-        <a href="/tags#Программирование-ref">Программирование <span>2</span></a>
-      </li>
-      <li>
-        <a href="/tags#IT-ref">IT <span>20</span></a>
-      </li>
-      <li>
-        <a href="/tags#Ruby-ref">Ruby <span>1</span></a>
-      </li>
-      <li>
-        <a href="/tags#Ruhoh-ref">Ruhoh <span>2</span></a>
-      </li>
-    </ul>
-    <hr>
-    <div class="pagination">
-      <ul>
-          <li class="prev"><a href="/it/%D0%98-%D1%81%D0%BD%D0%BE%D0%B2%D0%B0-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D0%B8" title="И снова пользователи">&larr; Previous</a></li>
+</section>
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
 
-          <li><a href="/archive">Archive</a></li>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
 
-          <li class="next"><a href="/it/%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5-%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-zabbix" title="Низкоуровневое обнаружение в Zabbix">Next &rarr;</a></li>
+                    var disqus_identifier = 'Плагин-к-ruhoh-для-рисования-графиков';
+                var disqus_url = 'http://bulimov.ru/it/Плагин-к-ruhoh-для-рисования-графиков/';
+
+            var disqus_config = function () {
+                this.language = "ru";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="aboutme">
+<p>
+    <strong>About Alexander Bulimov</strong><br/>
+    Меня зовут Александр Викторович Булимов, я сисадмин из Москвы, работаю с Linux с 2010 года.<br><br>Практикую методологию DevOps. Использую для управления серверами <a href=http://www.ansible.com/>Ansible</a>, до этого использовал <a href=http://www.opscode.com/chef/>Chef</a>. Люблю программировать, автор нескольких модулей к Ansible.
+</p>        </div>
+        <div class="col-sm-3 well well-sm" id="sidebar">
+
+<aside>
+    <section>
+        <ul class="list-group list-group-flush">
+                <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+                  <ul class="list-group" id="social">
+                    <li class="list-group-item"><a href="https://github.com/abulimov"><i class="fa fa-github-square fa-lg"></i> GitHub</a></li>
+                    <li class="list-group-item"><a href="https://www.facebook.com/profile.php?id=1505350810"><i class="fa fa-facebook-square fa-lg"></i> Facebook</a></li>
+                    <li class="list-group-item"><a href="https://plus.google.com/102209846851870884693/about"><i class="fa fa-google-plus-square fa-lg"></i> Google+</a></li>
+                    <li class="list-group-item"><a href="http://ru.linkedin.com/pub/александр-булимов/7b/692/a92/"><i class="fa fa-linkedin-square fa-lg"></i> LinkedIn</a></li>
+                    <li class="list-group-item"><a href="http://habrahabr.ru/users/lazywolf/"><i class="fa fa-habrahabr-square fa-lg"></i> Habrahabr</a></li>
+                    <li class="list-group-item"><a href="http://vk.com/a_v_bulimov"><i class="fa fa-vk-square fa-lg"></i> VK</a></li>
+                    <li class="list-group-item"><a href="/feeds/all.rss.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
+                  </ul>
+                </li>
+
+
+
+                <li class="list-group-item"><a href="http://bulimov.ru/tags/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                    <ul class="list-group " id="tags">
+                        <li class="list-group-item tag-1">
+                            <a href="http://bulimov.ru/tag/zhizn.html">
+                                Жизнь
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
+                            <a href="http://bulimov.ru/tag/ansible.html">
+                                Ansible
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-1">
+                            <a href="http://bulimov.ru/tag/python.html">
+                                Python
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-2">
+                            <a href="http://bulimov.ru/tag/zabbix.html">
+                                Zabbix
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-2">
+                            <a href="http://bulimov.ru/tag/chef.html">
+                                Chef
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-2">
+                            <a href="http://bulimov.ru/tag/cisco.html">
+                                Cisco
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-3">
+                            <a href="http://bulimov.ru/tag/ruhoh.html">
+                                Ruhoh
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-3">
+                            <a href="http://bulimov.ru/tag/mikrotik.html">
+                                MikroTik
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-3">
+                            <a href="http://bulimov.ru/tag/programmirovanie.html">
+                                Программирование
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-3">
+                            <a href="http://bulimov.ru/tag/sensu.html">
+                                Sensu
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-3">
+                            <a href="http://bulimov.ru/tag/ruby.html">
+                                Ruby
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/nginx.html">
+                                Nginx
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/lua.html">
+                                Lua
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/tmux.html">
+                                tmux
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/iuzveri.html">
+                                Юзвери
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/pelican.html">
+                                Pelican
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/knigi.html">
+                                Книги
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/rancid.html">
+                                Rancid
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/ubuntu.html">
+                                Ubuntu
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/serverspec.html">
+                                serverspec
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/debian.html">
+                                Debian
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/vps.html">
+                                VPS
+                            </a>
+                        </li>
+                        <li class="list-group-item tag-4">
+                            <a href="http://bulimov.ru/tag/juniper.html">
+                                Juniper
+                            </a>
+                        </li>
+                    </ul>
+                </li>    
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://getpelican.com/" target="_blank">
+                Pelican
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://python.org/" target="_blank">
+                Python.org
+            </a>
+        </li>
       </ul>
+    </li>
+
+        </ul>
+    </section>
+
+</aside>        </div>
     </div>
-    <hr>
-    <div id="disqus_thread"></div>
-<script>
-    var disqus_developer = 1;
-    var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
-  </div>
 </div>
-
-
-      </div>
-
+<footer>
+   <div class="container">
       <hr>
-      <div class="footer">
-          <p>&copy; <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a> Alexander Bulimov
-          with help from <a href="http://ruhoh.com" target="_blank" title="The Definitive Technical Blogging Framework">ruhoh</a>
-          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
-        </p>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2014 Alexander Bulimov
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
       </div>
+   </div>
+</footer>
+<script src="http://bulimov.ru/theme/js/jquery.min.js"></script>
 
-    </div> <!-- /container -->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://bulimov.ru/theme/js/bootstrap.min.js"></script>
 
-    <!-- Google Prettify -->
-<script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/188.0.0/prettify.js"></script>
-<script>
-  var pres = document.getElementsByTagName("pre");
-  for (var i=0; i < pres.length; ++i) {
-    pres[i].className = "prettyprint linenums";
-  }
-  prettyPrint();
-</script>
-<!-- end Google Prettify -->
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://bulimov.ru/theme/js/respond.min.js"></script>
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
     <script type="text/javascript">
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-49230997-1']);
-  _gaq.push(['_trackPageview']);
-  
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-49230997-1']);
+        _gaq.push(['_trackPageview']);
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-
-
-
-  </body>
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+</body>
 </html>
