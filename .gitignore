@@ -1,2 +1,4 @@
-compiled/*
-*.lock
+*.pid
+cache
+output
+*.pyc
