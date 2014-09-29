@@ -23,7 +23,7 @@ TIMEZONE = 'Europe/Moscow'
 
 DEFAULT_LANG = 'ru'
 
-PLUGINS = ["related_posts"]
+PLUGINS = ["related_posts", "sitemap"]
 
 THEME = 'pelican-bootstrap3'
 BOOTSTRAP_THEME = 'slate'
@@ -77,6 +77,19 @@ SOCIAL = (
     ('RSS', '/feeds/all.rss.xml'),
 )
 
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.5,
+        'indexes': 0.5,
+        'pages': 0.5
+    },
+    'changefreqs': {
+        'articles': 'monthly',
+        'indexes': 'daily',
+        'pages': 'monthly'
+    }
+}
 
 DEFAULT_PAGINATION = 10
 
