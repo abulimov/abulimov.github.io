@@ -1,5 +1,6 @@
 Title: Разбирался с page-cache в Linux
 Slug: meminfo-visualizer
+Tags: Kernel, Python, Программирование, Книги
 
 Читая книгу ["Разработка ядра Linux"](http://www.williamspublishing.com/Books/5-8459-1085-4.html) за авторством Роберта Лава,
 я решил поглубже разобраться в том, как работает кэш в Linux,
