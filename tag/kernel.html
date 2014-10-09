@@ -2,7 +2,7 @@
 <html lang="ru"
 >
 <head>
-    <title>Python - Александр Булимов - записки сисадмина.</title>
+    <title>Kernel - Александр Булимов - записки сисадмина.</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -12,7 +12,7 @@
 
 
     <meta name="author" content="Alexander Bulimov" />
-    <meta name="keywords" content="Python" />
+    <meta name="keywords" content="Kernel" />
 
     <!-- Open Graph tags -->
         <meta property="og:site_name" content="Александр Булимов - записки сисадмина." />
@@ -96,154 +96,6 @@
 <p>Конечно, мне захотелось в образовательных целях написать такую утилиту для себя,
 чтобы можно ...</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/meminfo-visualizer/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/from-ruhoh-to-pelican/">s/Ruhoh/Pelican/</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-09-25T00:00:00"> Чт. 25 Сентябрь 2014</time>
-    </span>
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/pelican.html">Pelican</a>
-        /
-	<a href="http://bulimov.ru/tag/python.html">Python</a>
-        /
-	<a href="http://bulimov.ru/tag/zhizn.html">Жизнь</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Переехал с <a href="http://ruhoh.com">Ruhoh</a> на <a href="http://getpelican.com">Pelican</a>,
-потому что Python.</p>
-<p>А если подробнее - потому что Ruhoh написан на Ruby, и не особо развивается.
-А Pelican написан на Python, который является моим основным языком,
-и уже давно и активно развивается, и обладает обширной базой
-<a href="https://github.com/getpelican/pelican-plugins">плагинов</a> и
-<a href="https://github.com/getpelican/pelican-themes">тем</a>.</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/from-ruhoh-to-pelican/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/Выложил-немного-полезностей/">Выложил немного полезностей</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-09-17T00:00:00"> Ср. 17 Сентябрь 2014</time>
-    </span>
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/python.html">Python</a>
-        /
-	<a href="http://bulimov.ru/tag/zabbix.html">Zabbix</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Когда я писал про то, как <a href="/it/Переписал-скрипты-на-ruby-для-sensu">переписал скрипты для Sensu</a>,
-я слегка слукавил. Изначально, я написал эти скрипты на Python,
-и только потом на Ruby. Поскольку пользователям других Nagios-совместимых
-систем мониторинга может показаться неудобным использование ruby-скриптов,
-да еще и с зависимостью от гема sensu-plugin, я решил выложить
-и Python-версии скриптов.</p>
-<p>Если кому хочется мониторить состояние дисков в raid-контроллерах от 3ware или
-HP SmartArray на чистом Python - милости просим, все
-<a href="https://github.com/abulimov/utils/tree/master/nagios">в ...</a></p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Выложил-немного-полезностей/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-08-11T00:00:00"> Пн. 11 Август 2014</time>
-    </span>
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/ansible.html">Ansible</a>
-        /
-	<a href="http://bulimov.ru/tag/python.html">Python</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Свершилось чудо, и мой <a href="https://github.com/ansible/ansible/blob/devel/library/monitoring/zabbix_maintenance">модуль</a>
-для Ansible, который умеет создавать и удалять периоды "в обслуживании" в Zabbix,
-наконец-то <a href="https://github.com/ansible/ansible/pull/5062">приняли</a> в апстрим.
-Это уже третий мой модуль, принятый в апстрим Ansible.</p>
-<p>Краткая история:</p>
-<p>Модуль этот я запушил еще в 26 ноября 2013 года, но 21 декабря
-<a href="https://github.com/cove">cove</a> написал в комментарии к моему модулю,
-что планирует выложить целую <a href="https://github.com/ansible/ansible/pull/6034">пачку</a>
-модулей для взаимодействия с Zabbix из Ansible.
-Это отложило принятие моего модуля в ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware/">Низкоуровневое обнаружение в Zabbix, ищем диски в контроллере от 3ware</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-08-14T00:00:00"> Ср. 14 Август 2013</time>
-    </span>
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/zabbix.html">Zabbix</a>
-        /
-	<a href="http://bulimov.ru/tag/python.html">Python</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Я уже <a href="/it/Низкоуровневое-обнаружение-в-zabbix"> писал </a> про <a href="https://www.zabbix.com/documentation/ru/2.0/manual/discovery/low_level_discovery">низкоуровневое обнаружение</a>
-в Zabbix, так что повторять теорию не буду.</p>
-<p>Теперь мне понадобилось автоматом получать список хардов в массивах
-на контроллерах 3ware, которыми оборудованы у нас многие сервера.</p>
-<p>Вести руками шаблоны для каждого сервера с иным порядком или количеством дисков
-показалось мне плохой идеей, да и авто-обнаружение само напрашивалось.</p>
-<p>Вдохновлялся я утилитой 3ware-status, для работы авто-обнаружения нам потребуется
-установленная утилита tw-cli, взять ее для Debian/Ubuntu ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix/">Низкоуровневое обнаружение в Zabbix</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-06-26T00:00:00"> Ср. 26 Июнь 2013</time>
-    </span>
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/zabbix.html">Zabbix</a>
-        /
-	<a href="http://bulimov.ru/tag/python.html">Python</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>В используемой мной системе мониторинга Zabbix, начиная с версии 2.0,
-появилась такая любопытная штука, как <a href="https://www.zabbix.com/documentation/ru/2.0/manual/discovery/low_level_discovery">низкоуровневое обнаружение</a></p>
-<p>Я не буду пересказывать содержимое документации, расскажу лучше о том, как я писал свой тип
-обнаружения для мониторинга очередей RabbitMQ.</p>
-<p>Проблема в том, что очередей в RabbitMQ может быть много, и, по мере развития веб-проекта,
-они меняются. Так что я решил обнаруживать их автоматически, и написал для этого свой провайдер
-данных для ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix/">more ...</a>
                 </div>
             </article>
             <hr/>

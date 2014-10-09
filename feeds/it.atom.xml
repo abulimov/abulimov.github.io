@@ -190,7 +190,7 @@
 удалить large2 и увидеть, как освободился inactive cache.&lt;/p&gt;
 &lt;p&gt;Вот такой вот опыт позволяет увидеть некоторые проблемы в работе с кэшами в актуальных
 ядрах Linux. Будет интересно повторить эксперимент на свежих ядрах после улучшений
-в области Memory Management.&lt;/p&gt;</summary></entry><entry><title>Инфраструктура как код</title><link href="http://bulimov.ru/it/infrastructure-as-a-code/" rel="alternate"></link><updated>2014-09-29T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-09-29:it/infrastructure-as-a-code/</id><summary type="html">&lt;p&gt;Есть такой тренд сейчас - работать с IT-инфраструктурой как с кодом.
+в области Memory Management.&lt;/p&gt;</summary><category term="Kernel"></category><category term="Python"></category><category term="Программирование"></category><category term="Книги"></category></entry><entry><title>Инфраструктура как код</title><link href="http://bulimov.ru/it/infrastructure-as-a-code/" rel="alternate"></link><updated>2014-09-29T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-09-29:it/infrastructure-as-a-code/</id><summary type="html">&lt;p&gt;Есть такой тренд сейчас - работать с IT-инфраструктурой как с кодом.
 Хорошо цель этого метода описывается этой цитатой:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;“Enable the reconstruction of the business from nothing but a source code repository, an application data backup, and bare metal resources”&lt;/p&gt;
