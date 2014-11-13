@@ -2,7 +2,7 @@
 <html lang="ru"
 >
 <head>
-    <title>Мнение о Chef - Александр Булимов - записки сисадмина.</title>
+    <title>Удобная настройка Sensu с Ansible - Александр Булимов - записки сисадмина.</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,11 +10,11 @@
 
 
 
-<link rel="canonical" href="http://bulimov.ru/it/Мнение-о-chef/">
+<link rel="canonical" href="http://bulimov.ru/it/ansible-sensu/">
 
         <meta name="author" content="Alexander Bulimov" />
-        <meta name="keywords" content="Chef" />
-        <meta name="description" content="Я использовал Chef для управления IT-инфраструктурой около полутора лет, начав с версии 0.10. Сначала, где-то пол-года, использовал только для управления конфигурациями, без развертывания ПО с нуля. Затем, уже на другой работе, автоматизировал управления конфигурациями и развертывание с нуля веб-проекта (30+ серверов, nginx, ruby, riak, redis, sphinx-search, rabbitmq и т.п.). Это позволило мне составить собственное мнение o достоинствах и недостатках Chef, и в этой заметке я свое мнение излагаю ..." />
+        <meta name="keywords" content="Ansible,Sensu" />
+        <meta name="description" content="Так как я использую Sensu для мониторинга, и Ansible для управления конфигурациями, то конечно же я настраиваю Sensu с помощью Ansible. В этой связке меня смущало только одно - Sensu использует JSON для конфигов, в то время как Ansible использует YAML. Поскольку JSON является подмножеством YAML, и описывать конфигурации в YAML гораздо проще (никаких проблем с запятыми, скобочками), хотелось писать в YAML и транслировать в JSON. Начал я, конечно, с использования ..." />
 
 
 
@@ -65,10 +65,10 @@
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="http://bulimov.ru/it/Мнение-о-chef/"
+                    <a href="http://bulimov.ru/it/ansible-sensu/"
                        rel="bookmark"
-                       title="Permalink to Мнение о Chef">
-                        Мнение о Chef
+                       title="Permalink to Удобная настройка Sensu с Ansible">
+                        Удобная настройка Sensu с Ansible
                     </a>
                 </h1>
             </header>
@@ -78,64 +78,91 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-06-17T00:00:00"> Пн. 17 Июнь 2013</time>
+        <i class="fa fa-calendar"></i><time datetime="2014-11-13T00:00:00"> Чт. 13 Ноябрь 2014</time>
     </span>
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/chef.html">Chef</a>
+	<a href="http://bulimov.ru/tag/ansible.html">Ansible</a>
+        /
+	<a href="http://bulimov.ru/tag/sensu.html">Sensu</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>Я использовал Chef для управления IT-инфраструктурой около полутора лет, начав с
-версии 0.10. Сначала, где-то пол-года, использовал только для управления конфигурациями,
-без развертывания ПО с нуля. Затем, уже на другой работе, автоматизировал управления
-конфигурациями и развертывание с нуля веб-проекта (30+ серверов, nginx, ruby, riak, redis,
-sphinx-search, rabbitmq и т.п.).
-Это позволило мне составить собственное мнение o достоинствах и недостатках Chef,
-и в этой заметке я свое мнение излагаю.</p>
-<p>По итогу вышеописанной деятельности я был настолько утомлен
-недостатками Chef, что начал искать ему замену. Был рассмотрен Puppet и набиравший тогда
-популярность Ansible. Для объективного сравнения я реализовал часть из того,
-что уже было сделано для проекта с помощью Chef, с использованием этих двух SCM.
-По итогу, был выбран Ansible из-за невероятной читабельности получившихся playbook-ов,
-хотя Puppet также во многом обошел Chef. Особенно радовала декларативность Ansible и Puppet,
-а вот неопределенность порядка выполнения в Puppet огорчила.</p>
-<p>Как-бы то ни было, по итогу работы с Chef у меня сложилось такое мнение:</p>
-<ul>
-<li>В случае комплексной, динамически изменяемой среды, когда требуется на-лету перенастраивать
-софт в автоматическом режиме - Chef идеален. Тут его императивность приходится как раз к месту,
-поскольку действия выполняются сложные, и зависят от состояния системы в конкретный момент.</li>
-<li>В случае, когда мы имеем ограниченный набор хостов, имеющих каждый свою фиксированную роль, когда
-любое переконфигурирование выполнятся специалистом - Chef избыточен, и даже вреден, поскольку
-провоцирует писать конфиги-программы, а не конфиги-данные.</li>
-</ul>
-<h1>Негатив:</h1>
-<ul>
-<li>Ruby - язык хороший, но пакетировать и совмещать разные версии это ад.</li>
-<li>Слабочитаемый конечный конфиг, представляющий собой код на ruby. Это главный минус.</li>
-<li>Императивный стиль большинства рецептов.</li>
-<li>Жуткая ruby-мешанина в большинстве публичных рецептов, кроме как LWRP использовать оттуда нечего.</li>
-<li>Привязанность многих cookbooks к Ubuntu.</li>
-<li>Сложная, хоть и продуманная архитектура.</li>
-<li>Море зависимостей у клиента и сервера, проблемы с версиями Ruby. К примеру, для squeeze и ruby1.9.3 пришлось пересобрать более 10 пакетов.</li>
-<li>Для debian пришлось патчить chef для обхода проблемы с неработающим update-rc.d stop, хотя в puppet уже был рабочий workaround.</li>
-</ul>
-<h1>Позитив:</h1>
-<ul>
-<li>Окружения (environments).</li>
-<li>Версии cookbook для каждого окружения, заморозка пакетов.</li>
-<li>Готовые cookbooks, полезно для вникания.</li>
-<li>Knife - отличный инстумент для любителей консоли вроде меня.</li>
-</ul>
+                <p>Так как я использую <a href="http://sensuapp.org/">Sensu</a> для мониторинга,
+и <a href="http://www.ansible.com/">Ansible</a> для управления конфигурациями,
+то конечно же я настраиваю Sensu с помощью Ansible.</p>
+<p>В этой связке меня смущало только одно - Sensu использует
+<a href="https://ru.wikipedia.org/wiki/JSON">JSON</a> для конфигов,
+в то время как Ansible использует <a href="https://ru.wikipedia.org/wiki/YAML">YAML</a>.
+Поскольку JSON является подмножеством YAML, и описывать
+конфигурации в YAML гораздо проще (никаких проблем с запятыми, скобочками),
+хотелось писать в YAML и транслировать в JSON.</p>
+<p>Начал я, конечно, с использования шаблонов Ansible:</p>
+<div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;client&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;{{ ansible_default_ipv4.address }}&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;{{ ansible_hostname }}&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;subscriptions&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;{{ sensu_client_subscriptions|join(&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;&#39;) }}&quot;</span> <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Вроде неплохо, но не слишком удобно, и если одним клиентам захочется добавить
+что-то, например переменную <em>some_var</em>, надо для них делать новый шаблон, или
+городить строки такого вида:</p>
+<div class="highlight"><pre><span class="cp">{%</span> <span class="k">if</span> <span class="nv">some_var</span> <span class="k">is</span> <span class="nf">defined</span> <span class="cp">%}</span><span class="x"> &quot;some_var&quot;: </span><span class="cp">{{</span> <span class="nv">some_var</span> <span class="cp">}}</span><span class="x">, </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+</pre></div>
+
+
+<p>В общем, я, не особо включая мозг, решил писать модуль для Ansible.</p>
+<p>В процессе написания выплыли все те же проблемы: сложно работать с произвольного
+вида структурами, которые позволяют с такой гибкостью использовать Sensu.</p>
+<p>То есть для примера с добавлением переменной клиенту, нашему модулю пришлось бы
+поддерживать не только обязательные параметры клиента, такие как имя, адрес
+и список подписок, но еще и аргумент, в который мы пихали бы остальные данные.
+Да еще и структура описания у Sensu в тот момент менялась от версии к версии.</p>
+<p>И тут я наткнулся на <a href="https://github.com/ansible/ansible/pull/2234">pull-request</a>,
+из которого узнал, что теперь в Ansible можно использовать =
+фильтры <em>to_json</em> и <em>to_nice_json</em>.</p>
+<p>А это дает нам возможность делать такие вещи:</p>
+<div class="highlight"><pre><span class="c1"># task from sensu_client role</span>
+<span class="p-Indicator">-</span> <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">configure sensu client</span>
+  <span class="l-Scalar-Plain">copy</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">content=&#39;{{ sensu_client | to_nice_json }}&#39;</span>
+        <span class="l-Scalar-Plain">owner=sensu</span>
+        <span class="l-Scalar-Plain">dest=/etc/sensu/conf.d/client.json</span>
+  <span class="l-Scalar-Plain">notify</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">restart sensu-client</span>
+</pre></div>
+
+
+<p>А описание переменной <em>sensu_client</em> где-нибудь в <em>group_vars</em> выглядит так:</p>
+<div class="highlight"><pre><span class="l-Scalar-Plain">sensu_client</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">client</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">name</span><span class="p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">ansible_hostname</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="l-Scalar-Plain">subscriptions</span><span class="p-Indicator">:</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">www</span>
+      <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">default</span>
+    <span class="l-Scalar-Plain">address</span><span class="p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">ansible_default_ipv4.address</span><span class="nv"> </span><span class="s">}}&quot;</span>
+    <span class="l-Scalar-Plain">some_var</span><span class="p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">sensu_some_var</span><span class="nv"> </span><span class="s">}}&quot;</span>
+</pre></div>
+
+
+<p>Эта схема показалась мне достаточно удобной, и на этом я остановился,
+так что теперь весь конфиг Sensu, включая проверки, хендлеры и т.д., хранится
+у меня в формате YAML в Ansible.</p>
             </div>
             <!-- /.entry-content -->
 <section class="well" id="related-posts">
     <h4>Related Posts:</h4>
     <ul>
+        <li><a href="http://bulimov.ru/it/monitoring-sucks/">Monitoring sucks!</a></li>
+        <li><a href="http://bulimov.ru/it/Тестирование-ansible-playbook/">Тестирование Ansible Playbook</a></li>
         <li><a href="http://bulimov.ru/it/Как-я-управляю-серверами/">Как я управляю серверами</a></li>
-        <li><a href="http://bulimov.ru/it/infrastructure-as-a-code/">Инфраструктура как код</a></li>
+        <li><a href="http://bulimov.ru/it/Переписал-скрипты-на-ruby-для-sensu/">Переписал скрипты на Ruby для Sensu</a></li>
+        <li><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></li>
     </ul>
 </section>
     <hr/>
@@ -147,8 +174,8 @@ sphinx-search, rabbitmq и т.п.).
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
 
-                    var disqus_identifier = 'Мнение-о-chef';
-                var disqus_url = 'http://bulimov.ru/it/Мнение-о-chef/';
+                    var disqus_identifier = 'ansible-sensu';
+                var disqus_url = 'http://bulimov.ru/it/ansible-sensu/';
 
             var disqus_config = function () {
                 this.language = "ru";

@@ -1,5 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Александр Булимов - записки сисадмина.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/it.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2014-10-09T00:00:00+04:00</updated><entry><title>Разбирался с page-cache в Linux</title><link href="http://bulimov.ru/it/meminfo-visualizer/" rel="alternate"></link><updated>2014-10-09T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-10-09:it/meminfo-visualizer/</id><summary type="html">&lt;p&gt;Читая книгу &lt;a href="http://www.williamspublishing.com/Books/5-8459-1085-4.html"&gt;"Разработка ядра Linux"&lt;/a&gt; за авторством Роберта Лава,
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Александр Булимов - записки сисадмина.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/it.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2014-11-13T00:00:00+03:00</updated><entry><title>Удобная настройка Sensu с Ansible</title><link href="http://bulimov.ru/it/ansible-sensu/" rel="alternate"></link><updated>2014-11-13T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-11-13:it/ansible-sensu/</id><summary type="html">&lt;p&gt;Так как я использую &lt;a href="http://sensuapp.org/"&gt;Sensu&lt;/a&gt; для мониторинга,
+и &lt;a href="http://www.ansible.com/"&gt;Ansible&lt;/a&gt; для управления конфигурациями,
+то конечно же я настраиваю Sensu с помощью Ansible.&lt;/p&gt;
+&lt;p&gt;В этой связке меня смущало только одно - Sensu использует
+&lt;a href="https://ru.wikipedia.org/wiki/JSON"&gt;JSON&lt;/a&gt; для конфигов,
+в то время как Ansible использует &lt;a href="https://ru.wikipedia.org/wiki/YAML"&gt;YAML&lt;/a&gt;.
+Поскольку JSON является подмножеством YAML, и описывать
+конфигурации в YAML гораздо проще (никаких проблем с запятыми, скобочками),
+хотелось писать в YAML и транслировать в JSON.&lt;/p&gt;
+&lt;p&gt;Начал я, конечно, с использования шаблонов Ansible:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;quot;client&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;quot;address&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;{{ ansible_default_ipv4.address }}&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;{{ ansible_hostname }}&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+        &lt;span class="nt"&gt;&amp;quot;subscriptions&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;{{ sensu_client_subscriptions|join(&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;#39;) }}&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;]&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Вроде неплохо, но не слишком удобно, и если одним клиентам захочется добавить
+что-то, например переменную &lt;em&gt;some_var&lt;/em&gt;, надо для них делать новый шаблон, или
+городить строки такого вида:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;some_var&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="nf"&gt;defined&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt; &amp;quot;some_var&amp;quot;: &lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;some_var&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;, &lt;/span&gt;&lt;span class="cp"&gt;{%&lt;/span&gt; &lt;span class="k"&gt;endif&lt;/span&gt; &lt;span class="cp"&gt;%}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;В общем, я, не особо включая мозг, решил писать модуль для Ansible.&lt;/p&gt;
+&lt;p&gt;В процессе написания выплыли все те же проблемы: сложно работать с произвольного
+вида структурами, которые позволяют с такой гибкостью использовать Sensu.&lt;/p&gt;
+&lt;p&gt;То есть для примера с добавлением переменной клиенту, нашему модулю пришлось бы
+поддерживать не только обязательные параметры клиента, такие как имя, адрес
+и список подписок, но еще и аргумент, в который мы пихали бы остальные данные.
+Да еще и структура описания у Sensu в тот момент менялась от версии к версии.&lt;/p&gt;
+&lt;p&gt;И тут я наткнулся на &lt;a href="https://github.com/ansible/ansible/pull/2234"&gt;pull-request&lt;/a&gt;,
+из которого узнал, что теперь в Ansible можно использовать =
+фильтры &lt;em&gt;to_json&lt;/em&gt; и &lt;em&gt;to_nice_json&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;А это дает нам возможность делать такие вещи:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# task from sensu_client role&lt;/span&gt;
+&lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;name&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;configure sensu client&lt;/span&gt;
+  &lt;span class="l-Scalar-Plain"&gt;copy&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;content=&amp;#39;{{ sensu_client | to_nice_json }}&amp;#39;&lt;/span&gt;
+        &lt;span class="l-Scalar-Plain"&gt;owner=sensu&lt;/span&gt;
+        &lt;span class="l-Scalar-Plain"&gt;dest=/etc/sensu/conf.d/client.json&lt;/span&gt;
+  &lt;span class="l-Scalar-Plain"&gt;notify&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+    &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;restart sensu-client&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;А описание переменной &lt;em&gt;sensu_client&lt;/em&gt; где-нибудь в &lt;em&gt;group_vars&lt;/em&gt; выглядит так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="l-Scalar-Plain"&gt;sensu_client&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+  &lt;span class="l-Scalar-Plain"&gt;client&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+    &lt;span class="l-Scalar-Plain"&gt;name&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;{{&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;ansible_hostname&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;}}&amp;quot;&lt;/span&gt;
+    &lt;span class="l-Scalar-Plain"&gt;subscriptions&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt;
+      &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;www&lt;/span&gt;
+      &lt;span class="p-Indicator"&gt;-&lt;/span&gt; &lt;span class="l-Scalar-Plain"&gt;default&lt;/span&gt;
+    &lt;span class="l-Scalar-Plain"&gt;address&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;{{&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;ansible_default_ipv4.address&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;}}&amp;quot;&lt;/span&gt;
+    &lt;span class="l-Scalar-Plain"&gt;some_var&lt;/span&gt;&lt;span class="p-Indicator"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;{{&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;sensu_some_var&lt;/span&gt;&lt;span class="nv"&gt; &lt;/span&gt;&lt;span class="s"&gt;}}&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Эта схема показалась мне достаточно удобной, и на этом я остановился,
+так что теперь весь конфиг Sensu, включая проверки, хендлеры и т.д., хранится
+у меня в формате YAML в Ansible.&lt;/p&gt;</summary><category term="Ansible"></category><category term="Sensu"></category></entry><entry><title>Разбирался с page-cache в Linux</title><link href="http://bulimov.ru/it/meminfo-visualizer/" rel="alternate"></link><updated>2014-10-09T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-10-09:it/meminfo-visualizer/</id><summary type="html">&lt;p&gt;Читая книгу &lt;a href="http://www.williamspublishing.com/Books/5-8459-1085-4.html"&gt;"Разработка ядра Linux"&lt;/a&gt; за авторством Роберта Лава,
 я решил поглубже разобраться в том, как работает кэш в Linux,
 и набрел на вот &lt;a href="http://habrahabr.ru/company/yandex/blog/231957/"&gt;эту&lt;/a&gt;
 статью на Хабре от Яндекса.&lt;/p&gt;
