@@ -1,5 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/alexander-bulimov.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 13 Nov 2014 00:00:00 +0300</lastBuildDate><item><title>Удобная настройка Sensu с Ansible</title><link>http://bulimov.ru/it/ansible-sensu/</link><description>&lt;p&gt;Так как я использую &lt;a href="http://sensuapp.org/"&gt;Sensu&lt;/a&gt; для мониторинга,
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/alexander-bulimov.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 25 Nov 2014 00:00:00 +0300</lastBuildDate><item><title>Lyrics Tagger</title><link>http://bulimov.ru/it/lyricstagger/</link><description>&lt;h2&gt;Предыстория&lt;/h2&gt;
+&lt;p&gt;Я езжу на работу в общественном транспорте, и слушаю там музыку
+со смартфона. Достаточно часто хотелось почитать тексты прослушиваемых
+в данный момент песен, но искать их в интернете было не слишком удобно,
+да и вообще интернета до недавнего времени в метро не было.&lt;/p&gt;
+&lt;p&gt;Решение выглядит очевидным - надо встроить тексты песен в сами музыкальные файлы.
+Благо, основные форматы это позволяют.
+Музыку я храню во &lt;a href="https://ru.wikipedia.org/wiki/FLAC"&gt;FLAC&lt;/a&gt;, а на смартфон
+закидываю в &lt;a href="https://ru.wikipedia.org/wiki/Vorbis"&gt;Ogg Vorbis&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Раз есть такая задача - значит можно ее решить с использованием программирования.
+Быстрый поиск чего-то подходящего для моих целей ничего не дал, хотя многие плееры
+умеют качать тексты песен по запросу.&lt;/p&gt;
+&lt;p&gt;Поскольку задача не показалась мне сложной, и простая консольная утилита полностью
+покрыла бы мои потребности, я решил такую утилиту написать сам.&lt;/p&gt;
+&lt;p&gt;Выбрал я для реализации, конечно, Python. Все нужные библиотеки там уже были,
+а именно:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://pypi.python.org/pypi/mutagen"&gt;mutagen&lt;/a&gt; для работы с музыкальными файлами;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pypi.python.org/pypi/requests"&gt;requests&lt;/a&gt; для получения нужных html-страниц;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pypi.python.org/pypi/beautifulsoup4"&gt;beautifulsoup4&lt;/a&gt; для разбора html;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pypi.python.org/pypi/docopt"&gt;docopt&lt;/a&gt; для удобного написания консольных утилит;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://pypi.python.org/pypi/mock"&gt;mock&lt;/a&gt; для тестов.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;В итоге получилась вполне компактная программа, покрытая тестами, умеющая качать
+тексты песен с &lt;a href="http://lyrics.wikia.com/"&gt;lyrics.wikia.com&lt;/a&gt; и записывать в теги
+файлов в формате FLAC, Ogg, и MP3 (экспериментально, я MP3 практически на использую).
+Модули для поддержки конкретных сайтов с текстами сделаны подключаемыми,
+так что можно добавить скачивание с любого другого сайта, не меняя саму программу.&lt;/p&gt;
+&lt;p&gt;Результатами моих трудов может воспользоваться любой желающий,
+&lt;a href="https://github.com/abulimov/lyricstagger"&gt;код размещен на github&lt;/a&gt; под
+лицензией &lt;a href="http://opensource.org/licenses/MIT"&gt;MIT&lt;/a&gt;.
+Поддерживается Python версий 2.7, 3.2, 3.3, 3.4 и PyPy.&lt;/p&gt;
+&lt;h2&gt;Установка&lt;/h2&gt;
+&lt;p&gt;Для установки достаточно выполнить следующую команду:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;pip install &lt;span class="s1"&gt;&amp;#39;git+https://github.com/abulimov/lyricstagger#egg=lyricstagger&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Примеры использования&lt;/h2&gt;
+&lt;p&gt;Вывести список всех музыкальных файлов без встроенных текстов в директории ~/Music/&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;user@machine:~&lt;span class="nv"&gt;$ &lt;/span&gt;lyricstagger report ~/Music
+No lyrics in file &lt;span class="s1"&gt;&amp;#39;/home/user/Music/Some Artist/01 - Some Track.ogg&amp;#39;&lt;/span&gt;
+No lyrics in file &lt;span class="s1"&gt;&amp;#39;/home/user/Music/Some Artist/02 - Other Track.ogg&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Скачать тесты и записать их в теги музыкальных файлов в директории ~/Music/&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;user@machine:~&lt;span class="nv"&gt;$ &lt;/span&gt;lyricstagger tag ~/Music
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Удалить все теги с текстами из всех музыкальных файлов в ~/Music/&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;user@machine:~&lt;span class="nv"&gt;$ &lt;/span&gt;lyricstagger remove ~/Music
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Итоги&lt;/h2&gt;
+&lt;p&gt;Если вы встретились с подобной задачей - попробуйте &lt;a href="https://github.com/abulimov/lyricstagger"&gt;lyricstagger&lt;/a&gt;,
+а если решили эту задачу более простым и удобным способом - напишите мне об этом.
+Я уже натравил свою чудо-утилиту на всю музыкальную коллекцию, она записала все
+найденные тексты в файлы, так что теперь я запускаю ее только когда покупаю новый
+альбом на &lt;a href="http://bandcamp.com"&gt;bandcamp&lt;/a&gt;, &lt;a href="http://cdbaby.com"&gt;cdbaby&lt;/a&gt; или &lt;a href="http://qobuz.com"&gt;Qobuz&lt;/a&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Bulimov</dc:creator><pubDate>Tue, 25 Nov 2014 00:00:00 +0300</pubDate><guid>tag:bulimov.ru,2014-11-25:it/lyricstagger/</guid><category>Python</category><category>Программирование</category></item><item><title>Удобная настройка Sensu с Ansible</title><link>http://bulimov.ru/it/ansible-sensu/</link><description>&lt;p&gt;Так как я использую &lt;a href="http://sensuapp.org/"&gt;Sensu&lt;/a&gt; для мониторинга,
 и &lt;a href="http://www.ansible.com/"&gt;Ansible&lt;/a&gt; для управления конфигурациями,
 то конечно же я настраиваю Sensu с помощью Ansible.&lt;/p&gt;
 &lt;p&gt;В этой связке меня смущало только одно - Sensu использует
