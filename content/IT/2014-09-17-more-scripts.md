@@ -1,6 +1,6 @@
 Title: Выложил немного полезностей
 Date: 2014-09-17
-Tags:   Python, Zabbix
+Tags:   Python, Zabbix, Nagios
 Category: IT
 Slug: Выложил-немного-полезностей
 
