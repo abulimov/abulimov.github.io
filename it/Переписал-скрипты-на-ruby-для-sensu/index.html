@@ -16,6 +16,16 @@
         <meta name="keywords" content="Ruby,Sensu" />
         <meta name="description" content="Поскольку я перевел мониторинг с Zabbix на Sensu, пришлось переписать свои скрипты проверки состояния жестких дисков в raid-контроллерах от 3ware и HP SmartArray для использования в Sensu. Ну а раз все равно переписывать - то писать я решил на Ruby, чтобы можно было без проблем заслать в sensu-community-plugins Скрипты весьма просты, так что проблем при переписывании никаких не было. Если кому надо - все уже отдано сообществу, теперь Sensu может мониторить состояние ..." />
 
+        <meta property="og:site_name" content="Александр Булимов - записки сисадмина." />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Переписал скрипты на Ruby для Sensu"/>
+        <meta property="og:url" content="http://bulimov.ru/it/Переписал-скрипты-на-ruby-для-sensu/"/>
+        <meta property="og:description" content="Поскольку я перевел мониторинг с Zabbix на Sensu, пришлось переписать свои скрипты проверки состояния жестких дисков в raid-контроллерах от 3ware и HP SmartArray для использования в Sensu. Ну а раз все равно переписывать - то писать я решил на Ruby, чтобы можно было без проблем заслать в sensu-community-plugins Скрипты весьма просты, так что проблем при переписывании никаких не было. Если кому надо - все уже отдано сообществу, теперь Sensu может мониторить состояние ..."/>
+        <meta property="article:published_time" content="2014-09-04" />
+            <meta property="article:section" content="IT" />
+            <meta property="article:tag" content="Ruby" />
+            <meta property="article:tag" content="Sensu" />
+            <meta property="article:author" content="Alexander Bulimov" />
 
 
     <!-- Bootstrap -->
@@ -35,7 +45,7 @@
 <body>
 
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-    <div class="container">
+	<div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -50,13 +60,14 @@
             <ul class="nav navbar-nav">
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="http://bulimov.ru/archive/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+              <li><a href="http://bulimov.ru/archive/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
 </div> <!-- /.navbar -->
-
+<!-- Banner -->
+<!-- End Banner -->
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
@@ -78,7 +89,7 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-09-04T00:00:00"> Чт. 04 Сентябрь 2014</time>
+        <i class="fa fa-calendar"></i><time datetime="2014-09-04T00:00:00+04:00"> чт 04 сентября 2014</time>
     </span>
 
 
@@ -144,154 +155,164 @@ HP SmartArray для использования в Sensu. Ну а раз все 
     </section>
 
         </div>
-        <div class="col-sm-3" id="aboutme">
-<p>
-    <strong>About Alexander Bulimov</strong><br/>
-    Меня зовут Александр Викторович Булимов, я сисадмин из Москвы, работаю с Linux с 2010 года.<br><br>Практикую методологию DevOps. Использую для управления серверами <a href=http://www.ansible.com/>Ansible</a>, до этого использовал <a href=http://www.opscode.com/chef/>Chef</a>. Люблю программировать, автор нескольких модулей к Ansible.
-</p>        </div>
-        <div class="col-sm-3 well well-sm" id="sidebar">
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<div id="aboutme">
+    <p>
+        <strong>About Alexander Bulimov</strong><br/>
+        Меня зовут Александр Викторович Булимов, я сисадмин из Москвы, работаю с Linux с 2010 года.<br><br>Практикую методологию DevOps. Использую для управления серверами <a href=http://www.ansible.com/>Ansible</a>, до этого использовал <a href=http://www.opscode.com/chef/>Chef</a>. Люблю программировать, автор нескольких модулей к Ansible.
+    </p>
+</div>
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="https://github.com/abulimov"><i class="fa fa-github-square fa-lg"></i> GitHub</a></li>
+                <li class="list-group-item"><a href="https://www.facebook.com/profile.php?id=1505350810"><i class="fa fa-facebook-square fa-lg"></i> Facebook</a></li>
+                <li class="list-group-item"><a href="https://plus.google.com/102209846851870884693/about"><i class="fa fa-google-plus-square fa-lg"></i> Google+</a></li>
+                <li class="list-group-item"><a href="http://ru.linkedin.com/pub/александр-булимов/7b/692/a92/"><i class="fa fa-linkedin-square fa-lg"></i> LinkedIn</a></li>
+                <li class="list-group-item"><a href="http://habrahabr.ru/users/lazywolf/"><i class="fa fa-habrahabr-square fa-lg"></i> Habrahabr</a></li>
+                <li class="list-group-item"><a href="http://vk.com/a_v_bulimov"><i class="fa fa-vk-square fa-lg"></i> VK</a></li>
+                <li class="list-group-item"><a href="/feeds/all.rss.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
+              </ul>
+            </li>
 
-<aside>
-    <section>
-        <ul class="list-group list-group-flush">
-                <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
-                  <ul class="list-group" id="social">
-                    <li class="list-group-item"><a href="https://github.com/abulimov"><i class="fa fa-github-square fa-lg"></i> GitHub</a></li>
-                    <li class="list-group-item"><a href="https://www.facebook.com/profile.php?id=1505350810"><i class="fa fa-facebook-square fa-lg"></i> Facebook</a></li>
-                    <li class="list-group-item"><a href="https://plus.google.com/102209846851870884693/about"><i class="fa fa-google-plus-square fa-lg"></i> Google+</a></li>
-                    <li class="list-group-item"><a href="http://ru.linkedin.com/pub/александр-булимов/7b/692/a92/"><i class="fa fa-linkedin-square fa-lg"></i> LinkedIn</a></li>
-                    <li class="list-group-item"><a href="http://habrahabr.ru/users/lazywolf/"><i class="fa fa-habrahabr-square fa-lg"></i> Habrahabr</a></li>
-                    <li class="list-group-item"><a href="http://vk.com/a_v_bulimov"><i class="fa fa-vk-square fa-lg"></i> VK</a></li>
-                    <li class="list-group-item"><a href="/feeds/all.rss.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
-                  </ul>
-                </li>
 
 
-
-                <li class="list-group-item"><a href="http://bulimov.ru/tags/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
-                    <ul class="list-group " id="tags">
-                        <li class="list-group-item tag-1">
-                            <a href="http://bulimov.ru/tag/python.html">
-                                Python
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-1">
-                            <a href="http://bulimov.ru/tag/ansible.html">
-                                Ansible
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-1">
-                            <a href="http://bulimov.ru/tag/zhizn.html">
-                                Жизнь
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-2">
-                            <a href="http://bulimov.ru/tag/zabbix.html">
-                                Zabbix
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-2">
-                            <a href="http://bulimov.ru/tag/cisco.html">
-                                Cisco
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-2">
-                            <a href="http://bulimov.ru/tag/chef.html">
-                                Chef
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-2">
-                            <a href="http://bulimov.ru/tag/sensu.html">
-                                Sensu
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-2">
-                            <a href="http://bulimov.ru/tag/programmirovanie.html">
-                                Программирование
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-3">
-                            <a href="http://bulimov.ru/tag/ruhoh.html">
-                                Ruhoh
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-3">
-                            <a href="http://bulimov.ru/tag/mikrotik.html">
-                                MikroTik
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-3">
-                            <a href="http://bulimov.ru/tag/ruby.html">
-                                Ruby
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-3">
-                            <a href="http://bulimov.ru/tag/knigi.html">
-                                Книги
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://bulimov.ru/tag/pelican.html">
-                                Pelican
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://bulimov.ru/tag/ubuntu.html">
-                                Ubuntu
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://bulimov.ru/tag/vps.html">
-                                VPS
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://bulimov.ru/tag/juniper.html">
-                                Juniper
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://bulimov.ru/tag/iuzveri.html">
-                                Юзвери
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://bulimov.ru/tag/rancid.html">
-                                Rancid
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://bulimov.ru/tag/serverspec.html">
-                                serverspec
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://bulimov.ru/tag/debian.html">
-                                Debian
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://bulimov.ru/tag/nginx.html">
-                                Nginx
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://bulimov.ru/tag/kernel.html">
-                                Kernel
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://bulimov.ru/tag/tmux.html">
-                                tmux
-                            </a>
-                        </li>
-                        <li class="list-group-item tag-4">
-                            <a href="http://bulimov.ru/tag/lua.html">
-                                Lua
-                            </a>
-                        </li>
-                    </ul>
-                </li>    
+            <li class="list-group-item"><a href="http://bulimov.ru/tags/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group " id="tags">
+                    <li class="list-group-item tag-1">
+                        <a href="http://bulimov.ru/tag/python.html">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://bulimov.ru/tag/ansible.html">
+                            Ansible
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://bulimov.ru/tag/zhizn.html">
+                            Жизнь
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/cisco.html">
+                            Cisco
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/programmirovanie.html">
+                            Программирование
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/zabbix.html">
+                            Zabbix
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/sensu.html">
+                            Sensu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/chef.html">
+                            Chef
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/mikrotik.html">
+                            MikroTik
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/nagios.html">
+                            Nagios
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/ruby.html">
+                            Ruby
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/knigi.html">
+                            Книги
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/ruhoh.html">
+                            Ruhoh
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/debian.html">
+                            Debian
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/rancid.html">
+                            Rancid
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/tmux.html">
+                            tmux
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/icinga2.html">
+                            Icinga2
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/vps.html">
+                            VPS
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/pelican.html">
+                            Pelican
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/serverspec.html">
+                            serverspec
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/iuzveri.html">
+                            Юзвери
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/nginx.html">
+                            Nginx
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/ubuntu.html">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/lua.html">
+                            Lua
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/juniper.html">
+                            Juniper
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/kernel.html">
+                            Kernel
+                        </a>
+                    </li>
+                </ul>
+            </li>
     <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
       <ul class="list-group" id="links">
         <li class="list-group-item">
@@ -306,18 +327,17 @@ HP SmartArray для использования в Sensu. Ну а раз все 
         </li>
       </ul>
     </li>
-
-        </ul>
-    </section>
-
-</aside>        </div>
+    </ul>
+</section>
+            </aside>
+        </div>
     </div>
 </div>
 <footer>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2014 Alexander Bulimov
+         <div class="col-xs-10">&copy; 2015 Alexander Bulimov
             &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
@@ -369,5 +389,6 @@ HP SmartArray для использования в Sensu. Ну а раз все 
         })();
     </script>
     <!-- End Google Analytics Code -->
+
 </body>
 </html>

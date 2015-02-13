@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ru"
+>
+<head>
+    <title>Научился мониторить использование памяти в Docker-контейнерах - Александр Булимов - записки сисадмина.</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://bulimov.ru/it/check-docker-memory/">
+
+        <meta name="author" content="Alexander Bulimov" />
+        <meta name="keywords" content="Python,Nagios,Icinga2" />
+        <meta name="description" content="Я сегодня занимался мониторингом, а конкретно нашими докер-контейнерами. Лирическое отступление: Для мониторинга я теперь (уже на другом месте работы) использую наследника Nagios - Icinga2. Пока все нравится, ребята очень круто переписали Nagios, реализовали гораздо более вменяемый формат конфигурации, и кучу новых возможностей. Используя Docker для автотестов я уже ловил проблемы, когда интерпретатор Ruby кушал всю выделенную память в контейнере и тихо умирал от рук OOM Killer. Поскольку теперь я использую Docker ..." />
+
+        <meta property="og:site_name" content="Александр Булимов - записки сисадмина." />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Научился мониторить использование памяти в Docker-контейнерах"/>
+        <meta property="og:url" content="http://bulimov.ru/it/check-docker-memory/"/>
+        <meta property="og:description" content="Я сегодня занимался мониторингом, а конкретно нашими докер-контейнерами. Лирическое отступление: Для мониторинга я теперь (уже на другом месте работы) использую наследника Nagios - Icinga2. Пока все нравится, ребята очень круто переписали Nagios, реализовали гораздо более вменяемый формат конфигурации, и кучу новых возможностей. Используя Docker для автотестов я уже ловил проблемы, когда интерпретатор Ruby кушал всю выделенную память в контейнере и тихо умирал от рук OOM Killer. Поскольку теперь я использую Docker ..."/>
+        <meta property="article:published_time" content="2015-02-13" />
+            <meta property="article:section" content="IT" />
+            <meta property="article:tag" content="Python" />
+            <meta property="article:tag" content="Nagios" />
+            <meta property="article:tag" content="Icinga2" />
+            <meta property="article:author" content="Alexander Bulimov" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://bulimov.ru/theme/css/bootstrap.slate.min.css" type="text/css"/>
+    <link href="http://bulimov.ru/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://bulimov.ru/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://bulimov.ru/theme/css/style.css" type="text/css"/>
+        <link href="http://bulimov.ru/static/custom.css" rel="stylesheet">
+
+        <link href="http://bulimov.ru/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Александр Булимов - записки сисадмина. ATOM Feed"/>
+        <link href="http://bulimov.ru/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
+              title="Александр Булимов - записки сисадмина. RSS Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://bulimov.ru/" class="navbar-brand">
+Александр Булимов - записки сисадмина.            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://bulimov.ru/archive/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://bulimov.ru/it/check-docker-memory/"
+                       rel="bookmark"
+                       title="Permalink to Научился мониторить использование памяти в Docker-контейнерах">
+                        Научился мониторить использование памяти в Docker-контейнерах
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2015-02-13T00:00:00+03:00"> пт 13 февраля 2015</time>
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/python.html">Python</a>
+        /
+	<a href="http://bulimov.ru/tag/nagios.html">Nagios</a>
+        /
+	<a href="http://bulimov.ru/tag/icinga2.html">Icinga2</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>Я сегодня занимался мониторингом, а конкретно нашими докер-контейнерами. </p>
+<p><em>Лирическое отступление:
+Для мониторинга я теперь (уже на другом месте работы) использую
+наследника Nagios - <a href="https://www.icinga.org/icinga/icinga-2/">Icinga2</a>. 
+Пока все нравится, ребята очень круто переписали Nagios, реализовали гораздо
+более вменяемый формат конфигурации, и кучу новых возможностей.</em></p>
+<p>Используя Docker для автотестов я уже ловил проблемы, когда интерпретатор Ruby
+кушал всю выделенную память в контейнере и тихо умирал от рук OOM Killer.</p>
+<p>Поскольку теперь я использую <a href="http://docker.io">Docker</a> уже не только для тестов,
+но и "в бою", меня сильно беспокоило то, что мы не можем мониторить
+использование памяти внутри контейнера.
+А не можем мы этого делать потому, что все утилиты (free, top) и плагины мониторинга
+используют данные из /proc/meminfo, которые внутри контейнеров 
+<a href="http://fabiokung.com/2014/03/13/memory-inside-linux-containers/">не актуальны</a>.</p>
+<p>К сожалению, на сегодняшний день проблема мониторинга памяти изнутри контейнера
+так пока никем и не решена, хотя пожеланий у людей много, и <a href="https://github.com/docker/docker/issues/8427">работа ведется</a>.</p>
+<p>Ну а раз проблему нельзя решить изнутри, надо пробовать решать ее снаружи - так я подумал,
+и решил посмотреть, как получить данные по использованию памяти для Docker-контейнера на хосте, который его запустил.</p>
+<p>Тут все весьма неплохо - для старых версий Docker можно было смотреть статистику
+в <code>/sys/fs/cgroup/memory/lxc/$CID/memory.stat</code>, где $CID это наш Container ID.
+В новых версиях, использующие native драйвер, ту же информацию можно получить из
+<code>/sys/fs/cgroup/memory/docker/$CID/memory.stat</code>.</p>
+<p>Осталось только эти данные красиво прикрутить к мониторингу.</p>
+<p>Поскольку я уже настроил в Icinga2 зависимости для виртуалок от родительских хостов,
+как описано <a href="http://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/monitoring-basics#dependencies">в официальной документации</a>,
+у каждой виртуалки в <code>host.vars.vm_parent</code> прописан родитель, то есть
+описание шаблона для хоста выглядит примерно так:</p>
+<div class="highlight"><pre><span class="n">template</span> <span class="n">Host</span> <span class="s">&quot;generic-docker-host-on-vm01&quot;</span> <span class="p">{</span>
+  <span class="kn">import</span> <span class="s">&quot;generic-docker-host&quot;</span>
+  <span class="nb">vars</span><span class="o">.</span><span class="n">vm_parent</span> <span class="o">=</span> <span class="s">&quot;vm01&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Это дает нам возможность для проверки памяти значение <code>nrpe_address</code> брать
+из <code>host.vars.vm_parent</code>, то есть описание сервиса выглядит так:</p>
+<div class="highlight"><pre><span class="nb">apply</span> <span class="n">Service</span> <span class="s">&quot;memory-docker&quot;</span> <span class="p">{</span>
+  <span class="kn">import</span> <span class="s">&quot;generic-service-nrpe&quot;</span>
+  <span class="n">display_name</span> <span class="o">=</span> <span class="s">&quot;Memory Usage in Docker&quot;</span>
+  <span class="nb">vars</span><span class="o">.</span><span class="n">nrpe_address</span> <span class="o">=</span> <span class="n">host</span><span class="o">.</span><span class="n">vars</span><span class="o">.</span><span class="n">vm_parent</span>
+  <span class="nb">vars</span><span class="o">.</span><span class="n">nrpe_command</span> <span class="o">=</span> <span class="s">&quot;check_docker_memory&quot;</span>
+  <span class="nb">vars</span><span class="o">.</span><span class="n">nrpe_arguments</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">host</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+    <span class="mi">15</span><span class="p">,</span>
+    <span class="mi">10</span>
+  <span class="p">]</span>
+  <span class="n">assign</span> <span class="n">where</span> <span class="n">host</span><span class="o">.</span><span class="n">vars</span><span class="o">.</span><span class="n">vm_parent</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Таким образом, проверка относится к виртуалке, но выполняется
+на родительском хосте. А раз относится к виртуалке - то зависит от ее живости, и когда виртуалка в DOWN, лишних алертов не будет. Да и вообще - все логично, проверка памяти хоста относится к самому хосту.</p>
+<p>Такое вот довольно элегантное решение получилось.</p>
+<p>Ну и, в завершение статьи, сам скрипт проверки - <strong>check_docker_memory.py</strong>, написан для Python 2.7+, без внешних зависимостей,
+<a href="https://github.com/abulimov/utils/blob/master/nagios/check_docker_memory.py">взять можно тут</a>.</p>
+            </div>
+            <!-- /.entry-content -->
+<section class="well" id="related-posts">
+    <h4>Related Posts:</h4>
+    <ul>
+        <li><a href="http://bulimov.ru/it/Выложил-немного-полезностей/">Выложил немного полезностей</a></li>
+        <li><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></li>
+        <li><a href="http://bulimov.ru/it/from-ruhoh-to-pelican/">s/Ruhoh/Pelican/</a></li>
+        <li><a href="http://bulimov.ru/it/meminfo-visualizer/">Разбирался с page-cache в Linux</a></li>
+        <li><a href="http://bulimov.ru/it/lyricstagger/">Lyrics Tagger</a></li>
+    </ul>
+</section>
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = 'check-docker-memory';
+                var disqus_url = 'http://bulimov.ru/it/check-docker-memory/';
+
+            var disqus_config = function () {
+                this.language = "ru";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<div id="aboutme">
+    <p>
+        <strong>About Alexander Bulimov</strong><br/>
+        Меня зовут Александр Викторович Булимов, я сисадмин из Москвы, работаю с Linux с 2010 года.<br><br>Практикую методологию DevOps. Использую для управления серверами <a href=http://www.ansible.com/>Ansible</a>, до этого использовал <a href=http://www.opscode.com/chef/>Chef</a>. Люблю программировать, автор нескольких модулей к Ansible.
+    </p>
+</div>
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="https://github.com/abulimov"><i class="fa fa-github-square fa-lg"></i> GitHub</a></li>
+                <li class="list-group-item"><a href="https://www.facebook.com/profile.php?id=1505350810"><i class="fa fa-facebook-square fa-lg"></i> Facebook</a></li>
+                <li class="list-group-item"><a href="https://plus.google.com/102209846851870884693/about"><i class="fa fa-google-plus-square fa-lg"></i> Google+</a></li>
+                <li class="list-group-item"><a href="http://ru.linkedin.com/pub/александр-булимов/7b/692/a92/"><i class="fa fa-linkedin-square fa-lg"></i> LinkedIn</a></li>
+                <li class="list-group-item"><a href="http://habrahabr.ru/users/lazywolf/"><i class="fa fa-habrahabr-square fa-lg"></i> Habrahabr</a></li>
+                <li class="list-group-item"><a href="http://vk.com/a_v_bulimov"><i class="fa fa-vk-square fa-lg"></i> VK</a></li>
+                <li class="list-group-item"><a href="/feeds/all.rss.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
+              </ul>
+            </li>
+
+
+
+            <li class="list-group-item"><a href="http://bulimov.ru/tags/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group " id="tags">
+                    <li class="list-group-item tag-1">
+                        <a href="http://bulimov.ru/tag/python.html">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://bulimov.ru/tag/ansible.html">
+                            Ansible
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://bulimov.ru/tag/zhizn.html">
+                            Жизнь
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/cisco.html">
+                            Cisco
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/programmirovanie.html">
+                            Программирование
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/zabbix.html">
+                            Zabbix
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/sensu.html">
+                            Sensu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/chef.html">
+                            Chef
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/mikrotik.html">
+                            MikroTik
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/nagios.html">
+                            Nagios
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/ruby.html">
+                            Ruby
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/knigi.html">
+                            Книги
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/ruhoh.html">
+                            Ruhoh
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/debian.html">
+                            Debian
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/rancid.html">
+                            Rancid
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/tmux.html">
+                            tmux
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/icinga2.html">
+                            Icinga2
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/vps.html">
+                            VPS
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/pelican.html">
+                            Pelican
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/serverspec.html">
+                            serverspec
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/iuzveri.html">
+                            Юзвери
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/nginx.html">
+                            Nginx
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/ubuntu.html">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/lua.html">
+                            Lua
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/juniper.html">
+                            Juniper
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/kernel.html">
+                            Kernel
+                        </a>
+                    </li>
+                </ul>
+            </li>
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://getpelican.com/" target="_blank">
+                Pelican
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://python.org/" target="_blank">
+                Python.org
+            </a>
+        </li>
+      </ul>
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2015 Alexander Bulimov
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://bulimov.ru/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://bulimov.ru/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://bulimov.ru/theme/js/respond.min.js"></script>
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-49230997-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+</body>
+</html>

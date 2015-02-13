@@ -1,5 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 25 Nov 2014 00:00:00 +0300</lastBuildDate><item><title>Lyrics Tagger</title><link>http://bulimov.ru/it/lyricstagger/</link><description>&lt;h2&gt;Предыстория&lt;/h2&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 13 Feb 2015 00:00:00 +0300</lastBuildDate><item><title>Научился мониторить использование памяти в Docker-контейнерах</title><link>http://bulimov.ru/it/check-docker-memory/</link><description>&lt;p&gt;Я сегодня занимался мониторингом, а конкретно нашими докер-контейнерами. &lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Лирическое отступление:
+Для мониторинга я теперь (уже на другом месте работы) использую
+наследника Nagios - &lt;a href="https://www.icinga.org/icinga/icinga-2/"&gt;Icinga2&lt;/a&gt;. 
+Пока все нравится, ребята очень круто переписали Nagios, реализовали гораздо
+более вменяемый формат конфигурации, и кучу новых возможностей.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Используя Docker для автотестов я уже ловил проблемы, когда интерпретатор Ruby
+кушал всю выделенную память в контейнере и тихо умирал от рук OOM Killer.&lt;/p&gt;
+&lt;p&gt;Поскольку теперь я использую &lt;a href="http://docker.io"&gt;Docker&lt;/a&gt; уже не только для тестов,
+но и "в бою", меня сильно беспокоило то, что мы не можем мониторить
+использование памяти внутри контейнера.
+А не можем мы этого делать потому, что все утилиты (free, top) и плагины мониторинга
+используют данные из /proc/meminfo, которые внутри контейнеров 
+&lt;a href="http://fabiokung.com/2014/03/13/memory-inside-linux-containers/"&gt;не актуальны&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;К сожалению, на сегодняшний день проблема мониторинга памяти изнутри контейнера
+так пока никем и не решена, хотя пожеланий у людей много, и &lt;a href="https://github.com/docker/docker/issues/8427"&gt;работа ведется&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Ну а раз проблему нельзя решить изнутри, надо пробовать решать ее снаружи - так я подумал,
+и решил посмотреть, как получить данные по использованию памяти для Docker-контейнера на хосте, который его запустил.&lt;/p&gt;
+&lt;p&gt;Тут все весьма неплохо - для старых версий Docker можно было смотреть статистику
+в &lt;code&gt;/sys/fs/cgroup/memory/lxc/$CID/memory.stat&lt;/code&gt;, где $CID это наш Container ID.
+В новых версиях, использующие native драйвер, ту же информацию можно получить из
+&lt;code&gt;/sys/fs/cgroup/memory/docker/$CID/memory.stat&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Осталось только эти данные красиво прикрутить к мониторингу.&lt;/p&gt;
+&lt;p&gt;Поскольку я уже настроил в Icinga2 зависимости для виртуалок от родительских хостов,
+как описано &lt;a href="http://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/monitoring-basics#dependencies"&gt;в официальной документации&lt;/a&gt;,
+у каждой виртуалки в &lt;code&gt;host.vars.vm_parent&lt;/code&gt; прописан родитель, то есть
+описание шаблона для хоста выглядит примерно так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;template&lt;/span&gt; &lt;span class="n"&gt;Host&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;generic-docker-host-on-vm01&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;generic-docker-host&amp;quot;&lt;/span&gt;
+  &lt;span class="nb"&gt;vars&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vm_parent&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;vm01&amp;quot;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Это дает нам возможность для проверки памяти значение &lt;code&gt;nrpe_address&lt;/code&gt; брать
+из &lt;code&gt;host.vars.vm_parent&lt;/code&gt;, то есть описание сервиса выглядит так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;apply&lt;/span&gt; &lt;span class="n"&gt;Service&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;memory-docker&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;generic-service-nrpe&amp;quot;&lt;/span&gt;
+  &lt;span class="n"&gt;display_name&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Memory Usage in Docker&amp;quot;&lt;/span&gt;
+  &lt;span class="nb"&gt;vars&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nrpe_address&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;host&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vars&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vm_parent&lt;/span&gt;
+  &lt;span class="nb"&gt;vars&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nrpe_command&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;check_docker_memory&amp;quot;&lt;/span&gt;
+  &lt;span class="nb"&gt;vars&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nrpe_arguments&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+    &lt;span class="n"&gt;host&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="mi"&gt;15&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+    &lt;span class="mi"&gt;10&lt;/span&gt;
+  &lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="n"&gt;assign&lt;/span&gt; &lt;span class="n"&gt;where&lt;/span&gt; &lt;span class="n"&gt;host&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vars&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;vm_parent&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Таким образом, проверка относится к виртуалке, но выполняется
+на родительском хосте. А раз относится к виртуалке - то зависит от ее живости, и когда виртуалка в DOWN, лишних алертов не будет. Да и вообще - все логично, проверка памяти хоста относится к самому хосту.&lt;/p&gt;
+&lt;p&gt;Такое вот довольно элегантное решение получилось.&lt;/p&gt;
+&lt;p&gt;Ну и, в завершение статьи, сам скрипт проверки - &lt;strong&gt;check_docker_memory.py&lt;/strong&gt;, написан для Python 2.7+, без внешних зависимостей,
+&lt;a href="https://github.com/abulimov/utils/blob/master/nagios/check_docker_memory.py"&gt;взять можно тут&lt;/a&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Bulimov</dc:creator><pubDate>Fri, 13 Feb 2015 00:00:00 +0300</pubDate><guid>tag:bulimov.ru,2015-02-13:it/check-docker-memory/</guid><category>Python</category><category>Nagios</category><category>Icinga2</category></item><item><title>Lyrics Tagger</title><link>http://bulimov.ru/it/lyricstagger/</link><description>&lt;h2&gt;Предыстория&lt;/h2&gt;
 &lt;p&gt;Я езжу на работу в общественном транспорте, и слушаю там музыку
 со смартфона. Достаточно часто хотелось почитать тексты прослушиваемых
 в данный момент песен, но искать их в интернете было не слишком удобно,
@@ -232,70 +287,70 @@ No lyrics in file &lt;span class="s1"&gt;&amp;#39;/home/user/Music/Some Artist/0
 и посмотреть, что же изменилось.&lt;/p&gt;
 &lt;p&gt;Предварительно надо создать пару больших файлов, для 8Gb оперативки
 нам нужны 1Gb и 8Gb файлы. Создать их можно из /dev/urandom примерно так:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;dd&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;urandom&lt;/span&gt; &lt;span class="n"&gt;bs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1048576&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;large&lt;/span&gt;
-&lt;span class="n"&gt;dd&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;urandom&lt;/span&gt; &lt;span class="n"&gt;bs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;k&lt;/span&gt; &lt;span class="n"&gt;count&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;8388608&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt;&lt;span class="o"&gt;=/&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;large2&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;dd if=/dev/urandom bs=1k count=1048576 of=/path/to/large
+dd if=/dev/urandom bs=1k count=8388608 of=/path/to/large2
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;А еще надо собрать &lt;a href="https://github.com/hoytech/vmtouch"&gt;vmtouch&lt;/a&gt;:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;wget&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//raw.github.com/hoytech/vmtouch/master/vmtouch.c&lt;/span&gt;
-&lt;span class="n"&gt;gcc&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Wall&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;O3&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt; &lt;span class="n"&gt;vmtouch&lt;/span&gt; &lt;span class="n"&gt;vmtouch&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;
-&lt;span class="n"&gt;chmod&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;vmtouch&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;wget https://raw.github.com/hoytech/vmtouch/master/vmtouch.c
+gcc -Wall -O3 -o vmtouch vmtouch.c
+chmod +x ./vmtouch
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Ну а теперь повторяем эксперимент из видео. Я использовал ядро Linux 3.13.&lt;/p&gt;
 &lt;p&gt;Для начала, сбросим кэши:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;tee&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;proc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;vm&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;drop_caches&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;echo 3 | sudo tee /proc/sys/vm/drop_caches
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Запустим визуализатор:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;python3&lt;/span&gt; &lt;span class="n"&gt;meminfo&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;python3 meminfo.py
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;У нас есть два больших файлика - large и large2:&lt;/p&gt;
 &lt;p&gt;Прочитаем large, чтобы он попал в inactive cache:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="n"&gt;large&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;null&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;cat large &amp;gt; /dev/null
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Прочитаем его еще раз, чтобы он попал в active cache:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="n"&gt;large&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;null&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;cat large &amp;gt; /dev/null
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Теперь можно натравить на него vmtouch:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;vmtouch&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="n"&gt;large&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;vmtouch -m 1g -v large
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Выдавим его из кэша:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;vmtouch&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt; &lt;span class="n"&gt;large&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;vmtouch -m 1g -e large
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Снова прочитаем large, чтобы он попал в inactive cache:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="n"&gt;large&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;null&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;cat large &amp;gt; /dev/null
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Теперь прочитаем large2&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="n"&gt;large2&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;null&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;cat large2 &amp;gt; /dev/null
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;и видим, что он вытесняет large из inactive cache.&lt;/p&gt;
 &lt;p&gt;А теперь сбросим снова кэши, и запихнем large в active cache:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;tee&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;proc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;vm&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;drop_caches&lt;/span&gt;
-&lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="n"&gt;large&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;null&lt;/span&gt;
-&lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="n"&gt;large&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;null&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;echo 3 | sudo tee /proc/sys/vm/drop_caches
+cat large &amp;gt; /dev/null
+cat large &amp;gt; /dev/null
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;И попробуем прочитать large2:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="n"&gt;large2&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;null&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;cat large2 &amp;gt; /dev/null
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -305,7 +360,7 @@ No lyrics in file &lt;span class="s1"&gt;&amp;#39;/home/user/Music/Some Artist/0
 характера работы kswapd.&lt;/p&gt;
 &lt;p&gt;Если посмотреть с помощью vmtouch, какая часть large2 попала в inactive cache,
 то мы увидим, что он при чтении вытеснял сам себя.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;vmtouch&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="n"&gt;large2&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;vmtouch -m 8g -v large2
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -415,7 +470,7 @@ HP SmartArray на чистом Python - милости просим, все
 и может создавать, удалять и показывать периоды "в обслуживании".&lt;/p&gt;
 &lt;p&gt;Эта утилита призвана заменить старый вариант на Ruby,
 и обладает большим набором опций командной строки.&lt;/p&gt;
-&lt;p&gt;Написана утилита на Python, и доступна всем желающим &lt;a href="https://github.com/abulimov/utils/blob/master/scripts/zabbix_maintenance.py"&gt;тут&lt;/a&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Bulimov</dc:creator><pubDate>Wed, 17 Sep 2014 00:00:00 +0400</pubDate><guid>tag:bulimov.ru,2014-09-17:it/Выложил-немного-полезностей/</guid><category>Python</category><category>Zabbix</category></item><item><title>Открыл для себя плагины к tmux</title><link>http://bulimov.ru/it/%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D0%BB-%D0%B4%D0%BB%D1%8F-%D1%81%D0%B5%D0%B1%D1%8F-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%D1%8B-%D0%BA-tmux/</link><description>&lt;p&gt;Случилось чудесное - &lt;a href="http://linux.org.ru"&gt;LOR&lt;/a&gt; принес мне пользу.
+&lt;p&gt;Написана утилита на Python, и доступна всем желающим &lt;a href="https://github.com/abulimov/utils/blob/master/scripts/zabbix_maintenance.py"&gt;тут&lt;/a&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Bulimov</dc:creator><pubDate>Wed, 17 Sep 2014 00:00:00 +0400</pubDate><guid>tag:bulimov.ru,2014-09-17:it/Выложил-немного-полезностей/</guid><category>Python</category><category>Zabbix</category><category>Nagios</category></item><item><title>Открыл для себя плагины к tmux</title><link>http://bulimov.ru/it/%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D0%BB-%D0%B4%D0%BB%D1%8F-%D1%81%D0%B5%D0%B1%D1%8F-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%D1%8B-%D0%BA-tmux/</link><description>&lt;p&gt;Случилось чудесное - &lt;a href="http://linux.org.ru"&gt;LOR&lt;/a&gt; принес мне пользу.
 Оттуда я узнал о плагине &lt;a href="https://github.com/tmux-plugins/tmux-resurrect"&gt;tmux-resurrect&lt;/a&gt;,
 а точнее, вообще о существовании плагинов для чудесного мультиплексора терминалов &lt;strong&gt;tmux&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;С помощью имеющихся плагинов можно привести конфигурацию в более понятный вид,
@@ -998,7 +1053,7 @@ ip ro add default via 12.34.56.1&lt;/p&gt;
 
 &lt;p&gt;Ну и конечно нужно создать ключ, по которому заббикс будет список дисков получать.&lt;/p&gt;
 &lt;p&gt;В конфиге заббикса добавляем строку вида&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;UserParameter&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="n"&gt;ware&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;discovery&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;opt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="n"&gt;ware_discovery&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;UserParameter=3ware.discovery,sudo /opt/3ware_discovery.py
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1255,7 +1310,7 @@ Riemann я не стал всерьез рассматривать, поскол
 
 &lt;p&gt;Еще нужно создать ключ, по которому заббикс будет всю эту красоту получать.&lt;/p&gt;
 &lt;p&gt;В конфиге заббикса добавляем что-либо вида&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;UserParameter&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;rabbitmq&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;discovery&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;opt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rabbitmq_discovery&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;UserParameter=rabbitmq.discovery,sudo /opt/rabbitmq_discovery.py
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1281,7 +1336,7 @@ rabbitmq.discovery и макросы {#RABBITMQ_VHOST_NAME} и {#RABBITMQ_QUEUE_
 &lt;p&gt;&lt;strong&gt;collection.rb&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;module&lt;/span&gt; &lt;span class="nn"&gt;Ruhoh::Resources::Graphs&lt;/span&gt;
   &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;Collection&lt;/span&gt;
-    &lt;span class="kp"&gt;include&lt;/span&gt; &lt;span class="ss"&gt;Ruhoh&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="ss"&gt;:Base&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Collectable&lt;/span&gt;
+    &lt;span class="kp"&gt;include&lt;/span&gt; &lt;span class="no"&gt;Ruhoh&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Base&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Collectable&lt;/span&gt;
 
     &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;url_endpoint&lt;/span&gt;
       &lt;span class="s2"&gt;&amp;quot;/assets/graphs&amp;quot;&lt;/span&gt;
@@ -1328,11 +1383,11 @@ rabbitmq.discovery и макросы {#RABBITMQ_VHOST_NAME} и {#RABBITMQ_QUEUE_
       &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;run&lt;/span&gt;
         &lt;span class="n"&gt;collection&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="vi"&gt;@ruhoh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;collection&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;graphs&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
         &lt;span class="k"&gt;unless&lt;/span&gt; &lt;span class="n"&gt;collection&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;paths?&lt;/span&gt;
-          &lt;span class="ss"&gt;Ruhoh&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="ss"&gt;:Friend&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;say&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;yellow&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;collection&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;resource_name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;capitalize&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;: directory not found - skipping.&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+          &lt;span class="no"&gt;Ruhoh&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Friend&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;say&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;yellow&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;collection&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;resource_name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;capitalize&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;: directory not found - skipping.&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
           &lt;span class="k"&gt;return&lt;/span&gt;
         &lt;span class="k"&gt;end&lt;/span&gt;
-        &lt;span class="ss"&gt;Ruhoh&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="ss"&gt;:Friend&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;say&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;cyan&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;collection&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;resource_name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;capitalize&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;: (using gruff and yaml)&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
-        &lt;span class="n"&gt;compiled_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;Ruhoh&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="ss"&gt;:Utils&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;url_to_path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="vi"&gt;@ruhoh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;collection&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;url_endpoint&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="vi"&gt;@ruhoh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;paths&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compiled&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="no"&gt;Ruhoh&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Friend&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;say&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;cyan&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="n"&gt;collection&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;resource_name&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;capitalize&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;: (using gruff and yaml)&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="n"&gt;compiled_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="no"&gt;Ruhoh&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Utils&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;url_to_path&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="vi"&gt;@ruhoh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_url&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;collection&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;url_endpoint&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="vi"&gt;@ruhoh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;paths&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;compiled&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
         &lt;span class="no"&gt;FileUtils&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mkdir_p&lt;/span&gt; &lt;span class="n"&gt;compiled_path&lt;/span&gt;
         &lt;span class="n"&gt;collection&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;each&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;
           &lt;span class="n"&gt;filepath&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;realpath&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
@@ -1345,7 +1400,7 @@ rabbitmq.discovery и макросы {#RABBITMQ_VHOST_NAME} и {#RABBITMQ_QUEUE_
           &lt;span class="c1"&gt;#write graph&lt;/span&gt;
           &lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render_graph&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
           &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;compiled_file&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-          &lt;span class="ss"&gt;Ruhoh&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="ss"&gt;:Friend&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;say&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;green&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;  &amp;gt; &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="nb"&gt;name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;.png&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
+          &lt;span class="no"&gt;Ruhoh&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Friend&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;say&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; &lt;span class="n"&gt;green&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;  &amp;gt; &lt;/span&gt;&lt;span class="si"&gt;#{&lt;/span&gt;&lt;span class="nb"&gt;name&lt;/span&gt;&lt;span class="si"&gt;}&lt;/span&gt;&lt;span class="s2"&gt;.png&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;}&lt;/span&gt;
         &lt;span class="k"&gt;end&lt;/span&gt;
       &lt;span class="k"&gt;end&lt;/span&gt;
     &lt;span class="k"&gt;end&lt;/span&gt;
@@ -1375,7 +1430,7 @@ rabbitmq.discovery и макросы {#RABBITMQ_VHOST_NAME} и {#RABBITMQ_QUEUE_
         &lt;span class="n"&gt;file_path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;realpath&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
         &lt;span class="n"&gt;dataset&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="no"&gt;YAML&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;load_file&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;file_path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-        &lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;Ruhoh&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="ss"&gt;:Compiler&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Graphs&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render_graph&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="no"&gt;Ruhoh&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Compiler&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="no"&gt;Graphs&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;render_graph&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dataset&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
         &lt;span class="c1"&gt;#write graph&lt;/span&gt;
         &lt;span class="n"&gt;blob&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;to_blob&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fileformat&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;PNG&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
