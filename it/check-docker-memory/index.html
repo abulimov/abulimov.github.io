@@ -162,8 +162,8 @@
 <a href="https://github.com/abulimov/utils/blob/master/nagios/check_docker_memory.py">взять можно тут</a>.</p>
 <p>Пример использования check_docker_memory.py - проверим, что количество свободной памяти в контейнере
 loving_lalande не меньше, чем 15%, и уж точно не меньше 10%:</p>
-<div class="highlight"><pre><span class="nt">nagios</span><span class="k">@hostname</span><span class="o">:~$</span> <span class="o">./</span><span class="nt">check_docker_memory</span><span class="nc">.py</span> <span class="nt">-n</span> <span class="nt">loving_lalande</span> <span class="nt">-w</span> <span class="nt">15</span> <span class="nt">-c</span> <span class="nt">10</span> <span class="nt">-f</span>
-<span class="nt">CheckDockerMemory</span> <span class="nt">OK</span><span class="o">:</span> <span class="nt">89</span><span class="nc">.005</span><span class="o">%</span> <span class="o">(</span><span class="nt">6533008</span> <span class="nt">kB</span><span class="o">)</span> <span class="nt">free</span><span class="o">!</span> <span class="o">|</span> <span class="nt">TOTAL</span><span class="o">=</span><span class="nt">7340032KB</span><span class="p">;</span><span class="o">;;;</span> <span class="nt">USED</span><span class="o">=</span><span class="nt">807024KB</span><span class="o">;;;;</span> <span class="nt">FREE</span><span class="o">=</span><span class="nt">6533008KB</span><span class="o">;;;;</span>
+<div class="highlight"><pre>nagios@hostname:~<span class="nv">$ </span>./check_docker_memory.py -n loving_lalande -w <span class="m">15</span> -c <span class="m">10</span> -f
+CheckDockerMemory OK: 89.005% <span class="o">(</span><span class="m">6533008</span> kB<span class="o">)</span> free! <span class="p">|</span> <span class="nv">TOTAL</span><span class="o">=</span>7340032KB<span class="p">;;;;</span> <span class="nv">USED</span><span class="o">=</span>807024KB<span class="p">;;;;</span> <span class="nv">FREE</span><span class="o">=</span>6533008KB<span class="p">;;;;</span>
 </pre></div>
             </div>
             <!-- /.entry-content -->
@@ -171,10 +171,10 @@ loving_lalande не меньше, чем 15%, и уж точно не меньш
     <h4>Related Posts:</h4>
     <ul>
         <li><a href="http://bulimov.ru/it/Выложил-немного-полезностей/">Выложил немного полезностей</a></li>
+        <li><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware/">Низкоуровневое обнаружение в Zabbix, ищем диски в контроллере от 3ware</a></li>
         <li><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></li>
         <li><a href="http://bulimov.ru/it/from-ruhoh-to-pelican/">s/Ruhoh/Pelican/</a></li>
         <li><a href="http://bulimov.ru/it/meminfo-visualizer/">Разбирался с page-cache в Linux</a></li>
-        <li><a href="http://bulimov.ru/it/lyricstagger/">Lyrics Tagger</a></li>
     </ul>
 </section>
     <hr/>
@@ -238,8 +238,8 @@ loving_lalande не меньше, чем 15%, и уж точно не меньш
             <li class="list-group-item"><a href="http://bulimov.ru/tags/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
-                        <a href="http://bulimov.ru/tag/ansible.html">
-                            Ansible
+                        <a href="http://bulimov.ru/tag/python.html">
+                            Python
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
@@ -248,23 +248,8 @@ loving_lalande не меньше, чем 15%, и уж точно не меньш
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="http://bulimov.ru/tag/python.html">
-                            Python
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/chef.html">
-                            Chef
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/cisco.html">
-                            Cisco
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/sensu.html">
-                            Sensu
+                        <a href="http://bulimov.ru/tag/ansible.html">
+                            Ansible
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -273,23 +258,28 @@ loving_lalande не меньше, чем 15%, и уж точно не меньш
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/chef.html">
+                            Chef
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/sensu.html">
+                            Sensu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
                         <a href="http://bulimov.ru/tag/programmirovanie.html">
                             Программирование
                         </a>
                     </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/ruhoh.html">
-                            Ruhoh
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/cisco.html">
+                            Cisco
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/mikrotik.html">
-                            MikroTik
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/ruby.html">
-                            Ruby
+                        <a href="http://bulimov.ru/tag/knigi.html">
+                            Книги
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -298,58 +288,18 @@ loving_lalande не меньше, чем 15%, и уж точно не меньш
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/knigi.html">
-                            Книги
+                        <a href="http://bulimov.ru/tag/ruhoh.html">
+                            Ruhoh
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/pelican.html">
-                            Pelican
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/ruby.html">
+                            Ruby
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/juniper.html">
-                            Juniper
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/vps.html">
-                            VPS
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/iuzveri.html">
-                            Юзвери
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/rancid.html">
-                            Rancid
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/lua.html">
-                            Lua
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/icinga2.html">
-                            Icinga2
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/ubuntu.html">
-                            Ubuntu
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/debian.html">
-                            Debian
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/serverspec.html">
-                            serverspec
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/mikrotik.html">
+                            MikroTik
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -363,8 +313,58 @@ loving_lalande не меньше, чем 15%, и уж точно не меньш
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/lua.html">
+                            Lua
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/juniper.html">
+                            Juniper
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/rancid.html">
+                            Rancid
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/vps.html">
+                            VPS
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/debian.html">
+                            Debian
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/iuzveri.html">
+                            Юзвери
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/pelican.html">
+                            Pelican
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/icinga2.html">
+                            Icinga2
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://bulimov.ru/tag/tmux.html">
                             tmux
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/serverspec.html">
+                            serverspec
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/ubuntu.html">
+                            Ubuntu
                         </a>
                     </li>
                 </ul>
