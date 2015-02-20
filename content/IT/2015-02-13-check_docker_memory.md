@@ -75,3 +75,5 @@ loving_lalande не меньше, чем 15%, и уж точно не меньш
     :::bash
     nagios@hostname:~$ ./check_docker_memory.py -n loving_lalande -w 15 -c 10 -f
     CheckDockerMemory OK: 89.005% (6533008 kB) free! | TOTAL=7340032KB;;;; USED=807024KB;;;; FREE=6533008KB;;;;
+
+**UPDATE 20.02.2015 - я теперь использую плагин, получающий эти же данные из cAdvisor, [подробности тут](/it/check-cadvisor).**
