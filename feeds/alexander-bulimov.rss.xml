@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/alexander-bulimov.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 13 Feb 2015 00:00:00 +0300</lastBuildDate><item><title>Научился мониторить использование памяти в Docker-контейнерах</title><link>http://bulimov.ru/it/check-docker-memory/</link><description>&lt;p&gt;Я сегодня занимался мониторингом, а конкретно нашими докер-контейнерами. &lt;/p&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/alexander-bulimov.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 20 Feb 2015 00:00:00 +0300</lastBuildDate><item><title>Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</title><link>http://bulimov.ru/it/check-cadvisor/</link><description>&lt;p&gt;После того, как я &lt;a href="/it/check-docker-memory"&gt;научился мониторить память в Docker-контейнерах&lt;/a&gt;,
+я решил мониторить еще и нагрузку на CPU.
+Поскольку это дело не самое тривиальное, и хотелось не писать свой
+велосипед, а пользоваться чем-то популярным и поддерживаемым, я решил
+попробовать &lt;a href="https://github.com/google/cadvisor"&gt;cAdvisor&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;И вот что я могу сказать - отличный инструмент!
+Ресурсов практически не потребляет (около 20 Мб оперативной памяти и 
+неизмеримо мало CPU), обладает простым API для доступа к собираемой им
+информации, имеет красивый веб-интерфейс с realtime-графиками.
+А еще умеет сам писать метрики в InfluxDB, и в будущем &lt;a href="https://github.com/google/cadvisor/issues/474"&gt;научится писать
+в Graphite&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Конечно, наличие API позволяет написать плагин для любого мониторинга,
+чем я тут же и занялся.&lt;/p&gt;
+&lt;p&gt;Единственная хитрость была в том, что cAdvisor отдает нам статистику потребления
+квантов времени в наносекундах для CPU, и надо это переводить в проценты загрузки.&lt;/p&gt;
+&lt;p&gt;Формула довольно проста, и найдена в одном из issues к самому cAdvisor:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;Usage % = (Used CPU Time (in nanoseconds) for the interval) /(interval (in nano secs) * num cores)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Вооружившись этим знанием, я написал &lt;a href="https://github.com/abulimov/utils/blob/master/nagios/check_cadvisor.py"&gt;плагин check_cadvisor.py&lt;/a&gt;,
+который умеет проверять использование CPU и оперативной памяти в контейнере через cAdvisor API.&lt;/p&gt;
+&lt;p&gt;Пример использования check_cadvisor.py - проверим, что количество свободной памяти в контейнере
+loving_lalande не меньше, чем 15%, и уж точно не меньше 10%:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;nagios@hostname:~&lt;span class="nv"&gt;$ &lt;/span&gt;./check_cadvisor.py -u http://cadvisor_url -n loving_lalande -m -w &lt;span class="m"&gt;15&lt;/span&gt; -c 10
+CheckDockerStats OK: 79.96% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;5869163&lt;/span&gt; kB&lt;span class="o"&gt;)&lt;/span&gt; free! &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="nv"&gt;mem_used&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;1470868KB&lt;span class="p"&gt;;&lt;/span&gt;1101004&lt;span class="p"&gt;;&lt;/span&gt;734003&lt;span class="p"&gt;;&lt;/span&gt;0&lt;span class="p"&gt;;&lt;/span&gt;7340032
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;А теперь проверим, что CPU используется менее чем на 10%, и уж точно менее, чем на 20%: &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;nagios@hostname:~&lt;span class="nv"&gt;$ &lt;/span&gt;./check_cadvisor.py -u http://cadvisor_url -n loving_lalande -C -w &lt;span class="m"&gt;10&lt;/span&gt; -c 20
+CheckDockerStats WARNING: 12.98% CPU used! &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="nv"&gt;cpu_usage&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;12.98%&lt;span class="p"&gt;;&lt;/span&gt;10&lt;span class="p"&gt;;&lt;/span&gt;20&lt;span class="p"&gt;;&lt;/span&gt;0&lt;span class="p"&gt;;&lt;/span&gt;100
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Поскольку мой плагин отдает perfdata, а Icinga2 умеет слать ее в Graphite,
+я могу не ждать добавление отправки в Graphite к cAdvisor, и уже сейчас получать графики
+использования ресурсов в контейнерах.&lt;/p&gt;
+&lt;p&gt;Можно еще прикрутить проверки использования места на подключенных дисках - cAdvisor эти данные тоже
+собирает. Но мне пока такие проверки без надобности.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Bulimov</dc:creator><pubDate>Fri, 20 Feb 2015 00:00:00 +0300</pubDate><guid>tag:bulimov.ru,2015-02-20:it/check-cadvisor/</guid><category>Python</category><category>Nagios</category><category>Icinga2</category><category>cAdvisor</category></item><item><title>Научился мониторить использование памяти в Docker-контейнерах</title><link>http://bulimov.ru/it/check-docker-memory/</link><description>&lt;p&gt;Я сегодня занимался мониторингом, а конкретно нашими докер-контейнерами. &lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Лирическое отступление:
 Для мониторинга я теперь (уже на другом месте работы) использую
 наследника Nagios - &lt;a href="https://www.icinga.org/icinga/icinga-2/"&gt;Icinga2&lt;/a&gt;. 
@@ -59,7 +98,10 @@
 loving_lalande не меньше, чем 15%, и уж точно не меньше 10%:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;nagios@hostname:~&lt;span class="nv"&gt;$ &lt;/span&gt;./check_docker_memory.py -n loving_lalande -w &lt;span class="m"&gt;15&lt;/span&gt; -c &lt;span class="m"&gt;10&lt;/span&gt; -f
 CheckDockerMemory OK: 89.005% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;6533008&lt;/span&gt; kB&lt;span class="o"&gt;)&lt;/span&gt; free! &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="nv"&gt;TOTAL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;7340032KB&lt;span class="p"&gt;;;;;&lt;/span&gt; &lt;span class="nv"&gt;USED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;807024KB&lt;span class="p"&gt;;;;;&lt;/span&gt; &lt;span class="nv"&gt;FREE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;6533008KB&lt;span class="p"&gt;;;;;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Bulimov</dc:creator><pubDate>Fri, 13 Feb 2015 00:00:00 +0300</pubDate><guid>tag:bulimov.ru,2015-02-13:it/check-docker-memory/</guid><category>Python</category><category>Nagios</category><category>Icinga2</category></item><item><title>Lyrics Tagger</title><link>http://bulimov.ru/it/lyricstagger/</link><description>&lt;h2&gt;Предыстория&lt;/h2&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;UPDATE 20.02.2015 - я теперь использую плагин, получающий эти же данные из cAdvisor, &lt;a href="/it/check-cadvisor"&gt;подробности тут&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Bulimov</dc:creator><pubDate>Fri, 13 Feb 2015 00:00:00 +0300</pubDate><guid>tag:bulimov.ru,2015-02-13:it/check-docker-memory/</guid><category>Python</category><category>Nagios</category><category>Icinga2</category></item><item><title>Lyrics Tagger</title><link>http://bulimov.ru/it/lyricstagger/</link><description>&lt;h2&gt;Предыстория&lt;/h2&gt;
 &lt;p&gt;Я езжу на работу в общественном транспорте, и слушаю там музыку
 со смартфона. Достаточно часто хотелось почитать тексты прослушиваемых
 в данный момент песен, но искать их в интернете было не слишком удобно,
