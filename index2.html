@@ -66,6 +66,35 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://bulimov.ru/it/Переписал-скрипты-на-ruby-для-sensu/">Переписал скрипты на Ruby для Sensu</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-09-04T00:00:00+04:00"> чт 04 сентября 2014</time>
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/ruby.html">Ruby</a>
+        /
+	<a href="http://bulimov.ru/tag/sensu.html">Sensu</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Поскольку я перевел мониторинг с Zabbix на Sensu, пришлось переписать
+свои <a href="/it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware">скрипты</a> проверки состояния жестких дисков в raid-контроллерах от 3ware и
+HP SmartArray для использования в Sensu. Ну а раз все равно переписывать - то
+писать я решил на Ruby, чтобы можно было без проблем
+заслать в <a href="https://github.com/sensu/sensu-community-plugins">sensu-community-plugins</a></p>
+<p>Скрипты весьма просты, так что проблем при переписывании никаких не было.</p>
+<p>Если кому надо - все уже отдано сообществу, теперь Sensu может мониторить
+состояние ...</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Переписал-скрипты-на-ruby-для-sensu/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -323,36 +352,6 @@ TDD-администрирования. Оказалось, что толком 
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/Расширяем-возможности-nginx-с-помощью-lua/">Расширяем возможности Nginx с помощью Lua</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-11-08T00:00:00+04:00"> пт 08 ноября 2013</time>
-    </span>
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/nginx.html">Nginx</a>
-        /
-	<a href="http://bulimov.ru/tag/lua.html">Lua</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Встала некоторое время назад передо мной задача -
-фильтровать по полю Serial клиентские сертификаты,
-которые используются для авторизации на одном из сервисов.
-То есть не просто проверять сертификат, но еще и проверять
-наличие серийника в списке разрешенных, на случай утечки клиентского
-сертификата. Сертификаты выдаем не мы, так что отзывать не можем,
-и списка отозванных тоже нет.</p>
-<p>Решать я эту задачу стал с помощью Nginx, и почти сразу был
-слеплен вариант тупой ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Расширяем-возможности-nginx-с-помощью-lua/">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://bulimov.ru/index.html">&laquo;</a>
@@ -396,13 +395,13 @@ TDD-администрирования. Оказалось, что толком 
             <li class="list-group-item"><a href="http://bulimov.ru/tags/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
-                        <a href="http://bulimov.ru/tag/zhizn.html">
-                            Жизнь
+                        <a href="http://bulimov.ru/tag/ansible.html">
+                            Ansible
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="http://bulimov.ru/tag/ansible.html">
-                            Ansible
+                        <a href="http://bulimov.ru/tag/zhizn.html">
+                            Жизнь
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
@@ -411,8 +410,8 @@ TDD-администрирования. Оказалось, что толком 
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/zabbix.html">
-                            Zabbix
+                        <a href="http://bulimov.ru/tag/sensu.html">
+                            Sensu
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -421,8 +420,13 @@ TDD-администрирования. Оказалось, что толком 
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/chef.html">
-                            Chef
+                        <a href="http://bulimov.ru/tag/nagios.html">
+                            Nagios
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/zabbix.html">
+                            Zabbix
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -431,13 +435,23 @@ TDD-администрирования. Оказалось, что толком 
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/sensu.html">
-                            Sensu
+                        <a href="http://bulimov.ru/tag/chef.html">
+                            Chef
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/nagios.html">
-                            Nagios
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/ruby.html">
+                            Ruby
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/icinga2.html">
+                            Icinga2
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/ruhoh.html">
+                            Ruhoh
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -450,49 +464,9 @@ TDD-администрирования. Оказалось, что толком 
                             Книги
                         </a>
                     </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/ruby.html">
-                            Ruby
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/ruhoh.html">
-                            Ruhoh
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/icinga2.html">
-                            Icinga2
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/cadvisor.html">
-                            cAdvisor
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/vps.html">
-                            VPS
-                        </a>
-                    </li>
                     <li class="list-group-item tag-4">
                         <a href="http://bulimov.ru/tag/ubuntu.html">
                             Ubuntu
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/rancid.html">
-                            Rancid
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/iuzveri.html">
-                            Юзвери
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/juniper.html">
-                            Juniper
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -501,13 +475,18 @@ TDD-администрирования. Оказалось, что толком 
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/debian.html">
-                            Debian
+                        <a href="http://bulimov.ru/tag/juniper.html">
+                            Juniper
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/kernel.html">
-                            Kernel
+                        <a href="http://bulimov.ru/tag/tmux.html">
+                            tmux
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/cadvisor.html">
+                            cAdvisor
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -521,13 +500,38 @@ TDD-администрирования. Оказалось, что толком 
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/iuzveri.html">
+                            Юзвери
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/rancid.html">
+                            Rancid
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/debian.html">
+                            Debian
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://bulimov.ru/tag/pelican.html">
                             Pelican
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/tmux.html">
-                            tmux
+                        <a href="http://bulimov.ru/tag/vim.html">
+                            Vim
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/kernel.html">
+                            Kernel
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/vps.html">
+                            VPS
                         </a>
                     </li>
                 </ul>

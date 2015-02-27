@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/alexander-bulimov.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 20 Feb 2015 00:00:00 +0300</lastBuildDate><item><title>Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</title><link>http://bulimov.ru/it/check-cadvisor/</link><description>&lt;p&gt;После того, как я &lt;a href="/it/check-docker-memory"&gt;научился мониторить память в Docker-контейнерах&lt;/a&gt;,
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/alexander-bulimov.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 27 Feb 2015 00:00:00 +0300</lastBuildDate><item><title>Открыл для себя cVim для Google Chrome</title><link>http://bulimov.ru/it/chromium-vim/</link><description>&lt;p&gt;Последние 4 года я использую Vim в качестве текстового редактора и IDE, и все это время
+я использовал браузер Mozilla Firefox с дополнением &lt;a href="http://www.vimperator.org/vimperator"&gt;Vimperator&lt;/a&gt;,
+либо с его форком - &lt;a href="http://5digits.org/pentadactyl/"&gt;Pentadactyl&lt;/a&gt;, для получения
+аналогичной навигации в браузере. Без функционала этих дополнений я как без рук,
+и потому никак не мог использовать Google Chrome/Chromium.&lt;/p&gt;
+&lt;p&gt;Дополнения типа Vimum/Vrome/ViChrome, которые добавляют vi-like навигацию
+в Chrome, после Vimperator казались, мягко говоря, недоделанными,
+и не давали и половины того комфорта при использовании браузера, к которому я привык.&lt;/p&gt;
+&lt;p&gt;При этом к самому Firefox у меня накопилось масса претензий, главная из которых -
+жуткие тормоза при использовании многих админских инструментов, таких как
+&lt;a href="http://www.elasticsearch.org/overview/kibana/"&gt;Kibana&lt;/a&gt;,
+&lt;a href="https://github.com/google/cadvisor"&gt;cAdvisor&lt;/a&gt;, &lt;a href="http://grafana.org"&gt;Grafana&lt;/a&gt;.
+И когда в очередной раз Firefox умер при работе с банальным графиком в Kibana,
+я переключился в Chrome, и решил проверить, не появился ли для него нормальный аналог Vimperator.&lt;/p&gt;
+&lt;p&gt;Оказалось, что наконец-то появился новый крутой opensource плагин - &lt;a href="https://github.com/1995eaton/chromium-vim"&gt;chromium-vim (cVim)&lt;/a&gt;.
+Он умеет очень многое из того, что умеет Vimperator, и полностью настраивается.&lt;/p&gt;
+&lt;p&gt;Если вы используете Firefox только из-за Vimperator - посмотрите на шикарный
+&lt;a href="https://github.com/1995eaton/chromium-vim"&gt;cVim&lt;/a&gt; для Chrome.
+Он еще сырой, только-только вышел в начале 2015 года, но уже делает в разы больше,
+чем его аналоги на Chrome, и более того - он смог полностью заменить мне Vimperator,
+которым я пользовался все эти годы под Firefox, и теперь я могу выбирать браузер
+по его главным характеристикам, а не по наличию одного необходимого мне дополнения.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Bulimov</dc:creator><pubDate>Fri, 27 Feb 2015 00:00:00 +0300</pubDate><guid>tag:bulimov.ru,2015-02-27:it/chromium-vim/</guid><category>Жизнь</category><category>Vim</category></item><item><title>Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</title><link>http://bulimov.ru/it/check-cadvisor/</link><description>&lt;p&gt;После того, как я &lt;a href="/it/check-docker-memory"&gt;научился мониторить память в Docker-контейнерах&lt;/a&gt;,
 я решил мониторить еще и нагрузку на CPU.
 Поскольку это дело не самое тривиальное, и хотелось не писать свой
 велосипед, а пользоваться чем-то популярным и поддерживаемым, я решил
