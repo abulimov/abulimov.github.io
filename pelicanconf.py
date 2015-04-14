@@ -8,10 +8,11 @@ ABOUT_ME = 'Меня зовут Александр Викторович Були
 \
 <br>\
 <br>\
+Сторонник свободного ПО. \
+<br>\
 Практикую методологию DevOps. \
 Использую для управления серверами \
-<a href=http://www.ansible.com/>Ansible</a>, до этого \
-использовал <a href=http://www.opscode.com/chef/>Chef</a>. \
+<a href=http://www.ansible.com/>Ansible</a>. \
 Люблю программировать, автор нескольких модулей к Ansible.\
 '
 SITENAME = 'Александр Булимов - записки сисадмина.'
