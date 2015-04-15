@@ -1,5 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 27 Feb 2015 00:00:00 +0300</lastBuildDate><item><title>Открыл для себя cVim для Google Chrome</title><link>http://bulimov.ru/it/chromium-vim/</link><description>&lt;p&gt;Последние 4 года я использую Vim в качестве текстового редактора и IDE, и все это время
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 15 Apr 2015 00:00:00 +0300</lastBuildDate><item><title>Балансировка в HAProxy на основе данных cAdvisor</title><link>http://bulimov.ru/it/haproxy-cadvisor/</link><description>&lt;p&gt;Для запуска Docker-контейнеров у меня в данный момент выделено достаточно много
+серверов, причем аппаратная часть у некоторых из них отличается
+друг от друга. Соответственно, при настройке на чудесном балансировщике
+&lt;a href="http://www.haproxy.org/"&gt;HAProxy&lt;/a&gt; такого параметра балансировки
+как &lt;em&gt;"вес сервера"&lt;/em&gt;, приходится это различие в аппаратной части учитывать.&lt;/p&gt;
+&lt;p&gt;Можно, конечно, подобрать значения весов самостоятельно на основе
+данных мониторинга, а при появлении нагрузки от соседних Docker-контейнеров
+эти веса корректировать, но это не наш метод.&lt;/p&gt;
+&lt;p&gt;Не так давно я &lt;a href="/it/check-cadvisor"&gt;писал&lt;/a&gt; о том, как использую данные из
+&lt;a href="https://github.com/google/cadvisor"&gt;cAdvisor&lt;/a&gt; для мониторинга нагруженности
+контейнеров.&lt;/p&gt;
+&lt;p&gt;Поскольку у нас уже есть такой чудесный инструмент как cAdvisor, и мы умеем
+получать от него показатели утилизации CPU для выбранных контейнеров, то почему
+бы нам не выставлять вес серверов бекенда в зависимости от этого показателя?&lt;/p&gt;
+&lt;p&gt;Именно так я и думал, когда сел писать простой скрипт на Python,
+который бы запускался раз в минуту по cron, и с помощью
+&lt;a href="http://cbonte.github.io/haproxy-dconv/configuration-1.4.html#9.2"&gt;socket-команд&lt;/a&gt;
+менял бы вес сервера в балансировке в зависимости от значения нагрузки
+на этот сервер, полученного от cAdvisor API.&lt;/p&gt;
+&lt;p&gt;Результатом моей работы стал скрипт &lt;strong&gt;&lt;a href="https://github.com/abulimov/haproxy-cadvisor"&gt;haproxy_cadvisor.py&lt;/a&gt;&lt;/strong&gt;,
+который делает ровно то, что я описал.&lt;/p&gt;
+&lt;p&gt;При этом логика выставления весов очень проста:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;получаем процент использования CPU для всех бекенд-контейнеров и
+считаем среднюю нагрузку;&lt;/li&gt;
+&lt;li&gt;для каждого сервера получаем через socket HAProxy текущий вес и
+сопоставляем с текущей нагрузкой;&lt;/li&gt;
+&lt;li&gt;для каждого сервера определяем как надо изменить вес в балансировке,
+чтобы получить нагрузку, равную посчитанной средней;&lt;/li&gt;
+&lt;li&gt;для каждого сервера выставляем новый вес, изменив его значение на половину
+разницы между текущим весом и требуемым весом, чтобы сгладить скачки нагрузки.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;В качестве файла с настройками используется простой json-файл, в котором
+указывается путь к сокету HAProxy, список URL для опрашиваемых сервисов cAdvisor,
+название бекенда в HAProxy, для которого будет осуществлятся динамическое
+выставление весов серверов, и регулярное выражение для выбора серверов бекенда из
+списка алиасов контейнеров, полученного от cAdvisor.&lt;/p&gt;
+&lt;p&gt;Достоинства получившегося решения:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Динамическое выставление весов серверов бекенда в зависимости
+нагрузки на них;&lt;/li&gt;
+&lt;li&gt;Простота кода и использования:&lt;ul&gt;
+&lt;li&gt;конфиг в json&lt;/li&gt;
+&lt;li&gt;работа в Python 2.7+ и Python 3.2+&lt;/li&gt;
+&lt;li&gt;кроме стандартной библиотеки Python используется только Requests.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Устойчивость к отказу cAdvisor - мы меняем веса только для тех серверов, для
+которых получены свежие данные по загруженности.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Поскольку скрипт создавался максимально простым, он (на момент написания этой
+заметки) обладает и рядом недостатков:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Сервисы cAdvisor опрашиваются последовательно;&lt;/li&gt;
+&lt;li&gt;Один скрипт может контролировать балансировку только одного бекенда в HAProxy;&lt;/li&gt;
+&lt;li&gt;Скрипт не поддерживает работу в режиме сервиса и требует запуска по cron.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Также хочу отметить особенность работы этого решения при наличии нескольких
+одновременно работающих серверов-балансировщиков. Заключается она в том,
+что поскольку скрипты на этих серверах работают независимо, и никакой
+информацией не обмениваются, то и веса выставляют независимо. Это может
+привести к ситуации, когда на одном HAProxy для сервера будет выставлен
+минимально возможный вес 1, а на втором вес существенно больший среднего.
+На работу балансировки это конечно не влияет, поскольку итоговая нагрузка
+получается требуемой, но этот момент следует иметь в виду.
+Ну и в случае выхода одного из балансировщиков из строя, второму потребуется
+пара минут на выравнивание нагрузки.&lt;/p&gt;
+&lt;p&gt;Описанный скрипт работает у меня в бою уже достаточно продолжительное время,
+и отлично себя зарекомендовал. И что интересно - уже после создания этого
+решения, читая про &lt;a href="http://prometheus.io/"&gt;Prometheus&lt;/a&gt; я обнаружил
+&lt;a href="http://www.boxever.com/balancing-based-on-utilisation-with-haproxy"&gt;статью от boxever.com&lt;/a&gt;,
+в которой описан аналогичный подход, однако сам итоговый продукт они
+почему-то не выложили.&lt;/p&gt;
+&lt;p&gt;Я же очень люблю opensource, и поэтому описанный в этой заметке скрипт доступен
+всем желающим под лицензией MIT в &lt;a href="https://github.com/abulimov/haproxy-cadvisor"&gt;репозитории на github&lt;/a&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Bulimov</dc:creator><pubDate>Wed, 15 Apr 2015 00:00:00 +0300</pubDate><guid>tag:bulimov.ru,2015-04-15:it/haproxy-cadvisor/</guid><category>HAProxy</category><category>cAdvisor</category><category>Python</category><category>Программирование</category></item><item><title>Открыл для себя cVim для Google Chrome</title><link>http://bulimov.ru/it/chromium-vim/</link><description>&lt;p&gt;Последние 4 года я использую Vim в качестве текстового редактора и IDE, и все это время
 я использовал браузер Mozilla Firefox с дополнением &lt;a href="http://www.vimperator.org/vimperator"&gt;Vimperator&lt;/a&gt;,
 либо с его форком - &lt;a href="http://5digits.org/pentadactyl/"&gt;Pentadactyl&lt;/a&gt;, для получения
 аналогичной навигации в браузере. Без функционала этих дополнений я как без рук,
