@@ -2,7 +2,6 @@ Title: Балансировка в HAProxy на основе данных cAdvis
 Date: 2015-04-15
 Tags: HAProxy, cAdvisor, Python, Программирование
 Slug: haproxy-cadvisor
-Status: draft
 
 Для запуска Docker-контейнеров у меня в данный момент выделено достаточно много
 серверов, причем аппаратная часть у некоторых из них отличается
@@ -28,7 +27,7 @@ Status: draft
 менял бы вес сервера в балансировке в зависимости от значения нагрузки
 на этот сервер, полученного от cAdvisor API.
 
-Результатом моей работы стал скрипт **[haproxy-cadvisor.py](https://github.com/abulimov/TODO)**,
+Результатом моей работы стал скрипт **[haproxy_cadvisor.py](https://github.com/abulimov/haproxy-cadvisor)**,
 который делает ровно то, что я описал.
 
 При этом логика выставления весов очень проста:
@@ -85,4 +84,4 @@ Status: draft
 почему-то не выложили.
 
 Я же очень люблю opensource, и поэтому описанный в этой заметке скрипт доступен
-всем желающим под лицензией MIT в [репозитории на github](https://github.com/abulimov/TODO).
+всем желающим под лицензией MIT в [репозитории на github](https://github.com/abulimov/haproxy-cadvisor).
