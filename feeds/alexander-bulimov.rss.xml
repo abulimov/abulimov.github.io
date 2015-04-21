@@ -1,5 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/alexander-bulimov.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 15 Apr 2015 00:00:00 +0300</lastBuildDate><item><title>Балансировка в HAProxy на основе данных cAdvisor</title><link>http://bulimov.ru/it/haproxy-cadvisor/</link><description>&lt;p&gt;Для запуска Docker-контейнеров у меня в данный момент выделено достаточно много
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/alexander-bulimov.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 21 Apr 2015 00:00:00 +0300</lastBuildDate><item><title>Улучшаем сообщения от мониторинга с помощью cAdvisor-companion</title><link>http://bulimov.ru/it/cadvisor-companion/</link><description>&lt;p&gt;Слышали ли вы когда-нибудь о такой практике, как "Monitoring Events Enrichment"?
+Если вкратце, то это практика наполнения дополнительной информацией сообщений
+от мониторинга, так что на выяснение причины проблемы уходит меньше времени
+и телодвижений.&lt;/p&gt;
+&lt;p&gt;Есть даже контора, которая помогает внедрять эту практику на коммерческой основе,
+у них на &lt;a href="http://www.eventenrichment.com/"&gt;сайте&lt;/a&gt; есть неплохие примеры того,
+что и зачем можно добавить к обычному сообщению от Nagios.&lt;/p&gt;
+&lt;p&gt;Сама эта идея мне очень нравится, и вот после очередного неинформативного
+сообщения от &lt;a href="http://bulimov.ru/it/check-cadvisor/"&gt;мониторинга&lt;/a&gt;,
+которое пришло тогда, когда я был далеко от компьютера, и гласило
+&lt;code&gt;CheckDockerStats CRITICAL: 91% CPU Used!&lt;/code&gt;, я решил добавить
+таким сообщениям полезного контекста.&lt;/p&gt;
+&lt;p&gt;Конечно, очевидным кандидатом на добавление к сообщению от мониторинга
+в данном случае является список процессов в контейнере, отсортированных
+по использованию CPU. Если это не кажется очевидным, то представьте, что
+вам приходит сообщение от мониторинга, что в каком-то контейнере превышен
+порог использования CPU/памяти, а вы не у компьютера, и к тому моменту, как
+вы можете проверить, что же там случилось, контейнер уже вернулся к своему
+нормальному потреблению ресурсов.&lt;/p&gt;
+&lt;p&gt;Для обычных проверок &lt;code&gt;check_load&lt;/code&gt; и &lt;code&gt;check_memory&lt;/code&gt; из пакета nagios-plugins
+я добавил топ-5 потребителей ресурсов достаточно легко - обернул стандратные
+плагины в простенький wrapper на bash, получилось примерно так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="c"&gt;# check_memory wrapper&lt;/span&gt;
+&lt;span class="nv"&gt;output&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;/usr/lib/nagios/plugins/check_memory &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;status&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$?&lt;/span&gt;
+&lt;span class="nv"&gt;message&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$output&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; cut -d&lt;span class="se"&gt;\|&lt;/span&gt; -f 1&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;perfdata&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$output&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; cut -d&lt;span class="se"&gt;\|&lt;/span&gt; -f 2&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; -n &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$message&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; -ne &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$status&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+  &lt;span class="nb"&gt;echo&lt;/span&gt;
+&lt;span class="nb"&gt;  &lt;/span&gt;ps aux --sort -pmem &lt;span class="p"&gt;|&lt;/span&gt; head -n 5
+&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot; | &lt;/span&gt;&lt;span class="nv"&gt;$perfdata&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="nv"&gt;$status&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;При превышении заданных лимитов вывод этого wrapperа получается такой:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;root@host:~# /usr/lib/nagios/plugins/check_memory_wrapper.sh -f -C -w &lt;span class="m"&gt;15&lt;/span&gt; -c 10
+CRITICAL - 4.9% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;1198364&lt;/span&gt; kB&lt;span class="o"&gt;)&lt;/span&gt; free!
+USER       PID %CPU %MEM    VSZ   RSS      TTY  STAT START   TIME COMMAND
+traffic+ &lt;span class="m"&gt;28086&lt;/span&gt; 11.3 91.7 &lt;span class="m"&gt;25970900&lt;/span&gt; &lt;span class="m"&gt;22651436&lt;/span&gt; ?    Sl   Mar18 5553:57 /usr/bin/traffic_server -M --httpport 8080:fd&lt;span class="o"&gt;=&lt;/span&gt;9
+haproxy  &lt;span class="m"&gt;26404&lt;/span&gt;  7.0  0.2 &lt;span class="m"&gt;85832&lt;/span&gt;    &lt;span class="m"&gt;59364&lt;/span&gt;    ?    Ss   Mar19 3332:04 /usr/sbin/haproxy -f /etc/haproxy/haproxy.cfg -p /var/run/haproxy.pid -D -sf 25137
+syslog   &lt;span class="m"&gt;25077&lt;/span&gt;  0.5  0.1 &lt;span class="m"&gt;332568&lt;/span&gt;   &lt;span class="m"&gt;29764&lt;/span&gt;    ?    Ssl  Apr06  109:24 rsyslogd
+root     &lt;span class="m"&gt;15342&lt;/span&gt;  0.1  0.0 &lt;span class="m"&gt;84124&lt;/span&gt;    &lt;span class="m"&gt;15212&lt;/span&gt;    ?    S    Mar08   95:21 /usr/bin/perl -w /usr/sbin/ldirectord /etc/ldirectord.cf start
+ &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="nv"&gt;TOTAL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;24678520KB&lt;span class="p"&gt;;;;;&lt;/span&gt; &lt;span class="nv"&gt;USED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;23480156KB&lt;span class="p"&gt;;&lt;/span&gt;20976742&lt;span class="p"&gt;;&lt;/span&gt;22210668&lt;span class="p"&gt;;;&lt;/span&gt; &lt;span class="nv"&gt;FREE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;1198364KB&lt;span class="p"&gt;;;;;&lt;/span&gt; &lt;span class="nv"&gt;CACHES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;980600KB&lt;span class="p"&gt;;;;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;и сразу из сообщения о проблеме видно, кто сожрал всю память на сервере.&lt;/p&gt;
+&lt;p&gt;Для контейнера получить такую информацию сложнее, поскольку:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;в контейнере может не быть ни NRPE-сервера, ни sshd;&lt;/li&gt;
+&lt;li&gt;утилиты top, ps и прочие, получающие данные из общесистемных счетчиков
+в &lt;code&gt;/proc&lt;/code&gt;, показывают в контейнерах &lt;a href="http://fabiokung.com/2014/03/13/memory-inside-linux-containers/"&gt;неверные данные&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;cAdvisor не предоставляет информации о процессах внутри контейнера.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Поскольку информацию об использовании памяти/CPU я беру по HTTP из
+&lt;a href="https://github.com/google/cadvisor"&gt;cAdvisor&lt;/a&gt;,
+я решил следовать этому же сценарию и для обогащения сообщений о проблемах,
+и написать свой мини-сервис для получения информации о том, какие процессы
+запущены в контейнере.&lt;/p&gt;
+&lt;p&gt;Поскольку сервис получался комплиментарным к cAdvisor, я назвал его
+&lt;a href="https://github.com/abulimov/cadvisor-companion"&gt;cAdvisor-companion&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;В общем, алгоритм решения задачи оказался не сложным - достаточно всего лишь
+пройтись по файловой системе &lt;code&gt;/proc&lt;/code&gt; на родительском хосте, собрать данные
+по всем процессам, и фильтровать их по cgroup.&lt;/p&gt;
+&lt;p&gt;Поскольку мой сервис должен был собирать в отдельном потоке данные,
+и при этом отвечать на HTTP-запросы к API, да еще делать все это быстро, я выбрал
+для реализации не привычный Python, а "стильный, модный, молодежный"
+&lt;a href="http://golang.org/"&gt;Golang&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Сразу скажу, что это решение оказалось удачным, и позволило мне достаточно
+быстро и просто написать этот небольшой сервис, уложившись меньше чем в 500
+строк кода вместе с тестами.&lt;/p&gt;
+&lt;p&gt;Итогом нескольких дней разработки в свободное от работы время стал сервис,
+пригодный к разворачиванию в контейнере, которому для работы требуется только
+read-only доступ к &lt;code&gt;/proc&lt;/code&gt;, и который по HTTP API отдает в виде JSON историю
+запущенных процессов для указанного контейнера.&lt;/p&gt;
+&lt;p&gt;Подробнее о том, как этот сервис запускать, что из себя представляет API, почему
+я не стал использовать Docker API, и прочие полезные вещи можно почитать на
+&lt;a href="https://github.com/abulimov/cadvisor-companion"&gt;github-страничке cAdvisor-companion&lt;/a&gt;,
+ну а я хочу рассказать как я использую этот самописный сервис, и какие у него
+есть недостатки.&lt;/p&gt;
+&lt;p&gt;Использую я его как и планировал - получаю список процессов в контейнере в
+случае сообщений от мониторинга, и вывожу вместе с алертом. Теперь сообщение
+из начала статьи, которое и побудило меня к написанию своего сервиса,
+выглядит примерно так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;CheckDockerStats WARNING: 83.32% CPU used!
+ USER   PID  %CPU  %MEM      VSZ      RSS   STAT COMMAND
+&lt;span class="m"&gt;65534&lt;/span&gt;  &lt;span class="m"&gt;1285&lt;/span&gt;  18.3   0.0    &lt;span class="m"&gt;18396&lt;/span&gt;     &lt;span class="m"&gt;1632&lt;/span&gt;      S /usr/sbin/nutcracker -v &lt;span class="m"&gt;11&lt;/span&gt; -c /etc/twemproxy/config.yml
+ &lt;span class="m"&gt;1000&lt;/span&gt; &lt;span class="m"&gt;24891&lt;/span&gt;   7.5   1.4   &lt;span class="m"&gt;299524&lt;/span&gt;    &lt;span class="m"&gt;99200&lt;/span&gt;      S python /path/to/program.py
+ &lt;span class="m"&gt;1000&lt;/span&gt;  &lt;span class="m"&gt;4474&lt;/span&gt;   7.4   1.4   &lt;span class="m"&gt;303356&lt;/span&gt;   &lt;span class="m"&gt;103416&lt;/span&gt;      S python /path/to/program.py
+ &lt;span class="m"&gt;1000&lt;/span&gt;  &lt;span class="m"&gt;4468&lt;/span&gt;   7.4   1.4   &lt;span class="m"&gt;301416&lt;/span&gt;   &lt;span class="m"&gt;101228&lt;/span&gt;      S python /path/to/program.py
+ &lt;span class="m"&gt;1000&lt;/span&gt;  &lt;span class="m"&gt;4475&lt;/span&gt;   7.4   2.5   &lt;span class="m"&gt;382636&lt;/span&gt;   &lt;span class="m"&gt;181792&lt;/span&gt;      S python /path/to/program.py
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Проверки использования ресурсов в контейнерах, пример вывода которых я
+привел выше, я делаю все
+&lt;a href="https://github.com/abulimov/utils/blob/master/nagios/check_cadvisor.py"&gt;тем же скриптом check_cadvisor.py&lt;/a&gt;,
+только слегка доработанным для получения данных о процессах от cAdvisor-companion.&lt;/p&gt;
+&lt;p&gt;Ну а теперь о недостатках:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;мы видим не PID процесса в контейнере, а PID процесса в родительской системе&lt;/li&gt;
+&lt;li&gt;%CPU, который мы получаем от cAdvisor-companion, это &lt;em&gt;относительный процент
+использования CPU в контейнере&lt;/em&gt;. Чтобы было понятнее - мы вычисляем то,
+какой процент из &lt;em&gt;всего&lt;/em&gt; процессорного времени, использованного за некий
+&lt;em&gt;interval&lt;/em&gt; контейнером, использовал конкретный процесс, в то время как ps и top
+показывает то, какой процент &lt;em&gt;доступного&lt;/em&gt; процессорного времени использовал
+процесс за тот же &lt;em&gt;interval&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Несмотря на перечисленные недостатки, сервис со своей задачей справляется,
+так что если хотите обогатить сообщения от мониторинга полезным контекстом
+- попробуйте &lt;a href="https://github.com/abulimov/cadvisor-companion"&gt;cAdvisor-companion&lt;/a&gt;
+в паре с &lt;a href="https://github.com/abulimov/utils/blob/master/nagios/check_cadvisor.py"&gt;check_cadvisor.py&lt;/a&gt;,
+это очень легко и абсолютно безопасно - при запуске в виде контейнера он получает
+только read-only доступ к &lt;code&gt;/proc&lt;/code&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Bulimov</dc:creator><pubDate>Tue, 21 Apr 2015 00:00:00 +0300</pubDate><guid>tag:bulimov.ru,2015-04-21:it/cadvisor-companion/</guid><category>Golang</category><category>cAdvisor</category><category>cAdvisor-companion</category><category>Программирование</category></item><item><title>Балансировка в HAProxy на основе данных cAdvisor</title><link>http://bulimov.ru/it/haproxy-cadvisor/</link><description>&lt;p&gt;Для запуска Docker-контейнеров у меня в данный момент выделено достаточно много
 серверов, причем аппаратная часть у некоторых из них отличается
 друг от друга. Соответственно, при настройке на чудесном балансировщике
 &lt;a href="http://www.haproxy.org/"&gt;HAProxy&lt;/a&gt; такого параметра балансировки

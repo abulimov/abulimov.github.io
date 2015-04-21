@@ -2,7 +2,7 @@
 <html lang="ru"
 >
 <head>
-    <title>Lyrics Tagger - Александр Булимов - записки сисадмина.</title>
+    <title>Улучшаем сообщения от мониторинга с помощью cAdvisor-companion - Александр Булимов - записки сисадмина.</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,20 +10,22 @@
 
 
 
-<link rel="canonical" href="http://bulimov.ru/it/lyricstagger/">
+<link rel="canonical" href="http://bulimov.ru/it/cadvisor-companion/">
 
         <meta name="author" content="Alexander Bulimov" />
-        <meta name="keywords" content="Python,Программирование" />
-        <meta name="description" content="Предыстория Я езжу на работу в общественном транспорте, и слушаю там музыку со смартфона. Достаточно часто хотелось почитать тексты прослушиваемых в данный момент песен, но искать их в интернете было не слишком удобно, да и вообще интернета до недавнего времени в метро не было. Решение выглядит очевидным - надо встроить тексты песен в сами музыкальные файлы. Благо, основные форматы это позволяют. Музыку я храню во FLAC, а на смартфон закидываю в ..." />
+        <meta name="keywords" content="Golang,cAdvisor,cAdvisor-companion,Программирование" />
+        <meta name="description" content="Слышали ли вы когда-нибудь о такой практике, как &#34;Monitoring Events Enrichment&#34;? Если вкратце, то это практика наполнения дополнительной информацией сообщений от мониторинга, так что на выяснение причины проблемы уходит меньше времени и телодвижений. Есть даже контора, которая помогает внедрять эту практику на коммерческой основе, у них на сайте есть неплохие примеры того, что и зачем можно добавить к обычному сообщению от Nagios. Сама эта идея мне очень нравится, и вот ..." />
 
         <meta property="og:site_name" content="Александр Булимов - записки сисадмина." />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Lyrics Tagger"/>
-        <meta property="og:url" content="http://bulimov.ru/it/lyricstagger/"/>
-        <meta property="og:description" content="Предыстория Я езжу на работу в общественном транспорте, и слушаю там музыку со смартфона. Достаточно часто хотелось почитать тексты прослушиваемых в данный момент песен, но искать их в интернете было не слишком удобно, да и вообще интернета до недавнего времени в метро не было. Решение выглядит очевидным - надо встроить тексты песен в сами музыкальные файлы. Благо, основные форматы это позволяют. Музыку я храню во FLAC, а на смартфон закидываю в ..."/>
-        <meta property="article:published_time" content="2014-11-25" />
+        <meta property="og:title" content="Улучшаем сообщения от мониторинга с помощью cAdvisor-companion"/>
+        <meta property="og:url" content="http://bulimov.ru/it/cadvisor-companion/"/>
+        <meta property="og:description" content="Слышали ли вы когда-нибудь о такой практике, как &#34;Monitoring Events Enrichment&#34;? Если вкратце, то это практика наполнения дополнительной информацией сообщений от мониторинга, так что на выяснение причины проблемы уходит меньше времени и телодвижений. Есть даже контора, которая помогает внедрять эту практику на коммерческой основе, у них на сайте есть неплохие примеры того, что и зачем можно добавить к обычному сообщению от Nagios. Сама эта идея мне очень нравится, и вот ..."/>
+        <meta property="article:published_time" content="2015-04-21" />
             <meta property="article:section" content="IT" />
-            <meta property="article:tag" content="Python" />
+            <meta property="article:tag" content="Golang" />
+            <meta property="article:tag" content="cAdvisor" />
+            <meta property="article:tag" content="cAdvisor-companion" />
             <meta property="article:tag" content="Программирование" />
             <meta property="article:author" content="Alexander Bulimov" />
 
@@ -76,10 +78,10 @@
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="http://bulimov.ru/it/lyricstagger/"
+                    <a href="http://bulimov.ru/it/cadvisor-companion/"
                        rel="bookmark"
-                       title="Permalink to Lyrics Tagger">
-                        Lyrics Tagger
+                       title="Permalink to Улучшаем сообщения от мониторинга с помощью cAdvisor-companion">
+                        Улучшаем сообщения от мониторинга с помощью cAdvisor-companion
                     </a>
                 </h1>
             </header>
@@ -89,90 +91,150 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-11-25T00:00:00+03:00"> вт 25 ноября 2014</time>
+        <i class="fa fa-calendar"></i><time datetime="2015-04-21T00:00:00+03:00"> вт 21 апреля 2015</time>
     </span>
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/python.html">Python</a>
+	<a href="http://bulimov.ru/tag/golang.html">Golang</a>
+        /
+	<a href="http://bulimov.ru/tag/cadvisor.html">cAdvisor</a>
+        /
+	<a href="http://bulimov.ru/tag/cadvisor-companion.html">cAdvisor-companion</a>
         /
 	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <h2>Предыстория</h2>
-<p>Я езжу на работу в общественном транспорте, и слушаю там музыку
-со смартфона. Достаточно часто хотелось почитать тексты прослушиваемых
-в данный момент песен, но искать их в интернете было не слишком удобно,
-да и вообще интернета до недавнего времени в метро не было.</p>
-<p>Решение выглядит очевидным - надо встроить тексты песен в сами музыкальные файлы.
-Благо, основные форматы это позволяют.
-Музыку я храню во <a href="https://ru.wikipedia.org/wiki/FLAC">FLAC</a>, а на смартфон
-закидываю в <a href="https://ru.wikipedia.org/wiki/Vorbis">Ogg Vorbis</a>.</p>
-<p>Раз есть такая задача - значит можно ее решить с использованием программирования.
-Быстрый поиск чего-то подходящего для моих целей ничего не дал, хотя многие плееры
-умеют качать тексты песен по запросу.</p>
-<p>Поскольку задача не показалась мне сложной, и простая консольная утилита полностью
-покрыла бы мои потребности, я решил такую утилиту написать сам.</p>
-<p>Выбрал я для реализации, конечно, Python. Все нужные библиотеки там уже были,
-а именно:</p>
+                <p>Слышали ли вы когда-нибудь о такой практике, как "Monitoring Events Enrichment"?
+Если вкратце, то это практика наполнения дополнительной информацией сообщений
+от мониторинга, так что на выяснение причины проблемы уходит меньше времени
+и телодвижений.</p>
+<p>Есть даже контора, которая помогает внедрять эту практику на коммерческой основе,
+у них на <a href="http://www.eventenrichment.com/">сайте</a> есть неплохие примеры того,
+что и зачем можно добавить к обычному сообщению от Nagios.</p>
+<p>Сама эта идея мне очень нравится, и вот после очередного неинформативного
+сообщения от <a href="http://bulimov.ru/it/check-cadvisor/">мониторинга</a>,
+которое пришло тогда, когда я был далеко от компьютера, и гласило
+<code>CheckDockerStats CRITICAL: 91% CPU Used!</code>, я решил добавить
+таким сообщениям полезного контекста.</p>
+<p>Конечно, очевидным кандидатом на добавление к сообщению от мониторинга
+в данном случае является список процессов в контейнере, отсортированных
+по использованию CPU. Если это не кажется очевидным, то представьте, что
+вам приходит сообщение от мониторинга, что в каком-то контейнере превышен
+порог использования CPU/памяти, а вы не у компьютера, и к тому моменту, как
+вы можете проверить, что же там случилось, контейнер уже вернулся к своему
+нормальному потреблению ресурсов.</p>
+<p>Для обычных проверок <code>check_load</code> и <code>check_memory</code> из пакета nagios-plugins
+я добавил топ-5 потребителей ресурсов достаточно легко - обернул стандратные
+плагины в простенький wrapper на bash, получилось примерно так:</p>
+<div class="highlight"><pre><span class="c">#!/bin/bash</span>
+<span class="c"># check_memory wrapper</span>
+<span class="nv">output</span><span class="o">=</span><span class="k">$(</span>/usr/lib/nagios/plugins/check_memory <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="k">)</span>
+<span class="nv">status</span><span class="o">=</span><span class="nv">$?</span>
+<span class="nv">message</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$output</span><span class="s2">&quot;</span> <span class="p">|</span> cut -d<span class="se">\|</span> -f 1<span class="k">)</span>
+<span class="nv">perfdata</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$output</span><span class="s2">&quot;</span> <span class="p">|</span> cut -d<span class="se">\|</span> -f 2<span class="k">)</span>
+<span class="nb">echo</span> -n <span class="s2">&quot;</span><span class="nv">$message</span><span class="s2">&quot;</span>
+<span class="k">if</span> <span class="o">[</span> <span class="m">0</span> -ne <span class="s2">&quot;</span><span class="nv">$status</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">echo</span>
+<span class="nb">  </span>ps aux --sort -pmem <span class="p">|</span> head -n 5
+<span class="k">fi</span>
+<span class="nb">echo</span> <span class="s2">&quot; | </span><span class="nv">$perfdata</span><span class="s2">&quot;</span>
+<span class="nb">exit</span> <span class="nv">$status</span>
+</pre></div>
+
+
+<p>При превышении заданных лимитов вывод этого wrapperа получается такой:</p>
+<div class="highlight"><pre>root@host:~# /usr/lib/nagios/plugins/check_memory_wrapper.sh -f -C -w <span class="m">15</span> -c 10
+CRITICAL - 4.9% <span class="o">(</span><span class="m">1198364</span> kB<span class="o">)</span> free!
+USER       PID %CPU %MEM    VSZ   RSS      TTY  STAT START   TIME COMMAND
+traffic+ <span class="m">28086</span> 11.3 91.7 <span class="m">25970900</span> <span class="m">22651436</span> ?    Sl   Mar18 5553:57 /usr/bin/traffic_server -M --httpport 8080:fd<span class="o">=</span>9
+haproxy  <span class="m">26404</span>  7.0  0.2 <span class="m">85832</span>    <span class="m">59364</span>    ?    Ss   Mar19 3332:04 /usr/sbin/haproxy -f /etc/haproxy/haproxy.cfg -p /var/run/haproxy.pid -D -sf 25137
+syslog   <span class="m">25077</span>  0.5  0.1 <span class="m">332568</span>   <span class="m">29764</span>    ?    Ssl  Apr06  109:24 rsyslogd
+root     <span class="m">15342</span>  0.1  0.0 <span class="m">84124</span>    <span class="m">15212</span>    ?    S    Mar08   95:21 /usr/bin/perl -w /usr/sbin/ldirectord /etc/ldirectord.cf start
+ <span class="p">|</span> <span class="nv">TOTAL</span><span class="o">=</span>24678520KB<span class="p">;;;;</span> <span class="nv">USED</span><span class="o">=</span>23480156KB<span class="p">;</span>20976742<span class="p">;</span>22210668<span class="p">;;</span> <span class="nv">FREE</span><span class="o">=</span>1198364KB<span class="p">;;;;</span> <span class="nv">CACHES</span><span class="o">=</span>980600KB<span class="p">;;;;</span>
+</pre></div>
+
+
+<p>и сразу из сообщения о проблеме видно, кто сожрал всю память на сервере.</p>
+<p>Для контейнера получить такую информацию сложнее, поскольку:</p>
 <ul>
-<li><a href="https://pypi.python.org/pypi/mutagen">mutagen</a> для работы с музыкальными файлами;</li>
-<li><a href="https://pypi.python.org/pypi/requests">requests</a> для получения нужных html-страниц;</li>
-<li><a href="https://pypi.python.org/pypi/beautifulsoup4">beautifulsoup4</a> для разбора html;</li>
-<li><a href="https://pypi.python.org/pypi/docopt">docopt</a> для удобного написания консольных утилит;</li>
-<li><a href="https://pypi.python.org/pypi/mock">mock</a> для тестов.</li>
+<li>в контейнере может не быть ни NRPE-сервера, ни sshd;</li>
+<li>утилиты top, ps и прочие, получающие данные из общесистемных счетчиков
+в <code>/proc</code>, показывают в контейнерах <a href="http://fabiokung.com/2014/03/13/memory-inside-linux-containers/">неверные данные</a>;</li>
+<li>cAdvisor не предоставляет информации о процессах внутри контейнера.</li>
 </ul>
-<p>В итоге получилась вполне компактная программа, покрытая тестами, умеющая качать
-тексты песен с <a href="http://lyrics.wikia.com/">lyrics.wikia.com</a> и записывать в теги
-файлов в формате FLAC, Ogg, и MP3 (экспериментально, я MP3 практически на использую).
-Модули для поддержки конкретных сайтов с текстами сделаны подключаемыми,
-так что можно добавить скачивание с любого другого сайта, не меняя саму программу.</p>
-<p>Результатами моих трудов может воспользоваться любой желающий,
-<a href="https://github.com/abulimov/lyricstagger">код размещен на github</a> под
-лицензией <a href="http://opensource.org/licenses/MIT">MIT</a>.
-Поддерживается Python версий 2.7, 3.2, 3.3, 3.4 и PyPy.</p>
-<h2>Установка</h2>
-<p>Для установки достаточно выполнить следующую команду:</p>
-<div class="highlight"><pre>pip install <span class="s1">&#39;git+https://github.com/abulimov/lyricstagger#egg=lyricstagger&#39;</span>
+<p>Поскольку информацию об использовании памяти/CPU я беру по HTTP из
+<a href="https://github.com/google/cadvisor">cAdvisor</a>,
+я решил следовать этому же сценарию и для обогащения сообщений о проблемах,
+и написать свой мини-сервис для получения информации о том, какие процессы
+запущены в контейнере.</p>
+<p>Поскольку сервис получался комплиментарным к cAdvisor, я назвал его
+<a href="https://github.com/abulimov/cadvisor-companion">cAdvisor-companion</a>.</p>
+<p>В общем, алгоритм решения задачи оказался не сложным - достаточно всего лишь
+пройтись по файловой системе <code>/proc</code> на родительском хосте, собрать данные
+по всем процессам, и фильтровать их по cgroup.</p>
+<p>Поскольку мой сервис должен был собирать в отдельном потоке данные,
+и при этом отвечать на HTTP-запросы к API, да еще делать все это быстро, я выбрал
+для реализации не привычный Python, а "стильный, модный, молодежный"
+<a href="http://golang.org/">Golang</a>.</p>
+<p>Сразу скажу, что это решение оказалось удачным, и позволило мне достаточно
+быстро и просто написать этот небольшой сервис, уложившись меньше чем в 500
+строк кода вместе с тестами.</p>
+<p>Итогом нескольких дней разработки в свободное от работы время стал сервис,
+пригодный к разворачиванию в контейнере, которому для работы требуется только
+read-only доступ к <code>/proc</code>, и который по HTTP API отдает в виде JSON историю
+запущенных процессов для указанного контейнера.</p>
+<p>Подробнее о том, как этот сервис запускать, что из себя представляет API, почему
+я не стал использовать Docker API, и прочие полезные вещи можно почитать на
+<a href="https://github.com/abulimov/cadvisor-companion">github-страничке cAdvisor-companion</a>,
+ну а я хочу рассказать как я использую этот самописный сервис, и какие у него
+есть недостатки.</p>
+<p>Использую я его как и планировал - получаю список процессов в контейнере в
+случае сообщений от мониторинга, и вывожу вместе с алертом. Теперь сообщение
+из начала статьи, которое и побудило меня к написанию своего сервиса,
+выглядит примерно так:</p>
+<div class="highlight"><pre>CheckDockerStats WARNING: 83.32% CPU used!
+ USER   PID  %CPU  %MEM      VSZ      RSS   STAT COMMAND
+<span class="m">65534</span>  <span class="m">1285</span>  18.3   0.0    <span class="m">18396</span>     <span class="m">1632</span>      S /usr/sbin/nutcracker -v <span class="m">11</span> -c /etc/twemproxy/config.yml
+ <span class="m">1000</span> <span class="m">24891</span>   7.5   1.4   <span class="m">299524</span>    <span class="m">99200</span>      S python /path/to/program.py
+ <span class="m">1000</span>  <span class="m">4474</span>   7.4   1.4   <span class="m">303356</span>   <span class="m">103416</span>      S python /path/to/program.py
+ <span class="m">1000</span>  <span class="m">4468</span>   7.4   1.4   <span class="m">301416</span>   <span class="m">101228</span>      S python /path/to/program.py
+ <span class="m">1000</span>  <span class="m">4475</span>   7.4   2.5   <span class="m">382636</span>   <span class="m">181792</span>      S python /path/to/program.py
 </pre></div>
 
 
-<h2>Примеры использования</h2>
-<p>Вывести список всех музыкальных файлов без встроенных текстов в директории ~/Music/</p>
-<div class="highlight"><pre>user@machine:~<span class="nv">$ </span>lyricstagger report ~/Music
-No lyrics in file <span class="s1">&#39;/home/user/Music/Some Artist/01 - Some Track.ogg&#39;</span>
-No lyrics in file <span class="s1">&#39;/home/user/Music/Some Artist/02 - Other Track.ogg&#39;</span>
-</pre></div>
-
-
-<p>Скачать тесты и записать их в теги музыкальных файлов в директории ~/Music/</p>
-<div class="highlight"><pre>user@machine:~<span class="nv">$ </span>lyricstagger tag ~/Music
-</pre></div>
-
-
-<p>Удалить все теги с текстами из всех музыкальных файлов в ~/Music/</p>
-<div class="highlight"><pre>user@machine:~<span class="nv">$ </span>lyricstagger remove ~/Music
-</pre></div>
-
-
-<h2>Итоги</h2>
-<p>Если вы встретились с подобной задачей - попробуйте <a href="https://github.com/abulimov/lyricstagger">lyricstagger</a>,
-а если решили эту задачу более простым и удобным способом - напишите мне об этом.
-Я уже натравил свою чудо-утилиту на всю музыкальную коллекцию, она записала все
-найденные тексты в файлы, так что теперь я запускаю ее только когда покупаю новый
-альбом на <a href="http://bandcamp.com">bandcamp</a>, <a href="http://cdbaby.com">cdbaby</a> или <a href="http://qobuz.com">Qobuz</a>.</p>
+<p>Проверки использования ресурсов в контейнерах, пример вывода которых я
+привел выше, я делаю все
+<a href="https://github.com/abulimov/utils/blob/master/nagios/check_cadvisor.py">тем же скриптом check_cadvisor.py</a>,
+только слегка доработанным для получения данных о процессах от cAdvisor-companion.</p>
+<p>Ну а теперь о недостатках:</p>
+<ul>
+<li>мы видим не PID процесса в контейнере, а PID процесса в родительской системе</li>
+<li>%CPU, который мы получаем от cAdvisor-companion, это <em>относительный процент
+использования CPU в контейнере</em>. Чтобы было понятнее - мы вычисляем то,
+какой процент из <em>всего</em> процессорного времени, использованного за некий
+<em>interval</em> контейнером, использовал конкретный процесс, в то время как ps и top
+показывает то, какой процент <em>доступного</em> процессорного времени использовал
+процесс за тот же <em>interval</em>.</li>
+</ul>
+<p>Несмотря на перечисленные недостатки, сервис со своей задачей справляется,
+так что если хотите обогатить сообщения от мониторинга полезным контекстом
+- попробуйте <a href="https://github.com/abulimov/cadvisor-companion">cAdvisor-companion</a>
+в паре с <a href="https://github.com/abulimov/utils/blob/master/nagios/check_cadvisor.py">check_cadvisor.py</a>,
+это очень легко и абсолютно безопасно - при запуске в виде контейнера он получает
+только read-only доступ к <code>/proc</code>.</p>
             </div>
             <!-- /.entry-content -->
 <section class="well" id="related-posts">
     <h4>Related Posts:</h4>
     <ul>
-        <li><a href="http://bulimov.ru/it/meminfo-visualizer/">Разбирался с page-cache в Linux</a></li>
         <li><a href="http://bulimov.ru/it/haproxy-cadvisor/">Балансировка в HAProxy на основе данных cAdvisor</a></li>
-        <li><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware/">Низкоуровневое обнаружение в Zabbix, ищем диски в контроллере от 3ware</a></li>
-        <li><a href="http://bulimov.ru/it/check-docker-memory/">Научился мониторить использование памяти в Docker-контейнерах</a></li>
-        <li><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></li>
+        <li><a href="http://bulimov.ru/it/meminfo-visualizer/">Разбирался с page-cache в Linux</a></li>
+        <li><a href="http://bulimov.ru/it/lyricstagger/">Lyrics Tagger</a></li>
+        <li><a href="http://bulimov.ru/it/Плагин-к-ruhoh-для-рисования-графиков/">Плагин к Ruhoh для рисования графиков</a></li>
+        <li><a href="http://bulimov.ru/it/О-любви-к-программированию/">О любви к программированию</a></li>
     </ul>
 </section>
     <hr/>
@@ -184,8 +246,8 @@ No lyrics in file <span class="s1">&#39;/home/user/Music/Some Artist/02 - Other 
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
 
-                    var disqus_identifier = 'lyricstagger';
-                var disqus_url = 'http://bulimov.ru/it/lyricstagger/';
+                    var disqus_identifier = 'cadvisor-companion';
+                var disqus_url = 'http://bulimov.ru/it/cadvisor-companion/';
 
             var disqus_config = function () {
                 this.language = "ru";
