@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 21 Apr 2015 00:00:00 +0300</lastBuildDate><item><title>Улучшаем сообщения от мониторинга с помощью cAdvisor-companion</title><link>http://bulimov.ru/it/cadvisor-companion/</link><description>&lt;p&gt;Слышали ли вы когда-нибудь о такой практике, как "Monitoring Events Enrichment"?
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 21 May 2015 00:00:00 +0300</lastBuildDate><item><title>Сменил Vim на Atom</title><link>http://bulimov.ru/it/vim-atom/</link><description>&lt;p&gt;Вот уже почти два месяца, как я по совету коллеги сменил Vim, которым
+пользовался уже 5 лет, и который оброс у меня кучей плагинов,
+на &lt;a href="http://atom.io"&gt;Github Atom&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Использую я его как раньше Vim - для всего. В основном это написание
+плейбуков &lt;a href="http://www.ansible.com/"&gt;Ansible&lt;/a&gt;, что включает в себя правку конфигов,
+и написание кода на &lt;a href="https://www.python.org/"&gt;Python&lt;/a&gt; и &lt;a href="http://golang.org/"&gt;Go&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Сразу скажу, что не будь для Atom вменяемого vim-режима, я бы вряд ли
+решился на переход. В свое время, когда я знакомился с миром
+Emacs, я в итоге все равно пришел к использованию Evil Mode.&lt;/p&gt;
+&lt;p&gt;На мое счастье, &lt;a href="https://atom.io/packages/vim-mode"&gt;vim-mode&lt;/a&gt; в Atom есть,
+и очень хороший, а если дополнить его &lt;a href="https://atom.io/packages/ex-mode"&gt;ex-vim&lt;/a&gt;
+и &lt;a href="https://atom.io/packages/vim-surround"&gt;vim-surround&lt;/a&gt;, то вообще отличный.&lt;/p&gt;
+&lt;p&gt;Итак, раз с частью для непосредственного редактирования текста разобрались,
+переходим к всяким крутым и нужным штукам, которые в Vim добавляются только
+плагинами, таким как интеграция с Git, поддержка проверки синтаксиса,
+автодополнение, автоформатирование и т.д.&lt;/p&gt;
+&lt;p&gt;В Atom вообще все добавляется плагинами, такой вот у них подход, и в плане
+плагинов у Atom все отлично, как минимум для Python и Golang. Автодополнение в
+лице &lt;a href="https://atom.io/packages/autocomplete-plus"&gt;autocomplete-plus&lt;/a&gt; вообще
+недавно было включено в состав базовых плагинов, для инеграции с git
+есть &lt;a href="https://atom.io/packages/git-plus"&gt;Git-Plus&lt;/a&gt;, повторяющий функционал
+vim-fugitive. Для Python есть поддержка всех имеющихся linter-ов, ну а для Go
+поддержка просто образцовая благодаря &lt;a href="https://atom.io/packages/go-plus"&gt;go-plus&lt;/a&gt;,
+который интегрирует в Atom почти все утилиты Go, включая наглядное отображение
+покрытия кода тестами, lint, vet, и автоформатирование с gofmt, превращая
+Atom в полноценную IDE для Go.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Но зачем же менять vim, где все это можно добавить плагинами, на Atom, где все
+это опять-таки можно добавить плагинами?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;В Atom все плагины работают асинхронно, и это добавляет удобства в
+работе. Часть плагинов, например предпросмотр Markdown в соседней панели
+редактора, в vim невозможны в принципе.&lt;/p&gt;
+&lt;p&gt;Поскольку Atom использует
+для рендеринга движок Chromium, в нем легко сделать гораздо более продвинутый и
+плавный UI, а благодаря упору на плагины и расширяемость Atom &lt;em&gt;очень&lt;/em&gt; активно
+развивается, и новые возможности появляются чуть ли не каждый день.&lt;/p&gt;
+&lt;p&gt;В Atom очень удобно реализована работа с проектами, с поддержкой поиска по
+файлам, быстрым открытием файлов (как в плагине Ctrl-P для Vim), заменой во всех
+файлах, статусом Git.&lt;/p&gt;
+&lt;p&gt;А еще мне хочется больше красоты и удобства в повседневно используемых утилитах,
+и в этом плане Atom серьезно превосходит и графическую, и консольную версию Vim.&lt;/p&gt;
+&lt;p&gt;При этом, в отличие от проприетарного Sublime Text, имеющего схожие возможности,
+Atom открыт под &lt;a href="https://raw.githubusercontent.com/atom/atom/master/LICENSE.md"&gt;лицензией MIT&lt;/a&gt;,
+и имеет крайне активное сообщество.&lt;/p&gt;
+&lt;p&gt;В общем, обратно на Vim возвращаться я не собираюсь, и крайне рекомендую хардкорным
+вимерам попробовать Atom с vim-mode. Отмечу при этом, что на серверах по ssh я все
+также регулярно использую Vim для мелких быстрых правок.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Bulimov</dc:creator><pubDate>Thu, 21 May 2015 00:00:00 +0300</pubDate><guid>tag:bulimov.ru,2015-05-21:it/vim-atom/</guid><category>Vim</category><category>Atom</category><category>Жизнь</category></item><item><title>Улучшаем сообщения от мониторинга с помощью cAdvisor-companion</title><link>http://bulimov.ru/it/cadvisor-companion/</link><description>&lt;p&gt;Слышали ли вы когда-нибудь о такой практике, как "Monitoring Events Enrichment"?
 Если вкратце, то это практика наполнения дополнительной информацией сообщений
 от мониторинга, так что на выяснение причины проблемы уходит меньше времени
 и телодвижений.&lt;/p&gt;
