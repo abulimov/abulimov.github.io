@@ -1,6 +1,6 @@
 Title: Низкоуровневое обнаружение в Zabbix
 Date: 2013-06-26
-Tags: Zabbix, Python
+Tags: Zabbix, Python, Monitoring
 Category: IT
 Slug: Низкоуровневое-обнаружение-в-zabbix
 

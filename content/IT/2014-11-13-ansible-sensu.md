@@ -1,6 +1,6 @@
 Title: Удобная настройка Sensu с Ansible
 Slug: ansible-sensu
-Tags: Ansible, Sensu
+Tags: Ansible, Sensu, Monitoring
 
 Так как я использую [Sensu](http://sensuapp.org/) для мониторинга,
 и [Ansible](http://www.ansible.com/) для управления конфигурациями,

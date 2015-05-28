@@ -1,7 +1,7 @@
 Title: Monitoring sucks!
 Date: 2013-07-10
 Modified: 2014-06-12
-Tags: Zabbix, Sensu
+Tags: Zabbix, Sensu, Monitoring
 Category: IT
 Slug: monitoring-sucks
 

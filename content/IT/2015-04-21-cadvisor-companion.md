@@ -1,6 +1,6 @@
 Title: Улучшаем сообщения от мониторинга с помощью cAdvisor-companion
 Date: 2015-04-21
-Tags: Golang, cAdvisor, cAdvisor-companion, Программирование
+Tags: Golang, cAdvisor, cAdvisor-companion, Программирование, Monitoring
 Slug: cadvisor-companion
 
 Слышали ли вы когда-нибудь о такой практике, как "Monitoring Events Enrichment"?

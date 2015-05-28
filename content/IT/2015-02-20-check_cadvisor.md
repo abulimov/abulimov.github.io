@@ -1,6 +1,6 @@
 Title: Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2
 Date: 2015-02-20
-Tags:   Python, Nagios, Icinga2, cAdvisor
+Tags:   Python, Nagios, Icinga2, cAdvisor, Monitoring
 Category: IT
 Slug: check-cadvisor
 
@@ -11,7 +11,7 @@ Slug: check-cadvisor
 попробовать [cAdvisor](https://github.com/google/cadvisor).
 
 И вот что я могу сказать - отличный инструмент!
-Ресурсов практически не потребляет (около 20 Мб оперативной памяти и 
+Ресурсов практически не потребляет (около 20 Мб оперативной памяти и
 неизмеримо мало CPU), обладает простым API для доступа к собираемой им
 информации, имеет красивый веб-интерфейс с realtime-графиками.
 А еще умеет сам писать метрики в InfluxDB, и в будущем [научится писать
@@ -37,7 +37,7 @@ loving_lalande не меньше, чем 15%, и уж точно не меньш
     nagios@hostname:~$ ./check_cadvisor.py -u http://cadvisor_url -n loving_lalande -m -w 15 -c 10
     CheckDockerStats OK: 79.96% (5869163 kB) free! | mem_used=1470868KB;1101004;734003;0;7340032
 
-А теперь проверим, что CPU используется менее чем на 10%, и уж точно менее, чем на 20%: 
+А теперь проверим, что CPU используется менее чем на 10%, и уж точно менее, чем на 20%:
 
     :::bash
     nagios@hostname:~$ ./check_cadvisor.py -u http://cadvisor_url -n loving_lalande -C -w 10 -c 20

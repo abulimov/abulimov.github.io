@@ -1,6 +1,6 @@
 Title: Низкоуровневое обнаружение в Zabbix, ищем диски в контроллере от 3ware
 Date: 2013-08-14
-Tags: Zabbix, Python
+Tags: Zabbix, Python, Monitoring
 Category: IT
 Slug: Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware
 

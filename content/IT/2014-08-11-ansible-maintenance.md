@@ -1,6 +1,6 @@
 Title: Модуль zabbix_maintenance
 Date: 2014-08-11
-Tags:   Ansible, Python
+Tags:   Ansible, Python, Monitoring
 Category: IT
 Slug: Модуль-zabbix_maintenance
 

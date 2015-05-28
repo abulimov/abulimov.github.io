@@ -1,6 +1,6 @@
 Title: Переписал скрипты на Ruby для Sensu
 Date: 2014-09-04
-Tags: Ruby, Sensu
+Tags: Ruby, Sensu, Monitoring
 Category: IT
 Slug: Переписал-скрипты-на-ruby-для-sensu
 
