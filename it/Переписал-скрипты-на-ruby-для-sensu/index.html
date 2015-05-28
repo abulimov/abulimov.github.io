@@ -13,7 +13,7 @@
 <link rel="canonical" href="http://bulimov.ru/it/Переписал-скрипты-на-ruby-для-sensu/">
 
         <meta name="author" content="Alexander Bulimov" />
-        <meta name="keywords" content="Ruby,Sensu" />
+        <meta name="keywords" content="Ruby,Sensu,Monitoring" />
         <meta name="description" content="Поскольку я перевел мониторинг с Zabbix на Sensu, пришлось переписать свои скрипты проверки состояния жестких дисков в raid-контроллерах от 3ware и HP SmartArray для использования в Sensu. Ну а раз все равно переписывать - то писать я решил на Ruby, чтобы можно было без проблем заслать в sensu-community-plugins Скрипты весьма просты, так что проблем при переписывании никаких не было. Если кому надо - все уже отдано сообществу, теперь Sensu может мониторить состояние ..." />
 
         <meta property="og:site_name" content="Александр Булимов - записки сисадмина." />
@@ -25,6 +25,7 @@
             <meta property="article:section" content="IT" />
             <meta property="article:tag" content="Ruby" />
             <meta property="article:tag" content="Sensu" />
+            <meta property="article:tag" content="Monitoring" />
             <meta property="article:author" content="Alexander Bulimov" />
 
 
@@ -98,6 +99,8 @@
 	<a href="http://bulimov.ru/tag/ruby.html">Ruby</a>
         /
 	<a href="http://bulimov.ru/tag/sensu.html">Sensu</a>
+        /
+	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
@@ -116,9 +119,11 @@ HP SmartArray для использования в Sensu. Ну а раз все 
 <section class="well" id="related-posts">
     <h4>Related Posts:</h4>
     <ul>
-        <li><a href="http://bulimov.ru/it/Плагин-к-ruhoh-для-рисования-графиков/">Плагин к Ruhoh для рисования графиков</a></li>
         <li><a href="http://bulimov.ru/it/monitoring-sucks/">Monitoring sucks!</a></li>
         <li><a href="http://bulimov.ru/it/ansible-sensu/">Удобная настройка Sensu с Ansible</a></li>
+        <li><a href="http://bulimov.ru/it/Плагин-к-ruhoh-для-рисования-графиков/">Плагин к Ruhoh для рисования графиков</a></li>
+        <li><a href="http://bulimov.ru/it/check-docker-memory/">Научился мониторить использование памяти в Docker-контейнерах</a></li>
+        <li><a href="http://bulimov.ru/it/try-packetbeat/">Попробуйте Packetbeat</a></li>
     </ul>
 </section>
     <hr/>
@@ -182,13 +187,18 @@ HP SmartArray для использования в Sensu. Ну а раз все 
             <li class="list-group-item"><a href="http://bulimov.ru/tags/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
+                        <a href="http://bulimov.ru/tag/zhizn.html">
+                            Жизнь
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
                         <a href="http://bulimov.ru/tag/ansible.html">
                             Ansible
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="http://bulimov.ru/tag/python.html">
-                            Python
+                        <a href="http://bulimov.ru/tag/monitoring.html">
+                            Monitoring
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
@@ -197,23 +207,8 @@ HP SmartArray для использования в Sensu. Ну а раз все 
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="http://bulimov.ru/tag/zhizn.html">
-                            Жизнь
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/nagios.html">
-                            Nagios
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/chef.html">
-                            Chef
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/zabbix.html">
-                            Zabbix
+                        <a href="http://bulimov.ru/tag/python.html">
+                            Python
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -222,8 +217,18 @@ HP SmartArray для использования в Sensu. Ну а раз все 
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/sensu.html">
-                            Sensu
+                        <a href="http://bulimov.ru/tag/nagios.html">
+                            Nagios
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/zabbix.html">
+                            Zabbix
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/chef.html">
+                            Chef
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -231,24 +236,9 @@ HP SmartArray для использования в Sensu. Ну а раз все 
                             cAdvisor
                         </a>
                     </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/knigi.html">
-                            Книги
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/ruby.html">
-                            Ruby
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/vim.html">
-                            Vim
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/icinga2.html">
-                            Icinga2
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/sensu.html">
+                            Sensu
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -257,58 +247,33 @@ HP SmartArray для использования в Sensu. Ну а раз все 
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/icinga2.html">
+                            Icinga2
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
                         <a href="http://bulimov.ru/tag/ruhoh.html">
                             Ruhoh
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/nginx.html">
-                            Nginx
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/ruby.html">
+                            Ruby
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/knigi.html">
+                            Книги
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/vim.html">
+                            Vim
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/rancid.html">
-                            Rancid
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/tmux.html">
-                            tmux
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/iuzveri.html">
-                            Юзвери
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/lua.html">
-                            Lua
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/debian.html">
-                            Debian
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/serverspec.html">
-                            serverspec
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/pelican.html">
-                            Pelican
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/vps.html">
-                            VPS
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/golang.html">
-                            Golang
+                        <a href="http://bulimov.ru/tag/cadvisor-companion.html">
+                            cAdvisor-companion
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -317,18 +282,28 @@ HP SmartArray для использования в Sensu. Ну а раз все 
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/atom.html">
-                            Atom
+                        <a href="http://bulimov.ru/tag/iuzveri.html">
+                            Юзвери
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/ubuntu.html">
-                            Ubuntu
+                        <a href="http://bulimov.ru/tag/serverspec.html">
+                            serverspec
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/kernel.html">
-                            Kernel
+                        <a href="http://bulimov.ru/tag/packetbeat.html">
+                            Packetbeat
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/lua.html">
+                            Lua
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/nginx.html">
+                            Nginx
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -337,8 +312,58 @@ HP SmartArray для использования в Sensu. Ну а раз все 
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/cadvisor-companion.html">
-                            cAdvisor-companion
+                        <a href="http://bulimov.ru/tag/debian.html">
+                            Debian
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/ubuntu.html">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/kibana.html">
+                            Kibana
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/tmux.html">
+                            tmux
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/vps.html">
+                            VPS
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/elasticsearch.html">
+                            Elasticsearch
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/golang.html">
+                            Golang
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/rancid.html">
+                            Rancid
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/pelican.html">
+                            Pelican
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/kernel.html">
+                            Kernel
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/atom.html">
+                            Atom
                         </a>
                     </li>
                 </ul>

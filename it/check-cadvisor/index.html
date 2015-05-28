@@ -13,7 +13,7 @@
 <link rel="canonical" href="http://bulimov.ru/it/check-cadvisor/">
 
         <meta name="author" content="Alexander Bulimov" />
-        <meta name="keywords" content="Python,Nagios,Icinga2,cAdvisor" />
+        <meta name="keywords" content="Python,Nagios,Icinga2,cAdvisor,Monitoring" />
         <meta name="description" content="После того, как я научился мониторить память в Docker-контейнерах, я решил мониторить еще и нагрузку на CPU. Поскольку это дело не самое тривиальное, и хотелось не писать свой велосипед, а пользоваться чем-то популярным и поддерживаемым, я решил попробовать cAdvisor. И вот что я могу сказать - отличный инструмент! Ресурсов практически не потребляет (около 20 Мб оперативной памяти и неизмеримо мало CPU), обладает простым API для доступа к собираемой им информации, имеет ..." />
 
         <meta property="og:site_name" content="Александр Булимов - записки сисадмина." />
@@ -27,6 +27,7 @@
             <meta property="article:tag" content="Nagios" />
             <meta property="article:tag" content="Icinga2" />
             <meta property="article:tag" content="cAdvisor" />
+            <meta property="article:tag" content="Monitoring" />
             <meta property="article:author" content="Alexander Bulimov" />
 
 
@@ -104,6 +105,8 @@
 	<a href="http://bulimov.ru/tag/icinga2.html">Icinga2</a>
         /
 	<a href="http://bulimov.ru/tag/cadvisor.html">cAdvisor</a>
+        /
+	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
@@ -113,7 +116,7 @@
 велосипед, а пользоваться чем-то популярным и поддерживаемым, я решил
 попробовать <a href="https://github.com/google/cadvisor">cAdvisor</a>.</p>
 <p>И вот что я могу сказать - отличный инструмент!
-Ресурсов практически не потребляет (около 20 Мб оперативной памяти и 
+Ресурсов практически не потребляет (около 20 Мб оперативной памяти и
 неизмеримо мало CPU), обладает простым API для доступа к собираемой им
 информации, имеет красивый веб-интерфейс с realtime-графиками.
 А еще умеет сам писать метрики в InfluxDB, и в будущем <a href="https://github.com/google/cadvisor/issues/474">научится писать
@@ -136,7 +139,7 @@ CheckDockerStats OK: 79.96% <span class="o">(</span><span class="m">5869163</spa
 </pre></div>
 
 
-<p>А теперь проверим, что CPU используется менее чем на 10%, и уж точно менее, чем на 20%: </p>
+<p>А теперь проверим, что CPU используется менее чем на 10%, и уж точно менее, чем на 20%:</p>
 <div class="highlight"><pre>nagios@hostname:~<span class="nv">$ </span>./check_cadvisor.py -u http://cadvisor_url -n loving_lalande -C -w <span class="m">10</span> -c 20
 CheckDockerStats WARNING: 12.98% CPU used! <span class="p">|</span> <span class="nv">cpu_usage</span><span class="o">=</span>12.98%<span class="p">;</span>10<span class="p">;</span>20<span class="p">;</span>0<span class="p">;</span>100
 </pre></div>
@@ -155,8 +158,8 @@ CheckDockerStats WARNING: 12.98% CPU used! <span class="p">|</span> <span class=
         <li><a href="http://bulimov.ru/it/check-docker-memory/">Научился мониторить использование памяти в Docker-контейнерах</a></li>
         <li><a href="http://bulimov.ru/it/Выложил-немного-полезностей/">Выложил немного полезностей</a></li>
         <li><a href="http://bulimov.ru/it/haproxy-cadvisor/">Балансировка в HAProxy на основе данных cAdvisor</a></li>
+        <li><a href="http://bulimov.ru/it/cadvisor-companion/">Улучшаем сообщения от мониторинга с помощью cAdvisor-companion</a></li>
         <li><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware/">Низкоуровневое обнаружение в Zabbix, ищем диски в контроллере от 3ware</a></li>
-        <li><a href="http://bulimov.ru/it/from-ruhoh-to-pelican/">s/Ruhoh/Pelican/</a></li>
     </ul>
 </section>
     <hr/>
@@ -220,13 +223,18 @@ CheckDockerStats WARNING: 12.98% CPU used! <span class="p">|</span> <span class=
             <li class="list-group-item"><a href="http://bulimov.ru/tags/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
+                        <a href="http://bulimov.ru/tag/zhizn.html">
+                            Жизнь
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
                         <a href="http://bulimov.ru/tag/ansible.html">
                             Ansible
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="http://bulimov.ru/tag/python.html">
-                            Python
+                        <a href="http://bulimov.ru/tag/monitoring.html">
+                            Monitoring
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
@@ -235,23 +243,8 @@ CheckDockerStats WARNING: 12.98% CPU used! <span class="p">|</span> <span class=
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="http://bulimov.ru/tag/zhizn.html">
-                            Жизнь
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/nagios.html">
-                            Nagios
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/chef.html">
-                            Chef
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/zabbix.html">
-                            Zabbix
+                        <a href="http://bulimov.ru/tag/python.html">
+                            Python
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -260,8 +253,18 @@ CheckDockerStats WARNING: 12.98% CPU used! <span class="p">|</span> <span class=
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/sensu.html">
-                            Sensu
+                        <a href="http://bulimov.ru/tag/nagios.html">
+                            Nagios
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/zabbix.html">
+                            Zabbix
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/chef.html">
+                            Chef
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -269,24 +272,9 @@ CheckDockerStats WARNING: 12.98% CPU used! <span class="p">|</span> <span class=
                             cAdvisor
                         </a>
                     </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/knigi.html">
-                            Книги
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/ruby.html">
-                            Ruby
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/vim.html">
-                            Vim
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/icinga2.html">
-                            Icinga2
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/sensu.html">
+                            Sensu
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -295,58 +283,33 @@ CheckDockerStats WARNING: 12.98% CPU used! <span class="p">|</span> <span class=
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/icinga2.html">
+                            Icinga2
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
                         <a href="http://bulimov.ru/tag/ruhoh.html">
                             Ruhoh
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/nginx.html">
-                            Nginx
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/ruby.html">
+                            Ruby
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/knigi.html">
+                            Книги
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/vim.html">
+                            Vim
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/rancid.html">
-                            Rancid
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/tmux.html">
-                            tmux
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/iuzveri.html">
-                            Юзвери
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/lua.html">
-                            Lua
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/debian.html">
-                            Debian
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/serverspec.html">
-                            serverspec
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/pelican.html">
-                            Pelican
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/vps.html">
-                            VPS
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/golang.html">
-                            Golang
+                        <a href="http://bulimov.ru/tag/cadvisor-companion.html">
+                            cAdvisor-companion
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -355,18 +318,28 @@ CheckDockerStats WARNING: 12.98% CPU used! <span class="p">|</span> <span class=
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/atom.html">
-                            Atom
+                        <a href="http://bulimov.ru/tag/iuzveri.html">
+                            Юзвери
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/ubuntu.html">
-                            Ubuntu
+                        <a href="http://bulimov.ru/tag/serverspec.html">
+                            serverspec
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/kernel.html">
-                            Kernel
+                        <a href="http://bulimov.ru/tag/packetbeat.html">
+                            Packetbeat
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/lua.html">
+                            Lua
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/nginx.html">
+                            Nginx
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -375,8 +348,58 @@ CheckDockerStats WARNING: 12.98% CPU used! <span class="p">|</span> <span class=
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/cadvisor-companion.html">
-                            cAdvisor-companion
+                        <a href="http://bulimov.ru/tag/debian.html">
+                            Debian
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/ubuntu.html">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/kibana.html">
+                            Kibana
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/tmux.html">
+                            tmux
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/vps.html">
+                            VPS
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/elasticsearch.html">
+                            Elasticsearch
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/golang.html">
+                            Golang
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/rancid.html">
+                            Rancid
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/pelican.html">
+                            Pelican
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/kernel.html">
+                            Kernel
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/atom.html">
+                            Atom
                         </a>
                     </li>
                 </ul>

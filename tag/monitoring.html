@@ -2,7 +2,7 @@
 <html lang="ru"
 >
 <head>
-    <title>Articles by Alexander Bulimov - Александр Булимов - записки сисадмина.</title>
+    <title>Monitoring - Александр Булимов - записки сисадмина.</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -11,7 +11,8 @@
 
 
 
-        <meta name="author" content="Alexander Bulimov" />
+    <meta name="author" content="Alexander Bulimov" />
+    <meta name="keywords" content="Monitoring" />
 
     <!-- Open Graph tags -->
         <meta property="og:site_name" content="Александр Булимов - записки сисадмина." />
@@ -100,37 +101,6 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
             </article>
             <hr/>
             <article>
-                <h2><a href="http://bulimov.ru/it/vim-atom/">Сменил Vim на Atom</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-05-21T00:00:00+03:00"> чт 21 мая 2015</time>
-    </span>
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/vim.html">Vim</a>
-        /
-	<a href="http://bulimov.ru/tag/atom.html">Atom</a>
-        /
-	<a href="http://bulimov.ru/tag/zhizn.html">Жизнь</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Вот уже почти два месяца, как я по совету коллеги сменил Vim, которым
-пользовался уже 5 лет, и который оброс у меня кучей плагинов,
-на <a href="http://atom.io">Github Atom</a>.</p>
-<p>Использую я его как раньше Vim - для всего. В основном это написание
-плейбуков <a href="http://www.ansible.com/">Ansible</a>, что включает в себя правку конфигов,
-и написание кода на <a href="https://www.python.org/">Python</a> и <a href="http://golang.org/">Go</a>.</p>
-<p>Сразу скажу, что не будь для Atom вменяемого vim-режима, я бы вряд ли
-решился на переход ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/vim-atom/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
                 <h2><a href="http://bulimov.ru/it/cadvisor-companion/">Улучшаем сообщения от мониторинга с помощью cAdvisor-companion</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -162,69 +132,6 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
 что и зачем можно добавить к обычному сообщению от Nagios.</p>
 <p>Сама эта идея мне очень нравится, и вот ...</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/cadvisor-companion/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/haproxy-cadvisor/">Балансировка в HAProxy на основе данных cAdvisor</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-04-15T00:00:00+03:00"> ср 15 апреля 2015</time>
-    </span>
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/haproxy.html">HAProxy</a>
-        /
-	<a href="http://bulimov.ru/tag/cadvisor.html">cAdvisor</a>
-        /
-	<a href="http://bulimov.ru/tag/python.html">Python</a>
-        /
-	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Для запуска Docker-контейнеров у меня в данный момент выделено достаточно много
-серверов, причем аппаратная часть у некоторых из них отличается
-друг от друга. Соответственно, при настройке на чудесном балансировщике
-<a href="http://www.haproxy.org/">HAProxy</a> такого параметра балансировки
-как <em>"вес сервера"</em>, приходится это различие в аппаратной части учитывать.</p>
-<p>Можно, конечно, подобрать значения весов самостоятельно на основе
-данных мониторинга, а при появлении нагрузки от соседних Docker-контейнеров
-эти веса корректировать, но это не наш метод.</p>
-<p>Не так ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/haproxy-cadvisor/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/chromium-vim/">Открыл для себя cVim для Google Chrome</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-02-27T00:00:00+03:00"> пт 27 февраля 2015</time>
-    </span>
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/zhizn.html">Жизнь</a>
-        /
-	<a href="http://bulimov.ru/tag/vim.html">Vim</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Последние 4 года я использую Vim в качестве текстового редактора и IDE, и все это время
-я использовал браузер Mozilla Firefox с дополнением <a href="http://www.vimperator.org/vimperator">Vimperator</a>,
-либо с его форком - <a href="http://5digits.org/pentadactyl/">Pentadactyl</a>, для получения
-аналогичной навигации в браузере. Без функционала этих дополнений я как без рук,
-и потому никак не мог использовать Google Chrome/Chromium.</p>
-<p>Дополнения типа Vimum/Vrome/ViChrome, которые добавляют vi-like навигацию
-в Chrome, после Vimperator казались, мягко говоря, недоделанными,
-и ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/chromium-vim/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -299,36 +206,6 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
             </article>
             <hr/>
             <article>
-                <h2><a href="http://bulimov.ru/it/lyricstagger/">Lyrics Tagger</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-11-25T00:00:00+03:00"> вт 25 ноября 2014</time>
-    </span>
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/python.html">Python</a>
-        /
-	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><h2>Предыстория</h2>
-<p>Я езжу на работу в общественном транспорте, и слушаю там музыку
-со смартфона. Достаточно часто хотелось почитать тексты прослушиваемых
-в данный момент песен, но искать их в интернете было не слишком удобно,
-да и вообще интернета до недавнего времени в метро не было.</p>
-<p>Решение выглядит очевидным - надо встроить тексты песен в сами музыкальные файлы.
-Благо, основные форматы это позволяют.
-Музыку я храню во <a href="https://ru.wikipedia.org/wiki/FLAC">FLAC</a>, а на смартфон
-закидываю в ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/lyricstagger/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
                 <h2><a href="http://bulimov.ru/it/ansible-sensu/">Удобная настройка Sensu с Ansible</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -362,36 +239,161 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
             </article>
             <hr/>
             <article>
-                <h2><a href="http://bulimov.ru/it/meminfo-visualizer/">Разбирался с page-cache в Linux</a></h2>
+                <h2><a href="http://bulimov.ru/it/Выложил-немного-полезностей/">Выложил немного полезностей</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-10-09T00:00:00+04:00"> чт 09 октября 2014</time>
+        <i class="fa fa-calendar"></i><time datetime="2014-09-17T00:00:00+04:00"> ср 17 сентября 2014</time>
     </span>
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/kernel.html">Kernel</a>
+	<a href="http://bulimov.ru/tag/python.html">Python</a>
+        /
+	<a href="http://bulimov.ru/tag/zabbix.html">Zabbix</a>
+        /
+	<a href="http://bulimov.ru/tag/nagios.html">Nagios</a>
+        /
+	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Когда я писал про то, как <a href="/it/Переписал-скрипты-на-ruby-для-sensu">переписал скрипты для Sensu</a>,
+я слегка слукавил. Изначально, я написал эти скрипты на Python,
+и только потом на Ruby. Поскольку пользователям других Nagios-совместимых
+систем мониторинга может показаться неудобным использование ruby-скриптов,
+да еще и с зависимостью от гема sensu-plugin, я решил выложить
+и Python-версии скриптов.</p>
+<p>Если кому хочется мониторить состояние дисков в raid-контроллерах от 3ware или
+HP SmartArray на чистом Python - милости просим, все
+<a href="https://github.com/abulimov/utils/tree/master/nagios">в ...</a></p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Выложил-немного-полезностей/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://bulimov.ru/it/Переписал-скрипты-на-ruby-для-sensu/">Переписал скрипты на Ruby для Sensu</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-09-04T00:00:00+04:00"> чт 04 сентября 2014</time>
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/ruby.html">Ruby</a>
+        /
+	<a href="http://bulimov.ru/tag/sensu.html">Sensu</a>
+        /
+	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Поскольку я перевел мониторинг с Zabbix на Sensu, пришлось переписать
+свои <a href="/it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware">скрипты</a> проверки состояния жестких дисков в raid-контроллерах от 3ware и
+HP SmartArray для использования в Sensu. Ну а раз все равно переписывать - то
+писать я решил на Ruby, чтобы можно было без проблем
+заслать в <a href="https://github.com/sensu/sensu-community-plugins">sensu-community-plugins</a></p>
+<p>Скрипты весьма просты, так что проблем при переписывании никаких не было.</p>
+<p>Если кому надо - все уже отдано сообществу, теперь Sensu может мониторить
+состояние ...</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Переписал-скрипты-на-ruby-для-sensu/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-08-11T00:00:00+04:00"> пн 11 августа 2014</time>
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/ansible.html">Ansible</a>
         /
 	<a href="http://bulimov.ru/tag/python.html">Python</a>
         /
-	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
-        /
-	<a href="http://bulimov.ru/tag/knigi.html">Книги</a>
+	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Читая книгу <a href="http://www.williamspublishing.com/Books/5-8459-1085-4.html">"Разработка ядра Linux"</a> за авторством Роберта Лава,
-я решил поглубже разобраться в том, как работает кэш в Linux,
-и набрел на вот <a href="http://habrahabr.ru/company/yandex/blog/231957/">эту</a>
-статью на Хабре от Яндекса.</p>
-<p>Сама статья весьма познавательна, особенно видео - рекомендую.
-Так вот, в этом видео <em>Роман Гущин</em>, с помощью простой утилиты, наглядно показывающей
-размер кэша, показывал как работает файловый кэш.</p>
-<p>Конечно, мне захотелось в образовательных целях написать такую утилиту для себя,
-чтобы можно ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/meminfo-visualizer/">more ...</a>
+                <div class="summary"><p>Свершилось чудо, и мой <a href="https://github.com/ansible/ansible/blob/devel/library/monitoring/zabbix_maintenance">модуль</a>
+для Ansible, который умеет создавать и удалять периоды "в обслуживании" в Zabbix,
+наконец-то <a href="https://github.com/ansible/ansible/pull/5062">приняли</a> в апстрим.
+Это уже третий мой модуль, принятый в апстрим Ansible.</p>
+<p>Краткая история:</p>
+<p>Модуль этот я запушил еще в 26 ноября 2013 года, но 21 декабря
+<a href="https://github.com/cove">cove</a> написал в комментарии к моему модулю,
+что планирует выложить целую <a href="https://github.com/ansible/ansible/pull/6034">пачку</a>
+модулей для взаимодействия с Zabbix из Ansible.
+Это отложило принятие моего модуля в ...</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware/">Низкоуровневое обнаружение в Zabbix, ищем диски в контроллере от 3ware</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2013-08-14T00:00:00+04:00"> ср 14 августа 2013</time>
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/zabbix.html">Zabbix</a>
+        /
+	<a href="http://bulimov.ru/tag/python.html">Python</a>
+        /
+	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Я уже <a href="/it/Низкоуровневое-обнаружение-в-zabbix"> писал </a> про <a href="https://www.zabbix.com/documentation/ru/2.0/manual/discovery/low_level_discovery">низкоуровневое обнаружение</a>
+в Zabbix, так что повторять теорию не буду.</p>
+<p>Теперь мне понадобилось автоматом получать список хардов в массивах
+на контроллерах 3ware, которыми оборудованы у нас многие сервера.</p>
+<p>Вести руками шаблоны для каждого сервера с иным порядком или количеством дисков
+показалось мне плохой идеей, да и авто-обнаружение само напрашивалось.</p>
+<p>Вдохновлялся я утилитой 3ware-status, для работы авто-обнаружения нам потребуется
+установленная утилита tw-cli, взять ее для Debian/Ubuntu ...</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://bulimov.ru/it/monitoring-sucks/">Monitoring sucks!</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2013-07-10T00:00:00+04:00"> ср 10 июля 2013</time>
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/zabbix.html">Zabbix</a>
+        /
+	<a href="http://bulimov.ru/tag/sensu.html">Sensu</a>
+        /
+	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p><strong>TL;DR - тут я Sensu критиковал, но в 2014 году успешно заменил Zabbix на Sensu версии 0.12+</strong></p>
+<p>В 2012 году появился в среде devops такой хештег, #monitoringsucks.
+В сообщения с этим тегом devopsы писали, что текущее положение дел
+в сфере мониторинга их не устраивает. Что именно - прекрасно иллюстрирует
+<a href="https://speakerdeck.com/obfuscurity/the-state-of-open-source-monitoring">эта презентация</a>
+Если вкратце - хочется людям некоего стандарта API для взаимодействия между компонентами
+утилит мониторинга, ну и появления самих этих компонент ...</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/monitoring-sucks/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -399,15 +401,11 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
         <ul class="pagination">
                 <li class="prev disabled"><a href="#">&laquo;</a></li>
                     <li class="active"><a
-                            href="http://bulimov.ru/author/alexander-bulimov.html">1</a></li>
+                            href="http://bulimov.ru/tag/monitoring.html">1</a></li>
                     <li class=""><a
-                            href="http://bulimov.ru/author/alexander-bulimov2.html">2</a></li>
-                    <li class=""><a
-                            href="http://bulimov.ru/author/alexander-bulimov3.html">3</a></li>
-                    <li class=""><a
-                            href="http://bulimov.ru/author/alexander-bulimov4.html">4</a></li>
+                            href="http://bulimov.ru/tag/monitoring2.html">2</a></li>
                 <li class="next"><a
-                        href="http://bulimov.ru/author/alexander-bulimov2.html">&raquo;</a></li>
+                        href="http://bulimov.ru/tag/monitoring2.html">&raquo;</a></li>
         </ul>
         </div>
         <div class="col-sm-3" id="sidebar">

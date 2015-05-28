@@ -1,5 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Александр Булимов - записки сисадмина.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/all.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2015-05-21T00:00:00+03:00</updated><entry><title>Сменил Vim на Atom</title><link href="http://bulimov.ru/it/vim-atom/" rel="alternate"></link><updated>2015-05-21T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-05-21:it/vim-atom/</id><summary type="html">&lt;p&gt;Вот уже почти два месяца, как я по совету коллеги сменил Vim, которым
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Александр Булимов - записки сисадмина.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/all.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2015-05-28T00:00:00+03:00</updated><entry><title>Попробуйте Packetbeat</title><link href="http://bulimov.ru/it/try-packetbeat/" rel="alternate"></link><updated>2015-05-28T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-05-28:it/try-packetbeat/</id><summary type="html">&lt;p&gt;Вчера в &lt;a href="https://www.elastic.co/blog"&gt;блоге Elasticsearch&lt;/a&gt; появилась отличная
+новость - проект &lt;a href="https://www.elastic.co/products/beats/packetbeat"&gt;Packetbeat&lt;/a&gt;,
+развиваемый до этого энтузиастами, присоединился к &lt;a href="https://www.elastic.co"&gt;Elastic&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Я уже довольно давно слежу за этим проектом, и теперь, когда можно не
+беспокоиться о его будущем, хочу о нем рассказать.&lt;/p&gt;
+&lt;p&gt;Packetbeat это такой инструмент мониторинга, который работает как анализатор
+сетевых пакетов, парсит различные протоколы (сейчас поддерживаются HTTP, MySQL,
+Postgresql, Redis, Thrift-RPC), получает нужные данные, и отсылает их либо напрямую
+в Elasticsearch, либо в Redis, из которого данные будет забирать Logstash и
+класть их все в тот же Elasticsearch.&lt;/p&gt;
+&lt;p&gt;Поскольку парсится весь сетевой трафик, мы получаем полную картину взаимодействия
+хостов и сервисов в нашей сети, а благодаря Elasticsearch и Kibana эту
+информацию можно удобно обрабатывать и визуализировать.&lt;/p&gt;
+&lt;p&gt;Чем же это так круто? Да тем, что поставив Elasticsearch, Kibana и Packetbeat,
+практически без какой-либо конфигурации, мы сразу видим ключевые метрики сервисов,
+и получаем ответы на основные вопросы, например:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;сколько у нас вообще запросов к базе в минуту?&lt;/li&gt;
+&lt;li&gt;а какие из этих запросов к базе данных самые медленные?&lt;/li&gt;
+&lt;li&gt;каково соотношение select и insert/update запросов?&lt;/li&gt;
+&lt;li&gt;каковы процентили времени ответов базы данных?&lt;/li&gt;
+&lt;li&gt;какие у нас самые частые HTTP-запросы?&lt;/li&gt;
+&lt;li&gt;сколько у нас ошибок в ответах на HTTP-запросы?&lt;/li&gt;
+&lt;li&gt;как вообще у нас ходит трафик в системе web-база-кеш?&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Посмотреть все это великолепие живьем можно на
+&lt;a href="http://demo.elastic.co/packetbeat"&gt;демо-странице Packetbeat&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Конечно, у этого подхода есть и минусы, главный из которых - производительность.
+Packetbeat парсит сетевой трафик, и это недешевое удовольствие. Идеальным
+вариантом работы для него является анализ трафика с помощью mirror ports на
+сетевых устройствах, таким образом можно собирать информацию на отдельном сервере,
+и Packetbeat не будет создавать нагрузки на сервер с наблюдаемым сервисом.&lt;/p&gt;
+&lt;p&gt;Если же это невозможно, Packetbeat умеет снифать трафик с сетевого
+интерфейса хоста, причем разными способами - подробности
+&lt;a href="https://www.elastic.co/guide/en/beats/packetbeat/current/capturing-options.html"&gt;в документации&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Я его именно в таком режиме использую, и весьма доволен - на средненьком сервере
+с ~15k запросами к Postgres в минуту Packetbeat не создает значимой нагрузки на
+производительность, и отлично все парсит.&lt;/p&gt;
+&lt;p&gt;В комплекте идут удобные дашборды для Kibana 4, так что процесс построения
+мониторинга сделан максимально безболезненным.&lt;/p&gt;
+&lt;p&gt;В общем, попробуйте - это очень простой в развертывании и очень удобный и
+наглядный инструмент мониторинга.&lt;/p&gt;</summary><category term="Packetbeat"></category><category term="Elasticsearch"></category><category term="Kibana"></category><category term="Monitoring"></category></entry><entry><title>Сменил Vim на Atom</title><link href="http://bulimov.ru/it/vim-atom/" rel="alternate"></link><updated>2015-05-21T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-05-21:it/vim-atom/</id><summary type="html">&lt;p&gt;Вот уже почти два месяца, как я по совету коллеги сменил Vim, которым
 пользовался уже 5 лет, и который оброс у меня кучей плагинов,
 на &lt;a href="http://atom.io"&gt;Github Atom&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Использую я его как раньше Vim - для всего. В основном это написание
@@ -161,7 +202,7 @@ read-only доступ к &lt;code&gt;/proc&lt;/code&gt;, и который по
 - попробуйте &lt;a href="https://github.com/abulimov/cadvisor-companion"&gt;cAdvisor-companion&lt;/a&gt;
 в паре с &lt;a href="https://github.com/abulimov/utils/blob/master/nagios/check_cadvisor.py"&gt;check_cadvisor.py&lt;/a&gt;,
 это очень легко и абсолютно безопасно - при запуске в виде контейнера он получает
-только read-only доступ к &lt;code&gt;/proc&lt;/code&gt;.&lt;/p&gt;</summary><category term="Golang"></category><category term="cAdvisor"></category><category term="cAdvisor-companion"></category><category term="Программирование"></category></entry><entry><title>Балансировка в HAProxy на основе данных cAdvisor</title><link href="http://bulimov.ru/it/haproxy-cadvisor/" rel="alternate"></link><updated>2015-04-15T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-04-15:it/haproxy-cadvisor/</id><summary type="html">&lt;p&gt;Для запуска Docker-контейнеров у меня в данный момент выделено достаточно много
+только read-only доступ к &lt;code&gt;/proc&lt;/code&gt;.&lt;/p&gt;</summary><category term="Golang"></category><category term="cAdvisor"></category><category term="cAdvisor-companion"></category><category term="Программирование"></category><category term="Monitoring"></category></entry><entry><title>Балансировка в HAProxy на основе данных cAdvisor</title><link href="http://bulimov.ru/it/haproxy-cadvisor/" rel="alternate"></link><updated>2015-04-15T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-04-15:it/haproxy-cadvisor/</id><summary type="html">&lt;p&gt;Для запуска Docker-контейнеров у меня в данный момент выделено достаточно много
 серверов, причем аппаратная часть у некоторых из них отличается
 друг от друга. Соответственно, при настройке на чудесном балансировщике
 &lt;a href="http://www.haproxy.org/"&gt;HAProxy&lt;/a&gt; такого параметра балансировки
@@ -262,7 +303,7 @@ read-only доступ к &lt;code&gt;/proc&lt;/code&gt;, и который по
 велосипед, а пользоваться чем-то популярным и поддерживаемым, я решил
 попробовать &lt;a href="https://github.com/google/cadvisor"&gt;cAdvisor&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;И вот что я могу сказать - отличный инструмент!
-Ресурсов практически не потребляет (около 20 Мб оперативной памяти и 
+Ресурсов практически не потребляет (около 20 Мб оперативной памяти и
 неизмеримо мало CPU), обладает простым API для доступа к собираемой им
 информации, имеет красивый веб-интерфейс с realtime-графиками.
 А еще умеет сам писать метрики в InfluxDB, и в будущем &lt;a href="https://github.com/google/cadvisor/issues/474"&gt;научится писать
@@ -285,7 +326,7 @@ CheckDockerStats OK: 79.96% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;А теперь проверим, что CPU используется менее чем на 10%, и уж точно менее, чем на 20%: &lt;/p&gt;
+&lt;p&gt;А теперь проверим, что CPU используется менее чем на 10%, и уж точно менее, чем на 20%:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;nagios@hostname:~&lt;span class="nv"&gt;$ &lt;/span&gt;./check_cadvisor.py -u http://cadvisor_url -n loving_lalande -C -w &lt;span class="m"&gt;10&lt;/span&gt; -c 20
 CheckDockerStats WARNING: 12.98% CPU used! &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="nv"&gt;cpu_usage&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;12.98%&lt;span class="p"&gt;;&lt;/span&gt;10&lt;span class="p"&gt;;&lt;/span&gt;20&lt;span class="p"&gt;;&lt;/span&gt;0&lt;span class="p"&gt;;&lt;/span&gt;100
 &lt;/pre&gt;&lt;/div&gt;
@@ -295,10 +336,10 @@ CheckDockerStats WARNING: 12.98% CPU used! &lt;span class="p"&gt;|&lt;/span&gt; 
 я могу не ждать добавление отправки в Graphite к cAdvisor, и уже сейчас получать графики
 использования ресурсов в контейнерах.&lt;/p&gt;
 &lt;p&gt;Можно еще прикрутить проверки использования места на подключенных дисках - cAdvisor эти данные тоже
-собирает. Но мне пока такие проверки без надобности.&lt;/p&gt;</summary><category term="Python"></category><category term="Nagios"></category><category term="Icinga2"></category><category term="cAdvisor"></category></entry><entry><title>Научился мониторить использование памяти в Docker-контейнерах</title><link href="http://bulimov.ru/it/check-docker-memory/" rel="alternate"></link><updated>2015-02-13T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-02-13:it/check-docker-memory/</id><summary type="html">&lt;p&gt;Я сегодня занимался мониторингом, а конкретно нашими докер-контейнерами. &lt;/p&gt;
+собирает. Но мне пока такие проверки без надобности.&lt;/p&gt;</summary><category term="Python"></category><category term="Nagios"></category><category term="Icinga2"></category><category term="cAdvisor"></category><category term="Monitoring"></category></entry><entry><title>Научился мониторить использование памяти в Docker-контейнерах</title><link href="http://bulimov.ru/it/check-docker-memory/" rel="alternate"></link><updated>2015-02-13T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-02-13:it/check-docker-memory/</id><summary type="html">&lt;p&gt;Я сегодня занимался мониторингом, а конкретно нашими докер-контейнерами.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Лирическое отступление:
 Для мониторинга я теперь (уже на другом месте работы) использую
-наследника Nagios - &lt;a href="https://www.icinga.org/icinga/icinga-2/"&gt;Icinga2&lt;/a&gt;. 
+наследника Nagios - &lt;a href="https://www.icinga.org/icinga/icinga-2/"&gt;Icinga2&lt;/a&gt;.
 Пока все нравится, ребята очень круто переписали Nagios, реализовали гораздо
 более вменяемый формат конфигурации, и кучу новых возможностей.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Используя Docker для автотестов я уже ловил проблемы, когда интерпретатор Ruby
@@ -307,7 +348,7 @@ CheckDockerStats WARNING: 12.98% CPU used! &lt;span class="p"&gt;|&lt;/span&gt; 
 но и "в бою", меня сильно беспокоило то, что мы не можем мониторить
 использование памяти внутри контейнера.
 А не можем мы этого делать потому, что все утилиты (free, top) и плагины мониторинга
-используют данные из /proc/meminfo, которые внутри контейнеров 
+используют данные из /proc/meminfo, которые внутри контейнеров
 &lt;a href="http://fabiokung.com/2014/03/13/memory-inside-linux-containers/"&gt;не актуальны&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;К сожалению, на сегодняшний день проблема мониторинга памяти изнутри контейнера
 так пока никем и не решена, хотя пожеланий у людей много, и &lt;a href="https://github.com/docker/docker/issues/8427"&gt;работа ведется&lt;/a&gt;.&lt;/p&gt;
@@ -358,7 +399,7 @@ CheckDockerMemory OK: 89.005% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;strong&gt;UPDATE 20.02.2015 - я теперь использую плагин, получающий эти же данные из cAdvisor, &lt;a href="/it/check-cadvisor"&gt;подробности тут&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;</summary><category term="Python"></category><category term="Nagios"></category><category term="Icinga2"></category></entry><entry><title>Lyrics Tagger</title><link href="http://bulimov.ru/it/lyricstagger/" rel="alternate"></link><updated>2014-11-25T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-11-25:it/lyricstagger/</id><summary type="html">&lt;h2&gt;Предыстория&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;UPDATE 20.02.2015 - я теперь использую плагин, получающий эти же данные из cAdvisor, &lt;a href="/it/check-cadvisor"&gt;подробности тут&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;</summary><category term="Python"></category><category term="Nagios"></category><category term="Icinga2"></category><category term="Monitoring"></category></entry><entry><title>Lyrics Tagger</title><link href="http://bulimov.ru/it/lyricstagger/" rel="alternate"></link><updated>2014-11-25T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-11-25:it/lyricstagger/</id><summary type="html">&lt;h2&gt;Предыстория&lt;/h2&gt;
 &lt;p&gt;Я езжу на работу в общественном транспорте, и слушаю там музыку
 со смартфона. Достаточно часто хотелось почитать тексты прослушиваемых
 в данный момент песен, но искать их в интернете было не слишком удобно,
@@ -481,7 +522,7 @@ No lyrics in file &lt;span class="s1"&gt;&amp;#39;/home/user/Music/Some Artist/0
 
 &lt;p&gt;Эта схема показалась мне достаточно удобной, и на этом я остановился,
 так что теперь весь конфиг Sensu, включая проверки, хендлеры и т.д., хранится
-у меня в формате YAML в Ansible.&lt;/p&gt;</summary><category term="Ansible"></category><category term="Sensu"></category></entry><entry><title>Разбирался с page-cache в Linux</title><link href="http://bulimov.ru/it/meminfo-visualizer/" rel="alternate"></link><updated>2014-10-09T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-10-09:it/meminfo-visualizer/</id><summary type="html">&lt;p&gt;Читая книгу &lt;a href="http://www.williamspublishing.com/Books/5-8459-1085-4.html"&gt;"Разработка ядра Linux"&lt;/a&gt; за авторством Роберта Лава,
+у меня в формате YAML в Ansible.&lt;/p&gt;</summary><category term="Ansible"></category><category term="Sensu"></category><category term="Monitoring"></category></entry><entry><title>Разбирался с page-cache в Linux</title><link href="http://bulimov.ru/it/meminfo-visualizer/" rel="alternate"></link><updated>2014-10-09T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-10-09:it/meminfo-visualizer/</id><summary type="html">&lt;p&gt;Читая книгу &lt;a href="http://www.williamspublishing.com/Books/5-8459-1085-4.html"&gt;"Разработка ядра Linux"&lt;/a&gt; за авторством Роберта Лава,
 я решил поглубже разобраться в том, как работает кэш в Linux,
 и набрел на вот &lt;a href="http://habrahabr.ru/company/yandex/blog/231957/"&gt;эту&lt;/a&gt;
 статью на Хабре от Яндекса.&lt;/p&gt;
@@ -774,7 +815,7 @@ HP SmartArray на чистом Python - милости просим, все
 и может создавать, удалять и показывать периоды "в обслуживании".&lt;/p&gt;
 &lt;p&gt;Эта утилита призвана заменить старый вариант на Ruby,
 и обладает большим набором опций командной строки.&lt;/p&gt;
-&lt;p&gt;Написана утилита на Python, и доступна всем желающим &lt;a href="https://github.com/abulimov/utils/blob/master/scripts/zabbix_maintenance.py"&gt;тут&lt;/a&gt;.&lt;/p&gt;</summary><category term="Python"></category><category term="Zabbix"></category><category term="Nagios"></category></entry><entry><title>Открыл для себя плагины к tmux</title><link href="http://bulimov.ru/it/%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D0%BB-%D0%B4%D0%BB%D1%8F-%D1%81%D0%B5%D0%B1%D1%8F-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%D1%8B-%D0%BA-tmux/" rel="alternate"></link><updated>2014-09-04T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-09-04:it/Открыл-для-себя-плагины-к-tmux/</id><summary type="html">&lt;p&gt;Случилось чудесное - &lt;a href="http://linux.org.ru"&gt;LOR&lt;/a&gt; принес мне пользу.
+&lt;p&gt;Написана утилита на Python, и доступна всем желающим &lt;a href="https://github.com/abulimov/utils/blob/master/scripts/zabbix_maintenance.py"&gt;тут&lt;/a&gt;.&lt;/p&gt;</summary><category term="Python"></category><category term="Zabbix"></category><category term="Nagios"></category><category term="Monitoring"></category></entry><entry><title>Открыл для себя плагины к tmux</title><link href="http://bulimov.ru/it/%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D0%BB-%D0%B4%D0%BB%D1%8F-%D1%81%D0%B5%D0%B1%D1%8F-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%D1%8B-%D0%BA-tmux/" rel="alternate"></link><updated>2014-09-04T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-09-04:it/Открыл-для-себя-плагины-к-tmux/</id><summary type="html">&lt;p&gt;Случилось чудесное - &lt;a href="http://linux.org.ru"&gt;LOR&lt;/a&gt; принес мне пользу.
 Оттуда я узнал о плагине &lt;a href="https://github.com/tmux-plugins/tmux-resurrect"&gt;tmux-resurrect&lt;/a&gt;,
 а точнее, вообще о существовании плагинов для чудесного мультиплексора терминалов &lt;strong&gt;tmux&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;С помощью имеющихся плагинов можно привести конфигурацию в более понятный вид,
@@ -801,7 +842,7 @@ HP SmartArray для использования в Sensu. Ну а раз все 
 &lt;p&gt;Если кому надо - все уже отдано сообществу, теперь Sensu может мониторить
 состояние дисков &lt;a href="https://github.com/sensu/sensu-community-plugins/blob/master/plugins/raid/check-3ware-status.rb"&gt;в контроллерах от 3ware&lt;/a&gt;
 и &lt;a href="https://github.com/sensu/sensu-community-plugins/blob/master/plugins/raid/check-smartarray-status.rb"&gt;HP SmartArray&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Ну и на закуску - мониторим &lt;a href="https://github.com/sensu/sensu-community-plugins/blob/master/plugins/riak/check-riak-ringready.rb"&gt;статус Riak Ring&lt;/a&gt;.&lt;/p&gt;</summary><category term="Ruby"></category><category term="Sensu"></category></entry><entry><title>Модуль zabbix_maintenance</title><link href="http://bulimov.ru/it/%D0%9C%D0%BE%D0%B4%D1%83%D0%BB%D1%8C-zabbix_maintenance/" rel="alternate"></link><updated>2014-08-11T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-08-11:it/Модуль-zabbix_maintenance/</id><summary type="html">&lt;p&gt;Свершилось чудо, и мой &lt;a href="https://github.com/ansible/ansible/blob/devel/library/monitoring/zabbix_maintenance"&gt;модуль&lt;/a&gt;
+&lt;p&gt;Ну и на закуску - мониторим &lt;a href="https://github.com/sensu/sensu-community-plugins/blob/master/plugins/riak/check-riak-ringready.rb"&gt;статус Riak Ring&lt;/a&gt;.&lt;/p&gt;</summary><category term="Ruby"></category><category term="Sensu"></category><category term="Monitoring"></category></entry><entry><title>Модуль zabbix_maintenance</title><link href="http://bulimov.ru/it/%D0%9C%D0%BE%D0%B4%D1%83%D0%BB%D1%8C-zabbix_maintenance/" rel="alternate"></link><updated>2014-08-11T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-08-11:it/Модуль-zabbix_maintenance/</id><summary type="html">&lt;p&gt;Свершилось чудо, и мой &lt;a href="https://github.com/ansible/ansible/blob/devel/library/monitoring/zabbix_maintenance"&gt;модуль&lt;/a&gt;
 для Ansible, который умеет создавать и удалять периоды "в обслуживании" в Zabbix,
 наконец-то &lt;a href="https://github.com/ansible/ansible/pull/5062"&gt;приняли&lt;/a&gt; в апстрим.
 Это уже третий мой модуль, принятый в апстрим Ansible.&lt;/p&gt;
@@ -885,7 +926,7 @@ HP SmartArray для использования в Sensu. Ну а раз все 
 &lt;p&gt;удаляем период "в обслуживании"&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;P.S. скрипт haproxywrap.sh можно взять &lt;a href="https://github.com/abulimov/utils/blob/master/scripts/haproxywrap.sh"&gt;тут&lt;/a&gt;&lt;/p&gt;</summary><category term="Ansible"></category><category term="Python"></category></entry><entry><title>Ansible и serverspec</title><link href="http://bulimov.ru/it/ansible-%D0%B8-serverspec/" rel="alternate"></link><updated>2014-05-22T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-05-22:it/ansible-и-serverspec/</id><summary type="html">&lt;p&gt;Когда я готовил playbook для &lt;a href="/it/Личный-vps"&gt;своего VPS&lt;/a&gt;, я взял за основу
+&lt;p&gt;P.S. скрипт haproxywrap.sh можно взять &lt;a href="https://github.com/abulimov/utils/blob/master/scripts/haproxywrap.sh"&gt;тут&lt;/a&gt;&lt;/p&gt;</summary><category term="Ansible"></category><category term="Python"></category><category term="Monitoring"></category></entry><entry><title>Ansible и serverspec</title><link href="http://bulimov.ru/it/ansible-%D0%B8-serverspec/" rel="alternate"></link><updated>2014-05-22T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-05-22:it/ansible-и-serverspec/</id><summary type="html">&lt;p&gt;Когда я готовил playbook для &lt;a href="/it/Личный-vps"&gt;своего VPS&lt;/a&gt;, я взял за основу
 &lt;a href="https://github.com/al3x/sovereign"&gt;Sovereign&lt;/a&gt;. В этом репозитории меня
 заинтересовал файл &lt;strong&gt;tests.py&lt;/strong&gt;, содержащий тесты для результирующего сервера.
 У меня сразу же возник вопрос - почему тесты самописные, на голом Python, а
@@ -1365,7 +1406,7 @@ ip ro add default via 12.34.56.1&lt;/p&gt;
 &lt;p&gt;Ну а в самом заббиксе уже создаем в шаблоне обнаружение, в котором используем ключ
 3ware.discovery и макрос {#3WARE_DISK}, например 3ware.disk_status[{#3WARE_DISK}].
 Подробности - в документации.&lt;/p&gt;
-&lt;p&gt;Исходники доступны в моем &lt;a href="https://github.com/abulimov/utils"&gt;репозитории&lt;/a&gt;, в папке &lt;em&gt;zabbix/data_collectors&lt;/em&gt;.&lt;/p&gt;</summary><category term="Zabbix"></category><category term="Python"></category></entry><entry><title>О любви к программированию</title><link href="http://bulimov.ru/it/%D0%9E-%D0%BB%D1%8E%D0%B1%D0%B2%D0%B8-%D0%BA-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8E/" rel="alternate"></link><updated>2013-07-25T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-07-25:it/О-любви-к-программированию/</id><summary type="html">&lt;p&gt;Хоть я и выбрал своей профессией системное администрирование,
+&lt;p&gt;Исходники доступны в моем &lt;a href="https://github.com/abulimov/utils"&gt;репозитории&lt;/a&gt;, в папке &lt;em&gt;zabbix/data_collectors&lt;/em&gt;.&lt;/p&gt;</summary><category term="Zabbix"></category><category term="Python"></category><category term="Monitoring"></category></entry><entry><title>О любви к программированию</title><link href="http://bulimov.ru/it/%D0%9E-%D0%BB%D1%8E%D0%B1%D0%B2%D0%B8-%D0%BA-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8E/" rel="alternate"></link><updated>2013-07-25T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-07-25:it/О-любви-к-программированию/</id><summary type="html">&lt;p&gt;Хоть я и выбрал своей профессией системное администрирование,
 программирование я люблю. Даже очень люблю.&lt;/p&gt;
 &lt;p&gt;Вот решил написать историю моего знакомства с программированием.&lt;/p&gt;
 &lt;h3&gt;Школа&lt;/h3&gt;
@@ -1528,7 +1569,7 @@ Riemann я не стал всерьез рассматривать, поскол
 И уж точно еще рано говорить о замене того же Zabbix или Zenoss на что-то модульное
 на базе какого-нибудь Sensu+Graphite+Flapjack.&lt;/p&gt;
 &lt;p&gt;Лично я остаюсь на Zabbix, несмотря на все его недостатки.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;UPD 2014 - я успешно заменил Zabbix на Sensu версии 0.12+ и Graphite&lt;/strong&gt;&lt;/p&gt;</summary><category term="Zabbix"></category><category term="Sensu"></category></entry><entry><title>Низкоуровневое обнаружение в Zabbix</title><link href="http://bulimov.ru/it/%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5-%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-zabbix/" rel="alternate"></link><updated>2013-06-26T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-06-26:it/Низкоуровневое-обнаружение-в-zabbix/</id><summary type="html">&lt;p&gt;В используемой мной системе мониторинга Zabbix, начиная с версии 2.0,
+&lt;p&gt;&lt;strong&gt;UPD 2014 - я успешно заменил Zabbix на Sensu версии 0.12+ и Graphite&lt;/strong&gt;&lt;/p&gt;</summary><category term="Zabbix"></category><category term="Sensu"></category><category term="Monitoring"></category></entry><entry><title>Низкоуровневое обнаружение в Zabbix</title><link href="http://bulimov.ru/it/%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5-%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-zabbix/" rel="alternate"></link><updated>2013-06-26T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-06-26:it/Низкоуровневое-обнаружение-в-zabbix/</id><summary type="html">&lt;p&gt;В используемой мной системе мониторинга Zabbix, начиная с версии 2.0,
 появилась такая любопытная штука, как &lt;a href="https://www.zabbix.com/documentation/ru/2.0/manual/discovery/low_level_discovery"&gt;низкоуровневое обнаружение&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Я не буду пересказывать содержимое документации, расскажу лучше о том, как я писал свой тип
 обнаружения для мониторинга очередей RabbitMQ.&lt;/p&gt;
@@ -1623,7 +1664,7 @@ Riemann я не стал всерьез рассматривать, поскол
 rabbitmq.discovery и макросы {#RABBITMQ_VHOST_NAME} и {#RABBITMQ_QUEUE_NAME}.
 Это подробно описано в документации,
 так что я этого описывать не буду.&lt;/p&gt;
-&lt;p&gt;Исходники доступны в моем &lt;a href="https://github.com/abulimov/utils"&gt;репозитории&lt;/a&gt;, в папке &lt;em&gt;zabbix/data_collectors&lt;/em&gt;.&lt;/p&gt;</summary><category term="Zabbix"></category><category term="Python"></category></entry><entry><title>Плагин к Ruhoh для рисования графиков</title><link href="http://bulimov.ru/it/%D0%9F%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD-%D0%BA-ruhoh-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B8%D1%81%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%BE%D0%B2/" rel="alternate"></link><updated>2013-06-21T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-06-21:it/Плагин-к-ruhoh-для-рисования-графиков/</id><summary type="html">&lt;p&gt;Еще планируя создание статического блога на Hakyll я хотел реализовать рисование
+&lt;p&gt;Исходники доступны в моем &lt;a href="https://github.com/abulimov/utils"&gt;репозитории&lt;/a&gt;, в папке &lt;em&gt;zabbix/data_collectors&lt;/em&gt;.&lt;/p&gt;</summary><category term="Zabbix"></category><category term="Python"></category><category term="Monitoring"></category></entry><entry><title>Плагин к Ruhoh для рисования графиков</title><link href="http://bulimov.ru/it/%D0%9F%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD-%D0%BA-ruhoh-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B8%D1%81%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%BE%D0%B2/" rel="alternate"></link><updated>2013-06-21T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-06-21:it/Плагин-к-ruhoh-для-рисования-графиков/</id><summary type="html">&lt;p&gt;Еще планируя создание статического блога на Hakyll я хотел реализовать рисование
 графиков "на лету" из отдельно хранящихся данных. Но с Hakyll не сложилось,
 и после долгих поисков я остановился на &lt;a href="http://ruhoh.com/"&gt;Ruhoh&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Все нижеописанное относится к &lt;strong&gt;Ruhoh 2.1&lt;/strong&gt;&lt;/p&gt;
