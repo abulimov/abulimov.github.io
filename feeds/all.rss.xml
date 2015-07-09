@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 28 May 2015 00:00:00 +0300</lastBuildDate><item><title>Попробуйте Packetbeat</title><link>http://bulimov.ru/it/try-packetbeat/</link><description>&lt;p&gt;Вчера в &lt;a href="https://www.elastic.co/blog"&gt;блоге Elasticsearch&lt;/a&gt; появилась отличная
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 09 Jul 2015 00:00:00 +0300</lastBuildDate><item><title>Прощай, личный VPS</title><link>http://bulimov.ru/it/goodby-vps/</link><description>&lt;p&gt;Больше года назад я &lt;a href="/it/Личный-vps"&gt;стал использовать свой виртуальный частный сервер(VPS)&lt;/a&gt;,
+но недавно с полной ясностью осознал, что несмотря на то, что я регулярно пользуюсь
+многими сервисами на своем сервере, сам VPS приносит мне только негативные эмоции.&lt;/p&gt;
+&lt;p&gt;Необходимость следить за этим сервером, обновлять на нем софт, решать мелкие
+проблемы после обновлений - все это стало меня бесить. Возможно, это возраст
+(ха-ха), но возни с серверами мне хватает на работе, причем задачи там большие
+и интересные, а с VPS всякая рутинная мелочь.&lt;/p&gt;
+&lt;p&gt;При этом основную задачу - изоляцию персональных данных - VPS все равно не решет.
+Попробуйте ради эксперимента пожить в современном цифровом обществе недельку без
+сервисов Google/Yandex/etc, и поймете, что это невозможно при условии контакта с
+другими людьми. А раз пользуешься их сервисами - значит данные о тебе у них уже
+есть.&lt;/p&gt;
+&lt;p&gt;Вот и получилось, что все регулярно используемые мной сервисы на VPS, такие
+как RSS-читалка, заметки, read-it-later - есть в десятках вариантов,
+беслатно, удобно, зачастую гораздо лучшего качества, и без необходимости следить
+за своим сервером. Для исходников я давно уже использую только GitHub, а
+бесплатная почта для доменов тоже есть нескольких сортов, так что ни от
+одного из удобств личного сервера отказываться не пришлось.&lt;/p&gt;
+&lt;p&gt;При этом я очень рад, что в свое время решился на такой эксперимент - благодаря
+опыту с VPS я начал использовать RSS-читалки и read-it-later, что сохранило
+мне кучу времени и сил.&lt;/p&gt;
+&lt;p&gt;А кроме того, теперь я очень хорошо понимаю, за какие удобства я плачу своими
+персональными данными, и какие усилия требуются, чтобы этого не делать.&lt;/p&gt;
+&lt;p&gt;На данный момент я пришел к тому, что мне проще и удобнее использовать внешние
+"бесплатные" сервисы (платя за них персональными данными для целенаправленной
+рекламы и т.п.), чем платить за свой VPS и тратить на него свое время и силы.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Bulimov</dc:creator><pubDate>Thu, 09 Jul 2015 00:00:00 +0300</pubDate><guid>tag:bulimov.ru,2015-07-09:it/goodby-vps/</guid><category>VPS</category><category>Жизнь</category></item><item><title>Попробуйте Packetbeat</title><link>http://bulimov.ru/it/try-packetbeat/</link><description>&lt;p&gt;Вчера в &lt;a href="https://www.elastic.co/blog"&gt;блоге Elasticsearch&lt;/a&gt; появилась отличная
 новость - проект &lt;a href="https://www.elastic.co/products/beats/packetbeat"&gt;Packetbeat&lt;/a&gt;,
 развиваемый до этого энтузиастами, присоединился к &lt;a href="https://www.elastic.co"&gt;Elastic&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Я уже довольно давно слежу за этим проектом, и теперь, когда можно не
