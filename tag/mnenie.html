@@ -2,7 +2,7 @@
 <html lang="ru"
 >
 <head>
-    <title>Articles by Alexander Bulimov - Александр Булимов - записки сисадмина.</title>
+    <title>Мнение - Александр Булимов - записки сисадмина.</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -11,7 +11,8 @@
 
 
 
-        <meta name="author" content="Alexander Bulimov" />
+    <meta name="author" content="Alexander Bulimov" />
+    <meta name="keywords" content="Мнение" />
 
     <!-- Open Graph tags -->
         <meta property="og:site_name" content="Александр Булимов - записки сисадмина." />
@@ -66,6 +67,102 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://bulimov.ru/it/coreos-opinion/">Впечатления от CoreOS</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2015-07-29T00:00:00+03:00"> ср 29 июля 2015</time>
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/coreos.html">CoreOS</a>
+        /
+	<a href="http://bulimov.ru/tag/mnenie.html">Мнение</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>На волне популярности контейнерной виртуализации <a href="http://docker.com">Docker</a>
+стали появляться специализированные дистрибутивы Linux, созданные специально
+для использования в роли базового хоста для Docker-контейнеров.</p>
+<p>Пионером среди них стал проект <a href="http://coreos.com">CoreOS</a>, затем появились
+<a href="http://www.projectatomic.io/">Project Atomic</a> от RedHat и
+<a href="https://developer.ubuntu.com/en/snappy/">Ubuntu Snappy</a> от Canonical.</p>
+<p>Чем они все отличаются от привычных дистрибутивов? Основным отличием является
+модель обновления дистрибутива. Все эти проекты предлагают атомарные обновления,
+подразумевающие сборку нового образа системы с последующей перезагрузкой в него.
+При этом образ ...</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/coreos-opinion/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://bulimov.ru/it/infrastructure-as-a-code/">Инфраструктура как код</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-09-29T00:00:00+04:00"> пн 29 сентября 2014</time>
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/chef.html">Chef</a>
+        /
+	<a href="http://bulimov.ru/tag/ansible.html">Ansible</a>
+        /
+	<a href="http://bulimov.ru/tag/mnenie.html">Мнение</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Есть такой тренд сейчас - работать с IT-инфраструктурой как с кодом.
+Хорошо цель этого метода описывается этой цитатой:</p>
+<blockquote>
+<p>“Enable the reconstruction of the business from nothing but a source code repository, an application data backup, and bare metal resources”</p>
+<p>-- Jesse Robins</p>
+</blockquote>
+<p>Я полностью поддерживаю эту идею, причем именно в этой трактовке.</p>
+<p>Если говорить про парадигму, которую нам предлагает этот метод, то вот она:</p>
+<blockquote>
+<p>Поддерживать модульную, легко поддающуюся автоматизации инфраструктуру,
+и <em>описывать ...</em></p></blockquote>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/infrastructure-as-a-code/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://bulimov.ru/it/ansible-и-serverspec/">Ansible и serverspec</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-05-22T00:00:00+04:00"> чт 22 мая 2014</time>
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/ansible.html">Ansible</a>
+        /
+	<a href="http://bulimov.ru/tag/serverspec.html">serverspec</a>
+        /
+	<a href="http://bulimov.ru/tag/mnenie.html">Мнение</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Когда я готовил playbook для <a href="/it/Личный-vps">своего VPS</a>, я взял за основу
+<a href="https://github.com/al3x/sovereign">Sovereign</a>. В этом репозитории меня
+заинтересовал файл <strong>tests.py</strong>, содержащий тесты для результирующего сервера.
+У меня сразу же возник вопрос - почему тесты самописные, на голом Python, а
+не на каком-нибудь готовом решении. Я решил изучить, что же есть сейчас для
+TDD-администрирования. Оказалось, что толком ничего и нет, а то, что
+есть - для Ansible не особо нужно.</p>
+<p>Для начала, что ...</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/ansible-и-serverspec/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://bulimov.ru/it/Прочитал-the-phoenix-project-a-novel-about-devops-and-helping-your-business-win/">Прочитал The Phoenix Project: A Novel About DevOps, and Helping Your Business Win</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -93,59 +190,6 @@
 главному вопросу - кадровому. В книге все сотрудники оказались
 достаточно квалифицированными и открытыми для того, чтобы ...</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Прочитал-the-phoenix-project-a-novel-about-devops-and-helping-your-business-win/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/Сдал-экзамен-cisco-icnd2-он-же-200-101/">Сдал экзамен Cisco ICND2, он же 200-101</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-04-03T00:00:00+04:00"> чт 03 апреля 2014</time>
-    </span>
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/cisco.html">Cisco</a>
-        /
-	<a href="http://bulimov.ru/tag/zhizn.html">Жизнь</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Теперь я CCNA.</p>
-<p>Сдал с трудом, 867 из 1000 при проходных 825.
-Экзамен очень мощный, сильно сложнее ICND1, на мой вкус.
-Надо было сдавать единый 200-120, было бы сильно проще.
-Еще больше уверился, что CCNA вполне подходит на роль
-критерия профпригодности для более-менее серьезной
-работы сисадмина.</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Сдал-экзамен-cisco-icnd2-он-же-200-101/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/Сдал-экзамен-cisco-icnd1-он-же-100-101/">Сдал экзамен Cisco ICND1, он же 100-101</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-03-20T00:00:00+04:00"> чт 20 марта 2014</time>
-    </span>
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/cisco.html">Cisco</a>
-        /
-	<a href="http://bulimov.ru/tag/zhizn.html">Жизнь</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Сдавал через месяц после курсов ICND1 и ICND2, набрал 907.
-Экзамен хороший, мощный. Теперь вполне понимаю,
-почему многими сданный CCNA расценивается как некое мерило
-профпригодности.</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Сдал-экзамен-cisco-icnd1-он-же-100-101/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -180,190 +224,95 @@
             </article>
             <hr/>
             <article>
-                <h2><a href="http://bulimov.ru/it/Влияние-курсов-cisco-на-психику/">Влияние курсов Cisco на психику</a></h2>
+                <h2><a href="http://bulimov.ru/it/monitoring-sucks/">Monitoring sucks!</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-03-05T00:00:00+04:00"> ср 05 марта 2014</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-07-10T00:00:00+04:00"> ср 10 июля 2013</time>
     </span>
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/cisco.html">Cisco</a>
+	<a href="http://bulimov.ru/tag/zabbix.html">Zabbix</a>
         /
-	<a href="http://bulimov.ru/tag/mikrotik.html">MikroTik</a>
+	<a href="http://bulimov.ru/tag/sensu.html">Sensu</a>
+        /
+	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
+        /
+	<a href="http://bulimov.ru/tag/mnenie.html">Мнение</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Закончил курсы Cisco ICND1 и ICND2, и сразу захотелось странного.
-Захотелось домой какую-нибудь интересную сетевую железяку.
-Быстрый поиск по каталогам серьезных фирм типа Cisco и Juniper показал, что
-ничего вменяемого для домашнего использования у них нет
-(Cisco Linksys я за вменяемое не считаю, та же фигня, что и D-Link или Asus).
-В итоге этих метаний, выбор пал на оборудование фирмы MikroTik.</p>
-<p>Движимый душевным порывом, я поменял
-свой древний WiFi роутер ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Влияние-курсов-cisco-на-психику/">more ...</a>
+                <div class="summary"><p><strong>TL;DR - тут я Sensu критиковал, но в 2014 году успешно заменил Zabbix на Sensu версии 0.12+</strong></p>
+<p>В 2012 году появился в среде devops такой хештег, #monitoringsucks.
+В сообщения с этим тегом devopsы писали, что текущее положение дел
+в сфере мониторинга их не устраивает. Что именно - прекрасно иллюстрирует
+<a href="https://speakerdeck.com/obfuscurity/the-state-of-open-source-monitoring">эта презентация</a>
+Если вкратце - хочется людям некоего стандарта API для взаимодействия между компонентами
+утилит мониторинга, ну и появления самих этих компонент ...</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/monitoring-sucks/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://bulimov.ru/it/Побывал-на-devops-meetup-25-января/">Побывал на DevOps Meetup 25 января</a></h2>
+                <h2><a href="http://bulimov.ru/it/Что-я-думаю-о-debian-на-серверах/">Что я думаю о Debian на серверах</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-01-27T00:00:00+04:00"> пн 27 января 2014</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-06-18T00:00:00+04:00"> вт 18 июня 2013</time>
     </span>
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/zhizn.html">Жизнь</a>
+	<a href="http://bulimov.ru/tag/debian.html">Debian</a>
+        /
+	<a href="http://bulimov.ru/tag/mnenie.html">Мнение</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Из четырех докладов именно доклад про Docker, ради которого
-я и ходил на этот Meetup, оказался единственным плохим.
-Вышел какой-то мальчик из Яндекса, жутко заунывно
-рассказывал банальности про Docker, на все интересные
-вопросы отвечал "я не знаю".</p>
-<p>Зато остальные доклады были весьма хороши.
-Лично меня особенно порадовал доклад Ивана Евтуховича
-про librarian и Berkshelf. Порадовал тем, что Иван выразил
-мою позицию по поводу community-кукбуков.</p>
-<p>Вячеслав Кузнецов прочитал отличный доклад о ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Побывал-на-devops-meetup-25-января/">more ...</a>
+                <div class="summary"><p>С 2010 года, когда я только начал заниматься системным администрированием,
+я использовал как основной серверный дистрибутив Debian.
+Это был изначально осознанный выбор, и на момент написания заметки таковым и остается.
+Конечно, я работал и с другими дистрибутивами, и потому мне есть и было с чем сравнить.
+По итогам работы с Debian и написана эта заметка.</p>
+<h1>Негатив</h1>
+<h2>Общесистемные лимиты</h2>
+<p>В свое время, встала передо мной задача настройки под высокую нагрузку различных ...</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Что-я-думаю-о-debian-на-серверах/">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://bulimov.ru/it/Расширяем-возможности-nginx-с-помощью-lua/">Расширяем возможности Nginx с помощью Lua</a></h2>
+                <h2><a href="http://bulimov.ru/it/Мнение-о-chef/">Мнение о Chef</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-11-08T00:00:00+04:00"> пт 08 ноября 2013</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-06-17T00:00:00+04:00"> пн 17 июня 2013</time>
     </span>
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/nginx.html">Nginx</a>
+	<a href="http://bulimov.ru/tag/chef.html">Chef</a>
         /
-	<a href="http://bulimov.ru/tag/lua.html">Lua</a>
+	<a href="http://bulimov.ru/tag/mnenie.html">Мнение</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Встала некоторое время назад передо мной задача -
-фильтровать по полю Serial клиентские сертификаты,
-которые используются для авторизации на одном из сервисов.
-То есть не просто проверять сертификат, но еще и проверять
-наличие серийника в списке разрешенных, на случай утечки клиентского
-сертификата. Сертификаты выдаем не мы, так что отзывать не можем,
-и списка отозванных тоже нет.</p>
-<p>Решать я эту задачу стал с помощью Nginx, и почти сразу был
-слеплен вариант тупой ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Расширяем-возможности-nginx-с-помощью-lua/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/auto-backup-конфигов-активки-через-rancid/">Auto-backup конфигов активки через Rancid</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-11-01T00:00:00+04:00"> пт 01 ноября 2013</time>
-    </span>
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/rancid.html">Rancid</a>
-        /
-	<a href="http://bulimov.ru/tag/cisco.html">Cisco</a>
-        /
-	<a href="http://bulimov.ru/tag/juniper.html">Juniper</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>На днях помогал коллеге с настройкой автоматического бекапа
-для конфигураций нашей активки (Cisco, Juniper), и нашел
-весьма интересное решение (похоже, вообще единственное) -
-<a href="http://www.shrubbery.net/rancid/">rancid</a>.</p>
-<p>Точнее, его форк <a href="https://github.com/dotwaffle/rancid-git">rancid-git</a>,
-поскольку использую везде и всюду git, и ради бекапов городить CVS или
-Subversion было бы неудобно.</p>
-<p>Конечно, rancid этот - весьма оригинальный пример того, как с помощью
-expect и bash-скриптов соорудить исправно работающее решение, отлично выполняющее
-свою задачу. Если вкратце - оно по крону ходит ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/auto-backup-конфигов-активки-через-rancid/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/Включил-комментарии/">Включил комментарии</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-10-18T00:00:00+04:00"> пт 18 октября 2013</time>
-    </span>
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/zhizn.html">Жизнь</a>
-        /
-	<a href="http://bulimov.ru/tag/ruhoh.html">Ruhoh</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Включил комментирование через Disqus, может кто-то
-что-нибудь дельное напишет в комментариях.</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Включил-комментарии/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/Сдал-экзамен-на-rhce/">Сдал экзамен на RHCE</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-10-14T00:00:00+04:00"> пн 14 октября 2013</time>
-    </span>
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/zhizn.html">Жизнь</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Наконец-то пришел результат экзамена, который сдавал в пятницу. 273 из 300 возможных при проходном балле в 210. Это, конечно,
-неприятно - ждать все выходные результата. На RHCSA результат пришел в ту же пятницу около 8 вечера.</p>
-<p>По самому курсу "Системное Администрирование" и экзамену: читал у меня все три части курса Илья Соболев.
-Курс весьма хорошо продуман и сбалансирован, ну и читает его Соболев отлично. С позиции человека,
-который до этих курсов ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Сдал-экзамен-на-rhce/">more ...</a>
+                <div class="summary"><p>Я использовал Chef для управления IT-инфраструктурой около полутора лет, начав с
+версии 0.10. Сначала, где-то пол-года, использовал только для управления конфигурациями,
+без развертывания ПО с нуля. Затем, уже на другой работе, автоматизировал управления
+конфигурациями и развертывание с нуля веб-проекта (30+ серверов, nginx, ruby, riak, redis,
+sphinx-search, rabbitmq и т.п.).
+Это позволило мне составить собственное мнение o достоинствах и недостатках Chef,
+и в этой заметке я свое мнение излагаю ...</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Мнение-о-chef/">more ...</a>
                 </div>
             </article>
             <hr/>
 
-        <ul class="pagination">
-                <li class="prev"><a href="http://bulimov.ru/author/alexander-bulimov2.html">&laquo;</a>
-                </li>
-                    <li class=""><a
-                            href="http://bulimov.ru/author/alexander-bulimov.html">1</a></li>
-                    <li class=""><a
-                            href="http://bulimov.ru/author/alexander-bulimov2.html">2</a></li>
-                    <li class="active"><a
-                            href="http://bulimov.ru/author/alexander-bulimov3.html">3</a></li>
-                    <li class=""><a
-                            href="http://bulimov.ru/author/alexander-bulimov4.html">4</a></li>
-                    <li class=""><a
-                            href="http://bulimov.ru/author/alexander-bulimov5.html">5</a></li>
-                <li class="next"><a
-                        href="http://bulimov.ru/author/alexander-bulimov4.html">&raquo;</a></li>
-        </ul>
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
