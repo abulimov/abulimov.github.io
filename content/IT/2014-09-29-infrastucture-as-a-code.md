@@ -1,12 +1,12 @@
 Title: Инфраструктура как код
 Slug: infrastructure-as-a-code
-Tags: Chef, Ansible
+Tags: Chef, Ansible, Мнение
 
 Есть такой тренд сейчас - работать с IT-инфраструктурой как с кодом.
 Хорошо цель этого метода описывается этой цитатой:
 
 > “Enable the reconstruction of the business from nothing but a source code repository, an application data backup, and bare metal resources”
-> 
+>
 > -- Jesse Robins
 
 Я полностью поддерживаю эту идею, причем именно в этой трактовке.

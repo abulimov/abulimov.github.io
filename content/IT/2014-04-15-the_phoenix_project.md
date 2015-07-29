@@ -1,6 +1,6 @@
 Title: Прочитал The Phoenix Project: A Novel About DevOps, and Helping Your Business Win
 Date: 2014-04-15
-Tags:  Книги, Жизнь
+Tags:  Книги, Жизнь, Мнение
 Category: IT
 Slug: Прочитал-the-phoenix-project-a-novel-about-devops-and-helping-your-business-win
 

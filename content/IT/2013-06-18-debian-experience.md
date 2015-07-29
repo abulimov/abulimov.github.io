@@ -1,6 +1,6 @@
 Title: Что я думаю о Debian на серверах
 Date: 2013-06-18
-Tags:   Debian
+Tags:   Debian, Мнение
 Category: IT
 Slug: Что-я-думаю-о-debian-на-серверах
 

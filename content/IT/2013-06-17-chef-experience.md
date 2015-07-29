@@ -1,6 +1,6 @@
 Title: Мнение о Chef
 Date: 2013-06-17
-Tags:   Chef
+Tags:   Chef, Мнение
 Category: IT
 Slug: Мнение-о-chef
 

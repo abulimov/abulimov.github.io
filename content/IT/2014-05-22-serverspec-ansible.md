@@ -1,6 +1,6 @@
 Title: Ansible и serverspec
 Date: 2014-05-22
-Tags:   Ansible, serverspec
+Tags:   Ansible, serverspec, Мнение
 Category: IT
 Slug: ansible-и-serverspec
 
