@@ -1,5 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 29 Jul 2015 00:00:00 +0300</lastBuildDate><item><title>Впечатления от CoreOS</title><link>http://bulimov.ru/it/coreos-opinion/</link><description>&lt;p&gt;На волне популярности контейнерной виртуализации &lt;a href="http://docker.com"&gt;Docker&lt;/a&gt;
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Tue, 11 Aug 2015 00:00:00 +0300</lastBuildDate><item><title>Использование ELK в продакшне</title><link>http://bulimov.ru/it/elk-production/</link><description>&lt;p&gt;Я уже довольно давно и успешно использую
+&lt;a href="https://www.elastic.co/products/logstash"&gt;Logstash&lt;/a&gt; + &lt;a href="https://www.elastic.co/products/elasticsearch"&gt;Elasticsearch&lt;/a&gt;
+с визуализацией данных в &lt;a href="https://www.elastic.co/products/kibana"&gt;Kibana&lt;/a&gt;
+(общепринятое сокращение для этой тройки - ELK) для сбора, хранения и обработки логов,
+но для обретения счастья с этой связкой мне потребовалось несколько итераций.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Поскольку в мире СПО все постоянно развивается и становится лучше, сразу хочу
+отметить, что все описанное актуально для Logstash версиий 1.4-1.5 и
+Elasticsearch версий 1.4 - 1.7 при нагрузке в ~20kk сообщений в день.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Итак, передо мной стояла задача собирать логи из разных источников, обрабатывать
+их, и хранить в удобном для обработки виде, с продвинутым веб-интерфейсом.
+Ранее я уже использовал для схожей задачи Graylog2, который тоже использует
+Elasticsearch для хранения логов, минусы этого решения я знал, поэтому было
+решено попробовать использовать второго большого игрока на этом поприще - ELK.&lt;/p&gt;
+&lt;p&gt;Первый вариант использования Logstash и Elasticsearch был очень наивным:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;источники логов -&amp;gt; Logstash -&amp;gt; Elasticsearch
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;То есть Logstash принимает логи в различных форматах по сети,
+обрабатывает их, и напрямую кладет в Elasticsearch.&lt;/p&gt;
+&lt;p&gt;Практически сразу была выявлена проблема - при нагрузке
+на Elasticsearch (например, кто-то решил через Kibana получить из логов самые
+популярные файлы на нашем CDN за пару недель) Logstash затыкался, кушал CPU и
+переставал принимать новые сообщения. Связано это
+поведение с тем, что Logstash написан на JRuby и на данный момент имеет один
+общий Loop обработки, так что при таймауте на операции записи в Elasticsearch
+этот Loop ломался. При этом со стороны процесс Logstash выглядел вполне
+живым, слушал все нужные порты, потреблял ресурсы системы, и определить поломку
+можно было только с помощью
+&lt;a href="https://github.com/camptocamp/nagios-plugins-elasticsearch"&gt;скрипта мониторинга&lt;/a&gt;,
+проверяющего свежесть данных в Elasticsearch.&lt;/p&gt;
+&lt;p&gt;На этом же этапе была выявлена еще одна особенность Elasticsearch. Дело в том,
+что он весьма прожорлив до оперативки, поскольку вынужден хранить индексы
+для все активных данных в памяти. Более того, поскольку JVM мы запускаем с
+определенными ограничениями по потребляемой памяти (-Xmx NN), Elasticsearch
+легко может накушаться памяти до внутреннего OOM Java, и грустно издохнуть.
+При этом Logstash тоже ожидаемо залипает и перестает принимать сообщения.
+Для ограничения жора памяти на сложных запросах в Elasticsearch есть специальный
+механизм &lt;a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/_limiting_memory_usage.html#circuit-breaker"&gt;Circuit Breaker&lt;/a&gt;,
+который пытается угадать тебуемое количество памяти &lt;em&gt;до&lt;/em&gt; выполнения запроса, и
+прервать его выполнение пре превышении определенных границ. По моему
+опыту суровая правда заключается в том, что не надо пытаться запихнуть в ELK
+больше данных, чем ваш сервер может переварить. То есть Circuit Breaker можно
+тюнить вполне успешно, тогда Elastiсsearch на интересные большие запросы просто
+откажется отвечать, но хотя-бы не упадет.&lt;/p&gt;
+&lt;p&gt;Вообще у Elasticsearch весьма хорошая документация по
+&lt;a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/_limiting_memory_usage.html"&gt;ограничению использования оперативной памяти&lt;/a&gt;,
+и она мне очень пригодилась, и даже до добавления в сервера оперативки удалось
+добиться того, чтобы Elasticsearch не падал с OOM, но главная проблема с затыкающимся
+Logstash так и осталась.&lt;/p&gt;
+&lt;p&gt;Для решения этой проблемы я выбрал простую и достаточно популярную схему с
+буферизацией входящих логов в Redis. Таким образом, схема работы стала выглядеть
+так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;источники логов -&amp;gt; Logstash-front -&amp;gt; Redis -&amp;gt; Logstash-back -&amp;gt; Elasticsearch
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Таким образом, Redis выступает в роли эластичного буфера, сглаживая пики
+нагрузки, и храня сообщения при перезапусках или падения Logstash-back и
+Elasticsearch. При это Logstash-front сделан максимально тупым, и не выполняет
+никакой обработки сообщений - он просто кладет их в Redis.&lt;/p&gt;
+&lt;p&gt;Именно такая схема и пошла в продакшн, и на достаточно слабых серверах
+успешно держит 20 миллионов сообщений в день, при этом Elasticsearch в связке
+с Kibana дает возможность мониторить многие вещи практически в реальном времени.
+Ну и при дебаге любых проблем Kibana стала незаменимым инструментом.&lt;/p&gt;
+&lt;p&gt;А еще хочется отметить очень значительный прогресс в разработке ELK, за пол-года
+активного использования:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;производительность Logstash в новых релизах выросла процентов на 20;&lt;/li&gt;
+&lt;li&gt;используемое место на диске сократилось вдвое (Logstash стал использовать
+  более разумный маппинг для данных по-умолчанию);&lt;/li&gt;
+&lt;li&gt;потребление оперативной памяти Elasticsearch уменьшилось на треть;&lt;/li&gt;
+&lt;li&gt;скорость восстановления кластера Elasticsearch
+  &lt;a href="https://www.elastic.co/blog/elasticsearch-1-6-0-released#synced-flush"&gt;выросла на порядок&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Bulimov</dc:creator><pubDate>Tue, 11 Aug 2015 00:00:00 +0300</pubDate><guid>tag:bulimov.ru,2015-08-11:it/elk-production/</guid><category>Elasticsearch</category><category>Logstash</category><category>Kibana</category><category>Опыт</category></item><item><title>Впечатления от CoreOS</title><link>http://bulimov.ru/it/coreos-opinion/</link><description>&lt;p&gt;На волне популярности контейнерной виртуализации &lt;a href="http://docker.com"&gt;Docker&lt;/a&gt;
 стали появляться специализированные дистрибутивы Linux, созданные специально
 для использования в роли базового хоста для Docker-контейнеров.&lt;/p&gt;
 &lt;p&gt;Пионером среди них стал проект &lt;a href="http://coreos.com"&gt;CoreOS&lt;/a&gt;, затем появились

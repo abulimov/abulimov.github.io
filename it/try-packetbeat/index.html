@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru"
->
+<html lang="ru" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
     <title>Попробуйте Packetbeat - Александр Булимов - записки сисадмина.</title>
     <!-- Using the latest rendering mode for IE -->
@@ -40,8 +39,13 @@
 
         <link href="http://bulimov.ru/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="Александр Булимов - записки сисадмина. ATOM Feed"/>
+
         <link href="http://bulimov.ru/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
               title="Александр Булимов - записки сисадмина. RSS Feed"/>
+
+
+        <link href="http://bulimov.ru/feeds/it.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Александр Булимов - записки сисадмина. IT ATOM Feed"/>
 
 </head>
 <body>
@@ -73,7 +77,6 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-
     <section id="content">
         <article>
             <header class="page-header">
@@ -91,8 +94,10 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-05-28T00:00:00+03:00"> чт 28 мая 2015</time>
+        <i class="fa fa-calendar"></i><time datetime="2015-05-28T00:00:00+03:00"> Чт 28 Май 2015</time>
     </span>
+
+
 
 
 
@@ -154,11 +159,11 @@ Packetbeat парсит сетевой трафик, и это недешево�
 <section class="well" id="related-posts">
     <h4>Related Posts:</h4>
     <ul>
+        <li><a href="http://bulimov.ru/it/elk-production/">Использование ELK в продакшне</a></li>
         <li><a href="http://bulimov.ru/it/check-docker-memory/">Научился мониторить использование памяти в Docker-контейнерах</a></li>
-        <li><a href="http://bulimov.ru/it/monitoring-sucks/">Monitoring sucks!</a></li>
-        <li><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix/">Низкоуровневое обнаружение в Zabbix</a></li>
-        <li><a href="http://bulimov.ru/it/ansible-sensu/">Удобная настройка Sensu с Ansible</a></li>
-        <li><a href="http://bulimov.ru/it/check-cadvisor/">Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</a></li>
+        <li><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware/">Низкоуровневое обнаружение в Zabbix, ищем диски в контроллере от 3ware</a></li>
+        <li><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></li>
+        <li><a href="http://bulimov.ru/it/Переписал-скрипты-на-ruby-для-sensu/">Переписал скрипты на Ruby для Sensu</a></li>
     </ul>
 </section>
     <hr/>
@@ -222,8 +227,8 @@ Packetbeat парсит сетевой трафик, и это недешево�
             <li class="list-group-item"><a href="http://bulimov.ru/tags/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
-                        <a href="http://bulimov.ru/tag/ansible.html">
-                            Ansible
+                        <a href="http://bulimov.ru/tag/python.html">
+                            Python
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
@@ -232,8 +237,8 @@ Packetbeat парсит сетевой трафик, и это недешево�
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="http://bulimov.ru/tag/mnenie.html">
-                            Мнение
+                        <a href="http://bulimov.ru/tag/monitoring.html">
+                            Monitoring
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
@@ -242,13 +247,33 @@ Packetbeat парсит сетевой трафик, и это недешево�
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="http://bulimov.ru/tag/monitoring.html">
-                            Monitoring
+                        <a href="http://bulimov.ru/tag/mnenie.html">
+                            Мнение
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="http://bulimov.ru/tag/python.html">
-                            Python
+                        <a href="http://bulimov.ru/tag/ansible.html">
+                            Ansible
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/cadvisor.html">
+                            cAdvisor
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/cisco.html">
+                            Cisco
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/nagios.html">
+                            Nagios
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/zabbix.html">
+                            Zabbix
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -261,34 +286,9 @@ Packetbeat парсит сетевой трафик, и это недешево�
                             Chef
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/zabbix.html">
-                            Zabbix
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/cadvisor.html">
-                            cAdvisor
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/nagios.html">
-                            Nagios
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/cisco.html">
-                            Cisco
-                        </a>
-                    </li>
                     <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/icinga2.html">
-                            Icinga2
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/ruhoh.html">
-                            Ruhoh
+                        <a href="http://bulimov.ru/tag/vps.html">
+                            VPS
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -297,13 +297,28 @@ Packetbeat парсит сетевой трафик, и это недешево�
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/vps.html">
-                            VPS
+                        <a href="http://bulimov.ru/tag/icinga2.html">
+                            Icinga2
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/ruby.html">
-                            Ruby
+                        <a href="http://bulimov.ru/tag/kibana.html">
+                            Kibana
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/elasticsearch.html">
+                            Elasticsearch
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/vim.html">
+                            Vim
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/ruhoh.html">
+                            Ruhoh
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -312,23 +327,13 @@ Packetbeat парсит сетевой трафик, и это недешево�
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/vim.html">
-                            Vim
+                        <a href="http://bulimov.ru/tag/ruby.html">
+                            Ruby
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/iuzveri.html">
-                            Юзвери
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/elasticsearch.html">
-                            Elasticsearch
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/debian.html">
-                            Debian
+                        <a href="http://bulimov.ru/tag/opyt.html">
+                            Опыт
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -337,63 +342,8 @@ Packetbeat парсит сетевой трафик, и это недешево�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/ubuntu.html">
-                            Ubuntu
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/haproxy.html">
-                            HAProxy
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/lua.html">
-                            Lua
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/nginx.html">
-                            Nginx
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/atom.html">
-                            Atom
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/cadvisor-companion.html">
-                            cAdvisor-companion
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/kibana.html">
-                            Kibana
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/pelican.html">
-                            Pelican
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/golang.html">
-                            Golang
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/coreos.html">
-                            CoreOS
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/packetbeat.html">
-                            Packetbeat
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/tmux.html">
-                            tmux
+                        <a href="http://bulimov.ru/tag/debian.html">
+                            Debian
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -402,8 +352,28 @@ Packetbeat парсит сетевой трафик, и это недешево�
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/juniper.html">
-                            Juniper
+                        <a href="http://bulimov.ru/tag/nginx.html">
+                            Nginx
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/logstash.html">
+                            Logstash
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/tmux.html">
+                            tmux
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/cadvisor-companion.html">
+                            cAdvisor-companion
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/haproxy.html">
+                            HAProxy
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -411,8 +381,55 @@ Packetbeat парсит сетевой трафик, и это недешево�
                             Rancid
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/golang.html">
+                            Golang
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/packetbeat.html">
+                            Packetbeat
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/ubuntu.html">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/iuzveri.html">
+                            Юзвери
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/pelican.html">
+                            Pelican
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/juniper.html">
+                            Juniper
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/lua.html">
+                            Lua
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/coreos.html">
+                            CoreOS
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/atom.html">
+                            Atom
+                        </a>
+                    </li>
                 </ul>
             </li>
+
+
     <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
       <ul class="list-group" id="links">
         <li class="list-group-item">
@@ -442,7 +459,7 @@ Packetbeat парсит сетевой трафик, и это недешево�
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content
-  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution 4.0 International License</a>, except where indicated otherwise.
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
 </small></p>
          </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>

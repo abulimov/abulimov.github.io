@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ru" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Использование ELK в продакшне - Александр Булимов - записки сисадмина.</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://bulimov.ru/it/elk-production/">
+
+        <meta name="author" content="Alexander Bulimov" />
+        <meta name="keywords" content="Elasticsearch,Logstash,Kibana,Опыт" />
+        <meta name="description" content="Я уже довольно давно и успешно использую Logstash + Elasticsearch с визуализацией данных в Kibana (общепринятое сокращение для этой тройки - ELK) для сбора, хранения и обработки логов, но для обретения счастья с этой связкой мне потребовалось несколько итераций. Поскольку в мире СПО все постоянно развивается и становится лучше, сразу хочу отметить, что все описанное актуально для Logstash версиий 1.4-1.5 и Elasticsearch версий 1.4 - 1.7 при нагрузке в ..." />
+
+        <meta property="og:site_name" content="Александр Булимов - записки сисадмина." />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Использование ELK в продакшне"/>
+        <meta property="og:url" content="http://bulimov.ru/it/elk-production/"/>
+        <meta property="og:description" content="Я уже довольно давно и успешно использую Logstash + Elasticsearch с визуализацией данных в Kibana (общепринятое сокращение для этой тройки - ELK) для сбора, хранения и обработки логов, но для обретения счастья с этой связкой мне потребовалось несколько итераций. Поскольку в мире СПО все постоянно развивается и становится лучше, сразу хочу отметить, что все описанное актуально для Logstash версиий 1.4-1.5 и Elasticsearch версий 1.4 - 1.7 при нагрузке в ..."/>
+        <meta property="article:published_time" content="2015-08-11" />
+            <meta property="article:section" content="IT" />
+            <meta property="article:tag" content="Elasticsearch" />
+            <meta property="article:tag" content="Logstash" />
+            <meta property="article:tag" content="Kibana" />
+            <meta property="article:tag" content="Опыт" />
+            <meta property="article:author" content="Alexander Bulimov" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://bulimov.ru/theme/css/bootstrap.slate.min.css" type="text/css"/>
+    <link href="http://bulimov.ru/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://bulimov.ru/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://bulimov.ru/theme/css/style.css" type="text/css"/>
+        <link href="http://bulimov.ru/static/custom.css" rel="stylesheet">
+
+        <link href="http://bulimov.ru/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Александр Булимов - записки сисадмина. ATOM Feed"/>
+
+        <link href="http://bulimov.ru/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
+              title="Александр Булимов - записки сисадмина. RSS Feed"/>
+
+
+        <link href="http://bulimov.ru/feeds/it.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Александр Булимов - записки сисадмина. IT ATOM Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://bulimov.ru/" class="navbar-brand">
+Александр Булимов - записки сисадмина.            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://bulimov.ru/archive/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://bulimov.ru/it/elk-production/"
+                       rel="bookmark"
+                       title="Permalink to Использование ELK в продакшне">
+                        Использование ELK в продакшне
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2015-08-11T00:00:00+03:00"> Вт 11 Август 2015</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/elasticsearch.html">Elasticsearch</a>
+        /
+	<a href="http://bulimov.ru/tag/logstash.html">Logstash</a>
+        /
+	<a href="http://bulimov.ru/tag/kibana.html">Kibana</a>
+        /
+	<a href="http://bulimov.ru/tag/opyt.html">Опыт</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>Я уже довольно давно и успешно использую
+<a href="https://www.elastic.co/products/logstash">Logstash</a> + <a href="https://www.elastic.co/products/elasticsearch">Elasticsearch</a>
+с визуализацией данных в <a href="https://www.elastic.co/products/kibana">Kibana</a>
+(общепринятое сокращение для этой тройки - ELK) для сбора, хранения и обработки логов,
+но для обретения счастья с этой связкой мне потребовалось несколько итераций.</p>
+<p><em>Поскольку в мире СПО все постоянно развивается и становится лучше, сразу хочу
+отметить, что все описанное актуально для Logstash версиий 1.4-1.5 и
+Elasticsearch версий 1.4 - 1.7 при нагрузке в ~20kk сообщений в день.</em></p>
+<p>Итак, передо мной стояла задача собирать логи из разных источников, обрабатывать
+их, и хранить в удобном для обработки виде, с продвинутым веб-интерфейсом.
+Ранее я уже использовал для схожей задачи Graylog2, который тоже использует
+Elasticsearch для хранения логов, минусы этого решения я знал, поэтому было
+решено попробовать использовать второго большого игрока на этом поприще - ELK.</p>
+<p>Первый вариант использования Logstash и Elasticsearch был очень наивным:</p>
+<div class="highlight"><pre>источники логов -&gt; Logstash -&gt; Elasticsearch
+</pre></div>
+
+
+<p>То есть Logstash принимает логи в различных форматах по сети,
+обрабатывает их, и напрямую кладет в Elasticsearch.</p>
+<p>Практически сразу была выявлена проблема - при нагрузке
+на Elasticsearch (например, кто-то решил через Kibana получить из логов самые
+популярные файлы на нашем CDN за пару недель) Logstash затыкался, кушал CPU и
+переставал принимать новые сообщения. Связано это
+поведение с тем, что Logstash написан на JRuby и на данный момент имеет один
+общий Loop обработки, так что при таймауте на операции записи в Elasticsearch
+этот Loop ломался. При этом со стороны процесс Logstash выглядел вполне
+живым, слушал все нужные порты, потреблял ресурсы системы, и определить поломку
+можно было только с помощью
+<a href="https://github.com/camptocamp/nagios-plugins-elasticsearch">скрипта мониторинга</a>,
+проверяющего свежесть данных в Elasticsearch.</p>
+<p>На этом же этапе была выявлена еще одна особенность Elasticsearch. Дело в том,
+что он весьма прожорлив до оперативки, поскольку вынужден хранить индексы
+для все активных данных в памяти. Более того, поскольку JVM мы запускаем с
+определенными ограничениями по потребляемой памяти (-Xmx NN), Elasticsearch
+легко может накушаться памяти до внутреннего OOM Java, и грустно издохнуть.
+При этом Logstash тоже ожидаемо залипает и перестает принимать сообщения.
+Для ограничения жора памяти на сложных запросах в Elasticsearch есть специальный
+механизм <a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/_limiting_memory_usage.html#circuit-breaker">Circuit Breaker</a>,
+который пытается угадать тебуемое количество памяти <em>до</em> выполнения запроса, и
+прервать его выполнение пре превышении определенных границ. По моему
+опыту суровая правда заключается в том, что не надо пытаться запихнуть в ELK
+больше данных, чем ваш сервер может переварить. То есть Circuit Breaker можно
+тюнить вполне успешно, тогда Elastiсsearch на интересные большие запросы просто
+откажется отвечать, но хотя-бы не упадет.</p>
+<p>Вообще у Elasticsearch весьма хорошая документация по
+<a href="https://www.elastic.co/guide/en/elasticsearch/guide/current/_limiting_memory_usage.html">ограничению использования оперативной памяти</a>,
+и она мне очень пригодилась, и даже до добавления в сервера оперативки удалось
+добиться того, чтобы Elasticsearch не падал с OOM, но главная проблема с затыкающимся
+Logstash так и осталась.</p>
+<p>Для решения этой проблемы я выбрал простую и достаточно популярную схему с
+буферизацией входящих логов в Redis. Таким образом, схема работы стала выглядеть
+так:</p>
+<div class="highlight"><pre>источники логов -&gt; Logstash-front -&gt; Redis -&gt; Logstash-back -&gt; Elasticsearch
+</pre></div>
+
+
+<p>Таким образом, Redis выступает в роли эластичного буфера, сглаживая пики
+нагрузки, и храня сообщения при перезапусках или падения Logstash-back и
+Elasticsearch. При это Logstash-front сделан максимально тупым, и не выполняет
+никакой обработки сообщений - он просто кладет их в Redis.</p>
+<p>Именно такая схема и пошла в продакшн, и на достаточно слабых серверах
+успешно держит 20 миллионов сообщений в день, при этом Elasticsearch в связке
+с Kibana дает возможность мониторить многие вещи практически в реальном времени.
+Ну и при дебаге любых проблем Kibana стала незаменимым инструментом.</p>
+<p>А еще хочется отметить очень значительный прогресс в разработке ELK, за пол-года
+активного использования:</p>
+<ul>
+<li>производительность Logstash в новых релизах выросла процентов на 20;</li>
+<li>используемое место на диске сократилось вдвое (Logstash стал использовать
+  более разумный маппинг для данных по-умолчанию);</li>
+<li>потребление оперативной памяти Elasticsearch уменьшилось на треть;</li>
+<li>скорость восстановления кластера Elasticsearch
+  <a href="https://www.elastic.co/blog/elasticsearch-1-6-0-released#synced-flush">выросла на порядок</a>.</li>
+</ul>
+            </div>
+            <!-- /.entry-content -->
+<section class="well" id="related-posts">
+    <h4>Related Posts:</h4>
+    <ul>
+        <li><a href="http://bulimov.ru/it/try-packetbeat/">Попробуйте Packetbeat</a></li>
+    </ul>
+</section>
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = 'elk-production';
+                var disqus_url = 'http://bulimov.ru/it/elk-production/';
+
+            var disqus_config = function () {
+                this.language = "ru";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<div id="aboutme">
+    <p>
+        <strong>About Alexander Bulimov</strong><br/>
+        Меня зовут Александр Викторович Булимов, я сисадмин из Москвы, работаю с Linux с 2010 года.<br><br>Сторонник свободного ПО. <br>Практикую методологию DevOps. Использую для управления серверами <a href=http://www.ansible.com/>Ansible</a>. Люблю программировать, автор нескольких модулей к Ansible.
+    </p>
+</div>
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="https://github.com/abulimov"><i class="fa fa-github-square fa-lg"></i> GitHub</a></li>
+                <li class="list-group-item"><a href="https://www.facebook.com/profile.php?id=1505350810"><i class="fa fa-facebook-square fa-lg"></i> Facebook</a></li>
+                <li class="list-group-item"><a href="https://plus.google.com/102209846851870884693/about"><i class="fa fa-google-plus-square fa-lg"></i> Google+</a></li>
+                <li class="list-group-item"><a href="http://ru.linkedin.com/pub/александр-булимов/7b/692/a92/"><i class="fa fa-linkedin-square fa-lg"></i> LinkedIn</a></li>
+                <li class="list-group-item"><a href="http://habrahabr.ru/users/lazywolf/"><i class="fa fa-habrahabr-square fa-lg"></i> Habrahabr</a></li>
+                <li class="list-group-item"><a href="http://vk.com/a_v_bulimov"><i class="fa fa-vk-square fa-lg"></i> VK</a></li>
+                <li class="list-group-item"><a href="/feeds/all.rss.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
+              </ul>
+            </li>
+
+
+
+            <li class="list-group-item"><a href="http://bulimov.ru/tags/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group " id="tags">
+                    <li class="list-group-item tag-1">
+                        <a href="http://bulimov.ru/tag/python.html">
+                            Python
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://bulimov.ru/tag/programmirovanie.html">
+                            Программирование
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://bulimov.ru/tag/monitoring.html">
+                            Monitoring
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://bulimov.ru/tag/zhizn.html">
+                            Жизнь
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://bulimov.ru/tag/mnenie.html">
+                            Мнение
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://bulimov.ru/tag/ansible.html">
+                            Ansible
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/cadvisor.html">
+                            cAdvisor
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/cisco.html">
+                            Cisco
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/nagios.html">
+                            Nagios
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/zabbix.html">
+                            Zabbix
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/sensu.html">
+                            Sensu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/chef.html">
+                            Chef
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/vps.html">
+                            VPS
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/mikrotik.html">
+                            MikroTik
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/icinga2.html">
+                            Icinga2
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/kibana.html">
+                            Kibana
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/elasticsearch.html">
+                            Elasticsearch
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/vim.html">
+                            Vim
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/ruhoh.html">
+                            Ruhoh
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/knigi.html">
+                            Книги
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/ruby.html">
+                            Ruby
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/opyt.html">
+                            Опыт
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/serverspec.html">
+                            serverspec
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/debian.html">
+                            Debian
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/kernel.html">
+                            Kernel
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/nginx.html">
+                            Nginx
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/logstash.html">
+                            Logstash
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/tmux.html">
+                            tmux
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/cadvisor-companion.html">
+                            cAdvisor-companion
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/haproxy.html">
+                            HAProxy
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/rancid.html">
+                            Rancid
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/golang.html">
+                            Golang
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/packetbeat.html">
+                            Packetbeat
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/ubuntu.html">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/iuzveri.html">
+                            Юзвери
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/pelican.html">
+                            Pelican
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/juniper.html">
+                            Juniper
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/lua.html">
+                            Lua
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/coreos.html">
+                            CoreOS
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/atom.html">
+                            Atom
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://getpelican.com/" target="_blank">
+                Pelican
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://python.org/" target="_blank">
+                Python.org
+            </a>
+        </li>
+      </ul>
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2015 Alexander Bulimov
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://bulimov.ru/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://bulimov.ru/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://bulimov.ru/theme/js/respond.min.js"></script>
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-49230997-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+</body>
+</html>
