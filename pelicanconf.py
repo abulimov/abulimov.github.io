@@ -24,7 +24,7 @@ TIMEZONE = 'Europe/Moscow'
 
 DEFAULT_LANG = 'ru'
 
-PLUGINS = ["related_posts", "sitemap"]
+PLUGINS = ["related_posts", "sitemap", "tag_cloud"]
 
 THEME = 'pelican-bootstrap3'
 BOOTSTRAP_THEME = 'slate'
