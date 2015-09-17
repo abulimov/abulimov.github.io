@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ru" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<html lang="ru"
+>
 <head>
     <title>IT - Александр Булимов - записки сисадмина.</title>
     <!-- Using the latest rendering mode for IE -->
@@ -31,13 +32,8 @@
 
         <link href="http://bulimov.ru/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="Александр Булимов - записки сисадмина. ATOM Feed"/>
-
         <link href="http://bulimov.ru/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
               title="Александр Булимов - записки сисадмина. RSS Feed"/>
-
-
-        <link href="http://bulimov.ru/feeds/it.atom.xml" type="application/atom+xml" rel="alternate"
-              title="Александр Булимов - записки сисадмина. IT ATOM Feed"/>
 
 </head>
 <body>
@@ -69,16 +65,48 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
+
+            <article>
+                <h2><a href="http://bulimov.ru/it/collectd-riakcs/">Плагин к Collectd для сбора метрик Riak CS</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2015-09-17T00:00:00+03:00"> чт 17 сентября 2015</time>
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/python.html">Python</a>
+        /
+	<a href="http://bulimov.ru/tag/riak-cs.html">Riak CS</a>
+        /
+	<a href="http://bulimov.ru/tag/collectd.html">Collectd</a>
+        /
+	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>На днях наконец-то дошли руки до модернизации той части мониторинга, которая
+отвечает за сбор метрик, и набивший оскомину <a href="http://munin-monitoring.org">Munin</a> был
+окончательно заменен на <a href="https://graphite.readthedocs.org/en/latest/">Graphite</a> + <a href="http://collectd.org">Collectd</a>.
+Теперь воцарилась идиллия - Icinga2 складывает метрики из perfdata в Graphite,
+и Collectd отправляет все метрики туда же.</p>
+<p>Хочется отдельно отметить, что несмотря на то, что изначально Collectd мне
+не очень понравился (кому может сейчас понравиться Apache-подобный конфиг?), при
+дальнейшем изучении я был приятно поражен богатством ...</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/collectd-riakcs/">more ...</a>
+                </div>
+            </article>
+            <hr/>
             <article>
                 <h2><a href="http://bulimov.ru/it/elk-production/">Использование ELK в продакшне</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-08-11T00:00:00+03:00"> Вт 11 Август 2015</time>
+        <i class="fa fa-calendar"></i><time datetime="2015-08-11T00:00:00+03:00"> вт 11 августа 2015</time>
     </span>
-
-
 
 
 
@@ -110,10 +138,8 @@ Elasticsearch версий 1.4 - 1.7 при нагрузке в ...</em></p>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-07-29T00:00:00+03:00"> Ср 29 Июль 2015</time>
+        <i class="fa fa-calendar"></i><time datetime="2015-07-29T00:00:00+03:00"> ср 29 июля 2015</time>
     </span>
-
-
 
 
 
@@ -143,10 +169,8 @@ Elasticsearch версий 1.4 - 1.7 при нагрузке в ...</em></p>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-07-09T00:00:00+03:00"> Чт 09 Июль 2015</time>
+        <i class="fa fa-calendar"></i><time datetime="2015-07-09T00:00:00+03:00"> чт 09 июля 2015</time>
     </span>
-
-
 
 
 
@@ -172,10 +196,8 @@ Elasticsearch версий 1.4 - 1.7 при нагрузке в ...</em></p>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-05-28T00:00:00+03:00"> Чт 28 Май 2015</time>
+        <i class="fa fa-calendar"></i><time datetime="2015-05-28T00:00:00+03:00"> чт 28 мая 2015</time>
     </span>
-
-
 
 
 
@@ -208,10 +230,8 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-05-21T00:00:00+03:00"> Чт 21 Май 2015</time>
+        <i class="fa fa-calendar"></i><time datetime="2015-05-21T00:00:00+03:00"> чт 21 мая 2015</time>
     </span>
-
-
 
 
 
@@ -241,10 +261,8 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-04-21T00:00:00+03:00"> Вт 21 Апрель 2015</time>
+        <i class="fa fa-calendar"></i><time datetime="2015-04-21T00:00:00+03:00"> вт 21 апреля 2015</time>
     </span>
-
-
 
 
 
@@ -278,10 +296,8 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-04-15T00:00:00+03:00"> Ср 15 Апрель 2015</time>
+        <i class="fa fa-calendar"></i><time datetime="2015-04-15T00:00:00+03:00"> ср 15 апреля 2015</time>
     </span>
-
-
 
 
 
@@ -314,10 +330,8 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-02-27T00:00:00+03:00"> Пт 27 Февраль 2015</time>
+        <i class="fa fa-calendar"></i><time datetime="2015-02-27T00:00:00+03:00"> пт 27 февраля 2015</time>
     </span>
-
-
 
 
 
@@ -345,10 +359,8 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-02-20T00:00:00+03:00"> Пт 20 Февраль 2015</time>
+        <i class="fa fa-calendar"></i><time datetime="2015-02-20T00:00:00+03:00"> пт 20 февраля 2015</time>
     </span>
-
-
 
 
 
@@ -374,42 +386,6 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
 неизмеримо мало CPU), обладает простым API для доступа к собираемой им
 информации, имеет ...</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/check-cadvisor/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/check-docker-memory/">Научился мониторить использование памяти в Docker-контейнерах</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-02-13T00:00:00+03:00"> Пт 13 Февраль 2015</time>
-    </span>
-
-
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/python.html">Python</a>
-        /
-	<a href="http://bulimov.ru/tag/nagios.html">Nagios</a>
-        /
-	<a href="http://bulimov.ru/tag/icinga2.html">Icinga2</a>
-        /
-	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Я сегодня занимался мониторингом, а конкретно нашими докер-контейнерами.</p>
-<p><em>Лирическое отступление:
-Для мониторинга я теперь (уже на другом месте работы) использую
-наследника Nagios - <a href="https://www.icinga.org/icinga/icinga-2/">Icinga2</a>.
-Пока все нравится, ребята очень круто переписали Nagios, реализовали гораздо
-более вменяемый формат конфигурации, и кучу новых возможностей.</em></p>
-<p>Используя Docker для автотестов я уже ловил проблемы, когда интерпретатор Ruby
-кушал всю выделенную память в контейнере и тихо умирал от рук OOM Killer.</p>
-<p>Поскольку теперь я использую <a href="http://docker.io">Docker ...</a></p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/check-docker-memory/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -457,23 +433,8 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
             <li class="list-group-item"><a href="http://bulimov.ru/tags/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
-                        <a href="http://bulimov.ru/tag/python.html">
-                            Python
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="http://bulimov.ru/tag/programmirovanie.html">
-                            Программирование
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
                         <a href="http://bulimov.ru/tag/monitoring.html">
                             Monitoring
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="http://bulimov.ru/tag/zhizn.html">
-                            Жизнь
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
@@ -486,24 +447,24 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
                             Ansible
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/cadvisor.html">
-                            cAdvisor
+                    <li class="list-group-item tag-1">
+                        <a href="http://bulimov.ru/tag/programmirovanie.html">
+                            Программирование
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://bulimov.ru/tag/zhizn.html">
+                            Жизнь
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://bulimov.ru/tag/python.html">
+                            Python
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/cisco.html">
-                            Cisco
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/nagios.html">
-                            Nagios
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/zabbix.html">
-                            Zabbix
+                        <a href="http://bulimov.ru/tag/chef.html">
+                            Chef
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -512,18 +473,33 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/chef.html">
-                            Chef
+                        <a href="http://bulimov.ru/tag/cisco.html">
+                            Cisco
                         </a>
                     </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/vps.html">
-                            VPS
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/cadvisor.html">
+                            cAdvisor
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/zabbix.html">
+                            Zabbix
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/nagios.html">
+                            Nagios
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
                         <a href="http://bulimov.ru/tag/mikrotik.html">
                             MikroTik
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/vps.html">
+                            VPS
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -542,16 +518,6 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/vim.html">
-                            Vim
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/ruhoh.html">
-                            Ruhoh
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
                         <a href="http://bulimov.ru/tag/knigi.html">
                             Книги
                         </a>
@@ -561,14 +527,14 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
                             Ruby
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/opyt.html">
-                            Опыт
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/vim.html">
+                            Vim
                         </a>
                     </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/serverspec.html">
-                            serverspec
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/ruhoh.html">
+                            Ruhoh
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -577,13 +543,18 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/kernel.html">
-                            Kernel
+                        <a href="http://bulimov.ru/tag/cadvisor-companion.html">
+                            cAdvisor-companion
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/nginx.html">
-                            Nginx
+                        <a href="http://bulimov.ru/tag/juniper.html">
+                            Juniper
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/kernel.html">
+                            Kernel
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -592,23 +563,8 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/tmux.html">
-                            tmux
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/cadvisor-companion.html">
-                            cAdvisor-companion
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/haproxy.html">
-                            HAProxy
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/rancid.html">
-                            Rancid
+                        <a href="http://bulimov.ru/tag/coreos.html">
+                            CoreOS
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -617,13 +573,53 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/collectd.html">
+                            Collectd
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://bulimov.ru/tag/packetbeat.html">
                             Packetbeat
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/ubuntu.html">
-                            Ubuntu
+                        <a href="http://bulimov.ru/tag/rancid.html">
+                            Rancid
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/nginx.html">
+                            Nginx
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/haproxy.html">
+                            HAProxy
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/lua.html">
+                            Lua
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/opyt.html">
+                            Опыт
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/riak-cs.html">
+                            Riak CS
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/serverspec.html">
+                            serverspec
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/tmux.html">
+                            tmux
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -637,18 +633,8 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/juniper.html">
-                            Juniper
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/lua.html">
-                            Lua
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/coreos.html">
-                            CoreOS
+                        <a href="http://bulimov.ru/tag/ubuntu.html">
+                            Ubuntu
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -658,8 +644,6 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
                     </li>
                 </ul>
             </li>
-
-
     <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
       <ul class="list-group" id="links">
         <li class="list-group-item">
@@ -689,7 +673,7 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content
-  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution 4.0 International License</a>, except where indicated otherwise.
 </small></p>
          </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>

@@ -1,5 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Александр Булимов - записки сисадмина.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/alexander-bulimov.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2015-08-11T00:00:00+03:00</updated><entry><title>Использование ELK в продакшне</title><link href="http://bulimov.ru/it/elk-production/" rel="alternate"></link><updated>2015-08-11T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-08-11:it/elk-production/</id><summary type="html">&lt;p&gt;Я уже довольно давно и успешно использую
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Александр Булимов - записки сисадмина.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/alexander-bulimov.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2015-09-17T00:00:00+03:00</updated><entry><title>Плагин к Collectd для сбора метрик Riak CS</title><link href="http://bulimov.ru/it/collectd-riakcs/" rel="alternate"></link><updated>2015-09-17T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-09-17:it/collectd-riakcs/</id><summary type="html">&lt;p&gt;На днях наконец-то дошли руки до модернизации той части мониторинга, которая
+отвечает за сбор метрик, и набивший оскомину &lt;a href="http://munin-monitoring.org"&gt;Munin&lt;/a&gt; был
+окончательно заменен на &lt;a href="https://graphite.readthedocs.org/en/latest/"&gt;Graphite&lt;/a&gt; + &lt;a href="http://collectd.org"&gt;Collectd&lt;/a&gt;.
+Теперь воцарилась идиллия - Icinga2 складывает метрики из perfdata в Graphite,
+и Collectd отправляет все метрики туда же.&lt;/p&gt;
+&lt;p&gt;Хочется отдельно отметить, что несмотря на то, что изначально Collectd мне
+не очень понравился (кому может сейчас понравиться Apache-подобный конфиг?), при
+дальнейшем изучении я был приятно поражен богатством возможностей этого
+продукта и крайне бережным его отношением к ресурсам наблюдаемой системы.&lt;/p&gt;
+&lt;p&gt;Так вот, в процессе переезда с Munin я столкнулся с задачей сбора в Collectd
+метрик с замечательной реализации приватного
+&lt;a href="https://ru.wikipedia.org/wiki/Amazon_S3"&gt;S3&lt;/a&gt;-совместимого хранилища -
+&lt;a href="http://docs.basho.com/riakcs/latest"&gt;Riak CS&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;К слову сказать, с Riak я работаю уже не первый год, и всегда был очень доволен
+этим решением, и Riak CS также оправдал все ожидания - он удобный в настройке
+и эксплуатации (начиная с версии 2.0 появился даже удобный конфиг - раньше
+конфиг был на Erlang), быстрый, надежный, отказоустойчивый, и очень просто масштабируется.
+Так что если выбираете хранилище для файлов, доступ к которому нужен по http и
+библиотеки для работы с которым есть для любого языка - Riak CS это отличный выбор,
+тем более можно при желании смигрировать на любое S3-совместимое хранилище - на
+&lt;a href="http://ceph.com"&gt;Ceph&lt;/a&gt;, например.&lt;/p&gt;
+&lt;p&gt;Сам Riak CS построен как надстройка над Riak, для которого в официальной
+документации &lt;a href="http://docs.basho.com/riak/1.4.8/ops/running/monitoring/collectd/"&gt;есть пример конфига для Collectd&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;К сожалению, для Riak CS такой фокус с плагином &lt;em&gt;curl_json&lt;/em&gt; не пройдет - для
+доступа к статистике http-запрос должен быть подписан по всем правилам
+авторизации S3, поэтому пришлось писать свой плагин, благо Collectd
+&lt;a href="https://collectd.org/documentation/manpages/collectd-python.5.shtml#writing_your_own_plugins"&gt;предоставляет&lt;/a&gt;
+очень простой интерфейс для написания плагинов на Python, а в Python есть
+шикарная библиотека &lt;a href="www.python-requests.org/"&gt;requests&lt;/a&gt;, к которой есть удобный
+модуль для работы с S3 - &lt;a href="https://github.com/tax/python-requests-aws"&gt;requests-aws&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Для написания простейшего плагина к Collectd надо реализовать и
+зарегистрировать всего одну функцию - read. То есть вот так выгладит минимальный
+плагин к Colletcd:&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Пример из официальной документации:&lt;/em&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;collectd&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;collectt and dispatch some data&amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="n"&gt;vl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;collectd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Values&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;gauge&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;vl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plugin&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;python.spam&amp;#39;&lt;/span&gt;
+    &lt;span class="n"&gt;vl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dispatch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;random&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+
+&lt;span class="n"&gt;collectd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;register_read&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;read&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Мне, конечно, пришлось написать немного больше кода, но поскольку сам Riak CS
+очень помогает в вопросах метрик - он отдает всю нужную информацию, включая
+95й и 99й перцентили задержек различных операций, в
+&lt;a href="http://docs.basho.com/riakcs/latest/cookbooks/Monitoring-and-Metrics/"&gt;в обычном JSON&lt;/a&gt;,
+это действительно &lt;em&gt;немного&lt;/em&gt; больше кода.&lt;/p&gt;
+&lt;p&gt;Плагин получился крошечным - меньше 100 строк кода - и
+очень простым.&lt;/p&gt;
+&lt;p&gt;Код плагина к Collectd для снятия метрик с Riak CS трационно опубликован под
+свободной лицензией &lt;a href="https://opensource.org/licenses/MIT"&gt;MIT&lt;/a&gt;
+на Github - &lt;a href="https://github.com/abulimov/collectd-riakcs"&gt;github.com/abulimov/collectd-riakcs&lt;/a&gt;,
+а сам плагин подготовлен к удобной &lt;a href="https://github.com/abulimov/collectd-riakcs#setup"&gt;установке через pip&lt;/a&gt;.&lt;/p&gt;</summary><category term="Python"></category><category term="Riak CS"></category><category term="Collectd"></category><category term="Программирование"></category></entry><entry><title>Использование ELK в продакшне</title><link href="http://bulimov.ru/it/elk-production/" rel="alternate"></link><updated>2015-08-11T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-08-11:it/elk-production/</id><summary type="html">&lt;p&gt;Я уже довольно давно и успешно использую
 &lt;a href="https://www.elastic.co/products/logstash"&gt;Logstash&lt;/a&gt; + &lt;a href="https://www.elastic.co/products/elasticsearch"&gt;Elasticsearch&lt;/a&gt;
 с визуализацией данных в &lt;a href="https://www.elastic.co/products/kibana"&gt;Kibana&lt;/a&gt;
 (общепринятое сокращение для этой тройки - ELK) для сбора, хранения и обработки логов,
