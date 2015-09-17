@@ -1,6 +1,6 @@
 Title: Плагин к Collectd для сбора метрик Riak CS
 Date: 2015-09-17
-Tags: Python, Riak CS, Collectd, Программирование
+Tags: Python, Riak CS, Collectd, Программирование, Monitoring
 Slug: collectd-riakcs
 
 На днях наконец-то дошли руки до модернизации той части мониторинга, которая
