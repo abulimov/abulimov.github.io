@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru"
->
+<html lang="ru" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
     <title>IT - Александр Булимов - записки сисадмина.</title>
     <!-- Using the latest rendering mode for IE -->
@@ -32,8 +31,13 @@
 
         <link href="http://bulimov.ru/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="Александр Булимов - записки сисадмина. ATOM Feed"/>
+
         <link href="http://bulimov.ru/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
               title="Александр Булимов - записки сисадмина. RSS Feed"/>
+
+
+        <link href="http://bulimov.ru/feeds/it.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Александр Булимов - записки сисадмина. IT ATOM Feed"/>
 
 </head>
 <body>
@@ -65,15 +69,51 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
+            <article>
+                <h2><a href="http://bulimov.ru/it/auto-backup-конфигов-активки-через-rancid/">Auto-backup конфигов активки через Rancid</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2013-11-01T00:00:00+04:00"> Пт. 01 Ноябрь 2013</time>
+    </span>
 
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/rancid.html">Rancid</a>
+        /
+	<a href="http://bulimov.ru/tag/cisco.html">Cisco</a>
+        /
+	<a href="http://bulimov.ru/tag/juniper.html">Juniper</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>На днях помогал коллеге с настройкой автоматического бекапа
+для конфигураций нашей активки (Cisco, Juniper), и нашел
+весьма интересное решение (похоже, вообще единственное) -
+<a href="http://www.shrubbery.net/rancid/">rancid</a>.</p>
+<p>Точнее, его форк <a href="https://github.com/dotwaffle/rancid-git">rancid-git</a>,
+поскольку использую везде и всюду git, и ради бекапов городить CVS или
+Subversion было бы неудобно.</p>
+<p>Конечно, rancid этот - весьма оригинальный пример того, как с помощью
+expect и bash-скриптов соорудить исправно работающее решение, отлично выполняющее
+свою задачу. Если вкратце - оно по крону ходит ...</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/auto-backup-конфигов-активки-через-rancid/">more ...</a>
+                </div>
+            </article>
+            <hr/>
             <article>
                 <h2><a href="http://bulimov.ru/it/Включил-комментарии/">Включил комментарии</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-10-18T00:00:00+04:00"> пт 18 октября 2013</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-10-18T00:00:00+04:00"> Пт. 18 Октябрь 2013</time>
     </span>
+
+
 
 
 
@@ -95,8 +135,10 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-10-14T00:00:00+04:00"> пн 14 октября 2013</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-10-14T00:00:00+04:00"> Пн. 14 Октябрь 2013</time>
     </span>
+
+
 
 
 
@@ -119,8 +161,10 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-10-02T00:00:00+04:00"> ср 02 октября 2013</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-10-02T00:00:00+04:00"> Ср. 02 Октябрь 2013</time>
     </span>
+
+
 
 
 
@@ -148,8 +192,10 @@ ip ro add default via 12.34.56.1</p>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-10-01T00:00:00+04:00"> вт 01 октября 2013</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-10-01T00:00:00+04:00"> Вт. 01 Октябрь 2013</time>
     </span>
+
+
 
 
 
@@ -177,8 +223,10 @@ ip ro add default via 12.34.56.1</p>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-09-05T00:00:00+04:00"> чт 05 сентября 2013</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-09-05T00:00:00+04:00"> Чт. 05 Сентябрь 2013</time>
     </span>
+
+
 
 
 
@@ -207,8 +255,10 @@ ip ro add default via 12.34.56.1</p>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-08-14T00:00:00+04:00"> ср 14 августа 2013</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-08-14T00:00:00+04:00"> Ср. 14 Август 2013</time>
     </span>
+
+
 
 
 
@@ -238,8 +288,10 @@ ip ro add default via 12.34.56.1</p>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-07-25T00:00:00+04:00"> чт 25 июля 2013</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-07-25T00:00:00+04:00"> Чт. 25 Июль 2013</time>
     </span>
+
+
 
 
 
@@ -268,8 +320,10 @@ ip ro add default via 12.34.56.1</p>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-07-10T00:00:00+04:00"> ср 10 июля 2013</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-07-10T00:00:00+04:00"> Ср. 10 Июль 2013</time>
     </span>
+
+
 
 
 
@@ -300,8 +354,10 @@ ip ro add default via 12.34.56.1</p>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-06-26T00:00:00+04:00"> ср 26 июня 2013</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-06-26T00:00:00+04:00"> Ср. 26 Июнь 2013</time>
     </span>
+
+
 
 
 
@@ -321,38 +377,6 @@ ip ro add default via 12.34.56.1</p>
 они меняются. Так что я решил обнаруживать их автоматически, и написал для этого свой провайдер
 данных для ...</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/Плагин-к-ruhoh-для-рисования-графиков/">Плагин к Ruhoh для рисования графиков</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-06-21T00:00:00+04:00"> пт 21 июня 2013</time>
-    </span>
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
-        /
-	<a href="http://bulimov.ru/tag/ruby.html">Ruby</a>
-        /
-	<a href="http://bulimov.ru/tag/ruhoh.html">Ruhoh</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Еще планируя создание статического блога на Hakyll я хотел реализовать рисование
-графиков "на лету" из отдельно хранящихся данных. Но с Hakyll не сложилось,
-и после долгих поисков я остановился на <a href="http://ruhoh.com/">Ruhoh</a>.</p>
-<p>Все нижеописанное относится к <strong>Ruhoh 2.1</strong></p>
-<h3>Цель</h3>
-<p>Рисовать графики из данных, хранящихся в человеко-читаемом виде.
-Нужно мне это было для визуализации своих спортивных тренировок.</p>
-<h3>Решение</h3>
-<p>Конечно, я решил оформить все в виде плагина к Ruhoh, благо возможность такая ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Плагин-к-ruhoh-для-рисования-графиков/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -411,11 +435,6 @@ ip ro add default via 12.34.56.1</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="http://bulimov.ru/tag/ansible.html">
-                            Ansible
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
                         <a href="http://bulimov.ru/tag/programmirovanie.html">
                             Программирование
                         </a>
@@ -423,6 +442,11 @@ ip ro add default via 12.34.56.1</p>
                     <li class="list-group-item tag-1">
                         <a href="http://bulimov.ru/tag/zhizn.html">
                             Жизнь
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://bulimov.ru/tag/ansible.html">
+                            Ansible
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
@@ -436,8 +460,13 @@ ip ro add default via 12.34.56.1</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/sensu.html">
-                            Sensu
+                        <a href="http://bulimov.ru/tag/nagios.html">
+                            Nagios
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/zabbix.html">
+                            Zabbix
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -446,8 +475,8 @@ ip ro add default via 12.34.56.1</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/nagios.html">
-                            Nagios
+                        <a href="http://bulimov.ru/tag/sensu.html">
+                            Sensu
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -455,9 +484,14 @@ ip ro add default via 12.34.56.1</p>
                             Cisco
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/zabbix.html">
-                            Zabbix
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/opyt.html">
+                            Опыт
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/ruhoh.html">
+                            Ruhoh
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -466,8 +500,28 @@ ip ro add default via 12.34.56.1</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/ruhoh.html">
-                            Ruhoh
+                        <a href="http://bulimov.ru/tag/ruby.html">
+                            Ruby
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/vps.html">
+                            VPS
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/icinga2.html">
+                            Icinga2
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/mikrotik.html">
+                            MikroTik
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/elasticsearch.html">
+                            Elasticsearch
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -480,54 +534,9 @@ ip ro add default via 12.34.56.1</p>
                             Книги
                         </a>
                     </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/vps.html">
-                            VPS
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/ruby.html">
-                            Ruby
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/icinga2.html">
-                            Icinga2
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/elasticsearch.html">
-                            Elasticsearch
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/mikrotik.html">
-                            MikroTik
-                        </a>
-                    </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/collectd.html">
-                            Collectd
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/ubuntu.html">
-                            Ubuntu
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/riak-cs.html">
-                            Riak CS
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/juniper.html">
-                            Juniper
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/coreos.html">
-                            CoreOS
+                        <a href="http://bulimov.ru/tag/tmux.html">
+                            tmux
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -536,23 +545,8 @@ ip ro add default via 12.34.56.1</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/atom.html">
-                            Atom
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/tmux.html">
-                            tmux
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/rancid.html">
-                            Rancid
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/cadvisor-companion.html">
-                            cAdvisor-companion
+                        <a href="http://bulimov.ru/tag/juniper.html">
+                            Juniper
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -561,33 +555,23 @@ ip ro add default via 12.34.56.1</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/logstash.html">
-                            Logstash
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/iuzveri.html">
-                            Юзвери
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/opyt.html">
-                            Опыт
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/nginx.html">
-                            Nginx
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/golang.html">
-                            Golang
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://bulimov.ru/tag/haproxy.html">
                             HAProxy
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/cadvisor-companion.html">
+                            cAdvisor-companion
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/ubuntu.html">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/coreos.html">
+                            CoreOS
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -596,8 +580,33 @@ ip ro add default via 12.34.56.1</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/riak-cs.html">
+                            Riak CS
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/iuzveri.html">
+                            Юзвери
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/packetbeat.html">
+                            Packetbeat
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/collectd.html">
+                            Collectd
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://bulimov.ru/tag/kernel.html">
                             Kernel
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/nginx.html">
+                            Nginx
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -606,12 +615,34 @@ ip ro add default via 12.34.56.1</p>
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/packetbeat.html">
-                            Packetbeat
+                        <a href="http://bulimov.ru/tag/logstash.html">
+                            Logstash
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/golang.html">
+                            Golang
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/rancid.html">
+                            Rancid
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/graphite.html">
+                            Graphite
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/atom.html">
+                            Atom
                         </a>
                     </li>
                 </ul>
             </li>
+
+
     <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
       <ul class="list-group" id="links">
         <li class="list-group-item">
@@ -641,7 +672,7 @@ ip ro add default via 12.34.56.1</p>
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content
-  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution 4.0 International License</a>, except where indicated otherwise.
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
 </small></p>
          </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>

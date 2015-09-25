@@ -1,5 +1,195 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/alexander-bulimov.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 17 Sep 2015 00:00:00 +0300</lastBuildDate><item><title>Плагин к Collectd для сбора метрик Riak CS</title><link>http://bulimov.ru/it/collectd-riakcs/</link><description>&lt;p&gt;На днях наконец-то дошли руки до модернизации той части мониторинга, которая
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/alexander-bulimov.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 25 Sep 2015 00:00:00 +0300</lastBuildDate><item><title>Заметка о Graphite</title><link>http://bulimov.ru/it/graphite-experience/</link><description>&lt;p&gt;На первый взгляд, кажется довольно странным, что сейчас, в 2015 году, все до сих пор используют
+для хранения time series такой старый и «не модный» инструмент, как &lt;a href="http://graphite.readthedocs.org/en/latest/"&gt;Graphite&lt;/a&gt;.
+О ужас, о нем даже почти не пишут в твиттере/G+ и он написан на старом будничном Python,
+а не на популярном сейчас Go (хотя уже частично написан, но об этом потом).&lt;/p&gt;
+&lt;p&gt;Но все равно многие используют его, и не сильно жалуются.&lt;/p&gt;
+&lt;h4&gt;Экскурс в историю&lt;/h4&gt;
+&lt;p&gt;До открытия кода Graphite в 2008 году был вездесущий &lt;a href="http://oss.oetiker.ch/rrdtool/"&gt;RRDTool&lt;/a&gt;,
+использовавшийся (и используемый до сих пор) в таких инструментах как &lt;a href="http://www.cacti.net/"&gt;Cacti&lt;/a&gt;,
+&lt;a href="http://munin-monitoring.org/"&gt;Munin&lt;/a&gt; и еще в куче других.
+Этот самый RRDTool был первой популярной базой для хранения time series,
+и вполне хорошо с этой задачей справлялся.&lt;/p&gt;
+&lt;p&gt;Когда в 2008 году открывают код Graphite, который развивался как внутренний
+продукт с 2006 года, он становится популярен не потому, что это аналог RRDTool
+(сам компонент Graphite, отвечающий за хранение данных - Whisper - не сильно отличается от RRDTool),
+а в первую очередь потому, что был полноценным &lt;strong&gt;сервисом&lt;/strong&gt; с простым API и набором
+функций для работы с данными на все случаи жизни.&lt;/p&gt;
+&lt;p&gt;Это становится этакой маленькой революцией, и мир мониторинга начинает свое неуклонное
+движение к модульной структуре, когда за отдельный функционал отвечает отдельный инструмент.
+Тут я не могу удержаться и не дать ссылку на очень понравившуюся мне
+&lt;a href="https://speakerdeck.com/obfuscurity/the-state-of-open-source-monitoring"&gt;презентацию на тему модульности мониторинга&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Если хочется еще немного прочитать про историю Graphite - рекомендую книгу
+&lt;a href="http://rus-linux.net/MyLDP/BOOKS/Architecture-Open-Source-Applications/Vol-1/graphite-01.html"&gt;"Архитектура приложений с открытым исходным кодом", глава про Graphite&lt;/a&gt;.&lt;/p&gt;
+&lt;h4&gt;Личный опыт&lt;/h4&gt;
+&lt;p&gt;Я не буду тут приводить банальные команды для установки Graphite на уютный локалхост
+или копировать официальную документацию, а напишу о том, с чем сам столкнулся
+в процессе работы и что показалось мне достойным упоминания.&lt;/p&gt;
+&lt;p&gt;При этом хочу отметить, что установка Graphite из репо или pip это весьма сомнительное
+удовольствие. Но, к моему большому админскому счастью, в Debian провели колоссальную
+работу и упаковали graphite и все его компоненты в пакеты, так что писать тут больше не о чем.&lt;/p&gt;
+&lt;p&gt;Ну а раз уж начали, поговорим и о других его недостатках.&lt;/p&gt;
+&lt;p&gt;Например, нельзя просто класть туда разные значения одних и тех же метрик параллельно
+или чаще раза в секунду - Graphite оперирует секундами как минимальными квантами времени,
+так что если попытаться с интервалом меньше чем одна секунда положить туда несколько значений,
+то значения не суммируются, а запишется только последнее. Для обхода этой проблемы придумали
+&lt;a href="https://github.com/etsy/statsd"&gt;StatsD&lt;/a&gt; и аналогичные сервисы, которые получают
+кучу метрик, делают агрегацию на лету, и шлют в Graphite уже готовые значения.&lt;/p&gt;
+&lt;p&gt;Вот вроде бы очевидная вещь, но я годами использовал Graphite только для хранения
+метрик с серверов с разрешением около 15 секунд, и даже не подозревал об этой проблеме,
+так что существование сервисов типа StatsD казалось мне бессмысленным.
+А ведь если посмотреть на это с позиции разработчика, чей сервис шлет метрики на каждый чих, проблема видна сразу.&lt;/p&gt;
+&lt;p&gt;Также в недостатки Graphite можно записать достаточно примитивную древовидную
+иерархическую организацию метрик. Сейчас у конкурентов принято на каждую метрику
+вешать произвольный набор тегов, по которым затем проводить выборки и агрегации.&lt;/p&gt;
+&lt;p&gt;Если быть честным, то это действительно недостаток, но отнюдь не фатальный,
+и жить с ним можно вполне хорошо.&lt;/p&gt;
+&lt;p&gt;Еще можно отметить унылый веб-интерфейс на Django, но есть куча достойных дашбордов,
+что делает этот недостаток абсолютно несущественным.&lt;/p&gt;
+&lt;h4&gt;Киллер-фичи&lt;/h4&gt;
+&lt;p&gt;Ну а теперь перейдем к тем самым киллер-фичам, которые меня в нем до сих пор очень радуют.&lt;/p&gt;
+&lt;p&gt;Самая наверное из них недооцененная и мной любимая - это функция
+&lt;a href="http://graphite.readthedocs.org/en/latest/functions.html?highlight=timeshift#graphite.render.functions.timeShift"&gt;timeshift&lt;/a&gt;.
+Эта функция позволяет получать данные со смещением назад во времени, так что на
+одном графике можно совместить некую метрику сегодня и в этот же день на прошлой неделе.
+И на таких вот графиках без всяких продвинутых инструментов анализа зачастую видно,
+что что-то у нас поломалось, либо наоборот стало лучше. Да и в проверках эту функцию использовать удобно.
+Подробнее и с картинками - в отличном цикле статей про Graphite, &lt;a href="http://obfuscurity.com/2012/04/Unhelpful-Graphite-Tip-10"&gt;выпуск 10&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Причем что характерно - у конкурентов типа Influxdb подобного функционала пока нет,
+так что трудягам в Grafana пришлось делать схожий функционал на стороне клиента.&lt;/p&gt;
+&lt;p&gt;Вторая фича. которая приходит сразу на ум - гибко настраиваемые периоды хранения
+данных с последующей агрегацией по различным алгоритмам, что позволяет хранить
+метрики очень долго, не теряя их значений, и не тратить на это тонны дискового пространства.
+Вспоминая, как с этим все плохо в том же Zabbix, и глядя на конкурентов, у которых
+этот функционал только в feature-requests висит, проникаешься к Graphite искренней любовью.&lt;/p&gt;
+&lt;p&gt;Отдельно хочется отметить фантастически простой
+&lt;a href="http://graphite.readthedocs.org/en/latest/feeding-carbon.html#step-3-understanding-the-graphite-message-format"&gt;формат, в котором Graphite получает метрики&lt;/a&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;metric_path value timestamp\n
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;например&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;foo.bar.baz 42 74857843
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;На практике это означает, что слать метрики в Graphite можно хоть из bash-скрипта,
+используя в качестве клиента любимый netcat.&lt;/p&gt;
+&lt;p&gt;Ну и еще приятная особенность - за счет простоты формата и популярности Graphite,
+сегодня слать в него метрики умеет практически каждая кофеварка.
+Возьмем любой популярный агент мониторинга, например &lt;a href="http://collectd.org/"&gt;Collectd&lt;/a&gt;
+или &lt;a href="https://github.com/BrightcoveOS/Diamond"&gt;Diamond&lt;/a&gt;, и увидим нативную поддержку
+отправки данных в Graphite. А еще Graphite/Carbon умеет забирать данные из AMQP,
+что тоже очень удобно и используется тем же &lt;a href="https://sensuapp.org/"&gt;Sensu&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;И последняя в списке, но далеко не последняя по значимости особенность - Graphite модульный.
+На практике это означает, что можно (и многие так делают) заменить carbon на
+&lt;a href="https://influxdb.com/"&gt;Influxb&lt;/a&gt; или на весьма интересную разработку ребят из Mail.ru - &lt;a href="https://github.com/lomik/go-carbon"&gt;go-carbon&lt;/a&gt;.&lt;/p&gt;
+&lt;h4&gt;Конкуренты&lt;/h4&gt;
+&lt;p&gt;Теперь немного о конкурентах Graphite, которых сейчас не то чтобы много, но они есть.
+Этой весной я предпринял достаточно серьезную попытку заменить Graphite в мониторинге
+с помощью имеющихся альтернатив, и как, вы можете догадаться, не очень в этом преуспел.&lt;/p&gt;
+&lt;p&gt;Начал я с модного и молодежного &lt;a href="https://influxdb.com/"&gt;Influxb&lt;/a&gt;, который как раз
+в апреле обещался выйти версии 0.9 с продакшн-версией кластеризации. Пробовал я его
+в версии 0.9rc20+, так как официальный сайт рекомендовал использовать именно новую,
+переписанную версию. Так вот, продукт был &lt;em&gt;очень&lt;/em&gt; сырой. Данные по протоколу Graphite
+начинали записываться со все более нарастающим лагом, вплоть до нескольких суток
+(на версии 0.8 этого бага не было), создание новых баз работало только из консольного клиента,
+функция Derivative считала что угодно, но только не производную, причем в обоих версиях.
+Некоторого функционала Graphite, например timeshift, просто нет, а кластеризация даже сейчас,
+после стабильного релиза, находится в состоянии альфа-версии. К тому же, нормальной поддержки
+Influxdb 0.9 в используемом мной дашборде &lt;a href="http://grafana.org/"&gt;Grafana&lt;/a&gt; тогда тоже не было,
+так что я отложил знакомство с ним до лучших времен.&lt;/p&gt;
+&lt;p&gt;Расстроенный ситуацией с Influxdb, я обратил свой взор на нового и весьма перспективного
+игрока на этом поприще - &lt;a href="http://prometheus.io/"&gt;Prometheus&lt;/a&gt; от Soundcloud.
+Тут уже не просто хранилище time series, а полноценная система мониторинга, с алертами,
+дашбордами и сервисами для сбора метрик. Причем их хранилище, так же как и Influxdb,
+позволяет на метрику вешать произвольный набор тегов, но при этом по их тестам тратит
+на это в разы меньше места на диске. Одна только особенность меня смущала - pull-режим.
+Если в Graphite мы шлем данные любым удобным нам способом, то Prometheus сам ходит
+на все настроенные endpointы и получает оттуда метрики. Есть весьма годная статья
+про pull vs push мониторинг, http://www.boxever.com/push-vs-pull-for-monitoring,
+и я с ней даже согласен, но мне на данном этапе push-модель кажется более
+удобной - настроил один раз сервер принимающий метрики, и только добавляешь клиентов.&lt;/p&gt;
+&lt;p&gt;Так вот, с этим Prometheus я вдоволь поигрался, даже написал Exporter
+для Apache Traffic Server, и могу уверенно сказать - продукт хороший, сделаный для людей,
+с понятным синтаксисом запросов и встроенным Alert-Manager. За несколько месяцев тестовой
+эксплуатации ни разу не упал, все описанные в документации возможности работают как заявлено.
+Динамично развивается, и уже сейчас может отлично заменить в некоторых случаях
+Graphite + Nagios/Icinga. Но тащить в продакшн (это же мониторинг, он падать не должен)
+такую экспериментальную штуку, про которую никто кроме меня толком ничего не знает,
+было бы очень наивно. Но я внимательно слежу за этим продуктом, и считаю, что его ждет большое будущее.&lt;/p&gt;
+&lt;p&gt;Еще хочется отметить проект &lt;a href="https://bosun.org/"&gt;Bosun&lt;/a&gt; от StackExchange. Он использует
+для хранения OpenTSDB или Graphite, и по сути представляет собой продвинутый
+движок для алертов, с возможностью получения метрик от собственного софта
+для их сбора - scollector. Меня он тогда не очень заинтересовал, поскольку искал
+я замену Graphite, а не алерты к нему, но проект вроде достаточно зрелый.&lt;/p&gt;
+&lt;p&gt;Ну и повторюсь про один такой большой минус всех альтернатив - они не умеют storage aggregation,
+то есть старые данные можно только удалять, нет никакой возможности хранить их с меньшим разрешением.
+Правда, для Influxdb я нашел &lt;a href="https://groups.google.com/forum/#!topic/influxdb/gEJiBzO7ZeI"&gt;вопрос про это на форуме&lt;/a&gt;,
+даже с ответом, но с имеющейся документацией мне не удалось найти, как же это сделать на практике (правда, я не особо искал).&lt;/p&gt;
+&lt;h4&gt;Grafana&lt;/h4&gt;
+&lt;p&gt;Немного о дашборде, который я использую с Graphite - это прекрасный продукт
+под названием &lt;a href="http://grafana.org/"&gt;Grafana&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Пользуюсь я им уже давно, так что не могу даже вспомнить, какие альтернативы
+ему я рассматривал. Но у него столько достоинств, что ни разу не было желания
+его на что-то заменить.&lt;/p&gt;
+&lt;p&gt;Кроме того, что он красив, быстр и удобен, он еще и поддерживает далеко не только Graphite.
+Официально из «из коробки» поддерживается OpenTSDB, Influxdb, причем уже и 0.8, и 0.9,
+а также Elasticsearch и, с помощью плагина, Prometheus.&lt;/p&gt;
+&lt;p&gt;Очень полезной и регулярно мной используемой функцией Grafana является возможность
+создания &lt;a href="http://docs.grafana.org/reference/templating/"&gt;параметризованых дашбордов&lt;/a&gt;.
+То есть мы можем определить набор переменных, значения которых получаются из query
+к тому же Graphite, которые мы можем использовать в запросах. Например, получив
+список серверов из древовидной иерархии Graphite, можно создать стандартный дашборд
+системных метрик, и просто выбирать интересующий сервер.&lt;/p&gt;
+&lt;p&gt;Также хочется отметить богатый &lt;a href="http://docs.grafana.org/reference/http_api/#dashboards"&gt;API для создания дашбордов «на лету»&lt;/a&gt;,
+позволяющий в простом JSON-виде задавать все нужные параметры новых дашбордов - это мы тоже активно используем.&lt;/p&gt;
+&lt;p&gt;Ну и еще одна крутейшая вещь - &lt;a href="http://docs.grafana.org/reference/annotations/"&gt;аннотации&lt;/a&gt;.
+Это привязанные к конкретному моменту времени события, получаемые из Graphite Events, или, в моем случае, из Elasticsearch.&lt;/p&gt;
+&lt;p&gt;Представим, что мы деплоим регулярно новые версии приложения на сервера, и хотим
+соотносить эти события с метриками этой самой системы и серверов, на которых все крутится.
+Для реализации этой крайне удобной вещи достаточно при деплое писать в Elasticsearch (или в сам Graphite)
+eventы с описанием события (деплой такой-то версии приложения, например), и добавить
+на дашборд в Grafana аннотации из этого источника - и вуаля, можно с уверенностью
+показывать разработчику, что именно после деплоя этой версии какой-то метод API
+работает в 2 раза дольше. или что потребление памяти упало на 20%.&lt;/p&gt;
+&lt;p&gt;Я, к примеру, шлю события при делое в Elasticsearch из &lt;a href="http://www.ansible.com/"&gt;Ansible&lt;/a&gt;,
+причем самым простым способом:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="x"&gt;- name: create deploy event in elasticsearch&lt;/span&gt;
+&lt;span class="x"&gt;  command: &amp;gt;&lt;/span&gt;
+&lt;span class="x"&gt;    curl -s -S -XPOST -d &amp;#39;&lt;/span&gt;
+&lt;span class="x"&gt;      {&lt;/span&gt;
+&lt;span class="x"&gt;        &amp;quot;service&amp;quot; : &amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;service&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;&amp;quot;,&lt;/span&gt;
+&lt;span class="x"&gt;        &amp;quot;version&amp;quot; : &amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;version&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;&amp;quot;,&lt;/span&gt;
+&lt;span class="x"&gt;        &amp;quot;timestamp&amp;quot; : &amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;ansible_date_time.iso8601&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;&amp;quot;,&lt;/span&gt;
+&lt;span class="x"&gt;        &amp;quot;desc&amp;quot; : &amp;quot;Deploy &lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;deploy_type&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt; to &lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;env&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;&amp;quot;,&lt;/span&gt;
+&lt;span class="x"&gt;        &amp;quot;tags&amp;quot; : [&lt;/span&gt;
+&lt;span class="x"&gt;          &amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;service&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;&amp;quot;,&lt;/span&gt;
+&lt;span class="x"&gt;          &amp;quot;backend&amp;quot;,&lt;/span&gt;
+&lt;span class="x"&gt;          &lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;quot;migrate&amp;quot;,&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;migrate&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="nf"&gt;defined&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;          &lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;quot;backup&amp;quot;,&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;backup&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="nf"&gt;defined&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+&lt;span class="x"&gt;          &amp;quot;&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;version&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;&amp;quot;]&lt;/span&gt;
+&lt;span class="x"&gt;      }&amp;#39; http://&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;log_host&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;:9200/events-&lt;/span&gt;&lt;span class="cp"&gt;{{&lt;/span&gt; &lt;span class="nv"&gt;ansible_date_time.date&lt;/span&gt; &lt;span class="cp"&gt;}}&lt;/span&gt;&lt;span class="x"&gt;/deploy/&lt;/span&gt;
+&lt;span class="x"&gt;  ignore_errors: true&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Заключение&lt;/h4&gt;
+&lt;p&gt;В общем, за более чем 2 года постоянного использования Graphite, я
+убедился в исключительных качествах этого продукта, и несмотря на тягу
+ко всему новому, так и не смог заменить его каким-либо другим проектом.&lt;/p&gt;
+&lt;p&gt;Я использовал Graphite с Sensu и с Collectd, и всегда был очень доволен результатом.&lt;/p&gt;
+&lt;p&gt;Конечно, познав удобство Graphite и Grafana, решения типа Cacti, Munin или Zabbix
+вспоминаются с ужасом. Привыкнув к возможности совместить на одном графике
+использование CPU на одном сервере и задержки получения ответа от базы на другом
+сервере, уже не хочется возвращаться к обычным графикам серверных метрик. Ведь
+мы собираем метрики не для красоты, а для удобства анализа состояния продукта.&lt;/p&gt;
+&lt;p&gt;Поэтому хочется повторить слова, которые я неоднократно слышал от айтишников
+крупных проектов на различных конференциях и докладах:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Надо собирать как можно больше различных метрик, потому что когда они понадобятся
+для решения проблем, их нехватка может оказаться критичной.&lt;/p&gt;
+&lt;/blockquote&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Bulimov</dc:creator><pubDate>Fri, 25 Sep 2015 00:00:00 +0300</pubDate><guid>tag:bulimov.ru,2015-09-25:it/graphite-experience/</guid><category>Graphite</category><category>Monitoring</category><category>Мнение</category><category>Опыт</category></item><item><title>Плагин к Collectd для сбора метрик Riak CS</title><link>http://bulimov.ru/it/collectd-riakcs/</link><description>&lt;p&gt;На днях наконец-то дошли руки до модернизации той части мониторинга, которая
 отвечает за сбор метрик, и набивший оскомину &lt;a href="http://munin-monitoring.org"&gt;Munin&lt;/a&gt; был
 окончательно заменен на &lt;a href="https://graphite.readthedocs.org/en/latest/"&gt;Graphite&lt;/a&gt; + &lt;a href="http://collectd.org"&gt;Collectd&lt;/a&gt;.
 Теперь воцарилась идиллия - Icinga2 складывает метрики из perfdata в Graphite,

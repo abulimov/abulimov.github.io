@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru"
->
+<html lang="ru" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
     <title>IT - Александр Булимов - записки сисадмина.</title>
     <!-- Using the latest rendering mode for IE -->
@@ -32,8 +31,13 @@
 
         <link href="http://bulimov.ru/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="Александр Булимов - записки сисадмина. ATOM Feed"/>
+
         <link href="http://bulimov.ru/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
               title="Александр Булимов - записки сисадмина. RSS Feed"/>
+
+
+        <link href="http://bulimov.ru/feeds/it.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Александр Булимов - записки сисадмина. IT ATOM Feed"/>
 
 </head>
 <body>
@@ -65,15 +69,51 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
+            <article>
+                <h2><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-08-11T00:00:00+04:00"> Пн. 11 Август 2014</time>
+    </span>
 
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/ansible.html">Ansible</a>
+        /
+	<a href="http://bulimov.ru/tag/python.html">Python</a>
+        /
+	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Свершилось чудо, и мой <a href="https://github.com/ansible/ansible/blob/devel/library/monitoring/zabbix_maintenance">модуль</a>
+для Ansible, который умеет создавать и удалять периоды "в обслуживании" в Zabbix,
+наконец-то <a href="https://github.com/ansible/ansible/pull/5062">приняли</a> в апстрим.
+Это уже третий мой модуль, принятый в апстрим Ansible.</p>
+<p>Краткая история:</p>
+<p>Модуль этот я запушил еще в 26 ноября 2013 года, но 21 декабря
+<a href="https://github.com/cove">cove</a> написал в комментарии к моему модулю,
+что планирует выложить целую <a href="https://github.com/ansible/ansible/pull/6034">пачку</a>
+модулей для взаимодействия с Zabbix из Ansible.
+Это отложило принятие моего модуля в ...</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">more ...</a>
+                </div>
+            </article>
+            <hr/>
             <article>
                 <h2><a href="http://bulimov.ru/it/ansible-и-serverspec/">Ansible и serverspec</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-05-22T00:00:00+04:00"> чт 22 мая 2014</time>
+        <i class="fa fa-calendar"></i><time datetime="2014-05-22T00:00:00+04:00"> Чт. 22 Май 2014</time>
     </span>
+
+
 
 
 
@@ -103,8 +143,10 @@ TDD-администрирования. Оказалось, что толком 
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-05-22T00:00:00+04:00"> чт 22 мая 2014</time>
+        <i class="fa fa-calendar"></i><time datetime="2014-05-22T00:00:00+04:00"> Чт. 22 Май 2014</time>
     </span>
+
+
 
 
 
@@ -133,8 +175,10 @@ TDD-администрирования. Оказалось, что толком 
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-04-15T00:00:00+04:00"> вт 15 апреля 2014</time>
+        <i class="fa fa-calendar"></i><time datetime="2014-04-15T00:00:00+04:00"> Вт. 15 Апрель 2014</time>
     </span>
+
+
 
 
 
@@ -164,8 +208,10 @@ TDD-администрирования. Оказалось, что толком 
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-04-03T00:00:00+04:00"> чт 03 апреля 2014</time>
+        <i class="fa fa-calendar"></i><time datetime="2014-04-03T00:00:00+04:00"> Чт. 03 Апрель 2014</time>
     </span>
+
+
 
 
 
@@ -192,8 +238,10 @@ TDD-администрирования. Оказалось, что толком 
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-03-20T00:00:00+04:00"> чт 20 марта 2014</time>
+        <i class="fa fa-calendar"></i><time datetime="2014-03-20T00:00:00+04:00"> Чт. 20 Март 2014</time>
     </span>
+
+
 
 
 
@@ -217,8 +265,10 @@ TDD-администрирования. Оказалось, что толком 
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-03-13T00:00:00+04:00"> чт 13 марта 2014</time>
+        <i class="fa fa-calendar"></i><time datetime="2014-03-13T00:00:00+04:00"> Чт. 13 Март 2014</time>
     </span>
+
+
 
 
 
@@ -247,8 +297,10 @@ TDD-администрирования. Оказалось, что толком 
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-03-05T00:00:00+04:00"> ср 05 марта 2014</time>
+        <i class="fa fa-calendar"></i><time datetime="2014-03-05T00:00:00+04:00"> Ср. 05 Март 2014</time>
     </span>
+
+
 
 
 
@@ -276,8 +328,10 @@ TDD-администрирования. Оказалось, что толком 
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-01-27T00:00:00+04:00"> пн 27 января 2014</time>
+        <i class="fa fa-calendar"></i><time datetime="2014-01-27T00:00:00+04:00"> Пн. 27 Январь 2014</time>
     </span>
+
+
 
 
 
@@ -305,8 +359,10 @@ TDD-администрирования. Оказалось, что толком 
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-11-08T00:00:00+04:00"> пт 08 ноября 2013</time>
+        <i class="fa fa-calendar"></i><time datetime="2013-11-08T00:00:00+04:00"> Пт. 08 Ноябрь 2013</time>
     </span>
+
+
 
 
 
@@ -326,39 +382,6 @@ TDD-администрирования. Оказалось, что толком 
 <p>Решать я эту задачу стал с помощью Nginx, и почти сразу был
 слеплен вариант тупой ...</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Расширяем-возможности-nginx-с-помощью-lua/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/auto-backup-конфигов-активки-через-rancid/">Auto-backup конфигов активки через Rancid</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-11-01T00:00:00+04:00"> пт 01 ноября 2013</time>
-    </span>
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/rancid.html">Rancid</a>
-        /
-	<a href="http://bulimov.ru/tag/cisco.html">Cisco</a>
-        /
-	<a href="http://bulimov.ru/tag/juniper.html">Juniper</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>На днях помогал коллеге с настройкой автоматического бекапа
-для конфигураций нашей активки (Cisco, Juniper), и нашел
-весьма интересное решение (похоже, вообще единственное) -
-<a href="http://www.shrubbery.net/rancid/">rancid</a>.</p>
-<p>Точнее, его форк <a href="https://github.com/dotwaffle/rancid-git">rancid-git</a>,
-поскольку использую везде и всюду git, и ради бекапов городить CVS или
-Subversion было бы неудобно.</p>
-<p>Конечно, rancid этот - весьма оригинальный пример того, как с помощью
-expect и bash-скриптов соорудить исправно работающее решение, отлично выполняющее
-свою задачу. Если вкратце - оно по крону ходит ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/auto-backup-конфигов-активки-через-rancid/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -417,11 +440,6 @@ expect и bash-скриптов соорудить исправно работа
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="http://bulimov.ru/tag/ansible.html">
-                            Ansible
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
                         <a href="http://bulimov.ru/tag/programmirovanie.html">
                             Программирование
                         </a>
@@ -429,6 +447,11 @@ expect и bash-скриптов соорудить исправно работа
                     <li class="list-group-item tag-1">
                         <a href="http://bulimov.ru/tag/zhizn.html">
                             Жизнь
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://bulimov.ru/tag/ansible.html">
+                            Ansible
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
@@ -442,8 +465,13 @@ expect и bash-скриптов соорудить исправно работа
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/sensu.html">
-                            Sensu
+                        <a href="http://bulimov.ru/tag/nagios.html">
+                            Nagios
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/zabbix.html">
+                            Zabbix
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -452,8 +480,8 @@ expect и bash-скриптов соорудить исправно работа
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/nagios.html">
-                            Nagios
+                        <a href="http://bulimov.ru/tag/sensu.html">
+                            Sensu
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -461,9 +489,14 @@ expect и bash-скриптов соорудить исправно работа
                             Cisco
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/zabbix.html">
-                            Zabbix
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/opyt.html">
+                            Опыт
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/ruhoh.html">
+                            Ruhoh
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -472,8 +505,28 @@ expect и bash-скриптов соорудить исправно работа
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/ruhoh.html">
-                            Ruhoh
+                        <a href="http://bulimov.ru/tag/ruby.html">
+                            Ruby
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/vps.html">
+                            VPS
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/icinga2.html">
+                            Icinga2
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/mikrotik.html">
+                            MikroTik
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/elasticsearch.html">
+                            Elasticsearch
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -486,54 +539,9 @@ expect и bash-скриптов соорудить исправно работа
                             Книги
                         </a>
                     </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/vps.html">
-                            VPS
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/ruby.html">
-                            Ruby
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/icinga2.html">
-                            Icinga2
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/elasticsearch.html">
-                            Elasticsearch
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/mikrotik.html">
-                            MikroTik
-                        </a>
-                    </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/collectd.html">
-                            Collectd
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/ubuntu.html">
-                            Ubuntu
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/riak-cs.html">
-                            Riak CS
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/juniper.html">
-                            Juniper
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/coreos.html">
-                            CoreOS
+                        <a href="http://bulimov.ru/tag/tmux.html">
+                            tmux
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -542,23 +550,8 @@ expect и bash-скриптов соорудить исправно работа
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/atom.html">
-                            Atom
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/tmux.html">
-                            tmux
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/rancid.html">
-                            Rancid
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/cadvisor-companion.html">
-                            cAdvisor-companion
+                        <a href="http://bulimov.ru/tag/juniper.html">
+                            Juniper
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -567,33 +560,23 @@ expect и bash-скриптов соорудить исправно работа
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/logstash.html">
-                            Logstash
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/iuzveri.html">
-                            Юзвери
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/opyt.html">
-                            Опыт
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/nginx.html">
-                            Nginx
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/golang.html">
-                            Golang
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
                         <a href="http://bulimov.ru/tag/haproxy.html">
                             HAProxy
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/cadvisor-companion.html">
+                            cAdvisor-companion
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/ubuntu.html">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/coreos.html">
+                            CoreOS
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -602,8 +585,33 @@ expect и bash-скриптов соорудить исправно работа
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/riak-cs.html">
+                            Riak CS
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/iuzveri.html">
+                            Юзвери
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/packetbeat.html">
+                            Packetbeat
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/collectd.html">
+                            Collectd
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://bulimov.ru/tag/kernel.html">
                             Kernel
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/nginx.html">
+                            Nginx
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -612,12 +620,34 @@ expect и bash-скриптов соорудить исправно работа
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/packetbeat.html">
-                            Packetbeat
+                        <a href="http://bulimov.ru/tag/logstash.html">
+                            Logstash
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/golang.html">
+                            Golang
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/rancid.html">
+                            Rancid
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/graphite.html">
+                            Graphite
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/atom.html">
+                            Atom
                         </a>
                     </li>
                 </ul>
             </li>
+
+
     <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
       <ul class="list-group" id="links">
         <li class="list-group-item">
@@ -647,7 +677,7 @@ expect и bash-скриптов соорудить исправно работа
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content
-  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution 4.0 International License</a>, except where indicated otherwise.
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
 </small></p>
          </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
