@@ -1,5 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Александр Булимов - записки сисадмина.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/it.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2015-09-25T00:00:00+03:00</updated><entry><title>Заметка о Graphite</title><link href="http://bulimov.ru/it/graphite-experience/" rel="alternate"></link><updated>2015-09-25T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-09-25:it/graphite-experience/</id><summary type="html">&lt;p&gt;На первый взгляд, кажется довольно странным, что сейчас, в 2015 году, все до сих пор используют
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Александр Булимов - записки сисадмина.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/it.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2015-10-09T00:00:00+03:00</updated><entry><title>Logstash и Graphite</title><link href="http://bulimov.ru/it/logstash-graphite/" rel="alternate"></link><updated>2015-10-09T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-10-09:it/logstash-graphite/</id><summary type="html">&lt;p&gt;Недавно читал серию постов от &lt;a href="https://www.datadoghq.com"&gt;Datadog&lt;/a&gt; про сбор метрик,
+и в частности &lt;a href="https://www.datadoghq.com/blog/how-to-collect-nginx-metrics/"&gt;статью про метрики Nginx&lt;/a&gt;
+(думал, вдруг что-то новое узнаю). Что меня в этой статье зацепило - так это то, что только версия
+&lt;a href="https://www.nginx.com/products/"&gt;Nginx Plus&lt;/a&gt; показывает статистику количества
+ответов, разделенную по HTTP-кодам. Поскольку я использую перед Nginx балансировщик
+&lt;a href="http://www.haproxy.org"&gt;HAProxy&lt;/a&gt;, который не жадный и показывает подробную статистику
+по кодам ответов для каждого бекенда и фронтенда, я о таком минусе статистики Nginx даже не думал.&lt;/p&gt;
+&lt;p&gt;Поскольку я совсем недавно решал схожую задачу получения метрик от сервиса,
+который сам эти метрики не отдает, решил поделиться достаточно универсальным рецептом,
+который поможет, к примеру, получать от обычного Nginx подробную статистику по
+кодам ответов.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Это, на мой взгляд, очень нужная метрика. А то бывает, что сервис твой работает,
+мониторинг доволен, а некий процент запросов незаметно падает с 50x ошибками. И вроде бы
+можно смотреть в логи в той же Kibana, но не будешь же это делать каждый день.&lt;/em&gt;&lt;/p&gt;
+&lt;h3&gt;Простой и полезный пример получения метрик из логов&lt;/h3&gt;
+&lt;p&gt;Итак, для приготовления вкусных метрик нам понадобится:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Некий сервис, который умеет писать логи в любом вменяемом формате, содержащем
+интересующие нас метрики. Для примера возьмем обычный Nginx;&lt;/li&gt;
+&lt;li&gt;Универсальный комбайн по обработке логов - &lt;a href="https://www.elastic.co/products/logstash"&gt;Logstash&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;Агрегатор метрик - &lt;a href="https://github.com/etsy/statsd"&gt;StatsD&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;Наконец, сервис хранения метрик - &lt;a href="http://graphite.readthedocs.org/en/latest/"&gt;Graphite&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Итак, мы хотим знать, сколько же и каких мы отдаем бедным пользователям HTTP-ответов.
+Nginx пишет по-умолчанию access-log в формате &lt;em&gt;combined&lt;/em&gt;, который определен так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;log_format&lt;/span&gt; &lt;span class="s"&gt;combined&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&lt;/span&gt;&lt;span class="nv"&gt;$remote_addr&lt;/span&gt; &lt;span class="s"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;$remote_user&lt;/span&gt; &lt;span class="s"&gt;[&lt;/span&gt;&lt;span class="nv"&gt;$time_local]&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&lt;/span&gt;
+                    &lt;span class="s"&gt;&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$request&amp;quot;&lt;/span&gt; &lt;span class="nv"&gt;$status&lt;/span&gt; &lt;span class="nv"&gt;$body_bytes_sent&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;&lt;/span&gt;
+                    &lt;span class="s"&gt;&amp;#39;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$http_referer&amp;quot;&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$http_user_agent&amp;quot;&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Для нас это отлично, поскольку&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;этот формат совместим с логом Apache2,&lt;/li&gt;
+&lt;li&gt;в этом логе есть нужные нам данные - $status.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Первый пункт радует тем, что не надо писать своих grok-паттернов для Logstash.
+Хотя при знании регулярных выражений это и не сложно, всегда лучше взять готовое.&lt;/p&gt;
+&lt;p&gt;Нужный нам паттерн называется &lt;strong&gt;COMBINEDAPACHELOG&lt;/strong&gt;, актуальную версию можно посмотреть
+в &lt;a href="https://github.com/logstash-plugins/logstash-patterns-core/blob/master/patterns/grok-patterns"&gt;репозитории logstash-plugins&lt;/a&gt;,
+на момент написания этой статьи он выглядел так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="no"&gt;COMMONAPACHELOG&lt;/span&gt; &lt;span class="sx"&gt;%{IPORHOST:clientip}&lt;/span&gt; &lt;span class="sx"&gt;%{HTTPDUSER:ident}&lt;/span&gt; &lt;span class="sx"&gt;%{USER:auth}&lt;/span&gt; &lt;span class="p"&gt;\&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="sx"&gt;%{HTTPDATE:timestamp}&lt;/span&gt;&lt;span class="p"&gt;\&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;(?:%{WORD:verb} %{NOTSPACE:request}(?: HTTP/%{NUMBER:httpversion})?|%{DATA:rawrequest})&amp;quot;&lt;/span&gt; &lt;span class="sx"&gt;%{NUMBER:response}&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sc"&gt;?:&lt;/span&gt;&lt;span class="sx"&gt;%{NUMBER:bytes}&lt;/span&gt;&lt;span class="o"&gt;|-&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="no"&gt;COMBINEDAPACHELOG&lt;/span&gt; &lt;span class="sx"&gt;%{COMMONAPACHELOG}&lt;/span&gt; &lt;span class="sx"&gt;%{QS:referrer}&lt;/span&gt; &lt;span class="sx"&gt;%{QS:agent}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;Кстати, в документации к плагину grok указана ссылка на &lt;a href="http://grokdebug.herokuapp.com"&gt;отличный онлайн-инструмент&lt;/a&gt;
+для проверки grok-паттернов.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Как мы видим, интересующая нас переменная зовется в Logstash &lt;strong&gt;response&lt;/strong&gt;, так что
+теперь мы можем спокойно писать конфиг для отправки этой метрики в StatsD-&amp;gt;Graphite.
+Предположим, мы принимаем логи от Nginx по протоколу Syslog (Nginx уже довольно давно
+умеет слать логи напрямую в syslog, и это очень удобно).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;пример конфига для парсинга метрик из логов Nginx&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;input {
+  syslog {
+    port =&amp;gt; 5014
+    type =&amp;gt; &amp;quot;syslog&amp;quot;
+  }
+}
+filter {
+  if [program] == &amp;quot;nginx&amp;quot; {
+    grok {
+      match =&amp;gt; {
+        message =&amp;gt; &amp;#39;%{COMBINEDAPACHELOG}&amp;#39;
+      }
+    }
+}
+output {
+  if [type] == &amp;quot;syslog&amp;quot; {
+    if [program] == &amp;quot;nginx&amp;quot; {
+      # отправим в StatsD количество переданных байт
+      statsd {
+        host =&amp;gt; &amp;#39;graphite.example.com&amp;#39;
+        count =&amp;gt; [ &amp;quot;nginx.response_%{response}.bytes&amp;quot;, &amp;quot;%{bytes}&amp;quot; ]
+        sender =&amp;gt; &amp;quot;%{logsource}&amp;quot;
+      }
+      # увеличим в StatsD счетчик ответов с конкретным кодом
+      statsd {
+        host =&amp;gt; &amp;#39;graphite.example.com&amp;#39;
+        increment =&amp;gt; &amp;quot;nginx.response_%{response}&amp;quot;
+        sender =&amp;gt; &amp;quot;%{logsource}&amp;quot;
+      }
+    }
+    # тут сохраняем логи в elasticsearch, или еще что-то полезное делаем с логами
+  }
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Вот и все, открываем &lt;a href="http://grafana.org/"&gt;Grafana&lt;/a&gt; и наслаждаемся вкусными
+метриками, без всякого Nginx Plus.&lt;/p&gt;
+&lt;h4&gt;Мало кому полезный пример из личного опыта&lt;/h4&gt;
+&lt;p&gt;Я решал другую, более специфичную и немного более сложную задачу - получение
+времени ответа, количества запросов, переданного объема данных с зависимостью от
+статуса попадания в кеш в продвинутом кешируещем
+сервере &lt;a href="http://trafficserver.apache.org"&gt;Apache Traffic Server&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Тут пришлось чуть больше поработать:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Написать свой grok-паттерн для парсинга логов ATS&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="no"&gt;TRAFFICSERVER_ACCESS&lt;/span&gt; &lt;span class="sx"&gt;%{NUMBER:ats_timestamp}&lt;/span&gt;&lt;span class="p"&gt;\&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="sx"&gt;%{NUMBER:request_msec:int}&lt;/span&gt; &lt;span class="sx"&gt;%{IPORHOST:client_ip}&lt;/span&gt; &lt;span class="sx"&gt;%{WORD:cache_result}&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="sx"&gt;%{NUMBER:http_status_code:int}&lt;/span&gt; &lt;span class="sx"&gt;%{NUMBER:bytes_read:int}&lt;/span&gt; &lt;span class="sx"&gt;%{WORD:http_verb}&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sx"&gt;%{URIPROTO:http_proto}&lt;/span&gt;&lt;span class="ss"&gt;:/&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="sc"&gt;?%&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="ss"&gt;IPORHOST&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;dst_host&lt;/span&gt;&lt;span class="p"&gt;}(&lt;/span&gt;&lt;span class="sc"&gt;?:&lt;/span&gt;&lt;span class="ss"&gt;:%&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="ss"&gt;POSINT&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="ss"&gt;port&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;int&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;&lt;span class="sc"&gt;?(?:&lt;/span&gt;&lt;span class="sx"&gt;%{URIPATHPARAM:http_request}&lt;/span&gt;&lt;span class="p"&gt;)?&lt;/span&gt; &lt;span class="sx"&gt;%{DATA:cache_user}&lt;/span&gt; &lt;span class="sx"&gt;%{WORD:request_route}&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sx"&gt;%{IPORHOST:forwarded_to}&lt;/span&gt;&lt;span class="o"&gt;|-&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="sx"&gt;%{GREEDYDATA:content_type}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Научить rsyslog тейлить и слать логи ATS в Logstash&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;MaxMessageSize&lt;/span&gt;&lt;span class="x"&gt; 32k&lt;/span&gt;
+&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;ModLoad&lt;/span&gt;&lt;span class="x"&gt; imfile&lt;/span&gt;
+
+&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;InputFileName&lt;/span&gt;&lt;span class="x"&gt; /var/log/trafficserver/squid.log&lt;/span&gt;
+&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;InputFileTag&lt;/span&gt;&lt;span class="x"&gt; trafficserver-access:&lt;/span&gt;
+&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;InputFileStateFile&lt;/span&gt;&lt;span class="x"&gt; trafficserver-access&lt;/span&gt;
+&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;InputFileFacility&lt;/span&gt;&lt;span class="x"&gt; local4&lt;/span&gt;
+&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;InputFileSeverity&lt;/span&gt;&lt;span class="x"&gt; info&lt;/span&gt;
+&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;InputRunFileMonitor&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+
+&lt;span class="x"&gt;local4.* @log.example.com:5014&lt;/span&gt;
+&lt;span class="x"&gt;&amp;amp; ~&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Написать конфиг Logstash для отправки полученных метрик в StatsD&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;input {
+  syslog {
+    port =&amp;gt; 5014
+    type =&amp;gt; &amp;quot;syslog&amp;quot;
+  }
+}
+filter {
+  if [program] =~ /trafficserver.+access/ {
+    grok {
+      patterns_dir =&amp;gt; [ &amp;quot;/etc/logstash/patterns&amp;quot; ]
+      match =&amp;gt; [ &amp;quot;message&amp;quot;, &amp;quot;%{TRAFFICSERVER_ACCESS}&amp;quot; ]
+      add_tag =&amp;gt; [ &amp;quot;trafficserver&amp;quot; ]
+    }
+    date {
+      locale =&amp;gt; &amp;quot;en&amp;quot;
+      timezone =&amp;gt; &amp;quot;+03:00&amp;quot;
+      match =&amp;gt; [ &amp;quot;ats_timestamp&amp;quot;, &amp;quot;UNIX&amp;quot; ]
+    }
+  }
+}
+output {
+  if [type] == &amp;quot;syslog&amp;quot; {
+    if [program] =~ /trafficserver.+access/ {
+      statsd {
+        host =&amp;gt; &amp;#39;graphite.example.com&amp;#39;
+        count =&amp;gt; [ &amp;quot;trafficserver.response_%{http_status_code}.%{cache_result}.bytes_read&amp;quot;, &amp;quot;%{bytes_read}&amp;quot; ]
+        sender =&amp;gt; &amp;quot;%{logsource}&amp;quot;
+      }
+      statsd {
+        host =&amp;gt; &amp;#39;graphite.example.com&amp;#39;
+        count =&amp;gt; [ &amp;quot;trafficserver.response_%{http_status_code}.%{cache_result}.msec&amp;quot;, &amp;quot;%{request_msec}&amp;quot; ]
+        sender =&amp;gt; &amp;quot;%{logsource}&amp;quot;
+      }
+      statsd {
+        host =&amp;gt; &amp;#39;graphite.example.com&amp;#39;
+        increment =&amp;gt; &amp;quot;trafficserver.response_%{http_status_code}.%{cache_result}&amp;quot;
+        sender =&amp;gt; &amp;quot;%{logsource}&amp;quot;
+      }
+    }
+  }
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Теперь я могу оценить, насколько медленнее отдаются те запросы, которые не попали
+в кеш ATS, и настроить алерты на повышение доли не-20х кодов ответов.&lt;/p&gt;
+&lt;h4&gt;Закономерный вопрос&lt;/h4&gt;
+&lt;p&gt;Если &lt;a href="https://www.elastic.co/products/kibana"&gt;Kibana&lt;/a&gt; так хороша, и может
+строить графики по любым метрикам, зачем же пихать
+эти данные в Graphite?&lt;/p&gt;
+&lt;p&gt;Отвечаю - графики в Kibana это отлично, но очень уж дорого
+по ресурсам. Elasticsearch вынужден держать весь индекс в памяти, и в отличие от
+Graphite он не может уменьшать разрешение метрик со временем. Так что использование
+Graphite позволяет делать алерты по таким метрикам гораздо менее ресурсоемкими,
+и хранить метрики несоизмеримо дольше. Ну и весь набор функций Graphite в нашем
+распоряжении.&lt;/p&gt;</summary><category term="Graphite"></category><category term="Monitoring"></category><category term="Logstash"></category><category term="StatsD"></category><category term="Опыт"></category></entry><entry><title>Заметка о Graphite</title><link href="http://bulimov.ru/it/graphite-experience/" rel="alternate"></link><updated>2015-09-25T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-09-25:it/graphite-experience/</id><summary type="html">&lt;p&gt;На первый взгляд, кажется довольно странным, что сейчас, в 2015 году, все до сих пор используют
 для хранения time series такой старый и «не модный» инструмент, как &lt;a href="http://graphite.readthedocs.org/en/latest/"&gt;Graphite&lt;/a&gt;.
 О ужас, о нем даже почти не пишут в твиттере/G+ и он написан на старом будничном Python,
 а не на популярном сейчас Go (хотя уже частично написан, но об этом потом).&lt;/p&gt;
