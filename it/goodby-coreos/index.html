@@ -2,7 +2,7 @@
 <html lang="ru"
 >
 <head>
-    <title>cAdvisor - Александр Булимов - записки сисадмина.</title>
+    <title>Избавился от CoreOS - Александр Булимов - записки сисадмина.</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,16 +10,23 @@
 
 
 
+<link rel="canonical" href="http://bulimov.ru/it/goodby-coreos/">
 
-    <meta name="author" content="Alexander Bulimov" />
-    <meta name="keywords" content="cAdvisor" />
+        <meta name="author" content="Alexander Bulimov" />
+        <meta name="keywords" content="CoreOS,Мнение,Опыт" />
+        <meta name="description" content="С огромным облегчением сегодня убрал последний хост с CoreOS. Я уже писал о своих впечатлениях от CoreoOS, но с тех пор впечатлений прибавилось. Частые атомарные обновления на бумаге выглядели вкусно (и в пользовательских ОС типа Android работают прекрасно), но вот на практике на серверах в том виде, в котором CoreOS их готовит, оказались совсем несъедобны. Объясню, в чем проблема: Docker достаточно часто что-то ломает в API, и свежие ядра Linux ..." />
 
-    <!-- Open Graph tags -->
         <meta property="og:site_name" content="Александр Булимов - записки сисадмина." />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="Александр Булимов - записки сисадмина."/>
-        <meta property="og:url" content="http://bulimov.ru"/>
-        <meta property="og:description" content="Александр Булимов - записки сисадмина."/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Избавился от CoreOS"/>
+        <meta property="og:url" content="http://bulimov.ru/it/goodby-coreos/"/>
+        <meta property="og:description" content="С огромным облегчением сегодня убрал последний хост с CoreOS. Я уже писал о своих впечатлениях от CoreoOS, но с тех пор впечатлений прибавилось. Частые атомарные обновления на бумаге выглядели вкусно (и в пользовательских ОС типа Android работают прекрасно), но вот на практике на серверах в том виде, в котором CoreOS их готовит, оказались совсем несъедобны. Объясню, в чем проблема: Docker достаточно часто что-то ломает в API, и свежие ядра Linux ..."/>
+        <meta property="article:published_time" content="2015-10-26" />
+            <meta property="article:section" content="IT" />
+            <meta property="article:tag" content="CoreOS" />
+            <meta property="article:tag" content="Мнение" />
+            <meta property="article:tag" content="Опыт" />
+            <meta property="article:author" content="Alexander Bulimov" />
 
 
     <!-- Bootstrap -->
@@ -66,111 +73,118 @@
     <div class="row">
         <div class="col-sm-9">
 
-            <article>
-                <h2><a href="http://bulimov.ru/it/cadvisor-companion/">Улучшаем сообщения от мониторинга с помощью cAdvisor-companion</a></h2>
-                    <div class="well well-sm">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://bulimov.ru/it/goodby-coreos/"
+                       rel="bookmark"
+                       title="Permalink to Избавился от CoreOS">
+                        Избавился от CoreOS
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-04-21T00:00:00+03:00"> вт 21 апреля 2015</time>
+        <i class="fa fa-calendar"></i><time datetime="2015-10-26T00:00:00+03:00"> пн 26 октября 2015</time>
     </span>
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/golang.html">Golang</a>
+	<a href="http://bulimov.ru/tag/coreos.html">CoreOS</a>
         /
-	<a href="http://bulimov.ru/tag/cadvisor.html">cAdvisor</a>
+	<a href="http://bulimov.ru/tag/mnenie.html">Мнение</a>
         /
-	<a href="http://bulimov.ru/tag/cadvisor-companion.html">cAdvisor-companion</a>
-        /
-	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
-        /
-	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
+	<a href="http://bulimov.ru/tag/opyt.html">Опыт</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Слышали ли вы когда-нибудь о такой практике, как "Monitoring Events Enrichment"?
-Если вкратце, то это практика наполнения дополнительной информацией сообщений
-от мониторинга, так что на выяснение причины проблемы уходит меньше времени
-и телодвижений.</p>
-<p>Есть даже контора, которая помогает внедрять эту практику на коммерческой основе,
-у них на <a href="http://www.eventenrichment.com/">сайте</a> есть неплохие примеры того,
-что и зачем можно добавить к обычному сообщению от Nagios.</p>
-<p>Сама эта идея мне очень нравится, и вот ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/cadvisor-companion/">more ...</a>
                 </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/haproxy-cadvisor/">Балансировка в HAProxy на основе данных cAdvisor</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-04-15T00:00:00+03:00"> ср 15 апреля 2015</time>
-    </span>
+                <p>С огромным облегчением сегодня убрал последний хост с <a href="http://coreos.com">CoreOS</a>.</p>
+<p>Я уже <a href="/it/coreos-opinion/">писал</a> о своих впечатлениях от CoreoOS, но с тех пор
+впечатлений прибавилось.</p>
+<p>Частые атомарные обновления на бумаге выглядели вкусно (и в пользовательских
+ОС типа Android работают прекрасно), но вот на практике на серверах
+в том виде, в котором CoreOS их готовит, оказались совсем несъедобны.</p>
+<p>Объясню, в чем проблема: Docker достаточно часто что-то ломает в API, и свежие
+ядра Linux ломают всякие важные вещи тоже довольно часто, причем зачастую даже
+в рамках patch-level обновлений. Например, работа с libpthread ломалась с ядра 3.19
+(причем этот баг бекпорировали в Ubuntu 3.13.48 LTS, что добавило радости)
+и до 4.0, а потом с 4.1 до 4.2.
+Почитать про это можно например <a href="https://bugzilla.xamarin.com/show_bug.cgi?id=29212">тут</a>,
+хотя проблема затронула далеко не только Mono.</p>
+<p>Короче, любой апдейт ОС надо хорошенько протестировать на стендах, и потом только
+обновлять прод.</p>
+<p>А в случае CoreOS мы не можем контролировать, на какую версию
+обновляться. Обновляемся всегда на последнюю имеющуюся на их серверах версию,
+а она может уйти вперед за время обкатки на стендах.</p>
+<p>Более того, чтобы откатиться на прошлую версию, в CoreOS нужно
+<a href="https://coreos.com/os/docs/latest/manual-rollbacks.html">использовать волшебную конструкцию</a>
+такого вида:</p>
+<div class="highlight"><pre>cgpt prioritize &quot;$(cgpt find -t coreos-usr | grep --invert-match &quot;$(findmnt --noheadings --raw --output=source --target=/usr)&quot;)&quot;
+</pre></div>
 
 
+<p>При этом нет возможности узнать, на какую версию будет сделан откат.</p>
+<p>CoreOS конечно молодцы, и в <a href="https://coreos.com/products/">платной версии</a> предлагают
+удобный дашборд для контроля выкатки конкретной версии на конкретную группу хостов.
+Но для обычных людей подобные радости недоступны.</p>
+<p>В общем, на практике оказалось, что каждое обновление CoreOS это лишняя трата нервов,
+и любой вменяемый дистрибутив в минимальном виде и с оркестрацией через Ansible
+в разы удобнее, и главное предсказуемее. Ну вышло кривое ядро - увидел это на
+тестовых стендах, откатил пакет назад, и жди новую версию, где баг починили.
+При этом нет никакой проблемы обновить конкретный компонент с уязвимостью или багом.</p>
+<p>А после работы с CoreOS я могу точно сказать, что пока не будет возможности
+полностью контролировать процесс обновления ОС (а лучше возможности самому собрать
+"апдейт"), я не готов даже рассматривать подобные дистрибутивы.</p>
+            </div>
+            <!-- /.entry-content -->
+<section class="well" id="related-posts">
+    <h4>Related Posts:</h4>
+    <ul>
+        <li><a href="http://bulimov.ru/it/coreos-opinion/">Впечатления от CoreOS</a></li>
+        <li><a href="http://bulimov.ru/it/graphite-experience/">Заметка о Graphite</a></li>
+        <li><a href="http://bulimov.ru/it/ansible-и-serverspec/">Ansible и serverspec</a></li>
+        <li><a href="http://bulimov.ru/it/Тестирование-ansible-playbook/">Тестирование Ansible Playbook</a></li>
+        <li><a href="http://bulimov.ru/it/monitoring-sucks/">Monitoring sucks!</a></li>
+    </ul>
+</section>
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
 
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/haproxy.html">HAProxy</a>
-        /
-	<a href="http://bulimov.ru/tag/cadvisor.html">cAdvisor</a>
-        /
-	<a href="http://bulimov.ru/tag/python.html">Python</a>
-        /
-	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Для запуска Docker-контейнеров у меня в данный момент выделено достаточно много
-серверов, причем аппаратная часть у некоторых из них отличается
-друг от друга. Соответственно, при настройке на чудесном балансировщике
-<a href="http://www.haproxy.org/">HAProxy</a> такого параметра балансировки
-как <em>"вес сервера"</em>, приходится это различие в аппаратной части учитывать.</p>
-<p>Можно, конечно, подобрать значения весов самостоятельно на основе
-данных мониторинга, а при появлении нагрузки от соседних Docker-контейнеров
-эти веса корректировать, но это не наш метод.</p>
-<p>Не так ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/haproxy-cadvisor/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/check-cadvisor/">Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-02-20T00:00:00+03:00"> пт 20 февраля 2015</time>
-    </span>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
 
+                    var disqus_identifier = 'goodby-coreos';
+                var disqus_url = 'http://bulimov.ru/it/goodby-coreos/';
 
+            var disqus_config = function () {
+                this.language = "ru";
+            };
 
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/python.html">Python</a>
-        /
-	<a href="http://bulimov.ru/tag/nagios.html">Nagios</a>
-        /
-	<a href="http://bulimov.ru/tag/icinga2.html">Icinga2</a>
-        /
-	<a href="http://bulimov.ru/tag/cadvisor.html">cAdvisor</a>
-        /
-	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>После того, как я <a href="/it/check-docker-memory">научился мониторить память в Docker-контейнерах</a>,
-я решил мониторить еще и нагрузку на CPU.
-Поскольку это дело не самое тривиальное, и хотелось не писать свой
-велосипед, а пользоваться чем-то популярным и поддерживаемым, я решил
-попробовать <a href="https://github.com/google/cadvisor">cAdvisor</a>.</p>
-<p>И вот что я могу сказать - отличный инструмент!
-Ресурсов практически не потребляет (около 20 Мб оперативной памяти и
-неизмеримо мало CPU), обладает простым API для доступа к собираемой им
-информации, имеет ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/check-cadvisor/">more ...</a>
-                </div>
-            </article>
-            <hr/>
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
 
         </div>
         <div class="col-sm-3" id="sidebar">

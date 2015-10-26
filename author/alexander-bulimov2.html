@@ -66,6 +66,40 @@
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://bulimov.ru/it/haproxy-cadvisor/">Балансировка в HAProxy на основе данных cAdvisor</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2015-04-15T00:00:00+03:00"> ср 15 апреля 2015</time>
+    </span>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/haproxy.html">HAProxy</a>
+        /
+	<a href="http://bulimov.ru/tag/cadvisor.html">cAdvisor</a>
+        /
+	<a href="http://bulimov.ru/tag/python.html">Python</a>
+        /
+	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Для запуска Docker-контейнеров у меня в данный момент выделено достаточно много
+серверов, причем аппаратная часть у некоторых из них отличается
+друг от друга. Соответственно, при настройке на чудесном балансировщике
+<a href="http://www.haproxy.org/">HAProxy</a> такого параметра балансировки
+как <em>"вес сервера"</em>, приходится это различие в аппаратной части учитывать.</p>
+<p>Можно, конечно, подобрать значения весов самостоятельно на основе
+данных мониторинга, а при появлении нагрузки от соседних Docker-контейнеров
+эти веса корректировать, но это не наш метод.</p>
+<p>Не так ...</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/haproxy-cadvisor/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://bulimov.ru/it/chromium-vim/">Открыл для себя cVim для Google Chrome</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -359,39 +393,6 @@ HP SmartArray на чистом Python - милости просим, все
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/Открыл-для-себя-плагины-к-tmux/">Открыл для себя плагины к tmux</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-09-04T00:00:00+04:00"> чт 04 сентября 2014</time>
-    </span>
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/tmux.html">tmux</a>
-        /
-	<a href="http://bulimov.ru/tag/zhizn.html">Жизнь</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Случилось чудесное - <a href="http://linux.org.ru">LOR</a> принес мне пользу.
-Оттуда я узнал о плагине <a href="https://github.com/tmux-plugins/tmux-resurrect">tmux-resurrect</a>,
-а точнее, вообще о существовании плагинов для чудесного мультиплексора терминалов <strong>tmux</strong>.</p>
-<p>С помощью имеющихся плагинов можно привести конфигурацию в более понятный вид,
-а также заменить свои костыли на костыли, поддерживаемые сообществом.</p>
-<p>Я, к примеру:</p>
-<ul>
-<li>сильно сократил конфигурацию, используя
-  <a href="https://github.com/tmux-plugins/tmux-sensible">tmux-sensible</a>;</li>
-<li>с помощью <a href="https://github.com/tmux-plugins/tmux-yank">tmux-yank</a>
-  выкинул свои костыли для копирования в буфер обмена;</li>
-<li>смог убрать настройки для vi-образной навигации между панелями ...</li></ul>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Открыл-для-себя-плагины-к-tmux/">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://bulimov.ru/author/alexander-bulimov.html">&laquo;</a>
@@ -437,13 +438,23 @@ HP SmartArray на чистом Python - милости просим, все
             <li class="list-group-item"><a href="http://bulimov.ru/tags/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
+                        <a href="http://bulimov.ru/tag/ansible.html">
+                            Ansible
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
                         <a href="http://bulimov.ru/tag/mnenie.html">
                             Мнение
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="http://bulimov.ru/tag/ansible.html">
-                            Ansible
+                        <a href="http://bulimov.ru/tag/monitoring.html">
+                            Monitoring
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://bulimov.ru/tag/zhizn.html">
+                            Жизнь
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
@@ -456,14 +467,9 @@ HP SmartArray на чистом Python - милости просим, все
                             Python
                         </a>
                     </li>
-                    <li class="list-group-item tag-1">
-                        <a href="http://bulimov.ru/tag/zhizn.html">
-                            Жизнь
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
-                        <a href="http://bulimov.ru/tag/monitoring.html">
-                            Monitoring
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/cadvisor.html">
+                            cAdvisor
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -472,8 +478,8 @@ HP SmartArray на чистом Python - милости просим, все
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/cisco.html">
-                            Cisco
+                        <a href="http://bulimov.ru/tag/opyt.html">
+                            Опыт
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -482,13 +488,8 @@ HP SmartArray на чистом Python - милости просим, все
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/opyt.html">
-                            Опыт
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/cadvisor.html">
-                            cAdvisor
+                        <a href="http://bulimov.ru/tag/cisco.html">
+                            Cisco
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -502,8 +503,33 @@ HP SmartArray на чистом Python - милости просим, все
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/elasticsearch.html">
+                            Elasticsearch
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
                         <a href="http://bulimov.ru/tag/ruhoh.html">
                             Ruhoh
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/logstash.html">
+                            Logstash
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/mikrotik.html">
+                            MikroTik
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/kibana.html">
+                            Kibana
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/ruby.html">
+                            Ruby
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -517,18 +543,13 @@ HP SmartArray на чистом Python - милости просим, все
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/ruby.html">
-                            Ruby
+                        <a href="http://bulimov.ru/tag/vim.html">
+                            Vim
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/mikrotik.html">
-                            MikroTik
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/graphite.html">
-                            Graphite
+                        <a href="http://bulimov.ru/tag/coreos.html">
+                            CoreOS
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -537,68 +558,13 @@ HP SmartArray на чистом Python - милости просим, все
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/logstash.html">
-                            Logstash
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/elasticsearch.html">
-                            Elasticsearch
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/kibana.html">
-                            Kibana
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/vim.html">
-                            Vim
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/riak-cs.html">
-                            Riak CS
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/pelican.html">
-                            Pelican
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/packetbeat.html">
-                            Packetbeat
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/nginx.html">
-                            Nginx
+                        <a href="http://bulimov.ru/tag/graphite.html">
+                            Graphite
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
                         <a href="http://bulimov.ru/tag/serverspec.html">
                             serverspec
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/cadvisor-companion.html">
-                            cAdvisor-companion
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/lua.html">
-                            Lua
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/ubuntu.html">
-                            Ubuntu
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/statsd.html">
-                            StatsD
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -612,13 +578,8 @@ HP SmartArray на чистом Python - милости просим, все
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/debian.html">
-                            Debian
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/atom.html">
-                            Atom
+                        <a href="http://bulimov.ru/tag/collectd.html">
+                            Collectd
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -627,13 +588,23 @@ HP SmartArray на чистом Python - милости просим, все
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/iuzveri.html">
-                            Юзвери
+                        <a href="http://bulimov.ru/tag/tmux.html">
+                            tmux
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/rancid.html">
-                            Rancid
+                        <a href="http://bulimov.ru/tag/nginx.html">
+                            Nginx
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/riak-cs.html">
+                            Riak CS
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/iuzveri.html">
+                            Юзвери
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -642,18 +613,48 @@ HP SmartArray на чистом Python - милости просим, все
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/coreos.html">
-                            CoreOS
+                        <a href="http://bulimov.ru/tag/cadvisor-companion.html">
+                            cAdvisor-companion
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/tmux.html">
-                            tmux
+                        <a href="http://bulimov.ru/tag/pelican.html">
+                            Pelican
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/collectd.html">
-                            Collectd
+                        <a href="http://bulimov.ru/tag/rancid.html">
+                            Rancid
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/lua.html">
+                            Lua
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/ubuntu.html">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/packetbeat.html">
+                            Packetbeat
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/atom.html">
+                            Atom
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/debian.html">
+                            Debian
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/statsd.html">
+                            StatsD
                         </a>
                     </li>
                 </ul>
