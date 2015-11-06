@@ -52,7 +52,7 @@ CC_LICENSE = "CC-BY-SA"
 CUSTOM_CSS = 'static/custom.css'
 
 # Tell Pelican to add 'custom/custom.css' to the output dir
-STATIC_PATHS = ['extra/custom.css', 'extra/CNAME']
+STATIC_PATHS = ['images', 'extra/custom.css', 'extra/CNAME']
 
 # Tell Pelican to change the path to 'static/custom.css' in the output dir
 EXTRA_PATH_METADATA = {
