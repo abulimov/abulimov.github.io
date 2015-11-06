@@ -1,5 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Александр Булимов - записки сисадмина.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/it.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2015-10-26T00:00:00+03:00</updated><entry><title>Избавился от CoreOS</title><link href="http://bulimov.ru/it/goodby-coreos/" rel="alternate"></link><updated>2015-10-26T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-10-26:it/goodby-coreos/</id><summary type="html">&lt;p&gt;С огромным облегчением сегодня убрал последний хост с &lt;a href="http://coreos.com"&gt;CoreOS&lt;/a&gt;.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Александр Булимов - записки сисадмина.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/it.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2015-11-06T00:00:00+03:00</updated><entry><title>Quis custodiet ipsos custodes?</title><link href="http://bulimov.ru/it/who-watch-the-watchmen/" rel="alternate"></link><updated>2015-11-06T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-11-06:it/who-watch-the-watchmen/</id><summary type="html">&lt;h4&gt;&lt;a href="https://ru.wikipedia.org/wiki/Quis_custodiet_ipsos_custodes%3F"&gt;Кто же устережёт самих сторожей?&lt;/a&gt;, или как (и зачем) я мониторю мониторинг.&lt;/h4&gt;
+&lt;p&gt;Как вы понимаете, современный сервис мониторинга это очень сложная штука.
+Некоторые, как &lt;a href="https://sensuapp.org"&gt;Sensu&lt;/a&gt;, выносят всю сложность во внешние
+сервисы, и потому требуют установки и администрирования
+&lt;a href="https://sensuapp.org/docs/latest/overview#sensu-components"&gt;нескольких компонентов&lt;/a&gt;,
+таких как очередь и база данных.&lt;/p&gt;
+&lt;p&gt;Остальные реализуют некоторый функционал этих компонентов сами,
+упрощая администрирование мониторинга, но усложняя его внутреннее устройство.
+К примеру, для работы &lt;a href="http://www.zabbix.com/ru/"&gt;Zabbix&lt;/a&gt; нужна только база,
+а очереди и транспорт он реализует сам. Для работы &lt;a href="https://www.icinga.org/icinga/icinga-2/"&gt;Icinga2&lt;/a&gt;
+даже база не нужна, пока не возникнет надобность в тесной интеграции с веб-интерфейсом.&lt;/p&gt;
+&lt;p&gt;В любом случае, чтобы быть уверенным в том, что сам мониторинг работает,
+приходится настраивать мониторинг мониторинга.&lt;/p&gt;
+&lt;h4&gt;Мой опыт&lt;/h4&gt;
+&lt;p&gt;&lt;img alt="Yo Dawg" src="/images/monit.png" /&gt;&lt;/p&gt;
+&lt;p&gt;В моей практике так сложилось, что на проектах всегда была пара служебных
+серверов, выполняющих роль DNS-сервера, локального репозитория и т.п.
+На одном из них как раз и размещался мониторинг.&lt;/p&gt;
+&lt;p&gt;В давние времена, когда я использовал Zabbix, на втором сервере также
+был установлен Zabbix-сервер, который мониторил соседа, и в случае его смерти
+принял бы последний дамп его базы (увы, для Zabbix очень сложно перенести все
+настройки без dump-restore базы). Таким образом, оба Zabbix-сервера мониторили
+друг-друга, и я был относительно спокоен.&lt;/p&gt;
+&lt;p&gt;Теперь, когда я использую Icinga2, которую полностью разворачиваю вместе с
+конфигами из Ansible за пару минут, нет смысла держать второй такой сервер.&lt;/p&gt;
+&lt;p&gt;Поэтому для мониторинга Icinga2 я выбрал гораздо более простой (и потому более
+надежный) сервис &lt;a href="http://mmonit.com"&gt;Monit&lt;/a&gt;. У него очень мощный, и при этом
+хорошо читаемый формат конфигов, и у меня с ним был отличный опыт на личном VPS.&lt;/p&gt;
+&lt;p&gt;Теперь мое спокойствие обеспечивает следующая конфигурация:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;на сервере мониторинга Monit следит за тем, что Icinga2 жива&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;check process icinga2
+  with pidfile /var/run/icinga2/icinga2.pid
+  mode passive
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;на соседе Monit следит, что сервер мониторинга жив&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;check host monitoring with address monitoring.example.com
+  if failed icmp type echo count 5 with timeout 15 seconds then alert
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Ну и конечно Icinga2 следит за тем, что оба процесса Monit на серверах живы.&lt;/p&gt;
+&lt;p&gt;Проще не придумаешь, и потому я даже более спокоен, чем в схеме с двумя
+Zabbix-серверами.&lt;/p&gt;
+&lt;p&gt;Если вам эта схема кажется параноидальной - вы абсолютно правы, определенная
+степень паранойи это необходимая часть профессии сисадмина. Очень неприятно
+узнать о том, что мониторинг упал с Segfault пару дней назад, и из-за этого
+ты пропустил несколько важных алертов с боевых серверов.&lt;/p&gt;</summary><category term="Icinga2"></category><category term="Monit"></category><category term="Monitoring"></category><category term="Опыт"></category></entry><entry><title>Избавился от CoreOS</title><link href="http://bulimov.ru/it/goodby-coreos/" rel="alternate"></link><updated>2015-10-26T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-10-26:it/goodby-coreos/</id><summary type="html">&lt;p&gt;С огромным облегчением сегодня убрал последний хост с &lt;a href="http://coreos.com"&gt;CoreOS&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Я уже &lt;a href="/it/coreos-opinion/"&gt;писал&lt;/a&gt; о своих впечатлениях от CoreoOS, но с тех пор
 впечатлений прибавилось.&lt;/p&gt;
 &lt;p&gt;Частые атомарные обновления на бумаге выглядели вкусно (и в пользовательских
