@@ -51,7 +51,17 @@ Zabbix-серверами.&lt;/p&gt;
 &lt;p&gt;Если вам эта схема кажется параноидальной - вы абсолютно правы, определенная
 степень паранойи это необходимая часть профессии сисадмина. Очень неприятно
 узнать о том, что мониторинг упал с Segfault пару дней назад, и из-за этого
-ты пропустил несколько важных алертов с боевых серверов.&lt;/p&gt;</summary><category term="Icinga2"></category><category term="Monit"></category><category term="Monitoring"></category><category term="Опыт"></category></entry><entry><title>Избавился от CoreOS</title><link href="http://bulimov.ru/it/goodby-coreos/" rel="alternate"></link><updated>2015-10-26T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-10-26:it/goodby-coreos/</id><summary type="html">&lt;p&gt;С огромным облегчением сегодня убрал последний хост с &lt;a href="http://coreos.com"&gt;CoreOS&lt;/a&gt;.&lt;/p&gt;
+ты пропустил несколько важных алертов с боевых серверов.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;UPDATE&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Забыл рассказать про схему, которую использовал с Sensu. Там было лучше всего -
+я использовал кластер из RabbitMQ с durable очередями и Redis с auto-failover.
+А сам Sensu отлично умеет масштабирование и HA с несколькими серверами из коробки.&lt;/p&gt;
+&lt;p&gt;Ну и насколько это было нужно, из личного опыта, в реторспективе:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Zabbix падал, и второй хост это засекал;&lt;/li&gt;
+&lt;li&gt;Sensu падал, и второй хост это засекал;&lt;/li&gt;
+&lt;li&gt;Icinga2 пока не падал.&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="Icinga2"></category><category term="Monit"></category><category term="Monitoring"></category><category term="Опыт"></category></entry><entry><title>Избавился от CoreOS</title><link href="http://bulimov.ru/it/goodby-coreos/" rel="alternate"></link><updated>2015-10-26T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-10-26:it/goodby-coreos/</id><summary type="html">&lt;p&gt;С огромным облегчением сегодня убрал последний хост с &lt;a href="http://coreos.com"&gt;CoreOS&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Я уже &lt;a href="/it/coreos-opinion/"&gt;писал&lt;/a&gt; о своих впечатлениях от CoreoOS, но с тех пор
 впечатлений прибавилось.&lt;/p&gt;
 &lt;p&gt;Частые атомарные обновления на бумаге выглядели вкусно (и в пользовательских
