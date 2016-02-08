@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru"
->
+<html lang="ru" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
     <title>Улучшаем сообщения от мониторинга с помощью cAdvisor-companion - Александр Булимов - записки сисадмина.</title>
     <!-- Using the latest rendering mode for IE -->
@@ -41,8 +40,13 @@
 
         <link href="http://bulimov.ru/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="Александр Булимов - записки сисадмина. ATOM Feed"/>
+
         <link href="http://bulimov.ru/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
               title="Александр Булимов - записки сисадмина. RSS Feed"/>
+
+
+        <link href="http://bulimov.ru/feeds/it.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Александр Булимов - записки сисадмина. IT ATOM Feed"/>
 
 </head>
 <body>
@@ -74,7 +78,6 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-
     <section id="content">
         <article>
             <header class="page-header">
@@ -92,8 +95,10 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-04-21T00:00:00+03:00"> вт 21 апреля 2015</time>
+        <i class="fa fa-calendar"></i><time datetime="2015-04-21T00:00:00+03:00"> Tue 21 April 2015</time>
     </span>
+
+
 
 
 
@@ -132,19 +137,19 @@
 <p>Для обычных проверок <code>check_load</code> и <code>check_memory</code> из пакета nagios-plugins
 я добавил топ-5 потребителей ресурсов достаточно легко - обернул стандратные
 плагины в простенький wrapper на bash, получилось примерно так:</p>
-<div class="highlight"><pre><span class="c">#!/bin/bash</span>
-<span class="c"># check_memory wrapper</span>
+<div class="highlight"><pre><span class="ch">#!/bin/bash</span>
+<span class="c1"># check_memory wrapper</span>
 <span class="nv">output</span><span class="o">=</span><span class="k">$(</span>/usr/lib/nagios/plugins/check_memory <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="k">)</span>
 <span class="nv">status</span><span class="o">=</span><span class="nv">$?</span>
-<span class="nv">message</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$output</span><span class="s2">&quot;</span> <span class="p">|</span> cut -d<span class="se">\|</span> -f 1<span class="k">)</span>
-<span class="nv">perfdata</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$output</span><span class="s2">&quot;</span> <span class="p">|</span> cut -d<span class="se">\|</span> -f 2<span class="k">)</span>
-<span class="nb">echo</span> -n <span class="s2">&quot;</span><span class="nv">$message</span><span class="s2">&quot;</span>
-<span class="k">if</span> <span class="o">[</span> <span class="m">0</span> -ne <span class="s2">&quot;</span><span class="nv">$status</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+<span class="nv">message</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span>$<span class="s2">output&quot;</span> <span class="p">|</span> cut -d<span class="se">\|</span> -f 1<span class="k">)</span>
+<span class="nv">perfdata</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span>$<span class="s2">output&quot;</span> <span class="p">|</span> cut -d<span class="se">\|</span> -f 2<span class="k">)</span>
+<span class="nb">echo</span> -n <span class="s2">&quot;</span>$<span class="s2">message&quot;</span>
+<span class="k">if</span> <span class="o">[</span> <span class="m">0</span> -ne <span class="s2">&quot;</span>$<span class="s2">status&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
   <span class="nb">echo</span>
-<span class="nb">  </span>ps aux --sort -pmem <span class="p">|</span> head -n 5
+  ps aux --sort -pmem <span class="p">|</span> head -n 5
 <span class="k">fi</span>
-<span class="nb">echo</span> <span class="s2">&quot; | </span><span class="nv">$perfdata</span><span class="s2">&quot;</span>
-<span class="nb">exit</span> <span class="nv">$status</span>
+<span class="nb">echo</span> <span class="s2">&quot; | </span>$<span class="s2">perfdata&quot;</span>
+<span class="nb">exit</span> $status
 </pre></div>
 
 
@@ -233,11 +238,11 @@ read-only доступ к <code>/proc</code>, и который по HTTP API о
 <section class="well" id="related-posts">
     <h4>Related Posts:</h4>
     <ul>
-        <li><a href="http://bulimov.ru/it/check-cadvisor/">Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</a></li>
-        <li><a href="http://bulimov.ru/it/haproxy-cadvisor/">Балансировка в HAProxy на основе данных cAdvisor</a></li>
         <li><a href="http://bulimov.ru/it/collectd-riakcs/">Плагин к Collectd для сбора метрик Riak CS</a></li>
-        <li><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></li>
-        <li><a href="http://bulimov.ru/it/meminfo-visualizer/">Разбирался с page-cache в Linux</a></li>
+        <li><a href="http://bulimov.ru/it/haproxy-cadvisor/">Балансировка в HAProxy на основе данных cAdvisor</a></li>
+        <li><a href="http://bulimov.ru/it/check-cadvisor/">Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</a></li>
+        <li><a href="http://bulimov.ru/it/graphite-experience/">Заметка о Graphite</a></li>
+        <li><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware/">Низкоуровневое обнаружение в Zabbix, ищем диски в контроллере от 3ware</a></li>
     </ul>
 </section>
     <hr/>
@@ -301,8 +306,13 @@ read-only доступ к <code>/proc</code>, и который по HTTP API о
             <li class="list-group-item"><a href="http://bulimov.ru/tags/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
                 <ul class="list-group " id="tags">
                     <li class="list-group-item tag-1">
-                        <a href="http://bulimov.ru/tag/mnenie.html">
-                            Мнение
+                        <a href="http://bulimov.ru/tag/opyt.html">
+                            Опыт
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-1">
+                        <a href="http://bulimov.ru/tag/zhizn.html">
+                            Жизнь
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
@@ -316,28 +326,13 @@ read-only доступ к <code>/proc</code>, и который по HTTP API о
                         </a>
                     </li>
                     <li class="list-group-item tag-1">
-                        <a href="http://bulimov.ru/tag/zhizn.html">
-                            Жизнь
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-1">
                         <a href="http://bulimov.ru/tag/python.html">
                             Python
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/zabbix.html">
-                            Zabbix
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/opyt.html">
-                            Опыт
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/sensu.html">
-                            Sensu
+                    <li class="list-group-item tag-1">
+                        <a href="http://bulimov.ru/tag/mnenie.html">
+                            Мнение
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -346,13 +341,33 @@ read-only доступ к <code>/proc</code>, и который по HTTP API о
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/icinga2.html">
-                            Icinga2
+                        <a href="http://bulimov.ru/tag/zabbix.html">
+                            Zabbix
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/sensu.html">
+                            Sensu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/graphite.html">
+                            Graphite
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
                         <a href="http://bulimov.ru/tag/cadvisor.html">
                             cAdvisor
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/nagios.html">
+                            Nagios
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-2">
+                        <a href="http://bulimov.ru/tag/icinga2.html">
+                            Icinga2
                         </a>
                     </li>
                     <li class="list-group-item tag-2">
@@ -365,9 +380,9 @@ read-only доступ к <code>/proc</code>, и который по HTTP API о
                             Cisco
                         </a>
                     </li>
-                    <li class="list-group-item tag-2">
-                        <a href="http://bulimov.ru/tag/nagios.html">
-                            Nagios
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/coreos.html">
+                            CoreOS
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -376,33 +391,28 @@ read-only доступ к <code>/proc</code>, и который по HTTP API о
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/logstash.html">
+                            Logstash
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
                         <a href="http://bulimov.ru/tag/vim.html">
                             Vim
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/coreos.html">
-                            CoreOS
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/ruhoh.html">
-                            Ruhoh
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/mikrotik.html">
-                            MikroTik
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/graphite.html">
-                            Graphite
+                        <a href="http://bulimov.ru/tag/kibana.html">
+                            Kibana
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
                         <a href="http://bulimov.ru/tag/elasticsearch.html">
                             Elasticsearch
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-3">
+                        <a href="http://bulimov.ru/tag/mikrotik.html">
+                            MikroTik
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
@@ -416,78 +426,8 @@ read-only доступ к <code>/proc</code>, и который по HTTP API о
                         </a>
                     </li>
                     <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/kibana.html">
-                            Kibana
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-3">
-                        <a href="http://bulimov.ru/tag/logstash.html">
-                            Logstash
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/pelican.html">
-                            Pelican
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/haproxy.html">
-                            HAProxy
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/tmux.html">
-                            tmux
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/nginx.html">
-                            Nginx
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/packetbeat.html">
-                            Packetbeat
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/rancid.html">
-                            Rancid
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/collectd.html">
-                            Collectd
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/serverspec.html">
-                            serverspec
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/golang.html">
-                            Golang
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/atom.html">
-                            Atom
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/monit.html">
-                            Monit
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/lua.html">
-                            Lua
-                        </a>
-                    </li>
-                    <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/kernel.html">
-                            Kernel
+                        <a href="http://bulimov.ru/tag/ruhoh.html">
+                            Ruhoh
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -496,8 +436,8 @@ read-only доступ к <code>/proc</code>, и который по HTTP API о
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/juniper.html">
-                            Juniper
+                        <a href="http://bulimov.ru/tag/statsd.html">
+                            StatsD
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -506,13 +446,43 @@ read-only доступ к <code>/proc</code>, и который по HTTP API о
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/ubuntu.html">
-                            Ubuntu
+                        <a href="http://bulimov.ru/tag/tmux.html">
+                            tmux
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
-                        <a href="http://bulimov.ru/tag/statsd.html">
-                            StatsD
+                        <a href="http://bulimov.ru/tag/atom.html">
+                            Atom
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/haproxy.html">
+                            HAProxy
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/pelican.html">
+                            Pelican
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/golang.html">
+                            Golang
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/packetbeat.html">
+                            Packetbeat
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/nginx.html">
+                            Nginx
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/lua.html">
+                            Lua
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
@@ -521,12 +491,54 @@ read-only доступ к <code>/proc</code>, и который по HTTP API о
                         </a>
                     </li>
                     <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/rancid.html">
+                            Rancid
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/ubuntu.html">
+                            Ubuntu
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/collectd.html">
+                            Collectd
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/monit.html">
+                            Monit
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/juniper.html">
+                            Juniper
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
                         <a href="http://bulimov.ru/tag/cadvisor-companion.html">
                             cAdvisor-companion
                         </a>
                     </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/go-carbon.html">
+                            go-carbon
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/kernel.html">
+                            Kernel
+                        </a>
+                    </li>
+                    <li class="list-group-item tag-4">
+                        <a href="http://bulimov.ru/tag/serverspec.html">
+                            serverspec
+                        </a>
+                    </li>
                 </ul>
             </li>
+
+
     <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
       <ul class="list-group" id="links">
         <li class="list-group-item">
@@ -556,7 +568,7 @@ read-only доступ к <code>/proc</code>, и который по HTTP API о
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content
-  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution 4.0 International License</a>, except where indicated otherwise.
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
 </small></p>
          </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
