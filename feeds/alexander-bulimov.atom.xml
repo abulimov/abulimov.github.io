@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Александр Булимов - записки сисадмина.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/alexander-bulimov.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2016-02-08T00:00:00+03:00</updated><entry><title>Замена carbon-cache на go-carbon = Счастье</title><link href="http://bulimov.ru/it/go-carbon/" rel="alternate"></link><updated>2016-02-08T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-02-08:it/go-carbon/</id><summary type="html">&lt;p&gt;Пришлось на собственном опыте опробовать, насколько
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Александр Булимов - записки сисадмина.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/alexander-bulimov.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2016-02-11T00:00:00+03:00</updated><entry><title>Рекомендую Advent Of Code</title><link href="http://bulimov.ru/it/advent-of-code/" rel="alternate"></link><updated>2016-02-11T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-02-11:it/advent-of-code/</id><summary type="html">&lt;p&gt;Закончил на днях решать задачи из замечательного набора программерских
+пазлов &lt;a href="http://adventofcode.com"&gt;Advent Of Code&lt;/a&gt; (да, я тормоз и даже пропустил
+начало этого конкурса), и могу уверенно рекомендовать его любому.&lt;/p&gt;
+&lt;p&gt;Задачки веселые, разнообразные, в меру сложные, содержат много
+классических задач (&lt;a href="https://ru.wikipedia.org/wiki/Задача_коммивояжёра"&gt;задача коммивояжёра&lt;/a&gt;,
+&lt;a href="https://ru.wikipedia.org/wiki/Задача_о_ранце"&gt;задача о ранце&lt;/a&gt; и т.д.) в занятной
+обертке, так что их решение дает возможность отлично размять мозги.&lt;/p&gt;
+&lt;p&gt;Так же эти задачки отлично подходят для изучения нового языка, чем я отчасти
+воспользовался - решал все на &lt;a href="http://golang.org"&gt;Go&lt;/a&gt;, освежив и укрепив свои знания.&lt;/p&gt;
+&lt;p&gt;Я его уже давно выбрал для себя основным языком для решения больших или
+требовательных к производительности задач, оставив Python в основном для
+скриптов и небольших программ. После написания на Go
+&lt;a href="https://github.com/abulimov/cadvisor-companion"&gt;cadvisor-companion&lt;/a&gt;
+и нескольких достаточно сложных инструментов для внутреннего пользования, я не
+остался разочарован этим языком и сейчас - все задачки решались без ощущения
+"а вот бы мне featurename из языка такого-то".&lt;/p&gt;
+&lt;p&gt;Короче, если тоже пропустили Advent Of Code - попробуйте, рождество давно
+закончилось, а отличный набор программерских задачек остался. Ну и Go можно
+заодно попробовать - тоже рекомендую.&lt;/p&gt;</summary><category term="Программирование"></category><category term="Жизнь"></category><category term="Golang"></category></entry><entry><title>Замена carbon-cache на go-carbon = Счастье</title><link href="http://bulimov.ru/it/go-carbon/" rel="alternate"></link><updated>2016-02-08T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-02-08:it/go-carbon/</id><summary type="html">&lt;p&gt;Пришлось на собственном опыте опробовать, насколько
 &lt;a href="/it/graphite-experience"&gt;Graphite модульный&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;При 200k metricsReceived наш Graphite, работающий на довольном старом сервере
 на обычных дисках, начал помирать. &lt;strong&gt;Carbon-cache&lt;/strong&gt; постоянно был в топе потребления
