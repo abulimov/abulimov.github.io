@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Golang - Александр Булимов - записки сисадмина.</title>
+    <title>Docker - Александр Булимов - записки сисадмина.</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
 
 
     <meta name="author" content="Alexander Bulimov" />
-    <meta name="keywords" content="Golang" />
+    <meta name="keywords" content="Docker" />
 
     <!-- Open Graph tags -->
         <meta property="og:site_name" content="Александр Булимов - записки сисадмина." />
@@ -68,12 +68,12 @@
     <div class="row">
         <div class="col-sm-9">
             <article>
-                <h2><a href="http://bulimov.ru/it/advent-of-code/">Рекомендую Advent Of Code</a></h2>
+                <h2><a href="http://bulimov.ru/it/delete-docker-registry-image/">О пользе Python и костылях с Docker</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-02-11T00:00:00+03:00"> Thu 11 February 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-03-02T00:00:00+03:00"> Wed 02 March 2016</time>
     </span>
 
 
@@ -83,57 +83,20 @@
 <span class="label label-default">Tags</span>
 	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
         /
-	<a href="http://bulimov.ru/tag/zhizn.html">Жизнь</a>
+	<a href="http://bulimov.ru/tag/python.html">Python</a>
         /
-	<a href="http://bulimov.ru/tag/golang.html">Golang</a>
+	<a href="http://bulimov.ru/tag/docker.html">Docker</a>
     
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Закончил на днях решать задачи из замечательного набора программерских
-пазлов <a href="http://adventofcode.com">Advent Of Code</a> (да, я тормоз и даже пропустил
-начало этого конкурса), и могу уверенно рекомендовать его любому.</p>
-<p>Задачки веселые, разнообразные, в меру сложные, содержат много
-классических задач (<a href="https://ru.wikipedia.org/wiki/Задача_коммивояжёра">задача коммивояжёра</a>,
-<a href="https://ru.wikipedia.org/wiki/Задача_о_ранце">задача о ранце</a> и т.д.) в занятной
-обертке, так что их решение дает возможность отлично размять мозги.</p>
-<p>Так же эти задачки отлично подходят для изучения нового языка, чем я ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/advent-of-code/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/cadvisor-companion/">Улучшаем сообщения от мониторинга с помощью cAdvisor-companion</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-04-21T00:00:00+03:00"> Tue 21 April 2015</time>
-    </span>
-
-
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/golang.html">Golang</a>
-        /
-	<a href="http://bulimov.ru/tag/cadvisor.html">cAdvisor</a>
-        /
-	<a href="http://bulimov.ru/tag/cadvisor-companion.html">cAdvisor-companion</a>
-        /
-	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
-        /
-	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Слышали ли вы когда-нибудь о такой практике, как "Monitoring Events Enrichment"?
-Если вкратце, то это практика наполнения дополнительной информацией сообщений
-от мониторинга, так что на выяснение причины проблемы уходит меньше времени
-и телодвижений.</p>
-<p>Есть даже контора, которая помогает внедрять эту практику на коммерческой основе,
-у них на <a href="http://www.eventenrichment.com/">сайте</a> есть неплохие примеры того,
-что и зачем можно добавить к обычному сообщению от Nagios.</p>
-<p>Сама эта идея мне очень нравится, и вот ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/cadvisor-companion/">more ...</a>
+                <div class="summary"><p>В процессе организации авто-очистки <a href="https://github.com/docker/distribution">Docker Registry 2</a>,
+устав ждать в появления в нем столь "ненужного" функционала, как удаление образов
+с диска (DELETE запросы удаляют тег, но сами данные остаются на диске и жрут место),
+я в очередной раз прибег к помощи скрипта из
+<a href="https://github.com/burnettk/delete-docker-registry-image">delete-docker-registry-image</a>,
+и уперся в то, что этот самый скрипт (написанный изначально на bash) невероятно
+медленно работает на большом Registry.</p>
+<p>К примеру, удаления одного тега для repository с ...</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/delete-docker-registry-image/">more ...</a>
                 </div>
             </article>
             <hr/>

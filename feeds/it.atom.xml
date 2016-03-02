@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Александр Булимов - записки сисадмина.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/it.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2016-02-11T00:00:00+03:00</updated><entry><title>Рекомендую Advent Of Code</title><link href="http://bulimov.ru/it/advent-of-code/" rel="alternate"></link><updated>2016-02-11T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-02-11:it/advent-of-code/</id><summary type="html">&lt;p&gt;Закончил на днях решать задачи из замечательного набора программерских
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Александр Булимов - записки сисадмина.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/it.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2016-03-02T00:00:00+03:00</updated><entry><title>О пользе Python и костылях с Docker</title><link href="http://bulimov.ru/it/delete-docker-registry-image/" rel="alternate"></link><updated>2016-03-02T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-03-02:it/delete-docker-registry-image/</id><summary type="html">&lt;p&gt;В процессе организации авто-очистки &lt;a href="https://github.com/docker/distribution"&gt;Docker Registry 2&lt;/a&gt;,
+устав ждать в появления в нем столь "ненужного" функционала, как удаление образов
+с диска (DELETE запросы удаляют тег, но сами данные остаются на диске и жрут место),
+я в очередной раз прибег к помощи скрипта из
+&lt;a href="https://github.com/burnettk/delete-docker-registry-image"&gt;delete-docker-registry-image&lt;/a&gt;,
+и уперся в то, что этот самый скрипт (написанный изначально на bash) невероятно
+медленно работает на большом Registry.&lt;/p&gt;
+&lt;p&gt;К примеру, удаления одного тега для repository с 70 тегами, в каждом из которых
+много слоев, занимает &lt;strong&gt;49 минут&lt;/strong&gt;. А мне надо удалить 60 старых тегов из 70.&lt;/p&gt;
+&lt;p&gt;Посмотрев на &lt;a href="https://github.com/burnettk/delete-docker-registry-image/blob/aa2644234840dc31f3afd6a06691aec6aa899cbd/delete_docker_registry_image"&gt;сам скрипт&lt;/a&gt;,
+я понял, что проще и быстрее всего будет переписать его на Python, избавившись
+от тысяч порождаемых в циклах процессов.&lt;/p&gt;
+&lt;p&gt;За час была реализована самая простая базовая функциональность, после чего
+сравнение производительности показало очень солидное ускорение, так что
+портирование продолжилось уже в чистовом варианте.&lt;/p&gt;
+&lt;p&gt;Процесс переписывания занял меньше одного рабочего дня, и был очень облегчен тем
+фактом, что автор изначального скрипта снабдил свое детище
+&lt;a href="https://github.com/burnettk/delete-docker-registry-image/blob/master/test/test"&gt;тестами&lt;/a&gt;.
+Я тоже стараюсь писать тесты для важных вещей - без них рефакторинг (особенно в Python
+с его динамической типизацией) превращается в ад.&lt;/p&gt;
+&lt;h4&gt;Итоги&lt;/h4&gt;
+&lt;p&gt;Версия на Python избавилась от зависимостей bash-скрипта типа jq, работает
+на Python 2.7 и 3+, и использует только стандартную библиотеку.
+Быстродействие изменилось кардинально -
+то же удаление одного тега из 70 стало занимать &lt;strong&gt;30 секунд&lt;/strong&gt; против
+49 минут в версии на bash.&lt;/p&gt;
+&lt;p&gt;Конечно, я не преминул вернуть свои изменения в апстрим, так что
+теперь более быстрый вариант доступен всем страждущим. Автор изначального
+скрипта был крайне рад такому повороту событий.&lt;/p&gt;
+&lt;p&gt;После этих полезных для общественности действиям вся процедура очистки
+моего registry от старых образов выполняется с помощью скрипта
+&lt;a href="https://github.com/burnettk/delete-docker-registry-image/tree/master#clean_old_versionpy"&gt;clean_old_versions.py&lt;/a&gt;,
+который лежит в том же репозитории, и который я тоже слегка доработал.&lt;/p&gt;
+&lt;p&gt;Для меня это отлично - проект продолжает поддерживаться апстримом, а я свою задачу
+по очистке Registry выполнил, причем без создания каких-либо внутренних утилит, которые
+потом еще придется поддерживать, и принес пользу сообществу - сила OpenSource в действии.&lt;/p&gt;
+&lt;p&gt;Единственное грустное пятно в этой истории - Docker-registry. Уже версия 2+, переписали
+с Python на Go, про Docker трубят все кому не лень, а таких простых вещей как удаление образов - нет,
+и приходится городить костыли.&lt;/p&gt;</summary><category term="Программирование"></category><category term="Python"></category><category term="Docker"></category></entry><entry><title>Рекомендую Advent Of Code</title><link href="http://bulimov.ru/it/advent-of-code/" rel="alternate"></link><updated>2016-02-11T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-02-11:it/advent-of-code/</id><summary type="html">&lt;p&gt;Закончил на днях решать задачи из замечательного набора программерских
 пазлов &lt;a href="http://adventofcode.com"&gt;Advent Of Code&lt;/a&gt; (да, я тормоз и даже пропустил
 начало этого конкурса), и могу уверенно рекомендовать его любому.&lt;/p&gt;
 &lt;p&gt;Задачки веселые, разнообразные, в меру сложные, содержат много
