@@ -24,10 +24,10 @@ TIMEZONE = 'Europe/Moscow'
 
 DEFAULT_LANG = 'ru'
 
-PLUGINS = ["related_posts", "sitemap", "tag_cloud"]
+PLUGINS = ["related_posts", "sitemap"]
 
 THEME = 'pelican-bootstrap3'
-BOOTSTRAP_THEME = 'slate'
+BOOTSTRAP_THEME = 'sandstone'
 
 SLUGIFY_SOURCE = 'title'
 ARTICLE_URL = '{category}/{slug}/'
@@ -51,6 +51,8 @@ DISPLAY_CATEGORIES_ON_MENU = False
 CC_LICENSE = "CC-BY-SA"
 CUSTOM_CSS = 'static/custom.css'
 
+GITHUB_USER = "abulimov"
+
 # Tell Pelican to add 'custom/custom.css' to the output dir
 STATIC_PATHS = ['images', 'extra/custom.css', 'extra/CNAME']
 
@@ -59,13 +61,6 @@ EXTRA_PATH_METADATA = {
     'extra/custom.css': {'path': 'static/custom.css'},
     'extra/CNAME': {'path': 'CNAME'},
     }
-
-
-# Blogroll
-LINKS = (
-    ('Pelican', 'http://getpelican.com/'),
-    ('Python.org', 'http://python.org/'),
-)
 
 # Social widget
 SOCIAL = (
