@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Articles by Alexander Bulimov - Александр Булимов - записки сисадмина.</title>
+    <title>About Me - Александр Булимов - записки сисадмина.</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,15 +9,16 @@
 
 
 
+<link rel="canonical" href="http://bulimov.ru/pages/about-me.html">
 
         <meta name="author" content="Alexander Bulimov" />
+        <meta name="description" content="$ whoami Alexander Bulimov, Production Engineer from Moscow, Russia $ cowsay &lt; about.txt _________________________________________ / DevOps practitioner, fan of Linux, Open \ | Source and automation of system | | provisioning and orchestration | | processes. Have extensive experience | | and hands-on skill in setting up | | complex web-sites and services for | | web-development. My languages of choice | | are Python and Go, and I&#39;m fluent in | \ Bash. / ----------------------------------------- \ ^__^ \ (oo)\_______ (__)\ )\/\ ||----w | || || $ uptime {time} up {uptime} days, 1 user, load average ..." />
 
-    <!-- Open Graph tags -->
-        <meta property="og:site_name" content="Александр Булимов - записки сисадмина." />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="Александр Булимов - записки сисадмина."/>
-        <meta property="og:url" content="http://bulimov.ru"/>
-        <meta property="og:description" content="Александр Булимов - записки сисадмина."/>
+    <meta property="og:site_name" content="Александр Булимов - записки сисадмина." />
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="About Me"/>
+    <meta property="og:url" content="http://bulimov.ru/pages/about-me.html"/>
+    <meta property="og:description" content="$ whoami Alexander Bulimov, Production Engineer from Moscow, Russia $ cowsay &lt; about.txt _________________________________________ / DevOps practitioner, fan of Linux, Open \ | Source and automation of system | | provisioning and orchestration | | processes. Have extensive experience | | and hands-on skill in setting up | | complex web-sites and services for | | web-development. My languages of choice | | are Python and Go, and I&#39;m fluent in | \ Bash. / ----------------------------------------- \ ^__^ \ (oo)\_______ (__)\ )\/\ ||----w | || || $ uptime {time} up {uptime} days, 1 user, load average ..." />
 
 
     <!-- Bootstrap -->
@@ -54,7 +55,7 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                     <li><a href="/tags/index.html">Tags</a></li>
-                         <li><a href="http://bulimov.ru/pages/about-me.html">
+                         <li class="active"><a href="http://bulimov.ru/pages/about-me.html">
                              About Me
                           </a></li>
             </ul>
@@ -70,54 +71,56 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-            <article>
-                <h2><a href="http://bulimov.ru/it/Мнение-о-chef/">Мнение о Chef</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-06-17T00:00:00+04:00"> Mon 17 June 2013</time>
-    </span>
+    <section id="content" class="body">
+        <h1 class="entry-title">About Me</h1>
+        
+        <div class="entry-content">
+            <div class="highlight"><pre><span class="gp">$</span> whoami
+<span class="go">Alexander Bulimov, Production Engineer from Moscow, Russia</span>
+
+<span class="gp">$</span> cowsay &lt; about.txt
+<span class="go"> _________________________________________</span>
+<span class="go">/ DevOps practitioner, fan of Linux, Open \</span>
+<span class="go">| Source and automation of system         |</span>
+<span class="go">| provisioning and orchestration          |</span>
+<span class="go">| processes. Have extensive experience    |</span>
+<span class="go">| and hands-on skill in setting up        |</span>
+<span class="go">| complex web-sites and services for      |</span>
+<span class="go">| web-development. My languages of choice |</span>
+<span class="go">| are Python and Go, and I&#39;m fluent in    |</span>
+<span class="go">\ Bash.                                   /</span>
+<span class="go"> -----------------------------------------</span>
+<span class="go">       \   ^__^</span>
+<span class="go">        \  (oo)\_______</span>
+<span class="go">           (__)\       )\/\</span>
+<span class="go">               ||----w |</span>
+<span class="go">               ||     ||</span>
+
+<span class="gp">$</span> uptime
+<span class="go">{time} up {uptime} days,  1 user,  load average: 0.90, 0.70, 0.50</span>
+</pre></div>
 
 
+<!-- script to set time and uptime to real values in output above -->
 
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/chef.html">Chef</a>
-        /
-	<a href="http://bulimov.ru/tag/mnenie.html">Мнение</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Я использовал Chef для управления IT-инфраструктурой около полутора лет, начав с
-версии 0.10. Сначала, где-то пол-года, использовал только для управления конфигурациями,
-без развертывания ПО с нуля. Затем, уже на другой работе, автоматизировал управления
-конфигурациями и развертывание с нуля веб-проекта (30+ серверов, nginx, ruby, riak, redis,
-sphinx-search, rabbitmq и т.п.).
-Это позволило мне составить собственное мнение o достоинствах и недостатках Chef,
-и в этой заметке я свое мнение излагаю ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Мнение-о-chef/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-
-        <ul class="pagination">
-                <li class="prev"><a href="http://bulimov.ru/author/alexander-bulimov5.html">&laquo;</a>
-                </li>
-                    <li class=""><a
-                            href="http://bulimov.ru/author/alexander-bulimov.html">1</a></li>
-                    <li class=""><a
-                            href="http://bulimov.ru/author/alexander-bulimov2.html">2</a></li>
-                    <li class=""><a
-                            href="http://bulimov.ru/author/alexander-bulimov3.html">3</a></li>
-                    <li class=""><a
-                            href="http://bulimov.ru/author/alexander-bulimov4.html">4</a></li>
-                    <li class=""><a
-                            href="http://bulimov.ru/author/alexander-bulimov5.html">5</a></li>
-                    <li class="active"><a
-                            href="http://bulimov.ru/author/alexander-bulimov6.html">6</a></li>
-                <li class="next disabled"><a href="#">&raquo;</a></li>
-        </ul>
+<script type="text/javascript">
+function updateUptime(){
+    var today = new Date();
+    var minutes = today.getMinutes()
+    if (minutes < 10) {
+        minutes = "0" + minutes
+    }
+    var time = today.getHours() + ":" + minutes
+    var dateOfBirth = new Date(585864000000);
+    var diff = today - dateOfBirth;
+    var diffInDays = Math.floor(diff / (24 * 3600 * 1000))
+    var highlight = document.getElementsByClassName("highlight")[0];
+    highlight.innerHTML = highlight.innerHTML.replace('{uptime}', diffInDays).replace('{time}', time);
+}
+window.onload = updateUptime
+</script>
+        </div>
+    </section>
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
