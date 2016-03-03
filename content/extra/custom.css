@@ -1,3 +1,9 @@
 
 .fa-vk-square:before{content:"\f189"}
 .fa-habrahabr-square:before{content:"\f135"}
+
+/* better syntax highlight */
+.highlight pre .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight pre .gi { color: #00A000 } /* Generic.Inserted */
+.highlight pre .go { color: #888888 } /* Generic.Output */
+.highlight pre .gp { color: #c65d09; font-weight: bold } /* Generic.Prompt */

@@ -3,18 +3,6 @@
 from __future__ import unicode_literals
 
 AUTHOR = 'Alexander Bulimov'
-ABOUT_ME = 'Меня зовут Александр Викторович Булимов, я сисадмин из Москвы, \
-работаю с Linux с 2010 года.\
-\
-<br>\
-<br>\
-Сторонник свободного ПО. \
-<br>\
-Практикую методологию DevOps. \
-Использую для управления серверами \
-<a href=http://www.ansible.com/>Ansible</a>. \
-Люблю программировать, автор нескольких модулей к Ansible.\
-'
 SITENAME = 'Александр Булимов - записки сисадмина.'
 SITEURL = ''
 
@@ -28,6 +16,7 @@ PLUGINS = ["related_posts", "sitemap"]
 
 THEME = 'pelican-bootstrap3'
 BOOTSTRAP_THEME = 'sandstone'
+PYGMENTS_STYLE = 'monokai'
 
 SLUGIFY_SOURCE = 'title'
 ARTICLE_URL = '{category}/{slug}/'
@@ -39,7 +28,7 @@ TAGS_URL = 'tags/'
 TAGS_SAVE_AS = 'tags/index.html'
 ARCHIVES_SAVE_AS = 'archive/index.html'
 ARCHIVES_URL = 'archive/'
-
+MENUITEMS = [("Tags", "/tags/index.html")]
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
