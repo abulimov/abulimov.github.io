@@ -1,5 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Wed, 02 Mar 2016 00:00:00 +0300</lastBuildDate><item><title>О пользе Python и костылях с Docker</title><link>http://bulimov.ru/it/delete-docker-registry-image/</link><description>&lt;p&gt;В процессе организации авто-очистки &lt;a href="https://github.com/docker/distribution"&gt;Docker Registry 2&lt;/a&gt;,
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 18 Mar 2016 00:00:00 +0300</lastBuildDate><item><title>Открыл код db-checker</title><link>http://bulimov.ru/it/db-checker/</link><description>&lt;p&gt;Недавно я открыл код еще одного инструмента, который уже около года использую на работе -
+&lt;a href="https://github.com/abulimov/db-checker"&gt;db-checker&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Началось все с необходимости проводить регулярные проверки логической
+целостности данных в БД. Проще говоря - гонять мониторингом запросы к базе.&lt;/p&gt;
+&lt;p&gt;Сначала это была часть проекта, который проверял данные на нашем CDN.
+Проект этот сразу планировался многопоточным, поэтому написан на &lt;a href="http://golang.org"&gt;Go&lt;/a&gt;.
+Затем мухи были отделены от котлет, и проверка базы выделилась в отдельную
+сущность, но несколько legacy-моментов осталось.&lt;/p&gt;
+&lt;p&gt;Главной проблемой было то, что проверки определялись в коде, поэтому
+добавление новой проверки было относительно нетривиальной задачей,
+а код проекта невозможно было сделать открытым. Долгое время у меня не было
+времени на устранение этого недостатка, но недавно я взялся за эту задачу.&lt;/p&gt;
+&lt;h3&gt;db-checker&lt;/h3&gt;
+&lt;p&gt;Результатом стал проект &lt;a href="https://github.com/abulimov/db-checker"&gt;db-checker&lt;/a&gt;,
+который работает как Nagios-совместимый плагин, и позволяет:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;читать описание проверок из простых &lt;a href="http://yaml.org"&gt;YAML&lt;/a&gt;-файлов&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;делать запросы к PostgreSQL/MySQL и проверять наличие/отсутствие результата&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;выводить полученные данные в удобной табличной форме&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;сохранять состояние прошлой проверки и выводить алерты только для новых проблем&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Пройдемся по каждому пункту отдельно.&lt;/p&gt;
+&lt;h4&gt;Читать описание проверок из простых &lt;a href="http://yaml.org"&gt;YAML&lt;/a&gt;-файлов&lt;/h4&gt;
+&lt;p&gt;Я очень люблю &lt;a href="http://yaml.org"&gt;YAML&lt;/a&gt; как формат для конфигов, и описание
+проверок в нем выглядят крайне лаконично и просто (примеры в следующем пункте).
+При этом хранение проверок отдельно от инструмента очень удобно и дает возможность
+очень легко добавлять новые проверки любому человеку.&lt;/p&gt;
+&lt;p&gt;Все описание проверки состоит всего из 3х обязательных полей:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;query: любой SQL-запрос&lt;/li&gt;
+&lt;li&gt;description: Описание проверки&lt;/li&gt;
+&lt;li&gt;assert: что мы ожидаем от результата выполнения запроса, &lt;em&gt;present&lt;/em&gt; или &lt;em&gt;absent&lt;/em&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Делать запросы к PostgreSQL/MySQL и проверять наличие/отсутствие результата&lt;/h4&gt;
+&lt;p&gt;Все проверки целостности данных в базе можно выразить
+в форме SQL-запроса, который либо возвращает ОК в случае пройденной проверки,
+и тогда мы проверяем &lt;em&gt;наличие&lt;/em&gt; данных в ответе на запрос, либо мы запрашиваем
+список того, чего быть не должно, и тогда мы проверяем &lt;em&gt;отсутствие&lt;/em&gt; данных
+в ответе на запрос, а при наличии - выводим их в отчете.&lt;/p&gt;
+&lt;p&gt;Например, наличие блокировок в PostgreSQL можно проверять так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;query&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt; &lt;span class="p p-Indicator"&gt;|&lt;/span&gt;
+    &lt;span class="no"&gt;SELECT&lt;/span&gt;
+      &lt;span class="no"&gt;COALESCE(blockingl.relation::regclass::text,blockingl.locktype) as locked_item,&lt;/span&gt;
+      &lt;span class="no"&gt;(now() - blockeda.query_start)::time AS waiting_duration,&lt;/span&gt;
+      &lt;span class="no"&gt;blockeda.pid AS blocked_pid,&lt;/span&gt;
+      &lt;span class="no"&gt;blockeda.query as blocked_query, blockedl.mode as blocked_mode,&lt;/span&gt;
+      &lt;span class="no"&gt;blockinga.pid AS blocking_pid, blockinga.query as blocking_query,&lt;/span&gt;
+      &lt;span class="no"&gt;blockingl.mode as blocking_mode&lt;/span&gt;
+    &lt;span class="no"&gt;FROM pg_catalog.pg_locks blockedl&lt;/span&gt;
+    &lt;span class="no"&gt;JOIN pg_stat_activity blockeda ON blockedl.pid = blockeda.pid&lt;/span&gt;
+    &lt;span class="no"&gt;JOIN pg_catalog.pg_locks blockingl ON(&lt;/span&gt;
+      &lt;span class="no"&gt;( (blockingl.transactionid=blockedl.transactionid) OR&lt;/span&gt;
+      &lt;span class="no"&gt;(blockingl.relation=blockedl.relation AND blockingl.locktype=blockedl.locktype)&lt;/span&gt;
+      &lt;span class="no"&gt;) AND blockedl.pid != blockingl.pid)&lt;/span&gt;
+    &lt;span class="no"&gt;JOIN pg_stat_activity blockinga ON blockingl.pid = blockinga.pid&lt;/span&gt;
+      &lt;span class="no"&gt;AND blockinga.datid = blockeda.datid&lt;/span&gt;
+    &lt;span class="no"&gt;WHERE NOT blockedl.granted;&lt;/span&gt;
+&lt;span class="l l-Scalar l-Scalar-Plain"&gt;description&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;Locks in database&lt;/span&gt;
+&lt;span class="l l-Scalar l-Scalar-Plain"&gt;assert&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;absent&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Таким образом, если блокировок нет - все отлично, а есть есть - выводим их список.&lt;/p&gt;
+&lt;p&gt;Другой пример - проверка успешных задач &lt;em&gt;job_name&lt;/em&gt; PGAgent за 4 часа:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="l l-Scalar l-Scalar-Plain"&gt;query&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt; &lt;span class="p p-Indicator"&gt;|&lt;/span&gt;
+    &lt;span class="no"&gt;SELECT jlgstatus&lt;/span&gt;
+    &lt;span class="no"&gt;FROM pgagent.pga_joblog&lt;/span&gt;
+    &lt;span class="no"&gt;WHERE jlgstart &amp;gt; (now() - interval &amp;#39;4 hours&amp;#39;) AND jlgstatus = &amp;#39;s&amp;#39; AND&lt;/span&gt;
+    &lt;span class="no"&gt;jlgjobid=(&lt;/span&gt;
+    &lt;span class="no"&gt;SELECT jobid FROM pgagent.pga_job WHERE jobname = &amp;#39;job_name&amp;#39;&lt;/span&gt;
+    &lt;span class="no"&gt;)&lt;/span&gt;
+    &lt;span class="no"&gt;ORDER BY jlgstart DESC LIMIT 1;&lt;/span&gt;
+&lt;span class="l l-Scalar l-Scalar-Plain"&gt;description&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;Не было успешных запусков job_name за прошедший час&lt;/span&gt;
+&lt;span class="l l-Scalar l-Scalar-Plain"&gt;assert&lt;/span&gt;&lt;span class="p p-Indicator"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;present&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;В этом случае мы ждем, что Query вернет нам список задач, а если нет - алерт.&lt;/p&gt;
+&lt;h4&gt;Выводить полученные данные в удобной табличной форме&lt;/h4&gt;
+&lt;p&gt;Поскольку сообщения из алертов читают люди, надо показывать проблему так, чтобы
+сразу было все понятно, поэтому ASCII-таблица с проблемными значениями подходит
+как нельзя лучше.&lt;/p&gt;
+&lt;p&gt;Пример:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="gp"&gt;nagios@example.com:~$&lt;/span&gt; ./db-checker --dbname movies --dbuser&lt;span class="o"&gt;=&lt;/span&gt;checker --dbhost&lt;span class="o"&gt;=&lt;/span&gt;localhost --dbpassword&lt;span class="o"&gt;=&lt;/span&gt;SomePassword --checks /opt/checks/movies --critical
+&lt;span class="go"&gt;CRITICAL:&lt;/span&gt;
+&lt;span class="go"&gt;* Found movies with zero duration&lt;/span&gt;
+&lt;span class="go"&gt;N. ¦ column1 ¦ orig_title                ¦ rus_title&lt;/span&gt;
+&lt;span class="go"&gt;1. ¦ 1346    ¦ Midnight Express          ¦ Полуночный экспресс&lt;/span&gt;
+&lt;span class="go"&gt;2. ¦ 2165    ¦ In the Loop               ¦ В петле&lt;/span&gt;
+&lt;span class="go"&gt;3. ¦ 2254    ¦ Sex &amp;amp; Drugs &amp;amp; Rock &amp;amp; Roll ¦ Секс, наркотики и рок-н-ролл&lt;/span&gt;
+&lt;span class="go"&gt;4. ¦ 2534    ¦ Resident Evil: Damnation  ¦ Обитель Зла: Проклятие&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Сохранять состояние прошлой проверки и выводить алерты только для новых проблем&lt;/h4&gt;
+&lt;p&gt;Предположим, у нас есть некая таблица биллинга, в которой содержатся записи
+о транзакциях пользователей. Иногда случаются подозрительные повторные платежи,
+о каждом из которых стоит слать уведомление, но лишь единожды. При этом
+транзакции из таблицы никуда не пропадают. Вот как раз для такого случая
+есть &lt;code&gt;--diff&lt;/code&gt; режим, который позволяет уведомлять только о новых проблемах.&lt;/p&gt;
+&lt;h4&gt;Прочие особенности&lt;/h4&gt;
+&lt;p&gt;Поскольку проект написан на Go, грех было не реализовать параллельное выполнение
+проверок (настраивается с помощью флага &lt;code&gt;--concurrent-checks&lt;/code&gt;).&lt;/p&gt;
+&lt;p&gt;И конечно я постарался весь важный код покрыть тестами.&lt;/p&gt;
+&lt;h3&gt;Альтернативы&lt;/h3&gt;
+&lt;p&gt;До принятия решения о написании своего велосипеда я изучал уже готовые утилиты.
+Самое близкое по функционалу, что я нашел - &lt;a href="https://bucardo.org/check_postgres/check_postgres.pl.html"&gt;check_postgres.pl&lt;/a&gt;,
+монструозный скрипт на Perl с более чем 8k строк кода, зато с возможностью запускать
+ограниченное подмножество запросов через custom_query. Под мои задачи он не подошел,
+но штука впечатляющая.&lt;/p&gt;
+&lt;h3&gt;Заключение&lt;/h3&gt;
+&lt;p&gt;Больше информации и примеры проверок можно найти в &lt;a href="https://github.com/abulimov/db-checker"&gt;репозитории проекта&lt;/a&gt;,
+код опубликован под лицензией &lt;a href="http://opensource.org/licenses/MIT"&gt;MIT&lt;/a&gt;.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Bulimov</dc:creator><pubDate>Fri, 18 Mar 2016 00:00:00 +0300</pubDate><guid>tag:bulimov.ru,2016-03-18:it/db-checker/</guid><category>Программирование</category><category>Golang</category><category>Nagios</category><category>Monitoring</category></item><item><title>О пользе Python и костылях с Docker</title><link>http://bulimov.ru/it/delete-docker-registry-image/</link><description>&lt;p&gt;В процессе организации авто-очистки &lt;a href="https://github.com/docker/distribution"&gt;Docker Registry 2&lt;/a&gt;,
 устав ждать в появления в нем столь "ненужного" функционала, как удаление образов
 с диска (DELETE запросы удаляют тег, но сами данные остаются на диске и жрут место),
 я в очередной раз прибег к помощи скрипта из

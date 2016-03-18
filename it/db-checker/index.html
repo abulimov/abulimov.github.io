@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ru" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Открыл код db-checker - Александр Булимов - записки сисадмина.</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://bulimov.ru/it/db-checker/">
+
+        <meta name="author" content="Alexander Bulimov" />
+        <meta name="keywords" content="Программирование,Golang,Nagios,Monitoring" />
+        <meta name="description" content="Недавно я открыл код еще одного инструмента, который уже около года использую на работе - db-checker. Началось все с необходимости проводить регулярные проверки логической целостности данных в БД. Проще говоря - гонять мониторингом запросы к базе. Сначала это была часть проекта, который проверял данные на нашем CDN. Проект этот сразу планировался многопоточным, поэтому написан на Go. Затем мухи были отделены от котлет, и проверка базы выделилась в отдельную сущность, но несколько legacy-моментов ..." />
+
+        <meta property="og:site_name" content="Александр Булимов - записки сисадмина." />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Открыл код db-checker"/>
+        <meta property="og:url" content="http://bulimov.ru/it/db-checker/"/>
+        <meta property="og:description" content="Недавно я открыл код еще одного инструмента, который уже около года использую на работе - db-checker. Началось все с необходимости проводить регулярные проверки логической целостности данных в БД. Проще говоря - гонять мониторингом запросы к базе. Сначала это была часть проекта, который проверял данные на нашем CDN. Проект этот сразу планировался многопоточным, поэтому написан на Go. Затем мухи были отделены от котлет, и проверка базы выделилась в отдельную сущность, но несколько legacy-моментов ..."/>
+        <meta property="article:published_time" content="2016-03-18" />
+            <meta property="article:section" content="IT" />
+            <meta property="article:tag" content="Программирование" />
+            <meta property="article:tag" content="Golang" />
+            <meta property="article:tag" content="Nagios" />
+            <meta property="article:tag" content="Monitoring" />
+            <meta property="article:author" content="Alexander Bulimov" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://bulimov.ru/theme/css/bootstrap.sandstone.min.css" type="text/css"/>
+    <link href="http://bulimov.ru/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://bulimov.ru/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://bulimov.ru/theme/css/style.css" type="text/css"/>
+        <link href="http://bulimov.ru/static/custom.css" rel="stylesheet">
+
+        <link href="http://bulimov.ru/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Александр Булимов - записки сисадмина. ATOM Feed"/>
+
+        <link href="http://bulimov.ru/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
+              title="Александр Булимов - записки сисадмина. RSS Feed"/>
+
+
+        <link href="http://bulimov.ru/feeds/it.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Александр Булимов - записки сисадмина. IT ATOM Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://bulimov.ru/" class="navbar-brand">
+Александр Булимов - записки сисадмина.            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                    <li><a href="/tags/index.html">Tags</a></li>
+                         <li><a href="http://bulimov.ru/pages/about-me.html">
+                             About Me
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="http://bulimov.ru/archive/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://bulimov.ru/it/db-checker/"
+                       rel="bookmark"
+                       title="Permalink to Открыл код db-checker">
+                        Открыл код db-checker
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-03-18T00:00:00+03:00"> Fri 18 March 2016</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
+        /
+	<a href="http://bulimov.ru/tag/golang.html">Golang</a>
+        /
+	<a href="http://bulimov.ru/tag/nagios.html">Nagios</a>
+        /
+	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>Недавно я открыл код еще одного инструмента, который уже около года использую на работе -
+<a href="https://github.com/abulimov/db-checker">db-checker</a>.</p>
+<p>Началось все с необходимости проводить регулярные проверки логической
+целостности данных в БД. Проще говоря - гонять мониторингом запросы к базе.</p>
+<p>Сначала это была часть проекта, который проверял данные на нашем CDN.
+Проект этот сразу планировался многопоточным, поэтому написан на <a href="http://golang.org">Go</a>.
+Затем мухи были отделены от котлет, и проверка базы выделилась в отдельную
+сущность, но несколько legacy-моментов осталось.</p>
+<p>Главной проблемой было то, что проверки определялись в коде, поэтому
+добавление новой проверки было относительно нетривиальной задачей,
+а код проекта невозможно было сделать открытым. Долгое время у меня не было
+времени на устранение этого недостатка, но недавно я взялся за эту задачу.</p>
+<h3>db-checker</h3>
+<p>Результатом стал проект <a href="https://github.com/abulimov/db-checker">db-checker</a>,
+который работает как Nagios-совместимый плагин, и позволяет:</p>
+<ul>
+<li><strong>читать описание проверок из простых <a href="http://yaml.org">YAML</a>-файлов</strong></li>
+<li><strong>делать запросы к PostgreSQL/MySQL и проверять наличие/отсутствие результата</strong></li>
+<li><strong>выводить полученные данные в удобной табличной форме</strong></li>
+<li><strong>сохранять состояние прошлой проверки и выводить алерты только для новых проблем</strong></li>
+</ul>
+<p>Пройдемся по каждому пункту отдельно.</p>
+<h4>Читать описание проверок из простых <a href="http://yaml.org">YAML</a>-файлов</h4>
+<p>Я очень люблю <a href="http://yaml.org">YAML</a> как формат для конфигов, и описание
+проверок в нем выглядят крайне лаконично и просто (примеры в следующем пункте).
+При этом хранение проверок отдельно от инструмента очень удобно и дает возможность
+очень легко добавлять новые проверки любому человеку.</p>
+<p>Все описание проверки состоит всего из 3х обязательных полей:</p>
+<ul>
+<li>query: любой SQL-запрос</li>
+<li>description: Описание проверки</li>
+<li>assert: что мы ожидаем от результата выполнения запроса, <em>present</em> или <em>absent</em></li>
+</ul>
+<h4>Делать запросы к PostgreSQL/MySQL и проверять наличие/отсутствие результата</h4>
+<p>Все проверки целостности данных в базе можно выразить
+в форме SQL-запроса, который либо возвращает ОК в случае пройденной проверки,
+и тогда мы проверяем <em>наличие</em> данных в ответе на запрос, либо мы запрашиваем
+список того, чего быть не должно, и тогда мы проверяем <em>отсутствие</em> данных
+в ответе на запрос, а при наличии - выводим их в отчете.</p>
+<p>Например, наличие блокировок в PostgreSQL можно проверять так:</p>
+<div class="highlight"><pre><span class="l l-Scalar l-Scalar-Plain">query</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
+    <span class="no">SELECT</span>
+      <span class="no">COALESCE(blockingl.relation::regclass::text,blockingl.locktype) as locked_item,</span>
+      <span class="no">(now() - blockeda.query_start)::time AS waiting_duration,</span>
+      <span class="no">blockeda.pid AS blocked_pid,</span>
+      <span class="no">blockeda.query as blocked_query, blockedl.mode as blocked_mode,</span>
+      <span class="no">blockinga.pid AS blocking_pid, blockinga.query as blocking_query,</span>
+      <span class="no">blockingl.mode as blocking_mode</span>
+    <span class="no">FROM pg_catalog.pg_locks blockedl</span>
+    <span class="no">JOIN pg_stat_activity blockeda ON blockedl.pid = blockeda.pid</span>
+    <span class="no">JOIN pg_catalog.pg_locks blockingl ON(</span>
+      <span class="no">( (blockingl.transactionid=blockedl.transactionid) OR</span>
+      <span class="no">(blockingl.relation=blockedl.relation AND blockingl.locktype=blockedl.locktype)</span>
+      <span class="no">) AND blockedl.pid != blockingl.pid)</span>
+    <span class="no">JOIN pg_stat_activity blockinga ON blockingl.pid = blockinga.pid</span>
+      <span class="no">AND blockinga.datid = blockeda.datid</span>
+    <span class="no">WHERE NOT blockedl.granted;</span>
+<span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Locks in database</span>
+<span class="l l-Scalar l-Scalar-Plain">assert</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">absent</span>
+</pre></div>
+
+
+<p>Таким образом, если блокировок нет - все отлично, а есть есть - выводим их список.</p>
+<p>Другой пример - проверка успешных задач <em>job_name</em> PGAgent за 4 часа:</p>
+<div class="highlight"><pre><span class="l l-Scalar l-Scalar-Plain">query</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
+    <span class="no">SELECT jlgstatus</span>
+    <span class="no">FROM pgagent.pga_joblog</span>
+    <span class="no">WHERE jlgstart &gt; (now() - interval &#39;4 hours&#39;) AND jlgstatus = &#39;s&#39; AND</span>
+    <span class="no">jlgjobid=(</span>
+    <span class="no">SELECT jobid FROM pgagent.pga_job WHERE jobname = &#39;job_name&#39;</span>
+    <span class="no">)</span>
+    <span class="no">ORDER BY jlgstart DESC LIMIT 1;</span>
+<span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Не было успешных запусков job_name за прошедший час</span>
+<span class="l l-Scalar l-Scalar-Plain">assert</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">present</span>
+</pre></div>
+
+
+<p>В этом случае мы ждем, что Query вернет нам список задач, а если нет - алерт.</p>
+<h4>Выводить полученные данные в удобной табличной форме</h4>
+<p>Поскольку сообщения из алертов читают люди, надо показывать проблему так, чтобы
+сразу было все понятно, поэтому ASCII-таблица с проблемными значениями подходит
+как нельзя лучше.</p>
+<p>Пример:</p>
+<div class="highlight"><pre><span class="gp">nagios@example.com:~$</span> ./db-checker --dbname movies --dbuser<span class="o">=</span>checker --dbhost<span class="o">=</span>localhost --dbpassword<span class="o">=</span>SomePassword --checks /opt/checks/movies --critical
+<span class="go">CRITICAL:</span>
+<span class="go">* Found movies with zero duration</span>
+<span class="go">N. ¦ column1 ¦ orig_title                ¦ rus_title</span>
+<span class="go">1. ¦ 1346    ¦ Midnight Express          ¦ Полуночный экспресс</span>
+<span class="go">2. ¦ 2165    ¦ In the Loop               ¦ В петле</span>
+<span class="go">3. ¦ 2254    ¦ Sex &amp; Drugs &amp; Rock &amp; Roll ¦ Секс, наркотики и рок-н-ролл</span>
+<span class="go">4. ¦ 2534    ¦ Resident Evil: Damnation  ¦ Обитель Зла: Проклятие</span>
+</pre></div>
+
+
+<h4>Сохранять состояние прошлой проверки и выводить алерты только для новых проблем</h4>
+<p>Предположим, у нас есть некая таблица биллинга, в которой содержатся записи
+о транзакциях пользователей. Иногда случаются подозрительные повторные платежи,
+о каждом из которых стоит слать уведомление, но лишь единожды. При этом
+транзакции из таблицы никуда не пропадают. Вот как раз для такого случая
+есть <code>--diff</code> режим, который позволяет уведомлять только о новых проблемах.</p>
+<h4>Прочие особенности</h4>
+<p>Поскольку проект написан на Go, грех было не реализовать параллельное выполнение
+проверок (настраивается с помощью флага <code>--concurrent-checks</code>).</p>
+<p>И конечно я постарался весь важный код покрыть тестами.</p>
+<h3>Альтернативы</h3>
+<p>До принятия решения о написании своего велосипеда я изучал уже готовые утилиты.
+Самое близкое по функционалу, что я нашел - <a href="https://bucardo.org/check_postgres/check_postgres.pl.html">check_postgres.pl</a>,
+монструозный скрипт на Perl с более чем 8k строк кода, зато с возможностью запускать
+ограниченное подмножество запросов через custom_query. Под мои задачи он не подошел,
+но штука впечатляющая.</p>
+<h3>Заключение</h3>
+<p>Больше информации и примеры проверок можно найти в <a href="https://github.com/abulimov/db-checker">репозитории проекта</a>,
+код опубликован под лицензией <a href="http://opensource.org/licenses/MIT">MIT</a>.</p>
+            </div>
+            <!-- /.entry-content -->
+<section class="well" id="related-posts">
+    <h4>Related Posts:</h4>
+    <ul>
+        <li><a href="http://bulimov.ru/it/cadvisor-companion/">Улучшаем сообщения от мониторинга с помощью cAdvisor-companion</a></li>
+        <li><a href="http://bulimov.ru/it/check-cadvisor/">Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</a></li>
+        <li><a href="http://bulimov.ru/it/check-docker-memory/">Научился мониторить использование памяти в Docker-контейнерах</a></li>
+        <li><a href="http://bulimov.ru/it/advent-of-code/">Рекомендую Advent Of Code</a></li>
+        <li><a href="http://bulimov.ru/it/Выложил-немного-полезностей/">Выложил немного полезностей</a></li>
+    </ul>
+</section>
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = 'db-checker';
+                var disqus_url = 'http://bulimov.ru/it/db-checker/';
+
+            var disqus_config = function () {
+                this.language = "ru";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="https://github.com/abulimov"><i class="fa fa-github-square fa-lg"></i> GitHub</a></li>
+                <li class="list-group-item"><a href="https://www.facebook.com/profile.php?id=1505350810"><i class="fa fa-facebook-square fa-lg"></i> Facebook</a></li>
+                <li class="list-group-item"><a href="https://plus.google.com/102209846851870884693/about"><i class="fa fa-google-plus-square fa-lg"></i> Google+</a></li>
+                <li class="list-group-item"><a href="http://ru.linkedin.com/pub/александр-булимов/7b/692/a92/"><i class="fa fa-linkedin-square fa-lg"></i> LinkedIn</a></li>
+                <li class="list-group-item"><a href="http://habrahabr.ru/users/lazywolf/"><i class="fa fa-habrahabr-square fa-lg"></i> Habrahabr</a></li>
+                <li class="list-group-item"><a href="http://vk.com/a_v_bulimov"><i class="fa fa-vk-square fa-lg"></i> VK</a></li>
+                <li class="list-group-item"><a href="/feeds/all.rss.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
+              </ul>
+            </li>
+
+
+
+
+
+
+    <li class="list-group-item"><h4><i class="fa fa-github fa-lg"></i><span class="icon-label">GitHub Repos</span></h4>
+        <div id="gh_repos">
+            <p class="list-group-item">Status updating...</p>
+        </div>
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2016 Alexander Bulimov
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+</small></p>
+         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://bulimov.ru/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://bulimov.ru/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://bulimov.ru/theme/js/respond.min.js"></script>
+
+    <!-- GitHub JS -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = 'http://bulimov.ru/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'abulimov',
+                count: 5,
+                skip_forks: false,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="http://bulimov.ru/theme/js/github.js" type="text/javascript"></script>
+    <!-- End GitHub JS Code -->
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-49230997-1']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script');
+            ga.type = 'text/javascript';
+            ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+    <!-- End Google Analytics Code -->
+
+</body>
+</html>
