@@ -1,5 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Александр Булимов - записки сисадмина.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/alexander-bulimov.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2016-03-18T00:00:00+03:00</updated><entry><title>Открыл код db-checker</title><link href="http://bulimov.ru/it/db-checker/" rel="alternate"></link><updated>2016-03-18T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-03-18:it/db-checker/</id><summary type="html">&lt;p&gt;Недавно я открыл код еще одного инструмента, который уже около года использую на работе -
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Александр Булимов - записки сисадмина.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/alexander-bulimov.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2016-03-24T00:00:00+03:00</updated><entry><title>Проверка образов Docker на уязвимости с Clair</title><link href="http://bulimov.ru/it/clair/" rel="alternate"></link><updated>2016-03-24T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-03-24:it/clair/</id><summary type="html">&lt;p&gt;Ни для кого не секрет, что контейнеры (и в частности Docker) не только решают
+много проблем (configuration drift, scalability, dependency hell), но и привносят новые
+(в частности, обновление базовых образов).&lt;/p&gt;
+&lt;p&gt;Я уже давно мониторил IT-мир на предмет появления хорошего инструмента для
+проверки &lt;a href="http://docker.com"&gt;Docker&lt;/a&gt;-образов на наличие известных CVE.
+До недавнего времени подходящего инструмента не было. Была парочка дистро-специфичных
+инструментов (например &lt;a href="https://github.com/OpenSCAP/container-compliance"&gt;oscap-docker&lt;/a&gt;,
+с которым я помучался и забил), но ничего подходящего.&lt;/p&gt;
+&lt;p&gt;Но недавно (19.03.2016) CoreOS выпустил первый
+стабильный релиз инструмента под названием &lt;a href="https://github.com/coreos/clair"&gt;Clair&lt;/a&gt;,
+который как раз и предназначен для проверки образов Docker и &lt;a href="https://github.com/appc/spec"&gt;appc&lt;/a&gt;,
+и поддерживает Debian, Ubuntu и RedHat.&lt;/p&gt;
+&lt;p&gt;К продуктами от создателей CoreOS я отношусь с &lt;a href="/it/coreos-opinion"&gt;нескрываемым&lt;/a&gt;
+&lt;a href="/it/goodby-coreos"&gt;подозрением&lt;/a&gt;, однако за неимением альтернатив решил попробовать.&lt;/p&gt;
+&lt;p&gt;К моему удивлению, оно работает. Конечно, все еще сыро - например, можно
+проверять образ на наличие уязвимостей, когда Clair еще даже не скачало базу
+этих самых уязвимостей, и получить отличный результат - все чисто.&lt;/p&gt;
+&lt;p&gt;А утилита для проверки образов из консоли
+&lt;a href="https://github.com/coreos/clair/issues/117"&gt;не убирается за собой в /tmp&lt;/a&gt;,
+потому что разработчики не знают, что
+&lt;a href="https://gobyexample.com/exit"&gt;в Go вызов &lt;code&gt;os.Exit()&lt;/code&gt; пропускает все defer-функции&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Но даже несмотря на эти мелкие проблемы - инструмент вышел не просто рабочим,
+а вполне пригодным к регулярному использованию.&lt;/p&gt;
+&lt;p&gt;Так что после непродолжительных игрищ с Clair я прикрутил его к нашему CI-серверу
+(&lt;a href="https://jenkins.io"&gt;Jenkins&lt;/a&gt;), и настроил регулярную проверку
+наших базовых образов.&lt;/p&gt;
+&lt;p&gt;Выглядит это как-то так:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;image&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;$&lt;span class="s2"&gt;name:&lt;/span&gt;$&lt;span class="s2"&gt;version&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;pulling image &lt;/span&gt;$&lt;span class="s2"&gt;image&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;pull&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;docker pull &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;$&lt;span class="s2"&gt;image&amp;quot;&lt;/span&gt; &amp;gt;/dev/null&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; -ne &lt;span class="nv"&gt;$?&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+  &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;pull failed!&amp;quot;&lt;/span&gt;
+  &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;$&lt;span class="s2"&gt;pull&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; tail -n 20
+  &lt;span class="nb"&gt;exit&lt;/span&gt; 1
+&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;analyzing &lt;/span&gt;$&lt;span class="s2"&gt;image&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;out&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;analyze-local-images &lt;span class="se"&gt;\&lt;/span&gt;
+  -minimum-severity High &lt;span class="se"&gt;\&lt;/span&gt;
+  -endpoint http://clair.ip.address.here:6060 &lt;span class="se"&gt;\&lt;/span&gt;
+  -my-address own.ip.address.here &lt;span class="se"&gt;\&lt;/span&gt;
+  &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;$&lt;span class="s2"&gt;image&amp;quot;&lt;/span&gt; 2&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;1&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;status&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$?&lt;/span&gt;
+
+&lt;span class="c1"&gt;# cleanup is done separately, with docker-gc running on cron&lt;/span&gt;
+&lt;span class="c1"&gt;# docker rmi &amp;quot;$image&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; -ne $status &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+  &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;analyze failed!&amp;quot;&lt;/span&gt;
+  &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;$&lt;span class="s2"&gt;report&amp;quot;&lt;/span&gt;
+  &lt;span class="nb"&gt;exit&lt;/span&gt; 1
+&lt;span class="k"&gt;fi&lt;/span&gt;
+
+&lt;span class="nv"&gt;report&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;$&lt;span class="s2"&gt;out&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; grep -A &lt;span class="m"&gt;10000&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Clair report for image&amp;#39;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;$&lt;span class="s2"&gt;report&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; grep CVE &amp;gt;/dev/null
+&lt;span class="nv"&gt;found_cve&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$?&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; -eq &lt;span class="nv"&gt;$f&lt;/span&gt;ound_cve &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
+  &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;$&lt;span class="s2"&gt;report&amp;quot;&lt;/span&gt;
+  &lt;span class="nb"&gt;exit&lt;/span&gt; 1
+&lt;span class="k"&gt;fi&lt;/span&gt;
+
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;$&lt;span class="s2"&gt;report&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Использую пока такой-вот скрипт-обертку вокруг
+&lt;a href="https://github.com/coreos/clair/tree/master/contrib/analyze-local-images"&gt;консольной утилиты&lt;/a&gt;,
+хотя наличие у Clair &lt;a href="https://github.com/coreos/clair/blob/master/api/v1/README.md"&gt;вменяемого API&lt;/a&gt;
+очень сильно радует.&lt;/p&gt;
+&lt;p&gt;Из минусов (кроме относительной сырости) - использование API требует хорошего
+копания в кишках образа контейнера, что для Docker чревато поломкой в каком-либо новом релизе.&lt;/p&gt;
+&lt;p&gt;Но сам факт, что наконец-то появился такой инструмент очень радует, и хочется
+надеяться на скорую его интеграцию в registry (уже есть в &lt;a href="https://github.com/containerops/dockyard"&gt;dockyard&lt;/a&gt;)
+и CI-pipeline.&lt;/p&gt;</summary><category term="Clair"></category><category term="Docker"></category><category term="CoreOS"></category></entry><entry><title>Открыл код db-checker</title><link href="http://bulimov.ru/it/db-checker/" rel="alternate"></link><updated>2016-03-18T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-03-18:it/db-checker/</id><summary type="html">&lt;p&gt;Недавно я открыл код еще одного инструмента, который уже около года использую на работе -
 &lt;a href="https://github.com/abulimov/db-checker"&gt;db-checker&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Началось все с необходимости проводить регулярные проверки логической
 целостности данных в БД. Проще говоря - гонять мониторингом запросы к базе.&lt;/p&gt;
