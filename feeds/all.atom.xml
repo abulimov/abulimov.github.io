@@ -1,5 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Александр Булимов - записки сисадмина.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/all.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2016-03-24T00:00:00+03:00</updated><entry><title>Проверка образов Docker на уязвимости с Clair</title><link href="http://bulimov.ru/it/clair/" rel="alternate"></link><updated>2016-03-24T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-03-24:it/clair/</id><summary type="html">&lt;p&gt;Ни для кого не секрет, что контейнеры (и в частности Docker) не только решают
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Александр Булимов - записки сисадмина.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/all.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2016-03-31T00:00:00+03:00</updated><entry><title>Vendoring зависимостей в Go</title><link href="http://bulimov.ru/it/go-vendoring/" rel="alternate"></link><updated>2016-03-31T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-03-31:it/go-vendoring/</id><summary type="html">&lt;p&gt;После недавнего &lt;a href="http://www.opennet.ru/opennews/art.shtml?num=44104"&gt;удаления модуля на 11 строк кода из npm&lt;/a&gt;,
+которое сломало всю Node.js инфраструктуру, я по-новому взглянул на то,
+как в проектах на Go реализованы зависимости от других пакетов.&lt;/p&gt;
+&lt;p&gt;Изначально, при знакомстве с go я был крайне недоволен отсутствием возможности задавать зависимости
+от конкретных версий (зависимость указывается только от репозитория, т.е. от master ветки) -
+ведь апстрим может ломать обратную совместимость, и твой проект просто не соберется.
+Причем я сам с этой проблемой столкнулся, и это было очень неприятно.&lt;/p&gt;
+&lt;p&gt;К счастью, не я один страдал от этой недоработки, и для решения этой проблемы в go1.5 добавили
+&lt;a href="https://docs.google.com/document/d/1Bz5-UB7g2uPBdOx-rw5t9MxJwkfpx90cqG9AFL0JAYo"&gt;экспериментальный vendoring зависимостей&lt;/a&gt;,
+который в 1.6 включили по-умолчанию.&lt;/p&gt;
+&lt;p&gt;Теперь появилась возможность сложить все зависимости в директорию &lt;code&gt;vendor/&lt;/code&gt;
+внутри своего проекта, и все утилиты go будут с ними корректно работать.&lt;/p&gt;
+&lt;p&gt;Тут возникла дилемма - добавлять ли &lt;code&gt;vendor/&lt;/code&gt; в git вместе с проектом?&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://glide.sh"&gt;Glide&lt;/a&gt;, популярная утилита для работы с зависимостями в go,
+которой я пользуюсь, дает &lt;a href="https://glide.readthedocs.org/en/latest/vendor/#recommendations"&gt;следующие рекомендации&lt;/a&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;для библиотек не добавлять &lt;code&gt;vendor/&lt;/code&gt; в VCS;&lt;/li&gt;
+&lt;li&gt;для утилит добавлять &lt;code&gt;vendor/&lt;/code&gt; в VCS для обеспечения повторяемости билдов у пользователей.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Мысль о добавлении всех зависимостей в репозиторий моего проекта пугала меня,
+и казалась костылем. Однако после анализа своего опыта взаимодействия с менеджерами пакетов
+в других языках и по здравому размышлению о подходе go, я был вынужден принять
+решение с добавлением всех зависимостей в проект.&lt;/p&gt;
+&lt;p&gt;Решение это не идеальное, но создание очередного навороченного менеджера пакетов
+тоже не подарок, и проблем (как мы видим на примере того-же Python) с ним хватает.&lt;/p&gt;
+&lt;p&gt;А тут мы застрахованы и от удаления самого репозитория с нашей зависимостью,
+и от поломанной обратной совместимости. Кстати, насколько мне известно, все большие
+проекты работают именно по такой схеме - хранят все зависимости у себя.&lt;/p&gt;
+&lt;p&gt;При этом радует то, что для установки утилит с зависимостями в &lt;code&gt;vendor/&lt;/code&gt; в VCS
+не нужен никакой менеджер зависимостей типа Glide/Godeps и т.п. - мухи отдельно,
+котлеты отдельно. Пользователь просто делает &lt;code&gt;go get my_package&lt;/code&gt; и радуется.
+А мы используем менеджер зависимостей по вкусу и тоже радуемся - все довольны.&lt;/p&gt;
+&lt;p&gt;В общем, на этом примере явно видна одна из главных особенностей Go, то, за что его можно
+одновременно любить и ненавидеть - он прагматичный до мозга костей.&lt;/p&gt;
+&lt;p&gt;Лично для меня это скорее достоинство.&lt;/p&gt;</summary><category term="Golang"></category><category term="Программирование"></category></entry><entry><title>Проверка образов Docker на уязвимости с Clair</title><link href="http://bulimov.ru/it/clair/" rel="alternate"></link><updated>2016-03-24T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-03-24:it/clair/</id><summary type="html">&lt;p&gt;Ни для кого не секрет, что контейнеры (и в частности Docker) не только решают
 много проблем (configuration drift, scalability, dependency hell), но и привносят новые
 (в частности, обновление базовых образов).&lt;/p&gt;
 &lt;p&gt;Я уже давно мониторил IT-мир на предмет появления хорошего инструмента для
