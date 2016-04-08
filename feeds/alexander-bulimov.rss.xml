@@ -1,5 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/alexander-bulimov.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 31 Mar 2016 00:00:00 +0300</lastBuildDate><item><title>Vendoring зависимостей в Go</title><link>http://bulimov.ru/it/go-vendoring/</link><description>&lt;p&gt;После недавнего &lt;a href="http://www.opennet.ru/opennews/art.shtml?num=44104"&gt;удаления модуля на 11 строк кода из npm&lt;/a&gt;,
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/alexander-bulimov.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 08 Apr 2016 00:00:00 +0300</lastBuildDate><item><title>Все для HAProxy в Atom</title><link>http://bulimov.ru/it/atom-haproxy/</link><description>&lt;p&gt;Появилась у меня на работе задачка - взять 3 относительно разных конфига
+HAProxy, ответвившихся когда-то от общего предка, и обратно унифицировать их
+в один.&lt;/p&gt;
+&lt;p&gt;Конфиги хорошие, большие - 800 строк каждый.&lt;/p&gt;
+&lt;p&gt;Приступил я к этой задаче, и сразу оступил - потому что в &lt;a href="http://atom.io"&gt;Atom&lt;/a&gt;,
+которым я пользуюсь для редактирования всего, не было подсветки
+синтаксиса конфигов HAProxy.&lt;/p&gt;
+&lt;p&gt;Ну у нас же тут opensource, так что тут же был нагуглен архив с
+&lt;a href="https://github.com/williamsjj/HAProxy.tmbundle"&gt;HAProxy.tmbundle&lt;/a&gt;, который
+владелец почему-то удалил. Бандлы TextMate можно конвертировать в плагины
+Atom "из коробки", так что именно это я и сделал, и поэтому очень быстро
+получил какую-никакую подсветку конфигов.&lt;/p&gt;
+&lt;p&gt;Довольный, я продолжил рефакторинг этих конфигов, и тут же выяснил, что
+подсветка довольно неполная. Перспектива набивать недостающие ключевые слова руками
+меня совсем не прельщала, поэтому я быстро набросал примитивнейший
+&lt;a href="https://github.com/abulimov/atom-language-haproxy/blob/master/generate.py"&gt;скрипт на питоне&lt;/a&gt;,
+который парсит официальную документацию HAProxy и выдергивает оттуда ключевые слова,
+заполняя шаблон cson-файла с описанием подсветки.&lt;/p&gt;
+&lt;p&gt;Немного regexp-магии, и подсветка синтаксиса наконец стала меня удовлетворять,
+так что я снова вернулся к рефакторингу.&lt;/p&gt;
+&lt;p&gt;Во время этого увлекательнейшего процесса в голову пришла мысль - насколько же
+тут был бы уместен статический анализ, проще говоря - linter. Конечно,
+сам HAProxy умеет проверять конфиг, и даже выводит предупреждения на некоторые
+вещи, но&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;это требует запуска самого HAProxy;&lt;/li&gt;
+&lt;li&gt;это не интегрировано в редактор;&lt;/li&gt;
+&lt;li&gt;он не показывает повторяющиеся правила;&lt;/li&gt;
+&lt;li&gt;он не показывает так называемый deadcode - неиспользуемые части конфига.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Поскольку формат конфигов у HAProxy достаточно простой, а я уже был раззадорен
+парсингом документации, пришла идея сделать простенький linter для конфигов HAProxy.&lt;/p&gt;
+&lt;p&gt;Выбор пал снова на &lt;a href="http://golang.org"&gt;Go&lt;/a&gt;, поскольку linter должен быть быстрым и надежным.&lt;/p&gt;
+&lt;p&gt;Конечно, первое, чему я научил свой linter - определение неиспользуемых частей конфига,
+поскольку остальное можно было проверить с помощью самого HAProxy.&lt;/p&gt;
+&lt;p&gt;Как только это заработало, я начал делать плагин для Atom, который бы использовал
+вывод моего linterа и отмечал плохие строчки.&lt;/p&gt;
+&lt;p&gt;Тут я конечно относительно долго тупил, поскольку на JS/CoffeeScript ничего не писал,
+но в итоге за первые полдня работы был готов и прототип linter, и плагин для Atom,
+так что оставшиеся полдня я рефакторил конфиги.&lt;/p&gt;
+&lt;p&gt;В процессе я добавлял правила, которые показывали бы те моменты, на которые я
+натыкался в процессе рефакторинга, в результате чего на момент
+написания этой статьи мой linter умеет сам находить следующие проблемы:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;использованные но не объявленные бекенды;&lt;/li&gt;
+&lt;li&gt;объявленные но не используемые бекенды;&lt;/li&gt;
+&lt;li&gt;использованные но не объявленные acl;&lt;/li&gt;
+&lt;li&gt;объявленные но используемые acl;&lt;/li&gt;
+&lt;li&gt;правила, написанные не в том порядке в котором они будут применены;&lt;/li&gt;
+&lt;li&gt;дублирование строк конфига;&lt;/li&gt;
+&lt;li&gt;наличие deprecated ключевых слов.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Более того, если HAProxy все-таки установлен локально,
+linter запускает его в виде &lt;code&gt;haproxy -c -f filename&lt;/code&gt;, и парсит его выхлоп.&lt;/p&gt;
+&lt;p&gt;В этом случае мы не запускаем те из проверок, которые реализованы в самом HAProxy,
+например на наличие deprecated ключевых слов. Конечно, эта опция отключаемая.&lt;/p&gt;
+&lt;p&gt;При этом linter проще простого интегрировать с любым редактором -
+у него есть режим вывода всех найденных проблем в JSON.&lt;/p&gt;
+&lt;p&gt;В общем, конфиг проверяется достаточно досконально, в Atom все изумительно
+подсвечивается, так что результатом я более чем доволен и спокойно закончил
+рефакторинг тех гигантских конфигов.&lt;/p&gt;
+&lt;p&gt;Ну а все плоды моих трудов доступны под &lt;a href="http://opensource.org/licenses/MIT"&gt;лицензией MIT&lt;/a&gt;
+на GitHub:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Подсветка синтаксиса конфигов HAProxy в Atom - &lt;a href="https://github.com/abulimov/atom-language-haproxy"&gt;atom-language-haproxy&lt;/a&gt;
+(&lt;a href="https://atom.io/packages/language-haproxy"&gt;страничка плагина в Atom&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Плагин для интеграции haproxy-lint в Atom - &lt;a href="https://github.com/abulimov/atom-linter-haproxy"&gt;atom-linter-haproxy&lt;/a&gt;
+(&lt;a href="https://atom.io/packages/linter-haproxy"&gt;страничка плагина в Atom&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Сам haproxy-lint - &lt;a href="https://github.com/abulimov/haproxy-lint"&gt;haproxy-lint&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;P.S. Заодно я научился делать релизы бинарников на GitHub с помощью
+&lt;a href="https://travis-ci.org"&gt;TravisCI&lt;/a&gt; - это оказалось очень легко и удобно.&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Bulimov</dc:creator><pubDate>Fri, 08 Apr 2016 00:00:00 +0300</pubDate><guid>tag:bulimov.ru,2016-04-08:it/atom-haproxy/</guid><category>Golang</category><category>Программирование</category><category>Atom</category><category>HAProxy</category></item><item><title>Vendoring зависимостей в Go</title><link>http://bulimov.ru/it/go-vendoring/</link><description>&lt;p&gt;После недавнего &lt;a href="http://www.opennet.ru/opennews/art.shtml?num=44104"&gt;удаления модуля на 11 строк кода из npm&lt;/a&gt;,
 которое сломало всю Node.js инфраструктуру, я по-новому взглянул на то,
 как в проектах на Go реализованы зависимости от других пакетов.&lt;/p&gt;
 &lt;p&gt;Изначально, при знакомстве с go я был крайне недоволен отсутствием возможности задавать зависимости
