@@ -71,6 +71,42 @@
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="http://bulimov.ru/it/haproxy-cadvisor/">Балансировка в HAProxy на основе данных cAdvisor</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2015-04-15T00:00:00+03:00"> Wed 15 April 2015</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/haproxy.html">HAProxy</a>
+        /
+	<a href="http://bulimov.ru/tag/cadvisor.html">cAdvisor</a>
+        /
+	<a href="http://bulimov.ru/tag/python.html">Python</a>
+        /
+	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Для запуска Docker-контейнеров у меня в данный момент выделено достаточно много
+серверов, причем аппаратная часть у некоторых из них отличается
+друг от друга. Соответственно, при настройке на чудесном балансировщике
+<a href="http://www.haproxy.org/">HAProxy</a> такого параметра балансировки
+как <em>"вес сервера"</em>, приходится это различие в аппаратной части учитывать.</p>
+<p>Можно, конечно, подобрать значения весов самостоятельно на основе
+данных мониторинга, а при появлении нагрузки от соседних Docker-контейнеров
+эти веса корректировать, но это не наш метод.</p>
+<p>Не так ...</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/haproxy-cadvisor/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://bulimov.ru/it/chromium-vim/">Открыл для себя cVim для Google Chrome</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -379,41 +415,6 @@
 HP SmartArray на чистом Python - милости просим, все
 <a href="https://github.com/abulimov/utils/tree/master/nagios">в ...</a></p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Выложил-немного-полезностей/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/Открыл-для-себя-плагины-к-tmux/">Открыл для себя плагины к tmux</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-09-04T00:00:00+04:00"> Thu 04 September 2014</time>
-    </span>
-
-
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/tmux.html">tmux</a>
-        /
-	<a href="http://bulimov.ru/tag/zhizn.html">Жизнь</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Случилось чудесное - <a href="http://linux.org.ru">LOR</a> принес мне пользу.
-Оттуда я узнал о плагине <a href="https://github.com/tmux-plugins/tmux-resurrect">tmux-resurrect</a>,
-а точнее, вообще о существовании плагинов для чудесного мультиплексора терминалов <strong>tmux</strong>.</p>
-<p>С помощью имеющихся плагинов можно привести конфигурацию в более понятный вид,
-а также заменить свои костыли на костыли, поддерживаемые сообществом.</p>
-<p>Я, к примеру:</p>
-<ul>
-<li>сильно сократил конфигурацию, используя
-  <a href="https://github.com/tmux-plugins/tmux-sensible">tmux-sensible</a>;</li>
-<li>с помощью <a href="https://github.com/tmux-plugins/tmux-yank">tmux-yank</a>
-  выкинул свои костыли для копирования в буфер обмена;</li>
-<li>смог убрать настройки для vi-образной навигации между панелями ...</li></ul>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Открыл-для-себя-плагины-к-tmux/">more ...</a>
                 </div>
             </article>
             <hr/>

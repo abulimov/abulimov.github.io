@@ -1,5 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/alexander-bulimov.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 08 Apr 2016 00:00:00 +0300</lastBuildDate><item><title>Все для HAProxy в Atom</title><link>http://bulimov.ru/it/atom-haproxy/</link><description>&lt;p&gt;Появилась у меня на работе задачка - взять 3 относительно разных конфига
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Александр Булимов - записки сисадмина.</title><link>http://bulimov.ru/</link><description></description><atom:link href="http://bulimov.ru/feeds/alexander-bulimov.rss.xml" rel="self"></atom:link><lastBuildDate>Fri, 15 Apr 2016 00:00:00 +0300</lastBuildDate><item><title>Утилита gotests и плагин для Atom</title><link>http://bulimov.ru/it/atom-gotests/</link><description>&lt;p&gt;Поскольку последнее время я все больше пишу на &lt;a href="http://golang.org"&gt;Go&lt;/a&gt;,
+мой workflow потихоньку обрастает различными полезными утилитами.&lt;/p&gt;
+&lt;p&gt;Одним из лучших открытий (после изумительного &lt;a href="http://atom.io/packages/go-plus"&gt;go-plus&lt;/a&gt;
+для &lt;a href="http://atom.io"&gt;Atom&lt;/a&gt;, который превращает Atom в полнофункциональную IDE
+для Go) стала утилита &lt;a href="https://github.com/cweill/gotests"&gt;gotests&lt;/a&gt;, которая
+позволяет генерировать &lt;a href="https://github.com/golang/go/wiki/TableDrivenTests"&gt;табличные тесты&lt;/a&gt;.
+При этом для нее есть плагины для Sublime Text 3 и Emacs.&lt;/p&gt;
+&lt;p&gt;Я большой сторонник юнит-тестирования, и потому возможность создавать шаблоны для
+тестов одной командой меня очень обрадовала.&lt;/p&gt;
+&lt;p&gt;Выглядит это как-то так:&lt;/p&gt;
+&lt;p&gt;&lt;img alt="demo" src="/images/gotests.gif" /&gt;&lt;/p&gt;
+&lt;p&gt;Единственное чего мне не хватало для счастья - плагина для Atom.&lt;/p&gt;
+&lt;p&gt;Пришлось взять в руки JS и запилить его по образу и подобию плагина для Sublime.&lt;/p&gt;
+&lt;p&gt;Конечно, после Go все эти Promise и подход к асинхронности в JS достаточно
+непривычны. Но надо отдать должное разработчиками Atom - API там роскошное,
+и плагины создавать очень просто. Меня особенно порадовало внимание к
+тестам для плагинов - сделано все, чтобы эти тесты писали и запускали.&lt;/p&gt;
+&lt;p&gt;Единственное, я писал в этот раз все на ES6, а не CoffeeScript - не зная JavaScript,
+начинать сразу с обертки над ним это слишком сложно. К тому же ES6 вобрал в себя
+много полезностей из CoffeeScript.&lt;/p&gt;
+&lt;p&gt;Ну и &lt;a href="http://eslint.org"&gt;ESLint&lt;/a&gt; очень крутой, и отказываться от него не хотелось.&lt;/p&gt;
+&lt;p&gt;Изначально я был скептически настроен по отношению к текстовому редактору
+на основе веб-технологий. Но теперь, проработав за ним около года, и
+создав уже в общей сложности 3 плагина для Atom, я более чем уверен
+в правильности своего выбора редактора - он не только очень удобен, но и
+изумительно расширяется даже без особого знания JS. Это действительно
+очень круто, когда ты можешь практически неограниченно улучшать свой редактор,
+используя не какой-то &lt;a href="https://en.wikipedia.org/wiki/Vim_(text_editor)#Vim_script"&gt;специализированный язык&lt;/a&gt;,
+и не &lt;a href="https://en.wikipedia.org/wiki/Emacs_Lisp"&gt;диалект Lisp&lt;/a&gt; (хотя Emacs как раз расширяется плагинами не хуже Atom),
+а нормальный, популярный и развивающийся язык программирования.
+Даже не просто язык программирования - вся мощь web-технологий к твоим услугам.&lt;/p&gt;
+&lt;p&gt;Благодаря этому можно не ныть на форумах, столкнувшись с отсутствием какой-либо
+функциональности в редакторе, а просто взять и написать ее - сила Open Source в
+чистом виде.&lt;/p&gt;
+&lt;p&gt;В общем, предлагаю всех гоферов попробовать:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Отличная утилита для табличных тестов - &lt;a href="https://github.com/cweill/gotests"&gt;gotest&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Мой плагин для интеграции gotests в Atom - &lt;a href="https://github.com/abulimov/atom-gotests"&gt;atom-gotests&lt;/a&gt;
+  (&lt;a href="https://atom.io/packages/gotests"&gt;страничка плагина в Atom&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Bulimov</dc:creator><pubDate>Fri, 15 Apr 2016 00:00:00 +0300</pubDate><guid>tag:bulimov.ru,2016-04-15:it/atom-gotests/</guid><category>Golang</category><category>Программирование</category><category>Atom</category><category>ES6</category></item><item><title>Все для HAProxy в Atom</title><link>http://bulimov.ru/it/atom-haproxy/</link><description>&lt;p&gt;Появилась у меня на работе задачка - взять 3 относительно разных конфига
 HAProxy, ответвившихся когда-то от общего предка, и обратно унифицировать их
 в один.&lt;/p&gt;
 &lt;p&gt;Конфиги хорошие, большие - 800 строк каждый.&lt;/p&gt;
