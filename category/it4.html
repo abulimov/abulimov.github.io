@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>IT - Александр Булимов - записки сисадмина.</title>
+    <title>IT - Alexander Bulimov - production engineer's notes.</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -14,11 +14,11 @@
     <meta name="keywords" content="IT" />
 
     <!-- Open Graph tags -->
-        <meta property="og:site_name" content="Александр Булимов - записки сисадмина." />
+        <meta property="og:site_name" content="Alexander Bulimov - production engineer's notes." />
         <meta property="og:type" content="website"/>
-        <meta property="og:title" content="Александр Булимов - записки сисадмина."/>
+        <meta property="og:title" content="Alexander Bulimov - production engineer's notes."/>
         <meta property="og:url" content="http://bulimov.ru"/>
-        <meta property="og:description" content="Александр Булимов - записки сисадмина."/>
+        <meta property="og:description" content="Alexander Bulimov - production engineer's notes."/>
 
 
     <!-- Bootstrap -->
@@ -30,14 +30,14 @@
         <link href="http://bulimov.ru/static/custom.css" rel="stylesheet">
 
         <link href="http://bulimov.ru/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-              title="Александр Булимов - записки сисадмина. ATOM Feed"/>
+              title="Alexander Bulimov - production engineer's notes. ATOM Feed"/>
 
         <link href="http://bulimov.ru/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
-              title="Александр Булимов - записки сисадмина. RSS Feed"/>
+              title="Alexander Bulimov - production engineer's notes. RSS Feed"/>
 
 
         <link href="http://bulimov.ru/feeds/it.atom.xml" type="application/atom+xml" rel="alternate"
-              title="Александр Булимов - записки сисадмина. IT ATOM Feed"/>
+              title="Alexander Bulimov - production engineer's notes. IT ATOM Feed"/>
 
 </head>
 <body>
@@ -52,7 +52,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="http://bulimov.ru/" class="navbar-brand">
-Александр Булимов - записки сисадмина.            </a>
+Alexander Bulimov - production engineer's notes.            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
@@ -73,6 +73,42 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
+            <article>
+                <h2><a href="http://bulimov.ru/it/Выложил-немного-полезностей/">Выложил немного полезностей</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-09-17T00:00:00+04:00"> Wed 17 September 2014</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/python.html">Python</a>
+        /
+	<a href="http://bulimov.ru/tag/zabbix.html">Zabbix</a>
+        /
+	<a href="http://bulimov.ru/tag/nagios.html">Nagios</a>
+        /
+	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Когда я писал про то, как <a href="/it/Переписал-скрипты-на-ruby-для-sensu">переписал скрипты для Sensu</a>,
+я слегка слукавил. Изначально, я написал эти скрипты на Python,
+и только потом на Ruby. Поскольку пользователям других Nagios-совместимых
+систем мониторинга может показаться неудобным использование ruby-скриптов,
+да еще и с зависимостью от гема sensu-plugin, я решил выложить
+и Python-версии скриптов.</p>
+<p>Если кому хочется мониторить состояние дисков в raid-контроллерах от 3ware или
+HP SmartArray на чистом Python - милости просим, все
+<a href="https://github.com/abulimov/utils/tree/master/nagios">в ...</a></p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Выложил-немного-полезностей/">more ...</a>
+                </div>
+            </article>
+            <hr/>
             <article>
                 <h2><a href="http://bulimov.ru/it/Открыл-для-себя-плагины-к-tmux/">Открыл для себя плагины к tmux</a></h2>
                     <div class="well well-sm">
@@ -360,37 +396,6 @@ TDD-администрирования. Оказалось, что толком 
 сконфигуренные qemu-образы на lvm-снапшотах.</p>
 <p>Теперь ...</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Тестирование-ansible-playbook/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/Влияние-курсов-cisco-на-психику/">Влияние курсов Cisco на психику</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-03-05T00:00:00+04:00"> Wed 05 March 2014</time>
-    </span>
-
-
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/cisco.html">Cisco</a>
-        /
-	<a href="http://bulimov.ru/tag/mikrotik.html">MikroTik</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Закончил курсы Cisco ICND1 и ICND2, и сразу захотелось странного.
-Захотелось домой какую-нибудь интересную сетевую железяку.
-Быстрый поиск по каталогам серьезных фирм типа Cisco и Juniper показал, что
-ничего вменяемого для домашнего использования у них нет
-(Cisco Linksys я за вменяемое не считаю, та же фигня, что и D-Link или Asus).
-В итоге этих метаний, выбор пал на оборудование фирмы MikroTik.</p>
-<p>Движимый душевным порывом, я поменял
-свой древний WiFi роутер ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Влияние-курсов-cisco-на-психику/">more ...</a>
                 </div>
             </article>
             <hr/>

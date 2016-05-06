@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>HAProxy - Alexander Bulimov - production engineer's notes.</title>
+    <title>Zsh - Alexander Bulimov - production engineer's notes.</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
 
 
     <meta name="author" content="Alexander Bulimov" />
-    <meta name="keywords" content="HAProxy" />
+    <meta name="keywords" content="Zsh" />
 
     <!-- Open Graph tags -->
         <meta property="og:site_name" content="Alexander Bulimov - production engineer's notes." />
@@ -72,12 +72,12 @@ Alexander Bulimov - production engineer's notes.            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
-                <h2><a href="http://bulimov.ru/it/atom-haproxy/">Все для HAProxy в Atom</a></h2>
+                <h2><a href="http://bulimov.ru/fish-zsh-en.html">Moving from Fish shell to zsh</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-04-08T00:00:00+03:00"> Fri 08 April 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-05-06T00:00:00+03:00"> Fri 06 May 2016</time>
     </span>
 
 
@@ -85,61 +85,21 @@ Alexander Bulimov - production engineer's notes.            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/golang.html">Golang</a>
+	<a href="http://bulimov.ru/tag/fish.html">Fish</a>
         /
-	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
-        /
-	<a href="http://bulimov.ru/tag/atom.html">Atom</a>
-        /
-	<a href="http://bulimov.ru/tag/haproxy.html">HAProxy</a>
-    
+	<a href="http://bulimov.ru/tag/zsh.html">Zsh</a>
+    <span class="label label-default">Lang</span>
+	<a href="http://bulimov.ru/it/fish-zsh/">ru</a>
+
 </footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Появилась у меня на работе задачка - взять 3 относительно разных конфига
-HAProxy, ответвившихся когда-то от общего предка, и обратно унифицировать их
-в один.</p>
-<p>Конфиги хорошие, большие - 800 строк каждый.</p>
-<p>Приступил я к этой задаче, и сразу оступил - потому что в <a href="http://atom.io">Atom</a>,
-которым я пользуюсь для редактирования всего, не было подсветки
-синтаксиса конфигов HAProxy.</p>
-<p>Ну у нас же тут opensource, так что тут же был нагуглен архив с
-<a href="https://github.com/williamsjj/HAProxy.tmbundle">HAProxy.tmbundle</a>, который ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/atom-haproxy/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/haproxy-cadvisor/">Балансировка в HAProxy на основе данных cAdvisor</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-04-15T00:00:00+03:00"> Wed 15 April 2015</time>
-    </span>
-
-
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/haproxy.html">HAProxy</a>
-        /
-	<a href="http://bulimov.ru/tag/cadvisor.html">cAdvisor</a>
-        /
-	<a href="http://bulimov.ru/tag/python.html">Python</a>
-        /
-	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Для запуска Docker-контейнеров у меня в данный момент выделено достаточно много
-серверов, причем аппаратная часть у некоторых из них отличается
-друг от друга. Соответственно, при настройке на чудесном балансировщике
-<a href="http://www.haproxy.org/">HAProxy</a> такого параметра балансировки
-как <em>"вес сервера"</em>, приходится это различие в аппаратной части учитывать.</p>
-<p>Можно, конечно, подобрать значения весов самостоятельно на основе
-данных мониторинга, а при появлении нагрузки от соседних Docker-контейнеров
-эти веса корректировать, но это не наш метод.</p>
-<p>Не так ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/haproxy-cadvisor/">more ...</a>
+                <div class="summary"><p>I've been using <a href="http://fishshell.com">Fish shell</a> as my daily driver for
+more than 2 years. I don't want to insult Fish - this awesome shell provided me
+with wonderful out-of-the-box experience, introduced me to autosuggestions,
+and required almost no configuration.</p>
+<p>But now, after 2 years of heavy usage, I've dropped it in favor of <a href="https://en.wikipedia.org/wiki/Z_shell">zsh</a>.</p>
+<p>The main reason for the switch is simple - Fish shell is not POSIX-compatible.
+And ...</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/fish-zsh-en.html">more ...</a>
                 </div>
             </article>
             <hr/>

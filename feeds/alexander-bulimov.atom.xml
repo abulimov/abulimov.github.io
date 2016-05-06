@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Александр Булимов - записки сисадмина.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/alexander-bulimov.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2016-04-15T00:00:00+03:00</updated><entry><title>Утилита gotests и плагин для Atom</title><link href="http://bulimov.ru/it/atom-gotests/" rel="alternate"></link><updated>2016-04-15T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-04-15:it/atom-gotests/</id><summary type="html">&lt;p&gt;Поскольку последнее время я все больше пишу на &lt;a href="http://golang.org"&gt;Go&lt;/a&gt;,
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexander Bulimov - production engineer's notes.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/alexander-bulimov.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2016-05-06T00:00:00+03:00</updated><entry><title>Moving from Fish shell to zsh</title><link href="http://bulimov.ru/fish-zsh-en.html" rel="alternate"></link><updated>2016-05-06T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-05-06:fish-zsh-en.html</id><summary type="html">&lt;p&gt;I've been using &lt;a href="http://fishshell.com"&gt;Fish shell&lt;/a&gt; as my daily driver for
+more than 2 years. I don't want to insult Fish - this awesome shell provided me
+with wonderful out-of-the-box experience, introduced me to autosuggestions,
+and required almost no configuration.&lt;/p&gt;
+&lt;p&gt;But now, after 2 years of heavy usage, I've dropped it in favor of &lt;a href="https://en.wikipedia.org/wiki/Z_shell"&gt;zsh&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The main reason for the switch is simple - Fish shell is not POSIX-compatible.
+And while many people keep repeating "If you don't write shell scripts in Fish,
+why should you care about POSIX-compatibility?" like some sort of mantra,
+in fact you'll face this non-compatibility very often, and in very
+frustrating way.&lt;/p&gt;
+&lt;p&gt;For example, you want to debug some piece of software. Instructions from the
+internet tells you to set up &lt;code&gt;DEBUG&lt;/code&gt; variable
+like this: &lt;code&gt;DEBUG=1 some-program --some-args&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If your shell is POSIX-compatible, you won't notice any problems and will happily
+start debugging. But with Fish, you should always keep in mind all the
+changes Fish shell authors made to POSIX. For this example, you have to
+remember that you should use &lt;code&gt;env DEBUG=1 some-program --some-args&lt;/code&gt; command,
+or some sort of ugly constructions like this: &lt;code&gt;begin; set -lx DEBUG 1; some-program --some-args; end&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;This is just a simple one-liner example, but in fact you'll have much more
+frustrating encounters with some basic things like chaining commands
+(&lt;code&gt;one &amp;amp;&amp;amp; two&lt;/code&gt; should be written as &lt;code&gt;one; and two&lt;/code&gt;), or redirecting &lt;em&gt;stderr&lt;/em&gt; (use &lt;code&gt;^&lt;/code&gt;),
+or using command output (backtick doesn't work).&lt;/p&gt;
+&lt;p&gt;You'll have same problems with all the programs that use POSIX shell features to prepare
+environment, for example with boot2docker to set correct DOCKER_HOST, or
+ssh-agent to set SSH_AUTH_SOCKET.&lt;/p&gt;
+&lt;p&gt;All this problems are small, easy to fix, but eventually for me they've become a deal-breaker.&lt;/p&gt;
+&lt;p&gt;It's just so much easier to spent some time configuring Zsh and forget about
+all this compatibility rules, than facing same small problems with Fish shell every day.&lt;/p&gt;
+&lt;p&gt;After some experiments I've chosen excellent &lt;a href="https://github.com/sorin-ionescu/prezto"&gt;prezto&lt;/a&gt;
+configuration framework for zsh, enabled &lt;em&gt;autosuggestions&lt;/em&gt;, &lt;em&gt;syntax-highlighting&lt;/em&gt;
+and &lt;em&gt;history-substring-search&lt;/em&gt; plugins, and now have all Fish goodies with zsh,
+but without dealing with POSIX-compatibility issues.&lt;/p&gt;</summary><category term="Fish"></category><category term="Zsh"></category></entry><entry><title>Утилита gotests и плагин для Atom</title><link href="http://bulimov.ru/it/atom-gotests/" rel="alternate"></link><updated>2016-04-15T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-04-15:it/atom-gotests/</id><summary type="html">&lt;p&gt;Поскольку последнее время я все больше пишу на &lt;a href="http://golang.org"&gt;Go&lt;/a&gt;,
 мой workflow потихоньку обрастает различными полезными утилитами.&lt;/p&gt;
 &lt;p&gt;Одним из лучших открытий (после изумительного &lt;a href="http://atom.io/packages/go-plus"&gt;go-plus&lt;/a&gt;
 для &lt;a href="http://atom.io"&gt;Atom&lt;/a&gt;, который превращает Atom в полнофункциональную IDE

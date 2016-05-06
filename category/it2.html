@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>IT - Александр Булимов - записки сисадмина.</title>
+    <title>IT - Alexander Bulimov - production engineer's notes.</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -14,11 +14,11 @@
     <meta name="keywords" content="IT" />
 
     <!-- Open Graph tags -->
-        <meta property="og:site_name" content="Александр Булимов - записки сисадмина." />
+        <meta property="og:site_name" content="Alexander Bulimov - production engineer's notes." />
         <meta property="og:type" content="website"/>
-        <meta property="og:title" content="Александр Булимов - записки сисадмина."/>
+        <meta property="og:title" content="Alexander Bulimov - production engineer's notes."/>
         <meta property="og:url" content="http://bulimov.ru"/>
-        <meta property="og:description" content="Александр Булимов - записки сисадмина."/>
+        <meta property="og:description" content="Alexander Bulimov - production engineer's notes."/>
 
 
     <!-- Bootstrap -->
@@ -30,14 +30,14 @@
         <link href="http://bulimov.ru/static/custom.css" rel="stylesheet">
 
         <link href="http://bulimov.ru/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-              title="Александр Булимов - записки сисадмина. ATOM Feed"/>
+              title="Alexander Bulimov - production engineer's notes. ATOM Feed"/>
 
         <link href="http://bulimov.ru/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
-              title="Александр Булимов - записки сисадмина. RSS Feed"/>
+              title="Alexander Bulimov - production engineer's notes. RSS Feed"/>
 
 
         <link href="http://bulimov.ru/feeds/it.atom.xml" type="application/atom+xml" rel="alternate"
-              title="Александр Булимов - записки сисадмина. IT ATOM Feed"/>
+              title="Alexander Bulimov - production engineer's notes. IT ATOM Feed"/>
 
 </head>
 <body>
@@ -52,7 +52,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="http://bulimov.ru/" class="navbar-brand">
-Александр Булимов - записки сисадмина.            </a>
+Alexander Bulimov - production engineer's notes.            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
@@ -73,6 +73,43 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
+            <article>
+                <h2><a href="http://bulimov.ru/it/who-watch-the-watchmen/">Quis custodiet ipsos custodes?</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2015-11-06T00:00:00+03:00"> Fri 06 November 2015</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/icinga2.html">Icinga2</a>
+        /
+	<a href="http://bulimov.ru/tag/monit.html">Monit</a>
+        /
+	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
+        /
+	<a href="http://bulimov.ru/tag/opyt.html">Опыт</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><h4><a href="https://ru.wikipedia.org/wiki/Quis_custodiet_ipsos_custodes%3F">Кто же устережёт самих сторожей?</a>, или как (и зачем) я мониторю мониторинг.</h4>
+<p>Как вы понимаете, современный сервис мониторинга это очень сложная штука.
+Некоторые, как <a href="https://sensuapp.org">Sensu</a>, выносят всю сложность во внешние
+сервисы, и потому требуют установки и администрирования
+<a href="https://sensuapp.org/docs/latest/overview#sensu-components">нескольких компонентов</a>,
+таких как очередь и база данных.</p>
+<p>Остальные реализуют некоторый функционал этих компонентов сами,
+упрощая администрирование мониторинга, но усложняя его внутреннее устройство.
+К примеру, для работы <a href="http://www.zabbix.com/ru/">Zabbix</a> нужна только база,
+а очереди ...</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/who-watch-the-watchmen/">more ...</a>
+                </div>
+            </article>
+            <hr/>
             <article>
                 <h2><a href="http://bulimov.ru/it/goodby-coreos/">Избавился от CoreOS</a></h2>
                     <div class="well well-sm">
@@ -374,43 +411,6 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
 <p>Сразу скажу, что не будь для Atom вменяемого vim-режима, я бы вряд ли
 решился на переход ...</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/vim-atom/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/cadvisor-companion/">Улучшаем сообщения от мониторинга с помощью cAdvisor-companion</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-04-21T00:00:00+03:00"> Tue 21 April 2015</time>
-    </span>
-
-
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/golang.html">Golang</a>
-        /
-	<a href="http://bulimov.ru/tag/cadvisor.html">cAdvisor</a>
-        /
-	<a href="http://bulimov.ru/tag/cadvisor-companion.html">cAdvisor-companion</a>
-        /
-	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
-        /
-	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Слышали ли вы когда-нибудь о такой практике, как "Monitoring Events Enrichment"?
-Если вкратце, то это практика наполнения дополнительной информацией сообщений
-от мониторинга, так что на выяснение причины проблемы уходит меньше времени
-и телодвижений.</p>
-<p>Есть даже контора, которая помогает внедрять эту практику на коммерческой основе,
-у них на <a href="http://www.eventenrichment.com/">сайте</a> есть неплохие примеры того,
-что и зачем можно добавить к обычному сообщению от Nagios.</p>
-<p>Сама эта идея мне очень нравится, и вот ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/cadvisor-companion/">more ...</a>
                 </div>
             </article>
             <hr/>

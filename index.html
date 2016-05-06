@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Александр Булимов - записки сисадмина.</title>
+    <title>Alexander Bulimov - production engineer's notes.</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -13,11 +13,11 @@
         <meta name="author" content="Alexander Bulimov" />
 
     <!-- Open Graph tags -->
-        <meta property="og:site_name" content="Александр Булимов - записки сисадмина." />
+        <meta property="og:site_name" content="Alexander Bulimov - production engineer's notes." />
         <meta property="og:type" content="website"/>
-        <meta property="og:title" content="Александр Булимов - записки сисадмина."/>
+        <meta property="og:title" content="Alexander Bulimov - production engineer's notes."/>
         <meta property="og:url" content="http://bulimov.ru"/>
-        <meta property="og:description" content="Александр Булимов - записки сисадмина."/>
+        <meta property="og:description" content="Alexander Bulimov - production engineer's notes."/>
 
 
     <!-- Bootstrap -->
@@ -29,10 +29,10 @@
         <link href="http://bulimov.ru/static/custom.css" rel="stylesheet">
 
         <link href="http://bulimov.ru/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-              title="Александр Булимов - записки сисадмина. ATOM Feed"/>
+              title="Alexander Bulimov - production engineer's notes. ATOM Feed"/>
 
         <link href="http://bulimov.ru/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
-              title="Александр Булимов - записки сисадмина. RSS Feed"/>
+              title="Alexander Bulimov - production engineer's notes. RSS Feed"/>
 
 
 
@@ -49,7 +49,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="http://bulimov.ru/" class="navbar-brand">
-Александр Булимов - записки сисадмина.            </a>
+Alexander Bulimov - production engineer's notes.            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
@@ -70,6 +70,38 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
+            <article>
+                <h2><a href="http://bulimov.ru/fish-zsh-en.html">Moving from Fish shell to zsh</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-05-06T00:00:00+03:00"> Fri 06 May 2016</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/fish.html">Fish</a>
+        /
+	<a href="http://bulimov.ru/tag/zsh.html">Zsh</a>
+    <span class="label label-default">Lang</span>
+	<a href="http://bulimov.ru/it/fish-zsh/">ru</a>
+
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>I've been using <a href="http://fishshell.com">Fish shell</a> as my daily driver for
+more than 2 years. I don't want to insult Fish - this awesome shell provided me
+with wonderful out-of-the-box experience, introduced me to autosuggestions,
+and required almost no configuration.</p>
+<p>But now, after 2 years of heavy usage, I've dropped it in favor of <a href="https://en.wikipedia.org/wiki/Z_shell">zsh</a>.</p>
+<p>The main reason for the switch is simple - Fish shell is not POSIX-compatible.
+And ...</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/fish-zsh-en.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
             <article>
                 <h2><a href="http://bulimov.ru/it/atom-gotests/">Утилита gotests и плагин для Atom</a></h2>
                     <div class="well well-sm">
@@ -371,43 +403,6 @@ HAProxy, ответвившихся когда-то от общего предк
 удобно, что теперь я не представляю свою жизнь без подобного сервиса, хоть от tt-rss
 и отказался вместе ...</p></li></ol>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/productivity-tips/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/who-watch-the-watchmen/">Quis custodiet ipsos custodes?</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-11-06T00:00:00+03:00"> Fri 06 November 2015</time>
-    </span>
-
-
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/icinga2.html">Icinga2</a>
-        /
-	<a href="http://bulimov.ru/tag/monit.html">Monit</a>
-        /
-	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
-        /
-	<a href="http://bulimov.ru/tag/opyt.html">Опыт</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><h4><a href="https://ru.wikipedia.org/wiki/Quis_custodiet_ipsos_custodes%3F">Кто же устережёт самих сторожей?</a>, или как (и зачем) я мониторю мониторинг.</h4>
-<p>Как вы понимаете, современный сервис мониторинга это очень сложная штука.
-Некоторые, как <a href="https://sensuapp.org">Sensu</a>, выносят всю сложность во внешние
-сервисы, и потому требуют установки и администрирования
-<a href="https://sensuapp.org/docs/latest/overview#sensu-components">нескольких компонентов</a>,
-таких как очередь и база данных.</p>
-<p>Остальные реализуют некоторый функционал этих компонентов сами,
-упрощая администрирование мониторинга, но усложняя его внутреннее устройство.
-К примеру, для работы <a href="http://www.zabbix.com/ru/">Zabbix</a> нужна только база,
-а очереди ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/who-watch-the-watchmen/">more ...</a>
                 </div>
             </article>
             <hr/>

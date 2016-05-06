@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Articles by Alexander Bulimov - Александр Булимов - записки сисадмина.</title>
+    <title>Articles by Alexander Bulimov - Alexander Bulimov - production engineer's notes.</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -13,11 +13,11 @@
         <meta name="author" content="Alexander Bulimov" />
 
     <!-- Open Graph tags -->
-        <meta property="og:site_name" content="Александр Булимов - записки сисадмина." />
+        <meta property="og:site_name" content="Alexander Bulimov - production engineer's notes." />
         <meta property="og:type" content="website"/>
-        <meta property="og:title" content="Александр Булимов - записки сисадмина."/>
+        <meta property="og:title" content="Alexander Bulimov - production engineer's notes."/>
         <meta property="og:url" content="http://bulimov.ru"/>
-        <meta property="og:description" content="Александр Булимов - записки сисадмина."/>
+        <meta property="og:description" content="Alexander Bulimov - production engineer's notes."/>
 
 
     <!-- Bootstrap -->
@@ -29,10 +29,10 @@
         <link href="http://bulimov.ru/static/custom.css" rel="stylesheet">
 
         <link href="http://bulimov.ru/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-              title="Александр Булимов - записки сисадмина. ATOM Feed"/>
+              title="Alexander Bulimov - production engineer's notes. ATOM Feed"/>
 
         <link href="http://bulimov.ru/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
-              title="Александр Булимов - записки сисадмина. RSS Feed"/>
+              title="Alexander Bulimov - production engineer's notes. RSS Feed"/>
 
 
 
@@ -49,7 +49,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a href="http://bulimov.ru/" class="navbar-brand">
-Александр Булимов - записки сисадмина.            </a>
+Alexander Bulimov - production engineer's notes.            </a>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
@@ -70,6 +70,43 @@
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
+            <article>
+                <h2><a href="http://bulimov.ru/it/cadvisor-companion/">Улучшаем сообщения от мониторинга с помощью cAdvisor-companion</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2015-04-21T00:00:00+03:00"> Tue 21 April 2015</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/golang.html">Golang</a>
+        /
+	<a href="http://bulimov.ru/tag/cadvisor.html">cAdvisor</a>
+        /
+	<a href="http://bulimov.ru/tag/cadvisor-companion.html">cAdvisor-companion</a>
+        /
+	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
+        /
+	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Слышали ли вы когда-нибудь о такой практике, как "Monitoring Events Enrichment"?
+Если вкратце, то это практика наполнения дополнительной информацией сообщений
+от мониторинга, так что на выяснение причины проблемы уходит меньше времени
+и телодвижений.</p>
+<p>Есть даже контора, которая помогает внедрять эту практику на коммерческой основе,
+у них на <a href="http://www.eventenrichment.com/">сайте</a> есть неплохие примеры того,
+что и зачем можно добавить к обычному сообщению от Nagios.</p>
+<p>Сама эта идея мне очень нравится, и вот ...</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/cadvisor-companion/">more ...</a>
+                </div>
+            </article>
+            <hr/>
             <article>
                 <h2><a href="http://bulimov.ru/it/haproxy-cadvisor/">Балансировка в HAProxy на основе данных cAdvisor</a></h2>
                     <div class="well well-sm">
@@ -379,42 +416,6 @@
 <a href="https://github.com/getpelican/pelican-plugins">плагинов</a> и
 <a href="https://github.com/getpelican/pelican-themes">тем</a>.</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/from-ruhoh-to-pelican/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/Выложил-немного-полезностей/">Выложил немного полезностей</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-09-17T00:00:00+04:00"> Wed 17 September 2014</time>
-    </span>
-
-
-
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/python.html">Python</a>
-        /
-	<a href="http://bulimov.ru/tag/zabbix.html">Zabbix</a>
-        /
-	<a href="http://bulimov.ru/tag/nagios.html">Nagios</a>
-        /
-	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Когда я писал про то, как <a href="/it/Переписал-скрипты-на-ruby-для-sensu">переписал скрипты для Sensu</a>,
-я слегка слукавил. Изначально, я написал эти скрипты на Python,
-и только потом на Ruby. Поскольку пользователям других Nagios-совместимых
-систем мониторинга может показаться неудобным использование ruby-скриптов,
-да еще и с зависимостью от гема sensu-plugin, я решил выложить
-и Python-версии скриптов.</p>
-<p>Если кому хочется мониторить состояние дисков в raid-контроллерах от 3ware или
-HP SmartArray на чистом Python - милости просим, все
-<a href="https://github.com/abulimov/utils/tree/master/nagios">в ...</a></p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Выложил-немного-полезностей/">more ...</a>
                 </div>
             </article>
             <hr/>
