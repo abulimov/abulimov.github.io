@@ -10,7 +10,7 @@ PATH = 'content'
 
 TIMEZONE = 'Europe/Moscow'
 
-DEFAULT_LANG = 'ru'
+DEFAULT_LANG = 'en'
 
 PLUGINS = ["related_posts", "sitemap"]
 
