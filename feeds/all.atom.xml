@@ -1,5 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexander Bulimov - production engineer's notes.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/all.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2016-05-06T00:00:00+03:00</updated><entry><title>Moving from Fish shell to zsh</title><link href="http://bulimov.ru/fish-zsh-en.html" rel="alternate"></link><updated>2016-05-06T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-05-06:fish-zsh-en.html</id><summary type="html">&lt;p&gt;I've been using &lt;a href="http://fishshell.com"&gt;Fish shell&lt;/a&gt; as my daily driver for
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexander Bulimov - production engineer's notes.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/all.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2016-05-12T00:00:00+03:00</updated><entry><title>Python Type Hints are awesome</title><link href="http://bulimov.ru/it/python-typing/" rel="alternate"></link><updated>2016-05-12T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-05-12:it/python-typing/</id><summary type="html">&lt;p&gt;I really love &lt;a href="http://jvns.ca"&gt;Julia Evans's blog&lt;/a&gt;, she writes with such excitement
+and enthusiasm about every new bit of technology she learns. For me, this is what
+makes our job so great - we can learn something new and cool almost every day.&lt;/p&gt;
+&lt;p&gt;And recently I've felt very excited with some of new abilities Python
+now have. I'm talking about including of &lt;a href="https://www.python.org/dev/peps/pep-0484/"&gt;PEP 484&lt;/a&gt;,
+which describes Type Hints, in Python 3.5 (old news, I know).&lt;/p&gt;
+&lt;p&gt;I'm a big fan of &lt;a href="https://en.wikipedia.org/wiki/Static_program_analysis"&gt;static analysis&lt;/a&gt;
+(I love when computer helps me to spot mistakes and bugs, and have even written
+a &lt;a href="https://github.com/abulimov/haproxy-lint"&gt;Linter for HAProxy configs&lt;/a&gt;),
+so when I've found that Python 3.5 has gained standard ability to specify
+types for function parameters, return values and local variables, I was eager to test it.&lt;/p&gt;
+&lt;p&gt;Just to show what I'm talking about, here are some basic example of Type Hints:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c1"&gt;# without Type Hints&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;greeting&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Hello, {}&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="c1"&gt;# with Type Hints&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;greeting&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Hello, {}&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;and with generics:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;typing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;List&lt;/span&gt;
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;greeting&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;List&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="nb"&gt;str&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Hello, {}&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;format&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;, &amp;#39;&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;join&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;names&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Fortunately, &lt;a href="https://www.jetbrains.com/pycharm/"&gt;PyCharm IDE&lt;/a&gt; already has full
+support of PEP 484, so I've immediately started adding Type Hints to
+&lt;a href="https://github.com/abulimov/lyricstagger"&gt;my pet project "lyricstagger"&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;After some experiments and adding types to actual code I can safely conclude that
+Type Hints are awesome:
+they let us express all the information (in a standard way, yay!) about function
+parameters and variable types that we already hold in our mind,
+so that IDE or linters can help us by checking that we are passing correct
+values to our functions. Using Type Hints feels much more natural to me than
+using one of several ways of specifying type information in docstrings.&lt;/p&gt;
+&lt;p&gt;I was writing a lot of code in &lt;a href="http://golang.org"&gt;Go&lt;/a&gt; programming language
+last year, and got used to all the benefits of static typing. Now I can
+be more confident in my Python code, because static analysis with Type Hints
+can catch many common mistakes even before I run any tests.&lt;/p&gt;
+&lt;p&gt;And you don't need to stick with Python 3.5 to use type hinting,
+the whole &lt;code&gt;typing&lt;/code&gt; module was &lt;a href="https://pypi.python.org/pypi/typing"&gt;published in pip&lt;/a&gt;
+and can be easily installed and used with Python 3.2+.&lt;/p&gt;
+&lt;p&gt;If you are as excited about Type Hints in Python as I am,
+you can read more about them in
+&lt;a href="http://blog.jetbrains.com/pycharm/2015/11/python-3-5-type-hinting-in-pycharm-5/"&gt;JetBrains PyCharm blog&lt;/a&gt;.&lt;/p&gt;</summary><category term="Python"></category><category term="Programming"></category></entry><entry><title>Moving from Fish shell to zsh</title><link href="http://bulimov.ru/it/fish-zsh/" rel="alternate"></link><updated>2016-05-06T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-05-06:it/fish-zsh/</id><summary type="html">&lt;p&gt;I've been using &lt;a href="http://fishshell.com"&gt;Fish shell&lt;/a&gt; as my daily driver for
 more than 2 years. I don't want to insult Fish - this awesome shell provided me
 with wonderful out-of-the-box experience, introduced me to autosuggestions,
 and required almost no configuration.&lt;/p&gt;
@@ -30,7 +78,7 @@ all this compatibility rules, than facing same small problems with Fish shell ev
 &lt;p&gt;After some experiments I've chosen excellent &lt;a href="https://github.com/sorin-ionescu/prezto"&gt;prezto&lt;/a&gt;
 configuration framework for zsh, enabled &lt;em&gt;autosuggestions&lt;/em&gt;, &lt;em&gt;syntax-highlighting&lt;/em&gt;
 and &lt;em&gt;history-substring-search&lt;/em&gt; plugins, and now have all Fish goodies with zsh,
-but without dealing with POSIX-compatibility issues.&lt;/p&gt;</summary><category term="Fish"></category><category term="Zsh"></category></entry><entry><title>Перешел с Fish shell на zsh</title><link href="http://bulimov.ru/it/fish-zsh/" rel="alternate"></link><updated>2016-05-06T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-05-06:it/fish-zsh/</id><summary type="html">&lt;p&gt;Я использовал &lt;a href="http://fishshell.com"&gt;Fish shell&lt;/a&gt; более 2х лет в качестве
+but without dealing with POSIX-compatibility issues.&lt;/p&gt;</summary><category term="Fish"></category><category term="Zsh"></category></entry><entry><title>Перешел с Fish shell на zsh</title><link href="http://bulimov.ru/fish-zsh-ru.html" rel="alternate"></link><updated>2016-05-06T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-05-06:fish-zsh-ru.html</id><summary type="html">&lt;p&gt;Я использовал &lt;a href="http://fishshell.com"&gt;Fish shell&lt;/a&gt; более 2х лет в качестве
 своего основного shell. Я не собираюсь его ругать или поливать грязью - Fish
 отлично работает из коробки, именно он познакомил меня с интерактивными
 автодополнением, и его практически не нужно настраивать.&lt;/p&gt;

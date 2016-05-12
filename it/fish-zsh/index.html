@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="ru" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Перешел с Fish shell на zsh - Alexander Bulimov - production engineer's notes.</title>
+    <title>Moving from Fish shell to zsh - Alexander Bulimov - production engineer's notes.</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -13,13 +13,13 @@
 
         <meta name="author" content="Alexander Bulimov" />
         <meta name="keywords" content="Fish,Zsh" />
-        <meta name="description" content="Я использовал Fish shell более 2х лет в качестве своего основного shell. Я не собираюсь его ругать или поливать грязью - Fish отлично работает из коробки, именно он познакомил меня с интерактивными автодополнением, и его практически не нужно настраивать. Но теперь, после 2х лет активного использования, я сменил его на zsh. Главная причина переезда на zsh проста - Fish не POSIX-совместимый. И несмотря на то, что многие повторяют &#34;Зачем тебе POSIX-совместимость если ..." />
+        <meta name="description" content="I&#39;ve been using Fish shell as my daily driver for more than 2 years. I don&#39;t want to insult Fish - this awesome shell provided me with wonderful out-of-the-box experience, introduced me to autosuggestions, and required almost no configuration. But now, after 2 years of heavy usage, I&#39;ve dropped it in favor of zsh. The main reason for the switch is simple - Fish shell is not POSIX-compatible. And ..." />
 
         <meta property="og:site_name" content="Alexander Bulimov - production engineer's notes." />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Перешел с Fish shell на zsh"/>
+        <meta property="og:title" content="Moving from Fish shell to zsh"/>
         <meta property="og:url" content="http://bulimov.ru/it/fish-zsh/"/>
-        <meta property="og:description" content="Я использовал Fish shell более 2х лет в качестве своего основного shell. Я не собираюсь его ругать или поливать грязью - Fish отлично работает из коробки, именно он познакомил меня с интерактивными автодополнением, и его практически не нужно настраивать. Но теперь, после 2х лет активного использования, я сменил его на zsh. Главная причина переезда на zsh проста - Fish не POSIX-совместимый. И несмотря на то, что многие повторяют &#34;Зачем тебе POSIX-совместимость если ..."/>
+        <meta property="og:description" content="I&#39;ve been using Fish shell as my daily driver for more than 2 years. I don&#39;t want to insult Fish - this awesome shell provided me with wonderful out-of-the-box experience, introduced me to autosuggestions, and required almost no configuration. But now, after 2 years of heavy usage, I&#39;ve dropped it in favor of zsh. The main reason for the switch is simple - Fish shell is not POSIX-compatible. And ..."/>
         <meta property="article:published_time" content="2016-05-06" />
             <meta property="article:section" content="IT" />
             <meta property="article:tag" content="Fish" />
@@ -85,8 +85,8 @@ Alexander Bulimov - production engineer's notes.            </a>
                 <h1>
                     <a href="http://bulimov.ru/it/fish-zsh/"
                        rel="bookmark"
-                       title="Permalink to Перешел с Fish shell на zsh">
-                        Перешел с Fish shell на zsh
+                       title="Permalink to Moving from Fish shell to zsh">
+                        Moving from Fish shell to zsh
                     </a>
                 </h1>
             </header>
@@ -108,43 +108,42 @@ Alexander Bulimov - production engineer's notes.            </a>
         /
 	<a href="http://bulimov.ru/tag/zsh.html">Zsh</a>
     <span class="label label-default">Lang</span>
-	<a href="http://bulimov.ru/fish-zsh-en.html">en</a>
+	<a href="http://bulimov.ru/fish-zsh-ru.html">ru</a>
 
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>Я использовал <a href="http://fishshell.com">Fish shell</a> более 2х лет в качестве
-своего основного shell. Я не собираюсь его ругать или поливать грязью - Fish
-отлично работает из коробки, именно он познакомил меня с интерактивными
-автодополнением, и его практически не нужно настраивать.</p>
-<p>Но теперь, после 2х лет активного использования, я сменил его на <a href="https://en.wikipedia.org/wiki/Z_shell">zsh</a>.</p>
-<p>Главная причина переезда на zsh проста - Fish не POSIX-совместимый.
-И несмотря на то, что многие повторяют "Зачем тебе POSIX-совместимость если
-ты не пишешь скриптов на Fish?", на самом деле это отсутствие POSIX-совместимости
-проявляется часто и очень раздражающе.</p>
-<p>Например, хочу я включить отладку в какой-то программе. Инструкция на сайте
-говорит мне - запускай с установленной переменной <code>DEBUG</code>,
-напимер так: <code>DEBUG=1 some-program --some-args</code>.</p>
-<p>Будь мой shell POSIX-совместимым, я бы спокойно приступил к дебагу, но с Fish
-мне всегда приходится держать в голове все эти маленькие POSIX-несовместимости.
-Для данного примера мне придется вспомнить, что в Fish я вынужден использовать
-команду <code>env DEBUG=1 some-program --some-args</code>, или вообще городить такие
-монструозные конструкции: <code>begin; set -lx DEBUG 1; some-program --some-args; end</code>.</p>
-<p>А это ведь простой однострочный пример. В реальности таких несовместимостей будет
-больше, к примеру объединение команд в последовательность (<code>one &amp;&amp; two</code> придется писать как <code>one; and two</code>),
-перенаправление <em>stderr</em> (используем <code>^</code>), или использованием вывода других команд (backtick не работает).</p>
-<p>А еще есть проблемы со всеми утилитами, которые рассчитывают на POSIX shell для управления
-переменными окружениями, к примеру boot2docker для выставления DOCKER_HOST или
-ssh-agent для настройки SSH_AUTH_SOCKET.</p>
-<p>При этом все эти проблемы крошечные, их легко решить, просто со временем они меня достали.</p>
-<p>Оказалось гораздо проще один раз настроить Zsh и забыть про все эти правила трансляции
-из POSIX-shell в Fish-shell, чем регулярно мучиться с этими мелкими проблемами.</p>
-<p>После непродолжительных экспериментов я остановился на отличном фреймворке
-конфигураций для zsh <a href="https://github.com/sorin-ionescu/prezto">prezto</a>
-включил плагины <em>autosuggestions</em>, <em>syntax-highlighting</em>
-и <em>history-substring-search</em>, и теперь наслаждаюсь всеми ништяками Fish с POSIX-совместимым zsh.</p>
-<p><em>Начиная с этого поста все публикации будут на английском.
-Если перевод на русский не будет востребован (не будет комментариев),
-то от него придется отказаться.</em></p>
+                <p>I've been using <a href="http://fishshell.com">Fish shell</a> as my daily driver for
+more than 2 years. I don't want to insult Fish - this awesome shell provided me
+with wonderful out-of-the-box experience, introduced me to autosuggestions,
+and required almost no configuration.</p>
+<p>But now, after 2 years of heavy usage, I've dropped it in favor of <a href="https://en.wikipedia.org/wiki/Z_shell">zsh</a>.</p>
+<p>The main reason for the switch is simple - Fish shell is not POSIX-compatible.
+And while many people keep repeating "If you don't write shell scripts in Fish,
+why should you care about POSIX-compatibility?" like some sort of mantra,
+in fact you'll face this non-compatibility very often, and in very
+frustrating way.</p>
+<p>For example, you want to debug some piece of software. Instructions from the
+internet tells you to set up <code>DEBUG</code> variable
+like this: <code>DEBUG=1 some-program --some-args</code>.</p>
+<p>If your shell is POSIX-compatible, you won't notice any problems and will happily
+start debugging. But with Fish, you should always keep in mind all the
+changes Fish shell authors made to POSIX. For this example, you have to
+remember that you should use <code>env DEBUG=1 some-program --some-args</code> command,
+or some sort of ugly constructions like this: <code>begin; set -lx DEBUG 1; some-program --some-args; end</code>.</p>
+<p>This is just a simple one-liner example, but in fact you'll have much more
+frustrating encounters with some basic things like chaining commands
+(<code>one &amp;&amp; two</code> should be written as <code>one; and two</code>), or redirecting <em>stderr</em> (use <code>^</code>),
+or using command output (backtick doesn't work).</p>
+<p>You'll have same problems with all the programs that use POSIX shell features to prepare
+environment, for example with boot2docker to set correct DOCKER_HOST, or
+ssh-agent to set SSH_AUTH_SOCKET.</p>
+<p>All this problems are small, easy to fix, but eventually for me they've become a deal-breaker.</p>
+<p>It's just so much easier to spent some time configuring Zsh and forget about
+all this compatibility rules, than facing same small problems with Fish shell every day.</p>
+<p>After some experiments I've chosen excellent <a href="https://github.com/sorin-ionescu/prezto">prezto</a>
+configuration framework for zsh, enabled <em>autosuggestions</em>, <em>syntax-highlighting</em>
+and <em>history-substring-search</em> plugins, and now have all Fish goodies with zsh,
+but without dealing with POSIX-compatibility issues.</p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -160,7 +159,7 @@ ssh-agent для настройки SSH_AUTH_SOCKET.</p>
                 var disqus_url = 'http://bulimov.ru/it/fish-zsh/';
 
             var disqus_config = function () {
-                this.language = "ru";
+                this.language = "en";
             };
 
             /* * * DON'T EDIT BELOW THIS LINE * * */
