@@ -156,7 +156,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 список того, чего быть не должно, и тогда мы проверяем <em>отсутствие</em> данных
 в ответе на запрос, а при наличии - выводим их в отчете.</p>
 <p>Например, наличие блокировок в PostgreSQL можно проверять так:</p>
-<div class="highlight"><pre><span class="l l-Scalar l-Scalar-Plain">query</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
+<div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">query</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
     <span class="no">SELECT</span>
       <span class="no">COALESCE(blockingl.relation::regclass::text,blockingl.locktype) as locked_item,</span>
       <span class="no">(now() - blockeda.query_start)::time AS waiting_duration,</span>
@@ -180,7 +180,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 
 <p>Таким образом, если блокировок нет - все отлично, а есть есть - выводим их список.</p>
 <p>Другой пример - проверка успешных задач <em>job_name</em> PGAgent за 4 часа:</p>
-<div class="highlight"><pre><span class="l l-Scalar l-Scalar-Plain">query</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
+<div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">query</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">|</span>
     <span class="no">SELECT jlgstatus</span>
     <span class="no">FROM pgagent.pga_joblog</span>
     <span class="no">WHERE jlgstart &gt; (now() - interval &#39;4 hours&#39;) AND jlgstatus = &#39;s&#39; AND</span>
@@ -199,7 +199,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 сразу было все понятно, поэтому ASCII-таблица с проблемными значениями подходит
 как нельзя лучше.</p>
 <p>Пример:</p>
-<div class="highlight"><pre><span class="gp">nagios@example.com:~$</span> ./db-checker --dbname movies --dbuser<span class="o">=</span>checker --dbhost<span class="o">=</span>localhost --dbpassword<span class="o">=</span>SomePassword --checks /opt/checks/movies --critical
+<div class="highlight"><pre><span></span><span class="gp">nagios@example.com:~$</span> ./db-checker --dbname movies --dbuser<span class="o">=</span>checker --dbhost<span class="o">=</span>localhost --dbpassword<span class="o">=</span>SomePassword --checks /opt/checks/movies --critical
 <span class="go">CRITICAL:</span>
 <span class="go">* Found movies with zero duration</span>
 <span class="go">N. ¦ column1 ¦ orig_title                ¦ rus_title</span>
@@ -236,9 +236,9 @@ Alexander Bulimov - production engineer's notes.            </a>
     <ul>
         <li><a href="http://bulimov.ru/it/cadvisor-companion/">Улучшаем сообщения от мониторинга с помощью cAdvisor-companion</a></li>
         <li><a href="http://bulimov.ru/it/atom-haproxy/">Все для HAProxy в Atom</a></li>
-        <li><a href="http://bulimov.ru/it/Выложил-немного-полезностей/">Выложил немного полезностей</a></li>
+        <li><a href="http://bulimov.ru/it/atom-gotests/">Утилита gotests и плагин для Atom</a></li>
         <li><a href="http://bulimov.ru/it/advent-of-code/">Рекомендую Advent Of Code</a></li>
-        <li><a href="http://bulimov.ru/it/collectd-riakcs/">Плагин к Collectd для сбора метрик Riak CS</a></li>
+        <li><a href="http://bulimov.ru/it/check-docker-memory/">Научился мониторить использование памяти в Docker-контейнерах</a></li>
     </ul>
 </section>
     <hr/>
@@ -313,7 +313,7 @@ Alexander Bulimov - production engineer's notes.            </a>
       <hr>
       <div class="row">
          <div class="col-xs-10">&copy; 2016 Alexander Bulimov
-            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content

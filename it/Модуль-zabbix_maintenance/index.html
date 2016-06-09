@@ -130,7 +130,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 интерфейсом Zabbixа.</p>
 <p>Свой модуль я использую примерно так:</p>
 <p><strong>rolling-update.yml</strong></p>
-<div class="highlight"><pre><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">hosts</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">www</span>
+<div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">hosts</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">www</span>
   <span class="l l-Scalar l-Scalar-Plain">serial</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
   <span class="l l-Scalar l-Scalar-Plain">vars_prompt</span><span class="p p-Indicator">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">zabbix_user</span>
@@ -203,11 +203,11 @@ Alexander Bulimov - production engineer's notes.            </a>
 <section class="well" id="related-posts">
     <h4>Related Posts:</h4>
     <ul>
-        <li><a href="http://bulimov.ru/it/ansible-sensu/">Удобная настройка Sensu с Ansible</a></li>
-        <li><a href="http://bulimov.ru/it/collectd-riakcs/">Плагин к Collectd для сбора метрик Riak CS</a></li>
-        <li><a href="http://bulimov.ru/it/Выложил-немного-полезностей/">Выложил немного полезностей</a></li>
-        <li><a href="http://bulimov.ru/it/check-cadvisor/">Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</a></li>
         <li><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix/">Низкоуровневое обнаружение в Zabbix</a></li>
+        <li><a href="http://bulimov.ru/it/collectd-riakcs/">Плагин к Collectd для сбора метрик Riak CS</a></li>
+        <li><a href="http://bulimov.ru/it/check-docker-memory/">Научился мониторить использование памяти в Docker-контейнерах</a></li>
+        <li><a href="http://bulimov.ru/it/Выложил-немного-полезностей/">Выложил немного полезностей</a></li>
+        <li><a href="http://bulimov.ru/it/ansible-sensu/">Удобная настройка Sensu с Ansible</a></li>
     </ul>
 </section>
     <hr/>
@@ -282,7 +282,7 @@ Alexander Bulimov - production engineer's notes.            </a>
       <hr>
       <div class="row">
          <div class="col-xs-10">&copy; 2016 Alexander Bulimov
-            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content

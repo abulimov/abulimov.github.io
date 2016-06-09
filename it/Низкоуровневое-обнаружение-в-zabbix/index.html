@@ -129,7 +129,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 <li>PROFIT!</li>
 </ol>
 <p>На выходе должны получить что-то вроде этого:</p>
-<div class="highlight"><pre><span class="p">{</span>
+<div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span><span class="nt">&quot;{#RABBITMQ_VHOST_NAME}&quot;</span><span class="p">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="nt">&quot;{#RABBITMQ_QUEUE_NAME}&quot;</span><span class="p">:</span> <span class="s2">&quot;hello&quot;</span><span class="p">},</span>
     <span class="p">{</span><span class="nt">&quot;{#RABBITMQ_VHOST_NAME}&quot;</span><span class="p">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="nt">&quot;{#RABBITMQ_QUEUE_NAME}&quot;</span><span class="p">:</span> <span class="s2">&quot;world&quot;</span><span class="p">}</span>
@@ -140,7 +140,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 
 <p>Реализовано все на Python, код предельно прост, в комментариях не нуждается.</p>
 <p><strong>rabbitmq_discovery.py</strong></p>
-<div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="kn">import</span> <span class="nn">subprocess</span>
@@ -199,7 +199,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 
 <p>Еще нужно создать ключ, по которому заббикс будет всю эту красоту получать.</p>
 <p>В конфиге заббикса добавляем что-либо вида</p>
-<div class="highlight"><pre>UserParameter=rabbitmq.discovery,sudo /opt/rabbitmq_discovery.py
+<div class="highlight"><pre><span></span>UserParameter=rabbitmq.discovery,sudo /opt/rabbitmq_discovery.py
 </pre></div>
 
 
@@ -216,9 +216,9 @@ rabbitmq.discovery и макросы {#RABBITMQ_VHOST_NAME} и {#RABBITMQ_QUEUE_
     <ul>
         <li><a href="http://bulimov.ru/it/Выложил-немного-полезностей/">Выложил немного полезностей</a></li>
         <li><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware/">Низкоуровневое обнаружение в Zabbix, ищем диски в контроллере от 3ware</a></li>
-        <li><a href="http://bulimov.ru/it/collectd-riakcs/">Плагин к Collectd для сбора метрик Riak CS</a></li>
-        <li><a href="http://bulimov.ru/it/check-cadvisor/">Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</a></li>
         <li><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></li>
+        <li><a href="http://bulimov.ru/it/collectd-riakcs/">Плагин к Collectd для сбора метрик Riak CS</a></li>
+        <li><a href="http://bulimov.ru/it/monitoring-sucks/">Monitoring sucks!</a></li>
     </ul>
 </section>
     <hr/>
@@ -293,7 +293,7 @@ rabbitmq.discovery и макросы {#RABBITMQ_VHOST_NAME} и {#RABBITMQ_QUEUE_
       <hr>
       <div class="row">
          <div class="col-xs-10">&copy; 2016 Alexander Bulimov
-            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content

@@ -143,7 +143,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 как описано <a href="http://docs.icinga.org/icinga2/latest/doc/module/icinga2/chapter/monitoring-basics#dependencies">в официальной документации</a>,
 у каждой виртуалки в <code>host.vars.vm_parent</code> прописан родитель, то есть
 описание шаблона для хоста выглядит примерно так:</p>
-<div class="highlight"><pre><span class="n">template</span> <span class="n">Host</span> <span class="s2">&quot;generic-docker-host-on-vm01&quot;</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><span class="n">template</span> <span class="n">Host</span> <span class="s2">&quot;generic-docker-host-on-vm01&quot;</span> <span class="p">{</span>
   <span class="kn">import</span> <span class="s2">&quot;generic-docker-host&quot;</span>
   <span class="nb">vars</span><span class="o">.</span><span class="n">vm_parent</span> <span class="o">=</span> <span class="s2">&quot;vm01&quot;</span>
 <span class="p">}</span>
@@ -152,7 +152,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 
 <p>Это дает нам возможность для проверки памяти значение <code>nrpe_address</code> брать
 из <code>host.vars.vm_parent</code>, то есть описание сервиса выглядит так:</p>
-<div class="highlight"><pre><span class="nb">apply</span> <span class="n">Service</span> <span class="s2">&quot;memory-docker&quot;</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><span class="nb">apply</span> <span class="n">Service</span> <span class="s2">&quot;memory-docker&quot;</span> <span class="p">{</span>
   <span class="kn">import</span> <span class="s2">&quot;generic-service-nrpe&quot;</span>
   <span class="n">display_name</span> <span class="o">=</span> <span class="s2">&quot;Memory Usage in Docker&quot;</span>
   <span class="nb">vars</span><span class="o">.</span><span class="n">nrpe_address</span> <span class="o">=</span> <span class="n">host</span><span class="o">.</span><span class="n">vars</span><span class="o">.</span><span class="n">vm_parent</span>
@@ -174,7 +174,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 <a href="https://github.com/abulimov/utils/blob/master/nagios/check_docker_memory.py">взять можно тут</a>.</p>
 <p>Пример использования check_docker_memory.py - проверим, что количество свободной памяти в контейнере
 loving_lalande не меньше, чем 15%, и уж точно не меньше 10%:</p>
-<div class="highlight"><pre>nagios@hostname:~$ ./check_docker_memory.py -n loving_lalande -w <span class="m">15</span> -c <span class="m">10</span> -f
+<div class="highlight"><pre><span></span>nagios@hostname:~$ ./check_docker_memory.py -n loving_lalande -w <span class="m">15</span> -c <span class="m">10</span> -f
 CheckDockerMemory OK: 89.005% <span class="o">(</span><span class="m">6533008</span> kB<span class="o">)</span> free! <span class="p">|</span> <span class="nv">TOTAL</span><span class="o">=</span>7340032KB<span class="p">;;;;</span> <span class="nv">USED</span><span class="o">=</span>807024KB<span class="p">;;;;</span> <span class="nv">FREE</span><span class="o">=</span>6533008KB<span class="p">;;;;</span>
 </pre></div>
 
@@ -187,9 +187,9 @@ CheckDockerMemory OK: 89.005% <span class="o">(</span><span class="m">6533008</s
     <ul>
         <li><a href="http://bulimov.ru/it/check-cadvisor/">Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</a></li>
         <li><a href="http://bulimov.ru/it/Выложил-немного-полезностей/">Выложил немного полезностей</a></li>
-        <li><a href="http://bulimov.ru/it/db-checker/">Открыл код db-checker</a></li>
+        <li><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix/">Низкоуровневое обнаружение в Zabbix</a></li>
         <li><a href="http://bulimov.ru/it/who-watch-the-watchmen/">Quis custodiet ipsos custodes?</a></li>
-        <li><a href="http://bulimov.ru/it/collectd-riakcs/">Плагин к Collectd для сбора метрик Riak CS</a></li>
+        <li><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></li>
     </ul>
 </section>
     <hr/>
@@ -264,7 +264,7 @@ CheckDockerMemory OK: 89.005% <span class="o">(</span><span class="m">6533008</s
       <hr>
       <div class="row">
          <div class="col-xs-10">&copy; 2016 Alexander Bulimov
-            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content

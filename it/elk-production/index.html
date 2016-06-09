@@ -130,7 +130,7 @@ Elasticsearch версий 1.4 - 1.7 при нагрузке в ~20kk сообщ
 Elasticsearch для хранения логов, минусы этого решения я знал, поэтому было
 решено попробовать использовать второго большого игрока на этом поприще - ELK.</p>
 <p>Первый вариант использования Logstash и Elasticsearch был очень наивным:</p>
-<div class="highlight"><pre>источники логов -&gt; Logstash -&gt; Elasticsearch
+<div class="highlight"><pre><span></span>источники логов -&gt; Logstash -&gt; Elasticsearch
 </pre></div>
 
 
@@ -169,7 +169,7 @@ Logstash так и осталась.</p>
 <p>Для решения этой проблемы я выбрал простую и достаточно популярную схему с
 буферизацией входящих логов в Redis. Таким образом, схема работы стала выглядеть
 так:</p>
-<div class="highlight"><pre>источники логов -&gt; Logstash-front -&gt; Redis -&gt; Logstash-back -&gt; Elasticsearch
+<div class="highlight"><pre><span></span>источники логов -&gt; Logstash-front -&gt; Redis -&gt; Logstash-back -&gt; Elasticsearch
 </pre></div>
 
 
@@ -275,7 +275,7 @@ Elasticsearch. При это Logstash-front сделан максимально 
       <hr>
       <div class="row">
          <div class="col-xs-10">&copy; 2016 Alexander Bulimov
-            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content

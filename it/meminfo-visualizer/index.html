@@ -127,7 +127,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 чтобы можно было поиграться с кэшем и видеть изменения.</p>
 <p>Выбрал я для реализации свой любимый Python в связке с Qt(PySide).</p>
 <p>Вот весь код:</p>
-<div class="highlight"><pre><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">PySide</span> <span class="kn">import</span> <span class="n">QtGui</span><span class="p">,</span> <span class="n">QtCore</span>
 
 
@@ -226,13 +226,13 @@ Alexander Bulimov - production engineer's notes.            </a>
 и посмотреть, что же изменилось.</p>
 <p>Предварительно надо создать пару больших файлов, для 8Gb оперативки
 нам нужны 1Gb и 8Gb файлы. Создать их можно из /dev/urandom примерно так:</p>
-<div class="highlight"><pre>dd if=/dev/urandom bs=1k count=1048576 of=/path/to/large
+<div class="highlight"><pre><span></span>dd if=/dev/urandom bs=1k count=1048576 of=/path/to/large
 dd if=/dev/urandom bs=1k count=8388608 of=/path/to/large2
 </pre></div>
 
 
 <p>А еще надо собрать <a href="https://github.com/hoytech/vmtouch">vmtouch</a>:</p>
-<div class="highlight"><pre>wget https://raw.github.com/hoytech/vmtouch/master/vmtouch.c
+<div class="highlight"><pre><span></span>wget https://raw.github.com/hoytech/vmtouch/master/vmtouch.c
 gcc -Wall -O3 -o vmtouch vmtouch.c
 chmod +x ./vmtouch
 </pre></div>
@@ -240,56 +240,56 @@ chmod +x ./vmtouch
 
 <p>Ну а теперь повторяем эксперимент из видео. Я использовал ядро Linux 3.13.</p>
 <p>Для начала, сбросим кэши:</p>
-<div class="highlight"><pre>echo 3 | sudo tee /proc/sys/vm/drop_caches
+<div class="highlight"><pre><span></span>echo 3 | sudo tee /proc/sys/vm/drop_caches
 </pre></div>
 
 
 <p>Запустим визуализатор:</p>
-<div class="highlight"><pre>python3 meminfo.py
+<div class="highlight"><pre><span></span>python3 meminfo.py
 </pre></div>
 
 
 <p>У нас есть два больших файлика - large и large2:</p>
 <p>Прочитаем large, чтобы он попал в inactive cache:</p>
-<div class="highlight"><pre>cat large &gt; /dev/null
+<div class="highlight"><pre><span></span>cat large &gt; /dev/null
 </pre></div>
 
 
 <p>Прочитаем его еще раз, чтобы он попал в active cache:</p>
-<div class="highlight"><pre>cat large &gt; /dev/null
+<div class="highlight"><pre><span></span>cat large &gt; /dev/null
 </pre></div>
 
 
 <p>Теперь можно натравить на него vmtouch:</p>
-<div class="highlight"><pre>vmtouch -m 1g -v large
+<div class="highlight"><pre><span></span>vmtouch -m 1g -v large
 </pre></div>
 
 
 <p>Выдавим его из кэша:</p>
-<div class="highlight"><pre>vmtouch -m 1g -e large
+<div class="highlight"><pre><span></span>vmtouch -m 1g -e large
 </pre></div>
 
 
 <p>Снова прочитаем large, чтобы он попал в inactive cache:</p>
-<div class="highlight"><pre>cat large &gt; /dev/null
+<div class="highlight"><pre><span></span>cat large &gt; /dev/null
 </pre></div>
 
 
 <p>Теперь прочитаем large2</p>
-<div class="highlight"><pre>cat large2 &gt; /dev/null
+<div class="highlight"><pre><span></span>cat large2 &gt; /dev/null
 </pre></div>
 
 
 <p>и видим, что он вытесняет large из inactive cache.</p>
 <p>А теперь сбросим снова кэши, и запихнем large в active cache:</p>
-<div class="highlight"><pre>echo 3 | sudo tee /proc/sys/vm/drop_caches
+<div class="highlight"><pre><span></span>echo 3 | sudo tee /proc/sys/vm/drop_caches
 cat large &gt; /dev/null
 cat large &gt; /dev/null
 </pre></div>
 
 
 <p>И попробуем прочитать large2:</p>
-<div class="highlight"><pre>cat large2 &gt; /dev/null
+<div class="highlight"><pre><span></span>cat large2 &gt; /dev/null
 </pre></div>
 
 
@@ -299,7 +299,7 @@ cat large &gt; /dev/null
 характера работы kswapd.</p>
 <p>Если посмотреть с помощью vmtouch, какая часть large2 попала в inactive cache,
 то мы увидим, что он при чтении вытеснял сам себя.</p>
-<div class="highlight"><pre>vmtouch -m 8g -v large2
+<div class="highlight"><pre><span></span>vmtouch -m 8g -v large2
 </pre></div>
 
 
@@ -314,10 +314,10 @@ cat large &gt; /dev/null
     <h4>Related Posts:</h4>
     <ul>
         <li><a href="http://bulimov.ru/it/collectd-riakcs/">Плагин к Collectd для сбора метрик Riak CS</a></li>
-        <li><a href="http://bulimov.ru/it/lyricstagger/">Lyrics Tagger</a></li>
         <li><a href="http://bulimov.ru/it/haproxy-cadvisor/">Балансировка в HAProxy на основе данных cAdvisor</a></li>
         <li><a href="http://bulimov.ru/it/delete-docker-registry-image/">О пользе Python и костылях с Docker</a></li>
-        <li><a href="http://bulimov.ru/it/from-ruhoh-to-pelican/">s/Ruhoh/Pelican/</a></li>
+        <li><a href="http://bulimov.ru/it/lyricstagger/">Lyrics Tagger</a></li>
+        <li><a href="http://bulimov.ru/it/atom-haproxy/">Все для HAProxy в Atom</a></li>
     </ul>
 </section>
     <hr/>
@@ -392,7 +392,7 @@ cat large &gt; /dev/null
       <hr>
       <div class="row">
          <div class="col-xs-10">&copy; 2016 Alexander Bulimov
-            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content

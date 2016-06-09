@@ -148,7 +148,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 <ul>
 <li>на сервере мониторинга Monit следит за тем, что Icinga2 жива</li>
 </ul>
-<div class="highlight"><pre>check process icinga2
+<div class="highlight"><pre><span></span>check process icinga2
   with pidfile /var/run/icinga2/icinga2.pid
   mode passive
 </pre></div>
@@ -157,7 +157,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 <ul>
 <li>на соседе Monit следит, что сервер мониторинга жив</li>
 </ul>
-<div class="highlight"><pre>check host monitoring with address monitoring.example.com
+<div class="highlight"><pre><span></span>check host monitoring with address monitoring.example.com
   if failed icmp type echo count 5 with timeout 15 seconds then alert
 </pre></div>
 
@@ -184,11 +184,11 @@ Zabbix-серверами.</p>
 <section class="well" id="related-posts">
     <h4>Related Posts:</h4>
     <ul>
-        <li><a href="http://bulimov.ru/it/logstash-graphite/">Logstash и Graphite</a></li>
         <li><a href="http://bulimov.ru/it/graphite-experience/">Заметка о Graphite</a></li>
-        <li><a href="http://bulimov.ru/it/check-docker-memory/">Научился мониторить использование памяти в Docker-контейнерах</a></li>
+        <li><a href="http://bulimov.ru/it/logstash-graphite/">Logstash и Graphite</a></li>
         <li><a href="http://bulimov.ru/it/check-cadvisor/">Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</a></li>
-        <li><a href="http://bulimov.ru/it/ansible-sensu/">Удобная настройка Sensu с Ansible</a></li>
+        <li><a href="http://bulimov.ru/it/check-docker-memory/">Научился мониторить использование памяти в Docker-контейнерах</a></li>
+        <li><a href="http://bulimov.ru/it/goodby-coreos/">Избавился от CoreOS</a></li>
     </ul>
 </section>
     <hr/>
@@ -263,7 +263,7 @@ Zabbix-серверами.</p>
       <hr>
       <div class="row">
          <div class="col-xs-10">&copy; 2016 Alexander Bulimov
-            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content

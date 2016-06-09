@@ -123,7 +123,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 конфигурации в YAML гораздо проще (никаких проблем с запятыми, скобочками),
 хотелось писать в YAML и транслировать в JSON.</p>
 <p>Начал я, конечно, с использования шаблонов Ansible:</p>
-<div class="highlight"><pre><span class="p">{</span>
+<div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;client&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;{{ ansible_default_ipv4.address }}&quot;</span><span class="p">,</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;{{ ansible_hostname }}&quot;</span><span class="p">,</span>
@@ -136,7 +136,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 <p>Вроде неплохо, но не слишком удобно, и если одним клиентам захочется добавить
 что-то, например переменную <em>some_var</em>, надо для них делать новый шаблон, или
 городить строки такого вида:</p>
-<div class="highlight"><pre><span class="cp">{%</span> <span class="k">if</span> <span class="nv">some_var</span> <span class="k">is</span> <span class="nf">defined</span> <span class="cp">%}</span><span class="x"> &quot;some_var&quot;: </span><span class="cp">{{</span> <span class="nv">some_var</span> <span class="cp">}}</span><span class="x">, </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
+<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">some_var</span> <span class="k">is</span> <span class="nf">defined</span> <span class="cp">%}</span><span class="x"> &quot;some_var&quot;: </span><span class="cp">{{</span> <span class="nv">some_var</span> <span class="cp">}}</span><span class="x">, </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
 </pre></div>
 
 
@@ -151,7 +151,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 из которого узнал, что теперь в Ansible можно использовать =
 фильтры <em>to_json</em> и <em>to_nice_json</em>.</p>
 <p>А это дает нам возможность делать такие вещи:</p>
-<div class="highlight"><pre><span class="c1"># task from sensu_client role</span>
+<div class="highlight"><pre><span></span><span class="c1"># task from sensu_client role</span>
 <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">configure sensu client</span>
   <span class="l l-Scalar l-Scalar-Plain">copy</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">content=&#39;{{ sensu_client | to_nice_json }}&#39;</span>
         <span class="l l-Scalar l-Scalar-Plain">owner=sensu</span>
@@ -162,7 +162,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 
 
 <p>А описание переменной <em>sensu_client</em> где-нибудь в <em>group_vars</em> выглядит так:</p>
-<div class="highlight"><pre><span class="l l-Scalar l-Scalar-Plain">sensu_client</span><span class="p p-Indicator">:</span>
+<div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">sensu_client</span><span class="p p-Indicator">:</span>
   <span class="l l-Scalar l-Scalar-Plain">client</span><span class="p p-Indicator">:</span>
     <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">ansible_hostname</span><span class="nv"> </span><span class="s">}}&quot;</span>
     <span class="l l-Scalar l-Scalar-Plain">subscriptions</span><span class="p p-Indicator">:</span>
@@ -181,11 +181,11 @@ Alexander Bulimov - production engineer's notes.            </a>
 <section class="well" id="related-posts">
     <h4>Related Posts:</h4>
     <ul>
-        <li><a href="http://bulimov.ru/it/monitoring-sucks/">Monitoring sucks!</a></li>
         <li><a href="http://bulimov.ru/it/Переписал-скрипты-на-ruby-для-sensu/">Переписал скрипты на Ruby для Sensu</a></li>
         <li><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></li>
-        <li><a href="http://bulimov.ru/it/logstash-graphite/">Logstash и Graphite</a></li>
-        <li><a href="http://bulimov.ru/it/ansible-и-serverspec/">Ansible и serverspec</a></li>
+        <li><a href="http://bulimov.ru/it/monitoring-sucks/">Monitoring sucks!</a></li>
+        <li><a href="http://bulimov.ru/it/Выложил-немного-полезностей/">Выложил немного полезностей</a></li>
+        <li><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix/">Низкоуровневое обнаружение в Zabbix</a></li>
     </ul>
 </section>
     <hr/>
@@ -260,7 +260,7 @@ Alexander Bulimov - production engineer's notes.            </a>
       <hr>
       <div class="row">
          <div class="col-xs-10">&copy; 2016 Alexander Bulimov
-            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content

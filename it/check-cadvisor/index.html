@@ -135,7 +135,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 <p>Единственная хитрость была в том, что cAdvisor отдает нам статистику потребления
 квантов времени в наносекундах для CPU, и надо это переводить в проценты загрузки.</p>
 <p>Формула довольно проста, и найдена в одном из issues к самому cAdvisor:</p>
-<div class="highlight"><pre>Usage % = (Used CPU Time (in nanoseconds) for the interval) /(interval (in nano secs) * num cores)
+<div class="highlight"><pre><span></span>Usage % = (Used CPU Time (in nanoseconds) for the interval) /(interval (in nano secs) * num cores)
 </pre></div>
 
 
@@ -143,13 +143,13 @@ Alexander Bulimov - production engineer's notes.            </a>
 который умеет проверять использование CPU и оперативной памяти в контейнере через cAdvisor API.</p>
 <p>Пример использования check_cadvisor.py - проверим, что количество свободной памяти в контейнере
 loving_lalande не меньше, чем 15%, и уж точно не меньше 10%:</p>
-<div class="highlight"><pre>nagios@hostname:~$ ./check_cadvisor.py -u http://cadvisor_url -n loving_lalande -m -w <span class="m">15</span> -c 10
+<div class="highlight"><pre><span></span>nagios@hostname:~$ ./check_cadvisor.py -u http://cadvisor_url -n loving_lalande -m -w <span class="m">15</span> -c 10
 CheckDockerStats OK: 79.96% <span class="o">(</span><span class="m">5869163</span> kB<span class="o">)</span> free! <span class="p">|</span> <span class="nv">mem_used</span><span class="o">=</span>1470868KB<span class="p">;</span>1101004<span class="p">;</span>734003<span class="p">;</span>0<span class="p">;</span>7340032
 </pre></div>
 
 
 <p>А теперь проверим, что CPU используется менее чем на 10%, и уж точно менее, чем на 20%:</p>
-<div class="highlight"><pre>nagios@hostname:~$ ./check_cadvisor.py -u http://cadvisor_url -n loving_lalande -C -w <span class="m">10</span> -c 20
+<div class="highlight"><pre><span></span>nagios@hostname:~$ ./check_cadvisor.py -u http://cadvisor_url -n loving_lalande -C -w <span class="m">10</span> -c 20
 CheckDockerStats WARNING: 12.98% CPU used! <span class="p">|</span> <span class="nv">cpu_usage</span><span class="o">=</span>12.98%<span class="p">;</span>10<span class="p">;</span>20<span class="p">;</span>0<span class="p">;</span>100
 </pre></div>
 
@@ -166,9 +166,9 @@ CheckDockerStats WARNING: 12.98% CPU used! <span class="p">|</span> <span class=
     <ul>
         <li><a href="http://bulimov.ru/it/check-docker-memory/">Научился мониторить использование памяти в Docker-контейнерах</a></li>
         <li><a href="http://bulimov.ru/it/Выложил-немного-полезностей/">Выложил немного полезностей</a></li>
-        <li><a href="http://bulimov.ru/it/db-checker/">Открыл код db-checker</a></li>
+        <li><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix/">Низкоуровневое обнаружение в Zabbix</a></li>
         <li><a href="http://bulimov.ru/it/who-watch-the-watchmen/">Quis custodiet ipsos custodes?</a></li>
-        <li><a href="http://bulimov.ru/it/collectd-riakcs/">Плагин к Collectd для сбора метрик Riak CS</a></li>
+        <li><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></li>
     </ul>
 </section>
     <hr/>
@@ -243,7 +243,7 @@ CheckDockerStats WARNING: 12.98% CPU used! <span class="p">|</span> <span class=
       <hr>
       <div class="row">
          <div class="col-xs-10">&copy; 2016 Alexander Bulimov
-            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content

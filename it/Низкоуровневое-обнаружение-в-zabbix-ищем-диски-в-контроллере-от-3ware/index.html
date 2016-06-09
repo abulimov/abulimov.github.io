@@ -132,7 +132,7 @@ Alexander Bulimov - production engineer's notes.            </a>
    чтобы вытащить статусы каждого диска в массиве с помощью 3ware-status или tw-cli</li>
 </ol>
 <p>На выходе должны получить что-то вроде этого:</p>
-<div class="highlight"><pre><span class="p">{</span>
+<div class="highlight"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
     <span class="p">{</span><span class="nt">&quot;{#3WARE_DISK}&quot;</span><span class="p">:</span> <span class="s2">&quot;c0u0p0&quot;</span><span class="p">},</span>
     <span class="p">{</span><span class="nt">&quot;{#3WARE_DISK}&quot;</span><span class="p">:</span> <span class="s2">&quot;c0p0u1&quot;</span><span class="p">},</span>
@@ -145,7 +145,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 
 <p>Реализовано все на Python, благо он есть по-умолчанию практически в любом дистрибутиве.</p>
 <p><strong>3ware_discovery.py</strong></p>
-<div class="highlight"><pre><span class="ch">#!/usr/bin/env python</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="c1">#</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
@@ -215,7 +215,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 
 <p>Ну и конечно нужно создать ключ, по которому заббикс будет список дисков получать.</p>
 <p>В конфиге заббикса добавляем строку вида</p>
-<div class="highlight"><pre>UserParameter=3ware.discovery,sudo /opt/3ware_discovery.py
+<div class="highlight"><pre><span></span>UserParameter=3ware.discovery,sudo /opt/3ware_discovery.py
 </pre></div>
 
 
@@ -229,11 +229,11 @@ Alexander Bulimov - production engineer's notes.            </a>
 <section class="well" id="related-posts">
     <h4>Related Posts:</h4>
     <ul>
-        <li><a href="http://bulimov.ru/it/Выложил-немного-полезностей/">Выложил немного полезностей</a></li>
         <li><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix/">Низкоуровневое обнаружение в Zabbix</a></li>
-        <li><a href="http://bulimov.ru/it/collectd-riakcs/">Плагин к Collectd для сбора метрик Riak CS</a></li>
-        <li><a href="http://bulimov.ru/it/check-cadvisor/">Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</a></li>
+        <li><a href="http://bulimov.ru/it/Выложил-немного-полезностей/">Выложил немного полезностей</a></li>
         <li><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></li>
+        <li><a href="http://bulimov.ru/it/collectd-riakcs/">Плагин к Collectd для сбора метрик Riak CS</a></li>
+        <li><a href="http://bulimov.ru/it/monitoring-sucks/">Monitoring sucks!</a></li>
     </ul>
 </section>
     <hr/>
@@ -308,7 +308,7 @@ Alexander Bulimov - production engineer's notes.            </a>
       <hr>
       <div class="row">
          <div class="col-xs-10">&copy; 2016 Alexander Bulimov
-            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content

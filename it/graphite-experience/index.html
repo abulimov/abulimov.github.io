@@ -181,12 +181,12 @@ Alexander Bulimov - production engineer's notes.            </a>
 этот функционал только в feature-requests висит, проникаешься к Graphite искренней любовью.</p>
 <p>Отдельно хочется отметить фантастически простой
 <a href="http://graphite.readthedocs.org/en/latest/feeding-carbon.html#step-3-understanding-the-graphite-message-format">формат, в котором Graphite получает метрики</a>:</p>
-<div class="highlight"><pre>metric_path value timestamp\n
+<div class="highlight"><pre><span></span>metric_path value timestamp\n
 </pre></div>
 
 
 <p>например</p>
-<div class="highlight"><pre>foo.bar.baz 42 74857843
+<div class="highlight"><pre><span></span>foo.bar.baz 42 74857843
 </pre></div>
 
 
@@ -272,7 +272,7 @@ eventы с описанием события (деплой такой-то ве�
 работает в 2 раза дольше. или что потребление памяти упало на 20%.</p>
 <p>Я, к примеру, шлю события при делое в Elasticsearch из <a href="http://www.ansible.com/">Ansible</a>,
 причем самым простым способом:</p>
-<div class="highlight"><pre><span class="x">- name: create deploy event in elasticsearch</span>
+<div class="highlight"><pre><span></span><span class="x">- name: create deploy event in elasticsearch</span>
 <span class="x">  command: &gt;</span>
 <span class="x">    curl -s -S -XPOST -d &#39;</span>
 <span class="x">      {</span>
@@ -313,10 +313,10 @@ eventы с описанием события (деплой такой-то ве�
     <h4>Related Posts:</h4>
     <ul>
         <li><a href="http://bulimov.ru/it/logstash-graphite/">Logstash и Graphite</a></li>
-        <li><a href="http://bulimov.ru/it/go-carbon/">Замена carbon-cache на go-carbon = Счастье</a></li>
-        <li><a href="http://bulimov.ru/it/monitoring-sucks/">Monitoring sucks!</a></li>
-        <li><a href="http://bulimov.ru/it/who-watch-the-watchmen/">Quis custodiet ipsos custodes?</a></li>
         <li><a href="http://bulimov.ru/it/goodby-coreos/">Избавился от CoreOS</a></li>
+        <li><a href="http://bulimov.ru/it/go-carbon/">Замена carbon-cache на go-carbon = Счастье</a></li>
+        <li><a href="http://bulimov.ru/it/who-watch-the-watchmen/">Quis custodiet ipsos custodes?</a></li>
+        <li><a href="http://bulimov.ru/it/monitoring-sucks/">Monitoring sucks!</a></li>
     </ul>
 </section>
     <hr/>
@@ -391,7 +391,7 @@ eventы с описанием события (деплой такой-то ве�
       <hr>
       <div class="row">
          <div class="col-xs-10">&copy; 2016 Alexander Bulimov
-            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content

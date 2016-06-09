@@ -141,24 +141,24 @@ Alexander Bulimov - production engineer's notes.            </a>
 <p>Для обычных проверок <code>check_load</code> и <code>check_memory</code> из пакета nagios-plugins
 я добавил топ-5 потребителей ресурсов достаточно легко - обернул стандратные
 плагины в простенький wrapper на bash, получилось примерно так:</p>
-<div class="highlight"><pre><span class="ch">#!/bin/bash</span>
+<div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="c1"># check_memory wrapper</span>
 <span class="nv">output</span><span class="o">=</span><span class="k">$(</span>/usr/lib/nagios/plugins/check_memory <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="k">)</span>
 <span class="nv">status</span><span class="o">=</span><span class="nv">$?</span>
-<span class="nv">message</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span>$<span class="s2">output&quot;</span> <span class="p">|</span> cut -d<span class="se">\|</span> -f 1<span class="k">)</span>
-<span class="nv">perfdata</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span>$<span class="s2">output&quot;</span> <span class="p">|</span> cut -d<span class="se">\|</span> -f 2<span class="k">)</span>
-<span class="nb">echo</span> -n <span class="s2">&quot;</span>$<span class="s2">message&quot;</span>
-<span class="k">if</span> <span class="o">[</span> <span class="m">0</span> -ne <span class="s2">&quot;</span>$<span class="s2">status&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+<span class="nv">message</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$output</span><span class="s2">&quot;</span> <span class="p">|</span> cut -d<span class="se">\|</span> -f 1<span class="k">)</span>
+<span class="nv">perfdata</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$output</span><span class="s2">&quot;</span> <span class="p">|</span> cut -d<span class="se">\|</span> -f 2<span class="k">)</span>
+<span class="nb">echo</span> -n <span class="s2">&quot;</span><span class="nv">$message</span><span class="s2">&quot;</span>
+<span class="k">if</span> <span class="o">[</span> <span class="m">0</span> -ne <span class="s2">&quot;</span><span class="nv">$status</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
   <span class="nb">echo</span>
   ps aux --sort -pmem <span class="p">|</span> head -n 5
 <span class="k">fi</span>
-<span class="nb">echo</span> <span class="s2">&quot; | </span>$<span class="s2">perfdata&quot;</span>
-<span class="nb">exit</span> $status
+<span class="nb">echo</span> <span class="s2">&quot; | </span><span class="nv">$perfdata</span><span class="s2">&quot;</span>
+<span class="nb">exit</span> <span class="nv">$status</span>
 </pre></div>
 
 
 <p>При превышении заданных лимитов вывод этого wrapperа получается такой:</p>
-<div class="highlight"><pre>root@host:~# /usr/lib/nagios/plugins/check_memory_wrapper.sh -f -C -w <span class="m">15</span> -c 10
+<div class="highlight"><pre><span></span>root@host:~# /usr/lib/nagios/plugins/check_memory_wrapper.sh -f -C -w <span class="m">15</span> -c 10
 CRITICAL - 4.9% <span class="o">(</span><span class="m">1198364</span> kB<span class="o">)</span> free!
 USER       PID %CPU %MEM    VSZ   RSS      TTY  STAT START   TIME COMMAND
 traffic+ <span class="m">28086</span> 11.3 91.7 <span class="m">25970900</span> <span class="m">22651436</span> ?    Sl   Mar18 5553:57 /usr/bin/traffic_server -M --httpport 8080:fd<span class="o">=</span>9
@@ -207,7 +207,7 @@ read-only доступ к <code>/proc</code>, и который по HTTP API о
 случае сообщений от мониторинга, и вывожу вместе с алертом. Теперь сообщение
 из начала статьи, которое и побудило меня к написанию своего сервиса,
 выглядит примерно так:</p>
-<div class="highlight"><pre>CheckDockerStats WARNING: 83.32% CPU used!
+<div class="highlight"><pre><span></span>CheckDockerStats WARNING: 83.32% CPU used!
  USER   PID  %CPU  %MEM      VSZ      RSS   STAT COMMAND
 <span class="m">65534</span>  <span class="m">1285</span>  18.3   0.0    <span class="m">18396</span>     <span class="m">1632</span>      S /usr/sbin/nutcracker -v <span class="m">11</span> -c /etc/twemproxy/config.yml
  <span class="m">1000</span> <span class="m">24891</span>   7.5   1.4   <span class="m">299524</span>    <span class="m">99200</span>      S python /path/to/program.py
@@ -244,9 +244,9 @@ read-only доступ к <code>/proc</code>, и который по HTTP API о
     <ul>
         <li><a href="http://bulimov.ru/it/db-checker/">Открыл код db-checker</a></li>
         <li><a href="http://bulimov.ru/it/atom-haproxy/">Все для HAProxy в Atom</a></li>
+        <li><a href="http://bulimov.ru/it/atom-gotests/">Утилита gotests и плагин для Atom</a></li>
         <li><a href="http://bulimov.ru/it/advent-of-code/">Рекомендую Advent Of Code</a></li>
-        <li><a href="http://bulimov.ru/it/collectd-riakcs/">Плагин к Collectd для сбора метрик Riak CS</a></li>
-        <li><a href="http://bulimov.ru/it/check-cadvisor/">Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</a></li>
+        <li><a href="http://bulimov.ru/it/haproxy-cadvisor/">Балансировка в HAProxy на основе данных cAdvisor</a></li>
     </ul>
 </section>
     <hr/>
@@ -321,7 +321,7 @@ read-only доступ к <code>/proc</code>, и который по HTTP API о
       <hr>
       <div class="row">
          <div class="col-xs-10">&copy; 2016 Alexander Bulimov
-            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content

@@ -125,7 +125,7 @@ TDD-администрирования. Оказалось, что толком 
 предоставляют возможность декларативно описать требуемое состояние удаленного
 сервера, и проверить его соответствие реальности по ssh.</p>
 <p>Вот пример для serverspec с официального сайта:</p>
-<div class="highlight"><pre><span class="nb">require</span> <span class="s1">&#39;spec_helper&#39;</span>
+<div class="highlight"><pre><span></span><span class="nb">require</span> <span class="s1">&#39;spec_helper&#39;</span>
 
 <span class="n">describe</span> <span class="n">package</span><span class="p">(</span><span class="s1">&#39;httpd&#39;</span><span class="p">)</span> <span class="k">do</span>
   <span class="n">it</span> <span class="p">{</span> <span class="n">should</span> <span class="n">be_installed</span> <span class="p">}</span>
@@ -153,7 +153,7 @@ TDD-администрирования. Оказалось, что толком 
 <p>Но в случае Ansible, наш playbook <strong>уже</strong> содержит декларативное описание
 требуемого состояния.</p>
 <p>Вот фрагмент роли Nginx для Ansible.</p>
-<div class="highlight"><pre><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Ensure nginx package is installed</span>
+<div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Ensure nginx package is installed</span>
   <span class="l l-Scalar l-Scalar-Plain">apt</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">pkg=nginx state=latest</span>
 
 <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Ensure nginx service is enabled and started</span>
@@ -189,8 +189,8 @@ TDD-администрирования. Оказалось, что толком 
     <ul>
         <li><a href="http://bulimov.ru/it/Тестирование-ansible-playbook/">Тестирование Ansible Playbook</a></li>
         <li><a href="http://bulimov.ru/it/infrastructure-as-a-code/">Инфраструктура как код</a></li>
-        <li><a href="http://bulimov.ru/it/ansible-sensu/">Удобная настройка Sensu с Ansible</a></li>
-        <li><a href="http://bulimov.ru/it/monitoring-sucks/">Monitoring sucks!</a></li>
+        <li><a href="http://bulimov.ru/it/goodby-coreos/">Избавился от CoreOS</a></li>
+        <li><a href="http://bulimov.ru/it/Мнение-о-chef/">Мнение о Chef</a></li>
         <li><a href="http://bulimov.ru/it/graphite-experience/">Заметка о Graphite</a></li>
     </ul>
 </section>
@@ -266,7 +266,7 @@ TDD-администрирования. Оказалось, что толком 
       <hr>
       <div class="row">
          <div class="col-xs-10">&copy; 2016 Alexander Bulimov
-            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content

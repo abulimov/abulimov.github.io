@@ -128,7 +128,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 с помощью <a href="http://rubygems.org/gems/gruff">gruff</a>.</p>
 <p>Плагин состоит из 3х файлов:</p>
 <p><strong>collection.rb</strong></p>
-<div class="highlight"><pre><span class="k">module</span> <span class="nn">Ruhoh::Resources::Graphs</span>
+<div class="highlight"><pre><span></span><span class="k">module</span> <span class="nn">Ruhoh::Resources::Graphs</span>
   <span class="k">class</span> <span class="nc">Collection</span>
     <span class="kp">include</span> <span class="no">Ruhoh</span><span class="o">::</span><span class="no">Base</span><span class="o">::</span><span class="no">Collectable</span>
 
@@ -143,7 +143,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 <p>Тут мы кроме url_endpoint ничего особо и не описываeм. Url_endpoint нужен для указания,
 где будут в итоге лежать получившиеся графики</p>
 <p><strong>compiler.rb</strong></p>
-<div class="highlight"><pre><span class="nb">require</span> <span class="s1">&#39;gruff&#39;</span>
+<div class="highlight"><pre><span></span><span class="nb">require</span> <span class="s1">&#39;gruff&#39;</span>
 <span class="nb">require</span> <span class="s1">&#39;yaml&#39;</span>
 
 <span class="k">class</span> <span class="nc">Ruhoh</span>
@@ -208,7 +208,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 методом <em>render_graph</em> итоговые картинки, и помещаем куда нужно.</p>
 <p>Ну и для того, чтобы в preview-режиме мы тоже могли видеть эти картинки, существует файл</p>
 <p><strong>previewer.rb</strong></p>
-<div class="highlight"><pre><span class="nb">require</span> <span class="s1">&#39;gruff&#39;</span>
+<div class="highlight"><pre><span></span><span class="nb">require</span> <span class="s1">&#39;gruff&#39;</span>
 <span class="nb">require</span> <span class="s1">&#39;yaml&#39;</span>
 <span class="k">module</span> <span class="nn">Ruhoh::Resources::Graphs</span>
   <span class="k">class</span> <span class="nc">Previewer</span>
@@ -245,11 +245,11 @@ Alexander Bulimov - production engineer's notes.            </a>
 <section class="well" id="related-posts">
     <h4>Related Posts:</h4>
     <ul>
-        <li><a href="http://bulimov.ru/it/atom-gotests/">Утилита gotests и плагин для Atom</a></li>
+        <li><a href="http://bulimov.ru/it/meminfo-visualizer/">Разбирался с page-cache в Linux</a></li>
         <li><a href="http://bulimov.ru/it/atom-haproxy/">Все для HAProxy в Atom</a></li>
-        <li><a href="http://bulimov.ru/it/db-checker/">Открыл код db-checker</a></li>
-        <li><a href="http://bulimov.ru/it/haproxy-cadvisor/">Балансировка в HAProxy на основе данных cAdvisor</a></li>
-        <li><a href="http://bulimov.ru/it/delete-docker-registry-image/">О пользе Python и костылях с Docker</a></li>
+        <li><a href="http://bulimov.ru/it/Переписал-скрипты-на-ruby-для-sensu/">Переписал скрипты на Ruby для Sensu</a></li>
+        <li><a href="http://bulimov.ru/it/cadvisor-companion/">Улучшаем сообщения от мониторинга с помощью cAdvisor-companion</a></li>
+        <li><a href="http://bulimov.ru/it/lyricstagger/">Lyrics Tagger</a></li>
     </ul>
 </section>
     <hr/>
@@ -324,7 +324,7 @@ Alexander Bulimov - production engineer's notes.            </a>
       <hr>
       <div class="row">
          <div class="col-xs-10">&copy; 2016 Alexander Bulimov
-            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content
