@@ -28,7 +28,10 @@ TAGS_URL = 'tags/'
 TAGS_SAVE_AS = 'tags/index.html'
 ARCHIVES_SAVE_AS = 'archive/index.html'
 ARCHIVES_URL = 'archive/'
-MENUITEMS = [("Tags", "/tags/index.html")]
+MENUITEMS = [
+    ("Tags", "/tags/index.html"),
+    ("Categories", "/categories/index.html"),
+]
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
@@ -39,6 +42,7 @@ DISPLAY_PAGES_ON_MENU = True
 DISPLAY_CATEGORIES_ON_MENU = False
 CC_LICENSE = "CC-BY-SA"
 CUSTOM_CSS = 'static/custom.css'
+SHOW_ARTICLE_CATEGORY = True
 
 GITHUB_USER = "abulimov"
 
