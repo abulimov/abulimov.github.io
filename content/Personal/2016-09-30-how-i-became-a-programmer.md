@@ -1,6 +1,6 @@
 Title: How I became a programmer
 Date: 2016-09-30
-Tags: IT
+Tags: Programming, Experience
 Category: Personal
 Slug: how-i-became-a-programmer
 
