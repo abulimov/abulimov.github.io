@@ -13,13 +13,13 @@
 
         <meta name="author" content="Alexander Bulimov" />
         <meta name="keywords" content="Clair,Docker,CoreOS" />
-        <meta name="description" content="Ни для кого не секрет, что контейнеры (и в частности Docker) не только решают много проблем (configuration drift, scalability, dependency hell), но и привносят новые (в частности, обновление базовых образов). Я уже давно мониторил IT-мир на предмет появления хорошего инструмента для проверки Docker-образов на наличие известных CVE. До недавнего времени подходящего инструмента не было. Была парочка дистро-специфичных инструментов (например oscap-docker, с которым я помучался и забил), но ничего подходящего ..." />
+        <meta name="description" content="Ни для кого не секрет, что контейнеры (и в частности Docker) не только решают много проблем (configuration drift, scalability, dependency hell), но и привносят новые (в частности, обновление базовых образов). Я уже давно мониторил IT-мир на предмет появления хорошего инструмента для проверки Docker-образов на наличие известных CVE. До недавнего времени подходящего инструмента не было. Была парочка дистро-специфичных инструментов (например oscap-docker, с которым я помучался и забил), но ничего подходящего …" />
 
         <meta property="og:site_name" content="Alexander Bulimov - production engineer's notes." />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Проверка образов Docker на уязвимости с Clair"/>
         <meta property="og:url" content="http://bulimov.ru/it/clair/"/>
-        <meta property="og:description" content="Ни для кого не секрет, что контейнеры (и в частности Docker) не только решают много проблем (configuration drift, scalability, dependency hell), но и привносят новые (в частности, обновление базовых образов). Я уже давно мониторил IT-мир на предмет появления хорошего инструмента для проверки Docker-образов на наличие известных CVE. До недавнего времени подходящего инструмента не было. Была парочка дистро-специфичных инструментов (например oscap-docker, с которым я помучался и забил), но ничего подходящего ..."/>
+        <meta property="og:description" content="Ни для кого не секрет, что контейнеры (и в частности Docker) не только решают много проблем (configuration drift, scalability, dependency hell), но и привносят новые (в частности, обновление базовых образов). Я уже давно мониторил IT-мир на предмет появления хорошего инструмента для проверки Docker-образов на наличие известных CVE. До недавнего времени подходящего инструмента не было. Была парочка дистро-специфичных инструментов (например oscap-docker, с которым я помучался и забил), но ничего подходящего …"/>
         <meta property="article:published_time" content="2016-03-24" />
             <meta property="article:section" content="IT" />
             <meta property="article:tag" content="Clair" />
@@ -148,15 +148,15 @@ Alexander Bulimov - production engineer's notes.            </a>
 <span class="nv">pull</span><span class="o">=</span><span class="k">$(</span>docker pull <span class="s2">&quot;</span><span class="nv">$image</span><span class="s2">&quot;</span> &gt;/dev/null<span class="k">)</span>
 <span class="k">if</span> <span class="o">[</span> <span class="m">0</span> -ne <span class="nv">$?</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
   <span class="nb">echo</span> <span class="s2">&quot;pull failed!&quot;</span>
-  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$pull</span><span class="s2">&quot;</span> <span class="p">|</span> tail -n 20
-  <span class="nb">exit</span> 1
+  <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$pull</span><span class="s2">&quot;</span> <span class="p">|</span> tail -n <span class="m">20</span>
+  <span class="nb">exit</span> <span class="m">1</span>
 <span class="k">fi</span>
 <span class="nb">echo</span> <span class="s2">&quot;analyzing </span><span class="nv">$image</span><span class="s2">&quot;</span>
 <span class="nv">out</span><span class="o">=</span><span class="k">$(</span>analyze-local-images <span class="se">\</span>
   -minimum-severity High <span class="se">\</span>
   -endpoint http://clair.ip.address.here:6060 <span class="se">\</span>
   -my-address own.ip.address.here <span class="se">\</span>
-  <span class="s2">&quot;</span><span class="nv">$image</span><span class="s2">&quot;</span> 2&gt;<span class="p">&amp;</span>1<span class="k">)</span>
+  <span class="s2">&quot;</span><span class="nv">$image</span><span class="s2">&quot;</span> <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="k">)</span>
 <span class="nv">status</span><span class="o">=</span><span class="nv">$?</span>
 
 <span class="c1"># cleanup is done separately, with docker-gc running on cron</span>
@@ -164,7 +164,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 <span class="k">if</span> <span class="o">[</span> <span class="m">0</span> -ne <span class="nv">$status</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
   <span class="nb">echo</span> <span class="s2">&quot;analyze failed!&quot;</span>
   <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$report</span><span class="s2">&quot;</span>
-  <span class="nb">exit</span> 1
+  <span class="nb">exit</span> <span class="m">1</span>
 <span class="k">fi</span>
 
 <span class="nv">report</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$out</span><span class="s2">&quot;</span> <span class="p">|</span> grep -A <span class="m">10000</span> <span class="s1">&#39;Clair report for image&#39;</span><span class="k">)</span>
@@ -172,7 +172,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 <span class="nv">found_cve</span><span class="o">=</span><span class="nv">$?</span>
 <span class="k">if</span> <span class="o">[</span> <span class="m">0</span> -eq <span class="nv">$found_cve</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
   <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$report</span><span class="s2">&quot;</span>
-  <span class="nb">exit</span> 1
+  <span class="nb">exit</span> <span class="m">1</span>
 <span class="k">fi</span>
 
 <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$report</span><span class="s2">&quot;</span>
@@ -193,9 +193,9 @@ Alexander Bulimov - production engineer's notes.            </a>
 <section class="well" id="related-posts">
     <h4>Related Posts:</h4>
     <ul>
-        <li><a href="http://bulimov.ru/it/goodby-coreos/">Избавился от CoreOS</a></li>
         <li><a href="http://bulimov.ru/it/delete-docker-registry-image/">О пользе Python и костылях с Docker</a></li>
         <li><a href="http://bulimov.ru/it/coreos-opinion/">Впечатления от CoreOS</a></li>
+        <li><a href="http://bulimov.ru/it/goodby-coreos/">Избавился от CoreOS</a></li>
     </ul>
 </section>
     <hr/>
@@ -260,8 +260,7 @@ Alexander Bulimov - production engineer's notes.            </a>
         </div>
     </li>
     </ul>
-</section>
-            </aside>
+</section>            </aside>
         </div>
     </div>
 </div>
@@ -269,12 +268,12 @@ Alexander Bulimov - production engineer's notes.            </a>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2016 Alexander Bulimov
+         <div class="col-xs-10">&copy; 2017 Alexander Bulimov
             &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content
-  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
 </small></p>
          </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>

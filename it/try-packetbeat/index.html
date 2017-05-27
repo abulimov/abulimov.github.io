@@ -13,13 +13,13 @@
 
         <meta name="author" content="Alexander Bulimov" />
         <meta name="keywords" content="Packetbeat,Elasticsearch,Kibana,Monitoring" />
-        <meta name="description" content="Вчера в блоге Elasticsearch появилась отличная новость - проект Packetbeat, развиваемый до этого энтузиастами, присоединился к Elastic. Я уже довольно давно слежу за этим проектом, и теперь, когда можно не беспокоиться о его будущем, хочу о нем рассказать. Packetbeat это такой инструмент мониторинга, который работает как анализатор сетевых пакетов, парсит различные протоколы (сейчас поддерживаются HTTP, MySQL, Postgresql, Redis, Thrift-RPC), получает нужные данные, и отсылает их либо напрямую в Elasticsearch, либо в ..." />
+        <meta name="description" content="Вчера в блоге Elasticsearch появилась отличная новость - проект Packetbeat, развиваемый до этого энтузиастами, присоединился к Elastic. Я уже довольно давно слежу за этим проектом, и теперь, когда можно не беспокоиться о его будущем, хочу о нем рассказать. Packetbeat это такой инструмент мониторинга, который работает как анализатор сетевых пакетов, парсит различные протоколы (сейчас поддерживаются HTTP, MySQL, Postgresql, Redis, Thrift-RPC), получает нужные данные, и отсылает их либо напрямую в Elasticsearch, либо в …" />
 
         <meta property="og:site_name" content="Alexander Bulimov - production engineer's notes." />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Попробуйте Packetbeat"/>
         <meta property="og:url" content="http://bulimov.ru/it/try-packetbeat/"/>
-        <meta property="og:description" content="Вчера в блоге Elasticsearch появилась отличная новость - проект Packetbeat, развиваемый до этого энтузиастами, присоединился к Elastic. Я уже довольно давно слежу за этим проектом, и теперь, когда можно не беспокоиться о его будущем, хочу о нем рассказать. Packetbeat это такой инструмент мониторинга, который работает как анализатор сетевых пакетов, парсит различные протоколы (сейчас поддерживаются HTTP, MySQL, Postgresql, Redis, Thrift-RPC), получает нужные данные, и отсылает их либо напрямую в Elasticsearch, либо в ..."/>
+        <meta property="og:description" content="Вчера в блоге Elasticsearch появилась отличная новость - проект Packetbeat, развиваемый до этого энтузиастами, присоединился к Elastic. Я уже довольно давно слежу за этим проектом, и теперь, когда можно не беспокоиться о его будущем, хочу о нем рассказать. Packetbeat это такой инструмент мониторинга, который работает как анализатор сетевых пакетов, парсит различные протоколы (сейчас поддерживаются HTTP, MySQL, Postgresql, Redis, Thrift-RPC), получает нужные данные, и отсылает их либо напрямую в Elasticsearch, либо в …"/>
         <meta property="article:published_time" content="2015-05-28" />
             <meta property="article:section" content="IT" />
             <meta property="article:tag" content="Packetbeat" />
@@ -166,11 +166,11 @@ Packetbeat парсит сетевой трафик, и это недешево�
 <section class="well" id="related-posts">
     <h4>Related Posts:</h4>
     <ul>
+        <li><a href="http://bulimov.ru/it/user-questions/">Вопросы от Дениса</a></li>
         <li><a href="http://bulimov.ru/it/elk-production/">Использование ELK в продакшне</a></li>
-        <li><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></li>
-        <li><a href="http://bulimov.ru/it/check-docker-memory/">Научился мониторить использование памяти в Docker-контейнерах</a></li>
-        <li><a href="http://bulimov.ru/it/cadvisor-companion/">Улучшаем сообщения от мониторинга с помощью cAdvisor-companion</a></li>
         <li><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix/">Низкоуровневое обнаружение в Zabbix</a></li>
+        <li><a href="http://bulimov.ru/it/check-cadvisor/">Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</a></li>
+        <li><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></li>
     </ul>
 </section>
     <hr/>
@@ -235,8 +235,7 @@ Packetbeat парсит сетевой трафик, и это недешево�
         </div>
     </li>
     </ul>
-</section>
-            </aside>
+</section>            </aside>
         </div>
     </div>
 </div>
@@ -244,12 +243,12 @@ Packetbeat парсит сетевой трафик, и это недешево�
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2016 Alexander Bulimov
+         <div class="col-xs-10">&copy; 2017 Alexander Bulimov
             &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content
-  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
 </small></p>
          </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>

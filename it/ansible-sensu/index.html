@@ -13,13 +13,13 @@
 
         <meta name="author" content="Alexander Bulimov" />
         <meta name="keywords" content="Ansible,Sensu,Monitoring" />
-        <meta name="description" content="Так как я использую Sensu для мониторинга, и Ansible для управления конфигурациями, то конечно же я настраиваю Sensu с помощью Ansible. В этой связке меня смущало только одно - Sensu использует JSON для конфигов, в то время как Ansible использует YAML. Поскольку JSON является подмножеством YAML, и описывать конфигурации в YAML гораздо проще (никаких проблем с запятыми, скобочками), хотелось писать в YAML и транслировать в JSON. Начал я, конечно, с использования ..." />
+        <meta name="description" content="Так как я использую Sensu для мониторинга, и Ansible для управления конфигурациями, то конечно же я настраиваю Sensu с помощью Ansible. В этой связке меня смущало только одно - Sensu использует JSON для конфигов, в то время как Ansible использует YAML. Поскольку JSON является подмножеством YAML, и описывать конфигурации в YAML гораздо проще (никаких проблем с запятыми, скобочками), хотелось писать в YAML и транслировать в JSON. Начал я, конечно, с использования …" />
 
         <meta property="og:site_name" content="Alexander Bulimov - production engineer's notes." />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Удобная настройка Sensu с Ansible"/>
         <meta property="og:url" content="http://bulimov.ru/it/ansible-sensu/"/>
-        <meta property="og:description" content="Так как я использую Sensu для мониторинга, и Ansible для управления конфигурациями, то конечно же я настраиваю Sensu с помощью Ansible. В этой связке меня смущало только одно - Sensu использует JSON для конфигов, в то время как Ansible использует YAML. Поскольку JSON является подмножеством YAML, и описывать конфигурации в YAML гораздо проще (никаких проблем с запятыми, скобочками), хотелось писать в YAML и транслировать в JSON. Начал я, конечно, с использования ..."/>
+        <meta property="og:description" content="Так как я использую Sensu для мониторинга, и Ansible для управления конфигурациями, то конечно же я настраиваю Sensu с помощью Ansible. В этой связке меня смущало только одно - Sensu использует JSON для конфигов, в то время как Ansible использует YAML. Поскольку JSON является подмножеством YAML, и описывать конфигурации в YAML гораздо проще (никаких проблем с запятыми, скобочками), хотелось писать в YAML и транслировать в JSON. Начал я, конечно, с использования …"/>
         <meta property="article:published_time" content="2014-11-13" />
             <meta property="article:section" content="IT" />
             <meta property="article:tag" content="Ansible" />
@@ -184,11 +184,11 @@ Alexander Bulimov - production engineer's notes.            </a>
 <section class="well" id="related-posts">
     <h4>Related Posts:</h4>
     <ul>
-        <li><a href="http://bulimov.ru/it/Переписал-скрипты-на-ruby-для-sensu/">Переписал скрипты на Ruby для Sensu</a></li>
-        <li><a href="http://bulimov.ru/it/monitoring-sucks/">Monitoring sucks!</a></li>
         <li><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></li>
-        <li><a href="http://bulimov.ru/it/try-packetbeat/">Попробуйте Packetbeat</a></li>
-        <li><a href="http://bulimov.ru/it/check-docker-memory/">Научился мониторить использование памяти в Docker-контейнерах</a></li>
+        <li><a href="http://bulimov.ru/it/monitoring-sucks/">Monitoring sucks!</a></li>
+        <li><a href="http://bulimov.ru/it/Переписал-скрипты-на-ruby-для-sensu/">Переписал скрипты на Ruby для Sensu</a></li>
+        <li><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix/">Низкоуровневое обнаружение в Zabbix</a></li>
+        <li><a href="http://bulimov.ru/it/check-cadvisor/">Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</a></li>
     </ul>
 </section>
     <hr/>
@@ -253,8 +253,7 @@ Alexander Bulimov - production engineer's notes.            </a>
         </div>
     </li>
     </ul>
-</section>
-            </aside>
+</section>            </aside>
         </div>
     </div>
 </div>
@@ -262,12 +261,12 @@ Alexander Bulimov - production engineer's notes.            </a>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2016 Alexander Bulimov
+         <div class="col-xs-10">&copy; 2017 Alexander Bulimov
             &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content
-  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
 </small></p>
          </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>

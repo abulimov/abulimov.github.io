@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexander Bulimov - production engineer's notes.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/personal.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2016-09-30T00:00:00+03:00</updated><entry><title>How I became a programmer</title><link href="http://bulimov.ru/personal/how-i-became-a-programmer/" rel="alternate"></link><published>2016-09-30T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-09-30:personal/how-i-became-a-programmer/</id><summary type="html">&lt;p&gt;After reading a lot of blog posts about becoming a programmer recently, I've decided to write my own.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexander Bulimov - production engineer's notes. - Personal</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/personal.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2016-09-30T00:00:00+03:00</updated><entry><title>How I became a programmer</title><link href="http://bulimov.ru/personal/how-i-became-a-programmer/" rel="alternate"></link><published>2016-09-30T00:00:00+03:00</published><updated>2016-09-30T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-09-30:/personal/how-i-became-a-programmer/</id><summary type="html">&lt;p&gt;After reading a lot of blog posts about becoming a programmer recently, I've decided to write my own.&lt;/p&gt;
+&lt;p&gt;It will be a bit different because of two factors:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I'm not a Software Engineer, but a Production Engineer/SRE/Admin;&lt;/li&gt;
+&lt;li&gt;I'm from Russia, where CS education is vastly different.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;School years&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;School in Russia is 10 or 11 years and you start at the age of ~7  and end it at …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;After reading a lot of blog posts about becoming a programmer recently, I've decided to write my own.&lt;/p&gt;
 &lt;p&gt;It will be a bit different because of two factors:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;I'm not a Software Engineer, but a Production Engineer/SRE/Admin;&lt;/li&gt;
@@ -148,7 +155,12 @@ are more difficult than what you can handle right now. I've always had some chal
 and when my job stopped being challenging, I've changed it.&lt;/p&gt;
 &lt;p&gt;And while I've been learning new programming languages, as an SysAdmin/SRE I was able to switch them easily
 without loosing value as a worker, so I was learning more general things and not some particular language quirks
-and bizarre tricks.&lt;/p&gt;</summary><category term="Programming"></category><category term="Experience"></category></entry><entry><title>Board games are awesome</title><link href="http://bulimov.ru/personal/boardgames-love/" rel="alternate"></link><published>2016-08-31T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-08-31:personal/boardgames-love/</id><summary type="html">&lt;p&gt;&lt;em&gt;I's been awhile since I wrote anything in my blog, mostly because
+and bizarre tricks.&lt;/p&gt;</content><category term="Programming"></category><category term="Experience"></category></entry><entry><title>Board games are awesome</title><link href="http://bulimov.ru/personal/boardgames-love/" rel="alternate"></link><published>2016-08-31T00:00:00+03:00</published><updated>2016-08-31T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-08-31:/personal/boardgames-love/</id><summary type="html">&lt;p&gt;&lt;em&gt;I's been awhile since I wrote anything in my blog, mostly because
+I was moving to Ireland and was busy at my new job at Big Company™.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;So as I can't write about all the cool technical things we have there,
+I'll try to make this blog less tech-savvy and more personal and fun.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;As a normal IT person I spend whole working day staring at the computer's
+screen. While …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;I's been awhile since I wrote anything in my blog, mostly because
 I was moving to Ireland and was busy at my new job at Big Company™.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;So as I can't write about all the cool technical things we have there,
 I'll try to make this blog less tech-savvy and more personal and fun.&lt;/em&gt;&lt;/p&gt;
@@ -163,7 +175,7 @@ cards is so satisfying, and so opposite to using computer. It's so REAL, so
 MATERIAL. And at the same time playing board games is fun and challenging,
 and makes you use your brain in some different way.&lt;/p&gt;
 &lt;p&gt;Just look at this cute little animeeples from &lt;a href="https://boardgamegeek.com/boardgame/119890/agricola-all-creatures-big-and-small"&gt;Agricola: All Creatures Big And Small&lt;/a&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="animeeples" src="/images/animeeples.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="animeeples" src="/images/animeeples.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;Don't you want to touch them? Looking at them, it's hard to imagine how
 intense and challenging is this game's mechanic.&lt;/p&gt;
 &lt;p&gt;And of course playing board games involves contacting with people, which is a
@@ -201,4 +213,4 @@ he enjoys. It's so cool compared to my childhood, when most of the board games y
 can find you must have to cut from some soviet magazines for kids, and it would
 have been some simple 'roll dice, move forward' kind of game. You can take a look
 at some of them in &lt;a href="http://www.gamer.ru/boardgames/o-nih-mechtali-vse-deti-sovetskie-nastolnye-igry-70h-90h-godov-foto-obzor"&gt;this nice overview (in Russian)&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;So if you haven't played board games - give it a try, it's so much fun!&lt;/p&gt;</summary><category term="Board Games"></category></entry></feed>
+&lt;p&gt;So if you haven't played board games - give it a try, it's so much fun!&lt;/p&gt;</content><category term="Board Games"></category></entry></feed>

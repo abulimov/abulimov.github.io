@@ -73,6 +73,43 @@ Alexander Bulimov - production engineer's notes.            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="http://bulimov.ru/it/ansible-sensu/">Удобная настройка Sensu с Ansible</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-11-13T00:00:00+03:00"> Thu 13 November 2014</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="http://bulimov.ru/category/it.html">IT</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/ansible.html">Ansible</a>
+        /
+	<a href="http://bulimov.ru/tag/sensu.html">Sensu</a>
+        /
+	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Так как я использую <a href="http://sensuapp.org/">Sensu</a> для мониторинга,
+и <a href="http://www.ansible.com/">Ansible</a> для управления конфигурациями,
+то конечно же я настраиваю Sensu с помощью Ansible.</p>
+<p>В этой связке меня смущало только одно - Sensu использует
+<a href="https://ru.wikipedia.org/wiki/JSON">JSON</a> для конфигов,
+в то время как Ansible использует <a href="https://ru.wikipedia.org/wiki/YAML">YAML</a>.
+Поскольку JSON является подмножеством YAML, и описывать
+конфигурации в YAML гораздо проще (никаких проблем с запятыми, скобочками),
+хотелось писать в YAML и транслировать в JSON.</p>
+<p>Начал я, конечно, с использования …</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/ansible-sensu/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://bulimov.ru/it/Выложил-немного-полезностей/">Выложил немного полезностей</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -105,7 +142,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 и Python-версии скриптов.</p>
 <p>Если кому хочется мониторить состояние дисков в raid-контроллерах от 3ware или
 HP SmartArray на чистом Python - милости просим, все
-<a href="https://github.com/abulimov/utils/tree/master/nagios">в ...</a></p>
+<a href="https://github.com/abulimov/utils/tree/master/nagios">в …</a></p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Выложил-немного-полезностей/">more ...</a>
                 </div>
             </article>
@@ -140,7 +177,7 @@ HP SmartArray для использования в Sensu. Ну а раз все 
 заслать в <a href="https://github.com/sensu/sensu-community-plugins">sensu-community-plugins</a></p>
 <p>Скрипты весьма просты, так что проблем при переписывании никаких не было.</p>
 <p>Если кому надо - все уже отдано сообществу, теперь Sensu может мониторить
-состояние ...</p>
+состояние …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Переписал-скрипты-на-ruby-для-sensu/">more ...</a>
                 </div>
             </article>
@@ -177,7 +214,7 @@ HP SmartArray для использования в Sensu. Ну а раз все 
 <a href="https://github.com/cove">cove</a> написал в комментарии к моему модулю,
 что планирует выложить целую <a href="https://github.com/ansible/ansible/pull/6034">пачку</a>
 модулей для взаимодействия с Zabbix из Ansible.
-Это отложило принятие моего модуля в ...</p>
+Это отложило принятие моего модуля в …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">more ...</a>
                 </div>
             </article>
@@ -212,7 +249,7 @@ HP SmartArray для использования в Sensu. Ну а раз все 
 <p>Вести руками шаблоны для каждого сервера с иным порядком или количеством дисков
 показалось мне плохой идеей, да и авто-обнаружение само напрашивалось.</p>
 <p>Вдохновлялся я утилитой 3ware-status, для работы авто-обнаружения нам потребуется
-установленная утилита tw-cli, взять ее для Debian/Ubuntu ...</p>
+установленная утилита tw-cli, взять ее для Debian/Ubuntu …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware/">more ...</a>
                 </div>
             </article>
@@ -248,7 +285,7 @@ HP SmartArray для использования в Sensu. Ну а раз все 
 в сфере мониторинга их не устраивает. Что именно - прекрасно иллюстрирует
 <a href="https://speakerdeck.com/obfuscurity/the-state-of-open-source-monitoring">эта презентация</a>
 Если вкратце - хочется людям некоего стандарта API для взаимодействия между компонентами
-утилит мониторинга, ну и появления самих этих компонент ...</p>
+утилит мониторинга, ну и появления самих этих компонент …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/monitoring-sucks/">more ...</a>
                 </div>
             </article>
@@ -282,7 +319,7 @@ HP SmartArray для использования в Sensu. Ну а раз все 
 обнаружения для мониторинга очередей RabbitMQ.</p>
 <p>Проблема в том, что очередей в RabbitMQ может быть много, и, по мере развития веб-проекта,
 они меняются. Так что я решил обнаруживать их автоматически, и написал для этого свой провайдер
-данных для ...</p>
+данных для …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix/">more ...</a>
                 </div>
             </article>
@@ -326,8 +363,7 @@ HP SmartArray для использования в Sensu. Ну а раз все 
         </div>
     </li>
     </ul>
-</section>
-            </aside>
+</section>            </aside>
         </div>
     </div>
 </div>
@@ -335,12 +371,12 @@ HP SmartArray для использования в Sensu. Ну а раз все 
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2016 Alexander Bulimov
+         <div class="col-xs-10">&copy; 2017 Alexander Bulimov
             &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content
-  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
 </small></p>
          </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>

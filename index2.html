@@ -72,6 +72,43 @@ Alexander Bulimov - production engineer's notes.            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="http://bulimov.ru/it/db-checker/">Открыл код db-checker</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-03-18T00:00:00+03:00"> Fri 18 March 2016</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="http://bulimov.ru/category/it.html">IT</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
+        /
+	<a href="http://bulimov.ru/tag/golang.html">Golang</a>
+        /
+	<a href="http://bulimov.ru/tag/nagios.html">Nagios</a>
+        /
+	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Недавно я открыл код еще одного инструмента, который уже около года использую на работе -
+<a href="https://github.com/abulimov/db-checker">db-checker</a>.</p>
+<p>Началось все с необходимости проводить регулярные проверки логической
+целостности данных в БД. Проще говоря - гонять мониторингом запросы к базе.</p>
+<p>Сначала это была часть проекта, который проверял данные на нашем CDN.
+Проект этот сразу планировался многопоточным, поэтому написан на <a href="http://golang.org">Go</a>.
+Затем мухи были отделены от котлет, и проверка базы выделилась в отдельную
+сущность, но несколько legacy-моментов …</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/db-checker/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://bulimov.ru/it/delete-docker-registry-image/">О пользе Python и костылях с Docker</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -101,7 +138,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 <a href="https://github.com/burnettk/delete-docker-registry-image">delete-docker-registry-image</a>,
 и уперся в то, что этот самый скрипт (написанный изначально на bash) невероятно
 медленно работает на большом Registry.</p>
-<p>К примеру, удаления одного тега для repository с ...</p>
+<p>К примеру, удаления одного тега для repository с …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/delete-docker-registry-image/">more ...</a>
                 </div>
             </article>
@@ -136,7 +173,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 классических задач (<a href="https://ru.wikipedia.org/wiki/Задача_коммивояжёра">задача коммивояжёра</a>,
 <a href="https://ru.wikipedia.org/wiki/Задача_о_ранце">задача о ранце</a> и т.д.) в занятной
 обертке, так что их решение дает возможность отлично размять мозги.</p>
-<p>Так же эти задачки отлично подходят для изучения нового языка, чем я ...</p>
+<p>Так же эти задачки отлично подходят для изучения нового языка, чем я …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/advent-of-code/">more ...</a>
                 </div>
             </article>
@@ -171,7 +208,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 ресурсов, ни о какой отзывчивости в работе сервера речи вообще не шло.</p>
 <p>"Хватит это терпеть!" - подумал я, и начал в который раз искать советы по
 тюнингу carbon для высокой производительности. В очередной раз ничего нового
-не найдя, я решил попробовать давно ...</p>
+не найдя, я решил попробовать давно …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/go-carbon/">more ...</a>
                 </div>
             </article>
@@ -207,7 +244,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 и попробовал попользоваться.</p>
 <p>Сложно даже описать, сколько это мне сэкономило времени. Это оказалось <em>настолько</em>
 удобно, что теперь я не представляю свою жизнь без подобного сервиса, хоть от tt-rss
-и отказался вместе ...</p></li></ol>
+и отказался вместе …</p></li></ol>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/productivity-tips/">more ...</a>
                 </div>
             </article>
@@ -246,7 +283,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 <p>Остальные реализуют некоторый функционал этих компонентов сами,
 упрощая администрирование мониторинга, но усложняя его внутреннее устройство.
 К примеру, для работы <a href="http://www.zabbix.com/ru/">Zabbix</a> нужна только база,
-а очереди ...</p>
+а очереди …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/who-watch-the-watchmen/">more ...</a>
                 </div>
             </article>
@@ -281,7 +318,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 ОС типа Android работают прекрасно), но вот на практике на серверах
 в том виде, в котором CoreOS их готовит, оказались совсем несъедобны.</p>
 <p>Объясню, в чем проблема: Docker достаточно часто что-то ломает в API, и свежие
-ядра Linux ...</p>
+ядра Linux …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/goodby-coreos/">more ...</a>
                 </div>
             </article>
@@ -319,7 +356,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 <a href="https://www.nginx.com/products/">Nginx Plus</a> показывает статистику количества
 ответов, разделенную по HTTP-кодам. Поскольку я использую перед Nginx балансировщик
 <a href="http://www.haproxy.org">HAProxy</a>, который не жадный и показывает подробную статистику
-по кодам ответов для каждого бекенда и фронтенда, я о таком минусе статистики Nginx ...</p>
+по кодам ответов для каждого бекенда и фронтенда, я о таком минусе статистики Nginx …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/logstash-graphite/">more ...</a>
                 </div>
             </article>
@@ -353,7 +390,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 для хранения time series такой старый и «не модный» инструмент, как <a href="http://graphite.readthedocs.org/en/latest/">Graphite</a>.
 О ужас, о нем даже почти не пишут в твиттере/G+ и он написан на старом будничном Python,
 а не на популярном сейчас Go (хотя уже частично написан, но об этом потом).</p>
-<p>Но все равно многие используют его, и не сильно жалуются ...</p>
+<p>Но все равно многие используют его, и не сильно жалуются …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/graphite-experience/">more ...</a>
                 </div>
             </article>
@@ -392,45 +429,8 @@ Alexander Bulimov - production engineer's notes.            </a>
 и Collectd отправляет все метрики туда же.</p>
 <p>Хочется отдельно отметить, что несмотря на то, что изначально Collectd мне
 не очень понравился (кому может сейчас понравиться Apache-подобный конфиг?), при
-дальнейшем изучении я был приятно поражен богатством ...</p>
+дальнейшем изучении я был приятно поражен богатством …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/collectd-riakcs/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/elk-production/">Использование ELK в продакшне</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-08-11T00:00:00+03:00"> Tue 11 August 2015</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="http://bulimov.ru/category/it.html">IT</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/elasticsearch.html">Elasticsearch</a>
-        /
-	<a href="http://bulimov.ru/tag/logstash.html">Logstash</a>
-        /
-	<a href="http://bulimov.ru/tag/kibana.html">Kibana</a>
-        /
-	<a href="http://bulimov.ru/tag/opyt.html">Опыт</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Я уже довольно давно и успешно использую
-<a href="https://www.elastic.co/products/logstash">Logstash</a> + <a href="https://www.elastic.co/products/elasticsearch">Elasticsearch</a>
-с визуализацией данных в <a href="https://www.elastic.co/products/kibana">Kibana</a>
-(общепринятое сокращение для этой тройки - ELK) для сбора, хранения и обработки логов,
-но для обретения счастья с этой связкой мне потребовалось несколько итераций.</p>
-<p><em>Поскольку в мире СПО все постоянно развивается и становится лучше, сразу хочу
-отметить, что все описанное актуально для Logstash версиий 1.4-1.5 и
-Elasticsearch версий 1.4 - 1.7 при нагрузке в ...</em></p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/elk-production/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -484,8 +484,7 @@ Elasticsearch версий 1.4 - 1.7 при нагрузке в ...</em></p>
         </div>
     </li>
     </ul>
-</section>
-            </aside>
+</section>            </aside>
         </div>
     </div>
 </div>
@@ -493,12 +492,12 @@ Elasticsearch версий 1.4 - 1.7 при нагрузке в ...</em></p>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2016 Alexander Bulimov
+         <div class="col-xs-10">&copy; 2017 Alexander Bulimov
             &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content
-  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
 </small></p>
          </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>

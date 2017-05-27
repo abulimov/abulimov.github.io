@@ -13,13 +13,13 @@
 
         <meta name="author" content="Alexander Bulimov" />
         <meta name="keywords" content="Graphite,go-carbon,Опыт" />
-        <meta name="description" content="Пришлось на собственном опыте опробовать, насколько Graphite модульный. При 200k metricsReceived наш Graphite, работающий на довольном старом сервере на обычных дисках, начал помирать. Carbon-cache постоянно был в топе потребления ресурсов, ни о какой отзывчивости в работе сервера речи вообще не шло. &#34;Хватит это терпеть!&#34; - подумал я, и начал в который раз искать советы по тюнингу carbon для высокой производительности. В очередной раз ничего нового не найдя, я решил попробовать давно ..." />
+        <meta name="description" content="Пришлось на собственном опыте опробовать, насколько Graphite модульный. При 200k metricsReceived наш Graphite, работающий на довольном старом сервере на обычных дисках, начал помирать. Carbon-cache постоянно был в топе потребления ресурсов, ни о какой отзывчивости в работе сервера речи вообще не шло. &#34;Хватит это терпеть!&#34; - подумал я, и начал в который раз искать советы по тюнингу carbon для высокой производительности. В очередной раз ничего нового не найдя, я решил попробовать давно …" />
 
         <meta property="og:site_name" content="Alexander Bulimov - production engineer's notes." />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Замена carbon-cache на go-carbon = Счастье"/>
         <meta property="og:url" content="http://bulimov.ru/it/go-carbon/"/>
-        <meta property="og:description" content="Пришлось на собственном опыте опробовать, насколько Graphite модульный. При 200k metricsReceived наш Graphite, работающий на довольном старом сервере на обычных дисках, начал помирать. Carbon-cache постоянно был в топе потребления ресурсов, ни о какой отзывчивости в работе сервера речи вообще не шло. &#34;Хватит это терпеть!&#34; - подумал я, и начал в который раз искать советы по тюнингу carbon для высокой производительности. В очередной раз ничего нового не найдя, я решил попробовать давно ..."/>
+        <meta property="og:description" content="Пришлось на собственном опыте опробовать, насколько Graphite модульный. При 200k metricsReceived наш Graphite, работающий на довольном старом сервере на обычных дисках, начал помирать. Carbon-cache постоянно был в топе потребления ресурсов, ни о какой отзывчивости в работе сервера речи вообще не шло. &#34;Хватит это терпеть!&#34; - подумал я, и начал в который раз искать советы по тюнингу carbon для высокой производительности. В очередной раз ничего нового не найдя, я решил попробовать давно …"/>
         <meta property="article:published_time" content="2016-02-08" />
             <meta property="article:section" content="IT" />
             <meta property="article:tag" content="Graphite" />
@@ -132,7 +132,7 @@ carbon-cache.</p>
 <p>Эффект превзошел все ожидания: все заработало сразу, лаг появления новых
 метрик на графиках пропал, отзывчивость сервера вернулась в норму.</p>
 <p>Вот вам график updateOperations, до и после:</p>
-<p><img alt="updateOperations" src="/images/go-carbon.png" /></p>
+<p><img alt="updateOperations" src="/images/go-carbon.png"></p>
 <p>При этом go-carbon еще умеет перечитывать конфиги на лету!</p>
 <p>В общем, радости моей нет предела, серьезная проблема производительности
 мониторинга решилась за 5 минут. Даже если вы еще не уперлись в производительность
@@ -143,11 +143,11 @@ reload конфигов.</p>
 <section class="well" id="related-posts">
     <h4>Related Posts:</h4>
     <ul>
-        <li><a href="http://bulimov.ru/it/graphite-experience/">Заметка о Graphite</a></li>
         <li><a href="http://bulimov.ru/it/logstash-graphite/">Logstash и Graphite</a></li>
-        <li><a href="http://bulimov.ru/it/elk-production/">Использование ELK в продакшне</a></li>
-        <li><a href="http://bulimov.ru/it/goodby-coreos/">Избавился от CoreOS</a></li>
+        <li><a href="http://bulimov.ru/it/graphite-experience/">Заметка о Graphite</a></li>
+        <li><a href="http://bulimov.ru/it/productivity-tips/">Немного житейского опыта</a></li>
         <li><a href="http://bulimov.ru/it/who-watch-the-watchmen/">Quis custodiet ipsos custodes?</a></li>
+        <li><a href="http://bulimov.ru/it/goodby-coreos/">Избавился от CoreOS</a></li>
     </ul>
 </section>
     <hr/>
@@ -212,8 +212,7 @@ reload конфигов.</p>
         </div>
     </li>
     </ul>
-</section>
-            </aside>
+</section>            </aside>
         </div>
     </div>
 </div>
@@ -221,12 +220,12 @@ reload конфигов.</p>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2016 Alexander Bulimov
+         <div class="col-xs-10">&copy; 2017 Alexander Bulimov
             &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content
-  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
 </small></p>
          </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>

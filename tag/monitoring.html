@@ -73,6 +73,45 @@ Alexander Bulimov - production engineer's notes.            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="http://bulimov.ru/it/user-questions/">Вопросы от Дениса</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-05-27T00:00:00+03:00"> Sat 27 May 2017</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="http://bulimov.ru/category/it.html">IT</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
+        /
+	<a href="http://bulimov.ru/tag/icinga2.html">Icinga2</a>
+        /
+	<a href="http://bulimov.ru/tag/graphite.html">Graphite</a>
+        /
+	<a href="http://bulimov.ru/tag/elasticsearch.html">Elasticsearch</a>
+        /
+	<a href="http://bulimov.ru/tag/packetbeat.html">Packetbeat</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Пришло письмо от читателя по имени Денис по форме обратной связи.
+Поскольку никаких данных для связи с ним Денис не оставил, отвечу здесь.</p>
+<p>Привожу письмо полностью (надеюсь, автор не против):</p>
+<blockquote>
+<p>Александр, здравствуйте! Не смог найти вашу электропочту, пишу через форму обратной связи вашего домена на рег.ру :)</p>
+<p>С огромным удовольствием читаю твой блог, очень жаль, что больше не обновляешь его.</p>
+<p>Помоги, пожалуйста, советом.
+У меня примерно 12 виртуальных серверов с …</p></blockquote>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/user-questions/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://bulimov.ru/it/db-checker/">Открыл код db-checker</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -104,7 +143,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 <p>Сначала это была часть проекта, который проверял данные на нашем CDN.
 Проект этот сразу планировался многопоточным, поэтому написан на <a href="http://golang.org">Go</a>.
 Затем мухи были отделены от котлет, и проверка базы выделилась в отдельную
-сущность, но несколько legacy-моментов ...</p>
+сущность, но несколько legacy-моментов …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/db-checker/">more ...</a>
                 </div>
             </article>
@@ -143,7 +182,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 <p>Остальные реализуют некоторый функционал этих компонентов сами,
 упрощая администрирование мониторинга, но усложняя его внутреннее устройство.
 К примеру, для работы <a href="http://www.zabbix.com/ru/">Zabbix</a> нужна только база,
-а очереди ...</p>
+а очереди …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/who-watch-the-watchmen/">more ...</a>
                 </div>
             </article>
@@ -181,7 +220,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 <a href="https://www.nginx.com/products/">Nginx Plus</a> показывает статистику количества
 ответов, разделенную по HTTP-кодам. Поскольку я использую перед Nginx балансировщик
 <a href="http://www.haproxy.org">HAProxy</a>, который не жадный и показывает подробную статистику
-по кодам ответов для каждого бекенда и фронтенда, я о таком минусе статистики Nginx ...</p>
+по кодам ответов для каждого бекенда и фронтенда, я о таком минусе статистики Nginx …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/logstash-graphite/">more ...</a>
                 </div>
             </article>
@@ -215,7 +254,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 для хранения time series такой старый и «не модный» инструмент, как <a href="http://graphite.readthedocs.org/en/latest/">Graphite</a>.
 О ужас, о нем даже почти не пишут в твиттере/G+ и он написан на старом будничном Python,
 а не на популярном сейчас Go (хотя уже частично написан, но об этом потом).</p>
-<p>Но все равно многие используют его, и не сильно жалуются ...</p>
+<p>Но все равно многие используют его, и не сильно жалуются …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/graphite-experience/">more ...</a>
                 </div>
             </article>
@@ -254,7 +293,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 и Collectd отправляет все метрики туда же.</p>
 <p>Хочется отдельно отметить, что несмотря на то, что изначально Collectd мне
 не очень понравился (кому может сейчас понравиться Apache-подобный конфиг?), при
-дальнейшем изучении я был приятно поражен богатством ...</p>
+дальнейшем изучении я был приятно поражен богатством …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/collectd-riakcs/">more ...</a>
                 </div>
             </article>
@@ -292,7 +331,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 <p>Packetbeat это такой инструмент мониторинга, который работает как анализатор
 сетевых пакетов, парсит различные протоколы (сейчас поддерживаются HTTP, MySQL,
 Postgresql, Redis, Thrift-RPC), получает нужные данные, и отсылает их либо напрямую
-в Elasticsearch, либо в ...</p>
+в Elasticsearch, либо в …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/try-packetbeat/">more ...</a>
                 </div>
             </article>
@@ -331,7 +370,7 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
 <p>Есть даже контора, которая помогает внедрять эту практику на коммерческой основе,
 у них на <a href="http://www.eventenrichment.com/">сайте</a> есть неплохие примеры того,
 что и зачем можно добавить к обычному сообщению от Nagios.</p>
-<p>Сама эта идея мне очень нравится, и вот ...</p>
+<p>Сама эта идея мне очень нравится, и вот …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/cadvisor-companion/">more ...</a>
                 </div>
             </article>
@@ -371,7 +410,7 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
 <p>И вот что я могу сказать - отличный инструмент!
 Ресурсов практически не потребляет (около 20 Мб оперативной памяти и
 неизмеримо мало CPU), обладает простым API для доступа к собираемой им
-информации, имеет ...</p>
+информации, имеет …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/check-cadvisor/">more ...</a>
                 </div>
             </article>
@@ -409,45 +448,8 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
 более вменяемый формат конфигурации, и кучу новых возможностей.</em></p>
 <p>Используя Docker для автотестов я уже ловил проблемы, когда интерпретатор Ruby
 кушал всю выделенную память в контейнере и тихо умирал от рук OOM Killer.</p>
-<p>Поскольку теперь я использую <a href="http://docker.io">Docker ...</a></p>
+<p>Поскольку теперь я использую <a href="http://docker.io">Docker …</a></p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/check-docker-memory/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/ansible-sensu/">Удобная настройка Sensu с Ansible</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-11-13T00:00:00+03:00"> Thu 13 November 2014</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="http://bulimov.ru/category/it.html">IT</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/ansible.html">Ansible</a>
-        /
-	<a href="http://bulimov.ru/tag/sensu.html">Sensu</a>
-        /
-	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Так как я использую <a href="http://sensuapp.org/">Sensu</a> для мониторинга,
-и <a href="http://www.ansible.com/">Ansible</a> для управления конфигурациями,
-то конечно же я настраиваю Sensu с помощью Ansible.</p>
-<p>В этой связке меня смущало только одно - Sensu использует
-<a href="https://ru.wikipedia.org/wiki/JSON">JSON</a> для конфигов,
-в то время как Ansible использует <a href="https://ru.wikipedia.org/wiki/YAML">YAML</a>.
-Поскольку JSON является подмножеством YAML, и описывать
-конфигурации в YAML гораздо проще (никаких проблем с запятыми, скобочками),
-хотелось писать в YAML и транслировать в JSON.</p>
-<p>Начал я, конечно, с использования ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/ansible-sensu/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -490,8 +492,7 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
         </div>
     </li>
     </ul>
-</section>
-            </aside>
+</section>            </aside>
         </div>
     </div>
 </div>
@@ -499,12 +500,12 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2016 Alexander Bulimov
+         <div class="col-xs-10">&copy; 2017 Alexander Bulimov
             &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content
-  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
 </small></p>
          </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>

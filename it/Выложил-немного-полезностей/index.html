@@ -13,13 +13,13 @@
 
         <meta name="author" content="Alexander Bulimov" />
         <meta name="keywords" content="Python,Zabbix,Nagios,Monitoring" />
-        <meta name="description" content="Когда я писал про то, как переписал скрипты для Sensu, я слегка слукавил. Изначально, я написал эти скрипты на Python, и только потом на Ruby. Поскольку пользователям других Nagios-совместимых систем мониторинга может показаться неудобным использование ruby-скриптов, да еще и с зависимостью от гема sensu-plugin, я решил выложить и Python-версии скриптов. Если кому хочется мониторить состояние дисков в raid-контроллерах от 3ware или HP SmartArray на чистом Python - милости просим, все в ..." />
+        <meta name="description" content="Когда я писал про то, как переписал скрипты для Sensu, я слегка слукавил. Изначально, я написал эти скрипты на Python, и только потом на Ruby. Поскольку пользователям других Nagios-совместимых систем мониторинга может показаться неудобным использование ruby-скриптов, да еще и с зависимостью от гема sensu-plugin, я решил выложить и Python-версии скриптов. Если кому хочется мониторить состояние дисков в raid-контроллерах от 3ware или HP SmartArray на чистом Python - милости просим, все в …" />
 
         <meta property="og:site_name" content="Alexander Bulimov - production engineer's notes." />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Выложил немного полезностей"/>
         <meta property="og:url" content="http://bulimov.ru/it/Выложил-немного-полезностей/"/>
-        <meta property="og:description" content="Когда я писал про то, как переписал скрипты для Sensu, я слегка слукавил. Изначально, я написал эти скрипты на Python, и только потом на Ruby. Поскольку пользователям других Nagios-совместимых систем мониторинга может показаться неудобным использование ruby-скриптов, да еще и с зависимостью от гема sensu-plugin, я решил выложить и Python-версии скриптов. Если кому хочется мониторить состояние дисков в raid-контроллерах от 3ware или HP SmartArray на чистом Python - милости просим, все в ..."/>
+        <meta property="og:description" content="Когда я писал про то, как переписал скрипты для Sensu, я слегка слукавил. Изначально, я написал эти скрипты на Python, и только потом на Ruby. Поскольку пользователям других Nagios-совместимых систем мониторинга может показаться неудобным использование ruby-скриптов, да еще и с зависимостью от гема sensu-plugin, я решил выложить и Python-версии скриптов. Если кому хочется мониторить состояние дисков в raid-контроллерах от 3ware или HP SmartArray на чистом Python - милости просим, все в …"/>
         <meta property="article:published_time" content="2014-09-17" />
             <meta property="article:section" content="IT" />
             <meta property="article:tag" content="Python" />
@@ -142,10 +142,10 @@ HP SmartArray на чистом Python - милости просим, все
     <h4>Related Posts:</h4>
     <ul>
         <li><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix/">Низкоуровневое обнаружение в Zabbix</a></li>
-        <li><a href="http://bulimov.ru/it/check-docker-memory/">Научился мониторить использование памяти в Docker-контейнерах</a></li>
         <li><a href="http://bulimov.ru/it/check-cadvisor/">Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</a></li>
+        <li><a href="http://bulimov.ru/it/check-docker-memory/">Научился мониторить использование памяти в Docker-контейнерах</a></li>
         <li><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware/">Низкоуровневое обнаружение в Zabbix, ищем диски в контроллере от 3ware</a></li>
-        <li><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></li>
+        <li><a href="http://bulimov.ru/it/collectd-riakcs/">Плагин к Collectd для сбора метрик Riak CS</a></li>
     </ul>
 </section>
     <hr/>
@@ -210,8 +210,7 @@ HP SmartArray на чистом Python - милости просим, все
         </div>
     </li>
     </ul>
-</section>
-            </aside>
+</section>            </aside>
         </div>
     </div>
 </div>
@@ -219,12 +218,12 @@ HP SmartArray на чистом Python - милости просим, все
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2016 Alexander Bulimov
+         <div class="col-xs-10">&copy; 2017 Alexander Bulimov
             &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content
-  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
 </small></p>
          </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>

@@ -13,13 +13,13 @@
 
         <meta name="author" content="Alexander Bulimov" />
         <meta name="keywords" content="Python,Nagios,Icinga2,cAdvisor,Monitoring" />
-        <meta name="description" content="После того, как я научился мониторить память в Docker-контейнерах, я решил мониторить еще и нагрузку на CPU. Поскольку это дело не самое тривиальное, и хотелось не писать свой велосипед, а пользоваться чем-то популярным и поддерживаемым, я решил попробовать cAdvisor. И вот что я могу сказать - отличный инструмент! Ресурсов практически не потребляет (около 20 Мб оперативной памяти и неизмеримо мало CPU), обладает простым API для доступа к собираемой им информации, имеет ..." />
+        <meta name="description" content="После того, как я научился мониторить память в Docker-контейнерах, я решил мониторить еще и нагрузку на CPU. Поскольку это дело не самое тривиальное, и хотелось не писать свой велосипед, а пользоваться чем-то популярным и поддерживаемым, я решил попробовать cAdvisor. И вот что я могу сказать - отличный инструмент! Ресурсов практически не потребляет (около 20 Мб оперативной памяти и неизмеримо мало CPU), обладает простым API для доступа к собираемой им информации, имеет …" />
 
         <meta property="og:site_name" content="Alexander Bulimov - production engineer's notes." />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2"/>
         <meta property="og:url" content="http://bulimov.ru/it/check-cadvisor/"/>
-        <meta property="og:description" content="После того, как я научился мониторить память в Docker-контейнерах, я решил мониторить еще и нагрузку на CPU. Поскольку это дело не самое тривиальное, и хотелось не писать свой велосипед, а пользоваться чем-то популярным и поддерживаемым, я решил попробовать cAdvisor. И вот что я могу сказать - отличный инструмент! Ресурсов практически не потребляет (около 20 Мб оперативной памяти и неизмеримо мало CPU), обладает простым API для доступа к собираемой им информации, имеет ..."/>
+        <meta property="og:description" content="После того, как я научился мониторить память в Docker-контейнерах, я решил мониторить еще и нагрузку на CPU. Поскольку это дело не самое тривиальное, и хотелось не писать свой велосипед, а пользоваться чем-то популярным и поддерживаемым, я решил попробовать cAdvisor. И вот что я могу сказать - отличный инструмент! Ресурсов практически не потребляет (около 20 Мб оперативной памяти и неизмеримо мало CPU), обладает простым API для доступа к собираемой им информации, имеет …"/>
         <meta property="article:published_time" content="2015-02-20" />
             <meta property="article:section" content="IT" />
             <meta property="article:tag" content="Python" />
@@ -146,14 +146,14 @@ Alexander Bulimov - production engineer's notes.            </a>
 который умеет проверять использование CPU и оперативной памяти в контейнере через cAdvisor API.</p>
 <p>Пример использования check_cadvisor.py - проверим, что количество свободной памяти в контейнере
 loving_lalande не меньше, чем 15%, и уж точно не меньше 10%:</p>
-<div class="highlight"><pre><span></span>nagios@hostname:~$ ./check_cadvisor.py -u http://cadvisor_url -n loving_lalande -m -w <span class="m">15</span> -c 10
-CheckDockerStats OK: 79.96% <span class="o">(</span><span class="m">5869163</span> kB<span class="o">)</span> free! <span class="p">|</span> <span class="nv">mem_used</span><span class="o">=</span>1470868KB<span class="p">;</span>1101004<span class="p">;</span>734003<span class="p">;</span>0<span class="p">;</span>7340032
+<div class="highlight"><pre><span></span>nagios@hostname:~$ ./check_cadvisor.py -u http://cadvisor_url -n loving_lalande -m -w <span class="m">15</span> -c <span class="m">10</span>
+CheckDockerStats OK: <span class="m">79</span>.96% <span class="o">(</span><span class="m">5869163</span> kB<span class="o">)</span> free! <span class="p">|</span> <span class="nv">mem_used</span><span class="o">=</span>1470868KB<span class="p">;</span><span class="m">1101004</span><span class="p">;</span><span class="m">734003</span><span class="p">;</span><span class="m">0</span><span class="p">;</span><span class="m">7340032</span>
 </pre></div>
 
 
 <p>А теперь проверим, что CPU используется менее чем на 10%, и уж точно менее, чем на 20%:</p>
-<div class="highlight"><pre><span></span>nagios@hostname:~$ ./check_cadvisor.py -u http://cadvisor_url -n loving_lalande -C -w <span class="m">10</span> -c 20
-CheckDockerStats WARNING: 12.98% CPU used! <span class="p">|</span> <span class="nv">cpu_usage</span><span class="o">=</span>12.98%<span class="p">;</span>10<span class="p">;</span>20<span class="p">;</span>0<span class="p">;</span>100
+<div class="highlight"><pre><span></span>nagios@hostname:~$ ./check_cadvisor.py -u http://cadvisor_url -n loving_lalande -C -w <span class="m">10</span> -c <span class="m">20</span>
+CheckDockerStats WARNING: <span class="m">12</span>.98% CPU used! <span class="p">|</span> <span class="nv">cpu_usage</span><span class="o">=</span><span class="m">12</span>.98%<span class="p">;</span><span class="m">10</span><span class="p">;</span><span class="m">20</span><span class="p">;</span><span class="m">0</span><span class="p">;</span><span class="m">100</span>
 </pre></div>
 
 
@@ -169,9 +169,9 @@ CheckDockerStats WARNING: 12.98% CPU used! <span class="p">|</span> <span class=
     <ul>
         <li><a href="http://bulimov.ru/it/check-docker-memory/">Научился мониторить использование памяти в Docker-контейнерах</a></li>
         <li><a href="http://bulimov.ru/it/Выложил-немного-полезностей/">Выложил немного полезностей</a></li>
-        <li><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></li>
+        <li><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix/">Низкоуровневое обнаружение в Zabbix</a></li>
         <li><a href="http://bulimov.ru/it/cadvisor-companion/">Улучшаем сообщения от мониторинга с помощью cAdvisor-companion</a></li>
-        <li><a href="http://bulimov.ru/it/db-checker/">Открыл код db-checker</a></li>
+        <li><a href="http://bulimov.ru/it/haproxy-cadvisor/">Балансировка в HAProxy на основе данных cAdvisor</a></li>
     </ul>
 </section>
     <hr/>
@@ -236,8 +236,7 @@ CheckDockerStats WARNING: 12.98% CPU used! <span class="p">|</span> <span class=
         </div>
     </li>
     </ul>
-</section>
-            </aside>
+</section>            </aside>
         </div>
     </div>
 </div>
@@ -245,12 +244,12 @@ CheckDockerStats WARNING: 12.98% CPU used! <span class="p">|</span> <span class=
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2016 Alexander Bulimov
+         <div class="col-xs-10">&copy; 2017 Alexander Bulimov
             &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content
-  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
 </small></p>
          </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>

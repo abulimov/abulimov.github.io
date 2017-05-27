@@ -13,13 +13,13 @@
 
         <meta name="author" content="Alexander Bulimov" />
         <meta name="keywords" content="Kernel,Python,Программирование,Книги" />
-        <meta name="description" content="Читая книгу &#34;Разработка ядра Linux&#34; за авторством Роберта Лава, я решил поглубже разобраться в том, как работает кэш в Linux, и набрел на вот эту статью на Хабре от Яндекса. Сама статья весьма познавательна, особенно видео - рекомендую. Так вот, в этом видео Роман Гущин, с помощью простой утилиты, наглядно показывающей размер кэша, показывал как работает файловый кэш. Конечно, мне захотелось в образовательных целях написать такую утилиту для себя, чтобы можно ..." />
+        <meta name="description" content="Читая книгу &#34;Разработка ядра Linux&#34; за авторством Роберта Лава, я решил поглубже разобраться в том, как работает кэш в Linux, и набрел на вот эту статью на Хабре от Яндекса. Сама статья весьма познавательна, особенно видео - рекомендую. Так вот, в этом видео Роман Гущин, с помощью простой утилиты, наглядно показывающей размер кэша, показывал как работает файловый кэш. Конечно, мне захотелось в образовательных целях написать такую утилиту для себя, чтобы можно …" />
 
         <meta property="og:site_name" content="Alexander Bulimov - production engineer's notes." />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Разбирался с page-cache в Linux"/>
         <meta property="og:url" content="http://bulimov.ru/it/meminfo-visualizer/"/>
-        <meta property="og:description" content="Читая книгу &#34;Разработка ядра Linux&#34; за авторством Роберта Лава, я решил поглубже разобраться в том, как работает кэш в Linux, и набрел на вот эту статью на Хабре от Яндекса. Сама статья весьма познавательна, особенно видео - рекомендую. Так вот, в этом видео Роман Гущин, с помощью простой утилиты, наглядно показывающей размер кэша, показывал как работает файловый кэш. Конечно, мне захотелось в образовательных целях написать такую утилиту для себя, чтобы можно ..."/>
+        <meta property="og:description" content="Читая книгу &#34;Разработка ядра Linux&#34; за авторством Роберта Лава, я решил поглубже разобраться в том, как работает кэш в Linux, и набрел на вот эту статью на Хабре от Яндекса. Сама статья весьма познавательна, особенно видео - рекомендую. Так вот, в этом видео Роман Гущин, с помощью простой утилиты, наглядно показывающей размер кэша, показывал как работает файловый кэш. Конечно, мне захотелось в образовательных целях написать такую утилиту для себя, чтобы можно …"/>
         <meta property="article:published_time" content="2014-10-09" />
             <meta property="article:section" content="IT" />
             <meta property="article:tag" content="Kernel" />
@@ -136,8 +136,8 @@ Alexander Bulimov - production engineer's notes.            </a>
 
 <span class="k">class</span> <span class="nc">MemoryDrawer</span><span class="p">(</span><span class="n">QtGui</span><span class="o">.</span><span class="n">QWidget</span><span class="p">):</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">MemoryDrawer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">()</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MemoryDrawer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">initUI</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
@@ -219,7 +219,7 @@ Alexander Bulimov - production engineer's notes.            </a>
     <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="n">app</span><span class="o">.</span><span class="n">exec_</span><span class="p">())</span>
 
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 
@@ -316,11 +316,11 @@ cat large &gt; /dev/null
 <section class="well" id="related-posts">
     <h4>Related Posts:</h4>
     <ul>
-        <li><a href="http://bulimov.ru/it/delete-docker-registry-image/">О пользе Python и костылях с Docker</a></li>
-        <li><a href="http://bulimov.ru/it/haproxy-cadvisor/">Балансировка в HAProxy на основе данных cAdvisor</a></li>
         <li><a href="http://bulimov.ru/it/lyricstagger/">Lyrics Tagger</a></li>
+        <li><a href="http://bulimov.ru/it/haproxy-cadvisor/">Балансировка в HAProxy на основе данных cAdvisor</a></li>
+        <li><a href="http://bulimov.ru/it/delete-docker-registry-image/">О пользе Python и костылях с Docker</a></li>
         <li><a href="http://bulimov.ru/it/collectd-riakcs/">Плагин к Collectd для сбора метрик Riak CS</a></li>
-        <li><a href="http://bulimov.ru/it/atom-haproxy/">Все для HAProxy в Atom</a></li>
+        <li><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix/">Низкоуровневое обнаружение в Zabbix</a></li>
     </ul>
 </section>
     <hr/>
@@ -385,8 +385,7 @@ cat large &gt; /dev/null
         </div>
     </li>
     </ul>
-</section>
-            </aside>
+</section>            </aside>
         </div>
     </div>
 </div>
@@ -394,12 +393,12 @@ cat large &gt; /dev/null
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2016 Alexander Bulimov
+         <div class="col-xs-10">&copy; 2017 Alexander Bulimov
             &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content
-  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
 </small></p>
          </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>

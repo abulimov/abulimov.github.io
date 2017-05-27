@@ -13,13 +13,13 @@
 
         <meta name="author" content="Alexander Bulimov" />
         <meta name="keywords" content="Golang,cAdvisor,cAdvisor-companion,Программирование,Monitoring" />
-        <meta name="description" content="Слышали ли вы когда-нибудь о такой практике, как &#34;Monitoring Events Enrichment&#34;? Если вкратце, то это практика наполнения дополнительной информацией сообщений от мониторинга, так что на выяснение причины проблемы уходит меньше времени и телодвижений. Есть даже контора, которая помогает внедрять эту практику на коммерческой основе, у них на сайте есть неплохие примеры того, что и зачем можно добавить к обычному сообщению от Nagios. Сама эта идея мне очень нравится, и вот ..." />
+        <meta name="description" content="Слышали ли вы когда-нибудь о такой практике, как &#34;Monitoring Events Enrichment&#34;? Если вкратце, то это практика наполнения дополнительной информацией сообщений от мониторинга, так что на выяснение причины проблемы уходит меньше времени и телодвижений. Есть даже контора, которая помогает внедрять эту практику на коммерческой основе, у них на сайте есть неплохие примеры того, что и зачем можно добавить к обычному сообщению от Nagios. Сама эта идея мне очень нравится, и вот …" />
 
         <meta property="og:site_name" content="Alexander Bulimov - production engineer's notes." />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Улучшаем сообщения от мониторинга с помощью cAdvisor-companion"/>
         <meta property="og:url" content="http://bulimov.ru/it/cadvisor-companion/"/>
-        <meta property="og:description" content="Слышали ли вы когда-нибудь о такой практике, как &#34;Monitoring Events Enrichment&#34;? Если вкратце, то это практика наполнения дополнительной информацией сообщений от мониторинга, так что на выяснение причины проблемы уходит меньше времени и телодвижений. Есть даже контора, которая помогает внедрять эту практику на коммерческой основе, у них на сайте есть неплохие примеры того, что и зачем можно добавить к обычному сообщению от Nagios. Сама эта идея мне очень нравится, и вот ..."/>
+        <meta property="og:description" content="Слышали ли вы когда-нибудь о такой практике, как &#34;Monitoring Events Enrichment&#34;? Если вкратце, то это практика наполнения дополнительной информацией сообщений от мониторинга, так что на выяснение причины проблемы уходит меньше времени и телодвижений. Есть даже контора, которая помогает внедрять эту практику на коммерческой основе, у них на сайте есть неплохие примеры того, что и зачем можно добавить к обычному сообщению от Nagios. Сама эта идея мне очень нравится, и вот …"/>
         <meta property="article:published_time" content="2015-04-21" />
             <meta property="article:section" content="IT" />
             <meta property="article:tag" content="Golang" />
@@ -148,12 +148,12 @@ Alexander Bulimov - production engineer's notes.            </a>
 <span class="c1"># check_memory wrapper</span>
 <span class="nv">output</span><span class="o">=</span><span class="k">$(</span>/usr/lib/nagios/plugins/check_memory <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span><span class="k">)</span>
 <span class="nv">status</span><span class="o">=</span><span class="nv">$?</span>
-<span class="nv">message</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$output</span><span class="s2">&quot;</span> <span class="p">|</span> cut -d<span class="se">\|</span> -f 1<span class="k">)</span>
-<span class="nv">perfdata</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$output</span><span class="s2">&quot;</span> <span class="p">|</span> cut -d<span class="se">\|</span> -f 2<span class="k">)</span>
+<span class="nv">message</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$output</span><span class="s2">&quot;</span> <span class="p">|</span> cut -d<span class="se">\|</span> -f <span class="m">1</span><span class="k">)</span>
+<span class="nv">perfdata</span><span class="o">=</span><span class="k">$(</span><span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$output</span><span class="s2">&quot;</span> <span class="p">|</span> cut -d<span class="se">\|</span> -f <span class="m">2</span><span class="k">)</span>
 <span class="nb">echo</span> -n <span class="s2">&quot;</span><span class="nv">$message</span><span class="s2">&quot;</span>
 <span class="k">if</span> <span class="o">[</span> <span class="m">0</span> -ne <span class="s2">&quot;</span><span class="nv">$status</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
   <span class="nb">echo</span>
-  ps aux --sort -pmem <span class="p">|</span> head -n 5
+  ps aux --sort -pmem <span class="p">|</span> head -n <span class="m">5</span>
 <span class="k">fi</span>
 <span class="nb">echo</span> <span class="s2">&quot; | </span><span class="nv">$perfdata</span><span class="s2">&quot;</span>
 <span class="nb">exit</span> <span class="nv">$status</span>
@@ -161,14 +161,14 @@ Alexander Bulimov - production engineer's notes.            </a>
 
 
 <p>При превышении заданных лимитов вывод этого wrapperа получается такой:</p>
-<div class="highlight"><pre><span></span>root@host:~# /usr/lib/nagios/plugins/check_memory_wrapper.sh -f -C -w <span class="m">15</span> -c 10
-CRITICAL - 4.9% <span class="o">(</span><span class="m">1198364</span> kB<span class="o">)</span> free!
+<div class="highlight"><pre><span></span>root@host:~# /usr/lib/nagios/plugins/check_memory_wrapper.sh -f -C -w <span class="m">15</span> -c <span class="m">10</span>
+CRITICAL - <span class="m">4</span>.9% <span class="o">(</span><span class="m">1198364</span> kB<span class="o">)</span> free!
 USER       PID %CPU %MEM    VSZ   RSS      TTY  STAT START   TIME COMMAND
-traffic+ <span class="m">28086</span> 11.3 91.7 <span class="m">25970900</span> <span class="m">22651436</span> ?    Sl   Mar18 5553:57 /usr/bin/traffic_server -M --httpport 8080:fd<span class="o">=</span>9
-haproxy  <span class="m">26404</span>  7.0  0.2 <span class="m">85832</span>    <span class="m">59364</span>    ?    Ss   Mar19 3332:04 /usr/sbin/haproxy -f /etc/haproxy/haproxy.cfg -p /var/run/haproxy.pid -D -sf 25137
-syslog   <span class="m">25077</span>  0.5  0.1 <span class="m">332568</span>   <span class="m">29764</span>    ?    Ssl  Apr06  109:24 rsyslogd
-root     <span class="m">15342</span>  0.1  0.0 <span class="m">84124</span>    <span class="m">15212</span>    ?    S    Mar08   95:21 /usr/bin/perl -w /usr/sbin/ldirectord /etc/ldirectord.cf start
- <span class="p">|</span> <span class="nv">TOTAL</span><span class="o">=</span>24678520KB<span class="p">;;;;</span> <span class="nv">USED</span><span class="o">=</span>23480156KB<span class="p">;</span>20976742<span class="p">;</span>22210668<span class="p">;;</span> <span class="nv">FREE</span><span class="o">=</span>1198364KB<span class="p">;;;;</span> <span class="nv">CACHES</span><span class="o">=</span>980600KB<span class="p">;;;;</span>
+traffic+ <span class="m">28086</span> <span class="m">11</span>.3 <span class="m">91</span>.7 <span class="m">25970900</span> <span class="m">22651436</span> ?    Sl   Mar18 <span class="m">5553</span>:57 /usr/bin/traffic_server -M --httpport <span class="m">8080</span>:fd<span class="o">=</span><span class="m">9</span>
+haproxy  <span class="m">26404</span>  <span class="m">7</span>.0  <span class="m">0</span>.2 <span class="m">85832</span>    <span class="m">59364</span>    ?    Ss   Mar19 <span class="m">3332</span>:04 /usr/sbin/haproxy -f /etc/haproxy/haproxy.cfg -p /var/run/haproxy.pid -D -sf <span class="m">25137</span>
+syslog   <span class="m">25077</span>  <span class="m">0</span>.5  <span class="m">0</span>.1 <span class="m">332568</span>   <span class="m">29764</span>    ?    Ssl  Apr06  <span class="m">109</span>:24 rsyslogd
+root     <span class="m">15342</span>  <span class="m">0</span>.1  <span class="m">0</span>.0 <span class="m">84124</span>    <span class="m">15212</span>    ?    S    Mar08   <span class="m">95</span>:21 /usr/bin/perl -w /usr/sbin/ldirectord /etc/ldirectord.cf start
+ <span class="p">|</span> <span class="nv">TOTAL</span><span class="o">=</span>24678520KB<span class="p">;;;;</span> <span class="nv">USED</span><span class="o">=</span>23480156KB<span class="p">;</span><span class="m">20976742</span><span class="p">;</span><span class="m">22210668</span><span class="p">;;</span> <span class="nv">FREE</span><span class="o">=</span>1198364KB<span class="p">;;;;</span> <span class="nv">CACHES</span><span class="o">=</span>980600KB<span class="p">;;;;</span>
 </pre></div>
 
 
@@ -210,13 +210,13 @@ read-only доступ к <code>/proc</code>, и который по HTTP API о
 случае сообщений от мониторинга, и вывожу вместе с алертом. Теперь сообщение
 из начала статьи, которое и побудило меня к написанию своего сервиса,
 выглядит примерно так:</p>
-<div class="highlight"><pre><span></span>CheckDockerStats WARNING: 83.32% CPU used!
+<div class="highlight"><pre><span></span>CheckDockerStats WARNING: <span class="m">83</span>.32% CPU used!
  USER   PID  %CPU  %MEM      VSZ      RSS   STAT COMMAND
-<span class="m">65534</span>  <span class="m">1285</span>  18.3   0.0    <span class="m">18396</span>     <span class="m">1632</span>      S /usr/sbin/nutcracker -v <span class="m">11</span> -c /etc/twemproxy/config.yml
- <span class="m">1000</span> <span class="m">24891</span>   7.5   1.4   <span class="m">299524</span>    <span class="m">99200</span>      S python /path/to/program.py
- <span class="m">1000</span>  <span class="m">4474</span>   7.4   1.4   <span class="m">303356</span>   <span class="m">103416</span>      S python /path/to/program.py
- <span class="m">1000</span>  <span class="m">4468</span>   7.4   1.4   <span class="m">301416</span>   <span class="m">101228</span>      S python /path/to/program.py
- <span class="m">1000</span>  <span class="m">4475</span>   7.4   2.5   <span class="m">382636</span>   <span class="m">181792</span>      S python /path/to/program.py
+<span class="m">65534</span>  <span class="m">1285</span>  <span class="m">18</span>.3   <span class="m">0</span>.0    <span class="m">18396</span>     <span class="m">1632</span>      S /usr/sbin/nutcracker -v <span class="m">11</span> -c /etc/twemproxy/config.yml
+ <span class="m">1000</span> <span class="m">24891</span>   <span class="m">7</span>.5   <span class="m">1</span>.4   <span class="m">299524</span>    <span class="m">99200</span>      S python /path/to/program.py
+ <span class="m">1000</span>  <span class="m">4474</span>   <span class="m">7</span>.4   <span class="m">1</span>.4   <span class="m">303356</span>   <span class="m">103416</span>      S python /path/to/program.py
+ <span class="m">1000</span>  <span class="m">4468</span>   <span class="m">7</span>.4   <span class="m">1</span>.4   <span class="m">301416</span>   <span class="m">101228</span>      S python /path/to/program.py
+ <span class="m">1000</span>  <span class="m">4475</span>   <span class="m">7</span>.4   <span class="m">2</span>.5   <span class="m">382636</span>   <span class="m">181792</span>      S python /path/to/program.py
 </pre></div>
 
 
@@ -247,9 +247,9 @@ read-only доступ к <code>/proc</code>, и который по HTTP API о
     <ul>
         <li><a href="http://bulimov.ru/it/db-checker/">Открыл код db-checker</a></li>
         <li><a href="http://bulimov.ru/it/atom-haproxy/">Все для HAProxy в Atom</a></li>
+        <li><a href="http://bulimov.ru/it/check-cadvisor/">Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</a></li>
         <li><a href="http://bulimov.ru/it/advent-of-code/">Рекомендую Advent Of Code</a></li>
-        <li><a href="http://bulimov.ru/it/haproxy-cadvisor/">Балансировка в HAProxy на основе данных cAdvisor</a></li>
-        <li><a href="http://bulimov.ru/it/collectd-riakcs/">Плагин к Collectd для сбора метрик Riak CS</a></li>
+        <li><a href="http://bulimov.ru/it/atom-gotests/">Утилита gotests и плагин для Atom</a></li>
     </ul>
 </section>
     <hr/>
@@ -314,8 +314,7 @@ read-only доступ к <code>/proc</code>, и который по HTTP API о
         </div>
     </li>
     </ul>
-</section>
-            </aside>
+</section>            </aside>
         </div>
     </div>
 </div>
@@ -323,12 +322,12 @@ read-only доступ к <code>/proc</code>, и который по HTTP API о
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2016 Alexander Bulimov
+         <div class="col-xs-10">&copy; 2017 Alexander Bulimov
             &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content
-  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
 </small></p>
          </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>

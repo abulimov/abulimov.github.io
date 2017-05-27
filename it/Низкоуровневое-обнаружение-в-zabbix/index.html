@@ -13,13 +13,13 @@
 
         <meta name="author" content="Alexander Bulimov" />
         <meta name="keywords" content="Zabbix,Python,Monitoring" />
-        <meta name="description" content="В используемой мной системе мониторинга Zabbix, начиная с версии 2.0, появилась такая любопытная штука, как низкоуровневое обнаружение Я не буду пересказывать содержимое документации, расскажу лучше о том, как я писал свой тип обнаружения для мониторинга очередей RabbitMQ. Проблема в том, что очередей в RabbitMQ может быть много, и, по мере развития веб-проекта, они меняются. Так что я решил обнаруживать их автоматически, и написал для этого свой провайдер данных для ..." />
+        <meta name="description" content="В используемой мной системе мониторинга Zabbix, начиная с версии 2.0, появилась такая любопытная штука, как низкоуровневое обнаружение Я не буду пересказывать содержимое документации, расскажу лучше о том, как я писал свой тип обнаружения для мониторинга очередей RabbitMQ. Проблема в том, что очередей в RabbitMQ может быть много, и, по мере развития веб-проекта, они меняются. Так что я решил обнаруживать их автоматически, и написал для этого свой провайдер данных для …" />
 
         <meta property="og:site_name" content="Alexander Bulimov - production engineer's notes." />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Низкоуровневое обнаружение в Zabbix"/>
         <meta property="og:url" content="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix/"/>
-        <meta property="og:description" content="В используемой мной системе мониторинга Zabbix, начиная с версии 2.0, появилась такая любопытная штука, как низкоуровневое обнаружение Я не буду пересказывать содержимое документации, расскажу лучше о том, как я писал свой тип обнаружения для мониторинга очередей RabbitMQ. Проблема в том, что очередей в RabbitMQ может быть много, и, по мере развития веб-проекта, они меняются. Так что я решил обнаруживать их автоматически, и написал для этого свой провайдер данных для ..."/>
+        <meta property="og:description" content="В используемой мной системе мониторинга Zabbix, начиная с версии 2.0, появилась такая любопытная штука, как низкоуровневое обнаружение Я не буду пересказывать содержимое документации, расскажу лучше о том, как я писал свой тип обнаружения для мониторинга очередей RabbitMQ. Проблема в том, что очередей в RabbitMQ может быть много, и, по мере развития веб-проекта, они меняются. Так что я решил обнаруживать их автоматически, и написал для этого свой провайдер данных для …"/>
         <meta property="article:published_time" content="2013-06-26" />
             <meta property="article:section" content="IT" />
             <meta property="article:tag" content="Zabbix" />
@@ -195,7 +195,7 @@ Alexander Bulimov - production engineer's notes.            </a>
     <span class="p">}</span>
     <span class="k">print</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
 
@@ -219,9 +219,9 @@ rabbitmq.discovery и макросы {#RABBITMQ_VHOST_NAME} и {#RABBITMQ_QUEUE_
     <ul>
         <li><a href="http://bulimov.ru/it/Выложил-немного-полезностей/">Выложил немного полезностей</a></li>
         <li><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware/">Низкоуровневое обнаружение в Zabbix, ищем диски в контроллере от 3ware</a></li>
-        <li><a href="http://bulimov.ru/it/collectd-riakcs/">Плагин к Collectd для сбора метрик Riak CS</a></li>
+        <li><a href="http://bulimov.ru/it/check-cadvisor/">Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</a></li>
         <li><a href="http://bulimov.ru/it/check-docker-memory/">Научился мониторить использование памяти в Docker-контейнерах</a></li>
-        <li><a href="http://bulimov.ru/it/monitoring-sucks/">Monitoring sucks!</a></li>
+        <li><a href="http://bulimov.ru/it/collectd-riakcs/">Плагин к Collectd для сбора метрик Riak CS</a></li>
     </ul>
 </section>
     <hr/>
@@ -286,8 +286,7 @@ rabbitmq.discovery и макросы {#RABBITMQ_VHOST_NAME} и {#RABBITMQ_QUEUE_
         </div>
     </li>
     </ul>
-</section>
-            </aside>
+</section>            </aside>
         </div>
     </div>
 </div>
@@ -295,12 +294,12 @@ rabbitmq.discovery и макросы {#RABBITMQ_VHOST_NAME} и {#RABBITMQ_QUEUE_
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2016 Alexander Bulimov
+         <div class="col-xs-10">&copy; 2017 Alexander Bulimov
             &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content
-  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
 </small></p>
          </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>

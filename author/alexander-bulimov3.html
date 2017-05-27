@@ -72,6 +72,43 @@ Alexander Bulimov - production engineer's notes.            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="http://bulimov.ru/it/elk-production/">Использование ELK в продакшне</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2015-08-11T00:00:00+03:00"> Tue 11 August 2015</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="http://bulimov.ru/category/it.html">IT</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/elasticsearch.html">Elasticsearch</a>
+        /
+	<a href="http://bulimov.ru/tag/logstash.html">Logstash</a>
+        /
+	<a href="http://bulimov.ru/tag/kibana.html">Kibana</a>
+        /
+	<a href="http://bulimov.ru/tag/opyt.html">Опыт</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Я уже довольно давно и успешно использую
+<a href="https://www.elastic.co/products/logstash">Logstash</a> + <a href="https://www.elastic.co/products/elasticsearch">Elasticsearch</a>
+с визуализацией данных в <a href="https://www.elastic.co/products/kibana">Kibana</a>
+(общепринятое сокращение для этой тройки - ELK) для сбора, хранения и обработки логов,
+но для обретения счастья с этой связкой мне потребовалось несколько итераций.</p>
+<p><em>Поскольку в мире СПО все постоянно развивается и становится лучше, сразу хочу
+отметить, что все описанное актуально для Logstash версиий 1.4-1.5 и
+Elasticsearch версий 1.4 - 1.7 при нагрузке в …</em></p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/elk-production/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://bulimov.ru/it/coreos-opinion/">Впечатления от CoreOS</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -101,7 +138,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 <p>Чем они все отличаются от привычных дистрибутивов? Основным отличием является
 модель обновления дистрибутива. Все эти проекты предлагают атомарные обновления,
 подразумевающие сборку нового образа системы с последующей перезагрузкой в него.
-При этом образ ...</p>
+При этом образ …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/coreos-opinion/">more ...</a>
                 </div>
             </article>
@@ -132,7 +169,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 многими сервисами на своем сервере, сам VPS приносит мне только негативные эмоции.</p>
 <p>Необходимость следить за этим сервером, обновлять на нем софт, решать мелкие
 проблемы после обновлений - все это стало меня бесить. Возможно, это возраст
-(ха-ха), но возни с серверами мне хватает на работе, причем задачи ...</p>
+(ха-ха), но возни с серверами мне хватает на работе, причем задачи …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/goodby-vps/">more ...</a>
                 </div>
             </article>
@@ -170,7 +207,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 <p>Packetbeat это такой инструмент мониторинга, который работает как анализатор
 сетевых пакетов, парсит различные протоколы (сейчас поддерживаются HTTP, MySQL,
 Postgresql, Redis, Thrift-RPC), получает нужные данные, и отсылает их либо напрямую
-в Elasticsearch, либо в ...</p>
+в Elasticsearch, либо в …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/try-packetbeat/">more ...</a>
                 </div>
             </article>
@@ -205,7 +242,7 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
 плейбуков <a href="http://www.ansible.com/">Ansible</a>, что включает в себя правку конфигов,
 и написание кода на <a href="https://www.python.org/">Python</a> и <a href="http://golang.org/">Go</a>.</p>
 <p>Сразу скажу, что не будь для Atom вменяемого vim-режима, я бы вряд ли
-решился на переход ...</p>
+решился на переход …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/vim-atom/">more ...</a>
                 </div>
             </article>
@@ -244,7 +281,7 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
 <p>Есть даже контора, которая помогает внедрять эту практику на коммерческой основе,
 у них на <a href="http://www.eventenrichment.com/">сайте</a> есть неплохие примеры того,
 что и зачем можно добавить к обычному сообщению от Nagios.</p>
-<p>Сама эта идея мне очень нравится, и вот ...</p>
+<p>Сама эта идея мне очень нравится, и вот …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/cadvisor-companion/">more ...</a>
                 </div>
             </article>
@@ -282,7 +319,7 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
 <p>Можно, конечно, подобрать значения весов самостоятельно на основе
 данных мониторинга, а при появлении нагрузки от соседних Docker-контейнеров
 эти веса корректировать, но это не наш метод.</p>
-<p>Не так ...</p>
+<p>Не так …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/haproxy-cadvisor/">more ...</a>
                 </div>
             </article>
@@ -315,7 +352,7 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
 и потому никак не мог использовать Google Chrome/Chromium.</p>
 <p>Дополнения типа Vimum/Vrome/ViChrome, которые добавляют vi-like навигацию
 в Chrome, после Vimperator казались, мягко говоря, недоделанными,
-и ...</p>
+и …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/chromium-vim/">more ...</a>
                 </div>
             </article>
@@ -355,7 +392,7 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
 <p>И вот что я могу сказать - отличный инструмент!
 Ресурсов практически не потребляет (около 20 Мб оперативной памяти и
 неизмеримо мало CPU), обладает простым API для доступа к собираемой им
-информации, имеет ...</p>
+информации, имеет …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/check-cadvisor/">more ...</a>
                 </div>
             </article>
@@ -393,42 +430,8 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
 более вменяемый формат конфигурации, и кучу новых возможностей.</em></p>
 <p>Используя Docker для автотестов я уже ловил проблемы, когда интерпретатор Ruby
 кушал всю выделенную память в контейнере и тихо умирал от рук OOM Killer.</p>
-<p>Поскольку теперь я использую <a href="http://docker.io">Docker ...</a></p>
+<p>Поскольку теперь я использую <a href="http://docker.io">Docker …</a></p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/check-docker-memory/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/lyricstagger/">Lyrics Tagger</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-11-25T00:00:00+03:00"> Tue 25 November 2014</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="http://bulimov.ru/category/it.html">IT</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/python.html">Python</a>
-        /
-	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><h2>Предыстория</h2>
-<p>Я езжу на работу в общественном транспорте, и слушаю там музыку
-со смартфона. Достаточно часто хотелось почитать тексты прослушиваемых
-в данный момент песен, но искать их в интернете было не слишком удобно,
-да и вообще интернета до недавнего времени в метро не было.</p>
-<p>Решение выглядит очевидным - надо встроить тексты песен в сами музыкальные файлы.
-Благо, основные форматы это позволяют.
-Музыку я храню во <a href="https://ru.wikipedia.org/wiki/FLAC">FLAC</a>, а на смартфон
-закидываю в ...</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/lyricstagger/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -482,8 +485,7 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
         </div>
     </li>
     </ul>
-</section>
-            </aside>
+</section>            </aside>
         </div>
     </div>
 </div>
@@ -491,12 +493,12 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2016 Alexander Bulimov
+         <div class="col-xs-10">&copy; 2017 Alexander Bulimov
             &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content
-  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
 </small></p>
          </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>

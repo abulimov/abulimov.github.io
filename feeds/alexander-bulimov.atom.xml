@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexander Bulimov - production engineer's notes.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/alexander-bulimov.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2016-09-30T00:00:00+03:00</updated><entry><title>How I became a programmer</title><link href="http://bulimov.ru/personal/how-i-became-a-programmer/" rel="alternate"></link><published>2016-09-30T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-09-30:personal/how-i-became-a-programmer/</id><summary type="html">&lt;p&gt;After reading a lot of blog posts about becoming a programmer recently, I've decided to write my own.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexander Bulimov - production engineer's notes. - Alexander Bulimov</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/alexander-bulimov.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2017-05-27T00:00:00+03:00</updated><entry><title>Вопросы от Дениса</title><link href="http://bulimov.ru/it/user-questions/" rel="alternate"></link><published>2017-05-27T00:00:00+03:00</published><updated>2017-05-27T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2017-05-27:/it/user-questions/</id><summary type="html">&lt;p&gt;Пришло письмо от читателя по имени Денис по форме обратной связи.
+Поскольку никаких данных для связи с ним Денис не оставил, отвечу здесь.&lt;/p&gt;
+&lt;p&gt;Привожу письмо полностью (надеюсь, автор не против):&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Александр, здравствуйте! Не смог найти вашу электропочту, пишу через форму обратной связи вашего домена на рег.ру :)&lt;/p&gt;
+&lt;p&gt;С огромным удовольствием читаю твой блог, очень жаль, что больше не обновляешь его.&lt;/p&gt;
+&lt;p&gt;Помоги, пожалуйста, советом.
+У меня примерно 12 виртуальных серверов с …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">&lt;p&gt;Пришло письмо от читателя по имени Денис по форме обратной связи.
+Поскольку никаких данных для связи с ним Денис не оставил, отвечу здесь.&lt;/p&gt;
+&lt;p&gt;Привожу письмо полностью (надеюсь, автор не против):&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Александр, здравствуйте! Не смог найти вашу электропочту, пишу через форму обратной связи вашего домена на рег.ру :)&lt;/p&gt;
+&lt;p&gt;С огромным удовольствием читаю твой блог, очень жаль, что больше не обновляешь его.&lt;/p&gt;
+&lt;p&gt;Помоги, пожалуйста, советом.
+У меня примерно 12 виртуальных серверов с небольшими микросервисами, на каждом из серверов
+поставил collectd и statsd, плюс на отдельном сервере развёрнул go-carbon - whisper - graphite-api - grafana.&lt;/p&gt;
+&lt;p&gt;Сейчас хочу как-то опрашивать эти микросервисы извне (http, https) и мониторить коды их ответов (200 - всё хорошо, иной ответ - всё плохо, нужно алертить по смс). Как это лучше сделать? Первое, что мне пришло в голову - написать свой костыльный bash-скрипт, который будет по очереди все нужные эндпоинты опрашивать и в go-carbon-&amp;gt;whisper пулять... Второе, что пришло в голову - опять же написать свой костыльный плагин к collectd :)&lt;/p&gt;
+&lt;p&gt;Но очень не хочется переизобретать велосипед, наверняка же есть какие-то удобные готовые инструменты для этого?
+Что для данной задачи использовать? Nagios, icinga2, zabbix, sensu, что-то другое?&lt;/p&gt;
+&lt;p&gt;Я правильно понимаю, что для этой задачи time-seried БД подходит плохо, т.к. длительность ответа микросервиса всегда немного разная и очень трудно настроить задержку (sleep) в том же bash-скрипте, чтобы попасть ровно одним реквестом в каждый агрегируемый интервал 10 сек для collectd/whisper. Т.е. лучше опрашивать не строго через каждые 10 сек, а неважно через какие промежутки, можно даже не совсем одинаковые (плюс-минус пара секунд), но для ответов использовать ещё какое-то хранилище аварийных events? Если да, то какое? elasticsearch ещё прикрутить и из него в графану дашборд для алертинга?&lt;/p&gt;
+&lt;p&gt;P.S.: наверное, лучше всего чтобы сам микросервис коды ответов на реквесты в statsd отсылал? но вопрос именно про готовый внешний "проверяльщик" здоровья системы, чем бы воспользовался лично ты для решения такой задачи?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Я бы для решения подобной задачи не стал городить велосипеды, а воспользовался бы Icinga2 с плагином check_http из пакета nagios-plugins, или каким-то более продвинутым плагином с &lt;a href="https://exchange.icinga.com"&gt;exchange.icinga.com&lt;/a&gt;. Можно конечно и обычный Nagios использовать, но Icinga2 умеет из коробки писать результаты проверок в Graphite, который у Дениса уже есть.&lt;/p&gt;
+&lt;p&gt;Идея с микросервисом, отсылающим данные в statsd, мне не нравится, так как polling на таких масштабах сильно проще, его проще тестировать и проверять из любого места, и микросервису не нужно знать ничего про сервис монторинга - это сильно упрощает конфигурирование. Если хочется собирать данные на уровне микросервиса (инструментировать) - можно посмотреть в сторону &lt;a href="https://prometheus.io/"&gt;Prometheus&lt;/a&gt;, так как в любом случае нужно что-то, что будет реагировать на отсутствие heartbeat от сервиса.&lt;/p&gt;
+&lt;p&gt;Time-series DB для такой задачи подходит нормально, а elasticsearch в любом случае было бы отлично прикрутить для логов. К тому же с ним можно использовать
+&lt;a href="https://www.elastic.co/products/beats/packetbeat"&gt;Packetbeat&lt;/a&gt; для того же мониторинга (если нагрузка небольшая, конечно).&lt;/p&gt;
+&lt;p&gt;Ну и немного о том, почему я давно ничего тут не пишу. Дело в том, что в любой
+крупной IT-компании типа Google/Facebook/Amazon/Mail.RU/Yandex
+бо́льшая часть инфраструктуры своя, а решаемые задачи в силу масштабов не сильно
+интересны нормальным компаниям и стартапам.
+Кроме того, трудовой договор подразумевает согласование любых открытий кода с юристами (что совершенно логично). Так что этот блог я пытаюсь преобразовать
+в более персональный - пока без особого успеха, как можно заметить.&lt;/p&gt;</content><category term="Monitoring"></category><category term="Icinga2"></category><category term="Graphite"></category><category term="Elasticsearch"></category><category term="Packetbeat"></category></entry><entry><title>How I became a programmer</title><link href="http://bulimov.ru/personal/how-i-became-a-programmer/" rel="alternate"></link><published>2016-09-30T00:00:00+03:00</published><updated>2016-09-30T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-09-30:/personal/how-i-became-a-programmer/</id><summary type="html">&lt;p&gt;After reading a lot of blog posts about becoming a programmer recently, I've decided to write my own.&lt;/p&gt;
+&lt;p&gt;It will be a bit different because of two factors:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I'm not a Software Engineer, but a Production Engineer/SRE/Admin;&lt;/li&gt;
+&lt;li&gt;I'm from Russia, where CS education is vastly different.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;School years&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;School in Russia is 10 or 11 years and you start at the age of ~7  and end it at …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;After reading a lot of blog posts about becoming a programmer recently, I've decided to write my own.&lt;/p&gt;
 &lt;p&gt;It will be a bit different because of two factors:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;I'm not a Software Engineer, but a Production Engineer/SRE/Admin;&lt;/li&gt;
@@ -148,7 +186,12 @@ are more difficult than what you can handle right now. I've always had some chal
 and when my job stopped being challenging, I've changed it.&lt;/p&gt;
 &lt;p&gt;And while I've been learning new programming languages, as an SysAdmin/SRE I was able to switch them easily
 without loosing value as a worker, so I was learning more general things and not some particular language quirks
-and bizarre tricks.&lt;/p&gt;</summary><category term="Programming"></category><category term="Experience"></category></entry><entry><title>Board games are awesome</title><link href="http://bulimov.ru/personal/boardgames-love/" rel="alternate"></link><published>2016-08-31T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-08-31:personal/boardgames-love/</id><summary type="html">&lt;p&gt;&lt;em&gt;I's been awhile since I wrote anything in my blog, mostly because
+and bizarre tricks.&lt;/p&gt;</content><category term="Programming"></category><category term="Experience"></category></entry><entry><title>Board games are awesome</title><link href="http://bulimov.ru/personal/boardgames-love/" rel="alternate"></link><published>2016-08-31T00:00:00+03:00</published><updated>2016-08-31T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-08-31:/personal/boardgames-love/</id><summary type="html">&lt;p&gt;&lt;em&gt;I's been awhile since I wrote anything in my blog, mostly because
+I was moving to Ireland and was busy at my new job at Big Company™.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;So as I can't write about all the cool technical things we have there,
+I'll try to make this blog less tech-savvy and more personal and fun.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;As a normal IT person I spend whole working day staring at the computer's
+screen. While …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;I's been awhile since I wrote anything in my blog, mostly because
 I was moving to Ireland and was busy at my new job at Big Company™.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;So as I can't write about all the cool technical things we have there,
 I'll try to make this blog less tech-savvy and more personal and fun.&lt;/em&gt;&lt;/p&gt;
@@ -163,7 +206,7 @@ cards is so satisfying, and so opposite to using computer. It's so REAL, so
 MATERIAL. And at the same time playing board games is fun and challenging,
 and makes you use your brain in some different way.&lt;/p&gt;
 &lt;p&gt;Just look at this cute little animeeples from &lt;a href="https://boardgamegeek.com/boardgame/119890/agricola-all-creatures-big-and-small"&gt;Agricola: All Creatures Big And Small&lt;/a&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="animeeples" src="/images/animeeples.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="animeeples" src="/images/animeeples.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;Don't you want to touch them? Looking at them, it's hard to imagine how
 intense and challenging is this game's mechanic.&lt;/p&gt;
 &lt;p&gt;And of course playing board games involves contacting with people, which is a
@@ -201,7 +244,14 @@ he enjoys. It's so cool compared to my childhood, when most of the board games y
 can find you must have to cut from some soviet magazines for kids, and it would
 have been some simple 'roll dice, move forward' kind of game. You can take a look
 at some of them in &lt;a href="http://www.gamer.ru/boardgames/o-nih-mechtali-vse-deti-sovetskie-nastolnye-igry-70h-90h-godov-foto-obzor"&gt;this nice overview (in Russian)&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;So if you haven't played board games - give it a try, it's so much fun!&lt;/p&gt;</summary><category term="Board Games"></category></entry><entry><title>Notes about type systems in popular languages</title><link href="http://bulimov.ru/it/more-typing/" rel="alternate"></link><published>2016-06-09T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-06-09:it/more-typing/</id><summary type="html">&lt;p&gt;I've been kind of out of my comfort zone last 3 weeks,
+&lt;p&gt;So if you haven't played board games - give it a try, it's so much fun!&lt;/p&gt;</content><category term="Board Games"></category></entry><entry><title>Notes about type systems in popular languages</title><link href="http://bulimov.ru/it/more-typing/" rel="alternate"></link><published>2016-06-09T00:00:00+03:00</published><updated>2016-06-09T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-06-09:/it/more-typing/</id><summary type="html">&lt;p&gt;I've been kind of out of my comfort zone last 3 weeks,
+and was trying to use as many new languages and technologies as possible.&lt;/p&gt;
+&lt;p&gt;I've used C++, JavaScript, React, PHP and &lt;a href="http://hacklang.org"&gt;Hack&lt;/a&gt; to name a few,
+and I've noticed really cool thing - many popular programming
+languages are moving towards mixing best of static and dynamic typing.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;C++ (statically typed language) now has &lt;code&gt;auto&lt;/code&gt; keyword, specifying that compiler
+should deduce …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;I've been kind of out of my comfort zone last 3 weeks,
 and was trying to use as many new languages and technologies as possible.&lt;/p&gt;
 &lt;p&gt;I've used C++, JavaScript, React, PHP and &lt;a href="http://hacklang.org"&gt;Hack&lt;/a&gt; to name a few,
 and I've noticed really cool thing - many popular programming
@@ -218,7 +268,12 @@ and there is &lt;a href="https://www.typescriptlang.org"&gt;TypeScript&lt;/a&gt;
 &lt;p&gt;And it looks like all big companies are using this stuff extensively!
 Isn't it awesome? After mainly using &lt;a href="http://golang.org"&gt;Go&lt;/a&gt; for last year,
 I'm super excited seeng how dynamically typed languages become safer
-with type hints, and how C++ brings convenience and ease of dynamic typing to its users.&lt;/p&gt;</summary><category term="Programming"></category></entry><entry><title>Python Type Hints are awesome</title><link href="http://bulimov.ru/it/python-typing/" rel="alternate"></link><published>2016-05-12T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-05-12:it/python-typing/</id><summary type="html">&lt;p&gt;I really love &lt;a href="http://jvns.ca"&gt;Julia Evans's blog&lt;/a&gt;, she writes with such excitement
+with type hints, and how C++ brings convenience and ease of dynamic typing to its users.&lt;/p&gt;</content><category term="Programming"></category></entry><entry><title>Python Type Hints are awesome</title><link href="http://bulimov.ru/it/python-typing/" rel="alternate"></link><published>2016-05-12T00:00:00+03:00</published><updated>2016-05-12T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-05-12:/it/python-typing/</id><summary type="html">&lt;p&gt;I really love &lt;a href="http://jvns.ca"&gt;Julia Evans's blog&lt;/a&gt;, she writes with such excitement
+and enthusiasm about every new bit of technology she learns. For me, this is what
+makes our job so great - we can learn something new and cool almost every day.&lt;/p&gt;
+&lt;p&gt;And recently I've felt very excited with some of new abilities Python
+now have. I'm talking about including of &lt;a href="https://www.python.org/dev/peps/pep-0484/"&gt;PEP 484&lt;/a&gt;,
+which describes Type Hints, in Python 3.5 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I really love &lt;a href="http://jvns.ca"&gt;Julia Evans's blog&lt;/a&gt;, she writes with such excitement
 and enthusiasm about every new bit of technology she learns. For me, this is what
 makes our job so great - we can learn something new and cool almost every day.&lt;/p&gt;
 &lt;p&gt;And recently I've felt very excited with some of new abilities Python
@@ -266,7 +321,13 @@ the whole &lt;code&gt;typing&lt;/code&gt; module was &lt;a href="https://pypi.py
 and can be easily installed and used with Python 3.2+.&lt;/p&gt;
 &lt;p&gt;If you are as excited about Type Hints in Python as I am,
 you can read more about them in
-&lt;a href="http://blog.jetbrains.com/pycharm/2015/11/python-3-5-type-hinting-in-pycharm-5/"&gt;JetBrains PyCharm blog&lt;/a&gt;.&lt;/p&gt;</summary><category term="Python"></category><category term="Programming"></category></entry><entry><title>Moving from Fish shell to zsh</title><link href="http://bulimov.ru/it/fish-zsh/" rel="alternate"></link><published>2016-05-06T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-05-06:it/fish-zsh/</id><summary type="html">&lt;p&gt;I've been using &lt;a href="http://fishshell.com"&gt;Fish shell&lt;/a&gt; as my daily driver for
+&lt;a href="http://blog.jetbrains.com/pycharm/2015/11/python-3-5-type-hinting-in-pycharm-5/"&gt;JetBrains PyCharm blog&lt;/a&gt;.&lt;/p&gt;</content><category term="Python"></category><category term="Programming"></category></entry><entry><title>Moving from Fish shell to zsh</title><link href="http://bulimov.ru/it/fish-zsh/" rel="alternate"></link><published>2016-05-06T00:00:00+03:00</published><updated>2016-05-06T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-05-06:/it/fish-zsh/</id><summary type="html">&lt;p&gt;I've been using &lt;a href="http://fishshell.com"&gt;Fish shell&lt;/a&gt; as my daily driver for
+more than 2 years. I don't want to insult Fish - this awesome shell provided me
+with wonderful out-of-the-box experience, introduced me to autosuggestions,
+and required almost no configuration.&lt;/p&gt;
+&lt;p&gt;But now, after 2 years of heavy usage, I've dropped it in favor of &lt;a href="https://en.wikipedia.org/wiki/Z_shell"&gt;zsh&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The main reason for the switch is simple - Fish shell is not POSIX-compatible.
+And while many people …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've been using &lt;a href="http://fishshell.com"&gt;Fish shell&lt;/a&gt; as my daily driver for
 more than 2 years. I don't want to insult Fish - this awesome shell provided me
 with wonderful out-of-the-box experience, introduced me to autosuggestions,
 and required almost no configuration.&lt;/p&gt;
@@ -297,7 +358,16 @@ all this compatibility rules, than facing same small problems with Fish shell ev
 &lt;p&gt;After some experiments I've chosen excellent &lt;a href="https://github.com/sorin-ionescu/prezto"&gt;prezto&lt;/a&gt;
 configuration framework for zsh, enabled &lt;em&gt;autosuggestions&lt;/em&gt;, &lt;em&gt;syntax-highlighting&lt;/em&gt;
 and &lt;em&gt;history-substring-search&lt;/em&gt; plugins, and now have all Fish goodies with zsh,
-but without dealing with POSIX-compatibility issues.&lt;/p&gt;</summary><category term="Fish"></category><category term="Zsh"></category></entry><entry><title>Утилита gotests и плагин для Atom</title><link href="http://bulimov.ru/it/atom-gotests/" rel="alternate"></link><published>2016-04-15T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-04-15:it/atom-gotests/</id><summary type="html">&lt;p&gt;Поскольку последнее время я все больше пишу на &lt;a href="http://golang.org"&gt;Go&lt;/a&gt;,
+but without dealing with POSIX-compatibility issues.&lt;/p&gt;</content><category term="Fish"></category><category term="Zsh"></category></entry><entry><title>Утилита gotests и плагин для Atom</title><link href="http://bulimov.ru/it/atom-gotests/" rel="alternate"></link><published>2016-04-15T00:00:00+03:00</published><updated>2016-04-15T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-04-15:/it/atom-gotests/</id><summary type="html">&lt;p&gt;Поскольку последнее время я все больше пишу на &lt;a href="http://golang.org"&gt;Go&lt;/a&gt;,
+мой workflow потихоньку обрастает различными полезными утилитами.&lt;/p&gt;
+&lt;p&gt;Одним из лучших открытий (после изумительного &lt;a href="http://atom.io/packages/go-plus"&gt;go-plus&lt;/a&gt;
+для &lt;a href="http://atom.io"&gt;Atom&lt;/a&gt;, который превращает Atom в полнофункциональную IDE
+для Go) стала утилита &lt;a href="https://github.com/cweill/gotests"&gt;gotests&lt;/a&gt;, которая
+позволяет генерировать &lt;a href="https://github.com/golang/go/wiki/TableDrivenTests"&gt;табличные тесты&lt;/a&gt;.
+При этом для нее есть плагины для Sublime Text 3 и Emacs.&lt;/p&gt;
+&lt;p&gt;Я большой сторонник юнит-тестирования, и потому возможность создавать шаблоны для
+тестов одной командой меня очень обрадовала.&lt;/p&gt;
+&lt;p&gt;Выглядит …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Поскольку последнее время я все больше пишу на &lt;a href="http://golang.org"&gt;Go&lt;/a&gt;,
 мой workflow потихоньку обрастает различными полезными утилитами.&lt;/p&gt;
 &lt;p&gt;Одним из лучших открытий (после изумительного &lt;a href="http://atom.io/packages/go-plus"&gt;go-plus&lt;/a&gt;
 для &lt;a href="http://atom.io"&gt;Atom&lt;/a&gt;, который превращает Atom в полнофункциональную IDE
@@ -307,7 +377,7 @@ but without dealing with POSIX-compatibility issues.&lt;/p&gt;</summary><categor
 &lt;p&gt;Я большой сторонник юнит-тестирования, и потому возможность создавать шаблоны для
 тестов одной командой меня очень обрадовала.&lt;/p&gt;
 &lt;p&gt;Выглядит это как-то так:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="demo" src="/images/gotests.gif" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="demo" src="/images/gotests.gif"&gt;&lt;/p&gt;
 &lt;p&gt;Единственное чего мне не хватало для счастья - плагина для Atom.&lt;/p&gt;
 &lt;p&gt;Пришлось взять в руки JS и запилить его по образу и подобию плагина для Sublime.&lt;/p&gt;
 &lt;p&gt;Конечно, после Go все эти Promise и подход к асинхронности в JS достаточно
@@ -336,7 +406,15 @@ but without dealing with POSIX-compatibility issues.&lt;/p&gt;</summary><categor
 &lt;li&gt;Отличная утилита для табличных тестов - &lt;a href="https://github.com/cweill/gotests"&gt;gotest&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Мой плагин для интеграции gotests в Atom - &lt;a href="https://github.com/abulimov/atom-gotests"&gt;atom-gotests&lt;/a&gt;
   (&lt;a href="https://atom.io/packages/gotests"&gt;страничка плагина в Atom&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="Golang"></category><category term="Программирование"></category><category term="Atom"></category><category term="ES6"></category></entry><entry><title>Все для HAProxy в Atom</title><link href="http://bulimov.ru/it/atom-haproxy/" rel="alternate"></link><published>2016-04-08T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-04-08:it/atom-haproxy/</id><summary type="html">&lt;p&gt;Появилась у меня на работе задачка - взять 3 относительно разных конфига
+&lt;/ul&gt;</content><category term="Golang"></category><category term="Программирование"></category><category term="Atom"></category><category term="ES6"></category></entry><entry><title>Все для HAProxy в Atom</title><link href="http://bulimov.ru/it/atom-haproxy/" rel="alternate"></link><published>2016-04-08T00:00:00+03:00</published><updated>2016-04-08T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-04-08:/it/atom-haproxy/</id><summary type="html">&lt;p&gt;Появилась у меня на работе задачка - взять 3 относительно разных конфига
+HAProxy, ответвившихся когда-то от общего предка, и обратно унифицировать их
+в один.&lt;/p&gt;
+&lt;p&gt;Конфиги хорошие, большие - 800 строк каждый.&lt;/p&gt;
+&lt;p&gt;Приступил я к этой задаче, и сразу оступил - потому что в &lt;a href="http://atom.io"&gt;Atom&lt;/a&gt;,
+которым я пользуюсь для редактирования всего, не было подсветки
+синтаксиса конфигов HAProxy.&lt;/p&gt;
+&lt;p&gt;Ну у нас же тут opensource, так что тут же был нагуглен архив с
+&lt;a href="https://github.com/williamsjj/HAProxy.tmbundle"&gt;HAProxy.tmbundle&lt;/a&gt;, который …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Появилась у меня на работе задачка - взять 3 относительно разных конфига
 HAProxy, ответвившихся когда-то от общего предка, и обратно унифицировать их
 в один.&lt;/p&gt;
 &lt;p&gt;Конфиги хорошие, большие - 800 строк каждый.&lt;/p&gt;
@@ -407,7 +485,13 @@ linter запускает его в виде &lt;code&gt;haproxy -c -f filename&
 &lt;li&gt;Сам haproxy-lint - &lt;a href="https://github.com/abulimov/haproxy-lint"&gt;haproxy-lint&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;P.S. Заодно я научился делать релизы бинарников на GitHub с помощью
-&lt;a href="https://travis-ci.org"&gt;TravisCI&lt;/a&gt; - это оказалось очень легко и удобно.&lt;/p&gt;</summary><category term="Golang"></category><category term="Программирование"></category><category term="Atom"></category><category term="HAProxy"></category></entry><entry><title>Vendoring зависимостей в Go</title><link href="http://bulimov.ru/it/go-vendoring/" rel="alternate"></link><published>2016-03-31T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-03-31:it/go-vendoring/</id><summary type="html">&lt;p&gt;После недавнего &lt;a href="http://www.opennet.ru/opennews/art.shtml?num=44104"&gt;удаления модуля на 11 строк кода из npm&lt;/a&gt;,
+&lt;a href="https://travis-ci.org"&gt;TravisCI&lt;/a&gt; - это оказалось очень легко и удобно.&lt;/p&gt;</content><category term="Golang"></category><category term="Программирование"></category><category term="Atom"></category><category term="HAProxy"></category></entry><entry><title>Vendoring зависимостей в Go</title><link href="http://bulimov.ru/it/go-vendoring/" rel="alternate"></link><published>2016-03-31T00:00:00+03:00</published><updated>2016-03-31T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-03-31:/it/go-vendoring/</id><summary type="html">&lt;p&gt;После недавнего &lt;a href="http://www.opennet.ru/opennews/art.shtml?num=44104"&gt;удаления модуля на 11 строк кода из npm&lt;/a&gt;,
+которое сломало всю Node.js инфраструктуру, я по-новому взглянул на то,
+как в проектах на Go реализованы зависимости от других пакетов.&lt;/p&gt;
+&lt;p&gt;Изначально, при знакомстве с go я был крайне недоволен отсутствием возможности задавать зависимости
+от конкретных версий (зависимость указывается только от репозитория, т.е. от master ветки) -
+ведь апстрим может ломать обратную совместимость, и твой проект просто не соберется.
+Причем …&lt;/p&gt;</summary><content type="html">&lt;p&gt;После недавнего &lt;a href="http://www.opennet.ru/opennews/art.shtml?num=44104"&gt;удаления модуля на 11 строк кода из npm&lt;/a&gt;,
 которое сломало всю Node.js инфраструктуру, я по-новому взглянул на то,
 как в проектах на Go реализованы зависимости от других пакетов.&lt;/p&gt;
 &lt;p&gt;Изначально, при знакомстве с go я был крайне недоволен отсутствием возможности задавать зависимости
@@ -441,7 +525,14 @@ linter запускает его в виде &lt;code&gt;haproxy -c -f filename&
 А мы используем менеджер зависимостей по вкусу и тоже радуемся - все довольны.&lt;/p&gt;
 &lt;p&gt;В общем, на этом примере явно видна одна из главных особенностей Go, то, за что его можно
 одновременно любить и ненавидеть - он прагматичный до мозга костей.&lt;/p&gt;
-&lt;p&gt;Лично для меня это скорее достоинство.&lt;/p&gt;</summary><category term="Golang"></category><category term="Программирование"></category></entry><entry><title>Проверка образов Docker на уязвимости с Clair</title><link href="http://bulimov.ru/it/clair/" rel="alternate"></link><published>2016-03-24T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-03-24:it/clair/</id><summary type="html">&lt;p&gt;Ни для кого не секрет, что контейнеры (и в частности Docker) не только решают
+&lt;p&gt;Лично для меня это скорее достоинство.&lt;/p&gt;</content><category term="Golang"></category><category term="Программирование"></category></entry><entry><title>Проверка образов Docker на уязвимости с Clair</title><link href="http://bulimov.ru/it/clair/" rel="alternate"></link><published>2016-03-24T00:00:00+03:00</published><updated>2016-03-24T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-03-24:/it/clair/</id><summary type="html">&lt;p&gt;Ни для кого не секрет, что контейнеры (и в частности Docker) не только решают
+много проблем (configuration drift, scalability, dependency hell), но и привносят новые
+(в частности, обновление базовых образов).&lt;/p&gt;
+&lt;p&gt;Я уже давно мониторил IT-мир на предмет появления хорошего инструмента для
+проверки &lt;a href="http://docker.com"&gt;Docker&lt;/a&gt;-образов на наличие известных CVE.
+До недавнего времени подходящего инструмента не было. Была парочка дистро-специфичных
+инструментов (например &lt;a href="https://github.com/OpenSCAP/container-compliance"&gt;oscap-docker&lt;/a&gt;,
+с которым я помучался и забил), но ничего подходящего …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Ни для кого не секрет, что контейнеры (и в частности Docker) не только решают
 много проблем (configuration drift, scalability, dependency hell), но и привносят новые
 (в частности, обновление базовых образов).&lt;/p&gt;
 &lt;p&gt;Я уже давно мониторил IT-мир на предмет появления хорошего инструмента для
@@ -473,15 +564,15 @@ linter запускает его в виде &lt;code&gt;haproxy -c -f filename&
 &lt;span class="nv"&gt;pull&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;docker pull &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$image&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &amp;gt;/dev/null&lt;span class="k"&gt;)&lt;/span&gt;
 &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; -ne &lt;span class="nv"&gt;$?&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;pull failed!&amp;quot;&lt;/span&gt;
-  &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$pull&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; tail -n 20
-  &lt;span class="nb"&gt;exit&lt;/span&gt; 1
+  &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$pull&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; tail -n &lt;span class="m"&gt;20&lt;/span&gt;
+  &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
 &lt;span class="k"&gt;fi&lt;/span&gt;
 &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;analyzing &lt;/span&gt;&lt;span class="nv"&gt;$image&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 &lt;span class="nv"&gt;out&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;analyze-local-images &lt;span class="se"&gt;\&lt;/span&gt;
   -minimum-severity High &lt;span class="se"&gt;\&lt;/span&gt;
   -endpoint http://clair.ip.address.here:6060 &lt;span class="se"&gt;\&lt;/span&gt;
   -my-address own.ip.address.here &lt;span class="se"&gt;\&lt;/span&gt;
-  &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$image&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; 2&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;1&lt;span class="k"&gt;)&lt;/span&gt;
+  &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$image&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;&amp;gt;&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
 &lt;span class="nv"&gt;status&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$?&lt;/span&gt;
 
 &lt;span class="c1"&gt;# cleanup is done separately, with docker-gc running on cron&lt;/span&gt;
@@ -489,7 +580,7 @@ linter запускает его в виде &lt;code&gt;haproxy -c -f filename&
 &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; -ne &lt;span class="nv"&gt;$status&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;analyze failed!&amp;quot;&lt;/span&gt;
   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$report&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-  &lt;span class="nb"&gt;exit&lt;/span&gt; 1
+  &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
 &lt;span class="k"&gt;fi&lt;/span&gt;
 
 &lt;span class="nv"&gt;report&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$out&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; grep -A &lt;span class="m"&gt;10000&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Clair report for image&amp;#39;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
@@ -497,7 +588,7 @@ linter запускает его в виде &lt;code&gt;haproxy -c -f filename&
 &lt;span class="nv"&gt;found_cve&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$?&lt;/span&gt;
 &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; -eq &lt;span class="nv"&gt;$found_cve&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$report&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-  &lt;span class="nb"&gt;exit&lt;/span&gt; 1
+  &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt;
 &lt;span class="k"&gt;fi&lt;/span&gt;
 
 &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$report&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
@@ -512,7 +603,14 @@ linter запускает его в виде &lt;code&gt;haproxy -c -f filename&
 копания в кишках образа контейнера, что для Docker чревато поломкой в каком-либо новом релизе.&lt;/p&gt;
 &lt;p&gt;Но сам факт, что наконец-то появился такой инструмент очень радует, и хочется
 надеяться на скорую его интеграцию в registry (уже есть в &lt;a href="https://github.com/containerops/dockyard"&gt;dockyard&lt;/a&gt;)
-и CI-pipeline.&lt;/p&gt;</summary><category term="Clair"></category><category term="Docker"></category><category term="CoreOS"></category></entry><entry><title>Открыл код db-checker</title><link href="http://bulimov.ru/it/db-checker/" rel="alternate"></link><published>2016-03-18T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-03-18:it/db-checker/</id><summary type="html">&lt;p&gt;Недавно я открыл код еще одного инструмента, который уже около года использую на работе -
+и CI-pipeline.&lt;/p&gt;</content><category term="Clair"></category><category term="Docker"></category><category term="CoreOS"></category></entry><entry><title>Открыл код db-checker</title><link href="http://bulimov.ru/it/db-checker/" rel="alternate"></link><published>2016-03-18T00:00:00+03:00</published><updated>2016-03-18T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-03-18:/it/db-checker/</id><summary type="html">&lt;p&gt;Недавно я открыл код еще одного инструмента, который уже около года использую на работе -
+&lt;a href="https://github.com/abulimov/db-checker"&gt;db-checker&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Началось все с необходимости проводить регулярные проверки логической
+целостности данных в БД. Проще говоря - гонять мониторингом запросы к базе.&lt;/p&gt;
+&lt;p&gt;Сначала это была часть проекта, который проверял данные на нашем CDN.
+Проект этот сразу планировался многопоточным, поэтому написан на &lt;a href="http://golang.org"&gt;Go&lt;/a&gt;.
+Затем мухи были отделены от котлет, и проверка базы выделилась в отдельную
+сущность, но несколько legacy-моментов …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Недавно я открыл код еще одного инструмента, который уже около года использую на работе -
 &lt;a href="https://github.com/abulimov/db-checker"&gt;db-checker&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Началось все с необходимости проводить регулярные проверки логической
 целостности данных в БД. Проще говоря - гонять мониторингом запросы к базе.&lt;/p&gt;
@@ -624,7 +722,14 @@ linter запускает его в виде &lt;code&gt;haproxy -c -f filename&
 но штука впечатляющая.&lt;/p&gt;
 &lt;h3&gt;Заключение&lt;/h3&gt;
 &lt;p&gt;Больше информации и примеры проверок можно найти в &lt;a href="https://github.com/abulimov/db-checker"&gt;репозитории проекта&lt;/a&gt;,
-код опубликован под лицензией &lt;a href="http://opensource.org/licenses/MIT"&gt;MIT&lt;/a&gt;.&lt;/p&gt;</summary><category term="Программирование"></category><category term="Golang"></category><category term="Nagios"></category><category term="Monitoring"></category></entry><entry><title>О пользе Python и костылях с Docker</title><link href="http://bulimov.ru/it/delete-docker-registry-image/" rel="alternate"></link><published>2016-03-02T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-03-02:it/delete-docker-registry-image/</id><summary type="html">&lt;p&gt;В процессе организации авто-очистки &lt;a href="https://github.com/docker/distribution"&gt;Docker Registry 2&lt;/a&gt;,
+код опубликован под лицензией &lt;a href="http://opensource.org/licenses/MIT"&gt;MIT&lt;/a&gt;.&lt;/p&gt;</content><category term="Программирование"></category><category term="Golang"></category><category term="Nagios"></category><category term="Monitoring"></category></entry><entry><title>О пользе Python и костылях с Docker</title><link href="http://bulimov.ru/it/delete-docker-registry-image/" rel="alternate"></link><published>2016-03-02T00:00:00+03:00</published><updated>2016-03-02T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-03-02:/it/delete-docker-registry-image/</id><summary type="html">&lt;p&gt;В процессе организации авто-очистки &lt;a href="https://github.com/docker/distribution"&gt;Docker Registry 2&lt;/a&gt;,
+устав ждать в появления в нем столь "ненужного" функционала, как удаление образов
+с диска (DELETE запросы удаляют тег, но сами данные остаются на диске и жрут место),
+я в очередной раз прибег к помощи скрипта из
+&lt;a href="https://github.com/burnettk/delete-docker-registry-image"&gt;delete-docker-registry-image&lt;/a&gt;,
+и уперся в то, что этот самый скрипт (написанный изначально на bash) невероятно
+медленно работает на большом Registry.&lt;/p&gt;
+&lt;p&gt;К примеру, удаления одного тега для repository с …&lt;/p&gt;</summary><content type="html">&lt;p&gt;В процессе организации авто-очистки &lt;a href="https://github.com/docker/distribution"&gt;Docker Registry 2&lt;/a&gt;,
 устав ждать в появления в нем столь "ненужного" функционала, как удаление образов
 с диска (DELETE запросы удаляют тег, но сами данные остаются на диске и жрут место),
 я в очередной раз прибег к помощи скрипта из
@@ -662,7 +767,14 @@ linter запускает его в виде &lt;code&gt;haproxy -c -f filename&
 потом еще придется поддерживать, и принес пользу сообществу - сила OpenSource в действии.&lt;/p&gt;
 &lt;p&gt;Единственное грустное пятно в этой истории - Docker-registry. Уже версия 2+, переписали
 с Python на Go, про Docker трубят все кому не лень, а таких простых вещей как удаление образов - нет,
-и приходится городить костыли.&lt;/p&gt;</summary><category term="Программирование"></category><category term="Python"></category><category term="Docker"></category></entry><entry><title>Рекомендую Advent Of Code</title><link href="http://bulimov.ru/it/advent-of-code/" rel="alternate"></link><published>2016-02-11T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-02-11:it/advent-of-code/</id><summary type="html">&lt;p&gt;Закончил на днях решать задачи из замечательного набора программерских
+и приходится городить костыли.&lt;/p&gt;</content><category term="Программирование"></category><category term="Python"></category><category term="Docker"></category></entry><entry><title>Рекомендую Advent Of Code</title><link href="http://bulimov.ru/it/advent-of-code/" rel="alternate"></link><published>2016-02-11T00:00:00+03:00</published><updated>2016-02-11T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-02-11:/it/advent-of-code/</id><summary type="html">&lt;p&gt;Закончил на днях решать задачи из замечательного набора программерских
+пазлов &lt;a href="http://adventofcode.com"&gt;Advent Of Code&lt;/a&gt; (да, я тормоз и даже пропустил
+начало этого конкурса), и могу уверенно рекомендовать его любому.&lt;/p&gt;
+&lt;p&gt;Задачки веселые, разнообразные, в меру сложные, содержат много
+классических задач (&lt;a href="https://ru.wikipedia.org/wiki/Задача_коммивояжёра"&gt;задача коммивояжёра&lt;/a&gt;,
+&lt;a href="https://ru.wikipedia.org/wiki/Задача_о_ранце"&gt;задача о ранце&lt;/a&gt; и т.д.) в занятной
+обертке, так что их решение дает возможность отлично размять мозги.&lt;/p&gt;
+&lt;p&gt;Так же эти задачки отлично подходят для изучения нового языка, чем я …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Закончил на днях решать задачи из замечательного набора программерских
 пазлов &lt;a href="http://adventofcode.com"&gt;Advent Of Code&lt;/a&gt; (да, я тормоз и даже пропустил
 начало этого конкурса), и могу уверенно рекомендовать его любому.&lt;/p&gt;
 &lt;p&gt;Задачки веселые, разнообразные, в меру сложные, содержат много
@@ -680,7 +792,14 @@ linter запускает его в виде &lt;code&gt;haproxy -c -f filename&
 "а вот бы мне featurename из языка такого-то".&lt;/p&gt;
 &lt;p&gt;Короче, если тоже пропустили Advent Of Code - попробуйте, рождество давно
 закончилось, а отличный набор программерских задачек остался. Ну и Go можно
-заодно попробовать - тоже рекомендую.&lt;/p&gt;</summary><category term="Программирование"></category><category term="Жизнь"></category><category term="Golang"></category></entry><entry><title>Замена carbon-cache на go-carbon = Счастье</title><link href="http://bulimov.ru/it/go-carbon/" rel="alternate"></link><published>2016-02-08T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-02-08:it/go-carbon/</id><summary type="html">&lt;p&gt;Пришлось на собственном опыте опробовать, насколько
+заодно попробовать - тоже рекомендую.&lt;/p&gt;</content><category term="Программирование"></category><category term="Жизнь"></category><category term="Golang"></category></entry><entry><title>Замена carbon-cache на go-carbon = Счастье</title><link href="http://bulimov.ru/it/go-carbon/" rel="alternate"></link><published>2016-02-08T00:00:00+03:00</published><updated>2016-02-08T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-02-08:/it/go-carbon/</id><summary type="html">&lt;p&gt;Пришлось на собственном опыте опробовать, насколько
+&lt;a href="/it/graphite-experience"&gt;Graphite модульный&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;При 200k metricsReceived наш Graphite, работающий на довольном старом сервере
+на обычных дисках, начал помирать. &lt;strong&gt;Carbon-cache&lt;/strong&gt; постоянно был в топе потребления
+ресурсов, ни о какой отзывчивости в работе сервера речи вообще не шло.&lt;/p&gt;
+&lt;p&gt;"Хватит это терпеть!" - подумал я, и начал в который раз искать советы по
+тюнингу carbon для высокой производительности. В очередной раз ничего нового
+не найдя, я решил попробовать давно …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Пришлось на собственном опыте опробовать, насколько
 &lt;a href="/it/graphite-experience"&gt;Graphite модульный&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;При 200k metricsReceived наш Graphite, работающий на довольном старом сервере
 на обычных дисках, начал помирать. &lt;strong&gt;Carbon-cache&lt;/strong&gt; постоянно был в топе потребления
@@ -696,12 +815,22 @@ carbon-cache.&lt;/p&gt;
 &lt;p&gt;Эффект превзошел все ожидания: все заработало сразу, лаг появления новых
 метрик на графиках пропал, отзывчивость сервера вернулась в норму.&lt;/p&gt;
 &lt;p&gt;Вот вам график updateOperations, до и после:&lt;/p&gt;
-&lt;p&gt;&lt;img alt="updateOperations" src="/images/go-carbon.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="updateOperations" src="/images/go-carbon.png"&gt;&lt;/p&gt;
 &lt;p&gt;При этом go-carbon еще умеет перечитывать конфиги на лету!&lt;/p&gt;
 &lt;p&gt;В общем, радости моей нет предела, серьезная проблема производительности
 мониторинга решилась за 5 минут. Даже если вы еще не уперлись в производительность
 carbon-cache, можно заменить его на go-carbon хотя-бы ради нормального
-reload конфигов.&lt;/p&gt;</summary><category term="Graphite"></category><category term="go-carbon"></category><category term="Опыт"></category></entry><entry><title>Немного житейского опыта</title><link href="http://bulimov.ru/it/productivity-tips/" rel="alternate"></link><published>2016-01-12T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-01-12:it/productivity-tips/</id><summary type="html">&lt;p&gt;Решил поделиться небольшим набором "капитанских" жизненных практик, каждая из которых
+reload конфигов.&lt;/p&gt;</content><category term="Graphite"></category><category term="go-carbon"></category><category term="Опыт"></category></entry><entry><title>Немного житейского опыта</title><link href="http://bulimov.ru/it/productivity-tips/" rel="alternate"></link><published>2016-01-12T00:00:00+03:00</published><updated>2016-01-12T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2016-01-12:/it/productivity-tips/</id><summary type="html">&lt;p&gt;Решил поделиться небольшим набором "капитанских" жизненных практик, каждая из которых
+очень сильно упростила мне жизнь.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Использование сервиса для чтения новостей/RSS.&lt;/p&gt;
+&lt;p&gt;Я очень долго игнорировал RSS, считая его пережитком прошлого, но когда создавал
+&lt;a href="/IT/Личный-vps"&gt;свой VPS&lt;/a&gt;, поставил &lt;a href="https://tt-rss.org/"&gt;Tiny Tiny RSS&lt;/a&gt;
+и попробовал попользоваться.&lt;/p&gt;
+&lt;p&gt;Сложно даже описать, сколько это мне сэкономило времени. Это оказалось &lt;em&gt;настолько&lt;/em&gt;
+удобно, что теперь я не представляю свою жизнь без подобного сервиса, хоть от tt-rss
+и отказался вместе …&lt;/p&gt;&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;Решил поделиться небольшим набором "капитанских" жизненных практик, каждая из которых
 очень сильно упростила мне жизнь.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -783,7 +912,16 @@ Skype, почты. Критичные алерты прилетят SMSками,
 умные люди учатся в основаном на &lt;em&gt;своих&lt;/em&gt; ошибках, ну а дураки не учатся вообще.
 Надеюсь, что этот список поможет кому-то попробовать новый подход к
 решению привычных задач, а может даже быстрее осознать свои ошибки.&lt;/p&gt;
-&lt;p&gt;Как минимум для меня все пункты этого списка отлично работают.&lt;/p&gt;</summary><category term="Жизнь"></category><category term="Опыт"></category></entry><entry><title>Quis custodiet ipsos custodes?</title><link href="http://bulimov.ru/it/who-watch-the-watchmen/" rel="alternate"></link><published>2015-11-06T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-11-06:it/who-watch-the-watchmen/</id><summary type="html">&lt;h4&gt;&lt;a href="https://ru.wikipedia.org/wiki/Quis_custodiet_ipsos_custodes%3F"&gt;Кто же устережёт самих сторожей?&lt;/a&gt;, или как (и зачем) я мониторю мониторинг.&lt;/h4&gt;
+&lt;p&gt;Как минимум для меня все пункты этого списка отлично работают.&lt;/p&gt;</content><category term="Жизнь"></category><category term="Опыт"></category></entry><entry><title>Quis custodiet ipsos custodes?</title><link href="http://bulimov.ru/it/who-watch-the-watchmen/" rel="alternate"></link><published>2015-11-06T00:00:00+03:00</published><updated>2015-11-06T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-11-06:/it/who-watch-the-watchmen/</id><summary type="html">&lt;h4&gt;&lt;a href="https://ru.wikipedia.org/wiki/Quis_custodiet_ipsos_custodes%3F"&gt;Кто же устережёт самих сторожей?&lt;/a&gt;, или как (и зачем) я мониторю мониторинг.&lt;/h4&gt;
+&lt;p&gt;Как вы понимаете, современный сервис мониторинга это очень сложная штука.
+Некоторые, как &lt;a href="https://sensuapp.org"&gt;Sensu&lt;/a&gt;, выносят всю сложность во внешние
+сервисы, и потому требуют установки и администрирования
+&lt;a href="https://sensuapp.org/docs/latest/overview#sensu-components"&gt;нескольких компонентов&lt;/a&gt;,
+таких как очередь и база данных.&lt;/p&gt;
+&lt;p&gt;Остальные реализуют некоторый функционал этих компонентов сами,
+упрощая администрирование мониторинга, но усложняя его внутреннее устройство.
+К примеру, для работы &lt;a href="http://www.zabbix.com/ru/"&gt;Zabbix&lt;/a&gt; нужна только база,
+а очереди …&lt;/p&gt;</summary><content type="html">&lt;h4&gt;&lt;a href="https://ru.wikipedia.org/wiki/Quis_custodiet_ipsos_custodes%3F"&gt;Кто же устережёт самих сторожей?&lt;/a&gt;, или как (и зачем) я мониторю мониторинг.&lt;/h4&gt;
 &lt;p&gt;Как вы понимаете, современный сервис мониторинга это очень сложная штука.
 Некоторые, как &lt;a href="https://sensuapp.org"&gt;Sensu&lt;/a&gt;, выносят всю сложность во внешние
 сервисы, и потому требуют установки и администрирования
@@ -797,7 +935,7 @@ Skype, почты. Критичные алерты прилетят SMSками,
 &lt;p&gt;В любом случае, чтобы быть уверенным в том, что сам мониторинг работает,
 приходится настраивать мониторинг мониторинга.&lt;/p&gt;
 &lt;h4&gt;Мой опыт&lt;/h4&gt;
-&lt;p&gt;&lt;img alt="Yo Dawg" src="/images/monit.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Yo Dawg" src="/images/monit.png"&gt;&lt;/p&gt;
 &lt;p&gt;В моей практике так сложилось, что на проектах всегда была пара служебных
 серверов, выполняющих роль DNS-сервера, локального репозитория и т.п.
 На одном из них как раз и размещался мониторинг.&lt;/p&gt;
@@ -845,7 +983,14 @@ Zabbix-серверами.&lt;/p&gt;
 &lt;li&gt;Zabbix падал, и второй хост это засекал;&lt;/li&gt;
 &lt;li&gt;Sensu падал, и второй хост это засекал;&lt;/li&gt;
 &lt;li&gt;Icinga2 пока не падал.&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="Icinga2"></category><category term="Monit"></category><category term="Monitoring"></category><category term="Опыт"></category></entry><entry><title>Избавился от CoreOS</title><link href="http://bulimov.ru/it/goodby-coreos/" rel="alternate"></link><published>2015-10-26T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-10-26:it/goodby-coreos/</id><summary type="html">&lt;p&gt;С огромным облегчением сегодня убрал последний хост с &lt;a href="http://coreos.com"&gt;CoreOS&lt;/a&gt;.&lt;/p&gt;
+&lt;/ul&gt;</content><category term="Icinga2"></category><category term="Monit"></category><category term="Monitoring"></category><category term="Опыт"></category></entry><entry><title>Избавился от CoreOS</title><link href="http://bulimov.ru/it/goodby-coreos/" rel="alternate"></link><published>2015-10-26T00:00:00+03:00</published><updated>2015-10-26T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-10-26:/it/goodby-coreos/</id><summary type="html">&lt;p&gt;С огромным облегчением сегодня убрал последний хост с &lt;a href="http://coreos.com"&gt;CoreOS&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Я уже &lt;a href="/it/coreos-opinion/"&gt;писал&lt;/a&gt; о своих впечатлениях от CoreoOS, но с тех пор
+впечатлений прибавилось.&lt;/p&gt;
+&lt;p&gt;Частые атомарные обновления на бумаге выглядели вкусно (и в пользовательских
+ОС типа Android работают прекрасно), но вот на практике на серверах
+в том виде, в котором CoreOS их готовит, оказались совсем несъедобны.&lt;/p&gt;
+&lt;p&gt;Объясню, в чем проблема: Docker достаточно часто что-то ломает в API, и свежие
+ядра Linux …&lt;/p&gt;</summary><content type="html">&lt;p&gt;С огромным облегчением сегодня убрал последний хост с &lt;a href="http://coreos.com"&gt;CoreOS&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Я уже &lt;a href="/it/coreos-opinion/"&gt;писал&lt;/a&gt; о своих впечатлениях от CoreoOS, но с тех пор
 впечатлений прибавилось.&lt;/p&gt;
 &lt;p&gt;Частые атомарные обновления на бумаге выглядели вкусно (и в пользовательских
@@ -881,7 +1026,13 @@ Zabbix-серверами.&lt;/p&gt;
 При этом нет никакой проблемы обновить конкретный компонент с уязвимостью или багом.&lt;/p&gt;
 &lt;p&gt;А после работы с CoreOS я могу точно сказать, что пока не будет возможности
 полностью контролировать процесс обновления ОС (а лучше возможности самому собрать
-"апдейт"), я не готов даже рассматривать подобные дистрибутивы.&lt;/p&gt;</summary><category term="CoreOS"></category><category term="Мнение"></category><category term="Опыт"></category></entry><entry><title>Logstash и Graphite</title><link href="http://bulimov.ru/it/logstash-graphite/" rel="alternate"></link><published>2015-10-09T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-10-09:it/logstash-graphite/</id><summary type="html">&lt;p&gt;Недавно читал серию постов от &lt;a href="https://www.datadoghq.com"&gt;Datadog&lt;/a&gt; про сбор метрик,
+"апдейт"), я не готов даже рассматривать подобные дистрибутивы.&lt;/p&gt;</content><category term="CoreOS"></category><category term="Мнение"></category><category term="Опыт"></category></entry><entry><title>Logstash и Graphite</title><link href="http://bulimov.ru/it/logstash-graphite/" rel="alternate"></link><published>2015-10-09T00:00:00+03:00</published><updated>2015-10-09T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-10-09:/it/logstash-graphite/</id><summary type="html">&lt;p&gt;Недавно читал серию постов от &lt;a href="https://www.datadoghq.com"&gt;Datadog&lt;/a&gt; про сбор метрик,
+и в частности &lt;a href="https://www.datadoghq.com/blog/how-to-collect-nginx-metrics/"&gt;статью про метрики Nginx&lt;/a&gt;
+(думал, вдруг что-то новое узнаю). Что меня в этой статье зацепило - так это то, что только версия
+&lt;a href="https://www.nginx.com/products/"&gt;Nginx Plus&lt;/a&gt; показывает статистику количества
+ответов, разделенную по HTTP-кодам. Поскольку я использую перед Nginx балансировщик
+&lt;a href="http://www.haproxy.org"&gt;HAProxy&lt;/a&gt;, который не жадный и показывает подробную статистику
+по кодам ответов для каждого бекенда и фронтенда, я о таком минусе статистики Nginx …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Недавно читал серию постов от &lt;a href="https://www.datadoghq.com"&gt;Datadog&lt;/a&gt; про сбор метрик,
 и в частности &lt;a href="https://www.datadoghq.com/blog/how-to-collect-nginx-metrics/"&gt;статью про метрики Nginx&lt;/a&gt;
 (думал, вдруг что-то новое узнаю). Что меня в этой статье зацепило - так это то, что только версия
 &lt;a href="https://www.nginx.com/products/"&gt;Nginx Plus&lt;/a&gt; показывает статистику количества
@@ -988,18 +1139,18 @@ output {
 &lt;ul&gt;
 &lt;li&gt;Научить rsyslog тейлить и слать логи ATS в Logstash&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;MaxMessageSize&lt;/span&gt;&lt;span class="x"&gt; 32k&lt;/span&gt;
-&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;ModLoad&lt;/span&gt;&lt;span class="x"&gt; imfile&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$MaxMessageSize 32k
+$ModLoad imfile
 
-&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;InputFileName&lt;/span&gt;&lt;span class="x"&gt; /var/log/trafficserver/squid.log&lt;/span&gt;
-&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;InputFileTag&lt;/span&gt;&lt;span class="x"&gt; trafficserver-access:&lt;/span&gt;
-&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;InputFileStateFile&lt;/span&gt;&lt;span class="x"&gt; trafficserver-access&lt;/span&gt;
-&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;InputFileFacility&lt;/span&gt;&lt;span class="x"&gt; local4&lt;/span&gt;
-&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;InputFileSeverity&lt;/span&gt;&lt;span class="x"&gt; info&lt;/span&gt;
-&lt;span class="p"&gt;$&lt;/span&gt;&lt;span class="nv"&gt;InputRunFileMonitor&lt;/span&gt;&lt;span class="x"&gt;&lt;/span&gt;
+$InputFileName /var/log/trafficserver/squid.log
+$InputFileTag trafficserver-access:
+$InputFileStateFile trafficserver-access
+$InputFileFacility local4
+$InputFileSeverity info
+$InputRunFileMonitor
 
-&lt;span class="x"&gt;local4.* @log.example.com:5014&lt;/span&gt;
-&lt;span class="x"&gt;&amp;amp; ~&lt;/span&gt;
+local4.* @log.example.com:5014
+&amp;amp; ~
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1061,7 +1212,11 @@ output {
 Graphite он не может уменьшать разрешение метрик со временем. Так что использование
 Graphite позволяет делать алерты по таким метрикам гораздо менее ресурсоемкими,
 и хранить метрики несоизмеримо дольше. Ну и весь набор функций Graphite в нашем
-распоряжении.&lt;/p&gt;</summary><category term="Graphite"></category><category term="Monitoring"></category><category term="Logstash"></category><category term="StatsD"></category><category term="Опыт"></category></entry><entry><title>Заметка о Graphite</title><link href="http://bulimov.ru/it/graphite-experience/" rel="alternate"></link><published>2015-09-25T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-09-25:it/graphite-experience/</id><summary type="html">&lt;p&gt;На первый взгляд, кажется довольно странным, что сейчас, в 2015 году, все до сих пор используют
+распоряжении.&lt;/p&gt;</content><category term="Graphite"></category><category term="Monitoring"></category><category term="Logstash"></category><category term="StatsD"></category><category term="Опыт"></category></entry><entry><title>Заметка о Graphite</title><link href="http://bulimov.ru/it/graphite-experience/" rel="alternate"></link><published>2015-09-25T00:00:00+03:00</published><updated>2015-09-25T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-09-25:/it/graphite-experience/</id><summary type="html">&lt;p&gt;На первый взгляд, кажется довольно странным, что сейчас, в 2015 году, все до сих пор используют
+для хранения time series такой старый и «не модный» инструмент, как &lt;a href="http://graphite.readthedocs.org/en/latest/"&gt;Graphite&lt;/a&gt;.
+О ужас, о нем даже почти не пишут в твиттере/G+ и он написан на старом будничном Python,
+а не на популярном сейчас Go (хотя уже частично написан, но об этом потом).&lt;/p&gt;
+&lt;p&gt;Но все равно многие используют его, и не сильно жалуются …&lt;/p&gt;</summary><content type="html">&lt;p&gt;На первый взгляд, кажется довольно странным, что сейчас, в 2015 году, все до сих пор используют
 для хранения time series такой старый и «не модный» инструмент, как &lt;a href="http://graphite.readthedocs.org/en/latest/"&gt;Graphite&lt;/a&gt;.
 О ужас, о нем даже почти не пишут в твиттере/G+ и он написан на старом будничном Python,
 а не на популярном сейчас Go (хотя уже частично написан, но об этом потом).&lt;/p&gt;
@@ -1251,7 +1406,14 @@ eventы с описанием события (деплой такой-то ве�
 &lt;blockquote&gt;
 &lt;p&gt;Надо собирать как можно больше различных метрик, потому что когда они понадобятся
 для решения проблем, их нехватка может оказаться критичной.&lt;/p&gt;
-&lt;/blockquote&gt;</summary><category term="Graphite"></category><category term="Monitoring"></category><category term="Мнение"></category><category term="Опыт"></category></entry><entry><title>Плагин к Collectd для сбора метрик Riak CS</title><link href="http://bulimov.ru/it/collectd-riakcs/" rel="alternate"></link><published>2015-09-17T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-09-17:it/collectd-riakcs/</id><summary type="html">&lt;p&gt;На днях наконец-то дошли руки до модернизации той части мониторинга, которая
+&lt;/blockquote&gt;</content><category term="Graphite"></category><category term="Monitoring"></category><category term="Мнение"></category><category term="Опыт"></category></entry><entry><title>Плагин к Collectd для сбора метрик Riak CS</title><link href="http://bulimov.ru/it/collectd-riakcs/" rel="alternate"></link><published>2015-09-17T00:00:00+03:00</published><updated>2015-09-17T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-09-17:/it/collectd-riakcs/</id><summary type="html">&lt;p&gt;На днях наконец-то дошли руки до модернизации той части мониторинга, которая
+отвечает за сбор метрик, и набивший оскомину &lt;a href="http://munin-monitoring.org"&gt;Munin&lt;/a&gt; был
+окончательно заменен на &lt;a href="https://graphite.readthedocs.org/en/latest/"&gt;Graphite&lt;/a&gt; + &lt;a href="http://collectd.org"&gt;Collectd&lt;/a&gt;.
+Теперь воцарилась идиллия - Icinga2 складывает метрики из perfdata в Graphite,
+и Collectd отправляет все метрики туда же.&lt;/p&gt;
+&lt;p&gt;Хочется отдельно отметить, что несмотря на то, что изначально Collectd мне
+не очень понравился (кому может сейчас понравиться Apache-подобный конфиг?), при
+дальнейшем изучении я был приятно поражен богатством …&lt;/p&gt;</summary><content type="html">&lt;p&gt;На днях наконец-то дошли руки до модернизации той части мониторинга, которая
 отвечает за сбор метрик, и набивший оскомину &lt;a href="http://munin-monitoring.org"&gt;Munin&lt;/a&gt; был
 окончательно заменен на &lt;a href="https://graphite.readthedocs.org/en/latest/"&gt;Graphite&lt;/a&gt; + &lt;a href="http://collectd.org"&gt;Collectd&lt;/a&gt;.
 Теперь воцарилась идиллия - Icinga2 складывает метрики из perfdata в Graphite,
@@ -1307,7 +1469,14 @@ eventы с описанием события (деплой такой-то ве�
 &lt;p&gt;Код плагина к Collectd для снятия метрик с Riak CS трационно опубликован под
 свободной лицензией &lt;a href="https://opensource.org/licenses/MIT"&gt;MIT&lt;/a&gt;
 на Github - &lt;a href="https://github.com/abulimov/collectd-riakcs"&gt;github.com/abulimov/collectd-riakcs&lt;/a&gt;,
-а сам плагин подготовлен к удобной &lt;a href="https://github.com/abulimov/collectd-riakcs#setup"&gt;установке через pip&lt;/a&gt;.&lt;/p&gt;</summary><category term="Python"></category><category term="Riak CS"></category><category term="Collectd"></category><category term="Программирование"></category><category term="Monitoring"></category></entry><entry><title>Использование ELK в продакшне</title><link href="http://bulimov.ru/it/elk-production/" rel="alternate"></link><published>2015-08-11T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-08-11:it/elk-production/</id><summary type="html">&lt;p&gt;Я уже довольно давно и успешно использую
+а сам плагин подготовлен к удобной &lt;a href="https://github.com/abulimov/collectd-riakcs#setup"&gt;установке через pip&lt;/a&gt;.&lt;/p&gt;</content><category term="Python"></category><category term="Riak CS"></category><category term="Collectd"></category><category term="Программирование"></category><category term="Monitoring"></category></entry><entry><title>Использование ELK в продакшне</title><link href="http://bulimov.ru/it/elk-production/" rel="alternate"></link><published>2015-08-11T00:00:00+03:00</published><updated>2015-08-11T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-08-11:/it/elk-production/</id><summary type="html">&lt;p&gt;Я уже довольно давно и успешно использую
+&lt;a href="https://www.elastic.co/products/logstash"&gt;Logstash&lt;/a&gt; + &lt;a href="https://www.elastic.co/products/elasticsearch"&gt;Elasticsearch&lt;/a&gt;
+с визуализацией данных в &lt;a href="https://www.elastic.co/products/kibana"&gt;Kibana&lt;/a&gt;
+(общепринятое сокращение для этой тройки - ELK) для сбора, хранения и обработки логов,
+но для обретения счастья с этой связкой мне потребовалось несколько итераций.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Поскольку в мире СПО все постоянно развивается и становится лучше, сразу хочу
+отметить, что все описанное актуально для Logstash версиий 1.4-1.5 и
+Elasticsearch версий 1.4 - 1.7 при нагрузке в …&lt;/em&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Я уже довольно давно и успешно использую
 &lt;a href="https://www.elastic.co/products/logstash"&gt;Logstash&lt;/a&gt; + &lt;a href="https://www.elastic.co/products/elasticsearch"&gt;Elasticsearch&lt;/a&gt;
 с визуализацией данных в &lt;a href="https://www.elastic.co/products/kibana"&gt;Kibana&lt;/a&gt;
 (общепринятое сокращение для этой тройки - ELK) для сбора, хранения и обработки логов,
@@ -1381,7 +1550,16 @@ Elasticsearch. При это Logstash-front сделан максимально 
 &lt;li&gt;потребление оперативной памяти Elasticsearch уменьшилось на треть;&lt;/li&gt;
 &lt;li&gt;скорость восстановления кластера Elasticsearch
   &lt;a href="https://www.elastic.co/blog/elasticsearch-1-6-0-released#synced-flush"&gt;выросла на порядок&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="Elasticsearch"></category><category term="Logstash"></category><category term="Kibana"></category><category term="Опыт"></category></entry><entry><title>Впечатления от CoreOS</title><link href="http://bulimov.ru/it/coreos-opinion/" rel="alternate"></link><published>2015-07-29T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-07-29:it/coreos-opinion/</id><summary type="html">&lt;p&gt;На волне популярности контейнерной виртуализации &lt;a href="http://docker.com"&gt;Docker&lt;/a&gt;
+&lt;/ul&gt;</content><category term="Elasticsearch"></category><category term="Logstash"></category><category term="Kibana"></category><category term="Опыт"></category></entry><entry><title>Впечатления от CoreOS</title><link href="http://bulimov.ru/it/coreos-opinion/" rel="alternate"></link><published>2015-07-29T00:00:00+03:00</published><updated>2015-07-29T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-07-29:/it/coreos-opinion/</id><summary type="html">&lt;p&gt;На волне популярности контейнерной виртуализации &lt;a href="http://docker.com"&gt;Docker&lt;/a&gt;
+стали появляться специализированные дистрибутивы Linux, созданные специально
+для использования в роли базового хоста для Docker-контейнеров.&lt;/p&gt;
+&lt;p&gt;Пионером среди них стал проект &lt;a href="http://coreos.com"&gt;CoreOS&lt;/a&gt;, затем появились
+&lt;a href="http://www.projectatomic.io/"&gt;Project Atomic&lt;/a&gt; от RedHat и
+&lt;a href="https://developer.ubuntu.com/en/snappy/"&gt;Ubuntu Snappy&lt;/a&gt; от Canonical.&lt;/p&gt;
+&lt;p&gt;Чем они все отличаются от привычных дистрибутивов? Основным отличием является
+модель обновления дистрибутива. Все эти проекты предлагают атомарные обновления,
+подразумевающие сборку нового образа системы с последующей перезагрузкой в него.
+При этом образ …&lt;/p&gt;</summary><content type="html">&lt;p&gt;На волне популярности контейнерной виртуализации &lt;a href="http://docker.com"&gt;Docker&lt;/a&gt;
 стали появляться специализированные дистрибутивы Linux, созданные специально
 для использования в роли базового хоста для Docker-контейнеров.&lt;/p&gt;
 &lt;p&gt;Пионером среди них стал проект &lt;a href="http://coreos.com"&gt;CoreOS&lt;/a&gt;, затем появились
@@ -1439,7 +1617,12 @@ Versions of CoreOS are battle-tested within the Beta and Alpha channels before b
 -- https://coreos.com/releases/&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;По моим впечатлениям, до &lt;em&gt;production clusters&lt;/em&gt; этому проекту еще расти и расти,
-хотя концепция и маркетинг отличные.&lt;/p&gt;</summary><category term="CoreOS"></category><category term="Мнение"></category></entry><entry><title>Прощай, личный VPS</title><link href="http://bulimov.ru/it/goodby-vps/" rel="alternate"></link><published>2015-07-09T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-07-09:it/goodby-vps/</id><summary type="html">&lt;p&gt;Больше года назад я &lt;a href="/it/Личный-vps"&gt;стал использовать свой виртуальный частный сервер(VPS)&lt;/a&gt;,
+хотя концепция и маркетинг отличные.&lt;/p&gt;</content><category term="CoreOS"></category><category term="Мнение"></category></entry><entry><title>Прощай, личный VPS</title><link href="http://bulimov.ru/it/goodby-vps/" rel="alternate"></link><published>2015-07-09T00:00:00+03:00</published><updated>2015-07-09T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-07-09:/it/goodby-vps/</id><summary type="html">&lt;p&gt;Больше года назад я &lt;a href="/it/Личный-vps"&gt;стал использовать свой виртуальный частный сервер(VPS)&lt;/a&gt;,
+но недавно с полной ясностью осознал, что несмотря на то, что я регулярно пользуюсь
+многими сервисами на своем сервере, сам VPS приносит мне только негативные эмоции.&lt;/p&gt;
+&lt;p&gt;Необходимость следить за этим сервером, обновлять на нем софт, решать мелкие
+проблемы после обновлений - все это стало меня бесить. Возможно, это возраст
+(ха-ха), но возни с серверами мне хватает на работе, причем задачи …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Больше года назад я &lt;a href="/it/Личный-vps"&gt;стал использовать свой виртуальный частный сервер(VPS)&lt;/a&gt;,
 но недавно с полной ясностью осознал, что несмотря на то, что я регулярно пользуюсь
 многими сервисами на своем сервере, сам VPS приносит мне только негативные эмоции.&lt;/p&gt;
 &lt;p&gt;Необходимость следить за этим сервером, обновлять на нем софт, решать мелкие
@@ -1464,7 +1647,15 @@ Versions of CoreOS are battle-tested within the Beta and Alpha channels before b
 персональными данными, и какие усилия требуются, чтобы этого не делать.&lt;/p&gt;
 &lt;p&gt;На данный момент я пришел к тому, что мне проще и удобнее использовать внешние
 "бесплатные" сервисы (платя за них персональными данными для целенаправленной
-рекламы и т.п.), чем платить за свой VPS и тратить на него свое время и силы.&lt;/p&gt;</summary><category term="VPS"></category><category term="Жизнь"></category></entry><entry><title>Попробуйте Packetbeat</title><link href="http://bulimov.ru/it/try-packetbeat/" rel="alternate"></link><published>2015-05-28T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-05-28:it/try-packetbeat/</id><summary type="html">&lt;p&gt;Вчера в &lt;a href="https://www.elastic.co/blog"&gt;блоге Elasticsearch&lt;/a&gt; появилась отличная
+рекламы и т.п.), чем платить за свой VPS и тратить на него свое время и силы.&lt;/p&gt;</content><category term="VPS"></category><category term="Жизнь"></category></entry><entry><title>Попробуйте Packetbeat</title><link href="http://bulimov.ru/it/try-packetbeat/" rel="alternate"></link><published>2015-05-28T00:00:00+03:00</published><updated>2015-05-28T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-05-28:/it/try-packetbeat/</id><summary type="html">&lt;p&gt;Вчера в &lt;a href="https://www.elastic.co/blog"&gt;блоге Elasticsearch&lt;/a&gt; появилась отличная
+новость - проект &lt;a href="https://www.elastic.co/products/beats/packetbeat"&gt;Packetbeat&lt;/a&gt;,
+развиваемый до этого энтузиастами, присоединился к &lt;a href="https://www.elastic.co"&gt;Elastic&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Я уже довольно давно слежу за этим проектом, и теперь, когда можно не
+беспокоиться о его будущем, хочу о нем рассказать.&lt;/p&gt;
+&lt;p&gt;Packetbeat это такой инструмент мониторинга, который работает как анализатор
+сетевых пакетов, парсит различные протоколы (сейчас поддерживаются HTTP, MySQL,
+Postgresql, Redis, Thrift-RPC), получает нужные данные, и отсылает их либо напрямую
+в Elasticsearch, либо в …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Вчера в &lt;a href="https://www.elastic.co/blog"&gt;блоге Elasticsearch&lt;/a&gt; появилась отличная
 новость - проект &lt;a href="https://www.elastic.co/products/beats/packetbeat"&gt;Packetbeat&lt;/a&gt;,
 развиваемый до этого энтузиастами, присоединился к &lt;a href="https://www.elastic.co"&gt;Elastic&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Я уже довольно давно слежу за этим проектом, и теперь, когда можно не
@@ -1505,7 +1696,14 @@ Packetbeat парсит сетевой трафик, и это недешево�
 &lt;p&gt;В комплекте идут удобные дашборды для Kibana 4, так что процесс построения
 мониторинга сделан максимально безболезненным.&lt;/p&gt;
 &lt;p&gt;В общем, попробуйте - это очень простой в развертывании и очень удобный и
-наглядный инструмент мониторинга.&lt;/p&gt;</summary><category term="Packetbeat"></category><category term="Elasticsearch"></category><category term="Kibana"></category><category term="Monitoring"></category></entry><entry><title>Сменил Vim на Atom</title><link href="http://bulimov.ru/it/vim-atom/" rel="alternate"></link><published>2015-05-21T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-05-21:it/vim-atom/</id><summary type="html">&lt;p&gt;Вот уже почти два месяца, как я по совету коллеги сменил Vim, которым
+наглядный инструмент мониторинга.&lt;/p&gt;</content><category term="Packetbeat"></category><category term="Elasticsearch"></category><category term="Kibana"></category><category term="Monitoring"></category></entry><entry><title>Сменил Vim на Atom</title><link href="http://bulimov.ru/it/vim-atom/" rel="alternate"></link><published>2015-05-21T00:00:00+03:00</published><updated>2015-05-21T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-05-21:/it/vim-atom/</id><summary type="html">&lt;p&gt;Вот уже почти два месяца, как я по совету коллеги сменил Vim, которым
+пользовался уже 5 лет, и который оброс у меня кучей плагинов,
+на &lt;a href="http://atom.io"&gt;Github Atom&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Использую я его как раньше Vim - для всего. В основном это написание
+плейбуков &lt;a href="http://www.ansible.com/"&gt;Ansible&lt;/a&gt;, что включает в себя правку конфигов,
+и написание кода на &lt;a href="https://www.python.org/"&gt;Python&lt;/a&gt; и &lt;a href="http://golang.org/"&gt;Go&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Сразу скажу, что не будь для Atom вменяемого vim-режима, я бы вряд ли
+решился на переход …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Вот уже почти два месяца, как я по совету коллеги сменил Vim, которым
 пользовался уже 5 лет, и который оброс у меня кучей плагинов,
 на &lt;a href="http://atom.io"&gt;Github Atom&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Использую я его как раньше Vim - для всего. В основном это написание
@@ -1550,7 +1748,14 @@ Atom открыт под &lt;a href="https://raw.githubusercontent.com/atom/atom
 и имеет крайне активное сообщество.&lt;/p&gt;
 &lt;p&gt;В общем, обратно на Vim возвращаться я не собираюсь, и крайне рекомендую хардкорным
 вимерам попробовать Atom с vim-mode. Отмечу при этом, что на серверах по ssh я все
-также регулярно использую Vim для мелких быстрых правок.&lt;/p&gt;</summary><category term="Vim"></category><category term="Atom"></category><category term="Жизнь"></category></entry><entry><title>Улучшаем сообщения от мониторинга с помощью cAdvisor-companion</title><link href="http://bulimov.ru/it/cadvisor-companion/" rel="alternate"></link><published>2015-04-21T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-04-21:it/cadvisor-companion/</id><summary type="html">&lt;p&gt;Слышали ли вы когда-нибудь о такой практике, как "Monitoring Events Enrichment"?
+также регулярно использую Vim для мелких быстрых правок.&lt;/p&gt;</content><category term="Vim"></category><category term="Atom"></category><category term="Жизнь"></category></entry><entry><title>Улучшаем сообщения от мониторинга с помощью cAdvisor-companion</title><link href="http://bulimov.ru/it/cadvisor-companion/" rel="alternate"></link><published>2015-04-21T00:00:00+03:00</published><updated>2015-04-21T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-04-21:/it/cadvisor-companion/</id><summary type="html">&lt;p&gt;Слышали ли вы когда-нибудь о такой практике, как "Monitoring Events Enrichment"?
+Если вкратце, то это практика наполнения дополнительной информацией сообщений
+от мониторинга, так что на выяснение причины проблемы уходит меньше времени
+и телодвижений.&lt;/p&gt;
+&lt;p&gt;Есть даже контора, которая помогает внедрять эту практику на коммерческой основе,
+у них на &lt;a href="http://www.eventenrichment.com/"&gt;сайте&lt;/a&gt; есть неплохие примеры того,
+что и зачем можно добавить к обычному сообщению от Nagios.&lt;/p&gt;
+&lt;p&gt;Сама эта идея мне очень нравится, и вот …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Слышали ли вы когда-нибудь о такой практике, как "Monitoring Events Enrichment"?
 Если вкратце, то это практика наполнения дополнительной информацией сообщений
 от мониторинга, так что на выяснение причины проблемы уходит меньше времени
 и телодвижений.&lt;/p&gt;
@@ -1576,12 +1781,12 @@ Atom открыт под &lt;a href="https://raw.githubusercontent.com/atom/atom
 &lt;span class="c1"&gt;# check_memory wrapper&lt;/span&gt;
 &lt;span class="nv"&gt;output&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;/usr/lib/nagios/plugins/check_memory &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
 &lt;span class="nv"&gt;status&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$?&lt;/span&gt;
-&lt;span class="nv"&gt;message&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$output&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; cut -d&lt;span class="se"&gt;\|&lt;/span&gt; -f 1&lt;span class="k"&gt;)&lt;/span&gt;
-&lt;span class="nv"&gt;perfdata&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$output&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; cut -d&lt;span class="se"&gt;\|&lt;/span&gt; -f 2&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;message&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$output&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; cut -d&lt;span class="se"&gt;\|&lt;/span&gt; -f &lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;perfdata&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$output&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; cut -d&lt;span class="se"&gt;\|&lt;/span&gt; -f &lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="k"&gt;)&lt;/span&gt;
 &lt;span class="nb"&gt;echo&lt;/span&gt; -n &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$message&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt; -ne &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$status&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt;
   &lt;span class="nb"&gt;echo&lt;/span&gt;
-  ps aux --sort -pmem &lt;span class="p"&gt;|&lt;/span&gt; head -n 5
+  ps aux --sort -pmem &lt;span class="p"&gt;|&lt;/span&gt; head -n &lt;span class="m"&gt;5&lt;/span&gt;
 &lt;span class="k"&gt;fi&lt;/span&gt;
 &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot; | &lt;/span&gt;&lt;span class="nv"&gt;$perfdata&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 &lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="nv"&gt;$status&lt;/span&gt;
@@ -1589,14 +1794,14 @@ Atom открыт под &lt;a href="https://raw.githubusercontent.com/atom/atom
 
 
 &lt;p&gt;При превышении заданных лимитов вывод этого wrapperа получается такой:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;root@host:~# /usr/lib/nagios/plugins/check_memory_wrapper.sh -f -C -w &lt;span class="m"&gt;15&lt;/span&gt; -c 10
-CRITICAL - 4.9% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;1198364&lt;/span&gt; kB&lt;span class="o"&gt;)&lt;/span&gt; free!
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;root@host:~# /usr/lib/nagios/plugins/check_memory_wrapper.sh -f -C -w &lt;span class="m"&gt;15&lt;/span&gt; -c &lt;span class="m"&gt;10&lt;/span&gt;
+CRITICAL - &lt;span class="m"&gt;4&lt;/span&gt;.9% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;1198364&lt;/span&gt; kB&lt;span class="o"&gt;)&lt;/span&gt; free!
 USER       PID %CPU %MEM    VSZ   RSS      TTY  STAT START   TIME COMMAND
-traffic+ &lt;span class="m"&gt;28086&lt;/span&gt; 11.3 91.7 &lt;span class="m"&gt;25970900&lt;/span&gt; &lt;span class="m"&gt;22651436&lt;/span&gt; ?    Sl   Mar18 5553:57 /usr/bin/traffic_server -M --httpport 8080:fd&lt;span class="o"&gt;=&lt;/span&gt;9
-haproxy  &lt;span class="m"&gt;26404&lt;/span&gt;  7.0  0.2 &lt;span class="m"&gt;85832&lt;/span&gt;    &lt;span class="m"&gt;59364&lt;/span&gt;    ?    Ss   Mar19 3332:04 /usr/sbin/haproxy -f /etc/haproxy/haproxy.cfg -p /var/run/haproxy.pid -D -sf 25137
-syslog   &lt;span class="m"&gt;25077&lt;/span&gt;  0.5  0.1 &lt;span class="m"&gt;332568&lt;/span&gt;   &lt;span class="m"&gt;29764&lt;/span&gt;    ?    Ssl  Apr06  109:24 rsyslogd
-root     &lt;span class="m"&gt;15342&lt;/span&gt;  0.1  0.0 &lt;span class="m"&gt;84124&lt;/span&gt;    &lt;span class="m"&gt;15212&lt;/span&gt;    ?    S    Mar08   95:21 /usr/bin/perl -w /usr/sbin/ldirectord /etc/ldirectord.cf start
- &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="nv"&gt;TOTAL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;24678520KB&lt;span class="p"&gt;;;;;&lt;/span&gt; &lt;span class="nv"&gt;USED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;23480156KB&lt;span class="p"&gt;;&lt;/span&gt;20976742&lt;span class="p"&gt;;&lt;/span&gt;22210668&lt;span class="p"&gt;;;&lt;/span&gt; &lt;span class="nv"&gt;FREE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;1198364KB&lt;span class="p"&gt;;;;;&lt;/span&gt; &lt;span class="nv"&gt;CACHES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;980600KB&lt;span class="p"&gt;;;;;&lt;/span&gt;
+traffic+ &lt;span class="m"&gt;28086&lt;/span&gt; &lt;span class="m"&gt;11&lt;/span&gt;.3 &lt;span class="m"&gt;91&lt;/span&gt;.7 &lt;span class="m"&gt;25970900&lt;/span&gt; &lt;span class="m"&gt;22651436&lt;/span&gt; ?    Sl   Mar18 &lt;span class="m"&gt;5553&lt;/span&gt;:57 /usr/bin/traffic_server -M --httpport &lt;span class="m"&gt;8080&lt;/span&gt;:fd&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;9&lt;/span&gt;
+haproxy  &lt;span class="m"&gt;26404&lt;/span&gt;  &lt;span class="m"&gt;7&lt;/span&gt;.0  &lt;span class="m"&gt;0&lt;/span&gt;.2 &lt;span class="m"&gt;85832&lt;/span&gt;    &lt;span class="m"&gt;59364&lt;/span&gt;    ?    Ss   Mar19 &lt;span class="m"&gt;3332&lt;/span&gt;:04 /usr/sbin/haproxy -f /etc/haproxy/haproxy.cfg -p /var/run/haproxy.pid -D -sf &lt;span class="m"&gt;25137&lt;/span&gt;
+syslog   &lt;span class="m"&gt;25077&lt;/span&gt;  &lt;span class="m"&gt;0&lt;/span&gt;.5  &lt;span class="m"&gt;0&lt;/span&gt;.1 &lt;span class="m"&gt;332568&lt;/span&gt;   &lt;span class="m"&gt;29764&lt;/span&gt;    ?    Ssl  Apr06  &lt;span class="m"&gt;109&lt;/span&gt;:24 rsyslogd
+root     &lt;span class="m"&gt;15342&lt;/span&gt;  &lt;span class="m"&gt;0&lt;/span&gt;.1  &lt;span class="m"&gt;0&lt;/span&gt;.0 &lt;span class="m"&gt;84124&lt;/span&gt;    &lt;span class="m"&gt;15212&lt;/span&gt;    ?    S    Mar08   &lt;span class="m"&gt;95&lt;/span&gt;:21 /usr/bin/perl -w /usr/sbin/ldirectord /etc/ldirectord.cf start
+ &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="nv"&gt;TOTAL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;24678520KB&lt;span class="p"&gt;;;;;&lt;/span&gt; &lt;span class="nv"&gt;USED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;23480156KB&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="m"&gt;20976742&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="m"&gt;22210668&lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt; &lt;span class="nv"&gt;FREE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;1198364KB&lt;span class="p"&gt;;;;;&lt;/span&gt; &lt;span class="nv"&gt;CACHES&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;980600KB&lt;span class="p"&gt;;;;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1638,13 +1843,13 @@ read-only доступ к &lt;code&gt;/proc&lt;/code&gt;, и который по
 случае сообщений от мониторинга, и вывожу вместе с алертом. Теперь сообщение
 из начала статьи, которое и побудило меня к написанию своего сервиса,
 выглядит примерно так:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;CheckDockerStats WARNING: 83.32% CPU used!
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;CheckDockerStats WARNING: &lt;span class="m"&gt;83&lt;/span&gt;.32% CPU used!
  USER   PID  %CPU  %MEM      VSZ      RSS   STAT COMMAND
-&lt;span class="m"&gt;65534&lt;/span&gt;  &lt;span class="m"&gt;1285&lt;/span&gt;  18.3   0.0    &lt;span class="m"&gt;18396&lt;/span&gt;     &lt;span class="m"&gt;1632&lt;/span&gt;      S /usr/sbin/nutcracker -v &lt;span class="m"&gt;11&lt;/span&gt; -c /etc/twemproxy/config.yml
- &lt;span class="m"&gt;1000&lt;/span&gt; &lt;span class="m"&gt;24891&lt;/span&gt;   7.5   1.4   &lt;span class="m"&gt;299524&lt;/span&gt;    &lt;span class="m"&gt;99200&lt;/span&gt;      S python /path/to/program.py
- &lt;span class="m"&gt;1000&lt;/span&gt;  &lt;span class="m"&gt;4474&lt;/span&gt;   7.4   1.4   &lt;span class="m"&gt;303356&lt;/span&gt;   &lt;span class="m"&gt;103416&lt;/span&gt;      S python /path/to/program.py
- &lt;span class="m"&gt;1000&lt;/span&gt;  &lt;span class="m"&gt;4468&lt;/span&gt;   7.4   1.4   &lt;span class="m"&gt;301416&lt;/span&gt;   &lt;span class="m"&gt;101228&lt;/span&gt;      S python /path/to/program.py
- &lt;span class="m"&gt;1000&lt;/span&gt;  &lt;span class="m"&gt;4475&lt;/span&gt;   7.4   2.5   &lt;span class="m"&gt;382636&lt;/span&gt;   &lt;span class="m"&gt;181792&lt;/span&gt;      S python /path/to/program.py
+&lt;span class="m"&gt;65534&lt;/span&gt;  &lt;span class="m"&gt;1285&lt;/span&gt;  &lt;span class="m"&gt;18&lt;/span&gt;.3   &lt;span class="m"&gt;0&lt;/span&gt;.0    &lt;span class="m"&gt;18396&lt;/span&gt;     &lt;span class="m"&gt;1632&lt;/span&gt;      S /usr/sbin/nutcracker -v &lt;span class="m"&gt;11&lt;/span&gt; -c /etc/twemproxy/config.yml
+ &lt;span class="m"&gt;1000&lt;/span&gt; &lt;span class="m"&gt;24891&lt;/span&gt;   &lt;span class="m"&gt;7&lt;/span&gt;.5   &lt;span class="m"&gt;1&lt;/span&gt;.4   &lt;span class="m"&gt;299524&lt;/span&gt;    &lt;span class="m"&gt;99200&lt;/span&gt;      S python /path/to/program.py
+ &lt;span class="m"&gt;1000&lt;/span&gt;  &lt;span class="m"&gt;4474&lt;/span&gt;   &lt;span class="m"&gt;7&lt;/span&gt;.4   &lt;span class="m"&gt;1&lt;/span&gt;.4   &lt;span class="m"&gt;303356&lt;/span&gt;   &lt;span class="m"&gt;103416&lt;/span&gt;      S python /path/to/program.py
+ &lt;span class="m"&gt;1000&lt;/span&gt;  &lt;span class="m"&gt;4468&lt;/span&gt;   &lt;span class="m"&gt;7&lt;/span&gt;.4   &lt;span class="m"&gt;1&lt;/span&gt;.4   &lt;span class="m"&gt;301416&lt;/span&gt;   &lt;span class="m"&gt;101228&lt;/span&gt;      S python /path/to/program.py
+ &lt;span class="m"&gt;1000&lt;/span&gt;  &lt;span class="m"&gt;4475&lt;/span&gt;   &lt;span class="m"&gt;7&lt;/span&gt;.4   &lt;span class="m"&gt;2&lt;/span&gt;.5   &lt;span class="m"&gt;382636&lt;/span&gt;   &lt;span class="m"&gt;181792&lt;/span&gt;      S python /path/to/program.py
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1667,7 +1872,15 @@ read-only доступ к &lt;code&gt;/proc&lt;/code&gt;, и который по
 - попробуйте &lt;a href="https://github.com/abulimov/cadvisor-companion"&gt;cAdvisor-companion&lt;/a&gt;
 в паре с &lt;a href="https://github.com/abulimov/utils/blob/master/nagios/check_cadvisor.py"&gt;check_cadvisor.py&lt;/a&gt;,
 это очень легко и абсолютно безопасно - при запуске в виде контейнера он получает
-только read-only доступ к &lt;code&gt;/proc&lt;/code&gt;.&lt;/p&gt;</summary><category term="Golang"></category><category term="cAdvisor"></category><category term="cAdvisor-companion"></category><category term="Программирование"></category><category term="Monitoring"></category></entry><entry><title>Балансировка в HAProxy на основе данных cAdvisor</title><link href="http://bulimov.ru/it/haproxy-cadvisor/" rel="alternate"></link><published>2015-04-15T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-04-15:it/haproxy-cadvisor/</id><summary type="html">&lt;p&gt;Для запуска Docker-контейнеров у меня в данный момент выделено достаточно много
+только read-only доступ к &lt;code&gt;/proc&lt;/code&gt;.&lt;/p&gt;</content><category term="Golang"></category><category term="cAdvisor"></category><category term="cAdvisor-companion"></category><category term="Программирование"></category><category term="Monitoring"></category></entry><entry><title>Балансировка в HAProxy на основе данных cAdvisor</title><link href="http://bulimov.ru/it/haproxy-cadvisor/" rel="alternate"></link><published>2015-04-15T00:00:00+03:00</published><updated>2015-04-15T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-04-15:/it/haproxy-cadvisor/</id><summary type="html">&lt;p&gt;Для запуска Docker-контейнеров у меня в данный момент выделено достаточно много
+серверов, причем аппаратная часть у некоторых из них отличается
+друг от друга. Соответственно, при настройке на чудесном балансировщике
+&lt;a href="http://www.haproxy.org/"&gt;HAProxy&lt;/a&gt; такого параметра балансировки
+как &lt;em&gt;"вес сервера"&lt;/em&gt;, приходится это различие в аппаратной части учитывать.&lt;/p&gt;
+&lt;p&gt;Можно, конечно, подобрать значения весов самостоятельно на основе
+данных мониторинга, а при появлении нагрузки от соседних Docker-контейнеров
+эти веса корректировать, но это не наш метод.&lt;/p&gt;
+&lt;p&gt;Не так …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Для запуска Docker-контейнеров у меня в данный момент выделено достаточно много
 серверов, причем аппаратная часть у некоторых из них отличается
 друг от друга. Соответственно, при настройке на чудесном балансировщике
 &lt;a href="http://www.haproxy.org/"&gt;HAProxy&lt;/a&gt; такого параметра балансировки
@@ -1741,7 +1954,14 @@ read-only доступ к &lt;code&gt;/proc&lt;/code&gt;, и который по
 в которой описан аналогичный подход, однако сам итоговый продукт они
 почему-то не выложили.&lt;/p&gt;
 &lt;p&gt;Я же очень люблю opensource, и поэтому описанный в этой заметке скрипт доступен
-всем желающим под лицензией MIT в &lt;a href="https://github.com/abulimov/haproxy-cadvisor"&gt;репозитории на github&lt;/a&gt;.&lt;/p&gt;</summary><category term="HAProxy"></category><category term="cAdvisor"></category><category term="Python"></category><category term="Программирование"></category></entry><entry><title>Открыл для себя cVim для Google Chrome</title><link href="http://bulimov.ru/it/chromium-vim/" rel="alternate"></link><published>2015-02-27T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-02-27:it/chromium-vim/</id><summary type="html">&lt;p&gt;Последние 4 года я использую Vim в качестве текстового редактора и IDE, и все это время
+всем желающим под лицензией MIT в &lt;a href="https://github.com/abulimov/haproxy-cadvisor"&gt;репозитории на github&lt;/a&gt;.&lt;/p&gt;</content><category term="HAProxy"></category><category term="cAdvisor"></category><category term="Python"></category><category term="Программирование"></category></entry><entry><title>Открыл для себя cVim для Google Chrome</title><link href="http://bulimov.ru/it/chromium-vim/" rel="alternate"></link><published>2015-02-27T00:00:00+03:00</published><updated>2015-02-27T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-02-27:/it/chromium-vim/</id><summary type="html">&lt;p&gt;Последние 4 года я использую Vim в качестве текстового редактора и IDE, и все это время
+я использовал браузер Mozilla Firefox с дополнением &lt;a href="http://www.vimperator.org/vimperator"&gt;Vimperator&lt;/a&gt;,
+либо с его форком - &lt;a href="http://5digits.org/pentadactyl/"&gt;Pentadactyl&lt;/a&gt;, для получения
+аналогичной навигации в браузере. Без функционала этих дополнений я как без рук,
+и потому никак не мог использовать Google Chrome/Chromium.&lt;/p&gt;
+&lt;p&gt;Дополнения типа Vimum/Vrome/ViChrome, которые добавляют vi-like навигацию
+в Chrome, после Vimperator казались, мягко говоря, недоделанными,
+и …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Последние 4 года я использую Vim в качестве текстового редактора и IDE, и все это время
 я использовал браузер Mozilla Firefox с дополнением &lt;a href="http://www.vimperator.org/vimperator"&gt;Vimperator&lt;/a&gt;,
 либо с его форком - &lt;a href="http://5digits.org/pentadactyl/"&gt;Pentadactyl&lt;/a&gt;, для получения
 аналогичной навигации в браузере. Без функционала этих дополнений я как без рук,
@@ -1762,7 +1982,15 @@ read-only доступ к &lt;code&gt;/proc&lt;/code&gt;, и который по
 Он еще сырой, только-только вышел в начале 2015 года, но уже делает в разы больше,
 чем его аналоги на Chrome, и более того - он смог полностью заменить мне Vimperator,
 которым я пользовался все эти годы под Firefox, и теперь я могу выбирать браузер
-по его главным характеристикам, а не по наличию одного необходимого мне дополнения.&lt;/p&gt;</summary><category term="Жизнь"></category><category term="Vim"></category></entry><entry><title>Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</title><link href="http://bulimov.ru/it/check-cadvisor/" rel="alternate"></link><published>2015-02-20T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-02-20:it/check-cadvisor/</id><summary type="html">&lt;p&gt;После того, как я &lt;a href="/it/check-docker-memory"&gt;научился мониторить память в Docker-контейнерах&lt;/a&gt;,
+по его главным характеристикам, а не по наличию одного необходимого мне дополнения.&lt;/p&gt;</content><category term="Жизнь"></category><category term="Vim"></category></entry><entry><title>Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</title><link href="http://bulimov.ru/it/check-cadvisor/" rel="alternate"></link><published>2015-02-20T00:00:00+03:00</published><updated>2015-02-20T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-02-20:/it/check-cadvisor/</id><summary type="html">&lt;p&gt;После того, как я &lt;a href="/it/check-docker-memory"&gt;научился мониторить память в Docker-контейнерах&lt;/a&gt;,
+я решил мониторить еще и нагрузку на CPU.
+Поскольку это дело не самое тривиальное, и хотелось не писать свой
+велосипед, а пользоваться чем-то популярным и поддерживаемым, я решил
+попробовать &lt;a href="https://github.com/google/cadvisor"&gt;cAdvisor&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;И вот что я могу сказать - отличный инструмент!
+Ресурсов практически не потребляет (около 20 Мб оперативной памяти и
+неизмеримо мало CPU), обладает простым API для доступа к собираемой им
+информации, имеет …&lt;/p&gt;</summary><content type="html">&lt;p&gt;После того, как я &lt;a href="/it/check-docker-memory"&gt;научился мониторить память в Docker-контейнерах&lt;/a&gt;,
 я решил мониторить еще и нагрузку на CPU.
 Поскольку это дело не самое тривиальное, и хотелось не писать свой
 велосипед, а пользоваться чем-то популярным и поддерживаемым, я решил
@@ -1786,14 +2014,14 @@ read-only доступ к &lt;code&gt;/proc&lt;/code&gt;, и который по
 который умеет проверять использование CPU и оперативной памяти в контейнере через cAdvisor API.&lt;/p&gt;
 &lt;p&gt;Пример использования check_cadvisor.py - проверим, что количество свободной памяти в контейнере
 loving_lalande не меньше, чем 15%, и уж точно не меньше 10%:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nagios@hostname:~$ ./check_cadvisor.py -u http://cadvisor_url -n loving_lalande -m -w &lt;span class="m"&gt;15&lt;/span&gt; -c 10
-CheckDockerStats OK: 79.96% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;5869163&lt;/span&gt; kB&lt;span class="o"&gt;)&lt;/span&gt; free! &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="nv"&gt;mem_used&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;1470868KB&lt;span class="p"&gt;;&lt;/span&gt;1101004&lt;span class="p"&gt;;&lt;/span&gt;734003&lt;span class="p"&gt;;&lt;/span&gt;0&lt;span class="p"&gt;;&lt;/span&gt;7340032
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nagios@hostname:~$ ./check_cadvisor.py -u http://cadvisor_url -n loving_lalande -m -w &lt;span class="m"&gt;15&lt;/span&gt; -c &lt;span class="m"&gt;10&lt;/span&gt;
+CheckDockerStats OK: &lt;span class="m"&gt;79&lt;/span&gt;.96% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;5869163&lt;/span&gt; kB&lt;span class="o"&gt;)&lt;/span&gt; free! &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="nv"&gt;mem_used&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;1470868KB&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="m"&gt;1101004&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="m"&gt;734003&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="m"&gt;7340032&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;А теперь проверим, что CPU используется менее чем на 10%, и уж точно менее, чем на 20%:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nagios@hostname:~$ ./check_cadvisor.py -u http://cadvisor_url -n loving_lalande -C -w &lt;span class="m"&gt;10&lt;/span&gt; -c 20
-CheckDockerStats WARNING: 12.98% CPU used! &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="nv"&gt;cpu_usage&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;12.98%&lt;span class="p"&gt;;&lt;/span&gt;10&lt;span class="p"&gt;;&lt;/span&gt;20&lt;span class="p"&gt;;&lt;/span&gt;0&lt;span class="p"&gt;;&lt;/span&gt;100
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nagios@hostname:~$ ./check_cadvisor.py -u http://cadvisor_url -n loving_lalande -C -w &lt;span class="m"&gt;10&lt;/span&gt; -c &lt;span class="m"&gt;20&lt;/span&gt;
+CheckDockerStats WARNING: &lt;span class="m"&gt;12&lt;/span&gt;.98% CPU used! &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="nv"&gt;cpu_usage&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;12&lt;/span&gt;.98%&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="m"&gt;20&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="m"&gt;100&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1801,7 +2029,15 @@ CheckDockerStats WARNING: 12.98% CPU used! &lt;span class="p"&gt;|&lt;/span&gt; 
 я могу не ждать добавление отправки в Graphite к cAdvisor, и уже сейчас получать графики
 использования ресурсов в контейнерах.&lt;/p&gt;
 &lt;p&gt;Можно еще прикрутить проверки использования места на подключенных дисках - cAdvisor эти данные тоже
-собирает. Но мне пока такие проверки без надобности.&lt;/p&gt;</summary><category term="Python"></category><category term="Nagios"></category><category term="Icinga2"></category><category term="cAdvisor"></category><category term="Monitoring"></category></entry><entry><title>Научился мониторить использование памяти в Docker-контейнерах</title><link href="http://bulimov.ru/it/check-docker-memory/" rel="alternate"></link><published>2015-02-13T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-02-13:it/check-docker-memory/</id><summary type="html">&lt;p&gt;Я сегодня занимался мониторингом, а конкретно нашими докер-контейнерами.&lt;/p&gt;
+собирает. Но мне пока такие проверки без надобности.&lt;/p&gt;</content><category term="Python"></category><category term="Nagios"></category><category term="Icinga2"></category><category term="cAdvisor"></category><category term="Monitoring"></category></entry><entry><title>Научился мониторить использование памяти в Docker-контейнерах</title><link href="http://bulimov.ru/it/check-docker-memory/" rel="alternate"></link><published>2015-02-13T00:00:00+03:00</published><updated>2015-02-13T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2015-02-13:/it/check-docker-memory/</id><summary type="html">&lt;p&gt;Я сегодня занимался мониторингом, а конкретно нашими докер-контейнерами.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Лирическое отступление:
+Для мониторинга я теперь (уже на другом месте работы) использую
+наследника Nagios - &lt;a href="https://www.icinga.org/icinga/icinga-2/"&gt;Icinga2&lt;/a&gt;.
+Пока все нравится, ребята очень круто переписали Nagios, реализовали гораздо
+более вменяемый формат конфигурации, и кучу новых возможностей.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Используя Docker для автотестов я уже ловил проблемы, когда интерпретатор Ruby
+кушал всю выделенную память в контейнере и тихо умирал от рук OOM Killer.&lt;/p&gt;
+&lt;p&gt;Поскольку теперь я использую &lt;a href="http://docker.io"&gt;Docker …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Я сегодня занимался мониторингом, а конкретно нашими докер-контейнерами.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Лирическое отступление:
 Для мониторинга я теперь (уже на другом месте работы) использую
 наследника Nagios - &lt;a href="https://www.icinga.org/icinga/icinga-2/"&gt;Icinga2&lt;/a&gt;.
@@ -1860,11 +2096,19 @@ CheckDockerStats WARNING: 12.98% CPU used! &lt;span class="p"&gt;|&lt;/span&gt; 
 &lt;p&gt;Пример использования check_docker_memory.py - проверим, что количество свободной памяти в контейнере
 loving_lalande не меньше, чем 15%, и уж точно не меньше 10%:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;nagios@hostname:~$ ./check_docker_memory.py -n loving_lalande -w &lt;span class="m"&gt;15&lt;/span&gt; -c &lt;span class="m"&gt;10&lt;/span&gt; -f
-CheckDockerMemory OK: 89.005% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;6533008&lt;/span&gt; kB&lt;span class="o"&gt;)&lt;/span&gt; free! &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="nv"&gt;TOTAL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;7340032KB&lt;span class="p"&gt;;;;;&lt;/span&gt; &lt;span class="nv"&gt;USED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;807024KB&lt;span class="p"&gt;;;;;&lt;/span&gt; &lt;span class="nv"&gt;FREE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;6533008KB&lt;span class="p"&gt;;;;;&lt;/span&gt;
+CheckDockerMemory OK: &lt;span class="m"&gt;89&lt;/span&gt;.005% &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;6533008&lt;/span&gt; kB&lt;span class="o"&gt;)&lt;/span&gt; free! &lt;span class="p"&gt;|&lt;/span&gt; &lt;span class="nv"&gt;TOTAL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;7340032KB&lt;span class="p"&gt;;;;;&lt;/span&gt; &lt;span class="nv"&gt;USED&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;807024KB&lt;span class="p"&gt;;;;;&lt;/span&gt; &lt;span class="nv"&gt;FREE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;6533008KB&lt;span class="p"&gt;;;;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;strong&gt;UPDATE 20.02.2015 - я теперь использую плагин, получающий эти же данные из cAdvisor, &lt;a href="/it/check-cadvisor"&gt;подробности тут&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;</summary><category term="Python"></category><category term="Nagios"></category><category term="Icinga2"></category><category term="Monitoring"></category></entry><entry><title>Lyrics Tagger</title><link href="http://bulimov.ru/it/lyricstagger/" rel="alternate"></link><published>2014-11-25T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-11-25:it/lyricstagger/</id><summary type="html">&lt;h2&gt;Предыстория&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;UPDATE 20.02.2015 - я теперь использую плагин, получающий эти же данные из cAdvisor, &lt;a href="/it/check-cadvisor"&gt;подробности тут&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;</content><category term="Python"></category><category term="Nagios"></category><category term="Icinga2"></category><category term="Monitoring"></category></entry><entry><title>Lyrics Tagger</title><link href="http://bulimov.ru/it/lyricstagger/" rel="alternate"></link><published>2014-11-25T00:00:00+03:00</published><updated>2014-11-25T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-11-25:/it/lyricstagger/</id><summary type="html">&lt;h2&gt;Предыстория&lt;/h2&gt;
+&lt;p&gt;Я езжу на работу в общественном транспорте, и слушаю там музыку
+со смартфона. Достаточно часто хотелось почитать тексты прослушиваемых
+в данный момент песен, но искать их в интернете было не слишком удобно,
+да и вообще интернета до недавнего времени в метро не было.&lt;/p&gt;
+&lt;p&gt;Решение выглядит очевидным - надо встроить тексты песен в сами музыкальные файлы.
+Благо, основные форматы это позволяют.
+Музыку я храню во &lt;a href="https://ru.wikipedia.org/wiki/FLAC"&gt;FLAC&lt;/a&gt;, а на смартфон
+закидываю в …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;Предыстория&lt;/h2&gt;
 &lt;p&gt;Я езжу на работу в общественном транспорте, и слушаю там музыку
 со смартфона. Достаточно часто хотелось почитать тексты прослушиваемых
 в данный момент песен, но искать их в интернете было не слишком удобно,
@@ -1925,7 +2169,16 @@ No lyrics in file &lt;span class="s1"&gt;&amp;#39;/home/user/Music/Some Artist/0
 а если решили эту задачу более простым и удобным способом - напишите мне об этом.
 Я уже натравил свою чудо-утилиту на всю музыкальную коллекцию, она записала все
 найденные тексты в файлы, так что теперь я запускаю ее только когда покупаю новый
-альбом на &lt;a href="http://bandcamp.com"&gt;bandcamp&lt;/a&gt;, &lt;a href="http://cdbaby.com"&gt;cdbaby&lt;/a&gt; или &lt;a href="http://qobuz.com"&gt;Qobuz&lt;/a&gt;.&lt;/p&gt;</summary><category term="Python"></category><category term="Программирование"></category></entry><entry><title>Удобная настройка Sensu с Ansible</title><link href="http://bulimov.ru/it/ansible-sensu/" rel="alternate"></link><published>2014-11-13T00:00:00+03:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-11-13:it/ansible-sensu/</id><summary type="html">&lt;p&gt;Так как я использую &lt;a href="http://sensuapp.org/"&gt;Sensu&lt;/a&gt; для мониторинга,
+альбом на &lt;a href="http://bandcamp.com"&gt;bandcamp&lt;/a&gt;, &lt;a href="http://cdbaby.com"&gt;cdbaby&lt;/a&gt; или &lt;a href="http://qobuz.com"&gt;Qobuz&lt;/a&gt;.&lt;/p&gt;</content><category term="Python"></category><category term="Программирование"></category></entry><entry><title>Удобная настройка Sensu с Ansible</title><link href="http://bulimov.ru/it/ansible-sensu/" rel="alternate"></link><published>2014-11-13T00:00:00+03:00</published><updated>2014-11-13T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-11-13:/it/ansible-sensu/</id><summary type="html">&lt;p&gt;Так как я использую &lt;a href="http://sensuapp.org/"&gt;Sensu&lt;/a&gt; для мониторинга,
+и &lt;a href="http://www.ansible.com/"&gt;Ansible&lt;/a&gt; для управления конфигурациями,
+то конечно же я настраиваю Sensu с помощью Ansible.&lt;/p&gt;
+&lt;p&gt;В этой связке меня смущало только одно - Sensu использует
+&lt;a href="https://ru.wikipedia.org/wiki/JSON"&gt;JSON&lt;/a&gt; для конфигов,
+в то время как Ansible использует &lt;a href="https://ru.wikipedia.org/wiki/YAML"&gt;YAML&lt;/a&gt;.
+Поскольку JSON является подмножеством YAML, и описывать
+конфигурации в YAML гораздо проще (никаких проблем с запятыми, скобочками),
+хотелось писать в YAML и транслировать в JSON.&lt;/p&gt;
+&lt;p&gt;Начал я, конечно, с использования …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Так как я использую &lt;a href="http://sensuapp.org/"&gt;Sensu&lt;/a&gt; для мониторинга,
 и &lt;a href="http://www.ansible.com/"&gt;Ansible&lt;/a&gt; для управления конфигурациями,
 то конечно же я настраиваю Sensu с помощью Ansible.&lt;/p&gt;
 &lt;p&gt;В этой связке меня смущало только одно - Sensu использует
@@ -1987,7 +2240,15 @@ No lyrics in file &lt;span class="s1"&gt;&amp;#39;/home/user/Music/Some Artist/0
 
 &lt;p&gt;Эта схема показалась мне достаточно удобной, и на этом я остановился,
 так что теперь весь конфиг Sensu, включая проверки, хендлеры и т.д., хранится
-у меня в формате YAML в Ansible.&lt;/p&gt;</summary><category term="Ansible"></category><category term="Sensu"></category><category term="Monitoring"></category></entry><entry><title>Разбирался с page-cache в Linux</title><link href="http://bulimov.ru/it/meminfo-visualizer/" rel="alternate"></link><published>2014-10-09T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-10-09:it/meminfo-visualizer/</id><summary type="html">&lt;p&gt;Читая книгу &lt;a href="http://www.williamspublishing.com/Books/5-8459-1085-4.html"&gt;"Разработка ядра Linux"&lt;/a&gt; за авторством Роберта Лава,
+у меня в формате YAML в Ansible.&lt;/p&gt;</content><category term="Ansible"></category><category term="Sensu"></category><category term="Monitoring"></category></entry><entry><title>Разбирался с page-cache в Linux</title><link href="http://bulimov.ru/it/meminfo-visualizer/" rel="alternate"></link><published>2014-10-09T00:00:00+04:00</published><updated>2014-10-09T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-10-09:/it/meminfo-visualizer/</id><summary type="html">&lt;p&gt;Читая книгу &lt;a href="http://www.williamspublishing.com/Books/5-8459-1085-4.html"&gt;"Разработка ядра Linux"&lt;/a&gt; за авторством Роберта Лава,
+я решил поглубже разобраться в том, как работает кэш в Linux,
+и набрел на вот &lt;a href="http://habrahabr.ru/company/yandex/blog/231957/"&gt;эту&lt;/a&gt;
+статью на Хабре от Яндекса.&lt;/p&gt;
+&lt;p&gt;Сама статья весьма познавательна, особенно видео - рекомендую.
+Так вот, в этом видео &lt;em&gt;Роман Гущин&lt;/em&gt;, с помощью простой утилиты, наглядно показывающей
+размер кэша, показывал как работает файловый кэш.&lt;/p&gt;
+&lt;p&gt;Конечно, мне захотелось в образовательных целях написать такую утилиту для себя,
+чтобы можно …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Читая книгу &lt;a href="http://www.williamspublishing.com/Books/5-8459-1085-4.html"&gt;"Разработка ядра Linux"&lt;/a&gt; за авторством Роберта Лава,
 я решил поглубже разобраться в том, как работает кэш в Linux,
 и набрел на вот &lt;a href="http://habrahabr.ru/company/yandex/blog/231957/"&gt;эту&lt;/a&gt;
 статью на Хабре от Яндекса.&lt;/p&gt;
@@ -2004,8 +2265,8 @@ No lyrics in file &lt;span class="s1"&gt;&amp;#39;/home/user/Music/Some Artist/0
 
 &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;MemoryDrawer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;QtGui&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;QWidget&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
 
-    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-        &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;MemoryDrawer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="nb"&gt;super&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;MemoryDrawer&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="fm"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 
         &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;initUI&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
         &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;dict&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
@@ -2087,7 +2348,7 @@ No lyrics in file &lt;span class="s1"&gt;&amp;#39;/home/user/Music/Some Artist/0
     &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;exec_&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
 
 
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;__main__&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -2178,7 +2439,17 @@ cat large &amp;gt; /dev/null
 удалить large2 и увидеть, как освободился inactive cache.&lt;/p&gt;
 &lt;p&gt;Вот такой вот опыт позволяет увидеть некоторые проблемы в работе с кэшами в актуальных
 ядрах Linux. Будет интересно повторить эксперимент на свежих ядрах после улучшений
-в области Memory Management.&lt;/p&gt;</summary><category term="Kernel"></category><category term="Python"></category><category term="Программирование"></category><category term="Книги"></category></entry><entry><title>Инфраструктура как код</title><link href="http://bulimov.ru/it/infrastructure-as-a-code/" rel="alternate"></link><published>2014-09-29T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-09-29:it/infrastructure-as-a-code/</id><summary type="html">&lt;p&gt;Есть такой тренд сейчас - работать с IT-инфраструктурой как с кодом.
+в области Memory Management.&lt;/p&gt;</content><category term="Kernel"></category><category term="Python"></category><category term="Программирование"></category><category term="Книги"></category></entry><entry><title>Инфраструктура как код</title><link href="http://bulimov.ru/it/infrastructure-as-a-code/" rel="alternate"></link><published>2014-09-29T00:00:00+04:00</published><updated>2014-09-29T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-09-29:/it/infrastructure-as-a-code/</id><summary type="html">&lt;p&gt;Есть такой тренд сейчас - работать с IT-инфраструктурой как с кодом.
+Хорошо цель этого метода описывается этой цитатой:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“Enable the reconstruction of the business from nothing but a source code repository, an application data backup, and bare metal resources”&lt;/p&gt;
+&lt;p&gt;-- Jesse Robins&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Я полностью поддерживаю эту идею, причем именно в этой трактовке.&lt;/p&gt;
+&lt;p&gt;Если говорить про парадигму, которую нам предлагает этот метод, то вот она:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Поддерживать модульную, легко поддающуюся автоматизации инфраструктуру,
+и &lt;em&gt;описывать …&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">&lt;p&gt;Есть такой тренд сейчас - работать с IT-инфраструктурой как с кодом.
 Хорошо цель этого метода описывается этой цитатой:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;“Enable the reconstruction of the business from nothing but a source code repository, an application data backup, and bare metal resources”&lt;/p&gt;
@@ -2258,13 +2529,27 @@ Makefile), и декларативное описание требуемого �
 &lt;p&gt;Если эту заметку прочтут программисты, администрирующие сервера - перестаньте
 толковать "Инфраструктуру как код" неверно! Мы берем лучшие наработки из
 мира программирования, но это не традиционное программирование. Не надо
-переизобретать Bash-скрипты на Ruby.&lt;/p&gt;</summary><category term="Chef"></category><category term="Ansible"></category><category term="Мнение"></category></entry><entry><title>s/Ruhoh/Pelican/</title><link href="http://bulimov.ru/it/from-ruhoh-to-pelican/" rel="alternate"></link><published>2014-09-25T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-09-25:it/from-ruhoh-to-pelican/</id><summary type="html">&lt;p&gt;Переехал с &lt;a href="http://ruhoh.com"&gt;Ruhoh&lt;/a&gt; на &lt;a href="http://getpelican.com"&gt;Pelican&lt;/a&gt;,
+переизобретать Bash-скрипты на Ruby.&lt;/p&gt;</content><category term="Chef"></category><category term="Ansible"></category><category term="Мнение"></category></entry><entry><title>s/Ruhoh/Pelican/</title><link href="http://bulimov.ru/it/from-ruhoh-to-pelican/" rel="alternate"></link><published>2014-09-25T00:00:00+04:00</published><updated>2014-09-25T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-09-25:/it/from-ruhoh-to-pelican/</id><summary type="html">&lt;p&gt;Переехал с &lt;a href="http://ruhoh.com"&gt;Ruhoh&lt;/a&gt; на &lt;a href="http://getpelican.com"&gt;Pelican&lt;/a&gt;,
 потому что Python.&lt;/p&gt;
 &lt;p&gt;А если подробнее - потому что Ruhoh написан на Ruby, и не особо развивается.
 А Pelican написан на Python, который является моим основным языком,
 и уже давно и активно развивается, и обладает обширной базой
 &lt;a href="https://github.com/getpelican/pelican-plugins"&gt;плагинов&lt;/a&gt; и
-&lt;a href="https://github.com/getpelican/pelican-themes"&gt;тем&lt;/a&gt;.&lt;/p&gt;</summary><category term="Pelican"></category><category term="Python"></category><category term="Жизнь"></category></entry><entry><title>Выложил немного полезностей</title><link href="http://bulimov.ru/it/%D0%92%D1%8B%D0%BB%D0%BE%D0%B6%D0%B8%D0%BB-%D0%BD%D0%B5%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9/" rel="alternate"></link><published>2014-09-17T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-09-17:it/Выложил-немного-полезностей/</id><summary type="html">&lt;p&gt;Когда я писал про то, как &lt;a href="/it/Переписал-скрипты-на-ruby-для-sensu"&gt;переписал скрипты для Sensu&lt;/a&gt;,
+&lt;a href="https://github.com/getpelican/pelican-themes"&gt;тем&lt;/a&gt;.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Переехал с &lt;a href="http://ruhoh.com"&gt;Ruhoh&lt;/a&gt; на &lt;a href="http://getpelican.com"&gt;Pelican&lt;/a&gt;,
+потому что Python.&lt;/p&gt;
+&lt;p&gt;А если подробнее - потому что Ruhoh написан на Ruby, и не особо развивается.
+А Pelican написан на Python, который является моим основным языком,
+и уже давно и активно развивается, и обладает обширной базой
+&lt;a href="https://github.com/getpelican/pelican-plugins"&gt;плагинов&lt;/a&gt; и
+&lt;a href="https://github.com/getpelican/pelican-themes"&gt;тем&lt;/a&gt;.&lt;/p&gt;</content><category term="Pelican"></category><category term="Python"></category><category term="Жизнь"></category></entry><entry><title>Выложил немного полезностей</title><link href="http://bulimov.ru/it/%D0%92%D1%8B%D0%BB%D0%BE%D0%B6%D0%B8%D0%BB-%D0%BD%D0%B5%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9/" rel="alternate"></link><published>2014-09-17T00:00:00+04:00</published><updated>2014-09-17T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-09-17:/it/Выложил-немного-полезностей/</id><summary type="html">&lt;p&gt;Когда я писал про то, как &lt;a href="/it/Переписал-скрипты-на-ruby-для-sensu"&gt;переписал скрипты для Sensu&lt;/a&gt;,
+я слегка слукавил. Изначально, я написал эти скрипты на Python,
+и только потом на Ruby. Поскольку пользователям других Nagios-совместимых
+систем мониторинга может показаться неудобным использование ruby-скриптов,
+да еще и с зависимостью от гема sensu-plugin, я решил выложить
+и Python-версии скриптов.&lt;/p&gt;
+&lt;p&gt;Если кому хочется мониторить состояние дисков в raid-контроллерах от 3ware или
+HP SmartArray на чистом Python - милости просим, все
+&lt;a href="https://github.com/abulimov/utils/tree/master/nagios"&gt;в …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Когда я писал про то, как &lt;a href="/it/Переписал-скрипты-на-ruby-для-sensu"&gt;переписал скрипты для Sensu&lt;/a&gt;,
 я слегка слукавил. Изначально, я написал эти скрипты на Python,
 и только потом на Ruby. Поскольку пользователям других Nagios-совместимых
 систем мониторинга может показаться неудобным использование ruby-скриптов,
@@ -2280,7 +2565,18 @@ HP SmartArray на чистом Python - милости просим, все
 и может создавать, удалять и показывать периоды "в обслуживании".&lt;/p&gt;
 &lt;p&gt;Эта утилита призвана заменить старый вариант на Ruby,
 и обладает большим набором опций командной строки.&lt;/p&gt;
-&lt;p&gt;Написана утилита на Python, и доступна всем желающим &lt;a href="https://github.com/abulimov/utils/blob/master/scripts/zabbix_maintenance.py"&gt;тут&lt;/a&gt;.&lt;/p&gt;</summary><category term="Python"></category><category term="Zabbix"></category><category term="Nagios"></category><category term="Monitoring"></category></entry><entry><title>Открыл для себя плагины к tmux</title><link href="http://bulimov.ru/it/%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D0%BB-%D0%B4%D0%BB%D1%8F-%D1%81%D0%B5%D0%B1%D1%8F-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%D1%8B-%D0%BA-tmux/" rel="alternate"></link><published>2014-09-04T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-09-04:it/Открыл-для-себя-плагины-к-tmux/</id><summary type="html">&lt;p&gt;Случилось чудесное - &lt;a href="http://linux.org.ru"&gt;LOR&lt;/a&gt; принес мне пользу.
+&lt;p&gt;Написана утилита на Python, и доступна всем желающим &lt;a href="https://github.com/abulimov/utils/blob/master/scripts/zabbix_maintenance.py"&gt;тут&lt;/a&gt;.&lt;/p&gt;</content><category term="Python"></category><category term="Zabbix"></category><category term="Nagios"></category><category term="Monitoring"></category></entry><entry><title>Открыл для себя плагины к tmux</title><link href="http://bulimov.ru/it/%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D0%BB-%D0%B4%D0%BB%D1%8F-%D1%81%D0%B5%D0%B1%D1%8F-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%D1%8B-%D0%BA-tmux/" rel="alternate"></link><published>2014-09-04T00:00:00+04:00</published><updated>2014-09-04T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-09-04:/it/Открыл-для-себя-плагины-к-tmux/</id><summary type="html">&lt;p&gt;Случилось чудесное - &lt;a href="http://linux.org.ru"&gt;LOR&lt;/a&gt; принес мне пользу.
+Оттуда я узнал о плагине &lt;a href="https://github.com/tmux-plugins/tmux-resurrect"&gt;tmux-resurrect&lt;/a&gt;,
+а точнее, вообще о существовании плагинов для чудесного мультиплексора терминалов &lt;strong&gt;tmux&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;С помощью имеющихся плагинов можно привести конфигурацию в более понятный вид,
+а также заменить свои костыли на костыли, поддерживаемые сообществом.&lt;/p&gt;
+&lt;p&gt;Я, к примеру:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;сильно сократил конфигурацию, используя
+  &lt;a href="https://github.com/tmux-plugins/tmux-sensible"&gt;tmux-sensible&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;с помощью &lt;a href="https://github.com/tmux-plugins/tmux-yank"&gt;tmux-yank&lt;/a&gt;
+  выкинул свои костыли для копирования в буфер обмена;&lt;/li&gt;
+&lt;li&gt;смог убрать настройки для vi-образной навигации между панелями …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;Случилось чудесное - &lt;a href="http://linux.org.ru"&gt;LOR&lt;/a&gt; принес мне пользу.
 Оттуда я узнал о плагине &lt;a href="https://github.com/tmux-plugins/tmux-resurrect"&gt;tmux-resurrect&lt;/a&gt;,
 а точнее, вообще о существовании плагинов для чудесного мультиплексора терминалов &lt;strong&gt;tmux&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;С помощью имеющихся плагинов можно привести конфигурацию в более понятный вид,
@@ -2298,7 +2594,14 @@ HP SmartArray на чистом Python - милости просим, все
   с помощью &lt;a href="https://github.com/tmux-plugins/tmux-open"&gt;tmux-open&lt;/a&gt;;&lt;/li&gt;
 &lt;li&gt;наконец, могу сохранять все открытые окна и панели tmux
   с использованием &lt;a href="https://github.com/tmux-plugins/tmux-resurrect"&gt;tmux-resurrect&lt;/a&gt;;&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="tmux"></category><category term="Жизнь"></category></entry><entry><title>Переписал скрипты на Ruby для Sensu</title><link href="http://bulimov.ru/it/%D0%9F%D0%B5%D1%80%D0%B5%D0%BF%D0%B8%D1%81%D0%B0%D0%BB-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B-%D0%BD%D0%B0-ruby-%D0%B4%D0%BB%D1%8F-sensu/" rel="alternate"></link><published>2014-09-04T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-09-04:it/Переписал-скрипты-на-ruby-для-sensu/</id><summary type="html">&lt;p&gt;Поскольку я перевел мониторинг с Zabbix на Sensu, пришлось переписать
+&lt;/ul&gt;</content><category term="tmux"></category><category term="Жизнь"></category></entry><entry><title>Переписал скрипты на Ruby для Sensu</title><link href="http://bulimov.ru/it/%D0%9F%D0%B5%D1%80%D0%B5%D0%BF%D0%B8%D1%81%D0%B0%D0%BB-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B-%D0%BD%D0%B0-ruby-%D0%B4%D0%BB%D1%8F-sensu/" rel="alternate"></link><published>2014-09-04T00:00:00+04:00</published><updated>2014-09-04T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-09-04:/it/Переписал-скрипты-на-ruby-для-sensu/</id><summary type="html">&lt;p&gt;Поскольку я перевел мониторинг с Zabbix на Sensu, пришлось переписать
+свои &lt;a href="/it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware"&gt;скрипты&lt;/a&gt; проверки состояния жестких дисков в raid-контроллерах от 3ware и
+HP SmartArray для использования в Sensu. Ну а раз все равно переписывать - то
+писать я решил на Ruby, чтобы можно было без проблем
+заслать в &lt;a href="https://github.com/sensu/sensu-community-plugins"&gt;sensu-community-plugins&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Скрипты весьма просты, так что проблем при переписывании никаких не было.&lt;/p&gt;
+&lt;p&gt;Если кому надо - все уже отдано сообществу, теперь Sensu может мониторить
+состояние …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Поскольку я перевел мониторинг с Zabbix на Sensu, пришлось переписать
 свои &lt;a href="/it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware"&gt;скрипты&lt;/a&gt; проверки состояния жестких дисков в raid-контроллерах от 3ware и
 HP SmartArray для использования в Sensu. Ну а раз все равно переписывать - то
 писать я решил на Ruby, чтобы можно было без проблем
@@ -2307,7 +2610,16 @@ HP SmartArray для использования в Sensu. Ну а раз все 
 &lt;p&gt;Если кому надо - все уже отдано сообществу, теперь Sensu может мониторить
 состояние дисков &lt;a href="https://github.com/sensu/sensu-community-plugins/blob/master/plugins/raid/check-3ware-status.rb"&gt;в контроллерах от 3ware&lt;/a&gt;
 и &lt;a href="https://github.com/sensu/sensu-community-plugins/blob/master/plugins/raid/check-smartarray-status.rb"&gt;HP SmartArray&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Ну и на закуску - мониторим &lt;a href="https://github.com/sensu/sensu-community-plugins/blob/master/plugins/riak/check-riak-ringready.rb"&gt;статус Riak Ring&lt;/a&gt;.&lt;/p&gt;</summary><category term="Ruby"></category><category term="Sensu"></category><category term="Monitoring"></category></entry><entry><title>Модуль zabbix_maintenance</title><link href="http://bulimov.ru/it/%D0%9C%D0%BE%D0%B4%D1%83%D0%BB%D1%8C-zabbix_maintenance/" rel="alternate"></link><published>2014-08-11T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-08-11:it/Модуль-zabbix_maintenance/</id><summary type="html">&lt;p&gt;Свершилось чудо, и мой &lt;a href="https://github.com/ansible/ansible/blob/devel/library/monitoring/zabbix_maintenance"&gt;модуль&lt;/a&gt;
+&lt;p&gt;Ну и на закуску - мониторим &lt;a href="https://github.com/sensu/sensu-community-plugins/blob/master/plugins/riak/check-riak-ringready.rb"&gt;статус Riak Ring&lt;/a&gt;.&lt;/p&gt;</content><category term="Ruby"></category><category term="Sensu"></category><category term="Monitoring"></category></entry><entry><title>Модуль zabbix_maintenance</title><link href="http://bulimov.ru/it/%D0%9C%D0%BE%D0%B4%D1%83%D0%BB%D1%8C-zabbix_maintenance/" rel="alternate"></link><published>2014-08-11T00:00:00+04:00</published><updated>2014-08-11T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-08-11:/it/Модуль-zabbix_maintenance/</id><summary type="html">&lt;p&gt;Свершилось чудо, и мой &lt;a href="https://github.com/ansible/ansible/blob/devel/library/monitoring/zabbix_maintenance"&gt;модуль&lt;/a&gt;
+для Ansible, который умеет создавать и удалять периоды "в обслуживании" в Zabbix,
+наконец-то &lt;a href="https://github.com/ansible/ansible/pull/5062"&gt;приняли&lt;/a&gt; в апстрим.
+Это уже третий мой модуль, принятый в апстрим Ansible.&lt;/p&gt;
+&lt;p&gt;Краткая история:&lt;/p&gt;
+&lt;p&gt;Модуль этот я запушил еще в 26 ноября 2013 года, но 21 декабря
+&lt;a href="https://github.com/cove"&gt;cove&lt;/a&gt; написал в комментарии к моему модулю,
+что планирует выложить целую &lt;a href="https://github.com/ansible/ansible/pull/6034"&gt;пачку&lt;/a&gt;
+модулей для взаимодействия с Zabbix из Ansible.
+Это отложило принятие моего модуля в …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Свершилось чудо, и мой &lt;a href="https://github.com/ansible/ansible/blob/devel/library/monitoring/zabbix_maintenance"&gt;модуль&lt;/a&gt;
 для Ansible, который умеет создавать и удалять периоды "в обслуживании" в Zabbix,
 наконец-то &lt;a href="https://github.com/ansible/ansible/pull/5062"&gt;приняли&lt;/a&gt; в апстрим.
 Это уже третий мой модуль, принятый в апстрим Ansible.&lt;/p&gt;
@@ -2391,7 +2703,14 @@ HP SmartArray для использования в Sensu. Ну а раз все 
 &lt;p&gt;удаляем период "в обслуживании"&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;P.S. скрипт haproxywrap.sh можно взять &lt;a href="https://github.com/abulimov/utils/blob/master/scripts/haproxywrap.sh"&gt;тут&lt;/a&gt;&lt;/p&gt;</summary><category term="Ansible"></category><category term="Python"></category><category term="Monitoring"></category></entry><entry><title>Ansible и serverspec</title><link href="http://bulimov.ru/it/ansible-%D0%B8-serverspec/" rel="alternate"></link><published>2014-05-22T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-05-22:it/ansible-и-serverspec/</id><summary type="html">&lt;p&gt;Когда я готовил playbook для &lt;a href="/it/Личный-vps"&gt;своего VPS&lt;/a&gt;, я взял за основу
+&lt;p&gt;P.S. скрипт haproxywrap.sh можно взять &lt;a href="https://github.com/abulimov/utils/blob/master/scripts/haproxywrap.sh"&gt;тут&lt;/a&gt;&lt;/p&gt;</content><category term="Ansible"></category><category term="Python"></category><category term="Monitoring"></category></entry><entry><title>Ansible и serverspec</title><link href="http://bulimov.ru/it/ansible-%D0%B8-serverspec/" rel="alternate"></link><published>2014-05-22T00:00:00+04:00</published><updated>2014-05-22T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-05-22:/it/ansible-и-serverspec/</id><summary type="html">&lt;p&gt;Когда я готовил playbook для &lt;a href="/it/Личный-vps"&gt;своего VPS&lt;/a&gt;, я взял за основу
+&lt;a href="https://github.com/al3x/sovereign"&gt;Sovereign&lt;/a&gt;. В этом репозитории меня
+заинтересовал файл &lt;strong&gt;tests.py&lt;/strong&gt;, содержащий тесты для результирующего сервера.
+У меня сразу же возник вопрос - почему тесты самописные, на голом Python, а
+не на каком-нибудь готовом решении. Я решил изучить, что же есть сейчас для
+TDD-администрирования. Оказалось, что толком ничего и нет, а то, что
+есть - для Ansible не особо нужно.&lt;/p&gt;
+&lt;p&gt;Для начала, что …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Когда я готовил playbook для &lt;a href="/it/Личный-vps"&gt;своего VPS&lt;/a&gt;, я взял за основу
 &lt;a href="https://github.com/al3x/sovereign"&gt;Sovereign&lt;/a&gt;. В этом репозитории меня
 заинтересовал файл &lt;strong&gt;tests.py&lt;/strong&gt;, содержащий тесты для результирующего сервера.
 У меня сразу же возник вопрос - почему тесты самописные, на голом Python, а
@@ -2459,7 +2778,15 @@ TDD-администрирования. Оказалось, что толком 
 более высокоуровневыми проверками.&lt;/p&gt;
 &lt;p&gt;Я для себя пока решил, что написание serverspec-тестов для Ansible избыточно
 при наличии staging-окружения с работающим мониторингом и фунциональными тестами,
-однако инструмент это явно полезный и перспективный.&lt;/p&gt;</summary><category term="Ansible"></category><category term="serverspec"></category><category term="Мнение"></category></entry><entry><title>Личный VPS</title><link href="http://bulimov.ru/it/%D0%9B%D0%B8%D1%87%D0%BD%D1%8B%D0%B9-vps/" rel="alternate"></link><published>2014-05-22T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-05-22:it/Личный-vps/</id><summary type="html">&lt;p&gt;Уже 2 недели как я начал использовать свой личный VPS на DigitalOcean, и хочу
+однако инструмент это явно полезный и перспективный.&lt;/p&gt;</content><category term="Ansible"></category><category term="serverspec"></category><category term="Мнение"></category></entry><entry><title>Личный VPS</title><link href="http://bulimov.ru/it/%D0%9B%D0%B8%D1%87%D0%BD%D1%8B%D0%B9-vps/" rel="alternate"></link><published>2014-05-22T00:00:00+04:00</published><updated>2014-05-22T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-05-22:/it/Личный-vps/</id><summary type="html">&lt;p&gt;Уже 2 недели как я начал использовать свой личный VPS на DigitalOcean, и хочу
+поделиться впечатлениями.
+Это оказалось очень удобно - можно получать все удобства современного
+цифрового мира, но на своих условиях и с уверенностью в сохранности своих
+персональных данных.&lt;/p&gt;
+&lt;p&gt;Раскатывал я все сервисы и конфиги с помощью &lt;a href="http://ansible.com"&gt;Ansible&lt;/a&gt;, взяв за
+основу &lt;a href="https://github.com/al3x/sovereign"&gt;Sovereign&lt;/a&gt;.
+В качестве дистрибутива я ради эксперимента выбрал Ubuntu 14.04 LTS.&lt;/p&gt;
+&lt;p&gt;Сейчас я использую VPS для следующих сервисов …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Уже 2 недели как я начал использовать свой личный VPS на DigitalOcean, и хочу
 поделиться впечатлениями.
 Это оказалось очень удобно - можно получать все удобства современного
 цифрового мира, но на своих условиях и с уверенностью в сохранности своих
@@ -2483,7 +2810,14 @@ TDD-администрирования. Оказалось, что толком 
 и на смартфоне, и на десктопе через geeknote, и совсем невыносимо через веб-интерфейс.
 Ну и Mirakel + Task Server это тоже весьма удобно, а Tiny-Tiny-RSS экономит
 мне кучу времени и позволяет следить за новостями одинаково удобно и с десктопа,
-и со смартфона благодаря &lt;a href="https://github.com/mboinet/ttrss-mobile"&gt;ttrss-mobile&lt;/a&gt;.&lt;/p&gt;</summary><category term="VPS"></category><category term="Ubuntu"></category></entry><entry><title>Прочитал The Phoenix Project: A Novel About DevOps, and Helping Your Business Win</title><link href="http://bulimov.ru/it/%D0%9F%D1%80%D0%BE%D1%87%D0%B8%D1%82%D0%B0%D0%BB-the-phoenix-project-a-novel-about-devops-and-helping-your-business-win/" rel="alternate"></link><published>2014-04-15T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-04-15:it/Прочитал-the-phoenix-project-a-novel-about-devops-and-helping-your-business-win/</id><summary type="html">&lt;p&gt;Ну что тут скажешь - прекрасная книга. Написана живым языком, очень легко читается.
+и со смартфона благодаря &lt;a href="https://github.com/mboinet/ttrss-mobile"&gt;ttrss-mobile&lt;/a&gt;.&lt;/p&gt;</content><category term="VPS"></category><category term="Ubuntu"></category></entry><entry><title>Прочитал The Phoenix Project: A Novel About DevOps, and Helping Your Business Win</title><link href="http://bulimov.ru/it/%D0%9F%D1%80%D0%BE%D1%87%D0%B8%D1%82%D0%B0%D0%BB-the-phoenix-project-a-novel-about-devops-and-helping-your-business-win/" rel="alternate"></link><published>2014-04-15T00:00:00+04:00</published><updated>2014-04-15T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-04-15:/it/Прочитал-the-phoenix-project-a-novel-about-devops-and-helping-your-business-win/</id><summary type="html">&lt;p&gt;Ну что тут скажешь - прекрасная книга. Написана живым языком, очень легко читается.
+В увлекательной форме рассказывает о ключевых принципах DevOps,
+причем именно так, чтобы было понятно, в ответ на какие проблемы каждый
+из принципов был сформирован.&lt;/p&gt;
+&lt;p&gt;Конечно, главная проблема книги в том, что DevOps преподносится как
+некая чудодейственная методология, и при этом не уделяется внимания
+главному вопросу - кадровому. В книге все сотрудники оказались
+достаточно квалифицированными и открытыми для того, чтобы …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Ну что тут скажешь - прекрасная книга. Написана живым языком, очень легко читается.
 В увлекательной форме рассказывает о ключевых принципах DevOps,
 причем именно так, чтобы было понятно, в ответ на какие проблемы каждый
 из принципов был сформирован.&lt;/p&gt;
@@ -2498,16 +2832,33 @@ TDD-администрирования. Оказалось, что толком 
 инертностью мышления, которая мешает успешно следовать советам, описанным
 в этой книге.&lt;/p&gt;
 &lt;p&gt;Несмотря на этот явный недостаток, я &lt;strong&gt;крайне рекомендую&lt;/strong&gt; эту книгу к прочтению всем
-IT-специалистам.&lt;/p&gt;</summary><category term="Книги"></category><category term="Жизнь"></category><category term="Мнение"></category></entry><entry><title>Сдал экзамен Cisco ICND2, он же 200-101</title><link href="http://bulimov.ru/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-cisco-icnd2-%D0%BE%D0%BD-%D0%B6%D0%B5-200-101/" rel="alternate"></link><published>2014-04-03T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-04-03:it/Сдал-экзамен-cisco-icnd2-он-же-200-101/</id><summary type="html">&lt;p&gt;Теперь я CCNA.&lt;/p&gt;
+IT-специалистам.&lt;/p&gt;</content><category term="Книги"></category><category term="Жизнь"></category><category term="Мнение"></category></entry><entry><title>Сдал экзамен Cisco ICND2, он же 200-101</title><link href="http://bulimov.ru/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-cisco-icnd2-%D0%BE%D0%BD-%D0%B6%D0%B5-200-101/" rel="alternate"></link><published>2014-04-03T00:00:00+04:00</published><updated>2014-04-03T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-04-03:/it/Сдал-экзамен-cisco-icnd2-он-же-200-101/</id><summary type="html">&lt;p&gt;Теперь я CCNA.&lt;/p&gt;
 &lt;p&gt;Сдал с трудом, 867 из 1000 при проходных 825.
 Экзамен очень мощный, сильно сложнее ICND1, на мой вкус.
 Надо было сдавать единый 200-120, было бы сильно проще.
 Еще больше уверился, что CCNA вполне подходит на роль
 критерия профпригодности для более-менее серьезной
-работы сисадмина.&lt;/p&gt;</summary><category term="Cisco"></category><category term="Жизнь"></category></entry><entry><title>Сдал экзамен Cisco ICND1, он же 100-101</title><link href="http://bulimov.ru/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-cisco-icnd1-%D0%BE%D0%BD-%D0%B6%D0%B5-100-101/" rel="alternate"></link><published>2014-03-20T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-03-20:it/Сдал-экзамен-cisco-icnd1-он-же-100-101/</id><summary type="html">&lt;p&gt;Сдавал через месяц после курсов ICND1 и ICND2, набрал 907.
+работы сисадмина.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Теперь я CCNA.&lt;/p&gt;
+&lt;p&gt;Сдал с трудом, 867 из 1000 при проходных 825.
+Экзамен очень мощный, сильно сложнее ICND1, на мой вкус.
+Надо было сдавать единый 200-120, было бы сильно проще.
+Еще больше уверился, что CCNA вполне подходит на роль
+критерия профпригодности для более-менее серьезной
+работы сисадмина.&lt;/p&gt;</content><category term="Cisco"></category><category term="Жизнь"></category></entry><entry><title>Сдал экзамен Cisco ICND1, он же 100-101</title><link href="http://bulimov.ru/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-cisco-icnd1-%D0%BE%D0%BD-%D0%B6%D0%B5-100-101/" rel="alternate"></link><published>2014-03-20T00:00:00+04:00</published><updated>2014-03-20T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-03-20:/it/Сдал-экзамен-cisco-icnd1-он-же-100-101/</id><summary type="html">&lt;p&gt;Сдавал через месяц после курсов ICND1 и ICND2, набрал 907.
 Экзамен хороший, мощный. Теперь вполне понимаю,
 почему многими сданный CCNA расценивается как некое мерило
-профпригодности.&lt;/p&gt;</summary><category term="Cisco"></category><category term="Жизнь"></category></entry><entry><title>Тестирование Ansible Playbook</title><link href="http://bulimov.ru/it/%D0%A2%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-ansible-playbook/" rel="alternate"></link><published>2014-03-13T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-03-13:it/Тестирование-ansible-playbook/</id><summary type="html">&lt;p&gt;Давно хотел сделать авто-тестирование целостности развертывания, производимого
+профпригодности.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Сдавал через месяц после курсов ICND1 и ICND2, набрал 907.
+Экзамен хороший, мощный. Теперь вполне понимаю,
+почему многими сданный CCNA расценивается как некое мерило
+профпригодности.&lt;/p&gt;</content><category term="Cisco"></category><category term="Жизнь"></category></entry><entry><title>Тестирование Ansible Playbook</title><link href="http://bulimov.ru/it/%D0%A2%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-ansible-playbook/" rel="alternate"></link><published>2014-03-13T00:00:00+04:00</published><updated>2014-03-13T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-03-13:/it/Тестирование-ansible-playbook/</id><summary type="html">&lt;p&gt;Давно хотел сделать авто-тестирование целостности развертывания, производимого
+с помощью &lt;a href="http://ansible.com"&gt;Ansible&lt;/a&gt;. Чтобы, значит, запушил я новую версию плейбука в репозитория,
+и CI проверила работоспособность системы. Причем не просто корректность синтаксиса,
+а работоспособность проводимого деплоя.&lt;/p&gt;
+&lt;p&gt;Вот наконец до этого дошли руки.&lt;/p&gt;
+&lt;p&gt;Точнее, руки до этого дошли еще в середине 2013 года, но тогда я собрал все это
+с помощью стройной системы костылей, взяв за основу заранее минимально
+сконфигуренные qemu-образы на lvm-снапшотах.&lt;/p&gt;
+&lt;p&gt;Теперь …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Давно хотел сделать авто-тестирование целостности развертывания, производимого
 с помощью &lt;a href="http://ansible.com"&gt;Ansible&lt;/a&gt;. Чтобы, значит, запушил я новую версию плейбука в репозитория,
 и CI проверила работоспособность системы. Причем не просто корректность синтаксиса,
 а работоспособность проводимого деплоя.&lt;/p&gt;
@@ -2558,7 +2909,14 @@ Vagrant генерирует описания групп и хостов для 
 настраивается репликация - и проверяется запуск всех сервисов и корректность их
 состояния после старта. В будущем я планирую добавить тесты, ломающие систему
 и проверяющий отказоустойчивость, но это требует больших трудозатрат от наших
-разработчиков, которые и так достаточно нагружены.&lt;/p&gt;</summary><category term="Ansible"></category><category term="Мнение"></category></entry><entry><title>Влияние курсов Cisco на психику</title><link href="http://bulimov.ru/it/%D0%92%D0%BB%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5-%D0%BA%D1%83%D1%80%D1%81%D0%BE%D0%B2-cisco-%D0%BD%D0%B0-%D0%BF%D1%81%D0%B8%D1%85%D0%B8%D0%BA%D1%83/" rel="alternate"></link><published>2014-03-05T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-03-05:it/Влияние-курсов-cisco-на-психику/</id><summary type="html">&lt;p&gt;Закончил курсы Cisco ICND1 и ICND2, и сразу захотелось странного.
+разработчиков, которые и так достаточно нагружены.&lt;/p&gt;</content><category term="Ansible"></category><category term="Мнение"></category></entry><entry><title>Влияние курсов Cisco на психику</title><link href="http://bulimov.ru/it/%D0%92%D0%BB%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5-%D0%BA%D1%83%D1%80%D1%81%D0%BE%D0%B2-cisco-%D0%BD%D0%B0-%D0%BF%D1%81%D0%B8%D1%85%D0%B8%D0%BA%D1%83/" rel="alternate"></link><published>2014-03-05T00:00:00+04:00</published><updated>2014-03-05T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-03-05:/it/Влияние-курсов-cisco-на-психику/</id><summary type="html">&lt;p&gt;Закончил курсы Cisco ICND1 и ICND2, и сразу захотелось странного.
+Захотелось домой какую-нибудь интересную сетевую железяку.
+Быстрый поиск по каталогам серьезных фирм типа Cisco и Juniper показал, что
+ничего вменяемого для домашнего использования у них нет
+(Cisco Linksys я за вменяемое не считаю, та же фигня, что и D-Link или Asus).
+В итоге этих метаний, выбор пал на оборудование фирмы MikroTik.&lt;/p&gt;
+&lt;p&gt;Движимый душевным порывом, я поменял
+свой древний WiFi роутер …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Закончил курсы Cisco ICND1 и ICND2, и сразу захотелось странного.
 Захотелось домой какую-нибудь интересную сетевую железяку.
 Быстрый поиск по каталогам серьезных фирм типа Cisco и Juniper показал, что
 ничего вменяемого для домашнего использования у них нет
@@ -2570,7 +2928,16 @@ Vagrant генерирует описания групп и хостов для 
 оказался весьма приятным, ну а возможностей более чем достаточно,
 что и не удивительно - внутри у него Linux.&lt;/p&gt;
 &lt;p&gt;Работает эта железка уже вторую неделю, проблем никаких, производительность
-отменная. Единственный минус - отсутствие 5Ghz, но с ним я готов мириться.&lt;/p&gt;</summary><category term="Cisco"></category><category term="MikroTik"></category></entry><entry><title>Побывал на DevOps Meetup 25 января</title><link href="http://bulimov.ru/it/%D0%9F%D0%BE%D0%B1%D1%8B%D0%B2%D0%B0%D0%BB-%D0%BD%D0%B0-devops-meetup-25-%D1%8F%D0%BD%D0%B2%D0%B0%D1%80%D1%8F/" rel="alternate"></link><published>2014-01-27T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-01-27:it/Побывал-на-devops-meetup-25-января/</id><summary type="html">&lt;p&gt;Из четырех докладов именно доклад про Docker, ради которого
+отменная. Единственный минус - отсутствие 5Ghz, но с ним я готов мириться.&lt;/p&gt;</content><category term="Cisco"></category><category term="MikroTik"></category></entry><entry><title>Побывал на DevOps Meetup 25 января</title><link href="http://bulimov.ru/it/%D0%9F%D0%BE%D0%B1%D1%8B%D0%B2%D0%B0%D0%BB-%D0%BD%D0%B0-devops-meetup-25-%D1%8F%D0%BD%D0%B2%D0%B0%D1%80%D1%8F/" rel="alternate"></link><published>2014-01-27T00:00:00+04:00</published><updated>2014-01-27T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2014-01-27:/it/Побывал-на-devops-meetup-25-января/</id><summary type="html">&lt;p&gt;Из четырех докладов именно доклад про Docker, ради которого
+я и ходил на этот Meetup, оказался единственным плохим.
+Вышел какой-то мальчик из Яндекса, жутко заунывно
+рассказывал банальности про Docker, на все интересные
+вопросы отвечал "я не знаю".&lt;/p&gt;
+&lt;p&gt;Зато остальные доклады были весьма хороши.
+Лично меня особенно порадовал доклад Ивана Евтуховича
+про librarian и Berkshelf. Порадовал тем, что Иван выразил
+мою позицию по поводу community-кукбуков.&lt;/p&gt;
+&lt;p&gt;Вячеслав Кузнецов прочитал отличный доклад о …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Из четырех докладов именно доклад про Docker, ради которого
 я и ходил на этот Meetup, оказался единственным плохим.
 Вышел какой-то мальчик из Яндекса, жутко заунывно
 рассказывал банальности про Docker, на все интересные
@@ -2586,7 +2953,15 @@ Vagrant генерирует описания групп и хостов для 
 что-то вроде reprepro с человеческим лицом. Сейчас, конечно, очень все сыро,
 но идея здравая, и пишет эту систему Андрей на чистом энтузиазме, что очень
 и очень похвально.&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://tech.yandex.ru/events/yagosti/devops/"&gt;Тут&lt;/a&gt;, видимо, выложат записи докладов.&lt;/p&gt;</summary><category term="Жизнь"></category></entry><entry><title>Расширяем возможности Nginx с помощью Lua</title><link href="http://bulimov.ru/it/%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D1%8F%D0%B5%D0%BC-%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8-nginx-%D1%81-%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E-lua/" rel="alternate"></link><published>2013-11-08T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-11-08:it/Расширяем-возможности-nginx-с-помощью-lua/</id><summary type="html">&lt;p&gt;Встала некоторое время назад передо мной задача -
+&lt;p&gt;&lt;a href="http://tech.yandex.ru/events/yagosti/devops/"&gt;Тут&lt;/a&gt;, видимо, выложат записи докладов.&lt;/p&gt;</content><category term="Жизнь"></category></entry><entry><title>Расширяем возможности Nginx с помощью Lua</title><link href="http://bulimov.ru/it/%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D1%8F%D0%B5%D0%BC-%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8-nginx-%D1%81-%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E-lua/" rel="alternate"></link><published>2013-11-08T00:00:00+04:00</published><updated>2013-11-08T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-11-08:/it/Расширяем-возможности-nginx-с-помощью-lua/</id><summary type="html">&lt;p&gt;Встала некоторое время назад передо мной задача -
+фильтровать по полю Serial клиентские сертификаты,
+которые используются для авторизации на одном из сервисов.
+То есть не просто проверять сертификат, но еще и проверять
+наличие серийника в списке разрешенных, на случай утечки клиентского
+сертификата. Сертификаты выдаем не мы, так что отзывать не можем,
+и списка отозванных тоже нет.&lt;/p&gt;
+&lt;p&gt;Решать я эту задачу стал с помощью Nginx, и почти сразу был
+слеплен вариант тупой …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Встала некоторое время назад передо мной задача -
 фильтровать по полю Serial клиентские сертификаты,
 которые используются для авторизации на одном из сервисов.
 То есть не просто проверять сертификат, но еще и проверять
@@ -2659,7 +3034,16 @@ Vagrant генерирует описания групп и хостов для 
 И что особенно хорошо, можно будет в дальнейшем список вынести в базу данных,
 к примеру.&lt;/p&gt;
 &lt;p&gt;В общем, я был и без того очень впечатлен
-возможностями Nginx, а с модулем Lua он еще круче.&lt;/p&gt;</summary><category term="Nginx"></category><category term="Lua"></category></entry><entry><title>Auto-backup конфигов активки через Rancid</title><link href="http://bulimov.ru/it/auto-backup-%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D0%BE%D0%B2-%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BA%D0%B8-%D1%87%D0%B5%D1%80%D0%B5%D0%B7-rancid/" rel="alternate"></link><published>2013-11-01T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-11-01:it/auto-backup-конфигов-активки-через-rancid/</id><summary type="html">&lt;p&gt;На днях помогал коллеге с настройкой автоматического бекапа
+возможностями Nginx, а с модулем Lua он еще круче.&lt;/p&gt;</content><category term="Nginx"></category><category term="Lua"></category></entry><entry><title>Auto-backup конфигов активки через Rancid</title><link href="http://bulimov.ru/it/auto-backup-%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D0%BE%D0%B2-%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BA%D0%B8-%D1%87%D0%B5%D1%80%D0%B5%D0%B7-rancid/" rel="alternate"></link><published>2013-11-01T00:00:00+04:00</published><updated>2013-11-01T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-11-01:/it/auto-backup-конфигов-активки-через-rancid/</id><summary type="html">&lt;p&gt;На днях помогал коллеге с настройкой автоматического бекапа
+для конфигураций нашей активки (Cisco, Juniper), и нашел
+весьма интересное решение (похоже, вообще единственное) -
+&lt;a href="http://www.shrubbery.net/rancid/"&gt;rancid&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Точнее, его форк &lt;a href="https://github.com/dotwaffle/rancid-git"&gt;rancid-git&lt;/a&gt;,
+поскольку использую везде и всюду git, и ради бекапов городить CVS или
+Subversion было бы неудобно.&lt;/p&gt;
+&lt;p&gt;Конечно, rancid этот - весьма оригинальный пример того, как с помощью
+expect и bash-скриптов соорудить исправно работающее решение, отлично выполняющее
+свою задачу. Если вкратце - оно по крону ходит …&lt;/p&gt;</summary><content type="html">&lt;p&gt;На днях помогал коллеге с настройкой автоматического бекапа
 для конфигураций нашей активки (Cisco, Juniper), и нашел
 весьма интересное решение (похоже, вообще единственное) -
 &lt;a href="http://www.shrubbery.net/rancid/"&gt;rancid&lt;/a&gt;.&lt;/p&gt;
@@ -2676,8 +3060,13 @@ expect и bash-скриптов соорудить исправно работа
 &lt;p&gt;Я не буду тут приводить туториал а-ля Хабрахабр с пунктами типа git clone &amp;amp;&amp;amp; make,
 в репозитории rancid-git есть прекрасный readme, в котором по пунктам указано, как
 собрать deb-пакет, а также что и для чего конфигурить.
-Я просто порекомендую этот инструмент всем, кому хочется версионировать конфиги активки в автоматическом режиме.&lt;/p&gt;</summary><category term="Rancid"></category><category term="Cisco"></category><category term="Juniper"></category></entry><entry><title>Включил комментарии</title><link href="http://bulimov.ru/it/%D0%92%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D0%BB-%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B8/" rel="alternate"></link><published>2013-10-18T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-10-18:it/Включил-комментарии/</id><summary type="html">&lt;p&gt;Включил комментирование через Disqus, может кто-то
-что-нибудь дельное напишет в комментариях.&lt;/p&gt;</summary><category term="Жизнь"></category><category term="Ruhoh"></category></entry><entry><title>Сдал экзамен на RHCE</title><link href="http://bulimov.ru/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-%D0%BD%D0%B0-rhce/" rel="alternate"></link><published>2013-10-14T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-10-14:it/Сдал-экзамен-на-rhce/</id><summary type="html">&lt;p&gt;Наконец-то пришел результат экзамена, который сдавал в пятницу. 273 из 300 возможных при проходном балле в 210. Это, конечно,
+Я просто порекомендую этот инструмент всем, кому хочется версионировать конфиги активки в автоматическом режиме.&lt;/p&gt;</content><category term="Rancid"></category><category term="Cisco"></category><category term="Juniper"></category></entry><entry><title>Включил комментарии</title><link href="http://bulimov.ru/it/%D0%92%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D0%BB-%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B8/" rel="alternate"></link><published>2013-10-18T00:00:00+04:00</published><updated>2013-10-18T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-10-18:/it/Включил-комментарии/</id><summary type="html">&lt;p&gt;Включил комментирование через Disqus, может кто-то
+что-нибудь дельное напишет в комментариях.&lt;/p&gt;</summary><content type="html">&lt;p&gt;Включил комментирование через Disqus, может кто-то
+что-нибудь дельное напишет в комментариях.&lt;/p&gt;</content><category term="Жизнь"></category><category term="Ruhoh"></category></entry><entry><title>Сдал экзамен на RHCE</title><link href="http://bulimov.ru/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-%D0%BD%D0%B0-rhce/" rel="alternate"></link><published>2013-10-14T00:00:00+04:00</published><updated>2013-10-14T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-10-14:/it/Сдал-экзамен-на-rhce/</id><summary type="html">&lt;p&gt;Наконец-то пришел результат экзамена, который сдавал в пятницу. 273 из 300 возможных при проходном балле в 210. Это, конечно,
+неприятно - ждать все выходные результата. На RHCSA результат пришел в ту же пятницу около 8 вечера.&lt;/p&gt;
+&lt;p&gt;По самому курсу "Системное Администрирование" и экзамену: читал у меня все три части курса Илья Соболев.
+Курс весьма хорошо продуман и сбалансирован, ну и читает его Соболев отлично. С позиции человека,
+который до этих курсов …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Наконец-то пришел результат экзамена, который сдавал в пятницу. 273 из 300 возможных при проходном балле в 210. Это, конечно,
 неприятно - ждать все выходные результата. На RHCSA результат пришел в ту же пятницу около 8 вечера.&lt;/p&gt;
 &lt;p&gt;По самому курсу "Системное Администрирование" и экзамену: читал у меня все три части курса Илья Соболев.
 Курс весьма хорошо продуман и сбалансирован, ну и читает его Соболев отлично. С позиции человека,
@@ -2688,7 +3077,7 @@ expect и bash-скриптов соорудить исправно работа
 освоение, типа LVM или SELinux. Лично мне было интересно познакомиться с RHEL-специфичными вещами вроде сборки RPM-пакетов,
 развертывания репозитория с ними, или kickstart.&lt;/p&gt;
 &lt;p&gt;В общем, хорошие, годные курсы по Linux, практически без акцента на конкретный дистрибутив.
-И экзамены (и RHCSA, и RHCE) весьма хороши, задания осмысленные, времени дано как раз, чтобы не расслабляться.&lt;/p&gt;</summary><category term="Жизнь"></category></entry><entry><title>О животных и NetworkManager</title><link href="http://bulimov.ru/it/%D0%9E-%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85-%D0%B8-networkmanager/" rel="alternate"></link><published>2013-10-02T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-10-02:it/О-животных-и-networkmanager/</id><summary type="html">&lt;p&gt;В комментариях к &lt;a href="http://www.opennet.ru/opennews/art.shtml?num=38016"&gt; интервью с Алексеем Кузнецовым &lt;/a&gt;
+И экзамены (и RHCSA, и RHCE) весьма хороши, задания осмысленные, времени дано как раз, чтобы не расслабляться.&lt;/p&gt;</content><category term="Жизнь"></category></entry><entry><title>О животных и NetworkManager</title><link href="http://bulimov.ru/it/%D0%9E-%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85-%D0%B8-networkmanager/" rel="alternate"></link><published>2013-10-02T00:00:00+04:00</published><updated>2013-10-02T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-10-02:/it/О-животных-и-networkmanager/</id><summary type="html">&lt;p&gt;В комментариях к &lt;a href="http://www.opennet.ru/opennews/art.shtml?num=38016"&gt; интервью с Алексеем Кузнецовым &lt;/a&gt;
 прочитал прекрасное:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;blockquote&gt;
@@ -2697,7 +3086,23 @@ expect и bash-скриптов соорудить исправно работа
 &lt;p&gt;ip addr add 12.34.56.78/24 dev eth0
 ip ro add default via 12.34.56.1&lt;/p&gt;
 &lt;p&gt;Если кому-то нужен какой-то гуй для этого - то он просто животное™.&lt;/p&gt;
-&lt;/blockquote&gt;</summary><category term="Жизнь"></category></entry><entry><title>Вернулся из отпуска</title><link href="http://bulimov.ru/it/%D0%92%D0%B5%D1%80%D0%BD%D1%83%D0%BB%D1%81%D1%8F-%D0%B8%D0%B7-%D0%BE%D1%82%D0%BF%D1%83%D1%81%D0%BA%D0%B0/" rel="alternate"></link><published>2013-10-01T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-10-01:it/Вернулся-из-отпуска/</id><summary type="html">&lt;p&gt;Вернулись с женой из отпуска, который провели в Индонезии.
+&lt;/blockquote&gt;</summary><content type="html">&lt;p&gt;В комментариях к &lt;a href="http://www.opennet.ru/opennews/art.shtml?num=38016"&gt; интервью с Алексеем Кузнецовым &lt;/a&gt;
+прочитал прекрасное:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;NetworkManager плохой, а какая альтернатива?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;ip addr add 12.34.56.78/24 dev eth0
+ip ro add default via 12.34.56.1&lt;/p&gt;
+&lt;p&gt;Если кому-то нужен какой-то гуй для этого - то он просто животное™.&lt;/p&gt;
+&lt;/blockquote&gt;</content><category term="Жизнь"></category></entry><entry><title>Вернулся из отпуска</title><link href="http://bulimov.ru/it/%D0%92%D0%B5%D1%80%D0%BD%D1%83%D0%BB%D1%81%D1%8F-%D0%B8%D0%B7-%D0%BE%D1%82%D0%BF%D1%83%D1%81%D0%BA%D0%B0/" rel="alternate"></link><published>2013-10-01T00:00:00+04:00</published><updated>2013-10-01T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-10-01:/it/Вернулся-из-отпуска/</id><summary type="html">&lt;p&gt;Вернулись с женой из отпуска, который провели в Индонезии.
+Из IT-наблюдений: во всех отелях и кафе на Бали, Гили и Ломбоке
+встречались мне только и исключительно железки Mikrotik в роли HotSpot.
+Забавно видеть Linux-based решения от Латвийских разработчиков
+в далекой Индонезии.
+На ПК служащих - только Windows XP, никаких Вист и Семерок-восьмерок.&lt;/p&gt;
+&lt;p&gt;Ну и самое ужасное - аэропорт города Денпасар, который на Бали - практически не
+компьютеризирован. На посадочных талонах номер рейса и …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Вернулись с женой из отпуска, который провели в Индонезии.
 Из IT-наблюдений: во всех отелях и кафе на Бали, Гили и Ломбоке
 встречались мне только и исключительно железки Mikrotik в роли HotSpot.
 Забавно видеть Linux-based решения от Латвийских разработчиков
@@ -2706,7 +3111,15 @@ ip ro add default via 12.34.56.1&lt;/p&gt;
 &lt;p&gt;Ну и самое ужасное - аэропорт города Денпасар, который на Бали - практически не
 компьютеризирован. На посадочных талонах номер рейса и номер места пишут от руки, проверка
 посадки осуществляется с использованием листка бумаги и ручки.
-Правда, рядом почти достроили новый терминал, мы туда прогулялись - там уже все нормально и современно.&lt;/p&gt;</summary><category term="Жизнь"></category><category term="MikroTik"></category></entry><entry><title>Как я управляю серверами</title><link href="http://bulimov.ru/it/%D0%9A%D0%B0%D0%BA-%D1%8F-%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D1%8F%D1%8E-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%D0%BC%D0%B8/" rel="alternate"></link><published>2013-09-05T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-09-05:it/Как-я-управляю-серверами/</id><summary type="html">&lt;p&gt;Решил вот описать принципы управления серверами, к которым пришел за эти 3 года.&lt;/p&gt;
+Правда, рядом почти достроили новый терминал, мы туда прогулялись - там уже все нормально и современно.&lt;/p&gt;</content><category term="Жизнь"></category><category term="MikroTik"></category></entry><entry><title>Как я управляю серверами</title><link href="http://bulimov.ru/it/%D0%9A%D0%B0%D0%BA-%D1%8F-%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D1%8F%D1%8E-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%D0%BC%D0%B8/" rel="alternate"></link><published>2013-09-05T00:00:00+04:00</published><updated>2013-09-05T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-09-05:/it/Как-я-управляю-серверами/</id><summary type="html">&lt;p&gt;Решил вот описать принципы управления серверами, к которым пришел за эти 3 года.&lt;/p&gt;
+&lt;p&gt;Итак:&lt;/p&gt;
+&lt;h3&gt;принцип №1&lt;/h3&gt;
+&lt;p&gt;Все конфиги лежат в &lt;a href="http://en.wikipedia.org/wiki/Revision_control"&gt;VCS&lt;/a&gt;, я сейчас использую Git.
+Я думаю, в комментариях принцип не нуждается, необходимость централизованного
+хранения конфигов, а также хранения истории изменений с возможностью отката обсуждалась не раз.&lt;/p&gt;
+&lt;h3&gt;принцип №2&lt;/h3&gt;
+&lt;p&gt;Все ПО ставится только из пакетов, никаких ./configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install.
+Если пакета нужной версии нет в репозиториях дистрибутива - ищем готовый …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Решил вот описать принципы управления серверами, к которым пришел за эти 3 года.&lt;/p&gt;
 &lt;p&gt;Итак:&lt;/p&gt;
 &lt;h3&gt;принцип №1&lt;/h3&gt;
 &lt;p&gt;Все конфиги лежат в &lt;a href="http://en.wikipedia.org/wiki/Revision_control"&gt;VCS&lt;/a&gt;, я сейчас использую Git.
@@ -2761,7 +3174,14 @@ ip ro add default via 12.34.56.1&lt;/p&gt;
 И, конечно, мониторинг тоже надо тестировать.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Естественно, есть и другие принципы, но это - основа основ, благодаря которой я спокойно сплю по ночам,
 и уверен, что любое обновление на боевых серверах пройдет гладко, а даже если и нет - всегда
-можно откатиться к предыдущему, работоспособному состоянию.&lt;/em&gt;&lt;/p&gt;</summary><category term="Ansible"></category><category term="Chef"></category></entry><entry><title>Низкоуровневое обнаружение в Zabbix, ищем диски в контроллере от 3ware</title><link href="http://bulimov.ru/it/%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5-%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-zabbix-%D0%B8%D1%89%D0%B5%D0%BC-%D0%B4%D0%B8%D1%81%D0%BA%D0%B8-%D0%B2-%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D0%BB%D0%B5%D1%80%D0%B5-%D0%BE%D1%82-3ware/" rel="alternate"></link><published>2013-08-14T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-08-14:it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware/</id><summary type="html">&lt;p&gt;Я уже &lt;a href="/it/Низкоуровневое-обнаружение-в-zabbix"&gt; писал &lt;/a&gt; про &lt;a href="https://www.zabbix.com/documentation/ru/2.0/manual/discovery/low_level_discovery"&gt;низкоуровневое обнаружение&lt;/a&gt;
+можно откатиться к предыдущему, работоспособному состоянию.&lt;/em&gt;&lt;/p&gt;</content><category term="Ansible"></category><category term="Chef"></category></entry><entry><title>Низкоуровневое обнаружение в Zabbix, ищем диски в контроллере от 3ware</title><link href="http://bulimov.ru/it/%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5-%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-zabbix-%D0%B8%D1%89%D0%B5%D0%BC-%D0%B4%D0%B8%D1%81%D0%BA%D0%B8-%D0%B2-%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D0%BB%D0%B5%D1%80%D0%B5-%D0%BE%D1%82-3ware/" rel="alternate"></link><published>2013-08-14T00:00:00+04:00</published><updated>2013-08-14T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-08-14:/it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware/</id><summary type="html">&lt;p&gt;Я уже &lt;a href="/it/Низкоуровневое-обнаружение-в-zabbix"&gt; писал &lt;/a&gt; про &lt;a href="https://www.zabbix.com/documentation/ru/2.0/manual/discovery/low_level_discovery"&gt;низкоуровневое обнаружение&lt;/a&gt;
+в Zabbix, так что повторять теорию не буду.&lt;/p&gt;
+&lt;p&gt;Теперь мне понадобилось автоматом получать список хардов в массивах
+на контроллерах 3ware, которыми оборудованы у нас многие сервера.&lt;/p&gt;
+&lt;p&gt;Вести руками шаблоны для каждого сервера с иным порядком или количеством дисков
+показалось мне плохой идеей, да и авто-обнаружение само напрашивалось.&lt;/p&gt;
+&lt;p&gt;Вдохновлялся я утилитой 3ware-status, для работы авто-обнаружения нам потребуется
+установленная утилита tw-cli, взять ее для Debian/Ubuntu …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Я уже &lt;a href="/it/Низкоуровневое-обнаружение-в-zabbix"&gt; писал &lt;/a&gt; про &lt;a href="https://www.zabbix.com/documentation/ru/2.0/manual/discovery/low_level_discovery"&gt;низкоуровневое обнаружение&lt;/a&gt;
 в Zabbix, так что повторять теорию не буду.&lt;/p&gt;
 &lt;p&gt;Теперь мне понадобилось автоматом получать список хардов в массивах
 на контроллерах 3ware, которыми оборудованы у нас многие сервера.&lt;/p&gt;
@@ -2819,7 +3239,7 @@ ip ro add default via 12.34.56.1&lt;/p&gt;
     &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;splitlines&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
         &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
             &lt;span class="n"&gt;splitted&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;r&amp;#39;^c[0-9]+$&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;splitted&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]):&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;^c[0-9]+$&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;splitted&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]):&lt;/span&gt;
                 &lt;span class="n"&gt;controllers&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;append&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;splitted&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
     &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;controllers&lt;/span&gt;
 
@@ -2828,7 +3248,7 @@ ip ro add default via 12.34.56.1&lt;/p&gt;
     &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;splitlines&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
         &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
             &lt;span class="n"&gt;splitted&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
-            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;r&amp;#39;^[p][0-9]+$&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;splitted&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]):&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;re&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;match&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;^[p][0-9]+$&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;splitted&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]):&lt;/span&gt;
                 &lt;span class="c1"&gt;# &amp;#39;-&amp;#39; means the drive doesn&amp;#39;t belong to any array&lt;/span&gt;
                 &lt;span class="c1"&gt;# If is NOT PRESENT too, it just means this is an empty port&lt;/span&gt;
                 &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;splitted&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;-&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="ow"&gt;not&lt;/span&gt; &lt;span class="n"&gt;splitted&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;NOT-PRESENT&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
@@ -2856,7 +3276,7 @@ ip ro add default via 12.34.56.1&lt;/p&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
     &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dumps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -2871,7 +3291,15 @@ ip ro add default via 12.34.56.1&lt;/p&gt;
 &lt;p&gt;Ну а в самом заббиксе уже создаем в шаблоне обнаружение, в котором используем ключ
 3ware.discovery и макрос {#3WARE_DISK}, например 3ware.disk_status[{#3WARE_DISK}].
 Подробности - в документации.&lt;/p&gt;
-&lt;p&gt;Исходники доступны в моем &lt;a href="https://github.com/abulimov/utils"&gt;репозитории&lt;/a&gt;, в папке &lt;em&gt;zabbix/data_collectors&lt;/em&gt;.&lt;/p&gt;</summary><category term="Zabbix"></category><category term="Python"></category><category term="Monitoring"></category></entry><entry><title>О любви к программированию</title><link href="http://bulimov.ru/it/%D0%9E-%D0%BB%D1%8E%D0%B1%D0%B2%D0%B8-%D0%BA-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8E/" rel="alternate"></link><published>2013-07-25T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-07-25:it/О-любви-к-программированию/</id><summary type="html">&lt;p&gt;Хоть я и выбрал своей профессией системное администрирование,
+&lt;p&gt;Исходники доступны в моем &lt;a href="https://github.com/abulimov/utils"&gt;репозитории&lt;/a&gt;, в папке &lt;em&gt;zabbix/data_collectors&lt;/em&gt;.&lt;/p&gt;</content><category term="Zabbix"></category><category term="Python"></category><category term="Monitoring"></category></entry><entry><title>О любви к программированию</title><link href="http://bulimov.ru/it/%D0%9E-%D0%BB%D1%8E%D0%B1%D0%B2%D0%B8-%D0%BA-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8E/" rel="alternate"></link><published>2013-07-25T00:00:00+04:00</published><updated>2013-07-25T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-07-25:/it/О-любви-к-программированию/</id><summary type="html">&lt;p&gt;Хоть я и выбрал своей профессией системное администрирование,
+программирование я люблю. Даже очень люблю.&lt;/p&gt;
+&lt;p&gt;Вот решил написать историю моего знакомства с программированием.&lt;/p&gt;
+&lt;h3&gt;Школа&lt;/h3&gt;
+&lt;p&gt;Началось все в школе. Одноклассник ходил на курсы программирования,
+готовясь поступать в какой-то технический вуз, и рассказывал про Delphi.
+Рассказы его так меня увлекли, что я даже сподобился установить этот самый Delphi,
+и даже создал какую-то форму, скопировав код из примеров, присланных одноклассником.
+По итогу этих действий …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Хоть я и выбрал своей профессией системное администрирование,
 программирование я люблю. Даже очень люблю.&lt;/p&gt;
 &lt;p&gt;Вот решил написать историю моего знакомства с программированием.&lt;/p&gt;
 &lt;h3&gt;Школа&lt;/h3&gt;
@@ -2951,7 +3379,13 @@ telnet, либо собственноручно написанного клие�
 &lt;h3&gt;Заключение&lt;/h3&gt;
 &lt;p&gt;Итак, сейчас в моей копилке целая охапка языков, из которых использую я в основном Shell и Python. Такой выбор, конечно же,
 во многом определен особенностями работы системного администратора, но выбор языка все равно остается за мной.
-Что самое приятное - программирование осталось моим хобби, и я получаю от него огромное удовольствие.&lt;/p&gt;</summary><category term="Программирование"></category><category term="Жизнь"></category></entry><entry><title>Monitoring sucks!</title><link href="http://bulimov.ru/it/monitoring-sucks/" rel="alternate"></link><published>2014-06-12T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-07-10:it/monitoring-sucks/</id><summary type="html">&lt;p&gt;&lt;strong&gt;TL;DR - тут я Sensu критиковал, но в 2014 году успешно заменил Zabbix на Sensu версии 0.12+&lt;/strong&gt;&lt;/p&gt;
+Что самое приятное - программирование осталось моим хобби, и я получаю от него огромное удовольствие.&lt;/p&gt;</content><category term="Программирование"></category><category term="Жизнь"></category></entry><entry><title>Monitoring sucks!</title><link href="http://bulimov.ru/it/monitoring-sucks/" rel="alternate"></link><published>2013-07-10T00:00:00+04:00</published><updated>2014-06-12T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-07-10:/it/monitoring-sucks/</id><summary type="html">&lt;p&gt;&lt;strong&gt;TL;DR - тут я Sensu критиковал, но в 2014 году успешно заменил Zabbix на Sensu версии 0.12+&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;В 2012 году появился в среде devops такой хештег, #monitoringsucks.
+В сообщения с этим тегом devopsы писали, что текущее положение дел
+в сфере мониторинга их не устраивает. Что именно - прекрасно иллюстрирует
+&lt;a href="https://speakerdeck.com/obfuscurity/the-state-of-open-source-monitoring"&gt;эта презентация&lt;/a&gt;
+Если вкратце - хочется людям некоего стандарта API для взаимодействия между компонентами
+утилит мониторинга, ну и появления самих этих компонент …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;TL;DR - тут я Sensu критиковал, но в 2014 году успешно заменил Zabbix на Sensu версии 0.12+&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;В 2012 году появился в среде devops такой хештег, #monitoringsucks.
 В сообщения с этим тегом devopsы писали, что текущее положение дел
 в сфере мониторинга их не устраивает. Что именно - прекрасно иллюстрирует
@@ -3034,7 +3468,13 @@ Riemann я не стал всерьез рассматривать, поскол
 И уж точно еще рано говорить о замене того же Zabbix или Zenoss на что-то модульное
 на базе какого-нибудь Sensu+Graphite+Flapjack.&lt;/p&gt;
 &lt;p&gt;Лично я остаюсь на Zabbix, несмотря на все его недостатки.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;UPD 2014 - я успешно заменил Zabbix на Sensu версии 0.12+ и Graphite&lt;/strong&gt;&lt;/p&gt;</summary><category term="Zabbix"></category><category term="Sensu"></category><category term="Monitoring"></category><category term="Мнение"></category></entry><entry><title>Низкоуровневое обнаружение в Zabbix</title><link href="http://bulimov.ru/it/%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5-%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-zabbix/" rel="alternate"></link><published>2013-06-26T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-06-26:it/Низкоуровневое-обнаружение-в-zabbix/</id><summary type="html">&lt;p&gt;В используемой мной системе мониторинга Zabbix, начиная с версии 2.0,
+&lt;p&gt;&lt;strong&gt;UPD 2014 - я успешно заменил Zabbix на Sensu версии 0.12+ и Graphite&lt;/strong&gt;&lt;/p&gt;</content><category term="Zabbix"></category><category term="Sensu"></category><category term="Monitoring"></category><category term="Мнение"></category></entry><entry><title>Низкоуровневое обнаружение в Zabbix</title><link href="http://bulimov.ru/it/%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5-%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-zabbix/" rel="alternate"></link><published>2013-06-26T00:00:00+04:00</published><updated>2013-06-26T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-06-26:/it/Низкоуровневое-обнаружение-в-zabbix/</id><summary type="html">&lt;p&gt;В используемой мной системе мониторинга Zabbix, начиная с версии 2.0,
+появилась такая любопытная штука, как &lt;a href="https://www.zabbix.com/documentation/ru/2.0/manual/discovery/low_level_discovery"&gt;низкоуровневое обнаружение&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Я не буду пересказывать содержимое документации, расскажу лучше о том, как я писал свой тип
+обнаружения для мониторинга очередей RabbitMQ.&lt;/p&gt;
+&lt;p&gt;Проблема в том, что очередей в RabbitMQ может быть много, и, по мере развития веб-проекта,
+они меняются. Так что я решил обнаруживать их автоматически, и написал для этого свой провайдер
+данных для …&lt;/p&gt;</summary><content type="html">&lt;p&gt;В используемой мной системе мониторинга Zabbix, начиная с версии 2.0,
 появилась такая любопытная штука, как &lt;a href="https://www.zabbix.com/documentation/ru/2.0/manual/discovery/low_level_discovery"&gt;низкоуровневое обнаружение&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Я не буду пересказывать содержимое документации, расскажу лучше о том, как я писал свой тип
 обнаружения для мониторинга очередей RabbitMQ.&lt;/p&gt;
@@ -3113,7 +3553,7 @@ Riemann я не стал всерьез рассматривать, поскол
     &lt;span class="p"&gt;}&lt;/span&gt;
     &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;json&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dumps&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="vm"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
     &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -3129,7 +3569,15 @@ Riemann я не стал всерьез рассматривать, поскол
 rabbitmq.discovery и макросы {#RABBITMQ_VHOST_NAME} и {#RABBITMQ_QUEUE_NAME}.
 Это подробно описано в документации,
 так что я этого описывать не буду.&lt;/p&gt;
-&lt;p&gt;Исходники доступны в моем &lt;a href="https://github.com/abulimov/utils"&gt;репозитории&lt;/a&gt;, в папке &lt;em&gt;zabbix/data_collectors&lt;/em&gt;.&lt;/p&gt;</summary><category term="Zabbix"></category><category term="Python"></category><category term="Monitoring"></category></entry><entry><title>Плагин к Ruhoh для рисования графиков</title><link href="http://bulimov.ru/it/%D0%9F%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD-%D0%BA-ruhoh-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B8%D1%81%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%BE%D0%B2/" rel="alternate"></link><published>2013-06-21T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-06-21:it/Плагин-к-ruhoh-для-рисования-графиков/</id><summary type="html">&lt;p&gt;Еще планируя создание статического блога на Hakyll я хотел реализовать рисование
+&lt;p&gt;Исходники доступны в моем &lt;a href="https://github.com/abulimov/utils"&gt;репозитории&lt;/a&gt;, в папке &lt;em&gt;zabbix/data_collectors&lt;/em&gt;.&lt;/p&gt;</content><category term="Zabbix"></category><category term="Python"></category><category term="Monitoring"></category></entry><entry><title>Плагин к Ruhoh для рисования графиков</title><link href="http://bulimov.ru/it/%D0%9F%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD-%D0%BA-ruhoh-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B8%D1%81%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%BE%D0%B2/" rel="alternate"></link><published>2013-06-21T00:00:00+04:00</published><updated>2013-06-21T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-06-21:/it/Плагин-к-ruhoh-для-рисования-графиков/</id><summary type="html">&lt;p&gt;Еще планируя создание статического блога на Hakyll я хотел реализовать рисование
+графиков "на лету" из отдельно хранящихся данных. Но с Hakyll не сложилось,
+и после долгих поисков я остановился на &lt;a href="http://ruhoh.com/"&gt;Ruhoh&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Все нижеописанное относится к &lt;strong&gt;Ruhoh 2.1&lt;/strong&gt;&lt;/p&gt;
+&lt;h3&gt;Цель&lt;/h3&gt;
+&lt;p&gt;Рисовать графики из данных, хранящихся в человеко-читаемом виде.
+Нужно мне это было для визуализации своих спортивных тренировок.&lt;/p&gt;
+&lt;h3&gt;Решение&lt;/h3&gt;
+&lt;p&gt;Конечно, я решил оформить все в виде плагина к Ruhoh, благо возможность такая …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Еще планируя создание статического блога на Hakyll я хотел реализовать рисование
 графиков "на лету" из отдельно хранящихся данных. Но с Hakyll не сложилось,
 и после долгих поисков я остановился на &lt;a href="http://ruhoh.com/"&gt;Ruhoh&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Все нижеописанное относится к &lt;strong&gt;Ruhoh 2.1&lt;/strong&gt;&lt;/p&gt;
@@ -3255,7 +3703,12 @@ rabbitmq.discovery и макросы {#RABBITMQ_VHOST_NAME} и {#RABBITMQ_QUEUE_
 
 
 &lt;p&gt;В нем описывается, как по запрошенному URL отдать сгенерированную "на лету" картинку,
-используя метод render_graph из compiler.rb.&lt;/p&gt;</summary><category term="Программирование"></category><category term="Ruby"></category><category term="Ruhoh"></category></entry><entry><title>И снова пользователи</title><link href="http://bulimov.ru/it/%D0%98-%D1%81%D0%BD%D0%BE%D0%B2%D0%B0-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D0%B8/" rel="alternate"></link><published>2013-06-19T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-06-19:it/И-снова-пользователи/</id><summary type="html">&lt;p&gt;Я уже довольно давно понял, что не могу и не хочу работать с людьми,
+используя метод render_graph из compiler.rb.&lt;/p&gt;</content><category term="Программирование"></category><category term="Ruby"></category><category term="Ruhoh"></category></entry><entry><title>И снова пользователи</title><link href="http://bulimov.ru/it/%D0%98-%D1%81%D0%BD%D0%BE%D0%B2%D0%B0-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D0%B8/" rel="alternate"></link><published>2013-06-19T00:00:00+04:00</published><updated>2013-06-19T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-06-19:/it/И-снова-пользователи/</id><summary type="html">&lt;p&gt;Я уже довольно давно понял, что не могу и не хочу работать с людьми,
+и уже около года поддержкой пользователей не занимаюсь.
+Однако сейчас наш офисный сисадмин в отпуске, и я вынужден снова этим заниматься.&lt;/p&gt;
+&lt;p&gt;Вот, к примеру, сегодня подошла ко мне тетя с просьбой помочь в отправлении
+с МФУ скана на email. Сам я этого никогда не делал, но сложности в этом не видел,
+и потому заявил ей, что …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Я уже довольно давно понял, что не могу и не хочу работать с людьми,
 и уже около года поддержкой пользователей не занимаюсь.
 Однако сейчас наш офисный сисадмин в отпуске, и я вынужден снова этим заниматься.&lt;/p&gt;
 &lt;p&gt;Вот, к примеру, сегодня подошла ко мне тетя с просьбой помочь в отправлении
@@ -3268,7 +3721,14 @@ rabbitmq.discovery и макросы {#RABBITMQ_VHOST_NAME} и {#RABBITMQ_QUEUE_
 все равно было нечем заняться, и потому он рвался помочь ей. В результате, она села ему на шею,
 и он выполнил все за нее, чего она и добивалась.&lt;/p&gt;
 &lt;p&gt;Я, конечно, и сам такое не раз наблюдал, и ездили на мне так многие, пока я не набрался опыта.
-Я даже читал об этом у Лимончелли. Но каждый раз не устаю удивляться таким приспособленным людям...&lt;/p&gt;</summary><category term="Юзвери"></category></entry><entry><title>Что я думаю о Debian на серверах</title><link href="http://bulimov.ru/it/%D0%A7%D1%82%D0%BE-%D1%8F-%D0%B4%D1%83%D0%BC%D0%B0%D1%8E-%D0%BE-debian-%D0%BD%D0%B0-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%D1%85/" rel="alternate"></link><published>2013-06-18T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-06-18:it/Что-я-думаю-о-debian-на-серверах/</id><summary type="html">&lt;p&gt;С 2010 года, когда я только начал заниматься системным администрированием,
+Я даже читал об этом у Лимончелли. Но каждый раз не устаю удивляться таким приспособленным людям...&lt;/p&gt;</content><category term="Юзвери"></category></entry><entry><title>Что я думаю о Debian на серверах</title><link href="http://bulimov.ru/it/%D0%A7%D1%82%D0%BE-%D1%8F-%D0%B4%D1%83%D0%BC%D0%B0%D1%8E-%D0%BE-debian-%D0%BD%D0%B0-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%D1%85/" rel="alternate"></link><published>2013-06-18T00:00:00+04:00</published><updated>2013-06-18T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-06-18:/it/Что-я-думаю-о-debian-на-серверах/</id><summary type="html">&lt;p&gt;С 2010 года, когда я только начал заниматься системным администрированием,
+я использовал как основной серверный дистрибутив Debian.
+Это был изначально осознанный выбор, и на момент написания заметки таковым и остается.
+Конечно, я работал и с другими дистрибутивами, и потому мне есть и было с чем сравнить.
+По итогам работы с Debian и написана эта заметка.&lt;/p&gt;
+&lt;h1&gt;Негатив&lt;/h1&gt;
+&lt;h2&gt;Общесистемные лимиты&lt;/h2&gt;
+&lt;p&gt;В свое время, встала передо мной задача настройки под высокую нагрузку различных …&lt;/p&gt;</summary><content type="html">&lt;p&gt;С 2010 года, когда я только начал заниматься системным администрированием,
 я использовал как основной серверный дистрибутив Debian.
 Это был изначально осознанный выбор, и на момент написания заметки таковым и остается.
 Конечно, я работал и с другими дистрибутивами, и потому мне есть и было с чем сравнить.
@@ -3320,7 +3780,13 @@ su - username, однако при инициализации через start-s
 обновления хорошо тестируются, и проблем в эксплуатации не приносят.
 Тут, на мой взгляд, единственный конкурент Debian - это RHEL и его производные.
 Ключевое ПО все равно приходится ставить с репозиториев разработчиков,
-так что общая замшелость не является недостатком.&lt;/p&gt;</summary><category term="Debian"></category><category term="Мнение"></category></entry><entry><title>Мнение о Chef</title><link href="http://bulimov.ru/it/%D0%9C%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE-chef/" rel="alternate"></link><published>2013-06-17T00:00:00+04:00</published><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-06-17:it/Мнение-о-chef/</id><summary type="html">&lt;p&gt;Я использовал Chef для управления IT-инфраструктурой около полутора лет, начав с
+так что общая замшелость не является недостатком.&lt;/p&gt;</content><category term="Debian"></category><category term="Мнение"></category></entry><entry><title>Мнение о Chef</title><link href="http://bulimov.ru/it/%D0%9C%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE-chef/" rel="alternate"></link><published>2013-06-17T00:00:00+04:00</published><updated>2013-06-17T00:00:00+04:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2013-06-17:/it/Мнение-о-chef/</id><summary type="html">&lt;p&gt;Я использовал Chef для управления IT-инфраструктурой около полутора лет, начав с
+версии 0.10. Сначала, где-то пол-года, использовал только для управления конфигурациями,
+без развертывания ПО с нуля. Затем, уже на другой работе, автоматизировал управления
+конфигурациями и развертывание с нуля веб-проекта (30+ серверов, nginx, ruby, riak, redis,
+sphinx-search, rabbitmq и т.п.).
+Это позволило мне составить собственное мнение o достоинствах и недостатках Chef,
+и в этой заметке я свое мнение излагаю …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Я использовал Chef для управления IT-инфраструктурой около полутора лет, начав с
 версии 0.10. Сначала, где-то пол-года, использовал только для управления конфигурациями,
 без развертывания ПО с нуля. Затем, уже на другой работе, автоматизировал управления
 конфигурациями и развертывание с нуля веб-проекта (30+ серверов, nginx, ruby, riak, redis,
@@ -3360,4 +3826,4 @@ sphinx-search, rabbitmq и т.п.).
 &lt;li&gt;Версии cookbook для каждого окружения, заморозка пакетов.&lt;/li&gt;
 &lt;li&gt;Готовые cookbooks, полезно для вникания.&lt;/li&gt;
 &lt;li&gt;Knife - отличный инстумент для любителей консоли вроде меня.&lt;/li&gt;
-&lt;/ul&gt;</summary><category term="Chef"></category><category term="Мнение"></category></entry></feed>
+&lt;/ul&gt;</content><category term="Chef"></category><category term="Мнение"></category></entry></feed>

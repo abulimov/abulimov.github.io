@@ -75,6 +75,44 @@ Alexander Bulimov - production engineer's notes.            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="http://bulimov.ru/it/meminfo-visualizer/">Разбирался с page-cache в Linux</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-10-09T00:00:00+04:00"> Thu 09 October 2014</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="http://bulimov.ru/category/it.html">IT</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/kernel.html">Kernel</a>
+        /
+	<a href="http://bulimov.ru/tag/python.html">Python</a>
+        /
+	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
+        /
+	<a href="http://bulimov.ru/tag/knigi.html">Книги</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Читая книгу <a href="http://www.williamspublishing.com/Books/5-8459-1085-4.html">"Разработка ядра Linux"</a> за авторством Роберта Лава,
+я решил поглубже разобраться в том, как работает кэш в Linux,
+и набрел на вот <a href="http://habrahabr.ru/company/yandex/blog/231957/">эту</a>
+статью на Хабре от Яндекса.</p>
+<p>Сама статья весьма познавательна, особенно видео - рекомендую.
+Так вот, в этом видео <em>Роман Гущин</em>, с помощью простой утилиты, наглядно показывающей
+размер кэша, показывал как работает файловый кэш.</p>
+<p>Конечно, мне захотелось в образовательных целях написать такую утилиту для себя,
+чтобы можно …</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/meminfo-visualizer/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://bulimov.ru/it/infrastructure-as-a-code/">Инфраструктура как код</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -107,7 +145,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 <p>Если говорить про парадигму, которую нам предлагает этот метод, то вот она:</p>
 <blockquote>
 <p>Поддерживать модульную, легко поддающуюся автоматизации инфраструктуру,
-и <em>описывать ...</em></p></blockquote>
+и <em>описывать …</em></p></blockquote>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/infrastructure-as-a-code/">more ...</a>
                 </div>
             </article>
@@ -179,7 +217,7 @@ Alexander Bulimov - production engineer's notes.            </a>
 и Python-версии скриптов.</p>
 <p>Если кому хочется мониторить состояние дисков в raid-контроллерах от 3ware или
 HP SmartArray на чистом Python - милости просим, все
-<a href="https://github.com/abulimov/utils/tree/master/nagios">в ...</a></p>
+<a href="https://github.com/abulimov/utils/tree/master/nagios">в …</a></p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Выложил-немного-полезностей/">more ...</a>
                 </div>
             </article>
@@ -216,7 +254,7 @@ HP SmartArray на чистом Python - милости просим, все
   <a href="https://github.com/tmux-plugins/tmux-sensible">tmux-sensible</a>;</li>
 <li>с помощью <a href="https://github.com/tmux-plugins/tmux-yank">tmux-yank</a>
   выкинул свои костыли для копирования в буфер обмена;</li>
-<li>смог убрать настройки для vi-образной навигации между панелями ...</li></ul>
+<li>смог убрать настройки для vi-образной навигации между панелями …</li></ul>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Открыл-для-себя-плагины-к-tmux/">more ...</a>
                 </div>
             </article>
@@ -251,7 +289,7 @@ HP SmartArray для использования в Sensu. Ну а раз все 
 заслать в <a href="https://github.com/sensu/sensu-community-plugins">sensu-community-plugins</a></p>
 <p>Скрипты весьма просты, так что проблем при переписывании никаких не было.</p>
 <p>Если кому надо - все уже отдано сообществу, теперь Sensu может мониторить
-состояние ...</p>
+состояние …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Переписал-скрипты-на-ruby-для-sensu/">more ...</a>
                 </div>
             </article>
@@ -288,7 +326,7 @@ HP SmartArray для использования в Sensu. Ну а раз все 
 <a href="https://github.com/cove">cove</a> написал в комментарии к моему модулю,
 что планирует выложить целую <a href="https://github.com/ansible/ansible/pull/6034">пачку</a>
 модулей для взаимодействия с Zabbix из Ansible.
-Это отложило принятие моего модуля в ...</p>
+Это отложило принятие моего модуля в …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">more ...</a>
                 </div>
             </article>
@@ -323,7 +361,7 @@ HP SmartArray для использования в Sensu. Ну а раз все 
 не на каком-нибудь готовом решении. Я решил изучить, что же есть сейчас для
 TDD-администрирования. Оказалось, что толком ничего и нет, а то, что
 есть - для Ansible не особо нужно.</p>
-<p>Для начала, что ...</p>
+<p>Для начала, что …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/ansible-и-serverspec/">more ...</a>
                 </div>
             </article>
@@ -357,7 +395,7 @@ TDD-администрирования. Оказалось, что толком 
 <p>Раскатывал я все сервисы и конфиги с помощью <a href="http://ansible.com">Ansible</a>, взяв за
 основу <a href="https://github.com/al3x/sovereign">Sovereign</a>.
 В качестве дистрибутива я ради эксперимента выбрал Ubuntu 14.04 LTS.</p>
-<p>Сейчас я использую VPS для следующих сервисов ...</p>
+<p>Сейчас я использую VPS для следующих сервисов …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Личный-vps/">more ...</a>
                 </div>
             </article>
@@ -392,40 +430,8 @@ TDD-администрирования. Оказалось, что толком 
 <p>Конечно, главная проблема книги в том, что DevOps преподносится как
 некая чудодейственная методология, и при этом не уделяется внимания
 главному вопросу - кадровому. В книге все сотрудники оказались
-достаточно квалифицированными и открытыми для того, чтобы ...</p>
+достаточно квалифицированными и открытыми для того, чтобы …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Прочитал-the-phoenix-project-a-novel-about-devops-and-helping-your-business-win/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/Сдал-экзамен-cisco-icnd2-он-же-200-101/">Сдал экзамен Cisco ICND2, он же 200-101</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-04-03T00:00:00+04:00"> Thu 03 April 2014</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="http://bulimov.ru/category/it.html">IT</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/cisco.html">Cisco</a>
-        /
-	<a href="http://bulimov.ru/tag/zhizn.html">Жизнь</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Теперь я CCNA.</p>
-<p>Сдал с трудом, 867 из 1000 при проходных 825.
-Экзамен очень мощный, сильно сложнее ICND1, на мой вкус.
-Надо было сдавать единый 200-120, было бы сильно проще.
-Еще больше уверился, что CCNA вполне подходит на роль
-критерия профпригодности для более-менее серьезной
-работы сисадмина.</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Сдал-экзамен-cisco-icnd2-он-же-200-101/">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -477,8 +483,7 @@ TDD-администрирования. Оказалось, что толком 
         </div>
     </li>
     </ul>
-</section>
-            </aside>
+</section>            </aside>
         </div>
     </div>
 </div>
@@ -486,12 +491,12 @@ TDD-администрирования. Оказалось, что толком 
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2016 Alexander Bulimov
+         <div class="col-xs-10">&copy; 2017 Alexander Bulimov
             &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content
-  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
 </small></p>
          </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
