@@ -72,6 +72,45 @@ Alexander Bulimov - production engineer's notes.            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="http://bulimov.ru/it/collectd-riakcs/">Плагин к Collectd для сбора метрик Riak CS</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2015-09-17T00:00:00+03:00"> Thu 17 September 2015</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="http://bulimov.ru/category/it.html">IT</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/python.html">Python</a>
+        /
+	<a href="http://bulimov.ru/tag/riak-cs.html">Riak CS</a>
+        /
+	<a href="http://bulimov.ru/tag/collectd.html">Collectd</a>
+        /
+	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
+        /
+	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>На днях наконец-то дошли руки до модернизации той части мониторинга, которая
+отвечает за сбор метрик, и набивший оскомину <a href="http://munin-monitoring.org">Munin</a> был
+окончательно заменен на <a href="https://graphite.readthedocs.org/en/latest/">Graphite</a> + <a href="http://collectd.org">Collectd</a>.
+Теперь воцарилась идиллия - Icinga2 складывает метрики из perfdata в Graphite,
+и Collectd отправляет все метрики туда же.</p>
+<p>Хочется отдельно отметить, что несмотря на то, что изначально Collectd мне
+не очень понравился (кому может сейчас понравиться Apache-подобный конфиг?), при
+дальнейшем изучении я был приятно поражен богатством …</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/collectd-riakcs/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://bulimov.ru/it/elk-production/">Использование ELK в продакшне</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -394,44 +433,6 @@ Postgresql, Redis, Thrift-RPC), получает нужные данные, и �
 неизмеримо мало CPU), обладает простым API для доступа к собираемой им
 информации, имеет …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/check-cadvisor/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/check-docker-memory/">Научился мониторить использование памяти в Docker-контейнерах</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-02-13T00:00:00+03:00"> Fri 13 February 2015</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="http://bulimov.ru/category/it.html">IT</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/python.html">Python</a>
-        /
-	<a href="http://bulimov.ru/tag/nagios.html">Nagios</a>
-        /
-	<a href="http://bulimov.ru/tag/icinga2.html">Icinga2</a>
-        /
-	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Я сегодня занимался мониторингом, а конкретно нашими докер-контейнерами.</p>
-<p><em>Лирическое отступление:
-Для мониторинга я теперь (уже на другом месте работы) использую
-наследника Nagios - <a href="https://www.icinga.org/icinga/icinga-2/">Icinga2</a>.
-Пока все нравится, ребята очень круто переписали Nagios, реализовали гораздо
-более вменяемый формат конфигурации, и кучу новых возможностей.</em></p>
-<p>Используя Docker для автотестов я уже ловил проблемы, когда интерпретатор Ruby
-кушал всю выделенную память в контейнере и тихо умирал от рук OOM Killer.</p>
-<p>Поскольку теперь я использую <a href="http://docker.io">Docker …</a></p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/check-docker-memory/">more ...</a>
                 </div>
             </article>
             <hr/>

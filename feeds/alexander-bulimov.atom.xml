@@ -1,5 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexander Bulimov - production engineer's notes. - Alexander Bulimov</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/alexander-bulimov.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2017-05-27T00:00:00+03:00</updated><entry><title>Вопросы от Дениса</title><link href="http://bulimov.ru/it/user-questions/" rel="alternate"></link><published>2017-05-27T00:00:00+03:00</published><updated>2017-05-27T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2017-05-27:/it/user-questions/</id><summary type="html">&lt;p&gt;Пришло письмо от читателя по имени Денис по форме обратной связи.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexander Bulimov - production engineer's notes. - Alexander Bulimov</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/alexander-bulimov.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2017-06-01T00:00:00+03:00</updated><entry><title>What I read on the internet (2017 edition)</title><link href="http://bulimov.ru/personal/what-i-read-2017/" rel="alternate"></link><published>2017-06-01T00:00:00+03:00</published><updated>2017-06-01T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2017-06-01:/personal/what-i-read-2017/</id><summary type="html">&lt;p&gt;About a year ago I was asked in comments what do I read on the internet.
+Back then, the list consisted from blogs of open-source products I've been using (like Atom, Elasticsearch, Icinga, Grafana), some personal blogs (Lennart Poettering, Aphyr, Julia Evans), some company blogs (Github Engineering) and basic tech press (Ars Techica, The Verge, Phoronix, LWN). And two mail lists - Devops Weekly and Golang Weekly.&lt;/p&gt;
+&lt;p&gt;Now I've been asked …&lt;/p&gt;</summary><content type="html">&lt;p&gt;About a year ago I was asked in comments what do I read on the internet.
+Back then, the list consisted from blogs of open-source products I've been using (like Atom, Elasticsearch, Icinga, Grafana), some personal blogs (Lennart Poettering, Aphyr, Julia Evans), some company blogs (Github Engineering) and basic tech press (Ars Techica, The Verge, Phoronix, LWN). And two mail lists - Devops Weekly and Golang Weekly.&lt;/p&gt;
+&lt;p&gt;Now I've been asked if something have changed.&lt;/p&gt;
+&lt;p&gt;Well, it did - I've almost stopped reading blogs of products I've been using,
+because since I'm working in a Big IT Company™ now we tend to use in-house solutions, which means I don't care that much about Icinga, Grafana and so on. I still try to keep up with their progress, but maybe once per month or two. The only blog that I'm keeping eye on is &lt;a href="http://blog.atom.io/"&gt;Atom blog&lt;/a&gt; since I'm using Atom both at home and at work.&lt;/p&gt;
+&lt;p&gt;Also list of personal blogs I'm reading grown up significantly,
+now it's huge:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="antirez.com"&gt;Antirez&lt;/a&gt; - blog by &lt;a href="redis.io"&gt;Redis&lt;/a&gt; author&lt;/li&gt;
+&lt;li&gt;&lt;a href="aphyr.com"&gt;Aphyr&lt;/a&gt; - long in-depth posts about distributed software testing.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://utcc.utoronto.ca/~cks/space/blog/"&gt;Chris's Wiki&lt;/a&gt; - nice blog by Chris Siebenmann about various tech/admin stuff, updated very frequently.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://blog.codinghorror.com/"&gt;Coding Horror&lt;/a&gt; - mostly tech rants by Jeff Atwood&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://danluu.com"&gt;Dan Luu&lt;/a&gt; - mostly philosophical thought on IT&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://dave.cheney.net"&gt;Dave Cheney&lt;/a&gt; - mostly about &lt;a href="golang.org"&gt;Go language&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://deliberate-software.com/"&gt;Deliberate software&lt;/a&gt; - witty blog about programming. &lt;a href="http://deliberate-software.com/haskell-is-the-dark-souls-of-programming/"&gt;Haskell is the Dark Souls of Programming&lt;/a&gt; is a must-read.&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://duartes.org/gustavo/blog/"&gt;Gustavo Duarte&lt;/a&gt; - some in-depth programming articles, not updated anymore.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://henrikwarne.com/"&gt;Henrik Warne&lt;/a&gt; - mostly thoughts about being a programmer&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://jvns.ca/"&gt;Julia Evans&lt;/a&gt; - one of my favorite blogs, always positive, always discovering something new.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://idea.popcount.org/"&gt;Marek's idea of the day&lt;/a&gt; - some crazy low-level stuff&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://mjg59.dreamwidth.org/"&gt;Matthew Garrett&lt;/a&gt; - IoT and security&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://0pointer.de/blog"&gt;Pid Eins&lt;/a&gt; - Lennart Poettering's blog&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://brennan.io/blog/"&gt;Stephen Brennan&lt;/a&gt; - random programming stuff&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://steve-yegge.blogspot.com"&gt;Steve Yegge&lt;/a&gt; - mostly tech rants&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://shkspr.mobi/blog/"&gt;Terence Eden&lt;/a&gt; - IoT and various tech stuff&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://rachelbythebay.com/w/"&gt;Rachel by the bay&lt;/a&gt; - Another top quality in-depth tech blog&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://blog.not-a-kernel-guy.com/"&gt;Not a kernel guy&lt;/a&gt; - Alex Pakhunov'blog (in Russian) about Space X (he works there) and tech-related stuff.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I'm still on &lt;em&gt;Devops Weekly&lt;/em&gt; and &lt;em&gt;Golang Weekly&lt;/em&gt; mailing lists,
+but tend to read they emails in batches once per month.&lt;/p&gt;
+&lt;p&gt;I still read Ars Technica, The Verge, Phoronix and LWN.
+List of company blogs grown up a bit and now consist of:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://tech.dropbox.com"&gt;Dropbox tech blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://code.facebook.com/"&gt;Facebook Code&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://githubengineering.com/"&gt;Github Engineering&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I'm using &lt;a href="https://feedly.com/"&gt;Feedly&lt;/a&gt; and &lt;a href="getpocket.com"&gt;Pocket&lt;/a&gt; to keep up with this amount of information.
+I'm saving all interesting posts and articles to Pocket and then
+try to read them when I have some free time.&lt;/p&gt;</content><category term="Blogs"></category></entry><entry><title>Вопросы от Дениса</title><link href="http://bulimov.ru/it/user-questions/" rel="alternate"></link><published>2017-05-27T00:00:00+03:00</published><updated>2017-05-27T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2017-05-27:/it/user-questions/</id><summary type="html">&lt;p&gt;Пришло письмо от читателя по имени Денис по форме обратной связи.
 Поскольку никаких данных для связи с ним Денис не оставил, отвечу здесь.&lt;/p&gt;
 &lt;p&gt;Привожу письмо полностью (надеюсь, автор не против):&lt;/p&gt;
 &lt;blockquote&gt;

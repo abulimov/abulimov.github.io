@@ -72,6 +72,44 @@ Alexander Bulimov - production engineer's notes.            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="http://bulimov.ru/it/check-docker-memory/">Научился мониторить использование памяти в Docker-контейнерах</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2015-02-13T00:00:00+03:00"> Fri 13 February 2015</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="http://bulimov.ru/category/it.html">IT</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/python.html">Python</a>
+        /
+	<a href="http://bulimov.ru/tag/nagios.html">Nagios</a>
+        /
+	<a href="http://bulimov.ru/tag/icinga2.html">Icinga2</a>
+        /
+	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Я сегодня занимался мониторингом, а конкретно нашими докер-контейнерами.</p>
+<p><em>Лирическое отступление:
+Для мониторинга я теперь (уже на другом месте работы) использую
+наследника Nagios - <a href="https://www.icinga.org/icinga/icinga-2/">Icinga2</a>.
+Пока все нравится, ребята очень круто переписали Nagios, реализовали гораздо
+более вменяемый формат конфигурации, и кучу новых возможностей.</em></p>
+<p>Используя Docker для автотестов я уже ловил проблемы, когда интерпретатор Ruby
+кушал всю выделенную память в контейнере и тихо умирал от рук OOM Killer.</p>
+<p>Поскольку теперь я использую <a href="http://docker.io">Docker …</a></p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/check-docker-memory/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://bulimov.ru/it/lyricstagger/">Lyrics Tagger</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -396,41 +434,6 @@ HP SmartArray для использования в Sensu. Ну а раз все 
 модулей для взаимодействия с Zabbix из Ansible.
 Это отложило принятие моего модуля в …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/ansible-и-serverspec/">Ansible и serverspec</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-05-22T00:00:00+04:00"> Thu 22 May 2014</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="http://bulimov.ru/category/it.html">IT</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/ansible.html">Ansible</a>
-        /
-	<a href="http://bulimov.ru/tag/serverspec.html">serverspec</a>
-        /
-	<a href="http://bulimov.ru/tag/mnenie.html">Мнение</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Когда я готовил playbook для <a href="/it/Личный-vps">своего VPS</a>, я взял за основу
-<a href="https://github.com/al3x/sovereign">Sovereign</a>. В этом репозитории меня
-заинтересовал файл <strong>tests.py</strong>, содержащий тесты для результирующего сервера.
-У меня сразу же возник вопрос - почему тесты самописные, на голом Python, а
-не на каком-нибудь готовом решении. Я решил изучить, что же есть сейчас для
-TDD-администрирования. Оказалось, что толком ничего и нет, а то, что
-есть - для Ansible не особо нужно.</p>
-<p>Для начала, что …</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/ansible-и-serverspec/">more ...</a>
                 </div>
             </article>
             <hr/>
