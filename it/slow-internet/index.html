@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Authors - Alexander Bulimov - production engineer's notes.</title>
+    <title>Refreshing slow internet experience - Alexander Bulimov - production engineer's notes.</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,15 +9,21 @@
 
 
 
+<link rel="canonical" href="http://bulimov.ru/it/slow-internet/">
 
         <meta name="author" content="Alexander Bulimov" />
+        <meta name="keywords" content="Experience" />
+        <meta name="description" content="I&#39;ve just returned from a vacation, and I&#39;ve got quite refreshing experience of using slow internet there. The thing is, we, as engineers, are used to fast internet, fast development environment, powerful laptops/smartphones, etc. Unfortunately this is still not the case of a huge part of the world, and it&#39;s really important for us to try and walk in their shoes from time to time. And one of my …" />
 
-    <!-- Open Graph tags -->
         <meta property="og:site_name" content="Alexander Bulimov - production engineer's notes." />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="Alexander Bulimov - production engineer's notes."/>
-        <meta property="og:url" content="http://bulimov.ru"/>
-        <meta property="og:description" content="Alexander Bulimov - production engineer's notes."/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Refreshing slow internet experience"/>
+        <meta property="og:url" content="http://bulimov.ru/it/slow-internet/"/>
+        <meta property="og:description" content="I&#39;ve just returned from a vacation, and I&#39;ve got quite refreshing experience of using slow internet there. The thing is, we, as engineers, are used to fast internet, fast development environment, powerful laptops/smartphones, etc. Unfortunately this is still not the case of a huge part of the world, and it&#39;s really important for us to try and walk in their shoes from time to time. And one of my …"/>
+        <meta property="article:published_time" content="2017-07-23" />
+            <meta property="article:section" content="IT" />
+            <meta property="article:tag" content="Experience" />
+            <meta property="article:author" content="Alexander Bulimov" />
 
 
     <!-- Bootstrap -->
@@ -35,6 +41,8 @@
               title="Alexander Bulimov - production engineer's notes. RSS Feed"/>
 
 
+        <link href="http://bulimov.ru/feeds/it.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Alexander Bulimov - production engineer's notes. IT ATOM Feed"/>
 
 </head>
 <body>
@@ -71,8 +79,109 @@ Alexander Bulimov - production engineer's notes.            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-    <h1>Authors on Alexander Bulimov - production engineer's notes.</h1>
-        <li><a href="http://bulimov.ru/author/alexander-bulimov.html">Alexander Bulimov</a> (64)</li>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://bulimov.ru/it/slow-internet/"
+                       rel="bookmark"
+                       title="Permalink to Refreshing slow internet experience">
+                        Refreshing slow internet experience
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-07-23T00:00:00+03:00"> Sun 23 July 2017</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="http://bulimov.ru/category/it.html">IT</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/experience.html">Experience</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>I've just returned from a vacation, and I've got quite refreshing experience
+of using slow internet there.</p>
+<p>The thing is, we, as engineers, are used to fast internet, fast development environment, powerful laptops/smartphones, etc.</p>
+<p>Unfortunately this is still not the case of a huge part of the world,
+and it's really important for us to try and walk in their shoes
+from time to time. And one of my colleagues, being fed up with resource-wise inefficiency of modern software, suggested as a joke to use Raspberry Pi as a dev environment.</p>
+<p>So returning to my experience - I've been in the Southern Hemisphere,
+and tried to access some European and Russian sites. And it was a miserable experience.
+Slow and unreliable Wi-Fi + long round-trip made such sites almost unusable,
+while Google, Instagram and Facebook were working just fine because of their
+Points of Presence close to me.</p>
+<p>And in such environment Google's <a href="https://www.ampproject.org/">AMP</a> showed itself just perfectly. While being <a href="https://danielmiessler.com/blog/google-amp-not-good-thing">clearly bad from the 'open internet' point of view</a> (and I completely agree with it),
+from the 'normal user' point of view it is just what makes his/her favorite sites load fast on bad internet connection.</p>
+<p>Because Google caches AMP content and serves it from own servers,
+it makes it load from nearest Point of Presence,
+and as the content is stripped down to just text + images, it loads instantly, while same non-AMP page takes <strong>minutes</strong> to load.</p>
+<p>And this fact makes me think that while anyone can (and should) make their
+pages fast, responsive and light, it still won't be as good from user's
+perspective, just because it's not feasible for everyone to have caching
+POP's close to user.</p>
+<p>The page may be just as optimized and lightweight as AMP, but if it's served
+from some server that's far from user, Google+AMP will still provide better user
+experience, which basically equals being better for user.</p>
+<p>It's amusing how this Google's AMP solution reminds me of 90s
+with caching proxy servers (<a href="http://www.squid-cache.org/">Squid</a> anyone?) set up at every ISP.</p>
+<h3>P.S.</h3>
+<p>If you wonder what do people use to actually test their products
+on bad internet connection, there are some Open-Source tools to help to simulate whole range of shitty internet issues using <code>tc</code>.</p>
+<p>For example, on my previous job I've used a simple CLI tool called <a href="https://github.com/tylertreat/comcast">'comcast'</a> with great success
+to test how various SmartTVs behave when playing videos from the internet on a bad/slow connection. By the way, with properly encoded videos, they cope with this task really good.</p>
+<p>If you need something more advanced, Facebook Open-Sourced <a href="http://facebook.github.io/augmented-traffic-control/">Augmented Traffic Control</a>, which has a nice Web-UI and Thrift API.</p>
+            </div>
+            <!-- /.entry-content -->
+<section class="well" id="related-posts">
+    <h4>Related Posts:</h4>
+    <ul>
+        <li><a href="http://bulimov.ru/personal/how-i-became-a-programmer/">How I became a programmer</a></li>
+    </ul>
+</section>
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = 'slow-internet';
+                var disqus_url = 'http://bulimov.ru/it/slow-internet/';
+
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>

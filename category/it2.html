@@ -75,6 +75,41 @@ Alexander Bulimov - production engineer's notes.            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="http://bulimov.ru/it/delete-docker-registry-image/">О пользе Python и костылях с Docker</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-03-02T00:00:00+03:00"> Wed 02 March 2016</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="http://bulimov.ru/category/it.html">IT</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
+        /
+	<a href="http://bulimov.ru/tag/python.html">Python</a>
+        /
+	<a href="http://bulimov.ru/tag/docker.html">Docker</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>В процессе организации авто-очистки <a href="https://github.com/docker/distribution">Docker Registry 2</a>,
+устав ждать в появления в нем столь "ненужного" функционала, как удаление образов
+с диска (DELETE запросы удаляют тег, но сами данные остаются на диске и жрут место),
+я в очередной раз прибег к помощи скрипта из
+<a href="https://github.com/burnettk/delete-docker-registry-image">delete-docker-registry-image</a>,
+и уперся в то, что этот самый скрипт (написанный изначально на bash) невероятно
+медленно работает на большом Registry.</p>
+<p>К примеру, удаления одного тега для repository с …</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/delete-docker-registry-image/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://bulimov.ru/it/advent-of-code/">Рекомендую Advent Of Code</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -402,41 +437,6 @@ Elasticsearch версий 1.4 - 1.7 при нагрузке в …</em></p>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/coreos-opinion/">Впечатления от CoreOS</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2015-07-29T00:00:00+03:00"> Wed 29 July 2015</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="http://bulimov.ru/category/it.html">IT</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/coreos.html">CoreOS</a>
-        /
-	<a href="http://bulimov.ru/tag/mnenie.html">Мнение</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>На волне популярности контейнерной виртуализации <a href="http://docker.com">Docker</a>
-стали появляться специализированные дистрибутивы Linux, созданные специально
-для использования в роли базового хоста для Docker-контейнеров.</p>
-<p>Пионером среди них стал проект <a href="http://coreos.com">CoreOS</a>, затем появились
-<a href="http://www.projectatomic.io/">Project Atomic</a> от RedHat и
-<a href="https://developer.ubuntu.com/en/snappy/">Ubuntu Snappy</a> от Canonical.</p>
-<p>Чем они все отличаются от привычных дистрибутивов? Основным отличием является
-модель обновления дистрибутива. Все эти проекты предлагают атомарные обновления,
-подразумевающие сборку нового образа системы с последующей перезагрузкой в него.
-При этом образ …</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/coreos-opinion/">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://bulimov.ru/category/it.html">&laquo;</a>
@@ -453,6 +453,8 @@ Elasticsearch версий 1.4 - 1.7 при нагрузке в …</em></p>
                             href="http://bulimov.ru/category/it5.html">5</a></li>
                     <li class=""><a
                             href="http://bulimov.ru/category/it6.html">6</a></li>
+                    <li class=""><a
+                            href="http://bulimov.ru/category/it7.html">7</a></li>
                 <li class="next"><a
                         href="http://bulimov.ru/category/it3.html">&raquo;</a></li>
         </ul>

@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexander Bulimov - production engineer's notes.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/all.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2017-06-01T00:00:00+03:00</updated><entry><title>What I read on the internet (2017 edition)</title><link href="http://bulimov.ru/personal/what-i-read-2017/" rel="alternate"></link><published>2017-06-01T00:00:00+03:00</published><updated>2017-06-01T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2017-06-01:/personal/what-i-read-2017/</id><summary type="html">&lt;p&gt;About a year ago I was asked in comments what do I read on the internet.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexander Bulimov - production engineer's notes.</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/all.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2017-07-23T00:00:00+03:00</updated><entry><title>Refreshing slow internet experience</title><link href="http://bulimov.ru/it/slow-internet/" rel="alternate"></link><published>2017-07-23T00:00:00+03:00</published><updated>2017-07-23T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2017-07-23:/it/slow-internet/</id><summary type="html">&lt;p&gt;I've just returned from a vacation, and I've got quite refreshing experience
+of using slow internet there.&lt;/p&gt;
+&lt;p&gt;The thing is, we, as engineers, are used to fast internet, fast development environment, powerful laptops/smartphones, etc.&lt;/p&gt;
+&lt;p&gt;Unfortunately this is still not the case of a huge part of the world,
+and it's really important for us to try and walk in their shoes
+from time to time. And one of my …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've just returned from a vacation, and I've got quite refreshing experience
+of using slow internet there.&lt;/p&gt;
+&lt;p&gt;The thing is, we, as engineers, are used to fast internet, fast development environment, powerful laptops/smartphones, etc.&lt;/p&gt;
+&lt;p&gt;Unfortunately this is still not the case of a huge part of the world,
+and it's really important for us to try and walk in their shoes
+from time to time. And one of my colleagues, being fed up with resource-wise inefficiency of modern software, suggested as a joke to use Raspberry Pi as a dev environment.&lt;/p&gt;
+&lt;p&gt;So returning to my experience - I've been in the Southern Hemisphere,
+and tried to access some European and Russian sites. And it was a miserable experience.
+Slow and unreliable Wi-Fi + long round-trip made such sites almost unusable,
+while Google, Instagram and Facebook were working just fine because of their
+Points of Presence close to me.&lt;/p&gt;
+&lt;p&gt;And in such environment Google's &lt;a href="https://www.ampproject.org/"&gt;AMP&lt;/a&gt; showed itself just perfectly. While being &lt;a href="https://danielmiessler.com/blog/google-amp-not-good-thing"&gt;clearly bad from the 'open internet' point of view&lt;/a&gt; (and I completely agree with it),
+from the 'normal user' point of view it is just what makes his/her favorite sites load fast on bad internet connection.&lt;/p&gt;
+&lt;p&gt;Because Google caches AMP content and serves it from own servers,
+it makes it load from nearest Point of Presence,
+and as the content is stripped down to just text + images, it loads instantly, while same non-AMP page takes &lt;strong&gt;minutes&lt;/strong&gt; to load.&lt;/p&gt;
+&lt;p&gt;And this fact makes me think that while anyone can (and should) make their
+pages fast, responsive and light, it still won't be as good from user's
+perspective, just because it's not feasible for everyone to have caching
+POP's close to user.&lt;/p&gt;
+&lt;p&gt;The page may be just as optimized and lightweight as AMP, but if it's served
+from some server that's far from user, Google+AMP will still provide better user
+experience, which basically equals being better for user.&lt;/p&gt;
+&lt;p&gt;It's amusing how this Google's AMP solution reminds me of 90s
+with caching proxy servers (&lt;a href="http://www.squid-cache.org/"&gt;Squid&lt;/a&gt; anyone?) set up at every ISP.&lt;/p&gt;
+&lt;h3&gt;P.S.&lt;/h3&gt;
+&lt;p&gt;If you wonder what do people use to actually test their products
+on bad internet connection, there are some Open-Source tools to help to simulate whole range of shitty internet issues using &lt;code&gt;tc&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;For example, on my previous job I've used a simple CLI tool called &lt;a href="https://github.com/tylertreat/comcast"&gt;'comcast'&lt;/a&gt; with great success
+to test how various SmartTVs behave when playing videos from the internet on a bad/slow connection. By the way, with properly encoded videos, they cope with this task really good.&lt;/p&gt;
+&lt;p&gt;If you need something more advanced, Facebook Open-Sourced &lt;a href="http://facebook.github.io/augmented-traffic-control/"&gt;Augmented Traffic Control&lt;/a&gt;, which has a nice Web-UI and Thrift API.&lt;/p&gt;</content><category term="Experience"></category></entry><entry><title>What I read on the internet (2017 edition)</title><link href="http://bulimov.ru/personal/what-i-read-2017/" rel="alternate"></link><published>2017-06-01T00:00:00+03:00</published><updated>2017-06-01T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2017-06-01:/personal/what-i-read-2017/</id><summary type="html">&lt;p&gt;About a year ago I was asked in comments what do I read on the internet.
 Back then, the list consisted from blogs of open-source products I've been using (like Atom, Elasticsearch, Icinga, Grafana), some personal blogs (Lennart Poettering, Aphyr, Julia Evans), some company blogs (Github Engineering) and basic tech press (Ars Techica, The Verge, Phoronix, LWN). And two mail lists - Devops Weekly and Golang Weekly.&lt;/p&gt;
 &lt;p&gt;Now I've been asked …&lt;/p&gt;</summary><content type="html">&lt;p&gt;About a year ago I was asked in comments what do I read on the internet.
 Back then, the list consisted from blogs of open-source products I've been using (like Atom, Elasticsearch, Icinga, Grafana), some personal blogs (Lennart Poettering, Aphyr, Julia Evans), some company blogs (Github Engineering) and basic tech press (Ars Techica, The Verge, Phoronix, LWN). And two mail lists - Devops Weekly and Golang Weekly.&lt;/p&gt;

@@ -72,6 +72,43 @@ Alexander Bulimov - production engineer's notes.            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2014-08-11T00:00:00+04:00"> Mon 11 August 2014</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="http://bulimov.ru/category/it.html">IT</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/ansible.html">Ansible</a>
+        /
+	<a href="http://bulimov.ru/tag/python.html">Python</a>
+        /
+	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Свершилось чудо, и мой <a href="https://github.com/ansible/ansible/blob/devel/library/monitoring/zabbix_maintenance">модуль</a>
+для Ansible, который умеет создавать и удалять периоды "в обслуживании" в Zabbix,
+наконец-то <a href="https://github.com/ansible/ansible/pull/5062">приняли</a> в апстрим.
+Это уже третий мой модуль, принятый в апстрим Ansible.</p>
+<p>Краткая история:</p>
+<p>Модуль этот я запушил еще в 26 ноября 2013 года, но 21 декабря
+<a href="https://github.com/cove">cove</a> написал в комментарии к моему модулю,
+что планирует выложить целую <a href="https://github.com/ansible/ansible/pull/6034">пачку</a>
+модулей для взаимодействия с Zabbix из Ansible.
+Это отложило принятие моего модуля в …</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://bulimov.ru/it/ansible-и-serverspec/">Ansible и serverspec</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -367,43 +404,6 @@ TDD-администрирования. Оказалось, что толком 
 <p>Решать я эту задачу стал с помощью Nginx, и почти сразу был
 слеплен вариант тупой …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Расширяем-возможности-nginx-с-помощью-lua/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/auto-backup-конфигов-активки-через-rancid/">Auto-backup конфигов активки через Rancid</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-11-01T00:00:00+04:00"> Fri 01 November 2013</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="http://bulimov.ru/category/it.html">IT</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/rancid.html">Rancid</a>
-        /
-	<a href="http://bulimov.ru/tag/cisco.html">Cisco</a>
-        /
-	<a href="http://bulimov.ru/tag/juniper.html">Juniper</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>На днях помогал коллеге с настройкой автоматического бекапа
-для конфигураций нашей активки (Cisco, Juniper), и нашел
-весьма интересное решение (похоже, вообще единственное) -
-<a href="http://www.shrubbery.net/rancid/">rancid</a>.</p>
-<p>Точнее, его форк <a href="https://github.com/dotwaffle/rancid-git">rancid-git</a>,
-поскольку использую везде и всюду git, и ради бекапов городить CVS или
-Subversion было бы неудобно.</p>
-<p>Конечно, rancid этот - весьма оригинальный пример того, как с помощью
-expect и bash-скриптов соорудить исправно работающее решение, отлично выполняющее
-свою задачу. Если вкратце - оно по крону ходит …</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/auto-backup-конфигов-активки-через-rancid/">more ...</a>
                 </div>
             </article>
             <hr/>

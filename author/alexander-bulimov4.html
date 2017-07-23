@@ -72,6 +72,46 @@ Alexander Bulimov - production engineer's notes.            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="http://bulimov.ru/it/check-cadvisor/">Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2015-02-20T00:00:00+03:00"> Fri 20 February 2015</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="http://bulimov.ru/category/it.html">IT</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/python.html">Python</a>
+        /
+	<a href="http://bulimov.ru/tag/nagios.html">Nagios</a>
+        /
+	<a href="http://bulimov.ru/tag/icinga2.html">Icinga2</a>
+        /
+	<a href="http://bulimov.ru/tag/cadvisor.html">cAdvisor</a>
+        /
+	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>После того, как я <a href="/it/check-docker-memory">научился мониторить память в Docker-контейнерах</a>,
+я решил мониторить еще и нагрузку на CPU.
+Поскольку это дело не самое тривиальное, и хотелось не писать свой
+велосипед, а пользоваться чем-то популярным и поддерживаемым, я решил
+попробовать <a href="https://github.com/google/cadvisor">cAdvisor</a>.</p>
+<p>И вот что я могу сказать - отличный инструмент!
+Ресурсов практически не потребляет (около 20 Мб оперативной памяти и
+неизмеримо мало CPU), обладает простым API для доступа к собираемой им
+информации, имеет …</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/check-cadvisor/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://bulimov.ru/it/check-docker-memory/">Научился мониторить использование памяти в Docker-контейнерах</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -397,43 +437,6 @@ HP SmartArray для использования в Sensu. Ну а раз все 
 <p>Если кому надо - все уже отдано сообществу, теперь Sensu может мониторить
 состояние …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Переписал-скрипты-на-ruby-для-sensu/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-08-11T00:00:00+04:00"> Mon 11 August 2014</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="http://bulimov.ru/category/it.html">IT</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/ansible.html">Ansible</a>
-        /
-	<a href="http://bulimov.ru/tag/python.html">Python</a>
-        /
-	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Свершилось чудо, и мой <a href="https://github.com/ansible/ansible/blob/devel/library/monitoring/zabbix_maintenance">модуль</a>
-для Ansible, который умеет создавать и удалять периоды "в обслуживании" в Zabbix,
-наконец-то <a href="https://github.com/ansible/ansible/pull/5062">приняли</a> в апстрим.
-Это уже третий мой модуль, принятый в апстрим Ansible.</p>
-<p>Краткая история:</p>
-<p>Модуль этот я запушил еще в 26 ноября 2013 года, но 21 декабря
-<a href="https://github.com/cove">cove</a> написал в комментарии к моему модулю,
-что планирует выложить целую <a href="https://github.com/ansible/ansible/pull/6034">пачку</a>
-модулей для взаимодействия с Zabbix из Ansible.
-Это отложило принятие моего модуля в …</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">more ...</a>
                 </div>
             </article>
             <hr/>
