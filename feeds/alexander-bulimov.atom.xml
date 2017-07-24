@@ -1,5 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexander Bulimov - production engineer's notes. - Alexander Bulimov</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/alexander-bulimov.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2017-07-23T00:00:00+03:00</updated><entry><title>Refreshing slow internet experience</title><link href="http://bulimov.ru/it/slow-internet/" rel="alternate"></link><published>2017-07-23T00:00:00+03:00</published><updated>2017-07-23T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2017-07-23:/it/slow-internet/</id><summary type="html">&lt;p&gt;I've just returned from a vacation, and I've got quite refreshing experience
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexander Bulimov - production engineer's notes. - Alexander Bulimov</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/alexander-bulimov.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2017-07-24T00:00:00+03:00</updated><entry><title>Python 3.6 f-strings rant</title><link href="http://bulimov.ru/it/python3-fstrings/" rel="alternate"></link><published>2017-07-24T00:00:00+03:00</published><updated>2017-07-24T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2017-07-24:/it/python3-fstrings/</id><summary type="html">&lt;p&gt;Python 3.6 introduced a new way to format strings, called
+&lt;a href="https://docs.python.org/3.6/reference/lexical_analysis.html#f-strings"&gt;&lt;strong&gt;Formatted string literals&lt;/strong&gt;&lt;/a&gt;,
+or just &lt;em&gt;f-strings&lt;/em&gt;. Everyone on the internet
+seem to be happy about it. I'm definitely not.&lt;/p&gt;
+&lt;p&gt;For starters, Python 3 already had 3 built-in ways of doing it before.
+Just think about it... 3 ways to &lt;em&gt;format strings&lt;/em&gt; in language that declares simplicity as a goal:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;There should be one-- and preferably only one --obvious way …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">&lt;p&gt;Python 3.6 introduced a new way to format strings, called
+&lt;a href="https://docs.python.org/3.6/reference/lexical_analysis.html#f-strings"&gt;&lt;strong&gt;Formatted string literals&lt;/strong&gt;&lt;/a&gt;,
+or just &lt;em&gt;f-strings&lt;/em&gt;. Everyone on the internet
+seem to be happy about it. I'm definitely not.&lt;/p&gt;
+&lt;p&gt;For starters, Python 3 already had 3 built-in ways of doing it before.
+Just think about it... 3 ways to &lt;em&gt;format strings&lt;/em&gt; in language that declares simplicity as a goal:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;There should be one-- and preferably only one --obvious way to do it.
+- &lt;a href="https://www.python.org/doc/humor/#the-zen-of-python"&gt;The Zen of Python&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;These methods are:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Using &lt;code&gt;%&lt;/code&gt; (modulo) operator (old way, supported in logging module)&lt;/li&gt;
+&lt;li&gt;Using &lt;code&gt;.format()&lt;/code&gt; string method (relatively new way)&lt;/li&gt;
+&lt;li&gt;Using &lt;a href="https://docs.python.org/3/library/string.html#template-strings"&gt;&lt;em&gt;template strings&lt;/em&gt;&lt;/a&gt; (very old and quite slow way)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;And I'm not even talking about basic string concatenation.&lt;/p&gt;
+&lt;p&gt;And as this is clearly not enough for &lt;em&gt;simplicity&lt;/em&gt;, they've just added
+another method. It works almost like &lt;code&gt;.format()&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;bar&amp;quot;&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;f-strings allows me to use {foo.upper()} just like this&amp;quot;&lt;/span&gt;
+&lt;span class="s2"&gt;&amp;quot;f-strings allows me to use BAR just like this&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The idea is to directly use names from current scope for formatting.&lt;/p&gt;
+&lt;p&gt;So now we have 4 ways to format strings, all of which can be mixed up.
+I'm already sick of seeing all kind of mistakes like using &lt;code&gt;{}&lt;/code&gt; with
+modulo formatting, or &lt;code&gt;%s&lt;/code&gt; with &lt;code&gt;.format()&lt;/code&gt; formatting, mixing both methods
+in the same file. And as programmers do mostly &lt;strong&gt;read&lt;/strong&gt; the code, I do care
+about it's comprehensiveness and readability.&lt;/p&gt;
+&lt;p&gt;Another concern is tooling support. Python is already looking bad
+from this point of view, having just &lt;a href="https://www.pylint.org/"&gt;pylint&lt;/a&gt;
+as a standalone linter (sorry, but &lt;em&gt;pyflakes&lt;/em&gt; is a joke compared to it).
+&lt;a href="https://www.jetbrains.com/pycharm/"&gt;PyCharm&lt;/a&gt; is brilliant without any doubts,
+but it's not everyone cup of tea. And while even &lt;em&gt;pyflakes&lt;/em&gt; can handle
+checking for usage of uninitialized variable, doing the same with f-strings
+is more complicated, and is not supported for now AFAIK.&lt;/p&gt;
+&lt;p&gt;Returning to Python from Go land, all of this really bothers me.
+While Go devs are thinking about &lt;a href="https://dave.cheney.net/2017/06/15/simplicity-debt"&gt;Simplicity Debt&lt;/a&gt;,
+Python folks just keep adding features.&lt;/p&gt;
+&lt;p&gt;And while I'm quite &lt;a href="/it/python-typing/"&gt;happy with Python 3 Type Hints&lt;/a&gt;,
+because it actually helps to understand the code by clearly indicating
+argument types, I'm absolutely not happy with f-strings, especially seeing how
+they are already breaking linters and cutting off Python 2 compatibility at work.&lt;/p&gt;</content><category term="Python"></category><category term="Programming"></category><category term="Rant"></category><category term="Golang"></category></entry><entry><title>Refreshing slow internet experience</title><link href="http://bulimov.ru/it/slow-internet/" rel="alternate"></link><published>2017-07-23T00:00:00+03:00</published><updated>2017-07-23T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2017-07-23:/it/slow-internet/</id><summary type="html">&lt;p&gt;I've just returned from a vacation, and I've got quite refreshing experience
 of using slow internet there.&lt;/p&gt;
 &lt;p&gt;The thing is, we, as engineers, are used to fast internet, fast development environment, powerful laptops/smartphones, etc.&lt;/p&gt;
 &lt;p&gt;Unfortunately this is still not the case of a huge part of the world,

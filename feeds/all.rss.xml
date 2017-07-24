@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0"><channel><title>Alexander Bulimov - production engineer's notes.</title><link>http://bulimov.ru/</link><description></description><lastBuildDate>Sun, 23 Jul 2017 00:00:00 +0300</lastBuildDate><item><title>Refreshing slow internet experience</title><link>http://bulimov.ru/it/slow-internet/</link><description>&lt;p&gt;I've just returned from a vacation, and I've got quite refreshing experience
+<rss version="2.0"><channel><title>Alexander Bulimov - production engineer's notes.</title><link>http://bulimov.ru/</link><description></description><lastBuildDate>Mon, 24 Jul 2017 00:00:00 +0300</lastBuildDate><item><title>Python 3.6 f-strings rant</title><link>http://bulimov.ru/it/python3-fstrings/</link><description>&lt;p&gt;Python 3.6 introduced a new way to format strings, called
+&lt;a href="https://docs.python.org/3.6/reference/lexical_analysis.html#f-strings"&gt;&lt;strong&gt;Formatted string literals&lt;/strong&gt;&lt;/a&gt;,
+or just &lt;em&gt;f-strings&lt;/em&gt;. Everyone on the internet
+seem to be happy about it. I'm definitely not.&lt;/p&gt;
+&lt;p&gt;For starters, Python 3 already had 3 built-in ways of doing it before.
+Just think about it... 3 ways to &lt;em&gt;format strings&lt;/em&gt; in language that declares simplicity as a goal:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;There should be one-- and preferably only one --obvious way …&lt;/p&gt;&lt;/blockquote&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">Alexander Bulimov</dc:creator><pubDate>Mon, 24 Jul 2017 00:00:00 +0300</pubDate><guid isPermaLink="false">tag:bulimov.ru,2017-07-24:/it/python3-fstrings/</guid><category>Python</category><category>Programming</category><category>Rant</category><category>Golang</category></item><item><title>Refreshing slow internet experience</title><link>http://bulimov.ru/it/slow-internet/</link><description>&lt;p&gt;I've just returned from a vacation, and I've got quite refreshing experience
 of using slow internet there.&lt;/p&gt;
 &lt;p&gt;The thing is, we, as engineers, are used to fast internet, fast development environment, powerful laptops/smartphones, etc.&lt;/p&gt;
 &lt;p&gt;Unfortunately this is still not the case of a huge part of the world,

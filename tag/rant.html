@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Переписал скрипты на Ruby для Sensu - Alexander Bulimov - production engineer's notes.</title>
+    <title>Rant - Alexander Bulimov - production engineer's notes.</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,23 +9,16 @@
 
 
 
-<link rel="canonical" href="http://bulimov.ru/it/Переписал-скрипты-на-ruby-для-sensu/">
 
-        <meta name="author" content="Alexander Bulimov" />
-        <meta name="keywords" content="Ruby,Sensu,Monitoring" />
-        <meta name="description" content="Поскольку я перевел мониторинг с Zabbix на Sensu, пришлось переписать свои скрипты проверки состояния жестких дисков в raid-контроллерах от 3ware и HP SmartArray для использования в Sensu. Ну а раз все равно переписывать - то писать я решил на Ruby, чтобы можно было без проблем заслать в sensu-community-plugins Скрипты весьма просты, так что проблем при переписывании никаких не было. Если кому надо - все уже отдано сообществу, теперь Sensu может мониторить состояние …" />
+    <meta name="author" content="Alexander Bulimov" />
+    <meta name="keywords" content="Rant" />
 
+    <!-- Open Graph tags -->
         <meta property="og:site_name" content="Alexander Bulimov - production engineer's notes." />
-        <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Переписал скрипты на Ruby для Sensu"/>
-        <meta property="og:url" content="http://bulimov.ru/it/Переписал-скрипты-на-ruby-для-sensu/"/>
-        <meta property="og:description" content="Поскольку я перевел мониторинг с Zabbix на Sensu, пришлось переписать свои скрипты проверки состояния жестких дисков в raid-контроллерах от 3ware и HP SmartArray для использования в Sensu. Ну а раз все равно переписывать - то писать я решил на Ruby, чтобы можно было без проблем заслать в sensu-community-plugins Скрипты весьма просты, так что проблем при переписывании никаких не было. Если кому надо - все уже отдано сообществу, теперь Sensu может мониторить состояние …"/>
-        <meta property="article:published_time" content="2014-09-04" />
-            <meta property="article:section" content="IT" />
-            <meta property="article:tag" content="Ruby" />
-            <meta property="article:tag" content="Sensu" />
-            <meta property="article:tag" content="Monitoring" />
-            <meta property="article:author" content="Alexander Bulimov" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="Alexander Bulimov - production engineer's notes."/>
+        <meta property="og:url" content="http://bulimov.ru"/>
+        <meta property="og:description" content="Alexander Bulimov - production engineer's notes."/>
 
 
     <!-- Bootstrap -->
@@ -43,8 +36,6 @@
               title="Alexander Bulimov - production engineer's notes. RSS Feed"/>
 
 
-        <link href="http://bulimov.ru/feeds/it.atom.xml" type="application/atom+xml" rel="alternate"
-              title="Alexander Bulimov - production engineer's notes. IT ATOM Feed"/>
 
 </head>
 <body>
@@ -81,24 +72,13 @@ Alexander Bulimov - production engineer's notes.            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-    <section id="content">
-        <article>
-            <header class="page-header">
-                <h1>
-                    <a href="http://bulimov.ru/it/Переписал-скрипты-на-ruby-для-sensu/"
-                       rel="bookmark"
-                       title="Permalink to Переписал скрипты на Ruby для Sensu">
-                        Переписал скрипты на Ruby для Sensu
-                    </a>
-                </h1>
-            </header>
-            <div class="entry-content">
-                <div class="panel">
-                    <div class="panel-body">
+            <article>
+                <h2><a href="http://bulimov.ru/it/python3-fstrings/">Python 3.6 f-strings rant</a></h2>
+                    <div class="well well-sm">
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-09-04T00:00:00+04:00"> Thu 04 September 2014</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-07-24T00:00:00+03:00"> Mon 24 July 2017</time>
     </span>
 
 
@@ -108,68 +88,27 @@ Alexander Bulimov - production engineer's notes.            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/ruby.html">Ruby</a>
+	<a href="http://bulimov.ru/tag/python.html">Python</a>
         /
-	<a href="http://bulimov.ru/tag/sensu.html">Sensu</a>
+	<a href="http://bulimov.ru/tag/programming.html">Programming</a>
         /
-	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
+	<a href="http://bulimov.ru/tag/rant.html">Rant</a>
+        /
+	<a href="http://bulimov.ru/tag/golang.html">Golang</a>
     
 </footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Python 3.6 introduced a new way to format strings, called
+<a href="https://docs.python.org/3.6/reference/lexical_analysis.html#f-strings"><strong>Formatted string literals</strong></a>,
+or just <em>f-strings</em>. Everyone on the internet
+seem to be happy about it. I'm definitely not.</p>
+<p>For starters, Python 3 already had 3 built-in ways of doing it before.
+Just think about it... 3 ways to <em>format strings</em> in language that declares simplicity as a goal:</p>
+<blockquote>
+<p>There should be one-- and preferably only one --obvious way …</p></blockquote>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/python3-fstrings/">more ...</a>
                 </div>
-                <p>Поскольку я перевел мониторинг с Zabbix на Sensu, пришлось переписать
-свои <a href="/it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware">скрипты</a> проверки состояния жестких дисков в raid-контроллерах от 3ware и
-HP SmartArray для использования в Sensu. Ну а раз все равно переписывать - то
-писать я решил на Ruby, чтобы можно было без проблем
-заслать в <a href="https://github.com/sensu/sensu-community-plugins">sensu-community-plugins</a></p>
-<p>Скрипты весьма просты, так что проблем при переписывании никаких не было.</p>
-<p>Если кому надо - все уже отдано сообществу, теперь Sensu может мониторить
-состояние дисков <a href="https://github.com/sensu/sensu-community-plugins/blob/master/plugins/raid/check-3ware-status.rb">в контроллерах от 3ware</a>
-и <a href="https://github.com/sensu/sensu-community-plugins/blob/master/plugins/raid/check-smartarray-status.rb">HP SmartArray</a>.</p>
-<p>Ну и на закуску - мониторим <a href="https://github.com/sensu/sensu-community-plugins/blob/master/plugins/riak/check-riak-ringready.rb">статус Riak Ring</a>.</p>
-            </div>
-            <!-- /.entry-content -->
-<section class="well" id="related-posts">
-    <h4>Related Posts:</h4>
-    <ul>
-        <li><a href="http://bulimov.ru/it/ansible-sensu/">Удобная настройка Sensu с Ansible</a></li>
-        <li><a href="http://bulimov.ru/it/monitoring-sucks/">Monitoring sucks!</a></li>
-        <li><a href="http://bulimov.ru/it/graphite-experience/">Заметка о Graphite</a></li>
-        <li><a href="http://bulimov.ru/it/logstash-graphite/">Logstash и Graphite</a></li>
-        <li><a href="http://bulimov.ru/it/check-docker-memory/">Научился мониторить использование памяти в Docker-контейнерах</a></li>
-    </ul>
-</section>
-    <hr/>
-    <section class="comments" id="comments">
-        <h2>Comments</h2>
-
-        <div id="disqus_thread"></div>
-        <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-            var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
-
-                    var disqus_identifier = 'Переписал-скрипты-на-ruby-для-sensu';
-                var disqus_url = 'http://bulimov.ru/it/Переписал-скрипты-на-ruby-для-sensu/';
-
-            var disqus_config = function () {
-                this.language = "en";
-            };
-
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function () {
-                var dsq = document.createElement('script');
-                dsq.type = 'text/javascript';
-                dsq.async = true;
-                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
-            Disqus.</a></noscript>
-        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-    </section>
-        </article>
-    </section>
+            </article>
+            <hr/>
 
         </div>
         <div class="col-sm-3" id="sidebar">

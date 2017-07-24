@@ -75,6 +75,43 @@ Alexander Bulimov - production engineer's notes.            </a>
     <div class="row">
         <div class="col-sm-9">
             <article>
+                <h2><a href="http://bulimov.ru/it/python3-fstrings/">Python 3.6 f-strings rant</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-07-24T00:00:00+03:00"> Mon 24 July 2017</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="http://bulimov.ru/category/it.html">IT</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/python.html">Python</a>
+        /
+	<a href="http://bulimov.ru/tag/programming.html">Programming</a>
+        /
+	<a href="http://bulimov.ru/tag/rant.html">Rant</a>
+        /
+	<a href="http://bulimov.ru/tag/golang.html">Golang</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Python 3.6 introduced a new way to format strings, called
+<a href="https://docs.python.org/3.6/reference/lexical_analysis.html#f-strings"><strong>Formatted string literals</strong></a>,
+or just <em>f-strings</em>. Everyone on the internet
+seem to be happy about it. I'm definitely not.</p>
+<p>For starters, Python 3 already had 3 built-in ways of doing it before.
+Just think about it... 3 ways to <em>format strings</em> in language that declares simplicity as a goal:</p>
+<blockquote>
+<p>There should be one-- and preferably only one --obvious way …</p></blockquote>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/python3-fstrings/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://bulimov.ru/it/slow-internet/">Refreshing slow internet experience</a></h2>
                     <div class="well well-sm">
 <footer class="post-info">
@@ -379,43 +416,6 @@ HAProxy, ответвившихся когда-то от общего предк
 инструментов (например <a href="https://github.com/OpenSCAP/container-compliance">oscap-docker</a>,
 с которым я помучался и забил), но ничего подходящего …</p>
                     <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/clair/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/db-checker/">Открыл код db-checker</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-03-18T00:00:00+03:00"> Fri 18 March 2016</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="http://bulimov.ru/category/it.html">IT</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
-        /
-	<a href="http://bulimov.ru/tag/golang.html">Golang</a>
-        /
-	<a href="http://bulimov.ru/tag/nagios.html">Nagios</a>
-        /
-	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Недавно я открыл код еще одного инструмента, который уже около года использую на работе -
-<a href="https://github.com/abulimov/db-checker">db-checker</a>.</p>
-<p>Началось все с необходимости проводить регулярные проверки логической
-целостности данных в БД. Проще говоря - гонять мониторингом запросы к базе.</p>
-<p>Сначала это была часть проекта, который проверял данные на нашем CDN.
-Проект этот сразу планировался многопоточным, поэтому написан на <a href="http://golang.org">Go</a>.
-Затем мухи были отделены от котлет, и проверка базы выделилась в отдельную
-сущность, но несколько legacy-моментов …</p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/db-checker/">more ...</a>
                 </div>
             </article>
             <hr/>
