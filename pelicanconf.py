@@ -34,6 +34,7 @@ ARCHIVES_URL = 'archive/'
 MENUITEMS = [
     ("Tags", "/tags/index.html"),
     ("Categories", "/categories/index.html"),
+    ("My Scale Models Gallery", "//models.bulimov.ru"),
 ]
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
