@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexander Bulimov - production engineer's notes. - Alexander Bulimov</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/alexander-bulimov.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2017-07-24T00:00:00+03:00</updated><entry><title>Python 3.6 f-strings rant</title><link href="http://bulimov.ru/it/python3-fstrings/" rel="alternate"></link><published>2017-07-24T00:00:00+03:00</published><updated>2017-07-24T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2017-07-24:/it/python3-fstrings/</id><summary type="html">&lt;p&gt;Python 3.6 introduced a new way to format strings, called
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Alexander Bulimov - production engineer's notes. - Alexander Bulimov</title><link href="http://bulimov.ru/" rel="alternate"></link><link href="http://bulimov.ru/feeds/alexander-bulimov.atom.xml" rel="self"></link><id>http://bulimov.ru/</id><updated>2018-02-01T00:00:00+03:00</updated><entry><title>My new Scale Models gallery</title><link href="http://bulimov.ru/personal/models-gallery/" rel="alternate"></link><published>2018-02-01T00:00:00+03:00</published><updated>2018-02-01T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2018-02-01:/personal/models-gallery/</id><summary type="html">&lt;p&gt;I've just published my new site - personal &lt;a href="//models.bulimov.ru"&gt;Scale Models Gallery&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Model_building"&gt;Model making&lt;/a&gt; is my main and favorite hobby, so I've decided to build a whole new site just to write about it.&lt;/p&gt;
+&lt;p&gt;I just love doing something without the computer, it's an awesome way to de-stress and detox.&lt;/p&gt;
+&lt;p&gt;Also I love to make notes about things I do, read, watch or play. And one day I've just realized that I …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've just published my new site - personal &lt;a href="//models.bulimov.ru"&gt;Scale Models Gallery&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/Model_building"&gt;Model making&lt;/a&gt; is my main and favorite hobby, so I've decided to build a whole new site just to write about it.&lt;/p&gt;
+&lt;p&gt;I just love doing something without the computer, it's an awesome way to de-stress and detox.&lt;/p&gt;
+&lt;p&gt;Also I love to make notes about things I do, read, watch or play. And one day I've just realized that I want to turn
+my notes about making scale models with all this &lt;em&gt;wip&lt;/em&gt; photos and comments about quality or tools into something bigger.&lt;/p&gt;
+&lt;p&gt;I've already had great experience with static site generators, so it was just a matter of choosing one.&lt;/p&gt;
+&lt;p&gt;For reason of being fed up with python at work, and also because I love Go language, I chose &lt;a href="http://gohugo.io"&gt;Hugo&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;It's much easier to set up, it's much faster than &lt;a href="http://getpelican.com"&gt;Pelican&lt;/a&gt; I'm still using for this blog,
+and it seems to be more flexible.&lt;/p&gt;
+&lt;p&gt;Once I chose the generator and a &lt;a href="https://github.com/eueung/hugo-casper-two"&gt;theme&lt;/a&gt;, which is a port of
+&lt;em&gt;Casper&lt;/em&gt; theme from &lt;strong&gt;Ghost&lt;/strong&gt; blogging platform, I just had to convert my Evernote notes into a proper site, which I did in a couple of evenings.&lt;/p&gt;
+&lt;p&gt;I'm pretty happy with the result so far, &lt;a href="//models.bulimov.ru"&gt;models.bulimov.ru&lt;/a&gt; looks nice both on desktop and mobile, and does basically
+everything I wanted from it, which is just picture-heavy posts and aggregation by tags per scale and make.&lt;/p&gt;
+&lt;p&gt;I still have to add Google Analytics and Discuss to it, but even now my ego is pretty much satisfied.&lt;/p&gt;</content><category term="Golang"></category><category term="Hugo"></category></entry><entry><title>Benefits of upgradable laptops</title><link href="http://bulimov.ru/personal/laptop-upgrade/" rel="alternate"></link><published>2018-01-31T00:00:00+03:00</published><updated>2018-01-31T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2018-01-31:/personal/laptop-upgrade/</id><summary type="html">&lt;p&gt;I've been concerned by a low amount of memory in my &lt;strong&gt;Asus UX310U&lt;/strong&gt; laptop for quite a long time,
+but as I used it quite lightly at home, it never became a problem. It has perfectly capable Intel i3-6100U CPU,
+nice FullHD screen, 5h+ of battery life, so it made no sense to change the laptop just because of RAM.&lt;/p&gt;
+&lt;p&gt;Obviously 4Gb of RAM is kind of low by modern …&lt;/p&gt;</summary><content type="html">&lt;p&gt;I've been concerned by a low amount of memory in my &lt;strong&gt;Asus UX310U&lt;/strong&gt; laptop for quite a long time,
+but as I used it quite lightly at home, it never became a problem. It has perfectly capable Intel i3-6100U CPU,
+nice FullHD screen, 5h+ of battery life, so it made no sense to change the laptop just because of RAM.&lt;/p&gt;
+&lt;p&gt;Obviously 4Gb of RAM is kind of low by modern standards, but when I bought it I wasn't planning to use anything resource-heavy like IDE at home, just terminal and browser.&lt;/p&gt;
+&lt;p&gt;The only case when the lack of RAM was obvious is when the laptop was used by two users. As I share it with my wife,
+it was often the case, and switching users was quite painful, but I didn't use it often enough for it to piss me off.&lt;/p&gt;
+&lt;p&gt;Recently I've started to use it more often, for instance to work on latest &lt;a href="http://adventofcode.com"&gt;Advent of Code&lt;/a&gt;
+coding challenge, and it quickly became a problem.&lt;/p&gt;
+&lt;p&gt;Luckily for me Asus was generous enough to allow RAM upgrades in UX310U, so I could add up to 8Gb to existing 4Gb that are soldered on the motherboard.&lt;/p&gt;
+&lt;p&gt;So I bought another 4Gb module, unscrewed the lid and to my surprise not only there was a slot for SODIMM RAM, but also a place for SATA 2.5inch drive.&lt;/p&gt;
+&lt;p&gt;As I had one spare 128Gb SATA SSD in my stash, just after 10 minutes I ended up with double RAM and double the storage.&lt;/p&gt;
+&lt;p&gt;Unfortunately now the trend is to just solder everything on the logic board, and don't leave any means for upgrade. 
+Given that I've just greatly benefited from ability to upgrade RAM it's very sad to think that
+with my next laptop I'll most likely be left without any way to improve it except for buying a new one (like current MacBook users already have to)&lt;/p&gt;</content><category term="Experience"></category></entry><entry><title>Python 3.6 f-strings rant</title><link href="http://bulimov.ru/it/python3-fstrings/" rel="alternate"></link><published>2017-07-24T00:00:00+03:00</published><updated>2017-07-24T00:00:00+03:00</updated><author><name>Alexander Bulimov</name></author><id>tag:bulimov.ru,2017-07-24:/it/python3-fstrings/</id><summary type="html">&lt;p&gt;Python 3.6 introduced a new way to format strings, called
 &lt;a href="https://docs.python.org/3.6/reference/lexical_analysis.html#f-strings"&gt;&lt;strong&gt;Formatted string literals&lt;/strong&gt;&lt;/a&gt;,
 or just &lt;em&gt;f-strings&lt;/em&gt;. Everyone on the internet
 seem to be happy about it. I'm definitely not.&lt;/p&gt;

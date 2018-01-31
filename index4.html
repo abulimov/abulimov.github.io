@@ -20,6 +20,7 @@
         <meta property="og:description" content="Alexander Bulimov - production engineer's notes."/>
 
 
+
     <!-- Bootstrap -->
         <link rel="stylesheet" href="http://bulimov.ru/theme/css/bootstrap.sandstone.min.css" type="text/css"/>
     <link href="http://bulimov.ru/theme/css/font-awesome.min.css" rel="stylesheet">
@@ -55,6 +56,7 @@ Alexander Bulimov - production engineer's notes.            </a>
             <ul class="nav navbar-nav">
                     <li><a href="/tags/index.html">Tags</a></li>
                     <li><a href="/categories/index.html">Categories</a></li>
+                    <li><a href="//models.bulimov.ru">My Scale Models Gallery</a></li>
                          <li><a href="http://bulimov.ru/pages/about-me.html">
                              About Me
                           </a></li>
@@ -71,6 +73,83 @@ Alexander Bulimov - production engineer's notes.            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
+            <article>
+                <h2><a href="http://bulimov.ru/it/cadvisor-companion/">Улучшаем сообщения от мониторинга с помощью cAdvisor-companion</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2015-04-21T00:00:00+03:00"> Tue 21 April 2015</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="http://bulimov.ru/category/it.html">IT</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/golang.html">Golang</a>
+        /
+	<a href="http://bulimov.ru/tag/cadvisor.html">cAdvisor</a>
+        /
+	<a href="http://bulimov.ru/tag/cadvisor-companion.html">cAdvisor-companion</a>
+        /
+	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
+        /
+	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Слышали ли вы когда-нибудь о такой практике, как "Monitoring Events Enrichment"?
+Если вкратце, то это практика наполнения дополнительной информацией сообщений
+от мониторинга, так что на выяснение причины проблемы уходит меньше времени
+и телодвижений.</p>
+<p>Есть даже контора, которая помогает внедрять эту практику на коммерческой основе,
+у них на <a href="http://www.eventenrichment.com/">сайте</a> есть неплохие примеры того,
+что и зачем можно добавить к обычному сообщению от Nagios.</p>
+<p>Сама эта идея мне очень нравится, и вот …</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/cadvisor-companion/">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://bulimov.ru/it/haproxy-cadvisor/">Балансировка в HAProxy на основе данных cAdvisor</a></h2>
+                    <div class="well well-sm">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2015-04-15T00:00:00+03:00"> Wed 15 April 2015</time>
+    </span>
+
+
+
+        <span class="label label-default">Category</span>
+        <a href="http://bulimov.ru/category/it.html">IT</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://bulimov.ru/tag/haproxy.html">HAProxy</a>
+        /
+	<a href="http://bulimov.ru/tag/cadvisor.html">cAdvisor</a>
+        /
+	<a href="http://bulimov.ru/tag/python.html">Python</a>
+        /
+	<a href="http://bulimov.ru/tag/programmirovanie.html">Программирование</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                <div class="summary"><p>Для запуска Docker-контейнеров у меня в данный момент выделено достаточно много
+серверов, причем аппаратная часть у некоторых из них отличается
+друг от друга. Соответственно, при настройке на чудесном балансировщике
+<a href="http://www.haproxy.org/">HAProxy</a> такого параметра балансировки
+как <em>"вес сервера"</em>, приходится это различие в аппаратной части учитывать.</p>
+<p>Можно, конечно, подобрать значения весов самостоятельно на основе
+данных мониторинга, а при появлении нагрузки от соседних Docker-контейнеров
+эти веса корректировать, но это не наш метод.</p>
+<p>Не так …</p>
+                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/haproxy-cadvisor/">more ...</a>
+                </div>
+            </article>
+            <hr/>
             <article>
                 <h2><a href="http://bulimov.ru/it/chromium-vim/">Открыл для себя cVim для Google Chrome</a></h2>
                     <div class="well well-sm">
@@ -363,81 +442,6 @@ Alexander Bulimov - production engineer's notes.            </a>
                 </div>
             </article>
             <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/Выложил-немного-полезностей/">Выложил немного полезностей</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-09-17T00:00:00+04:00"> Wed 17 September 2014</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="http://bulimov.ru/category/it.html">IT</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/python.html">Python</a>
-        /
-	<a href="http://bulimov.ru/tag/zabbix.html">Zabbix</a>
-        /
-	<a href="http://bulimov.ru/tag/nagios.html">Nagios</a>
-        /
-	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Когда я писал про то, как <a href="/it/Переписал-скрипты-на-ruby-для-sensu">переписал скрипты для Sensu</a>,
-я слегка слукавил. Изначально, я написал эти скрипты на Python,
-и только потом на Ruby. Поскольку пользователям других Nagios-совместимых
-систем мониторинга может показаться неудобным использование ruby-скриптов,
-да еще и с зависимостью от гема sensu-plugin, я решил выложить
-и Python-версии скриптов.</p>
-<p>Если кому хочется мониторить состояние дисков в raid-контроллерах от 3ware или
-HP SmartArray на чистом Python - милости просим, все
-<a href="https://github.com/abulimov/utils/tree/master/nagios">в …</a></p>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Выложил-немного-полезностей/">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://bulimov.ru/it/Открыл-для-себя-плагины-к-tmux/">Открыл для себя плагины к tmux</a></h2>
-                    <div class="well well-sm">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-09-04T00:00:00+04:00"> Thu 04 September 2014</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="http://bulimov.ru/category/it.html">IT</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/tmux.html">tmux</a>
-        /
-	<a href="http://bulimov.ru/tag/zhizn.html">Жизнь</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                <div class="summary"><p>Случилось чудесное - <a href="http://linux.org.ru">LOR</a> принес мне пользу.
-Оттуда я узнал о плагине <a href="https://github.com/tmux-plugins/tmux-resurrect">tmux-resurrect</a>,
-а точнее, вообще о существовании плагинов для чудесного мультиплексора терминалов <strong>tmux</strong>.</p>
-<p>С помощью имеющихся плагинов можно привести конфигурацию в более понятный вид,
-а также заменить свои костыли на костыли, поддерживаемые сообществом.</p>
-<p>Я, к примеру:</p>
-<ul>
-<li>сильно сократил конфигурацию, используя
-  <a href="https://github.com/tmux-plugins/tmux-sensible">tmux-sensible</a>;</li>
-<li>с помощью <a href="https://github.com/tmux-plugins/tmux-yank">tmux-yank</a>
-  выкинул свои костыли для копирования в буфер обмена;</li>
-<li>смог убрать настройки для vi-образной навигации между панелями …</li></ul>
-                    <a class="btn btn-default btn-xs" href="http://bulimov.ru/it/Открыл-для-себя-плагины-к-tmux/">more ...</a>
-                </div>
-            </article>
-            <hr/>
 
         <ul class="pagination">
                 <li class="prev"><a href="http://bulimov.ru/index3.html">&laquo;</a>
@@ -462,33 +466,36 @@ HP SmartArray на чистом Python - милости просим, все
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
-
+<!-- Sidebar -->
 <section class="well well-sm">
-    <ul class="list-group list-group-flush">
-            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
-              <ul class="list-group" id="social">
-                <li class="list-group-item"><a href="https://github.com/abulimov"><i class="fa fa-github-square fa-lg"></i> GitHub</a></li>
-                <li class="list-group-item"><a href="https://www.facebook.com/profile.php?id=1505350810"><i class="fa fa-facebook-square fa-lg"></i> Facebook</a></li>
-                <li class="list-group-item"><a href="https://plus.google.com/102209846851870884693/about"><i class="fa fa-google-plus-square fa-lg"></i> Google+</a></li>
-                <li class="list-group-item"><a href="http://ru.linkedin.com/pub/александр-булимов/7b/692/a92/"><i class="fa fa-linkedin-square fa-lg"></i> LinkedIn</a></li>
-                <li class="list-group-item"><a href="http://habrahabr.ru/users/lazywolf/"><i class="fa fa-habrahabr-square fa-lg"></i> Habrahabr</a></li>
-                <li class="list-group-item"><a href="http://vk.com/a_v_bulimov"><i class="fa fa-vk-square fa-lg"></i> VK</a></li>
-                <li class="list-group-item"><a href="/feeds/all.rss.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
-              </ul>
-            </li>
+  <ul class="list-group list-group-flush">
 
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://github.com/abulimov"><i class="fa fa-github-square fa-lg"></i> GitHub</a></li>
+    <li class="list-group-item"><a href="https://www.facebook.com/abulimov"><i class="fa fa-facebook-square fa-lg"></i> Facebook</a></li>
+    <li class="list-group-item"><a href="https://plus.google.com/102209846851870884693/about"><i class="fa fa-google-plus-square fa-lg"></i> Google+</a></li>
+    <li class="list-group-item"><a href="http://ru.linkedin.com/pub/александр-булимов/7b/692/a92/"><i class="fa fa-linkedin-square fa-lg"></i> LinkedIn</a></li>
+    <li class="list-group-item"><a href="http://habrahabr.ru/users/lazywolf/"><i class="fa fa-habrahabr-square fa-lg"></i> Habrahabr</a></li>
+    <li class="list-group-item"><a href="http://vk.com/a_v_bulimov"><i class="fa fa-vk fa-lg"></i> VK</a></li>
+    <li class="list-group-item"><a href="/feeds/all.rss.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
 
-
-
-
-
-    <li class="list-group-item"><h4><i class="fa fa-github fa-lg"></i><span class="icon-label">GitHub Repos</span></h4>
-        <div id="gh_repos">
-            <p class="list-group-item">Status updating...</p>
-        </div>
-    </li>
-    </ul>
-</section>            </aside>
+<!-- Sidebar/Github -->
+<li class="list-group-item">
+  <h4><i class="fa fa-github fa-lg"></i><span class="icon-label">GitHub Repos</span></h4>
+  <div id="gh_repos">
+    <p class="list-group-item">Status updating...</p>
+  </div>
+</li>
+<!-- End Sidebar/Github -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
         </div>
     </div>
 </div>
@@ -496,12 +503,12 @@ HP SmartArray на чистом Python - милости просим, все
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2017 Alexander Bulimov
+         <div class="col-xs-10">&copy; 2018 Alexander Bulimov
             &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content
-  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
 </small></p>
          </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
@@ -516,27 +523,29 @@ HP SmartArray на чистом Python - милости просим, все
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
 <script src="http://bulimov.ru/theme/js/respond.min.js"></script>
 
-    <!-- GitHub JS -->
-    <script type="text/javascript">
-        $(document).ready(function () {
-            if (!window.jXHR) {
-                var jxhr = document.createElement('script');
-                jxhr.type = 'text/javascript';
-                jxhr.src = 'http://bulimov.ru/theme/js/jXHR.js';
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(jxhr, s);
-            }
 
-            github.showRepos({
-                user: 'abulimov',
-                count: 5,
-                skip_forks: false,
-                target: '#gh_repos'
-            });
-        });
-    </script>
-    <script src="http://bulimov.ru/theme/js/github.js" type="text/javascript"></script>
-    <!-- End GitHub JS Code -->
+
+<!-- GitHub JS Code -->
+<script type="text/javascript">
+$(document).ready(function () {
+  if (!window.jXHR) {
+    var jxhr = document.createElement('script');
+    jxhr.type = 'text/javascript';
+    jxhr.src = 'http://bulimov.ru/theme/js/jXHR.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(jxhr, s);
+  }
+
+  github.showRepos({
+    user: 'abulimov',
+    count: 5,
+    skip_forks: false,
+    target: '#gh_repos'
+  });
+});
+</script>
+<script src="http://bulimov.ru/theme/js/github.js" type="text/javascript"></script>
+<!-- End GitHub JS Code -->
     <!-- Disqus -->
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
@@ -569,6 +578,7 @@ HP SmartArray на чистом Python - милости просим, все
         })();
     </script>
     <!-- End Google Analytics Code -->
+
 
 </body>
 </html>

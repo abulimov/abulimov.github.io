@@ -27,6 +27,7 @@
             <meta property="article:author" content="Alexander Bulimov" />
 
 
+
     <!-- Bootstrap -->
         <link rel="stylesheet" href="http://bulimov.ru/theme/css/bootstrap.sandstone.min.css" type="text/css"/>
     <link href="http://bulimov.ru/theme/css/font-awesome.min.css" rel="stylesheet">
@@ -64,6 +65,7 @@ Alexander Bulimov - production engineer's notes.            </a>
             <ul class="nav navbar-nav">
                     <li><a href="/tags/index.html">Tags</a></li>
                     <li><a href="/categories/index.html">Categories</a></li>
+                    <li><a href="//models.bulimov.ru">My Scale Models Gallery</a></li>
                          <li><a href="http://bulimov.ru/pages/about-me.html">
                              About Me
                           </a></li>
@@ -141,10 +143,10 @@ Alexander Bulimov - production engineer's notes.            </a>
     <h4>Related Posts:</h4>
     <ul>
         <li><a href="http://bulimov.ru/it/vim-atom/">Сменил Vim на Atom</a></li>
-        <li><a href="http://bulimov.ru/it/Вернулся-из-отпуска/">Вернулся из отпуска</a></li>
-        <li><a href="http://bulimov.ru/it/Включил-комментарии/">Включил комментарии</a></li>
         <li><a href="http://bulimov.ru/it/Сдал-экзамен-cisco-icnd1-он-же-100-101/">Сдал экзамен Cisco ICND1, он же 100-101</a></li>
-        <li><a href="http://bulimov.ru/it/productivity-tips/">Немного житейского опыта</a></li>
+        <li><a href="http://bulimov.ru/it/goodby-vps/">Прощай, личный VPS</a></li>
+        <li><a href="http://bulimov.ru/it/О-любви-к-программированию/">О любви к программированию</a></li>
+        <li><a href="http://bulimov.ru/it/advent-of-code/">Рекомендую Advent Of Code</a></li>
     </ul>
 </section>
     <hr/>
@@ -156,11 +158,11 @@ Alexander Bulimov - production engineer's notes.            </a>
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
 
-                    var disqus_identifier = 'chromium-vim';
-                var disqus_url = 'http://bulimov.ru/it/chromium-vim/';
 
             var disqus_config = function () {
                 this.language = "en";
+                                        this.page.identifier = '2015-02-27-chromium-vim';
+                                        this.page.url = 'http://bulimov.ru/it/chromium-vim/';
             };
 
             /* * * DON'T EDIT BELOW THIS LINE * * */
@@ -183,33 +185,36 @@ Alexander Bulimov - production engineer's notes.            </a>
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
-
+<!-- Sidebar -->
 <section class="well well-sm">
-    <ul class="list-group list-group-flush">
-            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
-              <ul class="list-group" id="social">
-                <li class="list-group-item"><a href="https://github.com/abulimov"><i class="fa fa-github-square fa-lg"></i> GitHub</a></li>
-                <li class="list-group-item"><a href="https://www.facebook.com/profile.php?id=1505350810"><i class="fa fa-facebook-square fa-lg"></i> Facebook</a></li>
-                <li class="list-group-item"><a href="https://plus.google.com/102209846851870884693/about"><i class="fa fa-google-plus-square fa-lg"></i> Google+</a></li>
-                <li class="list-group-item"><a href="http://ru.linkedin.com/pub/александр-булимов/7b/692/a92/"><i class="fa fa-linkedin-square fa-lg"></i> LinkedIn</a></li>
-                <li class="list-group-item"><a href="http://habrahabr.ru/users/lazywolf/"><i class="fa fa-habrahabr-square fa-lg"></i> Habrahabr</a></li>
-                <li class="list-group-item"><a href="http://vk.com/a_v_bulimov"><i class="fa fa-vk-square fa-lg"></i> VK</a></li>
-                <li class="list-group-item"><a href="/feeds/all.rss.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
-              </ul>
-            </li>
+  <ul class="list-group list-group-flush">
 
+<!-- Sidebar/Social -->
+<li class="list-group-item">
+  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+  <ul class="list-group" id="social">
+    <li class="list-group-item"><a href="https://github.com/abulimov"><i class="fa fa-github-square fa-lg"></i> GitHub</a></li>
+    <li class="list-group-item"><a href="https://www.facebook.com/abulimov"><i class="fa fa-facebook-square fa-lg"></i> Facebook</a></li>
+    <li class="list-group-item"><a href="https://plus.google.com/102209846851870884693/about"><i class="fa fa-google-plus-square fa-lg"></i> Google+</a></li>
+    <li class="list-group-item"><a href="http://ru.linkedin.com/pub/александр-булимов/7b/692/a92/"><i class="fa fa-linkedin-square fa-lg"></i> LinkedIn</a></li>
+    <li class="list-group-item"><a href="http://habrahabr.ru/users/lazywolf/"><i class="fa fa-habrahabr-square fa-lg"></i> Habrahabr</a></li>
+    <li class="list-group-item"><a href="http://vk.com/a_v_bulimov"><i class="fa fa-vk fa-lg"></i> VK</a></li>
+    <li class="list-group-item"><a href="/feeds/all.rss.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
+  </ul>
+</li>
+<!-- End Sidebar/Social -->
 
-
-
-
-
-    <li class="list-group-item"><h4><i class="fa fa-github fa-lg"></i><span class="icon-label">GitHub Repos</span></h4>
-        <div id="gh_repos">
-            <p class="list-group-item">Status updating...</p>
-        </div>
-    </li>
-    </ul>
-</section>            </aside>
+<!-- Sidebar/Github -->
+<li class="list-group-item">
+  <h4><i class="fa fa-github fa-lg"></i><span class="icon-label">GitHub Repos</span></h4>
+  <div id="gh_repos">
+    <p class="list-group-item">Status updating...</p>
+  </div>
+</li>
+<!-- End Sidebar/Github -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
         </div>
     </div>
 </div>
@@ -217,12 +222,12 @@ Alexander Bulimov - production engineer's notes.            </a>
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2017 Alexander Bulimov
+         <div class="col-xs-10">&copy; 2018 Alexander Bulimov
             &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>              <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
     Content
-  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
+  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
 </small></p>
          </div>
          <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
@@ -237,27 +242,29 @@ Alexander Bulimov - production engineer's notes.            </a>
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
 <script src="http://bulimov.ru/theme/js/respond.min.js"></script>
 
-    <!-- GitHub JS -->
-    <script type="text/javascript">
-        $(document).ready(function () {
-            if (!window.jXHR) {
-                var jxhr = document.createElement('script');
-                jxhr.type = 'text/javascript';
-                jxhr.src = 'http://bulimov.ru/theme/js/jXHR.js';
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(jxhr, s);
-            }
 
-            github.showRepos({
-                user: 'abulimov',
-                count: 5,
-                skip_forks: false,
-                target: '#gh_repos'
-            });
-        });
-    </script>
-    <script src="http://bulimov.ru/theme/js/github.js" type="text/javascript"></script>
-    <!-- End GitHub JS Code -->
+
+<!-- GitHub JS Code -->
+<script type="text/javascript">
+$(document).ready(function () {
+  if (!window.jXHR) {
+    var jxhr = document.createElement('script');
+    jxhr.type = 'text/javascript';
+    jxhr.src = 'http://bulimov.ru/theme/js/jXHR.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(jxhr, s);
+  }
+
+  github.showRepos({
+    user: 'abulimov',
+    count: 5,
+    skip_forks: false,
+    target: '#gh_repos'
+  });
+});
+</script>
+<script src="http://bulimov.ru/theme/js/github.js" type="text/javascript"></script>
+<!-- End GitHub JS Code -->
     <!-- Disqus -->
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
@@ -290,6 +297,7 @@ Alexander Bulimov - production engineer's notes.            </a>
         })();
     </script>
     <!-- End Google Analytics Code -->
+
 
 </body>
 </html>
