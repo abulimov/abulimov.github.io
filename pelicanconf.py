@@ -12,7 +12,10 @@ TIMEZONE = 'Europe/Moscow'
 
 DEFAULT_LANG = 'en'
 
-PLUGINS = ["related_posts", "sitemap"]
+PLUGINS = ["related_posts", "sitemap", "i18n_subsites"]
+JINJA_ENVIRONMENT = {
+    'extensions': ['jinja2.ext.i18n'],
+}
 
 THEME = 'pelican-bootstrap3'
 BOOTSTRAP_THEME = 'sandstone'
@@ -58,7 +61,7 @@ EXTRA_PATH_METADATA = {
 # Social widget
 SOCIAL = (
     ('GitHub', 'https://github.com/abulimov'),
-    ('Facebook', 'https://www.facebook.com/profile.php?id=1505350810'),
+    ('Facebook', 'https://www.facebook.com/abulimov'),
     ('Google+', 'https://plus.google.com/102209846851870884693/about'),
     ('LinkedIn', 'http://ru.linkedin.com/pub/александр-булимов/7b/692/a92/'),
     ('Habrahabr', 'http://habrahabr.ru/users/lazywolf/'),
