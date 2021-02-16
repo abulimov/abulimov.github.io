@@ -1,14 +1,28 @@
-This is my [blog](http://bulimov.ru) sources. Using [Pelican](http://getpelican.com).
+# Sources for bulimov.ru site
 
-# setting everything up
+Uses [Hugo static site generator](gohugo.io)
 
-1. Install python3
-2. Install pelican and markdown from pip `pip3 install pelican markdown`
-3. Clone pelican-plugins and pelican themes repos
-    ```shell
-mkdir -p ~/github && \
-git clone --recursive https://github.com/getpelican/pelican-plugins ~/github/pelican-plugins && \
-git clone --recursive https://github.com/getpelican/pelican-themes ~/github/pelican-themes
-    ```
-4. Link pelican-bootstrap3 theme `pelican-themes -s ~/github/pelican-themes/pelican-bootstrap3`
-5. Ensure that you have ~/github/pelican-plugins in $PYTHONPATH
+
+## Setting things up
+
+* Install hugo 0.80+
+* Install *ghp-import* using `pip3 install ghp-import`
+
+
+## Adding new content
+
+### Post
+
+`hugo new post/some-slug.md`
+
+
+## Publishing
+
+```
+make github
+```
+
+
+## License
+
+![by-sa](https://i.creativecommons.org/l/by-sa/4.0/80x15.png) [Creative Commons Attribution-ShareAlike 4.0 International License, except where indicated otherwise.](https://creativecommons.org/licenses/by-sa/4.0/)

@@ -1,0 +1,41 @@
+baseURL = "https://bulimov.me/"
+languageCode = "en-us"
+title = "Alexander Bulimov: Production Engineer and Scale Modeller"
+theme = "xmin"
+
+[permalinks]
+post = "/post/:year/:month/:day/:slug/"
+
+[[menu.main]]
+name = "Home"
+url = ""
+weight = 1
+
+[[menu.main]]
+name = "About"
+url = "about/"
+weight = 2
+
+[[menu.main]]
+name = "Scale Models"
+url = "https://models.bulimov.ru"
+weight = 3
+
+[[menu.main]]
+name = "Categories"
+url = "categories/"
+weight = 4
+
+[[menu.main]]
+name = "Tags"
+url = "tags/"
+weight = 5
+
+[[menu.main]]
+name = "Subscribe"
+url = "index.xml"
+
+[params]
+description = "A website built through Hugo and blogdown."
+footer = "[![License: CC BY-SA 4.0](https://i.creativecommons.org/l/by-sa/4.0/80x15.png)](https://creativecommons.org/licenses/by-sa/4.0/) &copy; [Alexander Bulimov](http://bulimov.ru) 2013 -- 2021 | [Github](https://github.com/abulimov)"
+
