@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Debian on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link>//bulimov.ru/tags/debian/</link>
+    <description>Recent content in Debian on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 18 Jun 2013 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/debian/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Что я думаю о Debian на серверах</title>
+      <link>//bulimov.ru/it/%D0%A7%D1%82%D0%BE-%D1%8F-%D0%B4%D1%83%D0%BC%D0%B0%D1%8E-%D0%BE-debian-%D0%BD%D0%B0-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%D1%85/</link>
+      <pubDate>Tue, 18 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/%D0%A7%D1%82%D0%BE-%D1%8F-%D0%B4%D1%83%D0%BC%D0%B0%D1%8E-%D0%BE-debian-%D0%BD%D0%B0-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%D1%85/</guid>
+      <description>С 2010 года, когда я только начал заниматься системным администрированием, я использовал как основной серверный дистрибутив Debian. Это был изначально осознанный выбор, и на момент написания заметки таковым и остается. Конечно, я работал и с другими дистрибутивами, и потому мне есть и было с чем сравнить. По итогам работы с Debian и написана эта заметка.
+#Негатив
+##Общесистемные лимиты
+В свое время, встала передо мной задача настройки под высокую нагрузку различных сервисов, в том числе PostgreSQL + pgbouncer.</description>
+    </item>
+    
+  </channel>
+</rss>

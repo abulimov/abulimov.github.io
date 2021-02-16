@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cAdvisor-companion on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link>//bulimov.ru/tags/cadvisor-companion/</link>
+    <description>Recent content in cAdvisor-companion on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 21 Apr 2015 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/cadvisor-companion/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Улучшаем сообщения от мониторинга с помощью cAdvisor-companion</title>
+      <link>//bulimov.ru/it/cadvisor-companion/</link>
+      <pubDate>Tue, 21 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/cadvisor-companion/</guid>
+      <description>Слышали ли вы когда-нибудь о такой практике, как &amp;ldquo;Monitoring Events Enrichment&amp;rdquo;? Если вкратце, то это практика наполнения дополнительной информацией сообщений от мониторинга, так что на выяснение причины проблемы уходит меньше времени и телодвижений.
+Есть даже контора, которая помогает внедрять эту практику на коммерческой основе, у них на сайте есть неплохие примеры того, что и зачем можно добавить к обычному сообщению от Nagios.
+Сама эта идея мне очень нравится, и вот после очередного неинформативного сообщения от мониторинга, которое пришло тогда, когда я был далеко от компьютера, и гласило CheckDockerStats CRITICAL: 91% CPU Used!</description>
+    </item>
+    
+  </channel>
+</rss>

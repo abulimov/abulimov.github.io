@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link>//bulimov.ru/tags/python/</link>
+    <description>Recent content in Python on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 24 Jul 2017 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python 3.6 f-strings rant</title>
+      <link>//bulimov.ru/it/python3-fstrings/</link>
+      <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/python3-fstrings/</guid>
+      <description>Python 3.6 introduced a new way to format strings, called Formatted string literals, or just f-strings. Everyone on the internet seem to be happy about it. I&amp;rsquo;m definitely not.
+For starters, Python 3 already had 3 built-in ways of doing it before. Just think about it&amp;hellip; 3 ways to format strings in language that declares simplicity as a goal:
+ There should be one&amp;ndash; and preferably only one &amp;ndash;obvious way to do it.</description>
+    </item>
+    
+    <item>
+      <title>Python Type Hints are awesome</title>
+      <link>//bulimov.ru/it/python-typing/</link>
+      <pubDate>Thu, 12 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/python-typing/</guid>
+      <description>I really love Julia Evans&amp;rsquo;s blog, she writes with such excitement and enthusiasm about every new bit of technology she learns. For me, this is what makes our job so great - we can learn something new and cool almost every day.
+And recently I&amp;rsquo;ve felt very excited with some of new abilities Python now have. I&amp;rsquo;m talking about including of PEP 484, which describes Type Hints, in Python 3.5 (old news, I know).</description>
+    </item>
+    
+    <item>
+      <title>О пользе Python и костылях с Docker</title>
+      <link>//bulimov.ru/it/delete-docker-registry-image/</link>
+      <pubDate>Wed, 02 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/delete-docker-registry-image/</guid>
+      <description>В процессе организации авто-очистки Docker Registry 2, устав ждать в появления в нем столь &amp;ldquo;ненужного&amp;rdquo; функционала, как удаление образов с диска (DELETE запросы удаляют тег, но сами данные остаются на диске и жрут место), я в очередной раз прибег к помощи скрипта из delete-docker-registry-image, и уперся в то, что этот самый скрипт (написанный изначально на bash) невероятно медленно работает на большом Registry.
+К примеру, удаления одного тега для repository с 70 тегами, в каждом из которых много слоев, занимает 49 минут.</description>
+    </item>
+    
+    <item>
+      <title>Плагин к Collectd для сбора метрик Riak CS</title>
+      <link>//bulimov.ru/it/collectd-riakcs/</link>
+      <pubDate>Thu, 17 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/collectd-riakcs/</guid>
+      <description>На днях наконец-то дошли руки до модернизации той части мониторинга, которая отвечает за сбор метрик, и набивший оскомину Munin был окончательно заменен на Graphite + Collectd. Теперь воцарилась идиллия - Icinga2 складывает метрики из perfdata в Graphite, и Collectd отправляет все метрики туда же.
+Хочется отдельно отметить, что несмотря на то, что изначально Collectd мне не очень понравился (кому может сейчас понравиться Apache-подобный конфиг?), при дальнейшем изучении я был приятно поражен богатством возможностей этого продукта и крайне бережным его отношением к ресурсам наблюдаемой системы.</description>
+    </item>
+    
+    <item>
+      <title>Балансировка в HAProxy на основе данных cAdvisor</title>
+      <link>//bulimov.ru/it/haproxy-cadvisor/</link>
+      <pubDate>Wed, 15 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/haproxy-cadvisor/</guid>
+      <description>Для запуска Docker-контейнеров у меня в данный момент выделено достаточно много серверов, причем аппаратная часть у некоторых из них отличается друг от друга. Соответственно, при настройке на чудесном балансировщике HAProxy такого параметра балансировки как &amp;ldquo;вес сервера&amp;rdquo;, приходится это различие в аппаратной части учитывать.
+Можно, конечно, подобрать значения весов самостоятельно на основе данных мониторинга, а при появлении нагрузки от соседних Docker-контейнеров эти веса корректировать, но это не наш метод.
+Не так давно я писал о том, как использую данные из cAdvisor для мониторинга нагруженности контейнеров.</description>
+    </item>
+    
+    <item>
+      <title>Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</title>
+      <link>//bulimov.ru/it/check-cadvisor/</link>
+      <pubDate>Fri, 20 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/check-cadvisor/</guid>
+      <description>После того, как я научился мониторить память в Docker-контейнерах, я решил мониторить еще и нагрузку на CPU. Поскольку это дело не самое тривиальное, и хотелось не писать свой велосипед, а пользоваться чем-то популярным и поддерживаемым, я решил попробовать cAdvisor.
+И вот что я могу сказать - отличный инструмент! Ресурсов практически не потребляет (около 20 Мб оперативной памяти и неизмеримо мало CPU), обладает простым API для доступа к собираемой им информации, имеет красивый веб-интерфейс с realtime-графиками.</description>
+    </item>
+    
+    <item>
+      <title>Научился мониторить использование памяти в Docker-контейнерах</title>
+      <link>//bulimov.ru/it/check-docker-memory/</link>
+      <pubDate>Fri, 13 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/check-docker-memory/</guid>
+      <description>Я сегодня занимался мониторингом, а конкретно нашими докер-контейнерами.
+Лирическое отступление: Для мониторинга я теперь (уже на другом месте работы) использую наследника Nagios - Icinga2. Пока все нравится, ребята очень круто переписали Nagios, реализовали гораздо более вменяемый формат конфигурации, и кучу новых возможностей.
+Используя Docker для автотестов я уже ловил проблемы, когда интерпретатор Ruby кушал всю выделенную память в контейнере и тихо умирал от рук OOM Killer.
+Поскольку теперь я использую Docker уже не только для тестов, но и &amp;ldquo;в бою&amp;rdquo;, меня сильно беспокоило то, что мы не можем мониторить использование памяти внутри контейнера.</description>
+    </item>
+    
+    <item>
+      <title>Lyrics Tagger</title>
+      <link>//bulimov.ru/it/lyricstagger/</link>
+      <pubDate>Tue, 25 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/lyricstagger/</guid>
+      <description>Предыстория Я езжу на работу в общественном транспорте, и слушаю там музыку со смартфона. Достаточно часто хотелось почитать тексты прослушиваемых в данный момент песен, но искать их в интернете было не слишком удобно, да и вообще интернета до недавнего времени в метро не было.
+Решение выглядит очевидным - надо встроить тексты песен в сами музыкальные файлы. Благо, основные форматы это позволяют. Музыку я храню во FLAC, а на смартфон закидываю в Ogg Vorbis.</description>
+    </item>
+    
+    <item>
+      <title>Разбирался с page-cache в Linux</title>
+      <link>//bulimov.ru/it/meminfo-visualizer/</link>
+      <pubDate>Thu, 09 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/meminfo-visualizer/</guid>
+      <description>Читая книгу &amp;ldquo;Разработка ядра Linux&amp;rdquo; за авторством Роберта Лава, я решил поглубже разобраться в том, как работает кэш в Linux, и набрел на вот эту статью на Хабре от Яндекса.
+Сама статья весьма познавательна, особенно видео - рекомендую. Так вот, в этом видео Роман Гущин, с помощью простой утилиты, наглядно показывающей размер кэша, показывал как работает файловый кэш.
+Конечно, мне захотелось в образовательных целях написать такую утилиту для себя, чтобы можно было поиграться с кэшем и видеть изменения.</description>
+    </item>
+    
+    <item>
+      <title>s/Ruhoh/Pelican/</title>
+      <link>//bulimov.ru/it/from-ruhoh-to-pelican/</link>
+      <pubDate>Thu, 25 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/from-ruhoh-to-pelican/</guid>
+      <description>Переехал с Ruhoh на Pelican, потому что Python.
+А если подробнее - потому что Ruhoh написан на Ruby, и не особо развивается. А Pelican написан на Python, который является моим основным языком, и уже давно и активно развивается, и обладает обширной базой плагинов и тем.</description>
+    </item>
+    
+    <item>
+      <title>Выложил немного полезностей</title>
+      <link>//bulimov.ru/it/%D0%92%D1%8B%D0%BB%D0%BE%D0%B6%D0%B8%D0%BB-%D0%BD%D0%B5%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9/</link>
+      <pubDate>Wed, 17 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/%D0%92%D1%8B%D0%BB%D0%BE%D0%B6%D0%B8%D0%BB-%D0%BD%D0%B5%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9/</guid>
+      <description>Когда я писал про то, как переписал скрипты для Sensu, я слегка слукавил. Изначально, я написал эти скрипты на Python, и только потом на Ruby. Поскольку пользователям других Nagios-совместимых систем мониторинга может показаться неудобным использование ruby-скриптов, да еще и с зависимостью от гема sensu-plugin, я решил выложить и Python-версии скриптов.
+Если кому хочется мониторить состояние дисков в raid-контроллерах от 3ware или HP SmartArray на чистом Python - милости просим, все в моем репозитории.</description>
+    </item>
+    
+    <item>
+      <title>Модуль zabbix_maintenance</title>
+      <link>//bulimov.ru/it/%D0%9C%D0%BE%D0%B4%D1%83%D0%BB%D1%8C-zabbix_maintenance/</link>
+      <pubDate>Mon, 11 Aug 2014 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/%D0%9C%D0%BE%D0%B4%D1%83%D0%BB%D1%8C-zabbix_maintenance/</guid>
+      <description>Свершилось чудо, и мой модуль для Ansible, который умеет создавать и удалять периоды &amp;ldquo;в обслуживании&amp;rdquo; в Zabbix, наконец-то приняли в апстрим. Это уже третий мой модуль, принятый в апстрим Ansible.
+Краткая история:
+Модуль этот я запушил еще в 26 ноября 2013 года, но 21 декабря cove написал в комментарии к моему модулю, что планирует выложить целую пачку модулей для взаимодействия с Zabbix из Ansible. Это отложило принятие моего модуля в апстрим почти на 9 месяцев, поскольку мы согласовывали интерфейс наших модулей, тестировали и улучшали модули, выложенные cove, а очередь pull-requestов у Ansible выросла до 300+.</description>
+    </item>
+    
+    <item>
+      <title>Низкоуровневое обнаружение в Zabbix, ищем диски в контроллере от 3ware</title>
+      <link>//bulimov.ru/it/%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5-%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-zabbix-%D0%B8%D1%89%D0%B5%D0%BC-%D0%B4%D0%B8%D1%81%D0%BA%D0%B8-%D0%B2-%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D0%BB%D0%B5%D1%80%D0%B5-%D0%BE%D1%82-3ware/</link>
+      <pubDate>Wed, 14 Aug 2013 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5-%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-zabbix-%D0%B8%D1%89%D0%B5%D0%BC-%D0%B4%D0%B8%D1%81%D0%BA%D0%B8-%D0%B2-%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D0%BB%D0%B5%D1%80%D0%B5-%D0%BE%D1%82-3ware/</guid>
+      <description>Я уже писал  про низкоуровневое обнаружение в Zabbix, так что повторять теорию не буду.
+Теперь мне понадобилось автоматом получать список хардов в массивах на контроллерах 3ware, которыми оборудованы у нас многие сервера.
+Вести руками шаблоны для каждого сервера с иным порядком или количеством дисков показалось мне плохой идеей, да и авто-обнаружение само напрашивалось.
+Вдохновлялся я утилитой 3ware-status, для работы авто-обнаружения нам потребуется установленная утилита tw-cli, взять ее для Debian/Ubuntu проще всего здесь .</description>
+    </item>
+    
+    <item>
+      <title>Низкоуровневое обнаружение в Zabbix</title>
+      <link>//bulimov.ru/it/%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5-%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-zabbix/</link>
+      <pubDate>Wed, 26 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5-%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-zabbix/</guid>
+      <description>В используемой мной системе мониторинга Zabbix, начиная с версии 2.0, появилась такая любопытная штука, как низкоуровневое обнаружение
+Я не буду пересказывать содержимое документации, расскажу лучше о том, как я писал свой тип обнаружения для мониторинга очередей RabbitMQ.
+Проблема в том, что очередей в RabbitMQ может быть много, и, по мере развития веб-проекта, они меняются. Так что я решил обнаруживать их автоматически, и написал для этого свой провайдер данных для обнаружения заббикса.</description>
+    </item>
+    
+  </channel>
+</rss>

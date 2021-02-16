@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link>//bulimov.ru/tags/docker/</link>
+    <description>Recent content in Docker on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Mar 2016 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Проверка образов Docker на уязвимости с Clair</title>
+      <link>//bulimov.ru/it/clair/</link>
+      <pubDate>Thu, 24 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/clair/</guid>
+      <description>Ни для кого не секрет, что контейнеры (и в частности Docker) не только решают много проблем (configuration drift, scalability, dependency hell), но и привносят новые (в частности, обновление базовых образов).
+Я уже давно мониторил IT-мир на предмет появления хорошего инструмента для проверки Docker-образов на наличие известных CVE. До недавнего времени подходящего инструмента не было. Была парочка дистро-специфичных инструментов (например oscap-docker, с которым я помучался и забил), но ничего подходящего.
+Но недавно (19.</description>
+    </item>
+    
+    <item>
+      <title>О пользе Python и костылях с Docker</title>
+      <link>//bulimov.ru/it/delete-docker-registry-image/</link>
+      <pubDate>Wed, 02 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/delete-docker-registry-image/</guid>
+      <description>В процессе организации авто-очистки Docker Registry 2, устав ждать в появления в нем столь &amp;ldquo;ненужного&amp;rdquo; функционала, как удаление образов с диска (DELETE запросы удаляют тег, но сами данные остаются на диске и жрут место), я в очередной раз прибег к помощи скрипта из delete-docker-registry-image, и уперся в то, что этот самый скрипт (написанный изначально на bash) невероятно медленно работает на большом Registry.
+К примеру, удаления одного тега для repository с 70 тегами, в каждом из которых много слоев, занимает 49 минут.</description>
+    </item>
+    
+  </channel>
+</rss>

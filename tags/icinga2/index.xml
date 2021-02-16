@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Icinga2 on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link>//bulimov.ru/tags/icinga2/</link>
+    <description>Recent content in Icinga2 on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 27 May 2017 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/icinga2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Вопросы от Дениса</title>
+      <link>//bulimov.ru/it/user-questions/</link>
+      <pubDate>Sat, 27 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/user-questions/</guid>
+      <description>Пришло письмо от читателя по имени Денис по форме обратной связи. Поскольку никаких данных для связи с ним Денис не оставил, отвечу здесь.
+Привожу письмо полностью (надеюсь, автор не против):
+ Александр, здравствуйте! Не смог найти вашу электропочту, пишу через форму обратной связи вашего домена на рег.ру :)
+  С огромным удовольствием читаю твой блог, очень жаль, что больше не обновляешь его.
+  Помоги, пожалуйста, советом. У меня примерно 12 виртуальных серверов с небольшими микросервисами, на каждом из серверов поставил collectd и statsd, плюс на отдельном сервере развёрнул go-carbon - whisper - graphite-api - grafana.</description>
+    </item>
+    
+    <item>
+      <title>Quis custodiet ipsos custodes?</title>
+      <link>//bulimov.ru/it/who-watch-the-watchmen/</link>
+      <pubDate>Fri, 06 Nov 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/who-watch-the-watchmen/</guid>
+      <description>Кто же устережёт самих сторожей?, или как (и зачем) я мониторю мониторинг. Как вы понимаете, современный сервис мониторинга это очень сложная штука. Некоторые, как Sensu, выносят всю сложность во внешние сервисы, и потому требуют установки и администрирования нескольких компонентов, таких как очередь и база данных.
+Остальные реализуют некоторый функционал этих компонентов сами, упрощая администрирование мониторинга, но усложняя его внутреннее устройство. К примеру, для работы Zabbix нужна только база, а очереди и транспорт он реализует сам.</description>
+    </item>
+    
+    <item>
+      <title>Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</title>
+      <link>//bulimov.ru/it/check-cadvisor/</link>
+      <pubDate>Fri, 20 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/check-cadvisor/</guid>
+      <description>После того, как я научился мониторить память в Docker-контейнерах, я решил мониторить еще и нагрузку на CPU. Поскольку это дело не самое тривиальное, и хотелось не писать свой велосипед, а пользоваться чем-то популярным и поддерживаемым, я решил попробовать cAdvisor.
+И вот что я могу сказать - отличный инструмент! Ресурсов практически не потребляет (около 20 Мб оперативной памяти и неизмеримо мало CPU), обладает простым API для доступа к собираемой им информации, имеет красивый веб-интерфейс с realtime-графиками.</description>
+    </item>
+    
+    <item>
+      <title>Научился мониторить использование памяти в Docker-контейнерах</title>
+      <link>//bulimov.ru/it/check-docker-memory/</link>
+      <pubDate>Fri, 13 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/check-docker-memory/</guid>
+      <description>Я сегодня занимался мониторингом, а конкретно нашими докер-контейнерами.
+Лирическое отступление: Для мониторинга я теперь (уже на другом месте работы) использую наследника Nagios - Icinga2. Пока все нравится, ребята очень круто переписали Nagios, реализовали гораздо более вменяемый формат конфигурации, и кучу новых возможностей.
+Используя Docker для автотестов я уже ловил проблемы, когда интерпретатор Ruby кушал всю выделенную память в контейнере и тихо умирал от рук OOM Killer.
+Поскольку теперь я использую Docker уже не только для тестов, но и &amp;ldquo;в бою&amp;rdquo;, меня сильно беспокоило то, что мы не можем мониторить использование памяти внутри контейнера.</description>
+    </item>
+    
+  </channel>
+</rss>

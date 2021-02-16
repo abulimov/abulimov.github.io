@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Жизнь on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link>//bulimov.ru/tags/%D0%B6%D0%B8%D0%B7%D0%BD%D1%8C/</link>
+    <description>Recent content in Жизнь on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 11 Feb 2016 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/%D0%B6%D0%B8%D0%B7%D0%BD%D1%8C/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Рекомендую Advent Of Code</title>
+      <link>//bulimov.ru/it/advent-of-code/</link>
+      <pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/advent-of-code/</guid>
+      <description>Закончил на днях решать задачи из замечательного набора программерских пазлов Advent Of Code (да, я тормоз и даже пропустил начало этого конкурса), и могу уверенно рекомендовать его любому.
+Задачки веселые, разнообразные, в меру сложные, содержат много классических задач (задача коммивояжёра, задача о ранце и т.д.) в занятной обертке, так что их решение дает возможность отлично размять мозги.
+Так же эти задачки отлично подходят для изучения нового языка, чем я отчасти воспользовался - решал все на Go, освежив и укрепив свои знания.</description>
+    </item>
+    
+    <item>
+      <title>Немного житейского опыта</title>
+      <link>//bulimov.ru/it/productivity-tips/</link>
+      <pubDate>Tue, 12 Jan 2016 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/productivity-tips/</guid>
+      <description>Решил поделиться небольшим набором &amp;ldquo;капитанских&amp;rdquo; жизненных практик, каждая из которых очень сильно упростила мне жизнь.
+  Использование сервиса для чтения новостей/RSS.
+Я очень долго игнорировал RSS, считая его пережитком прошлого, но когда создавал свой VPS, поставил Tiny Tiny RSS и попробовал попользоваться.
+Сложно даже описать, сколько это мне сэкономило времени. Это оказалось настолько удобно, что теперь я не представляю свою жизнь без подобного сервиса, хоть от tt-rss и отказался вместе с VPS.</description>
+    </item>
+    
+    <item>
+      <title>Прощай, личный VPS</title>
+      <link>//bulimov.ru/it/goodby-vps/</link>
+      <pubDate>Thu, 09 Jul 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/goodby-vps/</guid>
+      <description>Больше года назад я стал использовать свой виртуальный частный сервер(VPS), но недавно с полной ясностью осознал, что несмотря на то, что я регулярно пользуюсь многими сервисами на своем сервере, сам VPS приносит мне только негативные эмоции.
+Необходимость следить за этим сервером, обновлять на нем софт, решать мелкие проблемы после обновлений - все это стало меня бесить. Возможно, это возраст (ха-ха), но возни с серверами мне хватает на работе, причем задачи там большие и интересные, а с VPS всякая рутинная мелочь.</description>
+    </item>
+    
+    <item>
+      <title>Сменил Vim на Atom</title>
+      <link>//bulimov.ru/it/vim-atom/</link>
+      <pubDate>Thu, 21 May 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/vim-atom/</guid>
+      <description>Вот уже почти два месяца, как я по совету коллеги сменил Vim, которым пользовался уже 5 лет, и который оброс у меня кучей плагинов, на Github Atom.
+Использую я его как раньше Vim - для всего. В основном это написание плейбуков Ansible, что включает в себя правку конфигов, и написание кода на Python и Go.
+Сразу скажу, что не будь для Atom вменяемого vim-режима, я бы вряд ли решился на переход.</description>
+    </item>
+    
+    <item>
+      <title>Открыл для себя cVim для Google Chrome</title>
+      <link>//bulimov.ru/it/chromium-vim/</link>
+      <pubDate>Fri, 27 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/chromium-vim/</guid>
+      <description>Последние 4 года я использую Vim в качестве текстового редактора и IDE, и все это время я использовал браузер Mozilla Firefox с дополнением Vimperator, либо с его форком - Pentadactyl, для получения аналогичной навигации в браузере. Без функционала этих дополнений я как без рук, и потому никак не мог использовать Google Chrome/Chromium.
+Дополнения типа Vimum/Vrome/ViChrome, которые добавляют vi-like навигацию в Chrome, после Vimperator казались, мягко говоря, недоделанными, и не давали и половины того комфорта при использовании браузера, к которому я привык.</description>
+    </item>
+    
+    <item>
+      <title>s/Ruhoh/Pelican/</title>
+      <link>//bulimov.ru/it/from-ruhoh-to-pelican/</link>
+      <pubDate>Thu, 25 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/from-ruhoh-to-pelican/</guid>
+      <description>Переехал с Ruhoh на Pelican, потому что Python.
+А если подробнее - потому что Ruhoh написан на Ruby, и не особо развивается. А Pelican написан на Python, который является моим основным языком, и уже давно и активно развивается, и обладает обширной базой плагинов и тем.</description>
+    </item>
+    
+    <item>
+      <title>Открыл для себя плагины к tmux</title>
+      <link>//bulimov.ru/it/%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D0%BB-%D0%B4%D0%BB%D1%8F-%D1%81%D0%B5%D0%B1%D1%8F-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%D1%8B-%D0%BA-tmux/</link>
+      <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D0%BB-%D0%B4%D0%BB%D1%8F-%D1%81%D0%B5%D0%B1%D1%8F-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%D1%8B-%D0%BA-tmux/</guid>
+      <description>Случилось чудесное - LOR принес мне пользу. Оттуда я узнал о плагине tmux-resurrect, а точнее, вообще о существовании плагинов для чудесного мультиплексора терминалов tmux.
+С помощью имеющихся плагинов можно привести конфигурацию в более понятный вид, а также заменить свои костыли на костыли, поддерживаемые сообществом.
+Я, к примеру:
+ сильно сократил конфигурацию, используя tmux-sensible; с помощью tmux-yank выкинул свои костыли для копирования в буфер обмена; смог убрать настройки для vi-образной навигации между панелями благодаря tmux-pain-control; обрел поиск с помощью tmux-copycat; теперь могу открывать выделенные файлы либо URL с помощью tmux-open; наконец, могу сохранять все открытые окна и панели tmux с использованием tmux-resurrect;  </description>
+    </item>
+    
+    <item>
+      <title>Прочитал The Phoenix Project A Novel About DevOps, and Helping Your Business Win</title>
+      <link>//bulimov.ru/it/%D0%9F%D1%80%D0%BE%D1%87%D0%B8%D1%82%D0%B0%D0%BB-the-phoenix-project-a-novel-about-devops-and-helping-your-business-win/</link>
+      <pubDate>Tue, 15 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/%D0%9F%D1%80%D0%BE%D1%87%D0%B8%D1%82%D0%B0%D0%BB-the-phoenix-project-a-novel-about-devops-and-helping-your-business-win/</guid>
+      <description>Ну что тут скажешь - прекрасная книга. Написана живым языком, очень легко читается. В увлекательной форме рассказывает о ключевых принципах DevOps, причем именно так, чтобы было понятно, в ответ на какие проблемы каждый из принципов был сформирован.
+Конечно, главная проблема книги в том, что DevOps преподносится как некая чудодейственная методология, и при этом не уделяется внимания главному вопросу - кадровому. В книге все сотрудники оказались достаточно квалифицированными и открытыми для того, чтобы успешно принять и реализовать парадигму DevOps, хотя в реальной жизни лично я наблюдаю жесточайший дефицит адекватных кадров, которых можно было бы хотя-бы переучить под DevOps, не говоря уже о том, чтоб они сами к этому пришли.</description>
+    </item>
+    
+    <item>
+      <title>Сдал экзамен Cisco ICND2, он же 200-101</title>
+      <link>//bulimov.ru/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-cisco-icnd2-%D0%BE%D0%BD-%D0%B6%D0%B5-200-101/</link>
+      <pubDate>Thu, 03 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-cisco-icnd2-%D0%BE%D0%BD-%D0%B6%D0%B5-200-101/</guid>
+      <description>Теперь я CCNA.
+Сдал с трудом, 867 из 1000 при проходных 825. Экзамен очень мощный, сильно сложнее ICND1, на мой вкус. Надо было сдавать единый 200-120, было бы сильно проще. Еще больше уверился, что CCNA вполне подходит на роль критерия профпригодности для более-менее серьезной работы сисадмина.</description>
+    </item>
+    
+    <item>
+      <title>Сдал экзамен Cisco ICND1, он же 100-101</title>
+      <link>//bulimov.ru/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-cisco-icnd1-%D0%BE%D0%BD-%D0%B6%D0%B5-100-101/</link>
+      <pubDate>Thu, 20 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-cisco-icnd1-%D0%BE%D0%BD-%D0%B6%D0%B5-100-101/</guid>
+      <description>Сдавал через месяц после курсов ICND1 и ICND2, набрал 907. Экзамен хороший, мощный. Теперь вполне понимаю, почему многими сданный CCNA расценивается как некое мерило профпригодности.</description>
+    </item>
+    
+    <item>
+      <title>Побывал на DevOps Meetup 25 января</title>
+      <link>//bulimov.ru/it/%D0%9F%D0%BE%D0%B1%D1%8B%D0%B2%D0%B0%D0%BB-%D0%BD%D0%B0-devops-meetup-25-%D1%8F%D0%BD%D0%B2%D0%B0%D1%80%D1%8F/</link>
+      <pubDate>Mon, 27 Jan 2014 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/%D0%9F%D0%BE%D0%B1%D1%8B%D0%B2%D0%B0%D0%BB-%D0%BD%D0%B0-devops-meetup-25-%D1%8F%D0%BD%D0%B2%D0%B0%D1%80%D1%8F/</guid>
+      <description>Из четырех докладов именно доклад про Docker, ради которого я и ходил на этот Meetup, оказался единственным плохим. Вышел какой-то мальчик из Яндекса, жутко заунывно рассказывал банальности про Docker, на все интересные вопросы отвечал &amp;ldquo;я не знаю&amp;rdquo;.
+Зато остальные доклады были весьма хороши. Лично меня особенно порадовал доклад Ивана Евтуховича про librarian и Berkshelf. Порадовал тем, что Иван выразил мою позицию по поводу community-кукбуков.
+Вячеслав Кузнецов прочитал отличный доклад о том, к какой методологии использования Chef они пришли.</description>
+    </item>
+    
+    <item>
+      <title>Включил комментарии</title>
+      <link>//bulimov.ru/it/%D0%92%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D0%BB-%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B8/</link>
+      <pubDate>Fri, 18 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/%D0%92%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D0%BB-%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B8/</guid>
+      <description>Включил комментирование через Disqus, может кто-то что-нибудь дельное напишет в комментариях.</description>
+    </item>
+    
+    <item>
+      <title>Сдал экзамен на RHCE</title>
+      <link>//bulimov.ru/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-%D0%BD%D0%B0-rhce/</link>
+      <pubDate>Mon, 14 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-%D0%BD%D0%B0-rhce/</guid>
+      <description>Наконец-то пришел результат экзамена, который сдавал в пятницу. 273 из 300 возможных при проходном балле в 210. Это, конечно, неприятно - ждать все выходные результата. На RHCSA результат пришел в ту же пятницу около 8 вечера.
+По самому курсу &amp;ldquo;Системное Администрирование&amp;rdquo; и экзамену: читал у меня все три части курса Илья Соболев. Курс весьма хорошо продуман и сбалансирован, ну и читает его Соболев отлично. С позиции человека, который до этих курсов уже 3 года занимался администрированием Linux-серверов (правда, не RHEL, а Debian), могу сказать, что хорошая подача материала позволяет осмыслить многие вещи, которыми пользуешься регулярно, но разобраться в сущности которых вечно некогда.</description>
+    </item>
+    
+    <item>
+      <title>О животных и NetworkManager</title>
+      <link>//bulimov.ru/it/%D0%9E-%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85-%D0%B8-networkmanager/</link>
+      <pubDate>Wed, 02 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/%D0%9E-%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85-%D0%B8-networkmanager/</guid>
+      <description>В комментариях к интервью с Алексеем Кузнецовым прочитал прекрасное:
+  NetworkManager плохой, а какая альтернатива?
+   ip addr add 12.34.56.78/24 dev eth0 ip ro add default via 12.34.56.1
+  Если кому-то нужен какой-то гуй для этого - то он просто животное™.
+ </description>
+    </item>
+    
+    <item>
+      <title>Вернулся из отпуска</title>
+      <link>//bulimov.ru/it/%D0%92%D0%B5%D1%80%D0%BD%D1%83%D0%BB%D1%81%D1%8F-%D0%B8%D0%B7-%D0%BE%D1%82%D0%BF%D1%83%D1%81%D0%BA%D0%B0/</link>
+      <pubDate>Tue, 01 Oct 2013 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/%D0%92%D0%B5%D1%80%D0%BD%D1%83%D0%BB%D1%81%D1%8F-%D0%B8%D0%B7-%D0%BE%D1%82%D0%BF%D1%83%D1%81%D0%BA%D0%B0/</guid>
+      <description>Вернулись с женой из отпуска, который провели в Индонезии. Из IT-наблюдений: во всех отелях и кафе на Бали, Гили и Ломбоке встречались мне только и исключительно железки Mikrotik в роли HotSpot. Забавно видеть Linux-based решения от Латвийских разработчиков в далекой Индонезии. На ПК служащих - только Windows XP, никаких Вист и Семерок-восьмерок.
+Ну и самое ужасное - аэропорт города Денпасар, который на Бали - практически не компьютеризирован. На посадочных талонах номер рейса и номер места пишут от руки, проверка посадки осуществляется с использованием листка бумаги и ручки.</description>
+    </item>
+    
+    <item>
+      <title>О любви к программированию</title>
+      <link>//bulimov.ru/it/%D0%9E-%D0%BB%D1%8E%D0%B1%D0%B2%D0%B8-%D0%BA-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8E/</link>
+      <pubDate>Thu, 25 Jul 2013 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/%D0%9E-%D0%BB%D1%8E%D0%B1%D0%B2%D0%B8-%D0%BA-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8E/</guid>
+      <description>Хоть я и выбрал своей профессией системное администрирование, программирование я люблю. Даже очень люблю.
+Вот решил написать историю моего знакомства с программированием.
+###Школа
+Началось все в школе. Одноклассник ходил на курсы программирования, готовясь поступать в какой-то технический вуз, и рассказывал про Delphi. Рассказы его так меня увлекли, что я даже сподобился установить этот самый Delphi, и даже создал какую-то форму, скопировав код из примеров, присланных одноклассником. По итогу этих действий, у меня сложилось впечатление, что программирование - это точно не для меня.</description>
+    </item>
+    
+  </channel>
+</rss>

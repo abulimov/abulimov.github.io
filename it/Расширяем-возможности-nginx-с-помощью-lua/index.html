@@ -1,121 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
-<head>
-    <title>Расширяем возможности Nginx с помощью Lua - Alexander Bulimov - production engineer's notes.</title>
-    <!-- Using the latest rendering mode for IE -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<html lang="en-us">
+  <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-
-<link rel="canonical" href="http://bulimov.ru/it/Расширяем-возможности-nginx-с-помощью-lua/">
-
-        <meta name="author" content="Alexander Bulimov" />
-        <meta name="keywords" content="Nginx,Lua" />
-        <meta name="description" content="Встала некоторое время назад передо мной задача - фильтровать по полю Serial клиентские сертификаты, которые используются для авторизации на одном из сервисов. То есть не просто проверять сертификат, но еще и проверять наличие серийника в списке разрешенных, на случай утечки клиентского сертификата. Сертификаты выдаем не мы, так что отзывать не можем, и списка отозванных тоже нет. Решать я эту задачу стал с помощью Nginx, и почти сразу был слеплен вариант тупой …" />
-
-        <meta property="og:site_name" content="Alexander Bulimov - production engineer's notes." />
-        <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Расширяем возможности Nginx с помощью Lua"/>
-        <meta property="og:url" content="http://bulimov.ru/it/Расширяем-возможности-nginx-с-помощью-lua/"/>
-        <meta property="og:description" content="Встала некоторое время назад передо мной задача - фильтровать по полю Serial клиентские сертификаты, которые используются для авторизации на одном из сервисов. То есть не просто проверять сертификат, но еще и проверять наличие серийника в списке разрешенных, на случай утечки клиентского сертификата. Сертификаты выдаем не мы, так что отзывать не можем, и списка отозванных тоже нет. Решать я эту задачу стал с помощью Nginx, и почти сразу был слеплен вариант тупой …"/>
-        <meta property="article:published_time" content="2013-11-08" />
-            <meta property="article:section" content="IT" />
-            <meta property="article:tag" content="Nginx" />
-            <meta property="article:tag" content="Lua" />
-            <meta property="article:author" content="Alexander Bulimov" />
-
-
-
-    <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://bulimov.ru/theme/css/bootstrap.sandstone.min.css" type="text/css"/>
-    <link href="http://bulimov.ru/theme/css/font-awesome.min.css" rel="stylesheet">
-
-    <link href="http://bulimov.ru/theme/css/pygments/monokai.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://bulimov.ru/theme/css/style.css" type="text/css"/>
-        <link href="http://bulimov.ru/static/custom.css" rel="stylesheet">
-
-        <link href="http://bulimov.ru/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-              title="Alexander Bulimov - production engineer's notes. ATOM Feed"/>
-
-        <link href="http://bulimov.ru/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
-              title="Alexander Bulimov - production engineer's notes. RSS Feed"/>
-
-
-        <link href="http://bulimov.ru/feeds/it.atom.xml" type="application/atom+xml" rel="alternate"
-              title="Alexander Bulimov - production engineer's notes. IT ATOM Feed"/>
-
-</head>
-<body>
-
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-	<div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="http://bulimov.ru/" class="navbar-brand">
-Alexander Bulimov - production engineer's notes.            </a>
-        </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-                    <li><a href="/tags/index.html">Tags</a></li>
-                    <li><a href="/categories/index.html">Categories</a></li>
-                    <li><a href="//models.bulimov.ru">My Scale Models Gallery</a></li>
-                         <li><a href="http://bulimov.ru/pages/about-me.html">
-                             About Me
-                          </a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="http://bulimov.ru/archive/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-</div> <!-- /.navbar -->
-<!-- Banner -->
-<!-- End Banner -->
-<div class="container">
-    <div class="row">
-        <div class="col-sm-9">
-    <section id="content">
-        <article>
-            <header class="page-header">
-                <h1>
-                    <a href="http://bulimov.ru/it/Расширяем-возможности-nginx-с-помощью-lua/"
-                       rel="bookmark"
-                       title="Permalink to Расширяем возможности Nginx с помощью Lua">
-                        Расширяем возможности Nginx с помощью Lua
-                    </a>
-                </h1>
-            </header>
-            <div class="entry-content">
-                <div class="panel">
-                    <div class="panel-body">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-11-08T00:00:00+04:00"> Fri 08 November 2013</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="http://bulimov.ru/category/it.html">IT</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/nginx.html">Nginx</a>
-        /
-	<a href="http://bulimov.ru/tag/lua.html">Lua</a>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Расширяем возможности Nginx с помощью Lua | Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
     
-</footer><!-- /.post-info -->                    </div>
-                </div>
-                <p>Встала некоторое время назад передо мной задача -
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="https://models.bulimov.ru">Scale Models</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Расширяем возможности Nginx с помощью Lua</span></h1>
+
+<h2 class="date">2013/11/08</h2>
+
+</div>
+
+<main>
+<p>Встала некоторое время назад передо мной задача -
 фильтровать по полю Serial клиентские сертификаты,
 которые используются для авторизации на одном из сервисов.
 То есть не просто проверять сертификат, но еще и проверять
@@ -123,21 +45,20 @@ Alexander Bulimov - production engineer's notes.            </a>
 сертификата. Сертификаты выдаем не мы, так что отзывать не можем,
 и списка отозванных тоже нет.</p>
 <p>Решать я эту задачу стал с помощью Nginx, и почти сразу был
-слеплен вариант тупой вариант "в лоб":</p>
-<div class="highlight"><pre><span></span><span class="k">set</span> <span class="nv">$valid_serial</span> <span class="s">&#39;false&#39;</span><span class="p">;</span>
-<span class="k">if</span> <span class="s">(</span><span class="nv">$ssl_client_serial</span> <span class="p">~</span> <span class="sr">&#39;01&#39;)</span> <span class="p">{</span> <span class="kn">set</span> <span class="nv">$valid_serial</span> <span class="s">&#39;true&#39;</span><span class="p">;</span> <span class="p">}</span>
-<span class="k">if</span> <span class="s">(</span><span class="nv">$ssl_client_serial</span> <span class="p">~</span> <span class="sr">&#39;02&#39;)</span> <span class="p">{</span> <span class="kn">set</span> <span class="nv">$valid_serial</span> <span class="s">&#39;true&#39;</span><span class="p">;</span> <span class="p">}</span>
-<span class="k">...</span>
-<span class="s">if</span> <span class="s">(</span><span class="nv">$ssl_client_serial</span> <span class="p">~</span> <span class="sr">&#39;NN&#39;)</span> <span class="p">{</span> <span class="kn">set</span> <span class="nv">$valid_serial</span> <span class="s">&#39;true&#39;</span><span class="p">;</span> <span class="p">}</span>
-<span class="k">if</span> <span class="s">(</span><span class="nv">$valid_serial</span> <span class="p">~</span> <span class="sr">false)</span> <span class="p">{</span> <span class="kn">return</span> <span class="mi">403</span><span class="p">;</span> <span class="kn">break</span><span class="p">;</span> <span class="p">}</span>
-</pre></div>
-
-
+слеплен вариант тупой вариант &ldquo;в лоб&rdquo;:</p>
+<pre><code>:::nginx
+set $valid_serial 'false';
+if ($ssl_client_serial ~ '01') { set $valid_serial 'true'; }
+if ($ssl_client_serial ~ '02') { set $valid_serial 'true'; }
+...
+if ($ssl_client_serial ~ 'NN') { set $valid_serial 'true'; }
+if ($valid_serial ~ false) { return 403; break; }
+</code></pre>
 <p>Поскольку конфиг генерируется из Ansible, то шаблон
 вышел простой, и для каждого из серийников генерируется
 нужная строчка с if. Так оно и работала при тестовом списке в
 3-5 серийников, но приближалось время, когда список должен
-был вырасти до 100+, а затем и до 1000+...</p>
+был вырасти до 100+, а затем и до 1000+&hellip;</p>
 <p>Поэтому была проведена изыскательская работа, которая привела
 меня к <a href="http://wiki.nginx.org/HttpLuaModule">модулю Lua для Nginx</a>.
 Выяснилось, что на нем реализуют весьма сложную логику при приличных
@@ -145,201 +66,82 @@ Alexander Bulimov - production engineer's notes.            </a>
 <a href="http://habrahabr.ru/company/2gis/blog/199504/">статья</a>.</p>
 <p>Так что я быстро пересобрал свой пакет с Nginx с модулем Lua,
 и начал ваять, благо логика у моем случае простейшая:</p>
-<p>1) Загружаем при старте Nginx из файлика с серийниками их список в ngx.shared.DICT</p>
-<div class="highlight"><pre><span></span><span class="k">lua_shared_dict</span> <span class="s">serials</span> <span class="mi">1m</span><span class="p">;</span>
-
-<span class="k">init_by_lua</span> <span class="s">&#39;</span>
-<span class="s">local</span> <span class="s">file</span> <span class="p">=</span> <span class="s">io.open(&quot;/etc/nginx/access.list&quot;,</span> <span class="s">&quot;r&quot;)</span>
-<span class="s">local</span> <span class="s">serials</span> <span class="p">=</span> <span class="s">ngx.shared.serials</span>
-<span class="s">if</span> <span class="s">file</span> <span class="s">then</span>
-  <span class="s">for</span> <span class="s">line</span> <span class="s">in</span> <span class="s">file:lines()</span> <span class="s">do</span>
-    <span class="s">local</span> <span class="s">stripped_line</span> <span class="p">=</span> <span class="s">line:match(</span> <span class="s">&quot;^%s*(.-)%s*</span><span class="nv">$&quot;</span> <span class="s">)</span>
-    <span class="s">local</span> <span class="s">succ,</span> <span class="s">err,</span> <span class="s">forcible</span> <span class="p">=</span> <span class="s">serials:safe_set(</span> <span class="s">stripped_line,</span> <span class="s">true)</span>
-    <span class="s">if</span> <span class="s">not</span> <span class="s">succ</span> <span class="s">then</span>
-        <span class="s">ngx.log(ngx.ERR,&quot;error</span> <span class="s">populating</span> <span class="s">serials</span> <span class="s">list:</span> <span class="s">&quot;</span> <span class="s">..</span> <span class="s">err)</span>
-    <span class="s">end</span>
-  <span class="s">end</span>
-  <span class="s">file:close()</span>
-<span class="s">else</span>
-    <span class="s">ngx.log(ngx.ERR,&quot;access.list</span> <span class="s">file</span> <span class="s">not</span> <span class="s">found&quot;)</span>
-<span class="s">end</span>
-<span class="s">&#39;</span><span class="p">;</span>
-<span class="k">...</span>
-</pre></div>
-
-
-<p>2) При запросе к защищенному контенту проверяем, есть ли такой серийник в списке.</p>
-<div class="highlight"><pre><span></span><span class="k">location</span> <span class="s">/</span> <span class="p">{</span>
-<span class="kn">access_by_lua</span> <span class="s">&#39;</span>
-  <span class="s">local</span> <span class="s">serial</span> <span class="p">=</span> <span class="s">ngx.var.ssl_client_serial</span>
-  <span class="s">local</span> <span class="s">value,</span> <span class="s">flags</span> <span class="p">=</span> <span class="s">ngx.shared.serials:get(serial)</span>
-  <span class="s">if</span> <span class="s">not</span> <span class="s">value</span> <span class="s">then</span>
-    <span class="s">ngx.log(ngx.WARN,</span> <span class="s">&quot;blocked</span> <span class="s">client</span> <span class="s">cert</span> <span class="s">&quot;</span> <span class="s">..</span> <span class="s">serial)</span>
-    <span class="s">ngx.exit(ngx.HTTP_FORBIDDEN)</span>
-  <span class="s">end</span>
-<span class="s">&#39;</span><span class="p">;</span>
-<span class="kn">proxy_pass</span> <span class="s">http://upstream</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
-
-
+<ol>
+<li>
+<p>Загружаем при старте Nginx из файлика с серийниками их список в ngx.shared.DICT</p>
+<p>:::nginx
+lua_shared_dict serials 1m;</p>
+<p>init_by_lua '
+local file = io.open(&quot;/etc/nginx/access.list&quot;, &ldquo;r&rdquo;)
+local serials = ngx.shared.serials
+if file then
+for line in file:lines() do
+local stripped_line = line:match( &ldquo;^%s*(.-)%s*$&rdquo; )
+local succ, err, forcible = serials:safe_set( stripped_line, true)
+if not succ then
+ngx.log(ngx.ERR,&ldquo;error populating serials list: &quot; .. err)
+end
+end
+file:close()
+else
+ngx.log(ngx.ERR,&ldquo;access.list file not found&rdquo;)
+end
+&lsquo;;
+&hellip;</p>
+</li>
+<li>
+<p>При запросе к защищенному контенту проверяем, есть ли такой серийник в списке.</p>
+<p>:::nginx
+location / {
+access_by_lua '
+local serial = ngx.var.ssl_client_serial
+local value, flags = ngx.shared.serials:get(serial)
+if not value then
+ngx.log(ngx.WARN, &ldquo;blocked client cert &quot; .. serial)
+ngx.exit(ngx.HTTP_FORBIDDEN)
+end
+&lsquo;;
+proxy_pass http://upstream;
+}</p>
+</li>
+</ol>
 <p>Весь Lua-код выполняется в отдельных корутинах-песочницах, так что на работу
 в Nginx в целом не влияет.
 И что особенно хорошо, можно будет в дальнейшем список вынести в базу данных,
 к примеру.</p>
 <p>В общем, я был и без того очень впечатлен
 возможностями Nginx, а с модулем Lua он еще круче.</p>
-            </div>
-            <!-- /.entry-content -->
-    <hr/>
-    <section class="comments" id="comments">
-        <h2>Comments</h2>
 
-        <div id="disqus_thread"></div>
-        <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-            var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
+</main>
 
 
-            var disqus_config = function () {
-                this.language = "en";
-                                        this.page.identifier = '2013-11-08-Расширяем-возможности-nginx-с-помощью-lua';
-                                        this.page.url = 'http://bulimov.ru/it/Расширяем-возможности-nginx-с-помощью-lua/';
-            };
+<p class="terms">
+<b>Tags:</b>
 
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function () {
-                var dsq = document.createElement('script');
-                dsq.type = 'text/javascript';
-                dsq.async = true;
-                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
-            Disqus.</a></noscript>
-        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  <a href="//bulimov.ru/tags/nginx/">Nginx</a>
 
-    </section>
-        </article>
-    </section>
-
-        </div>
-        <div class="col-sm-3" id="sidebar">
-            <aside>
-<!-- Sidebar -->
-<section class="well well-sm">
-  <ul class="list-group list-group-flush">
-
-<!-- Sidebar/Social -->
-<li class="list-group-item">
-  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
-  <ul class="list-group" id="social">
-    <li class="list-group-item"><a href="https://github.com/abulimov"><i class="fa fa-github-square fa-lg"></i> GitHub</a></li>
-    <li class="list-group-item"><a href="https://www.facebook.com/abulimov"><i class="fa fa-facebook-square fa-lg"></i> Facebook</a></li>
-    <li class="list-group-item"><a href="https://plus.google.com/102209846851870884693/about"><i class="fa fa-google-plus-square fa-lg"></i> Google+</a></li>
-    <li class="list-group-item"><a href="http://ru.linkedin.com/pub/александр-булимов/7b/692/a92/"><i class="fa fa-linkedin-square fa-lg"></i> LinkedIn</a></li>
-    <li class="list-group-item"><a href="http://habrahabr.ru/users/lazywolf/"><i class="fa fa-habrahabr-square fa-lg"></i> Habrahabr</a></li>
-    <li class="list-group-item"><a href="http://vk.com/a_v_bulimov"><i class="fa fa-vk fa-lg"></i> VK</a></li>
-    <li class="list-group-item"><a href="/feeds/all.rss.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
-  </ul>
-</li>
-<!-- End Sidebar/Social -->
-
-<!-- Sidebar/Github -->
-<li class="list-group-item">
-  <h4><i class="fa fa-github fa-lg"></i><span class="icon-label">GitHub Repos</span></h4>
-  <div id="gh_repos">
-    <p class="list-group-item">Status updating...</p>
-  </div>
-</li>
-<!-- End Sidebar/Github -->
-  </ul>
-</section>
-<!-- End Sidebar -->            </aside>
-        </div>
-    </div>
-</div>
-<footer>
-   <div class="container">
-      <hr>
-      <div class="row">
-         <div class="col-xs-10">&copy; 2018 Alexander Bulimov
-            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
-            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
-    Content
-  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
-</small></p>
-         </div>
-         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
-      </div>
-   </div>
-</footer>
-<script src="http://bulimov.ru/theme/js/jquery.min.js"></script>
-
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="http://bulimov.ru/theme/js/bootstrap.min.js"></script>
-
-<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="http://bulimov.ru/theme/js/respond.min.js"></script>
+  <a href="//bulimov.ru/tags/lua/">Lua</a>
 
 
+</p>
+<p class="terms">
 
-<!-- GitHub JS Code -->
-<script type="text/javascript">
-$(document).ready(function () {
-  if (!window.jXHR) {
-    var jxhr = document.createElement('script');
-    jxhr.type = 'text/javascript';
-    jxhr.src = 'http://bulimov.ru/theme/js/jXHR.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(jxhr, s);
-  }
+<b>Categories:</b>
 
-  github.showRepos({
-    user: 'abulimov',
-    count: 5,
-    skip_forks: false,
-    target: '#gh_repos'
-  });
-});
-</script>
-<script src="http://bulimov.ru/theme/js/github.js" type="text/javascript"></script>
-<!-- End GitHub JS Code -->
-    <!-- Disqus -->
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
+  <a href="//bulimov.ru/categories/it/">IT</a>
 
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function () {
-            var s = document.createElement('script');
-            s.async = true;
-            s.type = 'text/javascript';
-            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-        }());
-    </script>
-    <!-- End Disqus Code -->
-    <!-- Google Analytics -->
-    <script type="text/javascript">
-
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-49230997-1']);
-        _gaq.push(['_trackPageview']);
-
-        (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
-    <!-- End Google Analytics Code -->
+  <a href="//bulimov.ru/categories/russian/">Russian</a>
 
 
-</body>
+</p>
+
+  <footer>
+  
+  
+  <hr/>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.ru">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
+  
+  </footer>
+  </body>
 </html>
+

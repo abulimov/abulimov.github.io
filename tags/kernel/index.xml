@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kernel on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link>//bulimov.ru/tags/kernel/</link>
+    <description>Recent content in Kernel on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 09 Oct 2014 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/kernel/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Разбирался с page-cache в Linux</title>
+      <link>//bulimov.ru/it/meminfo-visualizer/</link>
+      <pubDate>Thu, 09 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/meminfo-visualizer/</guid>
+      <description>Читая книгу &amp;ldquo;Разработка ядра Linux&amp;rdquo; за авторством Роберта Лава, я решил поглубже разобраться в том, как работает кэш в Linux, и набрел на вот эту статью на Хабре от Яндекса.
+Сама статья весьма познавательна, особенно видео - рекомендую. Так вот, в этом видео Роман Гущин, с помощью простой утилиты, наглядно показывающей размер кэша, показывал как работает файловый кэш.
+Конечно, мне захотелось в образовательных целях написать такую утилиту для себя, чтобы можно было поиграться с кэшем и видеть изменения.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,124 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
-<head>
-    <title>Удобная настройка Sensu с Ansible - Alexander Bulimov - production engineer's notes.</title>
-    <!-- Using the latest rendering mode for IE -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<html lang="en-us">
+  <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-
-<link rel="canonical" href="http://bulimov.ru/it/ansible-sensu/">
-
-        <meta name="author" content="Alexander Bulimov" />
-        <meta name="keywords" content="Ansible,Sensu,Monitoring" />
-        <meta name="description" content="Так как я использую Sensu для мониторинга, и Ansible для управления конфигурациями, то конечно же я настраиваю Sensu с помощью Ansible. В этой связке меня смущало только одно - Sensu использует JSON для конфигов, в то время как Ansible использует YAML. Поскольку JSON является подмножеством YAML, и описывать конфигурации в YAML гораздо проще (никаких проблем с запятыми, скобочками), хотелось писать в YAML и транслировать в JSON. Начал я, конечно, с использования …" />
-
-        <meta property="og:site_name" content="Alexander Bulimov - production engineer's notes." />
-        <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Удобная настройка Sensu с Ansible"/>
-        <meta property="og:url" content="http://bulimov.ru/it/ansible-sensu/"/>
-        <meta property="og:description" content="Так как я использую Sensu для мониторинга, и Ansible для управления конфигурациями, то конечно же я настраиваю Sensu с помощью Ansible. В этой связке меня смущало только одно - Sensu использует JSON для конфигов, в то время как Ansible использует YAML. Поскольку JSON является подмножеством YAML, и описывать конфигурации в YAML гораздо проще (никаких проблем с запятыми, скобочками), хотелось писать в YAML и транслировать в JSON. Начал я, конечно, с использования …"/>
-        <meta property="article:published_time" content="2014-11-13" />
-            <meta property="article:section" content="IT" />
-            <meta property="article:tag" content="Ansible" />
-            <meta property="article:tag" content="Sensu" />
-            <meta property="article:tag" content="Monitoring" />
-            <meta property="article:author" content="Alexander Bulimov" />
-
-
-
-    <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://bulimov.ru/theme/css/bootstrap.sandstone.min.css" type="text/css"/>
-    <link href="http://bulimov.ru/theme/css/font-awesome.min.css" rel="stylesheet">
-
-    <link href="http://bulimov.ru/theme/css/pygments/monokai.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://bulimov.ru/theme/css/style.css" type="text/css"/>
-        <link href="http://bulimov.ru/static/custom.css" rel="stylesheet">
-
-        <link href="http://bulimov.ru/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-              title="Alexander Bulimov - production engineer's notes. ATOM Feed"/>
-
-        <link href="http://bulimov.ru/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
-              title="Alexander Bulimov - production engineer's notes. RSS Feed"/>
-
-
-        <link href="http://bulimov.ru/feeds/it.atom.xml" type="application/atom+xml" rel="alternate"
-              title="Alexander Bulimov - production engineer's notes. IT ATOM Feed"/>
-
-</head>
-<body>
-
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-	<div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="http://bulimov.ru/" class="navbar-brand">
-Alexander Bulimov - production engineer's notes.            </a>
-        </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-                    <li><a href="/tags/index.html">Tags</a></li>
-                    <li><a href="/categories/index.html">Categories</a></li>
-                    <li><a href="//models.bulimov.ru">My Scale Models Gallery</a></li>
-                         <li><a href="http://bulimov.ru/pages/about-me.html">
-                             About Me
-                          </a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="http://bulimov.ru/archive/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-</div> <!-- /.navbar -->
-<!-- Banner -->
-<!-- End Banner -->
-<div class="container">
-    <div class="row">
-        <div class="col-sm-9">
-    <section id="content">
-        <article>
-            <header class="page-header">
-                <h1>
-                    <a href="http://bulimov.ru/it/ansible-sensu/"
-                       rel="bookmark"
-                       title="Permalink to Удобная настройка Sensu с Ansible">
-                        Удобная настройка Sensu с Ansible
-                    </a>
-                </h1>
-            </header>
-            <div class="entry-content">
-                <div class="panel">
-                    <div class="panel-body">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2014-11-13T00:00:00+03:00"> Thu 13 November 2014</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="http://bulimov.ru/category/it.html">IT</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/ansible.html">Ansible</a>
-        /
-	<a href="http://bulimov.ru/tag/sensu.html">Sensu</a>
-        /
-	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Удобная настройка Sensu с Ansible | Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
     
-</footer><!-- /.post-info -->                    </div>
-                </div>
-                <p>Так как я использую <a href="http://sensuapp.org/">Sensu</a> для мониторинга,
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="https://models.bulimov.ru">Scale Models</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Удобная настройка Sensu с Ansible</span></h1>
+
+<h2 class="date">2014/11/13</h2>
+
+</div>
+
+<main>
+<p>Так как я использую <a href="http://sensuapp.org/">Sensu</a> для мониторинга,
 и <a href="http://www.ansible.com/">Ansible</a> для управления конфигурациями,
 то конечно же я настраиваю Sensu с помощью Ansible.</p>
 <p>В этой связке меня смущало только одно - Sensu использует
@@ -128,23 +47,20 @@ Alexander Bulimov - production engineer's notes.            </a>
 конфигурации в YAML гораздо проще (никаких проблем с запятыми, скобочками),
 хотелось писать в YAML и транслировать в JSON.</p>
 <p>Начал я, конечно, с использования шаблонов Ansible:</p>
-<div class="highlight"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;client&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;address&quot;</span><span class="p">:</span> <span class="s2">&quot;{{ ansible_default_ipv4.address }}&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;{{ ansible_hostname }}&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;subscriptions&quot;</span><span class="p">:</span> <span class="p">[</span> <span class="s2">&quot;{{ sensu_client_subscriptions|join(&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;&#39;) }}&quot;</span> <span class="p">]</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-
+<pre><code>:::json
+{
+    &quot;client&quot;: {
+        &quot;address&quot;: &quot;{{ ansible_default_ipv4.address }}&quot;,
+        &quot;name&quot;: &quot;{{ ansible_hostname }}&quot;,
+        &quot;subscriptions&quot;: [ &quot;{{ sensu_client_subscriptions|join('&quot;, &quot;') }}&quot; ]
+    }
+}
+</code></pre>
 <p>Вроде неплохо, но не слишком удобно, и если одним клиентам захочется добавить
 что-то, например переменную <em>some_var</em>, надо для них делать новый шаблон, или
 городить строки такого вида:</p>
-<div class="highlight"><pre><span></span><span class="cp">{%</span> <span class="k">if</span> <span class="nv">some_var</span> <span class="k">is</span> <span class="nf">defined</span> <span class="cp">%}</span><span class="x"> &quot;some_var&quot;: </span><span class="cp">{{</span> <span class="nv">some_var</span> <span class="cp">}}</span><span class="x">, </span><span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span><span class="x"></span>
-</pre></div>
-
-
+<pre><code>{% if some_var is defined %} &quot;some_var&quot;: {{ some_var }}, {% endif %}
+</code></pre>
 <p>В общем, я, не особо включая мозг, решил писать модуль для Ansible.</p>
 <p>В процессе написания выплыли все те же проблемы: сложно работать с произвольного
 вида структурами, которые позволяют с такой гибкостью использовать Sensu.</p>
@@ -156,192 +72,62 @@ Alexander Bulimov - production engineer's notes.            </a>
 из которого узнал, что теперь в Ansible можно использовать =
 фильтры <em>to_json</em> и <em>to_nice_json</em>.</p>
 <p>А это дает нам возможность делать такие вещи:</p>
-<div class="highlight"><pre><span></span><span class="c1"># task from sensu_client role</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">configure sensu client</span>
-  <span class="l l-Scalar l-Scalar-Plain">copy</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">content=&#39;{{ sensu_client | to_nice_json }}&#39;</span>
-        <span class="l l-Scalar l-Scalar-Plain">owner=sensu</span>
-        <span class="l l-Scalar l-Scalar-Plain">dest=/etc/sensu/conf.d/client.json</span>
-  <span class="l l-Scalar l-Scalar-Plain">notify</span><span class="p p-Indicator">:</span>
-    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">restart sensu-client</span>
-</pre></div>
-
-
+<pre><code>:::yaml
+# task from sensu_client role
+- name: configure sensu client
+  copy: content='{{ sensu_client | to_nice_json }}'
+        owner=sensu
+        dest=/etc/sensu/conf.d/client.json
+  notify:
+    - restart sensu-client
+</code></pre>
 <p>А описание переменной <em>sensu_client</em> где-нибудь в <em>group_vars</em> выглядит так:</p>
-<div class="highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">sensu_client</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">client</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">ansible_hostname</span><span class="nv"> </span><span class="s">}}&quot;</span>
-    <span class="l l-Scalar l-Scalar-Plain">subscriptions</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">www</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">default</span>
-    <span class="l l-Scalar l-Scalar-Plain">address</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">ansible_default_ipv4.address</span><span class="nv"> </span><span class="s">}}&quot;</span>
-    <span class="l l-Scalar l-Scalar-Plain">some_var</span><span class="p p-Indicator">:</span> <span class="s">&quot;{{</span><span class="nv"> </span><span class="s">sensu_some_var</span><span class="nv"> </span><span class="s">}}&quot;</span>
-</pre></div>
-
-
+<pre><code>:::yaml
+sensu_client:
+  client:
+    name: &quot;{{ ansible_hostname }}&quot;
+    subscriptions:
+      - www
+      - default
+    address: &quot;{{ ansible_default_ipv4.address }}&quot;
+    some_var: &quot;{{ sensu_some_var }}&quot;
+</code></pre>
 <p>Эта схема показалась мне достаточно удобной, и на этом я остановился,
 так что теперь весь конфиг Sensu, включая проверки, хендлеры и т.д., хранится
 у меня в формате YAML в Ansible.</p>
-            </div>
-            <!-- /.entry-content -->
-<section class="well" id="related-posts">
-    <h4>Related Posts:</h4>
-    <ul>
-        <li><a href="http://bulimov.ru/it/Переписал-скрипты-на-ruby-для-sensu/">Переписал скрипты на Ruby для Sensu</a></li>
-        <li><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></li>
-        <li><a href="http://bulimov.ru/it/monitoring-sucks/">Monitoring sucks!</a></li>
-        <li><a href="http://bulimov.ru/it/check-cadvisor/">Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</a></li>
-        <li><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware/">Низкоуровневое обнаружение в Zabbix, ищем диски в контроллере от 3ware</a></li>
-    </ul>
-</section>
-    <hr/>
-    <section class="comments" id="comments">
-        <h2>Comments</h2>
 
-        <div id="disqus_thread"></div>
-        <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-            var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
+</main>
 
 
-            var disqus_config = function () {
-                this.language = "en";
-                                        this.page.identifier = '2014-11-13-ansible-sensu';
-                                        this.page.url = 'http://bulimov.ru/it/ansible-sensu/';
-            };
+<p class="terms">
+<b>Tags:</b>
 
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function () {
-                var dsq = document.createElement('script');
-                dsq.type = 'text/javascript';
-                dsq.async = true;
-                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
-            Disqus.</a></noscript>
-        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  <a href="//bulimov.ru/tags/ansible/">Ansible</a>
 
-    </section>
-        </article>
-    </section>
+  <a href="//bulimov.ru/tags/sensu/">Sensu</a>
 
-        </div>
-        <div class="col-sm-3" id="sidebar">
-            <aside>
-<!-- Sidebar -->
-<section class="well well-sm">
-  <ul class="list-group list-group-flush">
-
-<!-- Sidebar/Social -->
-<li class="list-group-item">
-  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
-  <ul class="list-group" id="social">
-    <li class="list-group-item"><a href="https://github.com/abulimov"><i class="fa fa-github-square fa-lg"></i> GitHub</a></li>
-    <li class="list-group-item"><a href="https://www.facebook.com/abulimov"><i class="fa fa-facebook-square fa-lg"></i> Facebook</a></li>
-    <li class="list-group-item"><a href="https://plus.google.com/102209846851870884693/about"><i class="fa fa-google-plus-square fa-lg"></i> Google+</a></li>
-    <li class="list-group-item"><a href="http://ru.linkedin.com/pub/александр-булимов/7b/692/a92/"><i class="fa fa-linkedin-square fa-lg"></i> LinkedIn</a></li>
-    <li class="list-group-item"><a href="http://habrahabr.ru/users/lazywolf/"><i class="fa fa-habrahabr-square fa-lg"></i> Habrahabr</a></li>
-    <li class="list-group-item"><a href="http://vk.com/a_v_bulimov"><i class="fa fa-vk fa-lg"></i> VK</a></li>
-    <li class="list-group-item"><a href="/feeds/all.rss.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
-  </ul>
-</li>
-<!-- End Sidebar/Social -->
-
-<!-- Sidebar/Github -->
-<li class="list-group-item">
-  <h4><i class="fa fa-github fa-lg"></i><span class="icon-label">GitHub Repos</span></h4>
-  <div id="gh_repos">
-    <p class="list-group-item">Status updating...</p>
-  </div>
-</li>
-<!-- End Sidebar/Github -->
-  </ul>
-</section>
-<!-- End Sidebar -->            </aside>
-        </div>
-    </div>
-</div>
-<footer>
-   <div class="container">
-      <hr>
-      <div class="row">
-         <div class="col-xs-10">&copy; 2018 Alexander Bulimov
-            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
-            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
-    Content
-  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
-</small></p>
-         </div>
-         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
-      </div>
-   </div>
-</footer>
-<script src="http://bulimov.ru/theme/js/jquery.min.js"></script>
-
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="http://bulimov.ru/theme/js/bootstrap.min.js"></script>
-
-<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="http://bulimov.ru/theme/js/respond.min.js"></script>
+  <a href="//bulimov.ru/tags/monitoring/">Monitoring</a>
 
 
+</p>
+<p class="terms">
 
-<!-- GitHub JS Code -->
-<script type="text/javascript">
-$(document).ready(function () {
-  if (!window.jXHR) {
-    var jxhr = document.createElement('script');
-    jxhr.type = 'text/javascript';
-    jxhr.src = 'http://bulimov.ru/theme/js/jXHR.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(jxhr, s);
-  }
+<b>Categories:</b>
 
-  github.showRepos({
-    user: 'abulimov',
-    count: 5,
-    skip_forks: false,
-    target: '#gh_repos'
-  });
-});
-</script>
-<script src="http://bulimov.ru/theme/js/github.js" type="text/javascript"></script>
-<!-- End GitHub JS Code -->
-    <!-- Disqus -->
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
+  <a href="//bulimov.ru/categories/it/">IT</a>
 
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function () {
-            var s = document.createElement('script');
-            s.async = true;
-            s.type = 'text/javascript';
-            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-        }());
-    </script>
-    <!-- End Disqus Code -->
-    <!-- Google Analytics -->
-    <script type="text/javascript">
-
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-49230997-1']);
-        _gaq.push(['_trackPageview']);
-
-        (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
-    <!-- End Google Analytics Code -->
+  <a href="//bulimov.ru/categories/russian/">Russian</a>
 
 
-</body>
+</p>
+
+  <footer>
+  
+  
+  <hr/>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.ru">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
+  
+  </footer>
+  </body>
 </html>
+

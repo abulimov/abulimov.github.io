@@ -1,121 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
-<head>
-    <title>Мнение о Chef - Alexander Bulimov - production engineer's notes.</title>
-    <!-- Using the latest rendering mode for IE -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<html lang="en-us">
+  <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-
-<link rel="canonical" href="http://bulimov.ru/it/Мнение-о-chef/">
-
-        <meta name="author" content="Alexander Bulimov" />
-        <meta name="keywords" content="Chef,Мнение" />
-        <meta name="description" content="Я использовал Chef для управления IT-инфраструктурой около полутора лет, начав с версии 0.10. Сначала, где-то пол-года, использовал только для управления конфигурациями, без развертывания ПО с нуля. Затем, уже на другой работе, автоматизировал управления конфигурациями и развертывание с нуля веб-проекта (30+ серверов, nginx, ruby, riak, redis, sphinx-search, rabbitmq и т.п.). Это позволило мне составить собственное мнение o достоинствах и недостатках Chef, и в этой заметке я свое мнение излагаю …" />
-
-        <meta property="og:site_name" content="Alexander Bulimov - production engineer's notes." />
-        <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Мнение о Chef"/>
-        <meta property="og:url" content="http://bulimov.ru/it/Мнение-о-chef/"/>
-        <meta property="og:description" content="Я использовал Chef для управления IT-инфраструктурой около полутора лет, начав с версии 0.10. Сначала, где-то пол-года, использовал только для управления конфигурациями, без развертывания ПО с нуля. Затем, уже на другой работе, автоматизировал управления конфигурациями и развертывание с нуля веб-проекта (30+ серверов, nginx, ruby, riak, redis, sphinx-search, rabbitmq и т.п.). Это позволило мне составить собственное мнение o достоинствах и недостатках Chef, и в этой заметке я свое мнение излагаю …"/>
-        <meta property="article:published_time" content="2013-06-17" />
-            <meta property="article:section" content="IT" />
-            <meta property="article:tag" content="Chef" />
-            <meta property="article:tag" content="Мнение" />
-            <meta property="article:author" content="Alexander Bulimov" />
-
-
-
-    <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://bulimov.ru/theme/css/bootstrap.sandstone.min.css" type="text/css"/>
-    <link href="http://bulimov.ru/theme/css/font-awesome.min.css" rel="stylesheet">
-
-    <link href="http://bulimov.ru/theme/css/pygments/monokai.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://bulimov.ru/theme/css/style.css" type="text/css"/>
-        <link href="http://bulimov.ru/static/custom.css" rel="stylesheet">
-
-        <link href="http://bulimov.ru/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-              title="Alexander Bulimov - production engineer's notes. ATOM Feed"/>
-
-        <link href="http://bulimov.ru/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
-              title="Alexander Bulimov - production engineer's notes. RSS Feed"/>
-
-
-        <link href="http://bulimov.ru/feeds/it.atom.xml" type="application/atom+xml" rel="alternate"
-              title="Alexander Bulimov - production engineer's notes. IT ATOM Feed"/>
-
-</head>
-<body>
-
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-	<div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="http://bulimov.ru/" class="navbar-brand">
-Alexander Bulimov - production engineer's notes.            </a>
-        </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-                    <li><a href="/tags/index.html">Tags</a></li>
-                    <li><a href="/categories/index.html">Categories</a></li>
-                    <li><a href="//models.bulimov.ru">My Scale Models Gallery</a></li>
-                         <li><a href="http://bulimov.ru/pages/about-me.html">
-                             About Me
-                          </a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="http://bulimov.ru/archive/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-</div> <!-- /.navbar -->
-<!-- Banner -->
-<!-- End Banner -->
-<div class="container">
-    <div class="row">
-        <div class="col-sm-9">
-    <section id="content">
-        <article>
-            <header class="page-header">
-                <h1>
-                    <a href="http://bulimov.ru/it/Мнение-о-chef/"
-                       rel="bookmark"
-                       title="Permalink to Мнение о Chef">
-                        Мнение о Chef
-                    </a>
-                </h1>
-            </header>
-            <div class="entry-content">
-                <div class="panel">
-                    <div class="panel-body">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-06-17T00:00:00+04:00"> Mon 17 June 2013</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="http://bulimov.ru/category/it.html">IT</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/chef.html">Chef</a>
-        /
-	<a href="http://bulimov.ru/tag/mnenie.html">Мнение</a>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Мнение о Chef | Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
     
-</footer><!-- /.post-info -->                    </div>
-                </div>
-                <p>Я использовал Chef для управления IT-инфраструктурой около полутора лет, начав с
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="https://models.bulimov.ru">Scale Models</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Мнение о Chef</span></h1>
+
+<h2 class="date">2013/06/17</h2>
+
+</div>
+
+<main>
+<p>Я использовал Chef для управления IT-инфраструктурой около полутора лет, начав с
 версии 0.10. Сначала, где-то пол-года, использовал только для управления конфигурациями,
 без развертывания ПО с нуля. Затем, уже на другой работе, автоматизировал управления
 конфигурациями и развертывание с нуля веб-проекта (30+ серверов, nginx, ruby, riak, redis,
@@ -134,11 +56,13 @@ sphinx-search, rabbitmq и т.п.).
 <li>В случае комплексной, динамически изменяемой среды, когда требуется на-лету перенастраивать
 софт в автоматическом режиме - Chef идеален. Тут его императивность приходится как раз к месту,
 поскольку действия выполняются сложные, и зависят от состояния системы в конкретный момент.</li>
+</ul>
+<ul>
 <li>В случае, когда мы имеем ограниченный набор хостов, имеющих каждый свою фиксированную роль, когда
 любое переконфигурирование выполнятся специалистом - Chef избыточен, и даже вреден, поскольку
 провоцирует писать конфиги-программы, а не конфиги-данные.</li>
 </ul>
-<h1>Негатив:</h1>
+<p>#Негатив:</p>
 <ul>
 <li>Ruby - язык хороший, но пакетировать и совмещать разные версии это ад.</li>
 <li>Слабочитаемый конечный конфиг, представляющий собой код на ruby. Это главный минус.</li>
@@ -149,174 +73,44 @@ sphinx-search, rabbitmq и т.п.).
 <li>Море зависимостей у клиента и сервера, проблемы с версиями Ruby. К примеру, для squeeze и ruby1.9.3 пришлось пересобрать более 10 пакетов.</li>
 <li>Для debian пришлось патчить chef для обхода проблемы с неработающим update-rc.d stop, хотя в puppet уже был рабочий workaround.</li>
 </ul>
-<h1>Позитив:</h1>
+<p>#Позитив:</p>
 <ul>
 <li>Окружения (environments).</li>
 <li>Версии cookbook для каждого окружения, заморозка пакетов.</li>
 <li>Готовые cookbooks, полезно для вникания.</li>
 <li>Knife - отличный инстумент для любителей консоли вроде меня.</li>
 </ul>
-            </div>
-            <!-- /.entry-content -->
-<section class="well" id="related-posts">
-    <h4>Related Posts:</h4>
-    <ul>
-        <li><a href="http://bulimov.ru/it/infrastructure-as-a-code/">Инфраструктура как код</a></li>
-        <li><a href="http://bulimov.ru/it/Прочитал-the-phoenix-project-a-novel-about-devops-and-helping-your-business-win/">Прочитал The Phoenix Project: A Novel About DevOps, and Helping Your Business Win</a></li>
-        <li><a href="http://bulimov.ru/it/Тестирование-ansible-playbook/">Тестирование Ansible Playbook</a></li>
-        <li><a href="http://bulimov.ru/it/monitoring-sucks/">Monitoring sucks!</a></li>
-        <li><a href="http://bulimov.ru/it/coreos-opinion/">Впечатления от CoreOS</a></li>
-    </ul>
-</section>
-    <hr/>
-    <section class="comments" id="comments">
-        <h2>Comments</h2>
 
-        <div id="disqus_thread"></div>
-        <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-            var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
+</main>
 
 
-            var disqus_config = function () {
-                this.language = "en";
-                                        this.page.identifier = '2013-06-17-Мнение-о-chef';
-                                        this.page.url = 'http://bulimov.ru/it/Мнение-о-chef/';
-            };
+<p class="terms">
+<b>Tags:</b>
 
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function () {
-                var dsq = document.createElement('script');
-                dsq.type = 'text/javascript';
-                dsq.async = true;
-                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
-            Disqus.</a></noscript>
-        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  <a href="//bulimov.ru/tags/chef/">Chef</a>
 
-    </section>
-        </article>
-    </section>
-
-        </div>
-        <div class="col-sm-3" id="sidebar">
-            <aside>
-<!-- Sidebar -->
-<section class="well well-sm">
-  <ul class="list-group list-group-flush">
-
-<!-- Sidebar/Social -->
-<li class="list-group-item">
-  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
-  <ul class="list-group" id="social">
-    <li class="list-group-item"><a href="https://github.com/abulimov"><i class="fa fa-github-square fa-lg"></i> GitHub</a></li>
-    <li class="list-group-item"><a href="https://www.facebook.com/abulimov"><i class="fa fa-facebook-square fa-lg"></i> Facebook</a></li>
-    <li class="list-group-item"><a href="https://plus.google.com/102209846851870884693/about"><i class="fa fa-google-plus-square fa-lg"></i> Google+</a></li>
-    <li class="list-group-item"><a href="http://ru.linkedin.com/pub/александр-булимов/7b/692/a92/"><i class="fa fa-linkedin-square fa-lg"></i> LinkedIn</a></li>
-    <li class="list-group-item"><a href="http://habrahabr.ru/users/lazywolf/"><i class="fa fa-habrahabr-square fa-lg"></i> Habrahabr</a></li>
-    <li class="list-group-item"><a href="http://vk.com/a_v_bulimov"><i class="fa fa-vk fa-lg"></i> VK</a></li>
-    <li class="list-group-item"><a href="/feeds/all.rss.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
-  </ul>
-</li>
-<!-- End Sidebar/Social -->
-
-<!-- Sidebar/Github -->
-<li class="list-group-item">
-  <h4><i class="fa fa-github fa-lg"></i><span class="icon-label">GitHub Repos</span></h4>
-  <div id="gh_repos">
-    <p class="list-group-item">Status updating...</p>
-  </div>
-</li>
-<!-- End Sidebar/Github -->
-  </ul>
-</section>
-<!-- End Sidebar -->            </aside>
-        </div>
-    </div>
-</div>
-<footer>
-   <div class="container">
-      <hr>
-      <div class="row">
-         <div class="col-xs-10">&copy; 2018 Alexander Bulimov
-            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
-            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
-    Content
-  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
-</small></p>
-         </div>
-         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
-      </div>
-   </div>
-</footer>
-<script src="http://bulimov.ru/theme/js/jquery.min.js"></script>
-
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="http://bulimov.ru/theme/js/bootstrap.min.js"></script>
-
-<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="http://bulimov.ru/theme/js/respond.min.js"></script>
+  <a href="//bulimov.ru/tags/%D0%BC%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5/">Мнение</a>
 
 
+</p>
+<p class="terms">
 
-<!-- GitHub JS Code -->
-<script type="text/javascript">
-$(document).ready(function () {
-  if (!window.jXHR) {
-    var jxhr = document.createElement('script');
-    jxhr.type = 'text/javascript';
-    jxhr.src = 'http://bulimov.ru/theme/js/jXHR.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(jxhr, s);
-  }
+<b>Categories:</b>
 
-  github.showRepos({
-    user: 'abulimov',
-    count: 5,
-    skip_forks: false,
-    target: '#gh_repos'
-  });
-});
-</script>
-<script src="http://bulimov.ru/theme/js/github.js" type="text/javascript"></script>
-<!-- End GitHub JS Code -->
-    <!-- Disqus -->
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
+  <a href="//bulimov.ru/categories/it/">IT</a>
 
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function () {
-            var s = document.createElement('script');
-            s.async = true;
-            s.type = 'text/javascript';
-            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-        }());
-    </script>
-    <!-- End Disqus Code -->
-    <!-- Google Analytics -->
-    <script type="text/javascript">
-
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-49230997-1']);
-        _gaq.push(['_trackPageview']);
-
-        (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
-    <!-- End Google Analytics Code -->
+  <a href="//bulimov.ru/categories/russian/">Russian</a>
 
 
-</body>
+</p>
+
+  <footer>
+  
+  
+  <hr/>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.ru">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
+  
+  </footer>
+  </body>
 </html>
+

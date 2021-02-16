@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Moving from Pelican to Hugo for this blog | Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="https://models.bulimov.ru">Scale Models</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Moving from Pelican to Hugo for this blog</span></h1>
+
+<h2 class="date">2021/02/16</h2>
+
+</div>
+
+<main>
+<p>Since I no longer enjoy working with Python in any shape or form, it was only a matter of time (mostly a matter of <em>my free time</em>)
+for this to happen. I&rsquo;ve migrated this blog from Pelican static site generator (written in Python) to Hugo (written in Go).</p>
+<p>It by no means reflects on Pelican as a piece of software (it&rsquo;s actually pretty good).
+It&rsquo;s more about my disdain for Python, and awesome experience I had with Hugo and Go language in general.</p>
+<p>One of the reasons this blog was inactive is the fact that setting things up was always too much work in case of Pelican.
+Maintaining <code>$PYTHONPATH</code>, dealing with <code>pip3</code> and stuff - meh&hellip;</p>
+<p>Blogging should be effortless and fun, but unfortunately for me using Pelican just triggered PTSD.</p>
+<p>With Hugo all I need is a single statically built binary that does everything - pretty neat.</p>
+<p>Another goal I had for this migration was to make this blog as lightweight and minimalistic as possible.
+Very simple theme, no more Disqus, Google Analytics, JavaScript or any other heavyweight stuff.</p>
+<p>This whole page is just few kilobytes, and I plan to keep it as lean as possible. Full load of something like &lsquo;medium.com&rsquo; takes 10+ seconds with a good broadband, I don&rsquo;t think it&rsquo;s anywhere near acceptable for a predominantly text content.</p>
+<p>As much as I admire ReactJS and modern single page webapps, I don&rsquo;t think most of the pages on the Internet should go heavy on it,
+and definitely not simple blogs.</p>
+
+</main>
+
+
+<p class="terms">
+<b>Tags:</b>
+
+  <a href="//bulimov.ru/tags/golang/">Golang</a>
+
+  <a href="//bulimov.ru/tags/hugo/">Hugo</a>
+
+  <a href="//bulimov.ru/tags/pelican/">Pelican</a>
+
+
+</p>
+<p class="terms">
+
+<b>Categories:</b>
+
+  <a href="//bulimov.ru/categories/personal/">Personal</a>
+
+
+</p>
+
+  <footer>
+  
+  
+  <hr/>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.ru">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
+  
+  </footer>
+  </body>
+</html>
+

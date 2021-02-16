@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HAProxy on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link>//bulimov.ru/tags/haproxy/</link>
+    <description>Recent content in HAProxy on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 08 Apr 2016 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/haproxy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Все для HAProxy в Atom</title>
+      <link>//bulimov.ru/it/atom-haproxy/</link>
+      <pubDate>Fri, 08 Apr 2016 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/atom-haproxy/</guid>
+      <description>Появилась у меня на работе задачка - взять 3 относительно разных конфига HAProxy, ответвившихся когда-то от общего предка, и обратно унифицировать их в один.
+Конфиги хорошие, большие - 800 строк каждый.
+Приступил я к этой задаче, и сразу оступил - потому что в Atom, которым я пользуюсь для редактирования всего, не было подсветки синтаксиса конфигов HAProxy.
+Ну у нас же тут opensource, так что тут же был нагуглен архив с HAProxy.</description>
+    </item>
+    
+    <item>
+      <title>Балансировка в HAProxy на основе данных cAdvisor</title>
+      <link>//bulimov.ru/it/haproxy-cadvisor/</link>
+      <pubDate>Wed, 15 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/haproxy-cadvisor/</guid>
+      <description>Для запуска Docker-контейнеров у меня в данный момент выделено достаточно много серверов, причем аппаратная часть у некоторых из них отличается друг от друга. Соответственно, при настройке на чудесном балансировщике HAProxy такого параметра балансировки как &amp;ldquo;вес сервера&amp;rdquo;, приходится это различие в аппаратной части учитывать.
+Можно, конечно, подобрать значения весов самостоятельно на основе данных мониторинга, а при появлении нагрузки от соседних Docker-контейнеров эти веса корректировать, но это не наш метод.
+Не так давно я писал о том, как использую данные из cAdvisor для мониторинга нагруженности контейнеров.</description>
+    </item>
+    
+  </channel>
+</rss>

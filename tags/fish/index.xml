@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fish on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link>//bulimov.ru/tags/fish/</link>
+    <description>Recent content in Fish on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 06 May 2016 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/fish/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Moving from Fish shell to zsh</title>
+      <link>//bulimov.ru/it/fish-zsh/</link>
+      <pubDate>Fri, 06 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/fish-zsh/</guid>
+      <description>I&amp;rsquo;ve been using Fish shell as my daily driver for more than 2 years. I don&amp;rsquo;t want to insult Fish - this awesome shell provided me with wonderful out-of-the-box experience, introduced me to autosuggestions, and required almost no configuration.
+But now, after 2 years of heavy usage, I&amp;rsquo;ve dropped it in favor of zsh.
+The main reason for the switch is simple - Fish shell is not POSIX-compatible. And while many people keep repeating &amp;ldquo;If you don&amp;rsquo;t write shell scripts in Fish, why should you care about POSIX-compatibility?</description>
+    </item>
+    
+  </channel>
+</rss>

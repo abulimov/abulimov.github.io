@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cAdvisor on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link>//bulimov.ru/tags/cadvisor/</link>
+    <description>Recent content in cAdvisor on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 21 Apr 2015 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/cadvisor/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Улучшаем сообщения от мониторинга с помощью cAdvisor-companion</title>
+      <link>//bulimov.ru/it/cadvisor-companion/</link>
+      <pubDate>Tue, 21 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/cadvisor-companion/</guid>
+      <description>Слышали ли вы когда-нибудь о такой практике, как &amp;ldquo;Monitoring Events Enrichment&amp;rdquo;? Если вкратце, то это практика наполнения дополнительной информацией сообщений от мониторинга, так что на выяснение причины проблемы уходит меньше времени и телодвижений.
+Есть даже контора, которая помогает внедрять эту практику на коммерческой основе, у них на сайте есть неплохие примеры того, что и зачем можно добавить к обычному сообщению от Nagios.
+Сама эта идея мне очень нравится, и вот после очередного неинформативного сообщения от мониторинга, которое пришло тогда, когда я был далеко от компьютера, и гласило CheckDockerStats CRITICAL: 91% CPU Used!</description>
+    </item>
+    
+    <item>
+      <title>Балансировка в HAProxy на основе данных cAdvisor</title>
+      <link>//bulimov.ru/it/haproxy-cadvisor/</link>
+      <pubDate>Wed, 15 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/haproxy-cadvisor/</guid>
+      <description>Для запуска Docker-контейнеров у меня в данный момент выделено достаточно много серверов, причем аппаратная часть у некоторых из них отличается друг от друга. Соответственно, при настройке на чудесном балансировщике HAProxy такого параметра балансировки как &amp;ldquo;вес сервера&amp;rdquo;, приходится это различие в аппаратной части учитывать.
+Можно, конечно, подобрать значения весов самостоятельно на основе данных мониторинга, а при появлении нагрузки от соседних Docker-контейнеров эти веса корректировать, но это не наш метод.
+Не так давно я писал о том, как использую данные из cAdvisor для мониторинга нагруженности контейнеров.</description>
+    </item>
+    
+    <item>
+      <title>Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</title>
+      <link>//bulimov.ru/it/check-cadvisor/</link>
+      <pubDate>Fri, 20 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/check-cadvisor/</guid>
+      <description>После того, как я научился мониторить память в Docker-контейнерах, я решил мониторить еще и нагрузку на CPU. Поскольку это дело не самое тривиальное, и хотелось не писать свой велосипед, а пользоваться чем-то популярным и поддерживаемым, я решил попробовать cAdvisor.
+И вот что я могу сказать - отличный инструмент! Ресурсов практически не потребляет (около 20 Мб оперативной памяти и неизмеримо мало CPU), обладает простым API для доступа к собираемой им информации, имеет красивый веб-интерфейс с realtime-графиками.</description>
+    </item>
+    
+  </channel>
+</rss>

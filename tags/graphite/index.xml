@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Graphite on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link>//bulimov.ru/tags/graphite/</link>
+    <description>Recent content in Graphite on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 27 May 2017 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/graphite/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Вопросы от Дениса</title>
+      <link>//bulimov.ru/it/user-questions/</link>
+      <pubDate>Sat, 27 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/user-questions/</guid>
+      <description>Пришло письмо от читателя по имени Денис по форме обратной связи. Поскольку никаких данных для связи с ним Денис не оставил, отвечу здесь.
+Привожу письмо полностью (надеюсь, автор не против):
+ Александр, здравствуйте! Не смог найти вашу электропочту, пишу через форму обратной связи вашего домена на рег.ру :)
+  С огромным удовольствием читаю твой блог, очень жаль, что больше не обновляешь его.
+  Помоги, пожалуйста, советом. У меня примерно 12 виртуальных серверов с небольшими микросервисами, на каждом из серверов поставил collectd и statsd, плюс на отдельном сервере развёрнул go-carbon - whisper - graphite-api - grafana.</description>
+    </item>
+    
+    <item>
+      <title>Замена carbon-cache на go-carbon = Счастье</title>
+      <link>//bulimov.ru/it/go-carbon/</link>
+      <pubDate>Mon, 08 Feb 2016 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/go-carbon/</guid>
+      <description>Пришлось на собственном опыте опробовать, насколько Graphite модульный.
+При 200k metricsReceived наш Graphite, работающий на довольном старом сервере на обычных дисках, начал помирать. Carbon-cache постоянно был в топе потребления ресурсов, ни о какой отзывчивости в работе сервера речи вообще не шло.
+&amp;ldquo;Хватит это терпеть!&amp;rdquo; - подумал я, и начал в который раз искать советы по тюнингу carbon для высокой производительности. В очередной раз ничего нового не найдя, я решил попробовать давно приглянувшийся мне проект go-carbon.</description>
+    </item>
+    
+    <item>
+      <title>Logstash и Graphite</title>
+      <link>//bulimov.ru/it/logstash-graphite/</link>
+      <pubDate>Fri, 09 Oct 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/logstash-graphite/</guid>
+      <description>Недавно читал серию постов от Datadog про сбор метрик, и в частности статью про метрики Nginx (думал, вдруг что-то новое узнаю). Что меня в этой статье зацепило - так это то, что только версия Nginx Plus показывает статистику количества ответов, разделенную по HTTP-кодам. Поскольку я использую перед Nginx балансировщик HAProxy, который не жадный и показывает подробную статистику по кодам ответов для каждого бекенда и фронтенда, я о таком минусе статистики Nginx даже не думал.</description>
+    </item>
+    
+    <item>
+      <title>Заметка о Graphite</title>
+      <link>//bulimov.ru/it/graphite-experience/</link>
+      <pubDate>Fri, 25 Sep 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/graphite-experience/</guid>
+      <description>На первый взгляд, кажется довольно странным, что сейчас, в 2015 году, все до сих пор используют для хранения time series такой старый и «не модный» инструмент, как Graphite. О ужас, о нем даже почти не пишут в твиттере/G+ и он написан на старом будничном Python, а не на популярном сейчас Go (хотя уже частично написан, но об этом потом).
+Но все равно многие используют его, и не сильно жалуются.
+Экскурс в историю До открытия кода Graphite в 2008 году был вездесущий RRDTool, использовавшийся (и используемый до сих пор) в таких инструментах как Cacti, Munin и еще в куче других.</description>
+    </item>
+    
+  </channel>
+</rss>

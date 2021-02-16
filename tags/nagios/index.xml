@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nagios on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link>//bulimov.ru/tags/nagios/</link>
+    <description>Recent content in Nagios on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 18 Mar 2016 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/nagios/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Открыл код db-checker</title>
+      <link>//bulimov.ru/it/db-checker/</link>
+      <pubDate>Fri, 18 Mar 2016 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/db-checker/</guid>
+      <description>Недавно я открыл код еще одного инструмента, который уже около года использую на работе - db-checker.
+Началось все с необходимости проводить регулярные проверки логической целостности данных в БД. Проще говоря - гонять мониторингом запросы к базе.
+Сначала это была часть проекта, который проверял данные на нашем CDN. Проект этот сразу планировался многопоточным, поэтому написан на Go. Затем мухи были отделены от котлет, и проверка базы выделилась в отдельную сущность, но несколько legacy-моментов осталось.</description>
+    </item>
+    
+    <item>
+      <title>Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</title>
+      <link>//bulimov.ru/it/check-cadvisor/</link>
+      <pubDate>Fri, 20 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/check-cadvisor/</guid>
+      <description>После того, как я научился мониторить память в Docker-контейнерах, я решил мониторить еще и нагрузку на CPU. Поскольку это дело не самое тривиальное, и хотелось не писать свой велосипед, а пользоваться чем-то популярным и поддерживаемым, я решил попробовать cAdvisor.
+И вот что я могу сказать - отличный инструмент! Ресурсов практически не потребляет (около 20 Мб оперативной памяти и неизмеримо мало CPU), обладает простым API для доступа к собираемой им информации, имеет красивый веб-интерфейс с realtime-графиками.</description>
+    </item>
+    
+    <item>
+      <title>Научился мониторить использование памяти в Docker-контейнерах</title>
+      <link>//bulimov.ru/it/check-docker-memory/</link>
+      <pubDate>Fri, 13 Feb 2015 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/check-docker-memory/</guid>
+      <description>Я сегодня занимался мониторингом, а конкретно нашими докер-контейнерами.
+Лирическое отступление: Для мониторинга я теперь (уже на другом месте работы) использую наследника Nagios - Icinga2. Пока все нравится, ребята очень круто переписали Nagios, реализовали гораздо более вменяемый формат конфигурации, и кучу новых возможностей.
+Используя Docker для автотестов я уже ловил проблемы, когда интерпретатор Ruby кушал всю выделенную память в контейнере и тихо умирал от рук OOM Killer.
+Поскольку теперь я использую Docker уже не только для тестов, но и &amp;ldquo;в бою&amp;rdquo;, меня сильно беспокоило то, что мы не можем мониторить использование памяти внутри контейнера.</description>
+    </item>
+    
+    <item>
+      <title>Выложил немного полезностей</title>
+      <link>//bulimov.ru/it/%D0%92%D1%8B%D0%BB%D0%BE%D0%B6%D0%B8%D0%BB-%D0%BD%D0%B5%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9/</link>
+      <pubDate>Wed, 17 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/%D0%92%D1%8B%D0%BB%D0%BE%D0%B6%D0%B8%D0%BB-%D0%BD%D0%B5%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9/</guid>
+      <description>Когда я писал про то, как переписал скрипты для Sensu, я слегка слукавил. Изначально, я написал эти скрипты на Python, и только потом на Ruby. Поскольку пользователям других Nagios-совместимых систем мониторинга может показаться неудобным использование ruby-скриптов, да еще и с зависимостью от гема sensu-plugin, я решил выложить и Python-версии скриптов.
+Если кому хочется мониторить состояние дисков в raid-контроллерах от 3ware или HP SmartArray на чистом Python - милости просим, все в моем репозитории.</description>
+    </item>
+    
+  </channel>
+</rss>

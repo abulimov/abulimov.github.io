@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chef on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link>//bulimov.ru/tags/chef/</link>
+    <description>Recent content in Chef on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 29 Sep 2014 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/chef/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Инфраструктура как код</title>
+      <link>//bulimov.ru/it/infrastructure-as-a-code/</link>
+      <pubDate>Mon, 29 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/infrastructure-as-a-code/</guid>
+      <description>Есть такой тренд сейчас - работать с IT-инфраструктурой как с кодом. Хорошо цель этого метода описывается этой цитатой:
+ “Enable the reconstruction of the business from nothing but a source code repository, an application data backup, and bare metal resources”
+&amp;ndash; Jesse Robins
+ Я полностью поддерживаю эту идею, причем именно в этой трактовке.
+Если говорить про парадигму, которую нам предлагает этот метод, то вот она:
+ Поддерживать модульную, легко поддающуюся автоматизации инфраструктуру, и описывать эту инфраструктуру с помощью языка высокого уровня.</description>
+    </item>
+    
+    <item>
+      <title>Как я управляю серверами</title>
+      <link>//bulimov.ru/it/%D0%9A%D0%B0%D0%BA-%D1%8F-%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D1%8F%D1%8E-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%D0%BC%D0%B8/</link>
+      <pubDate>Thu, 05 Sep 2013 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/%D0%9A%D0%B0%D0%BA-%D1%8F-%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D1%8F%D1%8E-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%D0%BC%D0%B8/</guid>
+      <description>Решил вот описать принципы управления серверами, к которым пришел за эти 3 года.
+Итак:
+принцип №1 Все конфиги лежат в VCS, я сейчас использую Git. Я думаю, в комментариях принцип не нуждается, необходимость централизованного хранения конфигов, а также хранения истории изменений с возможностью отката обсуждалась не раз.
+принцип №2 Все ПО ставится только из пакетов, никаких ./configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install. Если пакета нужной версии нет в репозиториях дистрибутива - ищем готовый пакет, желательно от разработчиков, или от солидного стороннего репозитория типа dotdeb.</description>
+    </item>
+    
+    <item>
+      <title>Мнение о Chef</title>
+      <link>//bulimov.ru/it/%D0%9C%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE-chef/</link>
+      <pubDate>Mon, 17 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/%D0%9C%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE-chef/</guid>
+      <description>Я использовал Chef для управления IT-инфраструктурой около полутора лет, начав с версии 0.10. Сначала, где-то пол-года, использовал только для управления конфигурациями, без развертывания ПО с нуля. Затем, уже на другой работе, автоматизировал управления конфигурациями и развертывание с нуля веб-проекта (30+ серверов, nginx, ruby, riak, redis, sphinx-search, rabbitmq и т.п.). Это позволило мне составить собственное мнение o достоинствах и недостатках Chef, и в этой заметке я свое мнение излагаю.
+По итогу вышеописанной деятельности я был настолько утомлен недостатками Chef, что начал искать ему замену.</description>
+    </item>
+    
+  </channel>
+</rss>

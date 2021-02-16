@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link>//bulimov.ru/categories/</link>
+    <description>Recent content in Categories on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 16 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Personal</title>
+      <link>//bulimov.ru/categories/personal/</link>
+      <pubDate>Tue, 16 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/categories/personal/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>IT</title>
+      <link>//bulimov.ru/categories/it/</link>
+      <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/categories/it/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Russian</title>
+      <link>//bulimov.ru/categories/russian/</link>
+      <pubDate>Sat, 27 May 2017 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/categories/russian/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

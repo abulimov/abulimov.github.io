@@ -1,124 +1,43 @@
 <!DOCTYPE html>
-<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
-<head>
-    <title>Низкоуровневое обнаружение в Zabbix - Alexander Bulimov - production engineer's notes.</title>
-    <!-- Using the latest rendering mode for IE -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<html lang="en-us">
+  <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-
-<link rel="canonical" href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix/">
-
-        <meta name="author" content="Alexander Bulimov" />
-        <meta name="keywords" content="Zabbix,Python,Monitoring" />
-        <meta name="description" content="В используемой мной системе мониторинга Zabbix, начиная с версии 2.0, появилась такая любопытная штука, как низкоуровневое обнаружение Я не буду пересказывать содержимое документации, расскажу лучше о том, как я писал свой тип обнаружения для мониторинга очередей RabbitMQ. Проблема в том, что очередей в RabbitMQ может быть много, и, по мере развития веб-проекта, они меняются. Так что я решил обнаруживать их автоматически, и написал для этого свой провайдер данных для …" />
-
-        <meta property="og:site_name" content="Alexander Bulimov - production engineer's notes." />
-        <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Низкоуровневое обнаружение в Zabbix"/>
-        <meta property="og:url" content="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix/"/>
-        <meta property="og:description" content="В используемой мной системе мониторинга Zabbix, начиная с версии 2.0, появилась такая любопытная штука, как низкоуровневое обнаружение Я не буду пересказывать содержимое документации, расскажу лучше о том, как я писал свой тип обнаружения для мониторинга очередей RabbitMQ. Проблема в том, что очередей в RabbitMQ может быть много, и, по мере развития веб-проекта, они меняются. Так что я решил обнаруживать их автоматически, и написал для этого свой провайдер данных для …"/>
-        <meta property="article:published_time" content="2013-06-26" />
-            <meta property="article:section" content="IT" />
-            <meta property="article:tag" content="Zabbix" />
-            <meta property="article:tag" content="Python" />
-            <meta property="article:tag" content="Monitoring" />
-            <meta property="article:author" content="Alexander Bulimov" />
-
-
-
-    <!-- Bootstrap -->
-        <link rel="stylesheet" href="http://bulimov.ru/theme/css/bootstrap.sandstone.min.css" type="text/css"/>
-    <link href="http://bulimov.ru/theme/css/font-awesome.min.css" rel="stylesheet">
-
-    <link href="http://bulimov.ru/theme/css/pygments/monokai.css" rel="stylesheet">
-    <link rel="stylesheet" href="http://bulimov.ru/theme/css/style.css" type="text/css"/>
-        <link href="http://bulimov.ru/static/custom.css" rel="stylesheet">
-
-        <link href="http://bulimov.ru/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-              title="Alexander Bulimov - production engineer's notes. ATOM Feed"/>
-
-        <link href="http://bulimov.ru/feeds/all.rss.xml" type="application/rss+xml" rel="alternate"
-              title="Alexander Bulimov - production engineer's notes. RSS Feed"/>
-
-
-        <link href="http://bulimov.ru/feeds/it.atom.xml" type="application/atom+xml" rel="alternate"
-              title="Alexander Bulimov - production engineer's notes. IT ATOM Feed"/>
-
-</head>
-<body>
-
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
-	<div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="http://bulimov.ru/" class="navbar-brand">
-Alexander Bulimov - production engineer's notes.            </a>
-        </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-                    <li><a href="/tags/index.html">Tags</a></li>
-                    <li><a href="/categories/index.html">Categories</a></li>
-                    <li><a href="//models.bulimov.ru">My Scale Models Gallery</a></li>
-                         <li><a href="http://bulimov.ru/pages/about-me.html">
-                             About Me
-                          </a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="http://bulimov.ru/archive/"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
-</div> <!-- /.navbar -->
-<!-- Banner -->
-<!-- End Banner -->
-<div class="container">
-    <div class="row">
-        <div class="col-sm-9">
-    <section id="content">
-        <article>
-            <header class="page-header">
-                <h1>
-                    <a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix/"
-                       rel="bookmark"
-                       title="Permalink to Низкоуровневое обнаружение в Zabbix">
-                        Низкоуровневое обнаружение в Zabbix
-                    </a>
-                </h1>
-            </header>
-            <div class="entry-content">
-                <div class="panel">
-                    <div class="panel-body">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2013-06-26T00:00:00+04:00"> Wed 26 June 2013</time>
-    </span>
-
-
-
-        <span class="label label-default">Category</span>
-        <a href="http://bulimov.ru/category/it.html">IT</a>
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://bulimov.ru/tag/zabbix.html">Zabbix</a>
-        /
-	<a href="http://bulimov.ru/tag/python.html">Python</a>
-        /
-	<a href="http://bulimov.ru/tag/monitoring.html">Monitoring</a>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Низкоуровневое обнаружение в Zabbix | Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
     
-</footer><!-- /.post-info -->                    </div>
-                </div>
-                <p>В используемой мной системе мониторинга Zabbix, начиная с версии 2.0,
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="https://models.bulimov.ru">Scale Models</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Низкоуровневое обнаружение в Zabbix</span></h1>
+
+<h2 class="date">2013/06/26</h2>
+
+</div>
+
+<main>
+<p>В используемой мной системе мониторинга Zabbix, начиная с версии 2.0,
 появилась такая любопытная штука, как <a href="https://www.zabbix.com/documentation/ru/2.0/manual/discovery/low_level_discovery">низкоуровневое обнаружение</a></p>
 <p>Я не буду пересказывать содержимое документации, расскажу лучше о том, как я писал свой тип
 обнаружения для мониторинга очередей RabbitMQ.</p>
@@ -134,247 +53,115 @@ Alexander Bulimov - production engineer's notes.            </a>
 <li>PROFIT!</li>
 </ol>
 <p>На выходе должны получить что-то вроде этого:</p>
-<div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span><span class="nt">&quot;{#RABBITMQ_VHOST_NAME}&quot;</span><span class="p">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="nt">&quot;{#RABBITMQ_QUEUE_NAME}&quot;</span><span class="p">:</span> <span class="s2">&quot;hello&quot;</span><span class="p">},</span>
-    <span class="p">{</span><span class="nt">&quot;{#RABBITMQ_VHOST_NAME}&quot;</span><span class="p">:</span> <span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="nt">&quot;{#RABBITMQ_QUEUE_NAME}&quot;</span><span class="p">:</span> <span class="s2">&quot;world&quot;</span><span class="p">}</span>
-  <span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-
-
+<pre><code>:::json
+{
+  &quot;data&quot;: [
+    {&quot;{#RABBITMQ_VHOST_NAME}&quot;: &quot;/&quot;, &quot;{#RABBITMQ_QUEUE_NAME}&quot;: &quot;hello&quot;},
+    {&quot;{#RABBITMQ_VHOST_NAME}&quot;: &quot;/&quot;, &quot;{#RABBITMQ_QUEUE_NAME}&quot;: &quot;world&quot;}
+  ]
+}
+</code></pre>
 <p>Реализовано все на Python, код предельно прост, в комментариях не нуждается.</p>
 <p><strong>rabbitmq_discovery.py</strong></p>
-<div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
-<span class="c1"># -*- coding: utf-8 -*-</span>
+<pre><code>:::python
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-<span class="kn">import</span> <span class="nn">subprocess</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">json</span>
+import subprocess
+import sys
+import json
 
-<span class="k">def</span> <span class="nf">_run</span><span class="p">(</span><span class="n">cmd</span><span class="p">):</span>
-    <span class="c1"># returns (rc, stdout, stderr) from shell command</span>
-    <span class="n">process</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
-                            <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
-    <span class="k">return</span> <span class="p">(</span><span class="n">process</span><span class="o">.</span><span class="n">returncode</span><span class="p">,</span> <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span><span class="p">)</span>
+def _run(cmd):
+    # returns (rc, stdout, stderr) from shell command
+    process = subprocess.Popen(cmd, stdout=subprocess.PIPE,
+                            stderr=subprocess.PIPE, shell=True)
+    stdout, stderr = process.communicate()
+    return (process.returncode, stdout, stderr)
 
-<span class="k">def</span> <span class="nf">parse_vhosts</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-    <span class="n">vhosts</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
-        <span class="n">vhosts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
-    <span class="k">return</span> <span class="n">vhosts</span>
+def parse_vhosts(data):
+    vhosts = []
+    for line in data.splitlines():
+        vhosts.append(line.strip())
+    return vhosts
 
-<span class="k">def</span> <span class="nf">parse_stat</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">vhost</span><span class="p">):</span>
-    <span class="n">stat</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">splitlines</span><span class="p">():</span>
-        <span class="n">stat</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-            <span class="s1">&#39;{#RABBITMQ_VHOST_NAME}&#39;</span><span class="p">:</span> <span class="n">vhost</span><span class="p">,</span>
-            <span class="s1">&#39;{#RABBITMQ_QUEUE_NAME}&#39;</span><span class="p">:</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">(),</span>
-        <span class="p">})</span>
-    <span class="k">return</span> <span class="n">stat</span>
+def parse_stat(data, vhost):
+    stat = []
+    for line in data.splitlines():
+        stat.append({
+            '{#RABBITMQ_VHOST_NAME}': vhost,
+            '{#RABBITMQ_QUEUE_NAME}': line.strip(),
+        })
+    return stat
 
-<span class="k">def</span> <span class="nf">_fail</span><span class="p">(</span><span class="n">msg</span><span class="p">):</span>
-    <span class="k">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
-    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="n">rc</span><span class="p">,</span> <span class="n">raw_data</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">_run</span><span class="p">(</span><span class="s2">&quot;rabbitmqctl -q list_vhosts name&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">_fail</span><span class="p">(</span><span class="s2">&quot;rabbitmqctl command failed with </span><span class="si">%s</span><span class="s2"> &quot;</span><span class="o">%</span><span class="n">err</span><span class="p">)</span>
-    <span class="n">vhosts</span> <span class="o">=</span> <span class="n">parse_vhosts</span><span class="p">(</span><span class="n">raw_data</span><span class="p">)</span>
-
-    <span class="n">raw_stats</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">vhost_name</span> <span class="ow">in</span> <span class="n">vhosts</span><span class="p">:</span>
-        <span class="n">rc</span><span class="p">,</span> <span class="n">raw_data</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">_run</span><span class="p">(</span><span class="s2">&quot;rabbitmqctl -q list_queues -p </span><span class="si">%s</span><span class="s2"> name&quot;</span><span class="o">%</span><span class="n">vhost_name</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">_fail</span><span class="p">(</span><span class="s2">&quot;rabbitmqctl command failed with </span><span class="si">%s</span><span class="s2"> &quot;</span><span class="o">%</span><span class="n">err</span><span class="p">)</span>
-        <span class="n">raw_stats</span> <span class="o">=</span> <span class="n">raw_stats</span> <span class="o">+</span> <span class="n">parse_stat</span><span class="p">(</span><span class="n">raw_data</span><span class="p">,</span> <span class="n">vhost_name</span><span class="p">)</span>
-
-    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">raw_stats</span>
-    <span class="p">}</span>
-    <span class="k">print</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">main</span><span class="p">()</span>
-</pre></div>
+def _fail(msg):
+    print(msg)
+    sys.exit(1)
 
 
+def main():
+    rc, raw_data, err = _run(&quot;rabbitmqctl -q list_vhosts name&quot;)
+    if rc != 0:
+        _fail(&quot;rabbitmqctl command failed with %s &quot;%err)
+    vhosts = parse_vhosts(raw_data)
+
+    raw_stats = []
+    for vhost_name in vhosts:
+        rc, raw_data, err = _run(&quot;rabbitmqctl -q list_queues -p %s name&quot;%vhost_name)
+        if rc != 0:
+        _fail(&quot;rabbitmqctl command failed with %s &quot;%err)
+        raw_stats = raw_stats + parse_stat(raw_data, vhost_name)
+
+    data = {
+        'data': raw_stats
+    }
+    print json.dumps(data)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+</code></pre>
 <p>Еще нужно создать ключ, по которому заббикс будет всю эту красоту получать.</p>
 <p>В конфиге заббикса добавляем что-либо вида</p>
-<div class="highlight"><pre><span></span>UserParameter=rabbitmq.discovery,sudo /opt/rabbitmq_discovery.py
-</pre></div>
-
-
+<pre><code>UserParameter=rabbitmq.discovery,sudo /opt/rabbitmq_discovery.py
+</code></pre>
 <p>В моем случае, нужно беспарольное sudo на эту команду для пользователя zabbix.</p>
 <p>Ну а в самом заббиксе уже создаем в шаблоне обнаружение, в котором используем ключ
 rabbitmq.discovery и макросы {#RABBITMQ_VHOST_NAME} и {#RABBITMQ_QUEUE_NAME}.
 Это подробно описано в документации,
 так что я этого описывать не буду.</p>
 <p>Исходники доступны в моем <a href="https://github.com/abulimov/utils">репозитории</a>, в папке <em>zabbix/data_collectors</em>.</p>
-            </div>
-            <!-- /.entry-content -->
-<section class="well" id="related-posts">
-    <h4>Related Posts:</h4>
-    <ul>
-        <li><a href="http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware/">Низкоуровневое обнаружение в Zabbix, ищем диски в контроллере от 3ware</a></li>
-        <li><a href="http://bulimov.ru/it/Выложил-немного-полезностей/">Выложил немного полезностей</a></li>
-        <li><a href="http://bulimov.ru/it/check-cadvisor/">Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</a></li>
-        <li><a href="http://bulimov.ru/it/check-docker-memory/">Научился мониторить использование памяти в Docker-контейнерах</a></li>
-        <li><a href="http://bulimov.ru/it/Модуль-zabbix_maintenance/">Модуль zabbix_maintenance</a></li>
-    </ul>
-</section>
-    <hr/>
-    <section class="comments" id="comments">
-        <h2>Comments</h2>
 
-        <div id="disqus_thread"></div>
-        <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-            var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
+</main>
 
 
-            var disqus_config = function () {
-                this.language = "en";
-                                        this.page.identifier = '2013-06-26-Низкоуровневое-обнаружение-в-zabbix';
-                                        this.page.url = 'http://bulimov.ru/it/Низкоуровневое-обнаружение-в-zabbix/';
-            };
+<p class="terms">
+<b>Tags:</b>
 
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function () {
-                var dsq = document.createElement('script');
-                dsq.type = 'text/javascript';
-                dsq.async = true;
-                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
-            Disqus.</a></noscript>
-        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  <a href="//bulimov.ru/tags/zabbix/">Zabbix</a>
 
-    </section>
-        </article>
-    </section>
+  <a href="//bulimov.ru/tags/python/">Python</a>
 
-        </div>
-        <div class="col-sm-3" id="sidebar">
-            <aside>
-<!-- Sidebar -->
-<section class="well well-sm">
-  <ul class="list-group list-group-flush">
-
-<!-- Sidebar/Social -->
-<li class="list-group-item">
-  <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
-  <ul class="list-group" id="social">
-    <li class="list-group-item"><a href="https://github.com/abulimov"><i class="fa fa-github-square fa-lg"></i> GitHub</a></li>
-    <li class="list-group-item"><a href="https://www.facebook.com/abulimov"><i class="fa fa-facebook-square fa-lg"></i> Facebook</a></li>
-    <li class="list-group-item"><a href="https://plus.google.com/102209846851870884693/about"><i class="fa fa-google-plus-square fa-lg"></i> Google+</a></li>
-    <li class="list-group-item"><a href="http://ru.linkedin.com/pub/александр-булимов/7b/692/a92/"><i class="fa fa-linkedin-square fa-lg"></i> LinkedIn</a></li>
-    <li class="list-group-item"><a href="http://habrahabr.ru/users/lazywolf/"><i class="fa fa-habrahabr-square fa-lg"></i> Habrahabr</a></li>
-    <li class="list-group-item"><a href="http://vk.com/a_v_bulimov"><i class="fa fa-vk fa-lg"></i> VK</a></li>
-    <li class="list-group-item"><a href="/feeds/all.rss.xml"><i class="fa fa-rss-square fa-lg"></i> RSS</a></li>
-  </ul>
-</li>
-<!-- End Sidebar/Social -->
-
-<!-- Sidebar/Github -->
-<li class="list-group-item">
-  <h4><i class="fa fa-github fa-lg"></i><span class="icon-label">GitHub Repos</span></h4>
-  <div id="gh_repos">
-    <p class="list-group-item">Status updating...</p>
-  </div>
-</li>
-<!-- End Sidebar/Github -->
-  </ul>
-</section>
-<!-- End Sidebar -->            </aside>
-        </div>
-    </div>
-</div>
-<footer>
-   <div class="container">
-      <hr>
-      <div class="row">
-         <div class="col-xs-10">&copy; 2018 Alexander Bulimov
-            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
-            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>                <p><small>  <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a>
-    Content
-  licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">Creative Commons Attribution-ShareAlike 4.0 International License</a>, except where indicated otherwise.
-</small></p>
-         </div>
-         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
-      </div>
-   </div>
-</footer>
-<script src="http://bulimov.ru/theme/js/jquery.min.js"></script>
-
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="http://bulimov.ru/theme/js/bootstrap.min.js"></script>
-
-<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
-<script src="http://bulimov.ru/theme/js/respond.min.js"></script>
+  <a href="//bulimov.ru/tags/monitoring/">Monitoring</a>
 
 
+</p>
+<p class="terms">
 
-<!-- GitHub JS Code -->
-<script type="text/javascript">
-$(document).ready(function () {
-  if (!window.jXHR) {
-    var jxhr = document.createElement('script');
-    jxhr.type = 'text/javascript';
-    jxhr.src = 'http://bulimov.ru/theme/js/jXHR.js';
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(jxhr, s);
-  }
+<b>Categories:</b>
 
-  github.showRepos({
-    user: 'abulimov',
-    count: 5,
-    skip_forks: false,
-    target: '#gh_repos'
-  });
-});
-</script>
-<script src="http://bulimov.ru/theme/js/github.js" type="text/javascript"></script>
-<!-- End GitHub JS Code -->
-    <!-- Disqus -->
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'bulimov'; // required: replace example with your forum shortname
+  <a href="//bulimov.ru/categories/it/">IT</a>
 
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function () {
-            var s = document.createElement('script');
-            s.async = true;
-            s.type = 'text/javascript';
-            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-        }());
-    </script>
-    <!-- End Disqus Code -->
-    <!-- Google Analytics -->
-    <script type="text/javascript">
-
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-49230997-1']);
-        _gaq.push(['_trackPageview']);
-
-        (function () {
-            var ga = document.createElement('script');
-            ga.type = 'text/javascript';
-            ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ga, s);
-        })();
-    </script>
-    <!-- End Google Analytics Code -->
+  <a href="//bulimov.ru/categories/russian/">Russian</a>
 
 
-</body>
+</p>
+
+  <footer>
+  
+  
+  <hr/>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.ru">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
+  
+  </footer>
+  </body>
 </html>
+

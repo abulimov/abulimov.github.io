@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ruby on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link>//bulimov.ru/tags/ruby/</link>
+    <description>Recent content in Ruby on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Sep 2014 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Переписал скрипты на Ruby для Sensu</title>
+      <link>//bulimov.ru/it/%D0%9F%D0%B5%D1%80%D0%B5%D0%BF%D0%B8%D1%81%D0%B0%D0%BB-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B-%D0%BD%D0%B0-ruby-%D0%B4%D0%BB%D1%8F-sensu/</link>
+      <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/%D0%9F%D0%B5%D1%80%D0%B5%D0%BF%D0%B8%D1%81%D0%B0%D0%BB-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B-%D0%BD%D0%B0-ruby-%D0%B4%D0%BB%D1%8F-sensu/</guid>
+      <description>Поскольку я перевел мониторинг с Zabbix на Sensu, пришлось переписать свои скрипты проверки состояния жестких дисков в raid-контроллерах от 3ware и HP SmartArray для использования в Sensu. Ну а раз все равно переписывать - то писать я решил на Ruby, чтобы можно было без проблем заслать в sensu-community-plugins
+Скрипты весьма просты, так что проблем при переписывании никаких не было.
+Если кому надо - все уже отдано сообществу, теперь Sensu может мониторить состояние дисков в контроллерах от 3ware и HP SmartArray.</description>
+    </item>
+    
+    <item>
+      <title>Плагин к Ruhoh для рисования графиков</title>
+      <link>//bulimov.ru/it/%D0%9F%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD-%D0%BA-ruhoh-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B8%D1%81%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%BE%D0%B2/</link>
+      <pubDate>Fri, 21 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/it/%D0%9F%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD-%D0%BA-ruhoh-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B8%D1%81%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%BE%D0%B2/</guid>
+      <description>Еще планируя создание статического блога на Hakyll я хотел реализовать рисование графиков &amp;ldquo;на лету&amp;rdquo; из отдельно хранящихся данных. Но с Hakyll не сложилось, и после долгих поисков я остановился на Ruhoh.
+Все нижеописанное относится к Ruhoh 2.1
+###Цель
+Рисовать графики из данных, хранящихся в человеко-читаемом виде. Нужно мне это было для визуализации своих спортивных тренировок.
+###Решение
+Конечно, я решил оформить все в виде плагина к Ruhoh, благо возможность такая есть, да и программировать я люблю.</description>
+    </item>
+    
+  </channel>
+</rss>
