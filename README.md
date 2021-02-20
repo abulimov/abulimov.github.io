@@ -15,6 +15,8 @@ Uses [Hugo static site generator](gohugo.io)
 
 `hugo new post/some-slug.md`
 
+### Picture                                                                                                                                                                                                                                                               Install 'Wand' module for python with `pip3 install Wand`, and use provided script:                                                  `./add_img.py /path/to/new/file_1.jpg /path/to/new/file_2.jpg` 
+
 
 ## Publishing
 
