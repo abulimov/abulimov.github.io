@@ -6,7 +6,18 @@
     <description>Recent content in Home on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My split keyboards</title>
+      <link>//bulimov.ru/post/2021/02/20/split-keyboards/</link>
+      <pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/post/2021/02/20/split-keyboards/</guid>
+      <description>Intro Thanks to RSI I&amp;rsquo;m quite literally forced to use ergonomic equipment.
+It&amp;rsquo;s not too bad, and I can use laptop&amp;rsquo;s keyboard and touchpad for few hours a day without much discomfort, but if I do it for a couple of full working days I get nasty pain in my wrists and fingers.
+How it all started Many years ago (I believe it was 2014) when I first started to have those symptoms I did a research which lead me to using Microsoft Natural Ergonomic Keyboard 4000, helpfully provided by a colleague of mine.</description>
+    </item>
+    
     <item>
       <title>Moving from Pelican to Hugo for this blog</title>
       <link>//bulimov.ru/post/2021/02/16/pelical-to-hugo/</link>

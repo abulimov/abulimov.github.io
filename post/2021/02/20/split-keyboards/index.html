@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My split keyboards | Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="https://models.bulimov.ru">Scale Models</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">My split keyboards</span></h1>
+
+<h2 class="date">2021/02/20</h2>
+
+</div>
+
+<main>
+<h2 id="intro">Intro</h2>
+<p>Thanks to <a href="https://en.wikipedia.org/wiki/Repetitive_strain_injury">RSI</a> I&rsquo;m quite literally forced to use ergonomic equipment.</p>
+<p>It&rsquo;s not too bad, and I can use laptop&rsquo;s keyboard and touchpad for few hours a day without much discomfort,
+but if I do it for a couple of full working days I get nasty pain in my wrists and fingers.</p>
+<h2 id="how-it-all-started">How it all started</h2>
+<p>Many years ago (I believe it was 2014) when I first started to have those symptoms I did a research which lead me to using
+<strong>Microsoft Natural Ergonomic Keyboard 4000</strong>, helpfully provided by a colleague of mine.</p>
+<p>The mouse ergonomics was easily solved by using vertical mouse from <strong>Evoluent</strong>. It&rsquo;s expensive, but good.</p>
+<p>It was an ok-ish setup for a few years, and RSI wasn&rsquo;t too bad so I could use other keyboards mostly fine.
+But I was never fully happy with the keyboard, my main grip being the sheer size of it - it&rsquo;s massive, and I have no use for the numpad.</p>
+<p>Around 2017 I decided to address the size issue and switched to a newer <strong>Microsoft Sculpt Ergonomic keyboard</strong>.
+It had two advantages over the old one - no numpad and split space key.
+Unfortunately they messed up the switches. Top row with Esc and F1-F12 keys became completely unusable, with stiff switches
+that didn&rsquo;t register the key press about half the times.</p>
+<p>And rest of the keyboard got some shitty laptop-like switches, rather unpleasant to use,
+which in all fairness were just as bad as mushy membrane switches of the older model.</p>
+<p>Being quite disappointed with the upgrade, I looked at commercially available split ergonomic keyboards
+just to discover most of them were very expensive and not really good according to reviews.
+Also I wanted to address the shitty switch situation once and for all and start using mechanical keyboard.</p>
+<h2 id="ergodox">Ergodox</h2>
+<p>After a long research I decided to step up the game, and go for <strong>Ergodox</strong> keyboard. I even found a way to test-drive it,
+as I was visiting the US office and one of the colleagues there had it.</p>
+<p>So I was fully set on getting one, but there was a catch - it was not easy to buy.
+You see, the world of split mechanical keyboards is mostly ignored by big companies,
+so most people have to buy PCB, components and quite literally solder their keyboard themselves.
+And even the PCB availability wasn&rsquo;t great.</p>
+<p>Luckily for me, I was able to get a fabulous <strong>Ergodox Infinity</strong> kit with Gateron Brown switches
+from <a href="https://drop.com">Massdrop</a> (now called simply Drop). It took few few evenings to solder it, and about a month to get used to the layout.</p>
+<p><img src="/images/ergodox_wip1.jpg" alt="Ergodox wip1">
+<img src="/images/ergodox_wip2.jpg" alt="Ergodox wip2"></p>
+<p>But once I did get used to the layout, it was such a massive improvement over anything I ever tried before that there was no going back.</p>
+<p><img src="/images/ergodox_done.jpg" alt="Ergodox done"></p>
+<p>Not only the thumb cluster is a great ergonomics feature, but fully programmable nature of the keyboard allows for massive
+quality of life improvements. For example, as a long time <code>vim</code> user, I was beyond happy with
+the ability to use <code>hjkl</code> cluster for text navigation everywhere, not just <code>vim</code>.</p>
+<p>And thanks to excellent <a href="https://qmk.fm/">QMK</a> firmware I can have up to 32 layers and re-programming is a breathe.</p>
+<p>Here is my basic Ergodox layout:</p>
+<p><em>left hand</em></p>
+<pre><code>+-------+-----+-----+-----+-----+-----+-----+
+|   `   |  0  |  2  |  3  |  4  |  5  |  6  |
++-------+-----+-----+-----+-----+-----+-----+
+|  TAB  |  Q  |  W  |  E  |  R  |  T  |LCK-1|
++-------+-----+-----+-----+-----+-----+     |
+|  ESC  |  A  |  S  |  D  |  F  |  G  +-----+
++-------+-----+-----+-----+-----+-----+ f1  |
+| LSHIFT|  Z  |  X  |  C  |  V  |  B  |     |
++-+-----+-----+-----+-----+-----+-----+-----+
+  |LCTRL|  `  |  \  |LGUI |LALT |
+  +-----+-----+-----+-----+-----+   +-----+-----+
+                                    |LCTRL| LALT|
+                              +-----+-----+-----+
+                              |     |     | HOME|
+                              | SPC | ENT +-----+
+                              |     |     | END |
+                              +-----+-----+-----+
+</code></pre><p><em>right hand</em></p>
+<pre><code>    +-----+-----+-----+-----+-----+-----+-------+
+    |PL/PS|  7  |  8  |  9  |  0  |  -  |   =   |
+    +-----+-----+-----+-----+-----+-----+-------+
+    |  [  |  Y  |  U  |  I  |  O  |  P  |   ]   |
+    |     +-----+-----+-----+-----+-----+-------+
+    +-----+  H  |  J  |  K  |  L  |  ;  |   '   |
+    | f1  +-----+-----+-----+-----+-----+-------+
+    |     |  N  |  M  |  ,  |  .  |  /  | RSHIFT|
+    +-----+-----+-----+-----+-----+-----+-----+-+
+                |BKSP |LEFT |DOWN | UP  |RIGHT|
++-----+-----+   +-----+-----+-----+-----+-----+
+| RALT|RCTRL|
++-----+-----+-----+
+| PGUP|     |     |
++-----+ ENT | SPC |
+| PGDN|     |     |
++-----+-----+-----+
+</code></pre><h2 id="helix">Helix</h2>
+<p>I was happily using my Ergodox since 2017 and didn&rsquo;t even look at anything else, until 2020 happened
+and I found myself working from home all the time. And without access to the office where my good old Ergodox was left.</p>
+<p>I had to switch back to Microsoft Sculpt keeb, in hopes that either the pandemic will be over soon,
+or at least that I&rsquo;ll get the chance to collect things from the office.</p>
+<p>Neither of this happened, and after 10 months I gave up and started the research on split keyboards once again.</p>
+<p>I didn&rsquo;t want to get yet another Ergodox (first, I already have one, and second, they are really expensive), or anything
+very similar to it.</p>
+<p>Not much changed since 2017, and again the only reasonable option was getting a PCB, some components and building the keeb myself.</p>
+<p>With pandemic it was really hard to even find a place on the internet to buy everything in one order,
+but I managed to get my hands on <strong>Helix</strong> kit, again with Gateron Brown switches.</p>
+<p>Few evenings of soldering later (I soldered 404 pins if my calculations are correct) I became a happy owner of new split keeb.</p>
+<p><img src="/images/helix_wip1.jpg" alt="Helix wip1">
+<img src="/images/helix_wip2.jpg" alt="Helix wip2"></p>
+<p>And now after a week of getting used to it I can say that I&rsquo;m loving it, although still miss few extra keys Ergodox has.
+(ignore the labels on the caps, I matched only the alphanums, everything else was placed based on keycap shape, not label)</p>
+<p><img src="/images/helix_done.jpg" alt="Helix done"></p>
+<p>And here is the layout I settled on for now:</p>
+<pre><code>,-----------------------------------------.             ,-----------------------------------------.
+|   `  |   1  |   2  |   3  |   4  |   5  |             |   6  |   7  |   8  |   9  |   0  |  _   |
+|------+------+------+------+------+------|             |------+------+------+------+------+------|
+| Tab  |   Q  |   W  |   E  |   R  |   T  |             |   Y  |   U  |   I  |   O  |   P  |  \   |
+|------+------+------+------+------+------|             |------+------+------+------+------+------|
+| Esc  |   A  |   S  |   D  |   F  |   G  |             |   H  |   J  |   K  |   L  |   ;  |  '   |
+|------+------+------+------+------+------+------+------+------+------+------+------+------+------|
+| Shift|   Z  |   X  |   C  |   V  |   B  |  f1  |  f1  |   N  |   M  |   ,  |   .  |   /  |  =   |
+|------+------+------+------+------+------+------+------+------+------+------+------+------+------|
+| Ctrl |  [   |   ]  |GUI   | ALT  |Space |Enter |Enter | Space| Bksp | Left | Down |  Up  |Right |
+`-------------------------------------------------------------------------------------------------'
+</code></pre><p>As you can see, I prefer using index fingers and those extra keys next to B/N to switch layers, in both Ergodox and Helix.
+I can&rsquo;t stress enough how convenient is to use <code>hjkl</code> cluster as arrow keys with a press of a single button.</p>
+<p>It took some effort, but now I&rsquo;m back to being happy with my keyboard and wirst pain is gone.</p>
+
+</main>
+
+
+<p class="terms">
+<b>Tags:</b>
+
+  <a href="//bulimov.ru/tags/keyboard/">Keyboard</a>
+
+  <a href="//bulimov.ru/tags/electronics/">Electronics</a>
+
+  <a href="//bulimov.ru/tags/ergodox/">Ergodox</a>
+
+  <a href="//bulimov.ru/tags/helix/">Helix</a>
+
+
+</p>
+<p class="terms">
+
+<b>Categories:</b>
+
+  <a href="//bulimov.ru/categories/personal/">Personal</a>
+
+
+</p>
+
+  <footer>
+  
+  
+  <hr/>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.ru">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
+  
+  </footer>
+  </body>
+</html>
+
