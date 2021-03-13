@@ -6,7 +6,20 @@
     <description>Recent content in Posts on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 20 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Python is not good for production</title>
+      <link>//bulimov.ru/post/2021/03/13/python-rewrite/</link>
+      <pubDate>Sat, 13 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/post/2021/03/13/python-rewrite/</guid>
+      <description>Here, I said it.
+Recently I read an excellent (opinionated) post by rachelbythebay describing things she cannot stand in programming language, and it resonated deeply with me and finally pushed me to write this.
+I feel quite strongly about using Python in production, and below I&amp;rsquo;ll summarize my experience and opinion.
+Everyone is entitled to their own opinion, this is mine.
+I&amp;rsquo;m not trying to offend anyone, so if you love Python - maybe try to see my side of things.</description>
+    </item>
+    
     <item>
       <title>My split keyboards</title>
       <link>//bulimov.ru/post/2021/02/20/split-keyboards/</link>

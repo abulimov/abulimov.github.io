@@ -3,7 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>//bulimov.ru/categories/</loc>
-    <lastmod>2021-02-20T00:00:00+00:00</lastmod>
+    <lastmod>2021-03-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.ru/tags/golang/</loc>
+    <lastmod>2021-03-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.ru/</loc>
+    <lastmod>2021-03-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.ru/categories/it/</loc>
+    <lastmod>2021-03-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.ru/post/</loc>
+    <lastmod>2021-03-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.ru/tags/python/</loc>
+    <lastmod>2021-03-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.ru/post/2021/03/13/python-rewrite/</loc>
+    <lastmod>2021-03-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.ru/tags/</loc>
+    <lastmod>2021-03-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.ru/tags/electronics/</loc>
     <lastmod>2021-02-20T00:00:00+00:00</lastmod>
@@ -14,9 +35,6 @@
     <loc>//bulimov.ru/tags/helix/</loc>
     <lastmod>2021-02-20T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.ru/</loc>
-    <lastmod>2021-02-20T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.ru/tags/keyboard/</loc>
     <lastmod>2021-02-20T00:00:00+00:00</lastmod>
   </url><url>
@@ -25,15 +43,6 @@
   </url><url>
     <loc>//bulimov.ru/categories/personal/</loc>
     <lastmod>2021-02-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.ru/post/</loc>
-    <lastmod>2021-02-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.ru/tags/</loc>
-    <lastmod>2021-02-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.ru/tags/golang/</loc>
-    <lastmod>2021-02-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.ru/tags/hugo/</loc>
     <lastmod>2021-02-16T00:00:00+00:00</lastmod>
@@ -53,13 +62,7 @@
     <loc>//bulimov.ru/tags/experience/</loc>
     <lastmod>2018-01-31T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.ru/categories/it/</loc>
-    <lastmod>2017-07-24T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.ru/tags/programming/</loc>
-    <lastmod>2017-07-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.ru/tags/python/</loc>
     <lastmod>2017-07-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.ru/it/python3-fstrings/</loc>

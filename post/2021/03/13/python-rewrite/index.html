@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Python is not good for production | Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="https://models.bulimov.ru">Scale Models</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Python is not good for production</span></h1>
+
+<h2 class="date">2021/03/13</h2>
+
+</div>
+
+<main>
+<p>Here, I said it.</p>
+<p>Recently I read an excellent (opinionated) <a href="http://rachelbythebay.com/w/2021/02/22/lang/">post by rachelbythebay</a> describing
+things she cannot stand in programming language, and it resonated deeply with me and finally pushed me to write this.</p>
+<p>I feel quite strongly about using Python in production, and below I&rsquo;ll summarize my experience and opinion.</p>
+<p>Everyone is entitled to their own opinion, this is mine.</p>
+<p>I&rsquo;m not trying to offend anyone, so if you love Python - maybe try to see my side of things.</p>
+<p><strong>TL;DR any effort to keep Python service alive or up to date with new stuff (Python 3, Type Annotations, Asyncio) is comparable to a complete rewrite, only with diminishing returns.</strong></p>
+<h2 id="my-python-experience-in-a-nutshell">My Python experience in a nutshell</h2>
+<p>I landed <strong>few hungred KLOCs</strong> in Python, which included:</p>
+<ul>
+<li>writing tools and services from scratch in Python3 with and without type annotations</li>
+<li>migrating some medium sized services from Python2 to Python3</li>
+<li>adding type annotations to existing codebase</li>
+<li>migrating existing code to Asyncio</li>
+</ul>
+<p>Here is what I think about this experience:</p>
+<h3 id="whole-py2-py3-thing-was-a-total-mess">Whole Py2-&gt;Py3 thing was a total mess</h3>
+<p>There are many posts about it, I&rsquo;ll just give one example:
+It took us quite significant effort to migrate pretty good quality code (~60kloc) with decent unittest coverage,
+and we still stumbled on some bugs in prod for many weeks after the migration.</p>
+<p>And boy this breaking Py2-&gt;Py3 transition was so unnecessary!
+Making <code>print</code> a function and adding new type for strings was so not worth it&hellip; from my point of view it clearly didn&rsquo;t justify breaking the compatibility.</p>
+<h3 id="type-annotations-are-good-but-not-good-enough">Type Annotations are good, but not good enough</h3>
+<p>I already <a href="/it/python-typing/">expressed my admiration for Python 3.5+ type annotations</a>.
+However, after using them extensively in real life, I can point to few real problems with them:</p>
+<ul>
+<li>First, existing dynamically typed code doesn&rsquo;t always map nicely to ~static type annotations. Which means that you either refactor the code or use <code>Any</code> type.</li>
+<li>Second, they are ignored by interpreter, by design. So you end up using external type checkers like <a href="http://mypy-lang.org/">mypy</a> or <a href="https://pyre-check.org/">Pyre</a>, and this brings multiple problems:
+<ul>
+<li>Slow-ish analysis speed, especially compared to fast modern compiled languages like Go</li>
+<li>Incomplete analysis - quite often you express all types correctly, but analyzer fails to understand it</li>
+<li>Type Annotations cannot improve performance, unlike <a href="https://cython.org/">Cython</a></li>
+<li>Type Annotations are completely optional, and often are added as an afterthought, so not necessary influence the architecture of the program as good typing system should</li>
+</ul>
+</li>
+</ul>
+<h3 id="switching-to-asyncio-is-a-big-undertaking">Switching to Asyncio is a big undertaking</h3>
+<p>In theory, new async Python3 sound pretty good, and if your service lives in vacuum it is quite nice.
+Unfortunately, when trying to use Asyncio with existing codebase you quickly realize that to really benefit from it,
+<strong>all your dependencies need to be async</strong>. And if for some common opensource libs out there already might be some asyncio alternative,
+decent chunk of your internal deps will have to be written once again.</p>
+<p>Also it&rsquo;s still pretty new, so more bugs, and last time I checked reasoning about performance was really hard.</p>
+<h3 id="performance-is-not-good-at-all">Performance is not good at all</h3>
+<p>It&rsquo;s 2021 but <a href="https://wiki.python.org/moin/GlobalInterpreterLock">GIL</a> is still a thing, and believe you me any CPU-bound task should never be written in Python.</p>
+<p>Surely one can optimize hot paths of your code with <a href="https://cython.org/">Cython</a> that will generate C++ code for you
+(we did it with good results), or just rewrite them in different language, but if you start rewriting parts of the code, why stop?</p>
+<p>I witnessed (and performed myself) many rewrites from Python to Go/C#/Rust/C++, even <a href="/it/go-carbon/">blogged about some</a>
+and every time even unoptimized POC in compiled language was performing many times faster than
+optimized Python version of same service/tool.</p>
+<h3 id="startup-time-is-horrendous">Startup time is horrendous</h3>
+<p>Even you write CLIs in Python (and it&rsquo;s quite pleasant with <a href="https://click.palletsprojects.com/">Click</a>, you should be aware of startup time penalty for interpreted languages.
+With Python it can be really bad, and the more dependencies your code has the worse it gets.</p>
+<p>And when you use CLI tools often, slow startup really is a death by a thousand cuts.</p>
+<p>Thanks to widespread bad practices of say initializing Singleton client classes on init time, it gets ridiculously bad, with simplest tools taking seconds to just show &lsquo;&ndash;help&rsquo;.</p>
+<p>I myself rewrote a simple CLI tool from Python to Go, bringing runtime from <strong>28s</strong> to <strong>&lt;1ms</strong>.
+All the tool did was exchanging like 6 UDP packets with local demon to gather monitoring metrics.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Again, this is just my opinion, but after years of writing Python and years of writing Go, there is the conclusion I landed upon.</p>
+<h3 id="dynamic-typing-and-interpreted-nature-of-python-make-it-poor-fit-for-production-services">Dynamic typing and interpreted nature of Python make it poor fit for production services</h3>
+<p>There have been thousands of articles on the subject, but after 11 years of working in the industry
+I strongly believe that dynamic typing is not suited for services that need stability.
+And yes, I know about Erlang, and yes, I&rsquo;m confident it would be much better with static typing.</p>
+<p>Sure, dynamic typing often enables faster prototyping, but if you don&rsquo;t throw the prototype away immediately it will cost you dearly.</p>
+<p>I saw my fair share of huge codebases in Python, with and without Type Annotations, and in every case the problems were similar.</p>
+<p>No amount of unittests (and don&rsquo;t even get me started on default testing module in Python)
+and no smart IDE saves you during refactoring, every time it&rsquo;s like walking on a minefield.</p>
+<p>Adding features without refactoring will increase technical debt, and refactoring will lead to runtime errors.</p>
+<p>Decent compiler and static typing save from all of this.</p>
+<h3 id="using-a-better-suited-language-will-pay-off">Using a better suited language will pay off</h3>
+<p>Don&rsquo;t be a victim of <a href="https://en.wikipedia.org/wiki/Sunk_cost#Fallacy_effect">sunk cost fallacy</a>, stop wasting time and effort
+on Python just to get diminishing returns in the end.</p>
+<p>From my personal experience, rewriting from Python to <em>any decent statically typed compiled language</em> is mostly trivial and always brings great results. I myself saw it being done with C++, C#, Rust, and of course Go. Worked a charm <em>every time</em>.</p>
+<p><strong>If you have a production service in Python, do yourself a favour and rewrite it in a sensible language.</strong></p>
+
+</main>
+
+
+<p class="terms">
+<b>Tags:</b>
+
+  <a href="//bulimov.ru/tags/python/">Python</a>
+
+  <a href="//bulimov.ru/tags/golang/">Golang</a>
+
+
+</p>
+<p class="terms">
+
+<b>Categories:</b>
+
+  <a href="//bulimov.ru/categories/it/">IT</a>
+
+
+</p>
+
+  <footer>
+  
+  
+  <hr/>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.ru">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
+  
+  </footer>
+  </body>
+</html>
+
