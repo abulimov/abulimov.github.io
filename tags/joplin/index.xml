@@ -6,7 +6,19 @@
     <description>Recent content in Joplin on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/joplin/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 May 2021 20:27:52 +0100</lastBuildDate><atom:link href="//bulimov.ru/tags/joplin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Published all my mini-review scores</title>
+      <link>//bulimov.ru/post/2021/05/23/my-reviews/</link>
+      <pubDate>Sun, 23 May 2021 20:27:52 +0100</pubDate>
+      
+      <guid>//bulimov.ru/post/2021/05/23/my-reviews/</guid>
+      <description>Thanks to the fact that I migrated from Evernote to Joplin all my notes are now stored in Dropbox as Markdown files.
+This allowed me to quickly create a dumb script to extract my scores for each item I reviewed over the years, and put them in a table.
+Now it&amp;rsquo;s all available here on Reviews page.
+Maybe I&amp;rsquo;ll add the actual mini-reviews as well some day, it&amp;rsquo;s just that it will require more effort from me to proof-read and clean them up.</description>
+    </item>
+    
     <item>
       <title>Taking Notes</title>
       <link>//bulimov.ru/post/2021/05/23/taking-notes/</link>

@@ -6,7 +6,19 @@
     <description>Recent content in Home on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 23 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 May 2021 20:27:52 +0100</lastBuildDate><atom:link href="//bulimov.ru/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Published all my mini-review scores</title>
+      <link>//bulimov.ru/post/2021/05/23/my-reviews/</link>
+      <pubDate>Sun, 23 May 2021 20:27:52 +0100</pubDate>
+      
+      <guid>//bulimov.ru/post/2021/05/23/my-reviews/</guid>
+      <description>Thanks to the fact that I migrated from Evernote to Joplin all my notes are now stored in Dropbox as Markdown files.
+This allowed me to quickly create a dumb script to extract my scores for each item I reviewed over the years, and put them in a table.
+Now it&amp;rsquo;s all available here on Reviews page.
+Maybe I&amp;rsquo;ll add the actual mini-reviews as well some day, it&amp;rsquo;s just that it will require more effort from me to proof-read and clean them up.</description>
+    </item>
+    
     <item>
       <title>Taking Notes</title>
       <link>//bulimov.ru/post/2021/05/23/taking-notes/</link>
@@ -788,6 +800,18 @@ Packetbeat это такой инструмент мониторинга, кот
       
       <guid>//bulimov.ru/about/</guid>
       <description>$ whoami Alexander Bulimov, Production Engineer/Scale Modeller $ cowsay &amp;lt; about.txt _________________________________________ / In IT since 2010. \ | | | Worked on both ends of the spectrum, | | from tiny startups to FAANG. | | | | * Built infrastructure from the ground | | up for 3 startups using only | | open-source software | | * Worked on ancient services with | | legacy codebase, refactored and | | elevated them to modern standards | | * Wrote plenty of distributed services | | * Fluent in Go and Python | \ / ----------------------------------------- \ ^__^ \ (oo)\_______ (__)\ )\/\ ||----w | || || </description>
+    </item>
+    
+    <item>
+      <title>Reviews</title>
+      <link>//bulimov.ru/reviews/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/reviews/</guid>
+      <description>Here you can find my review scores for:
+ video games I played musical albums I bought and books I read  All scores are given on a scale from 0 to 10, with exceptional titles given 11 (because why not?).
+I&amp;rsquo;m writing down my mini-reviews for games, books and music since 2013, just for fun.
+Games    Name Score     2021    Cosmic Star Heroine (Switch) 9   Children of Morta (Switch) 9   Shadows of Adam (Switch) 8   Valkyria Chronicles 4 (Switch) 8   The Outer Worlds (PS4) 8   Legend of Zelda: Link’s Awakening (Switch) 8   Luigi’s Mansion 3 (Switch) 7   The Technomancer (PS4) 7   Dragon Quest XI demo (Switch) 5   Transistor (Switch) 3   2020    Snowrunner (PS4) 11   Spintires: Mudrunner (Switch) 9   Moonlighter (Switch) 9   Marvel’s Spider-Man (PS4) 8   Far Cry Primal (PS4) 8   Batman: Arkham Knight (PS4) 8   Firewatch (PS4) 8   Far Cry New Dawn (PS4) 7   Ratchet and Clank (PS4) 7   Vampyr (PS4) 7   Far Cry 3 (PS4) 7   Far Cry 5 DLC (Lost on Mars, Vietnam) 6   Bastion (Switch) 6   2019    Assassins Creed Odyssey (PS4) 10   Elex (PS4) 10   God of War (PS4) 10   West of Loathing (Switch) 10   Wargroove (Switch) 9   Greedfall (PS4) 9   Mario + Rabbids Kingdom Battle.</description>
     </item>
     
   </channel>
