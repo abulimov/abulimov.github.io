@@ -65,13 +65,13 @@ In my head, I imagined perfect personal notes-taking setup as this:
 
 ## How I write work-related notes
 
-A colleague of mine introduced me to an app called **Terminal Velocity**, which implements really cool note-taking concept:
+A colleague of mine introduced me to an app called [**Notational Velocity**](https://brettterpstra.com/projects/nvalt/), which implements really cool note-taking concept:
 you only have an editor and a search field, where you can either find a note by it's content or name, or create a new one.
 No save button, no nothing - you type stuff in, it's immediately saved and instantly searchable.
 
 This approach works brilliantly and helps me with all work stuff ever since.
 
-But because Terminal Velocity is MacOS-only, and I left this platform years ago, I had to find an multi-platform alternative.
+But because Notational Velocity is MacOS-only, and I left this platform years ago, I had to find an multi-platform alternative.
 
 I found it in a form of opensource [**QOwnNotes**](https://www.qownnotes.org/) app, which works really well on desktop and
 stores my notes simply as named markdown files in my work Dropbox folder.
