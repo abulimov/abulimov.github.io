@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Joplin on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link>//bulimov.ru/tags/joplin/</link>
+    <description>Recent content in Joplin on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 23 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/joplin/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Taking Notes</title>
+      <link>//bulimov.ru/post/2021/05/23/taking-notes/</link>
+      <pubDate>Sun, 23 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/post/2021/05/23/taking-notes/</guid>
+      <description>In the days of yore it was common for people to keep a diary. I myself was always a fan of this idea, but could never actually get started with it.
+My handwriting is absolutely terrible, to the point that I can&amp;rsquo;t decipher my own notes, which rules out writing diary in an old-fashioned way. And all diary-like mobile apps seem to add too much friction.
+I kinda solved this for my needs few years ago by writing an simple app that allows me to quickly collect each day stats and activities in under 1 minute, but that&amp;rsquo;s not the topic of this post, I&amp;rsquo;ll write about it someday later.</description>
+    </item>
+    
+  </channel>
+</rss>

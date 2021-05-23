@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Taking Notes | Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="https://models.bulimov.ru">Scale Models</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Taking Notes</span></h1>
+
+<h2 class="date">2021/05/23</h2>
+
+</div>
+
+<main>
+<p>In the <em>days of yore</em> it was common for people to keep a diary.
+I myself was always a fan of this idea, but could never actually get started with it.</p>
+<p>My handwriting is absolutely terrible, to the point that I can&rsquo;t decipher my own notes,
+which rules out writing diary in an old-fashioned way.
+And all diary-like mobile apps seem to add too much friction.</p>
+<p>I kinda solved this for my needs few years ago by writing an simple app that allows me to quickly collect each day stats and activities in under 1 minute,
+but that&rsquo;s not the topic of this post, I&rsquo;ll write about it someday later.</p>
+<p>Anyway, instead of keeping a diary I started to write notes about stuff I&rsquo;m interested in.</p>
+<h2 id="a-bit-of-history">A bit of history</h2>
+<p>Since 2012 I have notes with mini-reviews and ratings of:</p>
+<ul>
+<li>books I read</li>
+<li>music albums I bought</li>
+<li>video games I played</li>
+</ul>
+<p>And of course I kept notes with random thoughts, ideas and stuff.</p>
+<p>I always used my phone (Android back then, iPhone now) to take those notes, and when I started doing it the only good software available was <strong>Evernote</strong>.</p>
+<p>It was actually pretty good back then, and one of the first things I tested was <strong>export</strong> functionality, which worked very well.</p>
+<p>I used Evernote from 2012 to ~2014 when I started playing with <a href="/it/%D0%9B%D0%B8%D1%87%D0%BD%D1%8B%D0%B9-vps/">personal VPS</a> and the idea of fully self-hosted environment.
+With personal VPS I switched to Tomboy and Tomdroid with Owncloud sync, which worked ok-ish. I exported all notes from Evernote to Tomboy without any issues, and kept using this setup for over 1.5 years.</p>
+<p>When I was <a href="/it/goodby-vps/">done playing with VPS</a> in 2015, I migrated back to Evernote, and used it till 2021.</p>
+<p>Unfortunately over the years Evernote slowly turned into utter garbage,
+and with latest obnoxious &lsquo;redesign&rsquo; I was finally done with it.</p>
+<p>And of course first thing I discovered is that they seem to have killed &lsquo;export&rsquo; in any shape or form!
+At least it&rsquo;s not present in the mobile app or website.</p>
+<p>There still is an option to export notes using their API, but with the trajectory Evernote took I&rsquo;m sure it will be deprecated/hindered somehow pretty soon, just to keep the users locked in.</p>
+<p>Anyway, I exported all my notes and started to look for the replacement.</p>
+<p>But before I share my findings, I need to explain how I use note-taking apps.</p>
+<h2 id="how-i-use-personal-notes">How I use personal notes</h2>
+<p>My personal notes usage pattern was pretty much the same since 2012, I update relevant entries once
+I form an opinion about a book/album/game, or whenever I had an idea to write down.</p>
+<p>I always to it from my phone, because it&rsquo;s always with me.</p>
+<p>All I ever needed is basic formatting support (I always wished Evernote just let me use Markdown instead of their ever-changing WYSIWYG editor), nothing else.</p>
+<p>In my head, I imagined perfect personal notes-taking setup as this:</p>
+<ul>
+<li>Desktop app with Markdown support and import/export options</li>
+<li>Simple mobile app to add/edit notes</li>
+<li>Synchronization via Dropbox, i.e. notes are just <code>*.md</code> files in a dedicated directory.</li>
+<li>Opensource</li>
+</ul>
+<h2 id="how-i-write-work-related-notes">How I write work-related notes</h2>
+<p>A colleague of mine introduced me to an app called <strong>Terminal Velocity</strong>, which implements really cool note-taking concept:
+you only have an editor and a search field, where you can either find a note by it&rsquo;s content or name, or create a new one.
+No save button, no nothing - you type stuff in, it&rsquo;s immediately saved and instantly searchable.</p>
+<p>This approach works brilliantly and helps me with all work stuff ever since.</p>
+<p>But because Terminal Velocity is MacOS-only, and I left this platform years ago, I had to find an multi-platform alternative.</p>
+<p>I found it in a form of opensource <a href="https://www.qownnotes.org/"><strong>QOwnNotes</strong></a> app, which works really well on desktop and
+stores my notes simply as named markdown files in my work Dropbox folder.</p>
+<p>I use it exclusively for work stuff, so lack of mobile app support was never a problem.</p>
+<p>For personal notes though I need something with similar approach <strong>and</strong> mobile app.</p>
+<h2 id="best-evernote-replacement-i-found">Best Evernote replacement I found</h2>
+<p>And you know what? Such setup finally exists thanks to awesome <a href="https://joplinapp.org/"><strong>Joplin</strong> app</a>.</p>
+<p>I couldn&rsquo;t be happier with it, it does exactly what I always wanted my notes-taking app to do.</p>
+<p>Opensource, no cruft, no terrible WYSIWYG editor, syncing via Dropbox/Nextcloud. Simple and lightweight on the phone, works well on PC.</p>
+<p>I can wholeheartedly recommend it, and it seems like it&rsquo;s doing quite well in terms of development, with second <a href="https://joplinapp.org/gsoc2021/index/">Google Summer of Code participation</a> and active github repo.</p>
+<p>I just wish I made this wonderful discovery sooner!</p>
+<h2 id="sidenote">Sidenote</h2>
+<p>While exporting everything from Evernote I was amused that I have notes from that long ago, and it&rsquo;s pretty cool
+to read what games I liked in say 2013 and why.</p>
+<p>I can definitely recommend taking notes just for yourself, it will bring you lots of fun in years to come.</p>
+
+</main>
+
+
+<p class="terms">
+<b>Tags:</b>
+
+  <a href="//bulimov.ru/tags/evernote/">Evernote</a>
+
+  <a href="//bulimov.ru/tags/qownnotes/">QOwnNotes</a>
+
+  <a href="//bulimov.ru/tags/joplin/">Joplin</a>
+
+
+</p>
+<p class="terms">
+
+<b>Categories:</b>
+
+  <a href="//bulimov.ru/categories/personal/">Personal</a>
+
+
+</p>
+
+  <footer>
+  
+  
+  <hr/>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.ru">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
+  
+  </footer>
+  </body>
+</html>
+
