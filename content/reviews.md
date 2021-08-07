@@ -16,12 +16,14 @@ I'm [writing down my mini-reviews](/post/2021/05/23/taking-notes/) for games, bo
 | **2021** |
 | Cosmic Star Heroine (Switch) | 9 |
 | Children of Morta (Switch) | 9 |
+| Hellblade: Senua's Sacrifice (PS4) | 8 |
 | Shadows of Adam (Switch) | 8 |
 | Valkyria Chronicles 4 (Switch) | 8 |
 | The Outer Worlds (PS4) | 8 |
 | Legend of Zelda: Link’s Awakening (Switch) | 8 |
 | Luigi’s Mansion 3 (Switch) | 7 |
 | The Technomancer (PS4) | 7 |
+| Metro Last Light (PS4) | 6 |
 | Dragon Quest XI demo (Switch) | 5 |
 | Transistor (Switch) | 3 |
 | **2020** |
@@ -113,7 +115,7 @@ I'm [writing down my mini-reviews](/post/2021/05/23/taking-notes/) for games, bo
 | Shadowrun Returns (PC) | 8 |
 | Mass Effect (PS3) | 8 |
 | Dragon Age Origins (PC) | 8 |
-| - Dragon Age II (PS3) | 8 |
+| Dragon Age II (PS3) | 8 |
 | Uncharted 3 (PS3) | 8 |
 | Assassins Creed 4 Black Flag (PS3) | 8 |
 | Ni No Kuni (PS3) | 7 |
@@ -138,8 +140,13 @@ I'm [writing down my mini-reviews](/post/2021/05/23/taking-notes/) for games, bo
 | Ernest Shackleton - South | 9 |
 | Martha Wells - Exit Strategy | 9 |
 | Martha Wells - Rogue Protocol | 9 |
+| Oscar Wilde - The Picture of Dorian Grey | 8 |
 | Brian Lavery - Wooden Ship Construction: A history in ship models | 8 |
 | Oscar Wilde - The Importance of being Earnest | 8 |
+| Arthur Conan Doyle - A Study in Scarlet | 7 |
+| Jeff VanderMeer - Annihilation | 7 |
+| Виктор Пелевин - iPhuck 10 | 6 |
+| Terry Pratchett/ Neil Gaiman - Good Omens | 5 |
 | **2020** |
 | Дмитрий Глуховский - Текст | 10 |
 | N.K. Jemisin - Broken Earth Trilogy | 10 |
