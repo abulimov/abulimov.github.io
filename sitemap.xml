@@ -2,11 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>//bulimov.ru/tags/bpf/</loc>
+    <lastmod>2021-12-02T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>//bulimov.ru/categories/</loc>
-    <lastmod>2021-08-07T00:00:00+00:00</lastmod>
+    <lastmod>2021-12-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.ru/</loc>
-    <lastmod>2021-08-07T00:00:00+00:00</lastmod>
+    <lastmod>2021-12-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.ru/categories/it/</loc>
+    <lastmod>2021-12-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.ru/tags/linux/</loc>
+    <lastmod>2021-12-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.ru/post/</loc>
+    <lastmod>2021-12-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.ru/tags/python/</loc>
+    <lastmod>2021-12-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.ru/post/2021/12/02/unix-socket-snoop/</loc>
+    <lastmod>2021-12-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.ru/tags/</loc>
+    <lastmod>2021-12-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.ru/categories/personal/</loc>
     <lastmod>2021-08-07T00:00:00+00:00</lastmod>
@@ -14,16 +35,10 @@
     <loc>//bulimov.ru/tags/playstation/</loc>
     <lastmod>2021-08-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.ru/post/</loc>
-    <lastmod>2021-08-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.ru/tags/</loc>
-    <lastmod>2021-08-07T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.ru/tags/video-games/</loc>
     <lastmod>2021-08-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.ru/post/2021/08/07/taking-notes/</loc>
+    <loc>//bulimov.ru/post/2021/08/07/why-xbox/</loc>
     <lastmod>2021-08-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.ru/tags/xbox/</loc>
@@ -45,12 +60,6 @@
     <lastmod>2021-05-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.ru/tags/golang/</loc>
-    <lastmod>2021-03-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.ru/categories/it/</loc>
-    <lastmod>2021-03-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.ru/tags/python/</loc>
     <lastmod>2021-03-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.ru/post/2021/03/13/python-rewrite/</loc>

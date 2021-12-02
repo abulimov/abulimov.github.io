@@ -6,13 +6,25 @@
     <description>Recent content in Home on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Snooping on unix domain sockets traffic</title>
+      <link>//bulimov.ru/post/2021/12/02/unix-socket-snoop/</link>
+      <pubDate>Thu, 02 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/post/2021/12/02/unix-socket-snoop/</guid>
+      <description>I often work with various binary protocol, with majority of work being implementing those protocols in Go or Rust.
+And when dealing with such tasks, I find it extremely useful to be able to snoop on the traffic between existing/reference implementations.
+When communication happens over network (even locally), it&amp;rsquo;s easy - just fire up some good old tcpdump and then maybe analyze the dump with Wireshark.
+But what if communication happens over the Unix domain sockets?</description>
+    </item>
+    
     <item>
       <title>Why I’m picking Xbox for new generation</title>
-      <link>//bulimov.ru/post/2021/08/07/taking-notes/</link>
+      <link>//bulimov.ru/post/2021/08/07/why-xbox/</link>
       <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/post/2021/08/07/taking-notes/</guid>
+      <guid>//bulimov.ru/post/2021/08/07/why-xbox/</guid>
       <description>Disclaimer: this is not an objective comparison, it&amp;rsquo;s my personal, extremely subjective choice.
 Here is why I’m not buying PS5, despite having PS3 since 2010 and PS4 since 2014.
 And no, it’s not because it too hard to get now :-)
