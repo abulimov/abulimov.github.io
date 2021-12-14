@@ -14,8 +14,14 @@ I'm [writing down my mini-reviews](/post/2021/05/23/taking-notes/) for games, bo
 | Name | Score |
 |------|-------|
 | **2021** |
+| Forza Horizon 4 (Xbox Series S) | 10 |
+| Wasteland 3 (Xbox Series S) | 9 |
+| Fallout: New Vegas (Xbox Series S) | 9 |
+| The Ascent (Xbox Series S) | 9 |
 | Cosmic Star Heroine (Switch) | 9 |
 | Children of Morta (Switch) | 9 |
+| Ara Fell: Enhanced Edition (Switch) | 8 |
+| Sable (Xbox Series S) | 8 |
 | Hellblade: Senua's Sacrifice (PS4) | 8 |
 | Shadows of Adam (Switch) | 8 |
 | Valkyria Chronicles 4 (Switch) | 8 |
@@ -23,6 +29,8 @@ I'm [writing down my mini-reviews](/post/2021/05/23/taking-notes/) for games, bo
 | Legend of Zelda: Link’s Awakening (Switch) | 8 |
 | Luigi’s Mansion 3 (Switch) | 7 |
 | The Technomancer (PS4) | 7 |
+| Spaceland (Switch) | 6 |
+| Fable Anniversary (Xbox Series S) | 6 |
 | Metro Last Light (PS4) | 6 |
 | Dragon Quest XI demo (Switch) | 5 |
 | Transistor (Switch) | 3 |
@@ -137,6 +145,9 @@ I'm [writing down my mini-reviews](/post/2021/05/23/taking-notes/) for games, bo
 |------|-------|
 | **2021** |
 | Richard Endsor - The Master Shipwrights Secrets | 11 |
+| N.K. Jemisin - The Broken Kingdoms | 9 |
+| N.K. Jemisin - The Hundred Thousand Kingdoms | 9 |
+| D.K. Brown - Before the Ironclad | 9 |
 | Ernest Shackleton - South | 9 |
 | Martha Wells - Exit Strategy | 9 |
 | Martha Wells - Rogue Protocol | 9 |
