@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Плагин к Collectd для сбора метрик Riak CS | Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <title>Плагин к collectd для сбора метрик Riak CS | Alexander Bulimov: Production Engineer and Scale Modeller</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     
@@ -32,7 +32,7 @@
     </nav>
 
 <div class="article-meta">
-<h1><span class="title">Плагин к Collectd для сбора метрик Riak CS</span></h1>
+<h1><span class="title">Плагин к collectd для сбора метрик Riak CS</span></h1>
 
 <h2 class="date">2015/09/17</h2>
 
@@ -41,14 +41,14 @@
 <main>
 <p>На днях наконец-то дошли руки до модернизации той части мониторинга, которая
 отвечает за сбор метрик, и набивший оскомину <a href="http://munin-monitoring.org">Munin</a> был
-окончательно заменен на <a href="https://graphite.readthedocs.org/en/latest/">Graphite</a> + <a href="http://collectd.org">Collectd</a>.
+окончательно заменен на <a href="https://graphite.readthedocs.org/en/latest/">Graphite</a> + <a href="http://collectd.org">collectd</a>.
 Теперь воцарилась идиллия - Icinga2 складывает метрики из perfdata в Graphite,
-и Collectd отправляет все метрики туда же.</p>
-<p>Хочется отдельно отметить, что несмотря на то, что изначально Collectd мне
+и collectd отправляет все метрики туда же.</p>
+<p>Хочется отдельно отметить, что несмотря на то, что изначально collectd мне
 не очень понравился (кому может сейчас понравиться Apache-подобный конфиг?), при
 дальнейшем изучении я был приятно поражен богатством возможностей этого
 продукта и крайне бережным его отношением к ресурсам наблюдаемой системы.</p>
-<p>Так вот, в процессе переезда с Munin я столкнулся с задачей сбора в Collectd
+<p>Так вот, в процессе переезда с Munin я столкнулся с задачей сбора в collectd
 метрик с замечательной реализации приватного
 <a href="https://ru.wikipedia.org/wiki/Amazon_S3">S3</a>-совместимого хранилища -
 <a href="http://docs.basho.com/riakcs/latest">Riak CS</a>.</p>
@@ -61,15 +61,15 @@
 тем более можно при желании смигрировать на любое S3-совместимое хранилище - на
 <a href="http://ceph.com">Ceph</a>, например.</p>
 <p>Сам Riak CS построен как надстройка над Riak, для которого в официальной
-документации <a href="http://docs.basho.com/riak/1.4.8/ops/running/monitoring/collectd/">есть пример конфига для Collectd</a>.</p>
+документации <a href="http://docs.basho.com/riak/1.4.8/ops/running/monitoring/collectd/">есть пример конфига для collectd</a>.</p>
 <p>К сожалению, для Riak CS такой фокус с плагином <em>curl_json</em> не пройдет - для
 доступа к статистике http-запрос должен быть подписан по всем правилам
-авторизации S3, поэтому пришлось писать свой плагин, благо Collectd
+авторизации S3, поэтому пришлось писать свой плагин, благо collectd
 <a href="https://collectd.org/documentation/manpages/collectd-python.5.shtml#writing_your_own_plugins">предоставляет</a>
 очень простой интерфейс для написания плагинов на Python, а в Python есть
 шикарная библиотека <a href="https://www.python-requests.org/">requests</a>, к которой есть удобный
 модуль для работы с S3 - <a href="https://github.com/tax/python-requests-aws">requests-aws</a>.</p>
-<p>Для написания простейшего плагина к Collectd надо реализовать и
+<p>Для написания простейшего плагина к collectd надо реализовать и
 зарегистрировать всего одну функцию - read. То есть вот так выгладит минимальный
 плагин к Colletcd:</p>
 <p><em>Пример из официальной документации:</em></p>
@@ -83,13 +83,13 @@
 
 collectd<span style="color:#f92672">.</span>register_read(read)
 </code></pre></div><p>Мне, конечно, пришлось написать немного больше кода, но поскольку сам Riak CS
-очень помогает в вопросах метрик - он отдает всю нужную информацию, включая
+очень помогает c метриками - он отдает всю нужную информацию, включая
 95й и 99й перцентили задержек различных операций, в
 <a href="http://docs.basho.com/riakcs/latest/cookbooks/Monitoring-and-Metrics/">в обычном JSON</a>,
 это действительно <em>немного</em> больше кода.</p>
 <p>Плагин получился крошечным - меньше 100 строк кода - и
 очень простым.</p>
-<p>Код плагина к Collectd для снятия метрик с Riak CS трационно опубликован под
+<p>Код плагина к collectd для снятия метрик с Riak CS трационно опубликован под
 свободной лицензией <a href="https://opensource.org/licenses/MIT">MIT</a>
 на Github - <a href="https://github.com/abulimov/collectd-riakcs">github.com/abulimov/collectd-riakcs</a>,
 а сам плагин подготовлен к удобной <a href="https://github.com/abulimov/collectd-riakcs#setup">установке через pip</a>.</p>
@@ -104,7 +104,7 @@ collectd<span style="color:#f92672">.</span>register_read(read)
 
   <a href="//bulimov.ru/tags/riak-cs/">Riak CS</a>
 
-  <a href="//bulimov.ru/tags/collectd/">Collectd</a>
+  <a href="//bulimov.ru/tags/collectd/">collectd</a>
 
   <a href="//bulimov.ru/tags/%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/">Программирование</a>
 

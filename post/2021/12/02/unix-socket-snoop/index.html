@@ -95,9 +95,9 @@ waiting for data
 ^C
 2 packets captured
 </code></pre><p>Also, if one is being curious - now it supports prefix-based socket path matching, and specifying &lsquo;*&rsquo; as a socket path
-allows to dump <strong>all</strong> the communications happning over unix sockets on the system.
+allows to dump <strong>all</strong> the communications happening over unix sockets on the system.
 Spoiler alert: <em>systemd</em> does a lot of stuff there.</p>
-<h2 id="usecase">Usecase</h2>
+<h2 id="use-case">Use-case</h2>
 <p>All and all, I find the ability to dump communication happening over unix domain sockets to be very useful.</p>
 <p>First, it&rsquo;s extremely valuable to record the interactions that happen over unix sockets to be able to implement
 intricate details of the (often undocumented) protocols.</p>

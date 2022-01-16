@@ -69,45 +69,42 @@ if ($valid_serial ~ false) { return 403; break; }
 <p>Так что я быстро пересобрал свой пакет с Nginx с модулем Lua,
 и начал ваять, благо логика у моем случае простейшая:</p>
 <ol>
-<li>
-<p>Загружаем при старте Nginx из файлика с серийниками их список в ngx.shared.DICT</p>
-<p>:::nginx
-lua_shared_dict serials 1m;</p>
-<p>init_by_lua '
-local file = io.open(&quot;/etc/nginx/access.list&quot;, &ldquo;r&rdquo;)
+<li>Загружаем при старте Nginx из файлика с серийниками их список в <code>ngx.shared.DICT</code></li>
+</ol>
+<pre><code>lua_shared_dict serials 1m;
+
+init_by_lua '
+local file = io.open(&quot;/etc/nginx/access.list&quot;, &quot;r&quot;)
 local serials = ngx.shared.serials
 if file then
-for line in file:lines() do
-local stripped_line = line:match( &ldquo;^%s*(.-)%s*$&rdquo; )
-local succ, err, forcible = serials:safe_set( stripped_line, true)
-if not succ then
-ngx.log(ngx.ERR,&ldquo;error populating serials list: &quot; .. err)
-end
-end
-file:close()
+    for line in file:lines() do
+    local stripped_line = line:match( &quot;^%s*(.-)%s*$&quot; )
+    local succ, err, forcible = serials:safe_set( stripped_line, true)
+    if not succ then
+        ngx.log(ngx.ERR,&quot;error populating serials list: &quot; .. err)
+    end
+    end
+    file:close()
 else
-ngx.log(ngx.ERR,&ldquo;access.list file not found&rdquo;)
+    ngx.log(ngx.ERR,&quot;access.list file not found&quot;)
 end
-&lsquo;;
-&hellip;</p>
-</li>
-<li>
-<p>При запросе к защищенному контенту проверяем, есть ли такой серийник в списке.</p>
-<p>:::nginx
-location / {
-access_by_lua '
-local serial = ngx.var.ssl_client_serial
-local value, flags = ngx.shared.serials:get(serial)
-if not value then
-ngx.log(ngx.WARN, &ldquo;blocked client cert &quot; .. serial)
-ngx.exit(ngx.HTTP_FORBIDDEN)
-end
-&lsquo;;
-proxy_pass http://upstream;
-}</p>
-</li>
+';
+...
+</code></pre><ol start="2">
+<li>При запросе к защищенному контенту проверяем, есть ли такой серийник в списке.</li>
 </ol>
-<p>Весь Lua-код выполняется в отдельных корутинах-песочницах, так что на работу
+<pre><code>location / {
+access_by_lua '
+    local serial = ngx.var.ssl_client_serial
+    local value, flags = ngx.shared.serials:get(serial)
+    if not value then
+    ngx.log(ngx.WARN, &quot;blocked client cert &quot; .. serial)
+    ngx.exit(ngx.HTTP_FORBIDDEN)
+    end
+';
+proxy_pass http://upstream;
+}
+</code></pre><p>Весь Lua-код выполняется в отдельных корутинах-песочницах, так что на работу
 в Nginx в целом не влияет.
 И что особенно хорошо, можно будет в дальнейшем список вынести в базу данных,
 к примеру.</p>

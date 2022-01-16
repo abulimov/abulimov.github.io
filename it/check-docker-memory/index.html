@@ -92,7 +92,7 @@
 <p>Ну и, в завершение статьи, сам скрипт проверки - <strong>check_docker_memory.py</strong>, написан для Python 2.7+, без внешних зависимостей,
 <a href="https://github.com/abulimov/utils/blob/master/nagios/check_docker_memory.py">взять можно тут</a>.</p>
 <p>Пример использования check_docker_memory.py - проверим, что количество свободной памяти в контейнере
-loving_lalande не меньше, чем 15%, и уж точно не меньше 10%:</p>
+<code>loving_lalande</code> не меньше, чем 15%, и уж точно не меньше 10%:</p>
 <pre><code>:::bash
 nagios@hostname:~$ ./check_docker_memory.py -n loving_lalande -w 15 -c 10 -f
 CheckDockerMemory OK: 89.005% (6533008 kB) free! | TOTAL=7340032KB;;;; USED=807024KB;;;; FREE=6533008KB;;;;

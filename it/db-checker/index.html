@@ -98,7 +98,7 @@
 </span><span style="color:#e6db74">    WHERE NOT blockedl.granted;</span>    
 <span style="color:#f92672">description</span>: <span style="color:#ae81ff">Locks in database</span>
 <span style="color:#f92672">assert</span>: <span style="color:#ae81ff">absent</span>
-</code></pre></div><p>Таким образом, если блокировок нет - все отлично, а есть есть - выводим их список.</p>
+</code></pre></div><p>Таким образом, если блокировок нет - все отлично, а если есть - выводим их список.</p>
 <p>Другой пример - проверка успешных задач <em>job_name</em> PGAgent за 4 часа:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">query</span>: |<span style="color:#e6db74">
 </span><span style="color:#e6db74">    SELECT jlgstatus

@@ -125,12 +125,12 @@ if __name__ == &quot;__main__&quot;:
 <p>В конфиге заббикса добавляем что-либо вида</p>
 <pre><code>UserParameter=rabbitmq.discovery,sudo /opt/rabbitmq_discovery.py
 </code></pre>
-<p>В моем случае, нужно беспарольное sudo на эту команду для пользователя zabbix.</p>
+<p>В моем случае, нужно беспарольное sudo на эту команду для пользователя Zabbix.</p>
 <p>Ну а в самом заббиксе уже создаем в шаблоне обнаружение, в котором используем ключ
-rabbitmq.discovery и макросы {#RABBITMQ_VHOST_NAME} и {#RABBITMQ_QUEUE_NAME}.
+<code>rabbitmq.discovery</code> и макросы {#RABBITMQ_VHOST_NAME} и {#RABBITMQ_QUEUE_NAME}.
 Это подробно описано в документации,
 так что я этого описывать не буду.</p>
-<p>Исходники доступны в моем <a href="https://github.com/abulimov/utils">репозитории</a>, в папке <em>zabbix/data_collectors</em>.</p>
+<p>Исходники доступны в моем <a href="https://github.com/abulimov/utils">репозитории</a>, в папке <em><code>zabbix/data_collectors</code></em>.</p>
 
 </main>
 

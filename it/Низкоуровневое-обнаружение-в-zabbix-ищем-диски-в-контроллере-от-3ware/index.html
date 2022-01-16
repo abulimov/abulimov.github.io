@@ -141,11 +141,11 @@ if __name__ == &quot;__main__&quot;:
 <p>В конфиге заббикса добавляем строку вида</p>
 <pre><code>UserParameter=3ware.discovery,sudo /opt/3ware_discovery.py
 </code></pre>
-<p>В этом случае, нужно беспарольное sudo на эту команду для пользователя zabbix.</p>
+<p>В этом случае, нужно беспарольное sudo на эту команду для пользователя Zabbix.</p>
 <p>Ну а в самом заббиксе уже создаем в шаблоне обнаружение, в котором используем ключ
 3ware.discovery и макрос {#3WARE_DISK}, например 3ware.disk_status[{#3WARE_DISK}].
 Подробности - в документации.</p>
-<p>Исходники доступны в моем <a href="https://github.com/abulimov/utils">репозитории</a>, в папке <em>zabbix/data_collectors</em>.</p>
+<p>Исходники доступны в моем <a href="https://github.com/abulimov/utils">репозитории</a>, в папке <em><code>zabbix/data_collectors</code></em>.</p>
 
 </main>
 

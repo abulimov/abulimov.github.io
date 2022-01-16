@@ -47,7 +47,7 @@ things she cannot stand in programming language, and it resonated deeply with me
 <p>I&rsquo;m not trying to offend anyone, so if you love Python - maybe try to see my side of things.</p>
 <p><strong>TL;DR any effort to keep Python service alive or up to date with new stuff (Python 3, Type Annotations, Asyncio) is comparable to a complete rewrite, only with diminishing returns.</strong></p>
 <h2 id="my-python-experience-in-a-nutshell">My Python experience in a nutshell</h2>
-<p>I landed <strong>few hungred KLOCs</strong> in Python, which included:</p>
+<p>I landed <strong>few hundred KLOCs</strong> in Python, which included:</p>
 <ul>
 <li>writing tools and services from scratch in Python3 with and without type annotations</li>
 <li>migrating some medium sized services from Python2 to Python3</li>
@@ -86,7 +86,7 @@ decent chunk of your internal deps will have to be written once again.</p>
 <p>Surely one can optimize hot paths of your code with <a href="https://cython.org/">Cython</a> that will generate C++ code for you
 (we did it with good results), or just rewrite them in different language, but if you start rewriting parts of the code, why stop?</p>
 <p>I witnessed (and performed myself) many rewrites from Python to Go/C#/Rust/C++, even <a href="/it/go-carbon/">blogged about some</a>
-and every time even unoptimized POC in compiled language was performing many times faster than
+and every time even un-optimized POC in compiled language was performing many times faster than
 optimized Python version of same service/tool.</p>
 <h3 id="startup-time-is-horrendous">Startup time is horrendous</h3>
 <p>Even you write CLIs in Python (and it&rsquo;s quite pleasant with <a href="https://click.palletsprojects.com/">Click</a>, you should be aware of startup time penalty for interpreted languages.

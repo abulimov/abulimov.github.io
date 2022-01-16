@@ -75,7 +75,7 @@ Nginx пишет по-умолчанию access-log в формате <em>combin
 <p>Первый пункт радует тем, что не надо писать своих grok-паттернов для Logstash.
 Хотя при знании регулярных выражений это и не сложно, всегда лучше взять готовое.</p>
 <p>Нужный нам паттерн называется <strong>COMBINEDAPACHELOG</strong>, актуальную версию можно посмотреть
-в <a href="https://github.com/logstash-plugins/logstash-patterns-core/blob/master/patterns/grok-patterns">репозитории logstash-plugins</a>,
+в <a href="https://github.com/logstash-plugins/logstash-patterns-core/blob/master/patterns/grok-patterns">репозитории Logstash-plugins</a>,
 на момент написания этой статьи он выглядел так:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#66d9ef">COMMONAPACHELOG</span> <span style="color:#e6db74">%{IPORHOST:clientip}</span> <span style="color:#e6db74">%{HTTPDUSER:ident}</span> <span style="color:#e6db74">%{USER:auth}</span> \<span style="color:#f92672">[</span><span style="color:#e6db74">%{HTTPDATE:timestamp}</span>\<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;(?:%{WORD:verb} %{NOTSPACE:request}(?: HTTP/%{NUMBER:httpversion})?|%{DATA:rawrequest})&#34;</span> <span style="color:#e6db74">%{NUMBER:response}</span> (<span style="color:#e6db74">?:</span><span style="color:#e6db74">%{NUMBER:bytes}</span><span style="color:#f92672">|-</span>)
 <span style="color:#66d9ef">COMBINEDAPACHELOG</span> <span style="color:#e6db74">%{COMMONAPACHELOG}</span> <span style="color:#e6db74">%{QS:referrer}</span> <span style="color:#e6db74">%{QS:agent}</span>
@@ -83,7 +83,7 @@ Nginx пишет по-умолчанию access-log в формате <em>combin
 для проверки grok-паттернов.</em></p>
 <p>Как мы видим, интересующая нас переменная зовется в Logstash <strong>response</strong>, так что
 теперь мы можем спокойно писать конфиг для отправки этой метрики в StatsD-&gt;Graphite.
-Предположим, мы принимаем логи от Nginx по протоколу Syslog (Nginx уже довольно давно
+Предположим, мы принимаем логи от Nginx по протоколу syslog (Nginx уже довольно давно
 умеет слать логи напрямую в syslog, и это очень удобно).</p>
 <p><strong>пример конфига для парсинга метрик из логов Nginx</strong></p>
 <pre><code class="language-logstash" data-lang="logstash">input {

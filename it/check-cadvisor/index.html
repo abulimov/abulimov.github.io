@@ -48,7 +48,7 @@
 Ресурсов практически не потребляет (около 20 Мб оперативной памяти и
 неизмеримо мало CPU), обладает простым API для доступа к собираемой им
 информации, имеет красивый веб-интерфейс с realtime-графиками.
-А еще умеет сам писать метрики в InfluxDB, и в будущем <a href="https://github.com/google/cadvisor/issues/474">научится писать
+А еще умеет сам писать метрики в Influxdb, и в будущем <a href="https://github.com/google/cadvisor/issues/474">научится писать
 в Graphite</a>.</p>
 <p>Конечно, наличие API позволяет написать плагин для любого мониторинга,
 чем я тут же и занялся.</p>
@@ -60,7 +60,7 @@
 <p>Вооружившись этим знанием, я написал <a href="https://github.com/abulimov/utils/blob/master/nagios/check_cadvisor.py">плагин check_cadvisor.py</a>,
 который умеет проверять использование CPU и оперативной памяти в контейнере через cAdvisor API.</p>
 <p>Пример использования check_cadvisor.py - проверим, что количество свободной памяти в контейнере
-loving_lalande не меньше, чем 15%, и уж точно не меньше 10%:</p>
+<code>loving_lalande</code> не меньше, чем 15%, и уж точно не меньше 10%:</p>
 <pre><code>:::bash
 nagios@hostname:~$ ./check_cadvisor.py -u http://cadvisor_url -n loving_lalande -m -w 15 -c 10
 CheckDockerStats OK: 79.96% (5869163 kB) free! | mem_used=1470868KB;1101004;734003;0;7340032

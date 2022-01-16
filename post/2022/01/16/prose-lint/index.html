@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Code-like linting for prose | Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="https://models.bulimov.ru">Scale Models</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/reviews/">Reviews</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Code-like linting for prose</span></h1>
+
+<h2 class="date">2022/01/16</h2>
+
+</div>
+
+<main>
+<p>I&rsquo;m a big fan of static analysis and linting for code.</p>
+<p>If a computer can do it automatically - why rely on humans to do the same thing?</p>
+<p>That&rsquo;s one of the reasons why I&rsquo;m such a big proponent of static typing.</p>
+<p>I try to bring linting everywhere:</p>
+<ul>
+<li>When I had to deal with huge and complex
+HAProxy configs  - I <a href="https://github.com/abulimov/HAProxy-lint">wrote a linter</a> myself.</li>
+<li>When later at different place I had to deal with complicated business logic expressed
+as a state machine - I used Python AST to write a linter for it, and analyze cycles, dead ends and complexity.</li>
+</ul>
+<p>And of course I use existing open-source linters whenever possible.</p>
+<p>Anyway, I was intrigued when I read about <a href="https://github.com/errata-ai/vale"><code>Vale</code></a>
+in recent issue of excellent <a href="https://golangweekly.com/issues/394">Golang Weekly newsletter</a>.</p>
+<p>The idea of bringing code-like linting to prose definitely sounds very appealing,
+and the tool being syntax-aware and written in Go added to the excitement.</p>
+<p>I tried it with both of my blogs (first the <a href="https://models.bulimov.ru/">Scale Models</a>, then this)
+and with some configuration tweaking it&rsquo;s just what I need!</p>
+<p>It works just as it should - tons of independent lint rules, with flexible configuration.
+And the fact that it is syntax aware is great - no weird issues just because I&rsquo;m using Markdown.</p>
+<p>Static text-based config and rule sets are designed to be a <a href="https://github.com/abulimov/abulimov.github.io">part of the repo</a>,
+which makes it so natural to enable advanced auto checks that don&rsquo;t depend on the environment.
+I totally see why <code>Vale</code> is already used by so many big projects to lint documentation,
+and I didn&rsquo;t even start to write custom rules.</p>
+<p>You may wonder why I was happy to see it written in Go? Because it promises <em>speed</em>!
+I&rsquo;d be equally happy to see Rust or C/C++ there. And that&rsquo;s because I had already experimented with
+Python-based <a href="https://github.com/amperser/proselint/"><code>proselint</code></a> some time ago, and it&rsquo;s just so slow&hellip;</p>
+<p>Just some numbers to contemplate: running <code>proselint</code> on all posts in this blog takes crazy <strong>50 seconds.</strong>
+<code>Vale</code> has more checks (including all of the <code>proselint</code> rules), but running it on the same content takes mere <strong>1.5 seconds</strong>.
+Why does it matter? Because I wanted it to be a part of pre-push checks, and also integrate in my text editor,
+and fast tool make all the difference to one&rsquo;s productivity.</p>
+<p>So far I&rsquo;m really glad I started to use <code>Vale</code>, and honestly a bit embarrassed that I didn&rsquo;t think about
+something like this before, given my long standing love for linting.</p>
+
+</main>
+
+
+<p class="terms">
+<b>Tags:</b>
+
+  <a href="//bulimov.ru/tags/vale/">Vale</a>
+
+  <a href="//bulimov.ru/tags/blog/">Blog</a>
+
+
+</p>
+<p class="terms">
+
+<b>Categories:</b>
+
+  <a href="//bulimov.ru/categories/personal/">Personal</a>
+
+  <a href="//bulimov.ru/categories/it/">IT</a>
+
+
+</p>
+
+  <footer>
+  
+  
+  <hr/>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.ru">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
+  
+  </footer>
+  </body>
+</html>
+

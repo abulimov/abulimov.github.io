@@ -6,7 +6,20 @@
     <description>Recent content in Personal on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/categories/personal/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/categories/personal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Code-like linting for prose</title>
+      <link>//bulimov.ru/post/2022/01/16/prose-lint/</link>
+      <pubDate>Sun, 16 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.ru/post/2022/01/16/prose-lint/</guid>
+      <description>I&amp;rsquo;m a big fan of static analysis and linting for code.
+If a computer can do it automatically - why rely on humans to do the same thing?
+That&amp;rsquo;s one of the reasons why I&amp;rsquo;m such a big proponent of static typing.
+I try to bring linting everywhere:
+ When I had to deal with huge and complex HAProxy configs - I wrote a linter myself. When later at different place I had to deal with complicated business logic expressed as a state machine - I used Python AST to write a linter for it, and analyze cycles, dead ends and complexity.</description>
+    </item>
+    
     <item>
       <title>Why I’m picking Xbox for new generation</title>
       <link>//bulimov.ru/post/2021/08/07/why-xbox/</link>
@@ -92,7 +105,7 @@ Obviously 4Gb of RAM is kind of low by modern standards, but when I bought it I 
       <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
       
       <guid>//bulimov.ru/personal/what-i-read-2017/</guid>
-      <description>About a year ago I was asked in comments what do I read on the internet. Back then, the list consisted from blogs of open-source products I&amp;rsquo;ve been using (like Atom, Elasticsearch, Icinga, Grafana), some personal blogs (Lennart Poettering, Aphyr, Julia Evans), some company blogs (Github Engineering) and basic tech press (Ars Techica, The Verge, Phoronix, LWN). And two mail lists - Devops Weekly and Golang Weekly.
+      <description>About a year ago I was asked in comments what do I read on the internet. Back then, the list consisted from blogs of open-source products I&amp;rsquo;ve been using (like Atom, Elasticsearch, Icinga, Grafana), some personal blogs (Lennart Poettering, Aphyr, Julia Evans), some company blogs (Github Engineering) and basic tech press (Ars Technica, The Verge, Phoronix, LWN). And two mail lists - Devops Weekly and Golang Weekly.
 Now I&amp;rsquo;ve been asked if something have changed.</description>
     </item>
     
