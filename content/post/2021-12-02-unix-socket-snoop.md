@@ -100,10 +100,10 @@ waiting for data
 ```
 
 Also, if one is being curious - now it supports prefix-based socket path matching, and specifying '*' as a socket path
-allows to dump **all** the communications happning over unix sockets on the system.
+allows to dump **all** the communications happening over unix sockets on the system.
 Spoiler alert: *systemd* does a lot of stuff there.
 
-## Usecase
+## Use-case
 
 All and all, I find the ability to dump communication happening over unix domain sockets to be very useful.
 

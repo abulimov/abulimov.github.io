@@ -101,11 +101,11 @@ Categories: [IT, Russian]
 
     UserParameter=rabbitmq.discovery,sudo /opt/rabbitmq_discovery.py
 
-В моем случае, нужно беспарольное sudo на эту команду для пользователя zabbix.
+В моем случае, нужно беспарольное sudo на эту команду для пользователя Zabbix.
 
 Ну а в самом заббиксе уже создаем в шаблоне обнаружение, в котором используем ключ
-rabbitmq.discovery и макросы {#RABBITMQ\_VHOST\_NAME} и {#RABBITMQ\_QUEUE\_NAME}.
+`rabbitmq.discovery` и макросы {#RABBITMQ\_VHOST\_NAME} и {#RABBITMQ\_QUEUE\_NAME}.
 Это подробно описано в документации,
 так что я этого описывать не буду.
 
-Исходники доступны в моем [репозитории](https://github.com/abulimov/utils), в папке *zabbix/data\_collectors*.
+Исходники доступны в моем [репозитории](https://github.com/abulimov/utils), в папке *`zabbix/data_collectors`*.

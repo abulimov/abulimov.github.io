@@ -60,8 +60,8 @@ All I ever needed is basic formatting support (I always wished Evernote just let
 In my head, I imagined perfect personal notes-taking setup as this:
 * Desktop app with Markdown support and import/export options
 * Simple mobile app to add/edit notes
-* Synchronization via Dropbox, i.e. notes are just `*.md` files in a dedicated directory.
-* Opensource
+* Synchronization via Dropbox, that is notes are just `*.md` files in a dedicated directory.
+* OpenSource
 
 ## How I write work-related notes
 
@@ -86,13 +86,13 @@ And you know what? Such setup finally exists thanks to awesome [**Joplin** app](
 
 I couldn't be happier with it, it does exactly what I always wanted my notes-taking app to do.
 
-Opensource, no cruft, no terrible WYSIWYG editor, syncing via Dropbox/Nextcloud. Simple and lightweight on the phone, works well on PC.
+OpenSource, no cruft, no terrible WYSIWYG editor, syncing via Dropbox/Nextcloud. Simple and lightweight on the phone, works well on PC.
 
 I can wholeheartedly recommend it, and it seems like it's doing quite well in terms of development, with second [Google Summer of Code participation](https://joplinapp.org/gsoc2021/index/) and active github repo.
 
 I just wish I made this wonderful discovery sooner!
 
-## Sidenote
+## Side note
 
 While exporting everything from Evernote I was amused that I have notes from that long ago, and it's pretty cool
 to read what games I liked in say 2013 and why.

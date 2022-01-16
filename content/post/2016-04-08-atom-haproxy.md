@@ -2,8 +2,8 @@
 Title: Все для HAProxy в Atom
 Date: 2016-04-08
 Tags: [Golang, Программирование, Atom, HAProxy]
-Slug: atom-haproxy
-Url: it/atom-haproxy
+Slug: atom-HAProxy
+Url: it/atom-HAProxy
 Categories: [IT, Russian]
 ---
 
@@ -26,7 +26,7 @@ Atom "из коробки", так что именно это я и сделал
 Довольный, я продолжил рефакторинг этих конфигов, и тут же выяснил, что
 подсветка довольно неполная. Перспектива набивать недостающие ключевые слова руками
 меня совсем не прельщала, поэтому я быстро набросал примитивнейший
-[скрипт на питоне](https://github.com/abulimov/atom-language-haproxy/blob/master/generate.py),
+[скрипт на питоне](https://github.com/abulimov/atom-language-HAProxy/blob/master/generate.py),
 который парсит официальную документацию HAProxy и выдергивает оттуда ключевые слова,
 заполняя шаблон cson-файла с описанием подсветки.
 
@@ -71,7 +71,7 @@ Atom "из коробки", так что именно это я и сделал
 * наличие deprecated ключевых слов.
 
 Более того, если HAProxy все-таки установлен локально,
-linter запускает его в виде `haproxy -c -f filename`, и парсит его выхлоп.
+linter запускает его в виде `HAProxy -c -f filename`, и парсит его выхлоп.
 
 В этом случае мы не запускаем те из проверок, которые реализованы в самом HAProxy,
 например на наличие deprecated ключевых слов. Конечно, эта опция отключаемая.
@@ -86,11 +86,11 @@ linter запускает его в виде `haproxy -c -f filename`, и пар
 Ну а все плоды моих трудов доступны под [лицензией MIT](http://opensource.org/licenses/MIT)
 на GitHub:
 
-* Подсветка синтаксиса конфигов HAProxy в Atom - [atom-language-haproxy](https://github.com/abulimov/atom-language-haproxy)
-([страничка плагина в Atom](https://atom.io/packages/language-haproxy))
-* Плагин для интеграции haproxy-lint в Atom - [atom-linter-haproxy](https://github.com/abulimov/atom-linter-haproxy)
-([страничка плагина в Atom](https://atom.io/packages/linter-haproxy))
-* Сам haproxy-lint - [haproxy-lint](https://github.com/abulimov/haproxy-lint)
+* Подсветка синтаксиса конфигов HAProxy в Atom - [atom-language-HAProxy](https://github.com/abulimov/atom-language-HAProxy)
+([страничка плагина в Atom](https://atom.io/packages/language-HAProxy))
+* Плагин для интеграции HAProxy-lint в Atom - [atom-linter-HAProxy](https://github.com/abulimov/atom-linter-HAProxy)
+([страничка плагина в Atom](https://atom.io/packages/linter-HAProxy))
+* Сам HAProxy-lint - [HAProxy-lint](https://github.com/abulimov/HAProxy-lint)
 
 P.S. Заодно я научился делать релизы бинарников на GitHub с помощью
 [TravisCI](https://travis-ci.org) - это оказалось очень легко и удобно.

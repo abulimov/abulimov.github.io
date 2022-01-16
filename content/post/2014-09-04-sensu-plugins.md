@@ -11,7 +11,7 @@ Url: it/Переписал-скрипты-на-ruby-для-sensu
 свои [скрипты](/it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware) проверки состояния жестких дисков в raid-контроллерах от 3ware и
 HP SmartArray для использования в Sensu. Ну а раз все равно переписывать - то
 писать я решил на Ruby, чтобы можно было без проблем
-заслать в [sensu-community-plugins](https://github.com/sensu/sensu-community-plugins)
+заслать в [Sensu-community-plugins](https://github.com/sensu/sensu-community-plugins)
 
 Скрипты весьма просты, так что проблем при переписывании никаких не было.
 

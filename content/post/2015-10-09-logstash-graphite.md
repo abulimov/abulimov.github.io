@@ -52,7 +52,7 @@ log_format combined '$remote_addr - $remote_user [$time_local] '
 Хотя при знании регулярных выражений это и не сложно, всегда лучше взять готовое.
 
 Нужный нам паттерн называется **COMBINEDAPACHELOG**, актуальную версию можно посмотреть
-в [репозитории logstash-plugins](https://github.com/logstash-plugins/logstash-patterns-core/blob/master/patterns/grok-patterns),
+в [репозитории Logstash-plugins](https://github.com/logstash-plugins/logstash-patterns-core/blob/master/patterns/grok-patterns),
 на момент написания этой статьи он выглядел так:
 ```ruby
 COMMONAPACHELOG %{IPORHOST:clientip} %{HTTPDUSER:ident} %{USER:auth} \[%{HTTPDATE:timestamp}\] "(?:%{WORD:verb} %{NOTSPACE:request}(?: HTTP/%{NUMBER:httpversion})?|%{DATA:rawrequest})" %{NUMBER:response} (?:%{NUMBER:bytes}|-)
@@ -64,7 +64,7 @@ COMBINEDAPACHELOG %{COMMONAPACHELOG} %{QS:referrer} %{QS:agent}
 
 Как мы видим, интересующая нас переменная зовется в Logstash **response**, так что
 теперь мы можем спокойно писать конфиг для отправки этой метрики в StatsD->Graphite.
-Предположим, мы принимаем логи от Nginx по протоколу Syslog (Nginx уже довольно давно
+Предположим, мы принимаем логи от Nginx по протоколу syslog (Nginx уже довольно давно
 умеет слать логи напрямую в syslog, и это очень удобно).
 
 **пример конфига для парсинга метрик из логов Nginx**

@@ -46,7 +46,7 @@ so most people have to buy PCB, components and quite literally solder their keyb
 And even the PCB availability wasn't great.
 
 Luckily for me, I was able to get a fabulous **Ergodox Infinity** kit with Gateron Brown switches
-from [Massdrop](https://drop.com) (now called simply Drop). It took few few evenings to solder it, and about a month to get used to the layout.
+from [Massdrop](https://drop.com) (now called simply Drop). It took few evenings to solder it, and about a month to get used to the layout.
 
 ![Ergodox wip1](/images/ergodox_wip1.jpg)
 ![Ergodox wip2](/images/ergodox_wip2.jpg)
@@ -152,4 +152,4 @@ And here is the layout I settled on for now:
 As you can see, I prefer using index fingers and those extra keys next to B/N to switch layers, in both Ergodox and Helix.
 I can't stress enough how convenient is to use `hjkl` cluster as arrow keys with a press of a single button.
 
-It took some effort, but now I'm back to being happy with my keyboard and wirst pain is gone.
+It took some effort, but now I'm back to being happy with my keyboard and wrist pain is gone.

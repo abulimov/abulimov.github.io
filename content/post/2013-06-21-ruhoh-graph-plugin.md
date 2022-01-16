@@ -44,7 +44,7 @@ Categories: [IT, Russian]
       end
     end
 
-Тут мы кроме url\_endpoint ничего особо и не описываeм. Url\_endpoint нужен для указания,
+Тут мы кроме `url_endpoint` ничего особо и не описываeм. `url_endpoint` нужен для указания,
 где будут в итоге лежать получившиеся графики
 
 **compiler.rb**

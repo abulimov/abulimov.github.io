@@ -96,7 +96,7 @@ I've learned about [normalization](https://en.wikipedia.org/wiki/Database_normal
 important thing was that I've finally realized that I wasn't the best in programming in the class - two students were
 better programmers than me.
 
-**So university gave me A LOT. It basically introduced me to programming, gave a stong basic knowledge,
+**So university gave me A LOT. It basically introduced me to programming, gave a strong basic knowledge,
 and even gave me a quite good overview of Unix-like OSes. But it also made me think I'm not good enough
 for Software Engineer job.**
 
@@ -163,7 +163,7 @@ It introduced me to functional programming, but I wasn't be able to write anythi
 But it gave me the understanding of how much a good typing system with good compiler can give a programmer
 in terms of reliability and catching most of bugs *before* executing code.
 
-**So my job at startup gave me a lot of programming experience, I've started to use Python, auto-testing and CI,
+**So my job at startup gave me a lot of programming experience, I've started to use Python, auto testing and CI,
 learned about functional programming, and fell in love with modern static typing.**
 
 ## Fourth job
@@ -180,7 +180,7 @@ and static typing.
 Luckily, one of my monitoring tasks required a good amount of concurrency, so I just wrote it in Go.
 It was surprisingly easy, static typing was very helpful, and the tooling around language was very good.
 Since then, I've continued to use Go more and more, and wrote some relatively big programs in it - like
-my [linter for HAproxy configs](https://github.com/abulimov/haproxy-lint).
+my [linter for HAProxy configs](https://github.com/abulimov/haproxy-lint).
 
 About this time I've started to use [Atom](http://atom.io) text editor, which is written in JavaScript,
 so I ended up developing a couple of plugins for it using CoffeScript and JavaScript. I had no illusions about
@@ -197,7 +197,7 @@ people and have enough challenges for many years.
 
 ## Conclusion
 
-After getting solid basic knowledges in the university, I was learning only by myself. And even in the university
+After getting solid basic knowledge in the university, I was learning only by myself. And even in the university
 I was studying a lot of other Faculties courses material on my own to do their homework for money.
 
 And for me, the only reasonable way to learn by myself is to be surrounded by smart people and to have tasks that

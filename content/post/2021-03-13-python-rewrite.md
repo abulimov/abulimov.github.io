@@ -22,7 +22,7 @@ I'm not trying to offend anyone, so if you love Python - maybe try to see my sid
 
 ## My Python experience in a nutshell
 
-I landed **few hungred KLOCs** in Python, which included:
+I landed **few hundred KLOCs** in Python, which included:
 * writing tools and services from scratch in Python3 with and without type annotations
 * migrating some medium sized services from Python2 to Python3
 * adding type annotations to existing codebase
@@ -69,7 +69,7 @@ Surely one can optimize hot paths of your code with [Cython](https://cython.org/
 (we did it with good results), or just rewrite them in different language, but if you start rewriting parts of the code, why stop?
 
 I witnessed (and performed myself) many rewrites from Python to Go/C#/Rust/C++, even [blogged about some](/it/go-carbon/)
-and every time even unoptimized POC in compiled language was performing many times faster than
+and every time even un-optimized POC in compiled language was performing many times faster than
 optimized Python version of same service/tool.
 
 ### Startup time is horrendous

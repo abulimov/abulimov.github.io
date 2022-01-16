@@ -17,10 +17,10 @@ As a normal IT person I spend whole working day staring at the computer's
 screen. While I love my job and all the high-tech stuff, I feel a great demand of
 something more physical.
 
-And as a good workout is what my body needs at the end of the day, a good
+And as a good workout is what my body needs in the end of the day, a good
 board game is what my mind needs after work.
 
-## Why do I love playing board games?
+## Why do I love playing board games
 
 Because moving all this lovely meeples, touching wooden components, holding
 cards is so satisfying, and so opposite to using computer. It's so REAL, so
@@ -43,7 +43,7 @@ It's hard to recall when I started playing board games, but I've been playing
 them at least 5 or 6 years, and now have a decent collection
 and a clear understanding of what type of games I love.
 
-## Just a quick overview of games I enjoy most.
+## Just a quick overview of games I enjoy most
 
 For now, my top-3 list is:
 

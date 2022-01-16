@@ -24,5 +24,5 @@ and there is [TypeScript](https://www.typescriptlang.org) from Microsoft which c
 
 And it looks like all big companies are using this stuff extensively!
 Isn't it awesome? After mainly using [Go](http://golang.org) for last year,
-I'm super excited seeng how dynamically typed languages become safer
+I'm super excited seeing how dynamically typed languages become safer
 with type hints, and how C++ brings convenience and ease of dynamic typing to its users.

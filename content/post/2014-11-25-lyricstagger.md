@@ -78,4 +78,4 @@ Categories: [IT, Russian]
 а если решили эту задачу более простым и удобным способом - напишите мне об этом.
 Я уже натравил свою чудо-утилиту на всю музыкальную коллекцию, она записала все
 найденные тексты в файлы, так что теперь я запускаю ее только когда покупаю новый
-альбом на [bandcamp](http://bandcamp.com), [cdbaby](http://cdbaby.com) или [Qobuz](http://qobuz.com).
+альбом на [Bandcamp](http://bandcamp.com), [CDBaby](http://cdbaby.com) или [Qobuz](http://qobuz.com).

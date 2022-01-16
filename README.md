@@ -22,6 +22,10 @@ Uses [Hugo static site generator](gohugo.io)
 
 `./upd_reviews.py /path/to/notes/*.md`
 
+## Linting
+
+Install [**Vale**](https://github.com/errata-ai/vale), run `make check`
+
 ## Publishing
 
 ```
