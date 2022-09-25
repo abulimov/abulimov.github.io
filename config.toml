@@ -2,6 +2,7 @@ baseURL = "https://bulimov.me/"
 languageCode = "en-us"
 title = "Alexander Bulimov: Production Engineer and Scale Modeller"
 theme = "xmin"
+ignoreFiles = ["^public$"]
 
 [permalinks]
 post = "/post/:year/:month/:day/:slug/"
