@@ -13,6 +13,18 @@ I'm [writing down my mini-reviews](/post/2021/05/23/taking-notes/) for games, bo
 ## Games
 | Name | Score |
 |------|-------|
+| **2022** |
+| Tinykin (Xbox Series S) | 10 |
+| Kirby and the Forgotten Land (Switch) | 10 |
+| Wintermoor Tactics Club (Switch) | 10 |
+| Snowrunner Year 1 (Xbox Series S) | 9 |
+| HOB Definitive Edition (Switch) | 9 |
+| Pathway (Switch) | 8 |
+| Phoenotopia: Awakening (Switch) | 8 |
+| Fallout 3 (Xbox Series S) | 7 |
+| Battle Chasers: Nightwar (Switch) | 7 |
+| Nobody Saves The World (Xbox Series S) | 6 |
+| Death’s Door (Xbox Series S) | 6 |
 | **2021** |
 | Forza Horizon 4 (Xbox Series S) | 10 |
 | Wasteland 3 (Xbox Series S) | 9 |
@@ -32,6 +44,7 @@ I'm [writing down my mini-reviews](/post/2021/05/23/taking-notes/) for games, bo
 | Spaceland (Switch) | 6 |
 | Fable Anniversary (Xbox Series S) | 6 |
 | Metro Last Light (PS4) | 6 |
+| Cthulhu Saves Christmas (Switch) | 5 |
 | Dragon Quest XI demo (Switch) | 5 |
 | Transistor (Switch) | 3 |
 | **2020** |
@@ -60,10 +73,10 @@ I'm [writing down my mini-reviews](/post/2021/05/23/taking-notes/) for games, bo
 | Stardew Valley (Switch) | 8 |
 | Captain Toad: Treasure Tracker (Switch) | 8 |
 | Risen 3 (PS4) | 8 |
+| Fallout 4 (PS4) | 8 |
 | Call of Duty: Ghosts (PS4) | 8 |
 | Undertale (Switch) | 8 |
 | Okami HD (Switch) | 8 |
-| Fallout 4 (PS4) | 7 |
 | Shadow of the Tomb Raider (PS4) | 7 |
 | Membrane (Switch) | 6 |
 | **2018** |
@@ -143,14 +156,30 @@ I'm [writing down my mini-reviews](/post/2021/05/23/taking-notes/) for games, bo
 ## Books
 | Name | Score |
 |------|-------|
+| **2022** |
+| Arthur Conan Doyle - The Hound of The Baskervilles | 10 |
+| Ernie O’Malley - The Singing Flame | 9 |
+| Robert Gardiner - The Sailing Frigate | 9 |
+| Дмитрий Глуховский - Пост. Спаси и сохрани | 9 |
+| D.K. Brown - Warrior to Dreadnought | 9 |
+| Kurt Vonnegut- Galapagos | 8 |
+| Michael Palin - Erebus | 8 |
+| Ernie O’Malley - Another Man’s Wound | 8 |
+| Brian Lavery - Anson’s Navy | 8 |
+| N.K. Jemisin - The Kingdom of Gods | 8 |
+| C.S. Forester - Mr. Midshipman Hornblower | 7 |
+| Aldous Huxley - Brave New World | 7 |
 | **2021** |
 | Richard Endsor - The Master Shipwrights Secrets | 11 |
+| Arthur Conan Doyle - The Sign of Four | 9 |
+| J.D. Davies - Pepys’s Navy | 9 |
 | N.K. Jemisin - The Broken Kingdoms | 9 |
 | N.K. Jemisin - The Hundred Thousand Kingdoms | 9 |
 | D.K. Brown - Before the Ironclad | 9 |
 | Ernest Shackleton - South | 9 |
 | Martha Wells - Exit Strategy | 9 |
 | Martha Wells - Rogue Protocol | 9 |
+| Jeroen Van der Vliet -Willem van de Velde & son | 8 |
 | Oscar Wilde - The Picture of Dorian Grey | 8 |
 | Brian Lavery - Wooden Ship Construction: A history in ship models | 8 |
 | Oscar Wilde - The Importance of being Earnest | 8 |
@@ -235,7 +264,9 @@ I'm [writing down my mini-reviews](/post/2021/05/23/taking-notes/) for games, bo
 | Name | Score |
 |------|-------|
 | **2021** |
+| Wolves In The Throne Room - Primordial Arcana | 10 |
 | Saor - Forgotten Paths | 10 |
+| October Falls - The Plague of a Coming Age | 9 |
 | KVAEN - The Funeral Pyre | 9 |
 | **2020** |
 | Allegaeon - Apoptosis | 10 |
