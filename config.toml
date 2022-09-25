@@ -19,7 +19,7 @@ weight = 2
 
 [[menu.main]]
 name = "Scale Models"
-url = "https://models.bulimov.ru"
+url = "https://models.bulimov.me"
 weight = 3
 
 [[menu.main]]

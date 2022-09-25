@@ -26,7 +26,7 @@ in recent issue of excellent [Golang Weekly newsletter](https://golangweekly.com
 The idea of bringing code-like linting to prose definitely sounds very appealing,
 and the tool being syntax-aware and written in Go added to the excitement.
 
-I tried it with both of my blogs (first the [Scale Models](https://models.bulimov.ru/), then this)
+I tried it with both of my blogs (first the [Scale Models](https://models.bulimov.me/), then this)
 and with some configuration tweaking it's just what I need!
 
 It works just as it should - tons of independent lint rules, with flexible configuration.
