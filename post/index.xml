@@ -6,7 +6,18 @@
     <description>Recent content in Posts on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 25 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Moved to a new domain</title>
+      <link>//bulimov.me/post/2022/09/25/moved-to-new-domain/</link>
+      <pubDate>Sun, 25 Sep 2022 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.me/post/2022/09/25/moved-to-new-domain/</guid>
+      <description>This site just moved to a new domain bulimov.me. Long overdue move of course, I bought the new domain years ago&amp;hellip;
+Anyway, the only interesting bit about this is how I&amp;rsquo;m trying to keep the old links alive with a little bit of HTML magic.
+Using a very basic python script I&amp;rsquo;ve created a dedicated github repo with a directory structure mirroring this site, where each index.html consists of something like this:</description>
+    </item>
+    
     <item>
       <title>Code-like linting for prose</title>
       <link>//bulimov.me/post/2022/01/16/prose-lint/</link>
