@@ -66,40 +66,40 @@
 (<a href="https://jenkins.io">Jenkins</a>), и настроил регулярную проверку
 наших базовых образов.</p>
 <p>Выглядит это как-то так:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">image<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$name<span style="color:#e6db74">:</span>$version<span style="color:#e6db74">&#34;</span>
-echo <span style="color:#e6db74">&#34;pulling image </span>$image<span style="color:#e6db74">&#34;</span>
-pull<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>docker pull <span style="color:#e6db74">&#34;</span>$image<span style="color:#e6db74">&#34;</span> &gt;/dev/null<span style="color:#66d9ef">)</span>
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#ae81ff">0</span> -ne $? <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-  echo <span style="color:#e6db74">&#34;pull failed!&#34;</span>
-  echo <span style="color:#e6db74">&#34;</span>$pull<span style="color:#e6db74">&#34;</span> | tail -n <span style="color:#ae81ff">20</span>
-  exit <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">fi</span>
-echo <span style="color:#e6db74">&#34;analyzing </span>$image<span style="color:#e6db74">&#34;</span>
-out<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>analyze-local-images <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>  -minimum-severity High <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>  -endpoint http://clair.ip.address.here:6060 <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>  -my-address own.ip.address.here <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>  <span style="color:#e6db74">&#34;</span>$image<span style="color:#e6db74">&#34;</span> 2&gt;&amp;1<span style="color:#66d9ef">)</span>
-status<span style="color:#f92672">=</span>$?
-
-<span style="color:#75715e"># cleanup is done separately, with docker-gc running on cron</span>
-<span style="color:#75715e"># docker rmi &#34;$image&#34;</span>
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#ae81ff">0</span> -ne $status <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-  echo <span style="color:#e6db74">&#34;analyze failed!&#34;</span>
-  echo <span style="color:#e6db74">&#34;</span>$report<span style="color:#e6db74">&#34;</span>
-  exit <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">fi</span>
-
-report<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$out<span style="color:#e6db74">&#34;</span> | grep -A <span style="color:#ae81ff">10000</span> <span style="color:#e6db74">&#39;Clair report for image&#39;</span><span style="color:#66d9ef">)</span>
-echo <span style="color:#e6db74">&#34;</span>$report<span style="color:#e6db74">&#34;</span> | grep CVE &gt;/dev/null
-found_cve<span style="color:#f92672">=</span>$?
-<span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#ae81ff">0</span> -eq $found_cve <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
-  echo <span style="color:#e6db74">&#34;</span>$report<span style="color:#e6db74">&#34;</span>
-  exit <span style="color:#ae81ff">1</span>
-<span style="color:#66d9ef">fi</span>
-
-echo <span style="color:#e6db74">&#34;</span>$report<span style="color:#e6db74">&#34;</span>
-</code></pre></div><p>Использую пока такой-вот скрипт-обертку вокруг
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>image<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$name<span style="color:#e6db74">:</span>$version<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;pulling image </span>$image<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>pull<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>docker pull <span style="color:#e6db74">&#34;</span>$image<span style="color:#e6db74">&#34;</span> &gt;/dev/null<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#ae81ff">0</span> -ne $? <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;pull failed!&#34;</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;</span>$pull<span style="color:#e6db74">&#34;</span> | tail -n <span style="color:#ae81ff">20</span>
+</span></span><span style="display:flex;"><span>  exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;analyzing </span>$image<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>out<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>analyze-local-images <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -minimum-severity High <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -endpoint http://clair.ip.address.here:6060 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -my-address own.ip.address.here <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  <span style="color:#e6db74">&#34;</span>$image<span style="color:#e6db74">&#34;</span> 2&gt;&amp;1<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>status<span style="color:#f92672">=</span>$?
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># cleanup is done separately, with docker-gc running on cron</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># docker rmi &#34;$image&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#ae81ff">0</span> -ne $status <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;analyze failed!&#34;</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;</span>$report<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>report<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$out<span style="color:#e6db74">&#34;</span> | grep -A <span style="color:#ae81ff">10000</span> <span style="color:#e6db74">&#39;Clair report for image&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;</span>$report<span style="color:#e6db74">&#34;</span> | grep CVE &gt;/dev/null
+</span></span><span style="display:flex;"><span>found_cve<span style="color:#f92672">=</span>$?
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[</span> <span style="color:#ae81ff">0</span> -eq $found_cve <span style="color:#f92672">]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  echo <span style="color:#e6db74">&#34;</span>$report<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34;</span>$report<span style="color:#e6db74">&#34;</span>
+</span></span></code></pre></div><p>Использую пока такой-вот скрипт-обертку вокруг
 <a href="https://github.com/coreos/clair/tree/master/contrib/analyze-local-images">консольной утилиты</a>,
 хотя наличие у Clair <a href="https://github.com/coreos/clair/blob/master/api/v1/README.md">вменяемого API</a>
 очень сильно радует.</p>
@@ -115,11 +115,11 @@ echo <span style="color:#e6db74">&#34;</span>$report<span style="color:#e6db74">
 <p class="terms">
 <b>Tags:</b>
 
-  <a href="//bulimov.ru/tags/clair/">Clair</a>
+  <a href="//bulimov.me/tags/clair/">Clair</a>
 
-  <a href="//bulimov.ru/tags/docker/">Docker</a>
+  <a href="//bulimov.me/tags/docker/">Docker</a>
 
-  <a href="//bulimov.ru/tags/coreos/">CoreOS</a>
+  <a href="//bulimov.me/tags/coreos/">CoreOS</a>
 
 
 </p>
@@ -127,9 +127,9 @@ echo <span style="color:#e6db74">&#34;</span>$report<span style="color:#e6db74">
 
 <b>Categories:</b>
 
-  <a href="//bulimov.ru/categories/it/">IT</a>
+  <a href="//bulimov.me/categories/it/">IT</a>
 
-  <a href="//bulimov.ru/categories/russian/">Russian</a>
+  <a href="//bulimov.me/categories/russian/">Russian</a>
 
 
 </p>
@@ -138,7 +138,7 @@ echo <span style="color:#e6db74">&#34;</span>$report<span style="color:#e6db74">
   
   
   <hr/>
-  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.ru">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.me">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
   
   </footer>
   </body>

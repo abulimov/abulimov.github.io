@@ -104,9 +104,9 @@
 этот функционал только в feature-requests висит, проникаешься к Graphite искренней любовью.</p>
 <p>Отдельно хочется отметить фантастически простой
 <a href="http://graphite.readthedocs.org/en/latest/feeding-carbon.html#step-3-understanding-the-graphite-message-format">формат, в котором Graphite получает метрики</a>:</p>
-<pre><code>metric_path value timestamp\n
+<pre tabindex="0"><code>metric_path value timestamp\n
 </code></pre><p>например</p>
-<pre><code>foo.bar.baz 42 74857843
+<pre tabindex="0"><code>foo.bar.baz 42 74857843
 </code></pre><p>На практике это означает, что слать метрики в Graphite можно хоть из bash-скрипта,
 используя в качестве клиента любимый netcat.</p>
 <p>Ну и еще приятная особенность - за счет простоты формата и популярности Graphite,
@@ -141,7 +141,7 @@ Influxdb 0.9 в используемом мной дашборде <a href="http
 на это в разы меньше места на диске. Одна только особенность меня смущала - pull-режим.
 Если в Graphite мы шлем данные любым удобным нам способом, то Prometheus сам ходит
 на все настроенные endpointы и получает оттуда метрики. Есть весьма годная статья
-про pull vs push мониторинг, <a href="http://www.boxever.com/push-vs-pull-for-monitoring,">http://www.boxever.com/push-vs-pull-for-monitoring,</a>
+про pull vs push мониторинг, <a href="http://www.boxever.com/push-vs-pull-for-monitoring">http://www.boxever.com/push-vs-pull-for-monitoring</a>,
 и я с ней даже согласен, но мне на данном этапе push-модель кажется более
 удобной - настроил один раз сервер принимающий метрики, и только добавляешь клиентов.</p>
 <p>Так вот, с этим Prometheus я вдоволь поигрался, даже написал Exporter
@@ -189,23 +189,23 @@ eventы с описанием события (деплой такой-то ве�
 работает в 2 раза дольше. или что потребление памяти упало на 20%.</p>
 <p>Я, к примеру, шлю события при делое в Elasticsearch из <a href="http://www.ansible.com/">Ansible</a>,
 причем самым простым способом:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yml" data-lang="yml">- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">create deploy event in elasticsearch</span>
-  <span style="color:#f92672">command</span>: &gt;<span style="color:#e6db74">
-</span><span style="color:#e6db74">    curl -s -S -XPOST -d &#39;
-</span><span style="color:#e6db74">      {
-</span><span style="color:#e6db74">        &#34;service&#34; : &#34;{{ service }}&#34;,
-</span><span style="color:#e6db74">        &#34;version&#34; : &#34;{{ version }}&#34;,
-</span><span style="color:#e6db74">        &#34;timestamp&#34; : &#34;{{ ansible_date_time.iso8601 }}&#34;,
-</span><span style="color:#e6db74">        &#34;desc&#34; : &#34;Deploy {{ deploy_type }} to {{ env }}&#34;,
-</span><span style="color:#e6db74">        &#34;tags&#34; : [
-</span><span style="color:#e6db74">          &#34;{{ service }}&#34;,
-</span><span style="color:#e6db74">          &#34;backend&#34;,
-</span><span style="color:#e6db74">          {{ &#39;&#34;migrate&#34;,&#39; if migrate is defined else &#39;&#39;}}
-</span><span style="color:#e6db74">          {{ &#39;&#34;backup&#34;,&#39; if backup is defined else &#39;&#39; }}
-</span><span style="color:#e6db74">          &#34;{{ version }}&#34;]
-</span><span style="color:#e6db74">      }&#39; http://{{ log_host }}:9200/events-{{ ansible_date_time.date }}/deploy/</span>    
-  <span style="color:#f92672">ignore_errors</span>: <span style="color:#66d9ef">true</span>
-</code></pre></div><h4 id="заключение">Заключение</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>- <span style="color:#f92672">name</span>: <span style="color:#ae81ff">create deploy event in elasticsearch</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">command</span>: &gt;<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    curl -s -S -XPOST -d &#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      {
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;service&#34; : &#34;{{ service }}&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;version&#34; : &#34;{{ version }}&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;timestamp&#34; : &#34;{{ ansible_date_time.iso8601 }}&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;desc&#34; : &#34;Deploy {{ deploy_type }} to {{ env }}&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;tags&#34; : [
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &#34;{{ service }}&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &#34;backend&#34;,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          {{ &#39;&#34;migrate&#34;,&#39; if migrate is defined else &#39;&#39;}}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          {{ &#39;&#34;backup&#34;,&#39; if backup is defined else &#39;&#39; }}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &#34;{{ version }}&#34;]
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      }&#39; http://{{ log_host }}:9200/events-{{ ansible_date_time.date }}/deploy/</span>    
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">ignore_errors</span>: <span style="color:#66d9ef">true</span>
+</span></span></code></pre></div><h4 id="заключение">Заключение</h4>
 <p>В общем, за более чем 2 года постоянного использования Graphite, я
 убедился в исключительных качествах этого продукта, и несмотря на тягу
 ко всему новому, так и не смог заменить его каким-либо другим проектом.</p>
@@ -228,13 +228,13 @@ eventы с описанием события (деплой такой-то ве�
 <p class="terms">
 <b>Tags:</b>
 
-  <a href="//bulimov.ru/tags/graphite/">Graphite</a>
+  <a href="//bulimov.me/tags/graphite/">Graphite</a>
 
-  <a href="//bulimov.ru/tags/monitoring/">Monitoring</a>
+  <a href="//bulimov.me/tags/monitoring/">Monitoring</a>
 
-  <a href="//bulimov.ru/tags/%D0%BC%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5/">Мнение</a>
+  <a href="//bulimov.me/tags/%D0%BC%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5/">Мнение</a>
 
-  <a href="//bulimov.ru/tags/%D0%BE%D0%BF%D1%8B%D1%82/">Опыт</a>
+  <a href="//bulimov.me/tags/%D0%BE%D0%BF%D1%8B%D1%82/">Опыт</a>
 
 
 </p>
@@ -242,9 +242,9 @@ eventы с описанием события (деплой такой-то ве�
 
 <b>Categories:</b>
 
-  <a href="//bulimov.ru/categories/it/">IT</a>
+  <a href="//bulimov.me/categories/it/">IT</a>
 
-  <a href="//bulimov.ru/categories/russian/">Russian</a>
+  <a href="//bulimov.me/categories/russian/">Russian</a>
 
 
 </p>
@@ -253,7 +253,7 @@ eventы с описанием события (деплой такой-то ве�
   
   
   <hr/>
-  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.ru">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.me">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
   
   </footer>
   </body>

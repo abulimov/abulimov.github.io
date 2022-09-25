@@ -2,35 +2,35 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Alexander Bulimov: Production Engineer and Scale Modeller</title>
-    <link>//bulimov.ru/categories/</link>
+    <link>//bulimov.me/categories/</link>
     <description>Recent content in Categories on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>IT</title>
-      <link>//bulimov.ru/categories/it/</link>
+      <link>//bulimov.me/categories/it/</link>
       <pubDate>Sun, 16 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/categories/it/</guid>
+      <guid>//bulimov.me/categories/it/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Personal</title>
-      <link>//bulimov.ru/categories/personal/</link>
+      <link>//bulimov.me/categories/personal/</link>
       <pubDate>Sun, 16 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/categories/personal/</guid>
+      <guid>//bulimov.me/categories/personal/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Russian</title>
-      <link>//bulimov.ru/categories/russian/</link>
+      <link>//bulimov.me/categories/russian/</link>
       <pubDate>Sat, 27 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/categories/russian/</guid>
+      <guid>//bulimov.me/categories/russian/</guid>
       <description></description>
     </item>
     

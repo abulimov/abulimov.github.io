@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>collectd on Alexander Bulimov: Production Engineer and Scale Modeller</title>
-    <link>//bulimov.ru/tags/collectd/</link>
+    <link>//bulimov.me/tags/collectd/</link>
     <description>Recent content in collectd on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Sep 2015 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/collectd/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Sep 2015 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/collectd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Плагин к collectd для сбора метрик Riak CS</title>
-      <link>//bulimov.ru/it/collectd-riakcs/</link>
+      <link>//bulimov.me/it/collectd-riakcs/</link>
       <pubDate>Thu, 17 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/collectd-riakcs/</guid>
+      <guid>//bulimov.me/it/collectd-riakcs/</guid>
       <description>На днях наконец-то дошли руки до модернизации той части мониторинга, которая отвечает за сбор метрик, и набивший оскомину Munin был окончательно заменен на Graphite + collectd. Теперь воцарилась идиллия - Icinga2 складывает метрики из perfdata в Graphite, и collectd отправляет все метрики туда же.
 Хочется отдельно отметить, что несмотря на то, что изначально collectd мне не очень понравился (кому может сейчас понравиться Apache-подобный конфиг?), при дальнейшем изучении я был приятно поражен богатством возможностей этого продукта и крайне бережным его отношением к ресурсам наблюдаемой системы.</description>
     </item>

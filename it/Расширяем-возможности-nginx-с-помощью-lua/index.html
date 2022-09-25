@@ -71,37 +71,37 @@ if ($valid_serial ~ false) { return 403; break; }
 <ol>
 <li>Загружаем при старте Nginx из файлика с серийниками их список в <code>ngx.shared.DICT</code></li>
 </ol>
-<pre><code>lua_shared_dict serials 1m;
+<pre tabindex="0"><code>lua_shared_dict serials 1m;
 
-init_by_lua '
-local file = io.open(&quot;/etc/nginx/access.list&quot;, &quot;r&quot;)
+init_by_lua &#39;
+local file = io.open(&#34;/etc/nginx/access.list&#34;, &#34;r&#34;)
 local serials = ngx.shared.serials
 if file then
     for line in file:lines() do
-    local stripped_line = line:match( &quot;^%s*(.-)%s*$&quot; )
+    local stripped_line = line:match( &#34;^%s*(.-)%s*$&#34; )
     local succ, err, forcible = serials:safe_set( stripped_line, true)
     if not succ then
-        ngx.log(ngx.ERR,&quot;error populating serials list: &quot; .. err)
+        ngx.log(ngx.ERR,&#34;error populating serials list: &#34; .. err)
     end
     end
     file:close()
 else
-    ngx.log(ngx.ERR,&quot;access.list file not found&quot;)
+    ngx.log(ngx.ERR,&#34;access.list file not found&#34;)
 end
-';
+&#39;;
 ...
 </code></pre><ol start="2">
 <li>При запросе к защищенному контенту проверяем, есть ли такой серийник в списке.</li>
 </ol>
-<pre><code>location / {
-access_by_lua '
+<pre tabindex="0"><code>location / {
+access_by_lua &#39;
     local serial = ngx.var.ssl_client_serial
     local value, flags = ngx.shared.serials:get(serial)
     if not value then
-    ngx.log(ngx.WARN, &quot;blocked client cert &quot; .. serial)
+    ngx.log(ngx.WARN, &#34;blocked client cert &#34; .. serial)
     ngx.exit(ngx.HTTP_FORBIDDEN)
     end
-';
+&#39;;
 proxy_pass http://upstream;
 }
 </code></pre><p>Весь Lua-код выполняется в отдельных корутинах-песочницах, так что на работу
@@ -117,9 +117,9 @@ proxy_pass http://upstream;
 <p class="terms">
 <b>Tags:</b>
 
-  <a href="//bulimov.ru/tags/nginx/">Nginx</a>
+  <a href="//bulimov.me/tags/nginx/">Nginx</a>
 
-  <a href="//bulimov.ru/tags/lua/">Lua</a>
+  <a href="//bulimov.me/tags/lua/">Lua</a>
 
 
 </p>
@@ -127,9 +127,9 @@ proxy_pass http://upstream;
 
 <b>Categories:</b>
 
-  <a href="//bulimov.ru/categories/it/">IT</a>
+  <a href="//bulimov.me/categories/it/">IT</a>
 
-  <a href="//bulimov.ru/categories/russian/">Russian</a>
+  <a href="//bulimov.me/categories/russian/">Russian</a>
 
 
 </p>
@@ -138,7 +138,7 @@ proxy_pass http://upstream;
   
   
   <hr/>
-  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.ru">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.me">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
   
   </footer>
   </body>

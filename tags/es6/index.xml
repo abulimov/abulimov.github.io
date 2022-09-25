@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ES6 on Alexander Bulimov: Production Engineer and Scale Modeller</title>
-    <link>//bulimov.ru/tags/es6/</link>
+    <link>//bulimov.me/tags/es6/</link>
     <description>Recent content in ES6 on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 15 Apr 2016 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/es6/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Apr 2016 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/es6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Утилита gotests и плагин для Atom</title>
-      <link>//bulimov.ru/it/atom-gotests/</link>
+      <link>//bulimov.me/it/atom-gotests/</link>
       <pubDate>Fri, 15 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/atom-gotests/</guid>
+      <guid>//bulimov.me/it/atom-gotests/</guid>
       <description>Поскольку последнее время я все больше пишу на Go, мой workflow потихоньку обрастает различными полезными утилитами.
 Одним из лучших открытий (после изумительного go-plus для Atom, который превращает Atom в полнофункциональную IDE для Go) стала утилита gotests, которая позволяет генерировать табличные тесты. При этом для нее есть плагины для Sublime Text 3 и Emacs.
 Я большой сторонник юнит-тестирования, и потому возможность создавать шаблоны для тестов одной командой меня очень обрадовала.

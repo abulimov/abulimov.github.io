@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Atom on Alexander Bulimov: Production Engineer and Scale Modeller</title>
-    <link>//bulimov.ru/tags/atom/</link>
+    <link>//bulimov.me/tags/atom/</link>
     <description>Recent content in Atom on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 15 Apr 2016 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/atom/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Apr 2016 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/atom/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Утилита gotests и плагин для Atom</title>
-      <link>//bulimov.ru/it/atom-gotests/</link>
+      <link>//bulimov.me/it/atom-gotests/</link>
       <pubDate>Fri, 15 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/atom-gotests/</guid>
+      <guid>//bulimov.me/it/atom-gotests/</guid>
       <description>Поскольку последнее время я все больше пишу на Go, мой workflow потихоньку обрастает различными полезными утилитами.
 Одним из лучших открытий (после изумительного go-plus для Atom, который превращает Atom в полнофункциональную IDE для Go) стала утилита gotests, которая позволяет генерировать табличные тесты. При этом для нее есть плагины для Sublime Text 3 и Emacs.
 Я большой сторонник юнит-тестирования, и потому возможность создавать шаблоны для тестов одной командой меня очень обрадовала.
@@ -21,10 +21,10 @@
     
     <item>
       <title>Все для HAProxy в Atom</title>
-      <link>//bulimov.ru/it/atom-HAProxy/</link>
+      <link>//bulimov.me/it/atom-HAProxy/</link>
       <pubDate>Fri, 08 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/atom-HAProxy/</guid>
+      <guid>//bulimov.me/it/atom-HAProxy/</guid>
       <description>Появилась у меня на работе задачка - взять 3 относительно разных конфига HAProxy, ответвившихся когда-то от общего предка, и обратно унифицировать их в один.
 Конфиги хорошие, большие - 800 строк каждый.
 Приступил я к этой задаче, и сразу оступил - потому что в Atom, которым я пользуюсь для редактирования всего, не было подсветки синтаксиса конфигов HAProxy.
@@ -33,10 +33,10 @@
     
     <item>
       <title>Сменил Vim на Atom</title>
-      <link>//bulimov.ru/it/vim-atom/</link>
+      <link>//bulimov.me/it/vim-atom/</link>
       <pubDate>Thu, 21 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/vim-atom/</guid>
+      <guid>//bulimov.me/it/vim-atom/</guid>
       <description>Вот уже почти два месяца, как я по совету коллеги сменил Vim, которым пользовался уже 5 лет, и который оброс у меня кучей плагинов, на Github Atom.
 Использую я его как раньше Vim - для всего. В основном это написание плейбуков Ansible, что включает в себя правку конфигов, и написание кода на Python и Go.
 Сразу скажу, что не будь для Atom вменяемого vim-режима, я бы вряд ли решился на переход.</description>

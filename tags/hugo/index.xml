@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on Alexander Bulimov: Production Engineer and Scale Modeller</title>
-    <link>//bulimov.ru/tags/hugo/</link>
+    <link>//bulimov.me/tags/hugo/</link>
     <description>Recent content in Hugo on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 16 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 16 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Moving from Pelican to Hugo for this blog</title>
-      <link>//bulimov.ru/post/2021/02/16/pelical-to-hugo/</link>
+      <link>//bulimov.me/post/2021/02/16/pelical-to-hugo/</link>
       <pubDate>Tue, 16 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/post/2021/02/16/pelical-to-hugo/</guid>
+      <guid>//bulimov.me/post/2021/02/16/pelical-to-hugo/</guid>
       <description>Since I no longer enjoy working with Python in any shape or form, it was only a matter of time (mostly a matter of my free time) for this to happen. I&amp;rsquo;ve migrated this blog from Pelican static site generator (written in Python) to Hugo (written in Go).
 It by no means reflects on Pelican as a piece of software (it&amp;rsquo;s actually pretty good). It&amp;rsquo;s more about my disdain for Python, and awesome experience I had with Hugo and Go language in general.</description>
     </item>
     
     <item>
       <title>My new Scale Models gallery</title>
-      <link>//bulimov.ru/personal/models-gallery/</link>
+      <link>//bulimov.me/personal/models-gallery/</link>
       <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/personal/models-gallery/</guid>
+      <guid>//bulimov.me/personal/models-gallery/</guid>
       <description>I&amp;rsquo;ve just published my new site - personal Scale Models Gallery.
 Model making is my main and favorite hobby, so I&amp;rsquo;ve decided to build a whole new site just to write about it.
 I just love doing something without the computer, it&amp;rsquo;s an awesome way to de-stress and detox.

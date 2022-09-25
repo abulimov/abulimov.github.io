@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blogs on Alexander Bulimov: Production Engineer and Scale Modeller</title>
-    <link>//bulimov.ru/tags/blogs/</link>
+    <link>//bulimov.me/tags/blogs/</link>
     <description>Recent content in Blogs on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 01 Jun 2017 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/blogs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Jun 2017 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/blogs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>What I read on the internet (2017 edition)</title>
-      <link>//bulimov.ru/personal/what-i-read-2017/</link>
+      <link>//bulimov.me/personal/what-i-read-2017/</link>
       <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/personal/what-i-read-2017/</guid>
+      <guid>//bulimov.me/personal/what-i-read-2017/</guid>
       <description>About a year ago I was asked in comments what do I read on the internet. Back then, the list consisted from blogs of open-source products I&amp;rsquo;ve been using (like Atom, Elasticsearch, Icinga, Grafana), some personal blogs (Lennart Poettering, Aphyr, Julia Evans), some company blogs (Github Engineering) and basic tech press (Ars Technica, The Verge, Phoronix, LWN). And two mail lists - Devops Weekly and Golang Weekly.
 Now I&amp;rsquo;ve been asked if something have changed.</description>
     </item>

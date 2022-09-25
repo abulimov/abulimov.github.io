@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Experience on Alexander Bulimov: Production Engineer and Scale Modeller</title>
-    <link>//bulimov.ru/tags/experience/</link>
+    <link>//bulimov.me/tags/experience/</link>
     <description>Recent content in Experience on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 31 Jan 2018 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/experience/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Jan 2018 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/experience/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Benefits of upgradable laptops</title>
-      <link>//bulimov.ru/personal/laptop-upgrade/</link>
+      <link>//bulimov.me/personal/laptop-upgrade/</link>
       <pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/personal/laptop-upgrade/</guid>
+      <guid>//bulimov.me/personal/laptop-upgrade/</guid>
       <description>I&amp;rsquo;ve been concerned by a low amount of memory in my Asus UX310U laptop for quite a long time, but as I used it quite lightly at home, it never became a problem. It has perfectly capable Intel i3-6100U CPU, nice FullHD screen, 5h+ of battery life, so it made no sense to change the laptop just because of RAM.
 Obviously 4Gb of RAM is kind of low by modern standards, but when I bought it I wasn&amp;rsquo;t planning to use anything resource-heavy like IDE at home, just terminal and browser.</description>
     </item>
     
     <item>
       <title>Refreshing slow internet experience</title>
-      <link>//bulimov.ru/it/slow-internet/</link>
+      <link>//bulimov.me/it/slow-internet/</link>
       <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/slow-internet/</guid>
+      <guid>//bulimov.me/it/slow-internet/</guid>
       <description>I&amp;rsquo;ve just returned from a vacation, and I&amp;rsquo;ve got quite refreshing experience of using slow internet there.
 The thing is, we, as engineers, are used to fast internet, fast development environment, powerful laptops/smartphones, etc.
 Unfortunately this is still not the case of a huge part of the world, and it&amp;rsquo;s really important for us to try and walk in their shoes from time to time. And one of my colleagues, being fed up with resource-wise inefficiency of modern software, suggested as a joke to use Raspberry Pi as a dev environment.</description>
@@ -30,13 +30,14 @@ Unfortunately this is still not the case of a huge part of the world, and it&amp
     
     <item>
       <title>How I became a programmer</title>
-      <link>//bulimov.ru/personal/how-i-became-a-programmer/</link>
+      <link>//bulimov.me/personal/how-i-became-a-programmer/</link>
       <pubDate>Fri, 30 Sep 2016 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/personal/how-i-became-a-programmer/</guid>
+      <guid>//bulimov.me/personal/how-i-became-a-programmer/</guid>
       <description>After reading a lot of blog posts about becoming a programmer recently, I&amp;rsquo;ve decided to write my own.
 It will be a bit different because of two factors:
- I&amp;rsquo;m not a Software Engineer, but a Production Engineer/SRE/Admin; I&amp;rsquo;m from Russia, where CS education is vastly different.  School years School in Russia is 10 or 11 years and you start at the age of ~7 and end it at ~17</description>
+I&amp;rsquo;m not a Software Engineer, but a Production Engineer/SRE/Admin; I&amp;rsquo;m from Russia, where CS education is vastly different. School years School in Russia is 10 or 11 years and you start at the age of ~7 and end it at ~17
+As far as I recall, my first programming experience was with LogoWriter in elementary school.</description>
     </item>
     
   </channel>

@@ -57,14 +57,14 @@ which has permissions set in a way that unprivileged user won&rsquo;t even be ab
 <h3 id="socat">socat</h3>
 <p>It&rsquo;s often possible to have <code>socat</code> set up the socket and dump everything that gets sent to it, or redirect it to network.</p>
 <p>For example, here is what might be used to snoop on some process and send it&rsquo;s traffic to network, where it could be dumped by <code>tpcdump</code>.</p>
-<pre><code>sudo socat -v UNIX-LISTEN:/path/to/some.sock,fork TCP-CONNECT:127.0.0.1:8090
+<pre tabindex="0"><code>sudo socat -v UNIX-LISTEN:/path/to/some.sock,fork TCP-CONNECT:127.0.0.1:8090
 </code></pre><p>However, this action is disruptive to the running processes, and I personally never had success with this approach.</p>
 <h3 id="strace">strace</h3>
 <p>It is of course possible to see what is being sent to the socket using any form of syscall tracing.
 In fact, that was my go-to approach before I did my research and found better ways to do it.</p>
-<p>Here is how one can see what <code>chronyc</code> sends to <code>chronyd</code> over the socket when asked for &lsquo;ntpdata&rsquo;</p>
-<pre><code>&gt; sudo strace -xx -e sendto,recvfrom -v -s 10000 chronyc ntpdata
-sendto(3, &quot;\x06\x01\x00\x00\x00\x0e\x00\x00\x02\x48\x5c\x29\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00&quot;, 32, 0, NULL, 0) = 32
+<p>Here is how one can see what <code>chronyc</code> sends to <code>chronyd</code> over the socket when asked for &rsquo;ntpdata'</p>
+<pre tabindex="0"><code>&gt; sudo strace -xx -e sendto,recvfrom -v -s 10000 chronyc ntpdata
+sendto(3, &#34;\x06\x01\x00\x00\x00\x0e\x00\x00\x02\x48\x5c\x29\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00&#34;, 32, 0, NULL, 0) = 32
 ...
 </code></pre><p>Again, the problem here is that it&rsquo;s disruptive and requires changing how the reference app is being run.
 And of course if the app does more communication with same syscall, like <code>sendto</code> in chronyc example -
@@ -74,7 +74,7 @@ we&rsquo;ll have to sift through all of the messages based on file descriptors.<
 <p>Now we are getting to the truly passive solutions (although they are Linux-specific),
 thanks to the amazing power of <a href="https://www.kernel.org/doc/html/latest/bpf/index.html">BPF</a>.</p>
 <p>For example, we can snoop on same <code>sendto</code> syscall via <code>bpftrace</code>, which uses BPF with kernel tracepoints:</p>
-<pre><code>&gt; sudo bpftrace -e 'tracepoint:syscalls:sys_enter_sendto /comm == &quot;chronyc&quot;/ {printf(&quot;%r\n&quot;, buf(args-&gt;buff, args-&gt;len));}'
+<pre tabindex="0"><code>&gt; sudo bpftrace -e &#39;tracepoint:syscalls:sys_enter_sendto /comm == &#34;chronyc&#34;/ {printf(&#34;%r\n&#34;, buf(args-&gt;buff, args-&gt;len));}&#39;
 \x06\x01\x00\x00\x00\x0e\x00\x00\x02\x48\x5c\x29\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00
 ...
 </code></pre><p>This is pretty neat, but we still need to know exactly what syscall is used to send data over the socket.</p>
@@ -86,7 +86,7 @@ functions like <code>unix_stream_sendmsg</code> and capture everything regardles
 support for DGRAM sockets and dumping data in escaped hex string format,
 which can be then used directly in Go or Python as for example an input for unittests.</p>
 <p>Here is how it looks like for <code>pmc</code> talking to <code>ptp4l</code> (both are part of <a href="http://linuxptp.sourceforge.net">linuxptp</a> project):</p>
-<pre><code>$ sudo ./sockdump.py '/var/run/p*' --format hexstring
+<pre tabindex="0"><code>$ sudo ./sockdump.py &#39;/var/run/p*&#39; --format hexstring
 waiting for data
 10:11:28.968 &gt;&gt;&gt; process pmc [1108317 -&gt; 0] len 74(74)
 \x0d\x12\x00\x4a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xe9\x5d\x00\x00\x04\x7f\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\x00\x00\x00\x00\x00\x01\x00\x16\x20\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00
@@ -119,11 +119,11 @@ and I use it fairly regularly.</p>
 <p class="terms">
 <b>Tags:</b>
 
-  <a href="//bulimov.ru/tags/bpf/">BPF</a>
+  <a href="//bulimov.me/tags/bpf/">BPF</a>
 
-  <a href="//bulimov.ru/tags/linux/">Linux</a>
+  <a href="//bulimov.me/tags/linux/">Linux</a>
 
-  <a href="//bulimov.ru/tags/python/">Python</a>
+  <a href="//bulimov.me/tags/python/">Python</a>
 
 
 </p>
@@ -131,7 +131,7 @@ and I use it fairly regularly.</p>
 
 <b>Categories:</b>
 
-  <a href="//bulimov.ru/categories/it/">IT</a>
+  <a href="//bulimov.me/categories/it/">IT</a>
 
 
 </p>
@@ -140,7 +140,7 @@ and I use it fairly regularly.</p>
   
   
   <hr/>
-  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.ru">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.me">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
   
   </footer>
   </body>

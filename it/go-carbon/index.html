@@ -41,7 +41,7 @@
 <main>
 <p>Пришлось на собственном опыте опробовать, насколько
 <a href="/it/graphite-experience">Graphite модульный</a>.</p>
-<p>При 200k metricsReceived наш Graphite, работающий на довольном старом сервере
+<p>При 200k <code>metricsReceived</code> наш Graphite, работающий на довольном старом сервере
 на обычных дисках, начал помирать. <strong>Carbon-cache</strong> постоянно был в топе потребления
 ресурсов, ни о какой отзывчивости в работе сервера речи вообще не шло.</p>
 <p>&ldquo;Хватит это терпеть!&rdquo; - подумал я, и начал в который раз искать советы по
@@ -49,13 +49,13 @@
 не найдя, я решил попробовать давно приглянувшийся мне проект
 <a href="https://github.com/lomik/go-carbon">go-carbon</a>.</p>
 <p>Особенно подкупало то, что мне ничего не придется менять - <strong>go-carbon</strong> поддерживает
-все те же конфиги для storage-schemas и aggregation-schemas, что и родной
+все те же конфиги для <code>storage-schemas</code> и <code>aggregation-schemas</code>, что и родной
 carbon-cache.</p>
 <p>Так что я остановил carbon-cache и запустил go-carbon.</p>
 <p>Эффект превзошел все ожидания: все заработало сразу, лаг появления новых
 метрик на графиках пропал, отзывчивость сервера вернулась в норму.</p>
-<p>Вот вам график updateOperations, до и после:</p>
-<p><img src="/images/go-carbon.png" alt="updateOperations"></p>
+<p>Вот вам график <code>updateOperations</code>, до и после:</p>
+<p><img src="/images/go-carbon.png" alt="update operations"></p>
 <p>При этом go-carbon еще умеет перечитывать конфиги на лету!</p>
 <p>В общем, радости моей нет предела, серьезная проблема производительности
 мониторинга решилась за 5 минут. Даже если вы еще не уперлись в производительность
@@ -68,11 +68,11 @@ reload конфигов.</p>
 <p class="terms">
 <b>Tags:</b>
 
-  <a href="//bulimov.ru/tags/graphite/">Graphite</a>
+  <a href="//bulimov.me/tags/graphite/">Graphite</a>
 
-  <a href="//bulimov.ru/tags/go-carbon/">go-carbon</a>
+  <a href="//bulimov.me/tags/go-carbon/">go-carbon</a>
 
-  <a href="//bulimov.ru/tags/%D0%BE%D0%BF%D1%8B%D1%82/">Опыт</a>
+  <a href="//bulimov.me/tags/%D0%BE%D0%BF%D1%8B%D1%82/">Опыт</a>
 
 
 </p>
@@ -80,9 +80,9 @@ reload конфигов.</p>
 
 <b>Categories:</b>
 
-  <a href="//bulimov.ru/categories/it/">IT</a>
+  <a href="//bulimov.me/categories/it/">IT</a>
 
-  <a href="//bulimov.ru/categories/russian/">Russian</a>
+  <a href="//bulimov.me/categories/russian/">Russian</a>
 
 
 </p>
@@ -91,7 +91,7 @@ reload конфигов.</p>
   
   
   <hr/>
-  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.ru">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.me">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
   
   </footer>
   </body>

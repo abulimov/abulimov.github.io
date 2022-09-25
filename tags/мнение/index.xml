@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Мнение on Alexander Bulimov: Production Engineer and Scale Modeller</title>
-    <link>//bulimov.ru/tags/%D0%BC%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5/</link>
+    <link>//bulimov.me/tags/%D0%BC%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5/</link>
     <description>Recent content in Мнение on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Oct 2015 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/%D0%BC%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 26 Oct 2015 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/%D0%BC%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Избавился от CoreOS</title>
-      <link>//bulimov.ru/it/goodby-coreos/</link>
+      <link>//bulimov.me/it/goodby-coreos/</link>
       <pubDate>Mon, 26 Oct 2015 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/goodby-coreos/</guid>
+      <guid>//bulimov.me/it/goodby-coreos/</guid>
       <description>С огромным облегчением сегодня убрал последний хост с CoreOS.
 Я уже писал о своих впечатлениях от CoreoOS, но с тех пор впечатлений прибавилось.
 Частые атомарные обновления на бумаге выглядели вкусно (и в пользовательских ОС типа Android работают прекрасно), но вот на практике на серверах в том виде, в котором CoreOS их готовит, оказались совсем несъедобны.
@@ -21,10 +21,10 @@
     
     <item>
       <title>Заметка о Graphite</title>
-      <link>//bulimov.ru/it/graphite-experience/</link>
+      <link>//bulimov.me/it/graphite-experience/</link>
       <pubDate>Fri, 25 Sep 2015 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/graphite-experience/</guid>
+      <guid>//bulimov.me/it/graphite-experience/</guid>
       <description>На первый взгляд, кажется довольно странным, что сейчас, в 2015 году, все до сих пор используют для хранения time series такой старый и «не модный» инструмент, как Graphite. О ужас, о нем даже почти не пишут в твиттере/G+ и он написан на старом будничном Python, а не на популярном сейчас Go (хотя уже частично написан, но об этом потом).
 Но все равно многие используют его, и не сильно жалуются.
 Экскурс в историю До открытия кода Graphite в 2008 году был вездесущий RRDTool, использовавшийся (и используемый до сих пор) в таких инструментах как Cacti, Munin и еще в куче других.</description>
@@ -32,10 +32,10 @@
     
     <item>
       <title>Впечатления от CoreOS</title>
-      <link>//bulimov.ru/it/coreos-opinion/</link>
+      <link>//bulimov.me/it/coreos-opinion/</link>
       <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/coreos-opinion/</guid>
+      <guid>//bulimov.me/it/coreos-opinion/</guid>
       <description>На волне популярности контейнерной виртуализации Docker стали появляться специализированные дистрибутивы Linux, созданные специально для использования в роли базового хоста для Docker-контейнеров.
 Пионером среди них стал проект CoreOS, затем появились Project Atomic от RedHat и Ubuntu Snappy от Canonical.
 Чем они все отличаются от привычных дистрибутивов? Основным отличием является модель обновления дистрибутива. Все эти проекты предлагают атомарные обновления, подразумевающие сборку нового образа системы с последующей перезагрузкой в него. При этом образ монтируется в read-only режиме, и есть возможность откатиться на предыдущий образ системы.</description>
@@ -43,44 +43,44 @@
     
     <item>
       <title>Инфраструктура как код</title>
-      <link>//bulimov.ru/it/infrastructure-as-a-code/</link>
+      <link>//bulimov.me/it/infrastructure-as-a-code/</link>
       <pubDate>Mon, 29 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/infrastructure-as-a-code/</guid>
+      <guid>//bulimov.me/it/infrastructure-as-a-code/</guid>
       <description>Есть такой тренд сейчас - работать с IT-инфраструктурой как с кодом. Хорошо цель этого метода описывается этой цитатой:
- “Enable the reconstruction of the business from nothing but a source code repository, an application data backup, and bare metal resources”
+“Enable the reconstruction of the business from nothing but a source code repository, an application data backup, and bare metal resources”
 &amp;ndash; Jesse Robins
- Я полностью поддерживаю эту идею, причем именно в этой трактовке.
+Я полностью поддерживаю эту идею, причем именно в этой трактовке.
 Если говорить про парадигму, которую нам предлагает этот метод, то вот она:
- Поддерживать модульную, легко поддающуюся автоматизации инфраструктуру, и описывать эту инфраструктуру с помощью языка высокого уровня.</description>
+Поддерживать модульную, легко поддающуюся автоматизации инфраструктуру, и описывать эту инфраструктуру с помощью языка высокого уровня.</description>
     </item>
     
     <item>
       <title>Ansible и serverspec</title>
-      <link>//bulimov.ru/it/ansible-%D0%B8-serverspec/</link>
+      <link>//bulimov.me/it/ansible-%D0%B8-serverspec/</link>
       <pubDate>Thu, 22 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/ansible-%D0%B8-serverspec/</guid>
+      <guid>//bulimov.me/it/ansible-%D0%B8-serverspec/</guid>
       <description>Когда я готовил playbook для своего VPS, я взял за основу Sovereign. В этом репозитории меня заинтересовал файл tests.py, содержащий тесты для результирующего сервера. У меня сразу же возник вопрос - почему тесты самописные, на голом Python, а не на каком-нибудь готовом решении. Я решил изучить, что же есть сейчас для TDD-администрирования. Оказалось, что толком ничего и нет, а то, что есть - для Ansible не особо нужно.
 Для начала, что есть.</description>
     </item>
     
     <item>
       <title>Прочитал The Phoenix Project A Novel About DevOps, and Helping Your Business Win</title>
-      <link>//bulimov.ru/it/%D0%9F%D1%80%D0%BE%D1%87%D0%B8%D1%82%D0%B0%D0%BB-the-phoenix-project-a-novel-about-devops-and-helping-your-business-win/</link>
+      <link>//bulimov.me/it/%D0%9F%D1%80%D0%BE%D1%87%D0%B8%D1%82%D0%B0%D0%BB-the-phoenix-project-a-novel-about-devops-and-helping-your-business-win/</link>
       <pubDate>Tue, 15 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/%D0%9F%D1%80%D0%BE%D1%87%D0%B8%D1%82%D0%B0%D0%BB-the-phoenix-project-a-novel-about-devops-and-helping-your-business-win/</guid>
+      <guid>//bulimov.me/it/%D0%9F%D1%80%D0%BE%D1%87%D0%B8%D1%82%D0%B0%D0%BB-the-phoenix-project-a-novel-about-devops-and-helping-your-business-win/</guid>
       <description>Ну что тут скажешь - прекрасная книга. Написана живым языком, очень легко читается. В увлекательной форме рассказывает о ключевых принципах DevOps, причем именно так, чтобы было понятно, в ответ на какие проблемы каждый из принципов был сформирован.
 Конечно, главная проблема книги в том, что DevOps преподносится как некая чудодейственная методология, и при этом не уделяется внимания главному вопросу - кадровому. В книге все сотрудники оказались достаточно квалифицированными и открытыми для того, чтобы успешно принять и реализовать парадигму DevOps, хотя в реальной жизни лично я наблюдаю жесточайший дефицит адекватных кадров, которых можно было бы хотя-бы переучить под DevOps, не говоря уже о том, чтоб они сами к этому пришли.</description>
     </item>
     
     <item>
       <title>Тестирование Ansible Playbook</title>
-      <link>//bulimov.ru/it/%D0%A2%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-ansible-playbook/</link>
+      <link>//bulimov.me/it/%D0%A2%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-ansible-playbook/</link>
       <pubDate>Thu, 13 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/%D0%A2%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-ansible-playbook/</guid>
+      <guid>//bulimov.me/it/%D0%A2%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-ansible-playbook/</guid>
       <description>Давно хотел сделать авто-тестирование целостности развертывания, производимого с помощью Ansible. Чтобы, значит, запушил я новую версию плейбука в репозитория, и CI проверила работоспособность системы. Причем не просто корректность синтаксиса, а работоспособность проводимого деплоя.
 Вот наконец до этого дошли руки.
 Точнее, руки до этого дошли еще в середине 2013 года, но тогда я собрал все это с помощью стройной системы костылей, взяв за основу заранее минимально сконфигуренные qemu-образы на LVM-снапшотах.
@@ -89,20 +89,20 @@
     
     <item>
       <title>Monitoring sucks!</title>
-      <link>//bulimov.ru/it/monitoring-sucks/</link>
+      <link>//bulimov.me/it/monitoring-sucks/</link>
       <pubDate>Wed, 10 Jul 2013 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/monitoring-sucks/</guid>
+      <guid>//bulimov.me/it/monitoring-sucks/</guid>
       <description>TL;DR - тут я Sensu критиковал, но в 2014 году успешно заменил Zabbix на Sensu версии 0.12+
 В 2012 году появился в среде devops такой хештег, #monitoringsucks. В сообщения с этим тегом devopsы писали, что текущее положение дел в сфере мониторинга их не устраивает. Что именно - прекрасно иллюстрирует эта презентация Если вкратце - хочется людям некоего стандарта API для взаимодействия между компонентами утилит мониторинга, ну и появления самих этих компонент, чтоб из них строить гибкий и умный мониторинг.</description>
     </item>
     
     <item>
       <title>Что я думаю о Debian на серверах</title>
-      <link>//bulimov.ru/it/%D0%A7%D1%82%D0%BE-%D1%8F-%D0%B4%D1%83%D0%BC%D0%B0%D1%8E-%D0%BE-debian-%D0%BD%D0%B0-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%D1%85/</link>
+      <link>//bulimov.me/it/%D0%A7%D1%82%D0%BE-%D1%8F-%D0%B4%D1%83%D0%BC%D0%B0%D1%8E-%D0%BE-debian-%D0%BD%D0%B0-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%D1%85/</link>
       <pubDate>Tue, 18 Jun 2013 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/%D0%A7%D1%82%D0%BE-%D1%8F-%D0%B4%D1%83%D0%BC%D0%B0%D1%8E-%D0%BE-debian-%D0%BD%D0%B0-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%D1%85/</guid>
+      <guid>//bulimov.me/it/%D0%A7%D1%82%D0%BE-%D1%8F-%D0%B4%D1%83%D0%BC%D0%B0%D1%8E-%D0%BE-debian-%D0%BD%D0%B0-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%D1%85/</guid>
       <description>С 2010 года, когда я только начал заниматься системным администрированием, я использовал как основной серверный дистрибутив Debian. Это был изначально осознанный выбор, и на момент написания заметки таковым и остается. Конечно, я работал и с другими дистрибутивами, и потому мне есть и было с чем сравнить. По итогам работы с Debian и написана эта заметка.
 #Негатив
 ##Общесистемные лимиты
@@ -111,10 +111,10 @@
     
     <item>
       <title>Мнение о Chef</title>
-      <link>//bulimov.ru/it/%D0%9C%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE-chef/</link>
+      <link>//bulimov.me/it/%D0%9C%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE-chef/</link>
       <pubDate>Mon, 17 Jun 2013 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/%D0%9C%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE-chef/</guid>
+      <guid>//bulimov.me/it/%D0%9C%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE-chef/</guid>
       <description>Я использовал Chef для управления IT-инфраструктурой около полутора лет, начав с версии 0.10. Сначала, где-то пол-года, использовал только для управления конфигурациями, без развертывания ПО с нуля. Затем, уже на другой работе, автоматизировал управления конфигурациями и развертывание с нуля веб-проекта (30+ серверов, Nginx, ruby, Riak, Redis, sphinx-search, RabbitMQ и т.п.). Это позволило мне составить собственное мнение o достоинствах и недостатках Chef, и в этой заметке я свое мнение излагаю.
 По итогу вышеописанной деятельности я был настолько утомлен недостатками Chef, что начал искать ему замену.</description>
     </item>

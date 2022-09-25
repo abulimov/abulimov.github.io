@@ -79,52 +79,52 @@
 список того, чего быть не должно, и тогда мы проверяем <em>отсутствие</em> данных
 в ответе на запрос, а при наличии - выводим их в отчете.</p>
 <p>Например, наличие блокировок в PostgreSQL можно проверять так:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">query</span>: |<span style="color:#e6db74">
-</span><span style="color:#e6db74">    SELECT
-</span><span style="color:#e6db74">      COALESCE(blockingl.relation::regclass::text,blockingl.locktype) as locked_item,
-</span><span style="color:#e6db74">      (now() - blockeda.query_start)::time AS waiting_duration,
-</span><span style="color:#e6db74">      blockeda.pid AS blocked_pid,
-</span><span style="color:#e6db74">      blockeda.query as blocked_query, blockedl.mode as blocked_mode,
-</span><span style="color:#e6db74">      blockinga.pid AS blocking_pid, blockinga.query as blocking_query,
-</span><span style="color:#e6db74">      blockingl.mode as blocking_mode
-</span><span style="color:#e6db74">    FROM pg_catalog.pg_locks blockedl
-</span><span style="color:#e6db74">    JOIN pg_stat_activity blockeda ON blockedl.pid = blockeda.pid
-</span><span style="color:#e6db74">    JOIN pg_catalog.pg_locks blockingl ON(
-</span><span style="color:#e6db74">      ( (blockingl.transactionid=blockedl.transactionid) OR
-</span><span style="color:#e6db74">      (blockingl.relation=blockedl.relation AND blockingl.locktype=blockedl.locktype)
-</span><span style="color:#e6db74">      ) AND blockedl.pid != blockingl.pid)
-</span><span style="color:#e6db74">    JOIN pg_stat_activity blockinga ON blockingl.pid = blockinga.pid
-</span><span style="color:#e6db74">      AND blockinga.datid = blockeda.datid
-</span><span style="color:#e6db74">    WHERE NOT blockedl.granted;</span>    
-<span style="color:#f92672">description</span>: <span style="color:#ae81ff">Locks in database</span>
-<span style="color:#f92672">assert</span>: <span style="color:#ae81ff">absent</span>
-</code></pre></div><p>Таким образом, если блокировок нет - все отлично, а если есть - выводим их список.</p>
-<p>Другой пример - проверка успешных задач <em>job_name</em> PGAgent за 4 часа:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">query</span>: |<span style="color:#e6db74">
-</span><span style="color:#e6db74">    SELECT jlgstatus
-</span><span style="color:#e6db74">    FROM pgagent.pga_joblog
-</span><span style="color:#e6db74">    WHERE jlgstart &gt; (now() - interval &#39;4 hours&#39;) AND jlgstatus = &#39;s&#39; AND
-</span><span style="color:#e6db74">    jlgjobid=(
-</span><span style="color:#e6db74">    SELECT jobid FROM pgagent.pga_job WHERE jobname = &#39;job_name&#39;
-</span><span style="color:#e6db74">    )
-</span><span style="color:#e6db74">    ORDER BY jlgstart DESC LIMIT 1;</span>    
-<span style="color:#f92672">description</span>: <span style="color:#ae81ff">Не было успешных запусков job_name за прошедший час</span>
-<span style="color:#f92672">assert</span>: <span style="color:#ae81ff">present</span>
-</code></pre></div><p>В этом случае мы ждем, что Query вернет нам список задач, а если нет - алерт.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">query</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    SELECT
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      COALESCE(blockingl.relation::regclass::text,blockingl.locktype) as locked_item,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      (now() - blockeda.query_start)::time AS waiting_duration,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      blockeda.pid AS blocked_pid,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      blockeda.query as blocked_query, blockedl.mode as blocked_mode,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      blockinga.pid AS blocking_pid, blockinga.query as blocking_query,
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      blockingl.mode as blocking_mode
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    FROM pg_catalog.pg_locks blockedl
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    JOIN pg_stat_activity blockeda ON blockedl.pid = blockeda.pid
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    JOIN pg_catalog.pg_locks blockingl ON(
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      ( (blockingl.transactionid=blockedl.transactionid) OR
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      (blockingl.relation=blockedl.relation AND blockingl.locktype=blockedl.locktype)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      ) AND blockedl.pid != blockingl.pid)
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    JOIN pg_stat_activity blockinga ON blockingl.pid = blockinga.pid
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      AND blockinga.datid = blockeda.datid
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    WHERE NOT blockedl.granted;</span>    
+</span></span><span style="display:flex;"><span><span style="color:#f92672">description</span>: <span style="color:#ae81ff">Locks in database</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">assert</span>: <span style="color:#ae81ff">absent</span>
+</span></span></code></pre></div><p>Таким образом, если блокировок нет - все отлично, а если есть - выводим их список.</p>
+<p>Другой пример - проверка успешных задач <code>job_name</code> PGAgent за 4 часа:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">query</span>: |<span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    SELECT jlgstatus
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    FROM pgagent.pga_joblog
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    WHERE jlgstart &gt; (now() - interval &#39;4 hours&#39;) AND jlgstatus = &#39;s&#39; AND
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    jlgjobid=(
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    SELECT jobid FROM pgagent.pga_job WHERE jobname = &#39;job_name&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    )
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    ORDER BY jlgstart DESC LIMIT 1;</span>    
+</span></span><span style="display:flex;"><span><span style="color:#f92672">description</span>: <span style="color:#ae81ff">Не было успешных запусков job_name за прошедший час</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">assert</span>: <span style="color:#ae81ff">present</span>
+</span></span></code></pre></div><p>В этом случае мы ждем, что Query вернет нам список задач, а если нет - алерт.</p>
 <h4 id="выводить-полученные-данные-в-удобной-табличной-форме">Выводить полученные данные в удобной табличной форме</h4>
 <p>Поскольку сообщения из алертов читают люди, надо показывать проблему так, чтобы
 сразу было все понятно, поэтому ASCII-таблица с проблемными значениями подходит
 как нельзя лучше.</p>
 <p>Пример:</p>
-<pre><code class="language-console" data-lang="console">nagios@example.com:~$ ./db-checker --dbname movies --dbuser=checker --dbhost=localhost --dbpassword=SomePassword --checks /opt/checks/movies --critical
-CRITICAL:
-* Found movies with zero duration
-N. ¦ column1 ¦ orig_title                ¦ rus_title
-1. ¦ 1346    ¦ Midnight Express          ¦ Полуночный экспресс
-2. ¦ 2165    ¦ In the Loop               ¦ В петле
-3. ¦ 2254    ¦ Sex &amp; Drugs &amp; Rock &amp; Roll ¦ Секс, наркотики и рок-н-ролл
-4. ¦ 2534    ¦ Resident Evil: Damnation  ¦ Обитель Зла: Проклятие
-</code></pre><h4 id="сохранять-состояние-прошлой-проверки-и-выводить-алерты-только-для-новых-проблем">Сохранять состояние прошлой проверки и выводить алерты только для новых проблем</h4>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>nagios@example.com:~$ ./db-checker --dbname movies --dbuser=checker --dbhost=localhost --dbpassword=SomePassword --checks /opt/checks/movies --critical
+</span></span><span style="display:flex;"><span>CRITICAL:
+</span></span><span style="display:flex;"><span>* Found movies with zero duration
+</span></span><span style="display:flex;"><span>N. ¦ column1 ¦ orig_title                ¦ rus_title
+</span></span><span style="display:flex;"><span>1. ¦ 1346    ¦ Midnight Express          ¦ Полуночный экспресс
+</span></span><span style="display:flex;"><span>2. ¦ 2165    ¦ In the Loop               ¦ В петле
+</span></span><span style="display:flex;"><span>3. ¦ 2254    ¦ Sex &amp; Drugs &amp; Rock &amp; Roll ¦ Секс, наркотики и рок-н-ролл
+</span></span><span style="display:flex;"><span>4. ¦ 2534    ¦ Resident Evil: Damnation  ¦ Обитель Зла: Проклятие
+</span></span></code></pre></div><h4 id="сохранять-состояние-прошлой-проверки-и-выводить-алерты-только-для-новых-проблем">Сохранять состояние прошлой проверки и выводить алерты только для новых проблем</h4>
 <p>Предположим, у нас есть некая таблица биллинга, в которой содержатся записи
 о транзакциях пользователей. Иногда случаются подозрительные повторные платежи,
 о каждом из которых стоит слать уведомление, но лишь единожды. При этом
@@ -138,7 +138,7 @@ N. ¦ column1 ¦ orig_title                ¦ rus_title
 <p>До принятия решения о написании своего велосипеда я изучал уже готовые утилиты.
 Самое близкое по функционалу, что я нашел - <a href="https://bucardo.org/check_postgres/check_postgres.pl.html">check_postgres.pl</a>,
 монструозный скрипт на Perl с более чем 8k строк кода, зато с возможностью запускать
-ограниченное подмножество запросов через custom_query. Под мои задачи он не подошел,
+ограниченное подмножество запросов через <code>custom_query</code>. Под мои задачи он не подошел,
 но штука впечатляющая.</p>
 <h3 id="заключение">Заключение</h3>
 <p>Больше информации и примеры проверок можно найти в <a href="https://github.com/abulimov/db-checker">репозитории проекта</a>,
@@ -150,13 +150,13 @@ N. ¦ column1 ¦ orig_title                ¦ rus_title
 <p class="terms">
 <b>Tags:</b>
 
-  <a href="//bulimov.ru/tags/%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/">Программирование</a>
+  <a href="//bulimov.me/tags/%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/">Программирование</a>
 
-  <a href="//bulimov.ru/tags/golang/">Golang</a>
+  <a href="//bulimov.me/tags/golang/">Golang</a>
 
-  <a href="//bulimov.ru/tags/nagios/">Nagios</a>
+  <a href="//bulimov.me/tags/nagios/">Nagios</a>
 
-  <a href="//bulimov.ru/tags/monitoring/">Monitoring</a>
+  <a href="//bulimov.me/tags/monitoring/">Monitoring</a>
 
 
 </p>
@@ -164,9 +164,9 @@ N. ¦ column1 ¦ orig_title                ¦ rus_title
 
 <b>Categories:</b>
 
-  <a href="//bulimov.ru/categories/it/">IT</a>
+  <a href="//bulimov.me/categories/it/">IT</a>
 
-  <a href="//bulimov.ru/categories/russian/">Russian</a>
+  <a href="//bulimov.me/categories/russian/">Russian</a>
 
 
 </p>
@@ -175,7 +175,7 @@ N. ¦ column1 ¦ orig_title                ¦ rus_title
   
   
   <hr/>
-  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.ru">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.me">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
   
   </footer>
   </body>

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blog on Alexander Bulimov: Production Engineer and Scale Modeller</title>
-    <link>//bulimov.ru/tags/blog/</link>
+    <link>//bulimov.me/tags/blog/</link>
     <description>Recent content in Blog on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 16 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 16 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Code-like linting for prose</title>
-      <link>//bulimov.ru/post/2022/01/16/prose-lint/</link>
+      <link>//bulimov.me/post/2022/01/16/prose-lint/</link>
       <pubDate>Sun, 16 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/post/2022/01/16/prose-lint/</guid>
+      <guid>//bulimov.me/post/2022/01/16/prose-lint/</guid>
       <description>I&amp;rsquo;m a big fan of static analysis and linting for code.
 If a computer can do it automatically - why rely on humans to do the same thing?
 That&amp;rsquo;s one of the reasons why I&amp;rsquo;m such a big proponent of static typing.
 I try to bring linting everywhere:
- When I had to deal with huge and complex HAProxy configs - I wrote a linter myself. When later at different place I had to deal with complicated business logic expressed as a state machine - I used Python AST to write a linter for it, and analyze cycles, dead ends and complexity.</description>
+When I had to deal with huge and complex HAProxy configs - I wrote a linter myself. When later at different place I had to deal with complicated business logic expressed as a state machine - I used Python AST to write a linter for it, and analyze cycles, dead ends and complexity.</description>
     </item>
     
   </channel>

@@ -53,7 +53,7 @@ Elasticsearch версий 1.4 - 1.7 при нагрузке в ~20kk сообщ
 Elasticsearch для хранения логов, минусы этого решения я знал, поэтому было
 решено попробовать использовать второго большого игрока на этом поприще - ELK.</p>
 <p>Первый вариант использования Logstash и Elasticsearch был очень наивным:</p>
-<pre><code>источники логов -&gt; Logstash -&gt; Elasticsearch
+<pre tabindex="0"><code>источники логов -&gt; Logstash -&gt; Elasticsearch
 </code></pre><p>То есть Logstash принимает логи в различных форматах по сети,
 обрабатывает их, и напрямую кладет в Elasticsearch.</p>
 <p>Практически сразу была выявлена проблема - при нагрузке
@@ -89,7 +89,7 @@ Logstash так и осталась.</p>
 <p>Для решения этой проблемы я выбрал простую и достаточно популярную схему с
 буферизацией входящих логов в Redis. Таким образом, схема работы стала выглядеть
 так:</p>
-<pre><code>источники логов -&gt; Logstash-front -&gt; Redis -&gt; Logstash-back -&gt; Elasticsearch
+<pre tabindex="0"><code>источники логов -&gt; Logstash-front -&gt; Redis -&gt; Logstash-back -&gt; Elasticsearch
 </code></pre><p>Таким образом, Redis выступает в роли эластичного буфера, сглаживая пики
 нагрузки, и храня сообщения при перезапусках или падения Logstash-back и
 Elasticsearch. При это Logstash-front сделан максимально тупым, и не выполняет
@@ -115,13 +115,13 @@ Elasticsearch. При это Logstash-front сделан максимально 
 <p class="terms">
 <b>Tags:</b>
 
-  <a href="//bulimov.ru/tags/elasticsearch/">Elasticsearch</a>
+  <a href="//bulimov.me/tags/elasticsearch/">Elasticsearch</a>
 
-  <a href="//bulimov.ru/tags/logstash/">Logstash</a>
+  <a href="//bulimov.me/tags/logstash/">Logstash</a>
 
-  <a href="//bulimov.ru/tags/kibana/">Kibana</a>
+  <a href="//bulimov.me/tags/kibana/">Kibana</a>
 
-  <a href="//bulimov.ru/tags/%D0%BE%D0%BF%D1%8B%D1%82/">Опыт</a>
+  <a href="//bulimov.me/tags/%D0%BE%D0%BF%D1%8B%D1%82/">Опыт</a>
 
 
 </p>
@@ -129,9 +129,9 @@ Elasticsearch. При это Logstash-front сделан максимально 
 
 <b>Categories:</b>
 
-  <a href="//bulimov.ru/categories/it/">IT</a>
+  <a href="//bulimov.me/categories/it/">IT</a>
 
-  <a href="//bulimov.ru/categories/russian/">Russian</a>
+  <a href="//bulimov.me/categories/russian/">Russian</a>
 
 
 </p>
@@ -140,7 +140,7 @@ Elasticsearch. При это Logstash-front сделан максимально 
   
   
   <hr/>
-  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.ru">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.me">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
   
   </footer>
   </body>

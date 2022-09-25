@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tmux on Alexander Bulimov: Production Engineer and Scale Modeller</title>
-    <link>//bulimov.ru/tags/tmux/</link>
+    <link>//bulimov.me/tags/tmux/</link>
     <description>Recent content in tmux on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 04 Sep 2014 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/tmux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Sep 2014 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/tmux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Открыл для себя плагины к tmux</title>
-      <link>//bulimov.ru/it/%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D0%BB-%D0%B4%D0%BB%D1%8F-%D1%81%D0%B5%D0%B1%D1%8F-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%D1%8B-%D0%BA-tmux/</link>
+      <link>//bulimov.me/it/%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D0%BB-%D0%B4%D0%BB%D1%8F-%D1%81%D0%B5%D0%B1%D1%8F-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%D1%8B-%D0%BA-tmux/</link>
       <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D0%BB-%D0%B4%D0%BB%D1%8F-%D1%81%D0%B5%D0%B1%D1%8F-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%D1%8B-%D0%BA-tmux/</guid>
+      <guid>//bulimov.me/it/%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D0%BB-%D0%B4%D0%BB%D1%8F-%D1%81%D0%B5%D0%B1%D1%8F-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%D1%8B-%D0%BA-tmux/</guid>
       <description>Случилось чудесное - LOR принес мне пользу. Оттуда я узнал о плагине tmux-resurrect, а точнее, вообще о существовании плагинов для чудесного мультиплексора терминалов tmux.
 С помощью имеющихся плагинов можно привести конфигурацию в более понятный вид, а также заменить свои костыли на костыли, поддерживаемые сообществом.
 Я, к примеру:
- сильно сократил конфигурацию, используя tmux-sensible; с помощью tmux-yank выкинул свои костыли для копирования в буфер обмена; смог убрать настройки для vi-образной навигации между панелями благодаря tmux-pain-control; обрел поиск с помощью tmux-copycat; теперь могу открывать выделенные файлы либо URL с помощью tmux-open; наконец, могу сохранять все открытые окна и панели tmux с использованием tmux-resurrect;  </description>
+сильно сократил конфигурацию, используя tmux-sensible; с помощью tmux-yank выкинул свои костыли для копирования в буфер обмена; смог убрать настройки для vi-образной навигации между панелями благодаря tmux-pain-control; обрел поиск с помощью tmux-copycat; теперь могу открывать выделенные файлы либо URL с помощью tmux-open; наконец, могу сохранять все открытые окна и панели tmux с использованием tmux-resurrect; </description>
     </item>
     
   </channel>

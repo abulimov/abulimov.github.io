@@ -71,13 +71,13 @@
 <ul>
 <li>на сервере мониторинга Monit следит за тем, что Icinga2 жива</li>
 </ul>
-<pre><code>check process icinga2
+<pre tabindex="0"><code>check process icinga2
   with pidfile /var/run/icinga2/icinga2.pid
   mode passive
 </code></pre><ul>
 <li>на соседе Monit следит, что сервер мониторинга жив</li>
 </ul>
-<pre><code>check host monitoring with address monitoring.example.com
+<pre tabindex="0"><code>check host monitoring with address monitoring.example.com
   if failed icmp type echo count 5 with timeout 15 seconds then alert
 </code></pre><p>Ну и конечно Icinga2 следит за тем, что оба процесса Monit на серверах живы.</p>
 <p>Проще не придумаешь, и потому я даже более спокоен, чем в схеме с двумя
@@ -103,13 +103,13 @@ Zabbix-серверами.</p>
 <p class="terms">
 <b>Tags:</b>
 
-  <a href="//bulimov.ru/tags/icinga2/">Icinga2</a>
+  <a href="//bulimov.me/tags/icinga2/">Icinga2</a>
 
-  <a href="//bulimov.ru/tags/monit/">Monit</a>
+  <a href="//bulimov.me/tags/monit/">Monit</a>
 
-  <a href="//bulimov.ru/tags/monitoring/">Monitoring</a>
+  <a href="//bulimov.me/tags/monitoring/">Monitoring</a>
 
-  <a href="//bulimov.ru/tags/%D0%BE%D0%BF%D1%8B%D1%82/">Опыт</a>
+  <a href="//bulimov.me/tags/%D0%BE%D0%BF%D1%8B%D1%82/">Опыт</a>
 
 
 </p>
@@ -117,9 +117,9 @@ Zabbix-серверами.</p>
 
 <b>Categories:</b>
 
-  <a href="//bulimov.ru/categories/it/">IT</a>
+  <a href="//bulimov.me/categories/it/">IT</a>
 
-  <a href="//bulimov.ru/categories/russian/">Russian</a>
+  <a href="//bulimov.me/categories/russian/">Russian</a>
 
 
 </p>
@@ -128,7 +128,7 @@ Zabbix-серверами.</p>
   
   
   <hr/>
-  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.ru">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.me">Alexander Bulimov</a> 2013 &ndash; 2021 | <a href="https://github.com/abulimov">Github</a>
   
   </footer>
   </body>

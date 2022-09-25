@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CoreOS on Alexander Bulimov: Production Engineer and Scale Modeller</title>
-    <link>//bulimov.ru/tags/coreos/</link>
+    <link>//bulimov.me/tags/coreos/</link>
     <description>Recent content in CoreOS on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 24 Mar 2016 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/coreos/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Mar 2016 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/coreos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Проверка образов Docker на уязвимости с Clair</title>
-      <link>//bulimov.ru/it/clair/</link>
+      <link>//bulimov.me/it/clair/</link>
       <pubDate>Thu, 24 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/clair/</guid>
+      <guid>//bulimov.me/it/clair/</guid>
       <description>Ни для кого не секрет, что контейнеры (и в частности Docker) не только решают много проблем (configuration drift, scalability, dependency hell), но и привносят новые (в частности, обновление базовых образов).
 Я уже давно мониторил IT-мир на предмет появления хорошего инструмента для проверки Docker-образов на наличие известных CVE. До недавнего времени подходящего инструмента не было. Была парочка дистро-специфичных инструментов (например oscap-docker, с которым я помучался и забил), но ничего подходящего.
 Но недавно (19.</description>
@@ -20,10 +20,10 @@
     
     <item>
       <title>Избавился от CoreOS</title>
-      <link>//bulimov.ru/it/goodby-coreos/</link>
+      <link>//bulimov.me/it/goodby-coreos/</link>
       <pubDate>Mon, 26 Oct 2015 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/goodby-coreos/</guid>
+      <guid>//bulimov.me/it/goodby-coreos/</guid>
       <description>С огромным облегчением сегодня убрал последний хост с CoreOS.
 Я уже писал о своих впечатлениях от CoreoOS, но с тех пор впечатлений прибавилось.
 Частые атомарные обновления на бумаге выглядели вкусно (и в пользовательских ОС типа Android работают прекрасно), но вот на практике на серверах в том виде, в котором CoreOS их готовит, оказались совсем несъедобны.
@@ -32,10 +32,10 @@
     
     <item>
       <title>Впечатления от CoreOS</title>
-      <link>//bulimov.ru/it/coreos-opinion/</link>
+      <link>//bulimov.me/it/coreos-opinion/</link>
       <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/coreos-opinion/</guid>
+      <guid>//bulimov.me/it/coreos-opinion/</guid>
       <description>На волне популярности контейнерной виртуализации Docker стали появляться специализированные дистрибутивы Linux, созданные специально для использования в роли базового хоста для Docker-контейнеров.
 Пионером среди них стал проект CoreOS, затем появились Project Atomic от RedHat и Ubuntu Snappy от Canonical.
 Чем они все отличаются от привычных дистрибутивов? Основным отличием является модель обновления дистрибутива. Все эти проекты предлагают атомарные обновления, подразумевающие сборку нового образа системы с последующей перезагрузкой в него. При этом образ монтируется в read-only режиме, и есть возможность откатиться на предыдущий образ системы.</description>

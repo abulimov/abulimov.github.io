@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Golang on Alexander Bulimov: Production Engineer and Scale Modeller</title>
-    <link>//bulimov.ru/tags/golang/</link>
+    <link>//bulimov.me/tags/golang/</link>
     <description>Recent content in Golang on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 13 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python is not good for production</title>
-      <link>//bulimov.ru/post/2021/03/13/python-rewrite/</link>
+      <link>//bulimov.me/post/2021/03/13/python-rewrite/</link>
       <pubDate>Sat, 13 Mar 2021 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/post/2021/03/13/python-rewrite/</guid>
+      <guid>//bulimov.me/post/2021/03/13/python-rewrite/</guid>
       <description>Here, I said it.
 Recently I read an excellent (opinionated) post by rachelbythebay describing things she cannot stand in programming language, and it resonated deeply with me and finally pushed me to write this.
 I feel quite strongly about using Python in production, and below I&amp;rsquo;ll summarize my experience and opinion.
@@ -22,20 +22,20 @@ I&amp;rsquo;m not trying to offend anyone, so if you love Python - maybe try to 
     
     <item>
       <title>Moving from Pelican to Hugo for this blog</title>
-      <link>//bulimov.ru/post/2021/02/16/pelical-to-hugo/</link>
+      <link>//bulimov.me/post/2021/02/16/pelical-to-hugo/</link>
       <pubDate>Tue, 16 Feb 2021 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/post/2021/02/16/pelical-to-hugo/</guid>
+      <guid>//bulimov.me/post/2021/02/16/pelical-to-hugo/</guid>
       <description>Since I no longer enjoy working with Python in any shape or form, it was only a matter of time (mostly a matter of my free time) for this to happen. I&amp;rsquo;ve migrated this blog from Pelican static site generator (written in Python) to Hugo (written in Go).
 It by no means reflects on Pelican as a piece of software (it&amp;rsquo;s actually pretty good). It&amp;rsquo;s more about my disdain for Python, and awesome experience I had with Hugo and Go language in general.</description>
     </item>
     
     <item>
       <title>My new Scale Models gallery</title>
-      <link>//bulimov.ru/personal/models-gallery/</link>
+      <link>//bulimov.me/personal/models-gallery/</link>
       <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/personal/models-gallery/</guid>
+      <guid>//bulimov.me/personal/models-gallery/</guid>
       <description>I&amp;rsquo;ve just published my new site - personal Scale Models Gallery.
 Model making is my main and favorite hobby, so I&amp;rsquo;ve decided to build a whole new site just to write about it.
 I just love doing something without the computer, it&amp;rsquo;s an awesome way to de-stress and detox.
@@ -44,21 +44,21 @@ Also I love to make notes about things I do, read, watch or play. And one day I&
     
     <item>
       <title>Python 3.6 f-strings rant</title>
-      <link>//bulimov.ru/it/python3-fstrings/</link>
+      <link>//bulimov.me/it/python3-fstrings/</link>
       <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/python3-fstrings/</guid>
+      <guid>//bulimov.me/it/python3-fstrings/</guid>
       <description>Python 3.6 introduced a new way to format strings, called Formatted string literals, or just f-strings. Everyone on the internet seem to be happy about it. I&amp;rsquo;m definitely not.
 For starters, Python 3 already had 3 built-in ways of doing it before. Just think about it&amp;hellip; 3 ways to format strings in language that declares simplicity as a goal:
- There should be one&amp;ndash; and preferably only one &amp;ndash;obvious way to do it.</description>
+There should be one&amp;ndash; and preferably only one &amp;ndash;obvious way to do it.</description>
     </item>
     
     <item>
       <title>Утилита gotests и плагин для Atom</title>
-      <link>//bulimov.ru/it/atom-gotests/</link>
+      <link>//bulimov.me/it/atom-gotests/</link>
       <pubDate>Fri, 15 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/atom-gotests/</guid>
+      <guid>//bulimov.me/it/atom-gotests/</guid>
       <description>Поскольку последнее время я все больше пишу на Go, мой workflow потихоньку обрастает различными полезными утилитами.
 Одним из лучших открытий (после изумительного go-plus для Atom, который превращает Atom в полнофункциональную IDE для Go) стала утилита gotests, которая позволяет генерировать табличные тесты. При этом для нее есть плагины для Sublime Text 3 и Emacs.
 Я большой сторонник юнит-тестирования, и потому возможность создавать шаблоны для тестов одной командой меня очень обрадовала.
@@ -67,10 +67,10 @@ For starters, Python 3 already had 3 built-in ways of doing it before. Just thin
     
     <item>
       <title>Все для HAProxy в Atom</title>
-      <link>//bulimov.ru/it/atom-HAProxy/</link>
+      <link>//bulimov.me/it/atom-HAProxy/</link>
       <pubDate>Fri, 08 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/atom-HAProxy/</guid>
+      <guid>//bulimov.me/it/atom-HAProxy/</guid>
       <description>Появилась у меня на работе задачка - взять 3 относительно разных конфига HAProxy, ответвившихся когда-то от общего предка, и обратно унифицировать их в один.
 Конфиги хорошие, большие - 800 строк каждый.
 Приступил я к этой задаче, и сразу оступил - потому что в Atom, которым я пользуюсь для редактирования всего, не было подсветки синтаксиса конфигов HAProxy.
@@ -79,20 +79,20 @@ For starters, Python 3 already had 3 built-in ways of doing it before. Just thin
     
     <item>
       <title>Vendoring зависимостей в Go</title>
-      <link>//bulimov.ru/it/go-vendoring/</link>
+      <link>//bulimov.me/it/go-vendoring/</link>
       <pubDate>Thu, 31 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/go-vendoring/</guid>
+      <guid>//bulimov.me/it/go-vendoring/</guid>
       <description>После недавнего удаления модуля на 11 строк кода из npm, которое сломало всю Node.js инфраструктуру, я по-новому взглянул на то, как в проектах на Go реализованы зависимости от других пакетов.
 Изначально, при знакомстве с go я был крайне недоволен отсутствием возможности задавать зависимости от конкретных версий (зависимость указывается только от репозитория, т.е. от master ветки) - ведь апстрим может ломать обратную совместимость, и твой проект просто не соберется. Причем я сам с этой проблемой столкнулся, и это было очень неприятно.</description>
     </item>
     
     <item>
       <title>Открыл код db-checker</title>
-      <link>//bulimov.ru/it/db-checker/</link>
+      <link>//bulimov.me/it/db-checker/</link>
       <pubDate>Fri, 18 Mar 2016 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/db-checker/</guid>
+      <guid>//bulimov.me/it/db-checker/</guid>
       <description>Недавно я открыл код еще одного инструмента, который уже около года использую на работе - db-checker.
 Началось все с необходимости проводить регулярные проверки логической целостности данных в БД. Проще говоря - гонять мониторингом запросы к базе.
 Сначала это была часть проекта, который проверял данные на нашем CDN. Проект этот сразу планировался многопоточным, поэтому написан на Go. Затем мухи были отделены от котлет, и проверка базы выделилась в отдельную сущность, но несколько legacy-моментов осталось.</description>
@@ -100,10 +100,10 @@ For starters, Python 3 already had 3 built-in ways of doing it before. Just thin
     
     <item>
       <title>Рекомендую Advent Of Code</title>
-      <link>//bulimov.ru/it/advent-of-code/</link>
+      <link>//bulimov.me/it/advent-of-code/</link>
       <pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/advent-of-code/</guid>
+      <guid>//bulimov.me/it/advent-of-code/</guid>
       <description>Закончил на днях решать задачи из замечательного набора программерских пазлов Advent Of Code (да, я тормоз и даже пропустил начало этого конкурса), и могу уверенно рекомендовать его любому.
 Задачки веселые, разнообразные, в меру сложные, содержат много классических задач (задача коммивояжёра, задача о ранце и т.д.) в занятной обертке, так что их решение дает возможность отлично размять мозги.
 Так же эти задачки отлично подходят для изучения нового языка, чем я отчасти воспользовался - решал все на Go, освежив и укрепив свои знания.</description>
@@ -111,10 +111,10 @@ For starters, Python 3 already had 3 built-in ways of doing it before. Just thin
     
     <item>
       <title>Улучшаем сообщения от мониторинга с помощью cAdvisor-companion</title>
-      <link>//bulimov.ru/it/cadvisor-companion/</link>
+      <link>//bulimov.me/it/cadvisor-companion/</link>
       <pubDate>Tue, 21 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/cadvisor-companion/</guid>
+      <guid>//bulimov.me/it/cadvisor-companion/</guid>
       <description>Слышали ли вы когда-нибудь о такой практике, как &amp;ldquo;Monitoring Events Enrichment&amp;rdquo;? Если вкратце, то это практика наполнения дополнительной информацией сообщений от мониторинга, так что на выяснение причины проблемы уходит меньше времени и телодвижений.
 Есть даже контора, которая помогает внедрять эту практику на коммерческой основе, у них на сайте есть неплохие примеры того, что и зачем можно добавить к обычному сообщению от Nagios.
 Сама эта идея мне очень нравится, и вот после очередного неинформативного сообщения от мониторинга, которое пришло тогда, когда я был далеко от компьютера, и гласило CheckDockerStats CRITICAL: 91% CPU Used!</description>

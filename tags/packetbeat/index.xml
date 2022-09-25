@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Packetbeat on Alexander Bulimov: Production Engineer and Scale Modeller</title>
-    <link>//bulimov.ru/tags/packetbeat/</link>
+    <link>//bulimov.me/tags/packetbeat/</link>
     <description>Recent content in Packetbeat on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 May 2017 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.ru/tags/packetbeat/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 May 2017 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/packetbeat/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Вопросы от Дениса</title>
-      <link>//bulimov.ru/it/user-questions/</link>
+      <link>//bulimov.me/it/user-questions/</link>
       <pubDate>Sat, 27 May 2017 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/user-questions/</guid>
+      <guid>//bulimov.me/it/user-questions/</guid>
       <description>Пришло письмо от читателя по имени Денис по форме обратной связи. Поскольку никаких данных для связи с ним Денис не оставил, отвечу здесь.
 Привожу письмо полностью (надеюсь, автор не против):
- Александр, здравствуйте! Не смог найти вашу электропочту, пишу через форму обратной связи вашего домена на рег.ру :)
-  С огромным удовольствием читаю твой блог, очень жаль, что больше не обновляешь его.
-  Помоги, пожалуйста, советом. У меня примерно 12 виртуальных серверов с небольшими микросервисами, на каждом из серверов поставил collectd и statsd, плюс на отдельном сервере развёрнул go-carbon - whisper - graphite-api - Grafana.</description>
+Александр, здравствуйте! Не смог найти вашу электропочту, пишу через форму обратной связи вашего домена на рег.ру :)
+С огромным удовольствием читаю твой блог, очень жаль, что больше не обновляешь его.
+Помоги, пожалуйста, советом. У меня примерно 12 виртуальных серверов с небольшими микросервисами, на каждом из серверов поставил collectd и statsd, плюс на отдельном сервере развёрнул go-carbon - whisper - graphite-api - Grafana.</description>
     </item>
     
     <item>
       <title>Попробуйте Packetbeat</title>
-      <link>//bulimov.ru/it/try-packetbeat/</link>
+      <link>//bulimov.me/it/try-packetbeat/</link>
       <pubDate>Thu, 28 May 2015 00:00:00 +0000</pubDate>
       
-      <guid>//bulimov.ru/it/try-packetbeat/</guid>
+      <guid>//bulimov.me/it/try-packetbeat/</guid>
       <description>Вчера в блоге Elasticsearch появилась отличная новость - проект Packetbeat, развиваемый до этого энтузиастами, присоединился к Elastic.
 Я уже довольно давно слежу за этим проектом, и теперь, когда можно не беспокоиться о его будущем, хочу о нем рассказать.
 Packetbeat это такой инструмент мониторинга, который работает как анализатор сетевых пакетов, парсит различные протоколы (сейчас поддерживаются HTTP, MySQL, PostgreSQL, Redis, Thrift-RPC), получает нужные данные, и отсылает их либо напрямую в Elasticsearch, либо в Redis, из которого данные будет забирать Logstash и класть их все в тот же Elasticsearch.</description>
