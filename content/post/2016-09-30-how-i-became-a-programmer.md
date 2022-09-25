@@ -33,7 +33,7 @@ Anyway, approximately during 9th year of school some boys in our class were atte
 external paid programming courses, where they were using
 [Borland Delphi](https://en.wikipedia.org/wiki/Delphi_(programming_language)).
 
-Obviously they've shown other students some of their's programs, so I've tried to write something in Delphi on my own.
+Obviously they've shown other students some of their programs, so I've tried to write something in Delphi on my own.
 No surprise, I haven't written anything and became absolutely sure that programming is not my cup of tea.
 
 **So during school I developed only strong feeling that programming was to hard for me**
