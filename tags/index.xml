@@ -6,7 +6,34 @@
     <description>Recent content in Tags on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 03 Oct 2022 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PlayStation</title>
+      <link>//bulimov.me/tags/playstation/</link>
+      <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.me/tags/playstation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Video Games</title>
+      <link>//bulimov.me/tags/video-games/</link>
+      <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.me/tags/video-games/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Xbox</title>
+      <link>//bulimov.me/tags/xbox/</link>
+      <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.me/tags/xbox/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Blog</title>
       <link>//bulimov.me/tags/blog/</link>
@@ -49,33 +76,6 @@
       <pubDate>Thu, 02 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>//bulimov.me/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>PlayStation</title>
-      <link>//bulimov.me/tags/playstation/</link>
-      <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>//bulimov.me/tags/playstation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Video Games</title>
-      <link>//bulimov.me/tags/video-games/</link>
-      <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>//bulimov.me/tags/video-games/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Xbox</title>
-      <link>//bulimov.me/tags/xbox/</link>
-      <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
-      
-      <guid>//bulimov.me/tags/xbox/</guid>
       <description></description>
     </item>
     
