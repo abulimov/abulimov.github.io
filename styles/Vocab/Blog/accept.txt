@@ -223,3 +223,6 @@ RRDTool
 PGAgent
 Pakhunov
 Marek
+tldr
+Forza
+Tinykin
