@@ -9,6 +9,7 @@ help:
 	@echo '   make clean                       remove the generated files         '
 	@echo '   make publish                     generate site                      '
 	@echo '   make github                      upload the web site via gh-pages   '
+	@echo '   make redirect DEST=./some/path   update the redirects mirror        '
 	@echo '                                                                       '
 	@echo '                                                                       '
 
@@ -34,3 +35,9 @@ publish: check
 github: publish
 	ghp-import -m 'Updated blog' -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
 	git push origin $(GITHUB_PAGES_BRANCH)
+
+redirect: publish
+ifndef DEST
+	$(error DEST is undefined, usage: make redirect DEST=./path-to-dir)
+endif
+	./sync_links.py $(DEST)
