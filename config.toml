@@ -43,5 +43,5 @@ url = "index.xml"
 
 [params]
 description = "A website built through Hugo and blogdown."
-footer = "[![License: CC BY-SA 4.0](https://i.creativecommons.org/l/by-sa/4.0/80x15.png)](https://creativecommons.org/licenses/by-sa/4.0/) &copy; [Alexander Bulimov](http://bulimov.me) 2013 -- 2022 | [Github](https://github.com/abulimov)"
+footer = "[![License: CC BY-SA 4.0](https://i.creativecommons.org/l/by-sa/4.0/80x15.png)](https://creativecommons.org/licenses/by-sa/4.0/) &copy; [Alexander Bulimov](http://bulimov.me) 2013 -- 2023 | [Github](https://github.com/abulimov)"
 

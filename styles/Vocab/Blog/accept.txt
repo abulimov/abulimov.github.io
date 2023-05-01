@@ -226,3 +226,8 @@ Marek
 tldr
 Forza
 Tinykin
+Sennheiser
+Koss
+Porta
+Microlab
+DAC
