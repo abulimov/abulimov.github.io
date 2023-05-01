@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Journey to HiFi audio | Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="https://models.bulimov.me">Scale Models</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/reviews/">Reviews</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">My Journey to HiFi audio</span></h1>
+
+<h2 class="date">2023/05/01</h2>
+
+</div>
+
+<main>
+<p>This year I upgraded my audio setup, finally bringing it to the quality and convenience level that I&rsquo;m happy with, and this positive change prompted the reminiscence.</p>
+<h2 id="2000---humble-beginnings">2000 - Humble beginnings</h2>
+<p>Funny enough, my journey to HiFi audio started with no audio. I had a CD-ROM drive in my first PC in 2000, and back then CD-ROM drives had headphone outputs. I used it to play <em>Dark Side of the Moon</em> by Pink Floyd through the cheapest no name earplugs, and was completely floored by it.</p>
+<p>I did it this way because I couldn&rsquo;t make the computer speakers work with audio CDs, and had no other means of playing audio CDs.</p>
+<p>I recall using this option for quite some time, even after I fixed playing music through computer speakers.
+The reason was simple - cheap computer speakers were rather terrible in early 2000s. They were tiny, milky white plastic things that sounded as bad as they looked, and made funny noises when mobile phone rang next to them.</p>
+<h2 id="2007---microlab-speakers">2007 - Microlab speakers</h2>
+<p>Around 2007 I started to make some money. I was already studying in the university, so earned money by helping other students with coding tasks.
+This allowed me to buy <em>fancy</em> (at least for a student at that time) <strong><a href="https://en.wikipedia.org/wiki/Microlab">Microlab</a> Solo 6C</strong> speakers - big, wooden, HiFi-looking with tweeters and mid-range drivers. They looked the real deal, and sounded nice enough.</p>
+<p>Soon after buying them I realized that having big and powerful 100 Watt speakers is very far from practical when you live in a tiny 8 square meter room.</p>
+<p>This realization finally made me start looking at high quality headphones.</p>
+<h2 id="2009---consciously-choosing-headphones">2009 - Consciously choosing headphones</h2>
+<p>Up until 2007 I paid no attention to headphones I used. Mostly it was cheapest headphones bundled with portable cassette (later CD) player, or something similarly cheap bought for a replacement.</p>
+<p>I remember one day listening to <strong>Koss Porta Pro</strong> that one of my university peers had around 2006, being amazed by the bass and the sound in general. But Porta Pro were expensive, I was poor, so I never bough one for myself.</p>
+<p>Finally around 2009 I was gifted <strong>Sennheiser IE4</strong> in-ear monitors for my birthday (which I picked, but couldn&rsquo;t make myself buy - they were rather expensive).</p>
+<p>Those were absolutely delightful, and served me well for years, up until 2016 or even 2017. Their neutral sound was a perfect match for prog rock I was very into at that stage.</p>
+<h2 id="2013---first-good-big-headphones">2013 - First good big headphones</h2>
+<p>I was kinda set with portable headphones since I&rsquo;ve got IE4s, but work headphones were completely different thing. Various cheap over-the-ear headphones I had were terribly sounding and didn&rsquo;t last long (which was probably a good thing).</p>
+<p>As usual, I gave the matter of choosing proper big headphones a great deal of thought, read reviews and forums, and settled on proved, respected brand - <strong>Audio Technica</strong>.</p>
+<p>All of my friends chipped in, and bought <strong>ATH M50</strong> for my birthday in 2013. I enhanced it with external USB audio card - <strong>SoundBlaster X-FI HD</strong>. I did it after the basic testing - surprisingly, even in 2013 PC sound cards were mostly garbage, it was easy to hear the difference.</p>
+<p>This new setup was such a game changer for me. Neutral and detailed sound of M50 allowed me to appreciate the complicated prog rock records on a new level, and ATH50 proved to be extremely well built and are still very much alive to this day.</p>
+<h2 id="2018---raspberry-pi-experiments">2018 - Raspberry Pi experiments</h2>
+<p>I kept the SoundBlaster + ATH M50 combo for almost 10 years, changing only the sound source.
+At some point, I set my mind on reducing the distractions that playing music from a laptop provides. I wanted to achieve this by building a headless standalone player based on Raspberry Pi and <a href="https://github.com/MusicPlayerDaemon/MPD">MPD</a> + a web-based UI, of course with good old SoundBlaster for audio output.</p>
+<p>I wrote software in Go that allowed me to control MPD with physical buttons and display player data (current song, playback status) on a 2x16 screen attached to Raspberry Pi 3 GPIO, and assembled everything on a breadboard.</p>
+<p>It was great fun dealing with wiring and hardware, and it all worked rather well.
+But when I looked into turning this setup into a real product, I realized that it&rsquo;s just not appealing to me. Designing the case, soldering everything - I remember how long this stage takes based on my previous Arduino-based projects, and just didn&rsquo;t want to invest so much time and effort.</p>
+<p>In the end, the project got shelved and I was stuck with playing music from laptop.</p>
+<h2 id="2023---current-setup">2023 - Current setup</h2>
+<p>Back in 2019 I had an opportunity to buy <strong>Sennheiser HD6XX</strong> from Massdrop (now Drop). I was intrigued by the promise of open-back headphones sound scene, and the price was good.</p>
+<p>I liked their sound quite a lot, but lack of any sound insulation inherent to the open-back design, and 300 ohm impedance that mandated the use of a headphone amp limited the opportunities to enjoy them.</p>
+<p>I was still limited by using SoundBlaster X-FI for the amplification, and it needed USB-A connected to a laptop to play music - not the most convenient setup. At least for me, bringing a laptop with USB audio card to a chair or a bed for an album spin is far from ideal (but I still did it) .</p>
+<p>It annoyed me that I have such great headphones that I rarely use, and finally few months ago I rewarded myself with a proper headphone amp, so that I can use any sound source with <strong>HD6XX</strong>.</p>
+<p>I settled on basic but good <strong>Topping L30II</strong> amp, which proved to be perfect for my use-case - small, great build quality, and most importantly great sound quality and enough power to drive any high-impedance headphones.</p>
+<p>I use iPhone as a sound source, mainly because it&rsquo;s the most convenient way to listen to various music (thanks to streaming services), but also because I cannot hear any difference between its lightning-to-3.5mm dongle DAC and other DACs like laptop audio cards.</p>
+<p>To sum it up, this is the current setup that leaves me very satisfied:</p>
+<ul>
+<li><strong>iPhone</strong> with Apple Music/Bandcamp and 3.5mm dongle</li>
+<li><strong>Topping L30II</strong> headphone AMP</li>
+<li><strong>Sennheiser HD6XX</strong> open-back headphones</li>
+</ul>
+<p>While for work I use <strong>Sony WH-1000XM3</strong> wireless over-the-ear headphones because of their excellent noise cancellation and decent audio quality.</p>
+<p>The difference between Sony and HD6XX is pretty significant (even my old ATH M50 sound better than Sony), so whenever I really mindfully listen to music - I do it on HD6XX with an amp conveniently plugged into the iPhone.</p>
+
+</main>
+
+
+<p class="terms">
+<b>Tags:</b>
+
+  <a href="//bulimov.me/tags/hifi/">HiFi</a>
+
+  <a href="//bulimov.me/tags/audio/">Audio</a>
+
+
+</p>
+<p class="terms">
+
+<b>Categories:</b>
+
+  <a href="//bulimov.me/categories/personal/">Personal</a>
+
+
+</p>
+
+  <footer>
+  
+  
+  <hr/>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.me">Alexander Bulimov</a> 2013 &ndash; 2023 | <a href="https://github.com/abulimov">Github</a>
+  
+  </footer>
+  </body>
+</html>
+
