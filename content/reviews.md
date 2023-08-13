@@ -13,18 +13,38 @@ I'm [writing my mini-reviews](/post/2021/05/23/taking-notes/) for games, books a
 ## Games
 | Name | Score |
 |------|-------|
+| **2023** |
+| Lunistice (Switch) | 10 |
+| Rise of the Third Power (Switch) | 9 |
+| Mario + Rabbids: Sparks of Hope (Switch) | 9 |
+| A Short Hike (Switch) | 8 |
+| Islanders (Switch) | 7 |
+| Planet of Lana (Xbox Series S) | 7 |
+| For the Vast Future (Switch) | 6 |
+| Turnip Boy Commits Tax Evasion (Xbox Series S) | 6 |
+| Mechstermination Force (Switch) | 6 |
+| Super Mario 3D World (Switch) | 6 |
+| Mars Power Industries (Switch) | 6 |
+| Golf Club Wasteland (Switch) | 5 |
+| Subsurface Circular (Switch) | 3 |
 | **2022** |
+| Chained Echoes (Switch) | 10 |
 | Tinykin (Xbox Series S) | 10 |
 | Kirby and the Forgotten Land (Switch) | 10 |
 | Wintermoor Tactics Club (Switch) | 10 |
+| The Last Campfire (Switch) | 9 |
 | Snowrunner Year 1 (Xbox Series S) | 9 |
 | HOB Definitive Edition (Switch) | 9 |
-| Pathway (Switch) | 8 |
 | Phoenotopia: Awakening (Switch) | 8 |
+| Snowrunner Year 2 (Xbox Series S) | 8 |
 | Fallout 3 (Xbox Series S) | 7 |
+| Pathway (Switch) | 7 |
 | Battle Chasers: Nightwar (Switch) | 7 |
+| Psychonauts 2 (Xbox Series S) | 6 |
+| Inmost (Switch) | 6 |
 | Nobody Saves The World (Xbox Series S) | 6 |
 | Death’s Door (Xbox Series S) | 6 |
+| Radical Rabbit Stew (Switch) | 3 |
 | **2021** |
 | Forza Horizon 4 (Xbox Series S) | 10 |
 | Wasteland 3 (Xbox Series S) | 9 |
@@ -34,6 +54,7 @@ I'm [writing my mini-reviews](/post/2021/05/23/taking-notes/) for games, books a
 | Children of Morta (Switch) | 9 |
 | Ara Fell: Enhanced Edition (Switch) | 8 |
 | Sable (Xbox Series S) | 8 |
+| Octopath Traveller (Switch) | 8 |
 | Hellblade: Senua's Sacrifice (PS4) | 8 |
 | Shadows of Adam (Switch) | 8 |
 | Valkyria Chronicles 4 (Switch) | 8 |
@@ -156,12 +177,17 @@ I'm [writing my mini-reviews](/post/2021/05/23/taking-notes/) for games, books a
 ## Books
 | Name | Score |
 |------|-------|
+| **2023** |
+| N.K. Jemisin - The Killing Moon | 10 |
+| Fintan O’Toole - We don’t know ourselves | 7 |
+| Madeline Miller - The Song of Achilles | 7 |
 | **2022** |
 | Arthur Conan Doyle - The Hound of The Baskervilles | 10 |
 | Ernie O’Malley - The Singing Flame | 9 |
 | Robert Gardiner - The Sailing Frigate | 9 |
 | Дмитрий Глуховский - Пост. Спаси и сохрани | 9 |
 | D.K. Brown - Warrior to Dreadnought | 9 |
+| Matthew Betts - Terror | 8 |
 | Kurt Vonnegut- Galapagos | 8 |
 | Michael Palin - Erebus | 8 |
 | Ernie O’Malley - Another Man’s Wound | 8 |
@@ -169,6 +195,7 @@ I'm [writing my mini-reviews](/post/2021/05/23/taking-notes/) for games, books a
 | N.K. Jemisin - The Kingdom of Gods | 8 |
 | C.S. Forester - Mr. Midshipman Hornblower | 7 |
 | Aldous Huxley - Brave New World | 7 |
+| Алексей Юрчак - Это было навсегда, пока не кончилось | 5 |
 | **2021** |
 | Richard Endsor - The Master Shipwrights Secrets | 11 |
 | Arthur Conan Doyle - The Sign of Four | 9 |
