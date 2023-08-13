@@ -233,3 +233,4 @@ Microlab
 DAC
 Balint
 impactful
+Numatic
