@@ -16,7 +16,7 @@ help:
 check:
 	vale content/post
 	@echo 'checking for bad links';\
-	grep -P -R '\[.+\]\((?:(?!http|\/)).+\)' content/post/;\
+	grep -P -R '^(?:(?!(\s*func|.*:=)).*)\[.+\]\((?:(?!http|\/)).+\)' content/post/;\
 	EXIT_CODE=$$?;\
 	if [ $$EXIT_CODE -eq 0 ]; \
 	then \
