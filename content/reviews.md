@@ -14,12 +14,24 @@ I'm [writing my mini-reviews](/post/2021/05/23/taking-notes/) for games, books a
 | Name | Score |
 |------|-------|
 | **2023** |
+| Yokus’s Island Express (Switch) | 10 |
 | Lunistice (Switch) | 10 |
+| Shadows Over Loathing (Switch) | 9 |
+| Return of the Obra Dinn (Switch) | 9 |
+| Starfield (Xbox Series S) | 9 |
 | Rise of the Third Power (Switch) | 9 |
 | Mario + Rabbids: Sparks of Hope (Switch) | 9 |
+| While The Iron’s Hot (Xbox Series S) | 8 |
+| Minute of Islands (Switch) | 8 |
 | A Short Hike (Switch) | 8 |
+| Regions of Ruin (Switch) | 7 |
+| Tiny Lands (Switch) | 7 |
+| Sea of Stars (Xbox Series S) | 7 |
+| DEX (Switch) | 7 |
 | Islanders (Switch) | 7 |
 | Planet of Lana (Xbox Series S) | 7 |
+| LEGO Builder’s Journey (Switch) | 6 |
+| Ori and The Blind Forest (Xbox Series S) | 6 |
 | For the Vast Future (Switch) | 6 |
 | Turnip Boy Commits Tax Evasion (Xbox Series S) | 6 |
 | Mechstermination Force (Switch) | 6 |
@@ -177,10 +189,14 @@ I'm [writing my mini-reviews](/post/2021/05/23/taking-notes/) for games, books a
 ## Books
 | Name | Score |
 |------|-------|
+| **2024** |
+| Paul Farrell - Tugboats Illustrated | 10 |
 | **2023** |
 | N.K. Jemisin - The Killing Moon | 10 |
+| Liam Clarke - Light in the Darkness: A History of Lightships and the People Who Served on Them | 8 |
 | Fintan O’Toole - We don’t know ourselves | 7 |
 | Madeline Miller - The Song of Achilles | 7 |
+| Nick Robins - The Coming of the Comet | 6 |
 | **2022** |
 | Arthur Conan Doyle - The Hound of The Baskervilles | 10 |
 | Ernie O’Malley - The Singing Flame | 9 |
@@ -290,6 +306,13 @@ I'm [writing my mini-reviews](/post/2021/05/23/taking-notes/) for games, books a
 ## Music
 | Name | Score |
 |------|-------|
+| **2024** |
+| Sacred Outcry - Towers of Gold | 9 |
+| **2023** |
+| A Dying Planet - When the Skies are Grey | 10 |
+| Xoth - Exogalactic | 9 |
+| **2022** |
+| Celldweller - Satellites | 10 |
 | **2021** |
 | Wolves In The Throne Room - Primordial Arcana | 10 |
 | Saor - Forgotten Paths | 10 |
