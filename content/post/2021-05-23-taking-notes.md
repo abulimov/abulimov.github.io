@@ -73,7 +73,7 @@ This approach works brilliantly and helps me with all work stuff ever since.
 
 But because Notational Velocity is MacOS-only, and I left this platform years ago, I had to find an multi-platform alternative.
 
-I found it in a form of opensource [**QOwnNotes**](https://www.qownnotes.org/) app, which works really well on desktop and
+I found it in a form of OpenSource [**QOwnNotes**](https://www.qownnotes.org/) app, which works really well on desktop and
 stores my notes simply as named markdown files in my work Dropbox folder.
 
 I use it exclusively for work stuff, so lack of mobile app support was never a problem.
@@ -88,7 +88,7 @@ I couldn't be happier with it, it does exactly what I always wanted my notes-tak
 
 OpenSource, no cruft, no terrible WYSIWYG editor, syncing via Dropbox/Nextcloud. Simple and lightweight on the phone, works well on PC.
 
-I can wholeheartedly recommend it, and it seems like it's doing quite well in terms of development, with second [Google Summer of Code participation](https://joplinapp.org/gsoc2021/index/) and active github repo.
+I can wholeheartedly recommend it, and it seems like it's doing quite well in terms of development, with second [Google Summer of Code participation](https://joplinapp.org/gsoc2021/index/) and active Github repo.
 
 I just wish I made this wonderful discovery sooner!
 

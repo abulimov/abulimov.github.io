@@ -30,8 +30,8 @@ Categories: [IT, Russian]
 а именно:
 
 * [mutagen](https://pypi.python.org/pypi/mutagen) для работы с музыкальными файлами;
-* [requests](https://pypi.python.org/pypi/requests) для получения нужных html-страниц;
-* [beautifulsoup4](https://pypi.python.org/pypi/beautifulsoup4) для разбора html;
+* [requests](https://pypi.python.org/pypi/requests) для получения нужных HTML-страниц;
+* [beautifulsoup4](https://pypi.python.org/pypi/beautifulsoup4) для разбора HTML;
 * [docopt](https://pypi.python.org/pypi/docopt) для удобного написания консольных утилит;
 * [mock](https://pypi.python.org/pypi/mock) для тестов.
 
@@ -42,7 +42,7 @@ Categories: [IT, Russian]
 так что можно добавить скачивание с любого другого сайта, не меняя саму программу.
 
 Результатами моих трудов может воспользоваться любой желающий,
-[код размещен на github](https://github.com/abulimov/lyricstagger) под
+[код размещен на Github](https://github.com/abulimov/lyricstagger) под
 лицензией [MIT](http://opensource.org/licenses/MIT).
 Поддерживается Python версий 2.7, 3.2, 3.3, 3.4 и PyPy.
 

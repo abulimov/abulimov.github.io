@@ -17,7 +17,7 @@ HAProxy, ответвившихся когда-то от общего предк
 которым я пользуюсь для редактирования всего, не было подсветки
 синтаксиса конфигов HAProxy.
 
-Ну у нас же тут opensource, так что тут же был нагуглен архив с
+Ну у нас же тут OpenSource, так что тут же был нагуглен архив с
 [HAProxy.tmbundle](https://github.com/williamsjj/HAProxy.tmbundle), который
 владелец почему-то удалил. Бандлы TextMate можно конвертировать в плагины
 Atom "из коробки", так что именно это я и сделал, и поэтому очень быстро
@@ -84,7 +84,7 @@ linter запускает его в виде `HAProxy -c -f filename`, и пар
 рефакторинг тех гигантских конфигов.
 
 Ну а все плоды моих трудов доступны под [лицензией MIT](http://opensource.org/licenses/MIT)
-на GitHub:
+на Github:
 
 * Подсветка синтаксиса конфигов HAProxy в Atom - [atom-language-HAProxy](https://github.com/abulimov/atom-language-HAProxy)
 ([страничка плагина в Atom](https://atom.io/packages/language-HAProxy))
@@ -92,5 +92,5 @@ linter запускает его в виде `HAProxy -c -f filename`, и пар
 ([страничка плагина в Atom](https://atom.io/packages/linter-HAProxy))
 * Сам HAProxy-lint - [HAProxy-lint](https://github.com/abulimov/HAProxy-lint)
 
-P.S. Заодно я научился делать релизы бинарников на GitHub с помощью
+P.S. Заодно я научился делать релизы бинарников на Github с помощью
 [TravisCI](https://travis-ci.org) - это оказалось очень легко и удобно.

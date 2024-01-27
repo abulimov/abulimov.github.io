@@ -12,7 +12,7 @@ Long overdue move of course, I bought the new domain years ago...
 Anyway, the only interesting bit about this is how I'm trying to keep the old links
 alive with a little bit of HTML magic.
 
-Using a very basic python script I've created a dedicated github repo
+Using a very basic python script I've created a dedicated Github repo
 with a directory structure mirroring this site,
 where each `index.html` consists of something like this:
 

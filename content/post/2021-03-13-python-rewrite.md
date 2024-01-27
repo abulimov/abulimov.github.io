@@ -55,7 +55,7 @@ However, after using them extensively in real life, I can point to few real prob
 
 In theory, new async Python3 sound pretty good, and if your service lives in vacuum it is quite nice.
 Unfortunately, when trying to use Asyncio with existing codebase you quickly realize that to really benefit from it,
-**all your dependencies need to be async**. And if for some common opensource libs out there already might be some asyncio alternative,
+**all your dependencies need to be async**. And if for some common OpenSource libs out there already might be some Asyncio alternative,
 decent chunk of your internal deps will have to be written once again.
 
 Also it's still pretty new, so more bugs, and last time I checked reasoning about performance was really hard.

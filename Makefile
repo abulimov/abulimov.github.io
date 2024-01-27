@@ -14,7 +14,7 @@ help:
 	@echo '                                                                       '
 
 check:
-	vale .
+	vale content/post
 	@echo 'checking for bad links';\
 	grep -P -R '\[.+\]\((?:(?!http|\/)).+\)' content/post/;\
 	EXIT_CODE=$$?;\

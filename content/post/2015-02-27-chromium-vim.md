@@ -24,7 +24,7 @@ Categories: [IT, Russian]
 И когда в очередной раз Firefox умер при работе с банальным графиком в Kibana,
 я переключился в Chrome, и решил проверить, не появился ли для него нормальный аналог Vimperator.
 
-Оказалось, что наконец-то появился новый крутой opensource плагин - [chromium-vim (cVim)](https://github.com/1995eaton/chromium-vim).
+Оказалось, что наконец-то появился новый крутой OpenSource плагин - [chromium-vim (cVim)](https://github.com/1995eaton/chromium-vim).
 Он умеет очень многое из того, что умеет Vimperator, и полностью настраивается.
 
 Если вы используете Firefox только из-за Vimperator - посмотрите на шикарный

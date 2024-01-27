@@ -101,7 +101,7 @@ read-only доступ к `/proc`, и который по HTTP API отдает 
 
 Подробнее о том, как этот сервис запускать, что из себя представляет API, почему
 я не стал использовать Docker API, и прочие полезные вещи можно почитать на
-[github-страничке cAdvisor-companion](https://github.com/abulimov/cadvisor-companion),
+[Github-страничке cAdvisor-companion](https://github.com/abulimov/cadvisor-companion),
 ну а я хочу рассказать как я использую этот самописный сервис, и какие у него
 есть недостатки.
 

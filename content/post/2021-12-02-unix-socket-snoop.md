@@ -24,12 +24,12 @@ Let's explore the options we have, starting from simplest ones.
 
 ### Reconfigure the reference implementation to use network
 
-Of course, the easiest approach would be to just tell the app to use network instead of unix socket.
+Of course, the easiest approach would be to just tell the app to use network instead of Unix socket.
 If there is a flag/config option to do so - great, we are done here!
 
-But often the software deliberately makes some things accessible only over the unix sockets, mostly for security reasons.
+But often the software deliberately makes some things accessible only over the Unix sockets, mostly for security reasons.
 
-For example, [chrony](https://chrony.tuxfamily.org/) NTP daemon allows certain management protocol packets only over the unix socket,
+For example, [chrony](https://chrony.tuxfamily.org/) NTP daemon allows certain management protocol packets only over the Unix socket,
 which has permissions set in a way that unprivileged user won't even be able to access it.
 
 ### socat
@@ -77,7 +77,7 @@ This is pretty neat, but we still need to know exactly what syscall is used to s
 
 ### sockdump.py
 
-Finally, if we dig more into how the unix sockets are done in Linux kernel, we can hook *kprobe* to kernel
+Finally, if we dig more into how the Unix sockets are done in Linux kernel, we can hook *kprobe* to kernel
 functions like `unix_stream_sendmsg` and capture everything regardless of the method the app uses to send data to the socket.
 
 This is exactly what nifty script called [`sockdump`](https://github.com/mechpen/sockdump) does under the hood!
@@ -100,14 +100,14 @@ waiting for data
 ```
 
 Also, if one is being curious - now it supports prefix-based socket path matching, and specifying '*' as a socket path
-allows to dump **all** the communications happening over unix sockets on the system.
+allows to dump **all** the communications happening over Unix sockets on the system.
 Spoiler alert: *systemd* does a lot of stuff there.
 
 ## Use-case
 
-All and all, I find the ability to dump communication happening over unix domain sockets to be very useful.
+All and all, I find the ability to dump communication happening over Unix Domain sockets to be very useful.
 
-First, it's extremely valuable to record the interactions that happen over unix sockets to be able to implement
+First, it's extremely valuable to record the interactions that happen over Unix sockets to be able to implement
 intricate details of the (often undocumented) protocols.
 
 For example, protocol used for *chronyd <-> chronyc* communication is completely undocumented, so in order to [implement

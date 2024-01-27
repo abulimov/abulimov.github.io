@@ -14,7 +14,6 @@ systemd
 chrony
 chronyc
 chronyd
-statsd
 StatsD
 Yandex
 Packetbeat
@@ -22,9 +21,7 @@ Elasticsearch
 Nagios
 lyricstagger
 docstrings
-collectd
 libs
-opensource
 OpenSource
 jq
 wallabag
@@ -38,9 +35,7 @@ asyncio
 Asyncio
 socat
 repo
-github
 Github
-GitHub
 kprobe
 strace
 linuxptp
@@ -94,7 +89,6 @@ Phoronix
 linux
 Linux
 Feedly
-Pid
 PID
 Eins
 Lennart
@@ -175,8 +169,7 @@ Ruhoh
 tmux
 yml
 YAML
-yaml
-taskd
+yamtaskd
 gitolite
 Mirakel
 geeknote
@@ -234,3 +227,4 @@ DAC
 Balint
 impactful
 Numatic
+OOMing
