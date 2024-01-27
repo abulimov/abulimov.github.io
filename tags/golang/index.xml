@@ -6,7 +6,18 @@
     <description>Recent content in Golang on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 13 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fun experiments with Go memory usage</title>
+      <link>//bulimov.me/post/2024/01/27/golang-memory/</link>
+      <pubDate>Sat, 27 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.me/post/2024/01/27/golang-memory/</guid>
+      <description>While working on a big Go program that processes data I began to wonder if our memory usage is adequate for the amount of data we deal with.
+My starting point was this question - If the output of this service is a text file that is only few Gigabytes in size, why does it take significantly more memory to produce this file?
+This lead to a series of experiments which I hope will be interesting for anyone caring about writing efficient code.</description>
+    </item>
+    
     <item>
       <title>Python is not good for production</title>
       <link>//bulimov.me/post/2021/03/13/python-rewrite/</link>
@@ -74,7 +85,7 @@ There should be one&amp;ndash; and preferably only one &amp;ndash;obvious way to
       <description>Появилась у меня на работе задачка - взять 3 относительно разных конфига HAProxy, ответвившихся когда-то от общего предка, и обратно унифицировать их в один.
 Конфиги хорошие, большие - 800 строк каждый.
 Приступил я к этой задаче, и сразу оступил - потому что в Atom, которым я пользуюсь для редактирования всего, не было подсветки синтаксиса конфигов HAProxy.
-Ну у нас же тут opensource, так что тут же был нагуглен архив с HAProxy.</description>
+Ну у нас же тут OpenSource, так что тут же был нагуглен архив с HAProxy.</description>
     </item>
     
     <item>

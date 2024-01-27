@@ -3,10 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>//bulimov.me/categories/</loc>
-    <lastmod>2023-08-13T00:00:00+00:00</lastmod>
+    <lastmod>2024-01-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/post/2024/01/27/golang-memory/</loc>
+    <lastmod>2024-01-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/golang/</loc>
+    <lastmod>2024-01-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/</loc>
-    <lastmod>2023-08-13T00:00:00+00:00</lastmod>
+    <lastmod>2024-01-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/categories/it/</loc>
+    <lastmod>2024-01-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/post/</loc>
+    <lastmod>2024-01-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/programming/</loc>
+    <lastmod>2024-01-27T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/</loc>
+    <lastmod>2024-01-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/home-automation/</loc>
     <lastmod>2023-08-13T00:00:00+00:00</lastmod>
@@ -14,22 +32,13 @@
     <loc>//bulimov.me/categories/personal/</loc>
     <lastmod>2023-08-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/post/</loc>
-    <lastmod>2023-08-13T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/post/2023/08/13/robot-vacuum-amazing/</loc>
-    <lastmod>2023-08-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/tags/</loc>
     <lastmod>2023-08-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/vacuum-cleaner/</loc>
     <lastmod>2023-08-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/experience/</loc>
-    <lastmod>2023-06-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/categories/it/</loc>
     <lastmod>2023-06-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/post/2023/06/18/no-business-reason/</loc>
@@ -98,9 +107,6 @@
     <loc>//bulimov.me/post/2021/05/23/taking-notes/</loc>
     <lastmod>2021-05-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/tags/golang/</loc>
-    <lastmod>2021-03-13T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/post/2021/03/13/python-rewrite/</loc>
     <lastmod>2021-03-13T00:00:00+00:00</lastmod>
   </url><url>
@@ -133,9 +139,6 @@
   </url><url>
     <loc>//bulimov.me/personal/laptop-upgrade/</loc>
     <lastmod>2018-01-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/tags/programming/</loc>
-    <lastmod>2017-07-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/it/python3-fstrings/</loc>
     <lastmod>2017-07-24T00:00:00+00:00</lastmod>

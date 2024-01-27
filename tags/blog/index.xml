@@ -15,7 +15,7 @@
       <guid>//bulimov.me/post/2022/09/25/moved-to-new-domain/</guid>
       <description>This site just moved to a new domain bulimov.me. Long overdue move of course, I bought the new domain years ago&amp;hellip;
 Anyway, the only interesting bit about this is how I&amp;rsquo;m trying to keep the old links alive with a little bit of HTML magic.
-Using a very basic python script I&amp;rsquo;ve created a dedicated github repo with a directory structure mirroring this site, where each index.html consists of something like this:</description>
+Using a very basic python script I&amp;rsquo;ve created a dedicated Github repo with a directory structure mirroring this site, where each index.html consists of something like this:</description>
     </item>
     
     <item>

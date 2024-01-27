@@ -6,7 +6,18 @@
     <description>Recent content in Home on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fun experiments with Go memory usage</title>
+      <link>//bulimov.me/post/2024/01/27/golang-memory/</link>
+      <pubDate>Sat, 27 Jan 2024 00:00:00 +0000</pubDate>
+      
+      <guid>//bulimov.me/post/2024/01/27/golang-memory/</guid>
+      <description>While working on a big Go program that processes data I began to wonder if our memory usage is adequate for the amount of data we deal with.
+My starting point was this question - If the output of this service is a text file that is only few Gigabytes in size, why does it take significantly more memory to produce this file?
+This lead to a series of experiments which I hope will be interesting for anyone caring about writing efficient code.</description>
+    </item>
+    
     <item>
       <title>Robot Vacuum Cleaner is an amazing invention</title>
       <link>//bulimov.me/post/2023/08/13/robot-vacuum-amazing/</link>
@@ -58,7 +69,7 @@ I can safely say that all the hopes I put into switching to Xbox have realized!<
       <guid>//bulimov.me/post/2022/09/25/moved-to-new-domain/</guid>
       <description>This site just moved to a new domain bulimov.me. Long overdue move of course, I bought the new domain years ago&amp;hellip;
 Anyway, the only interesting bit about this is how I&amp;rsquo;m trying to keep the old links alive with a little bit of HTML magic.
-Using a very basic python script I&amp;rsquo;ve created a dedicated github repo with a directory structure mirroring this site, where each index.html consists of something like this:</description>
+Using a very basic python script I&amp;rsquo;ve created a dedicated Github repo with a directory structure mirroring this site, where each index.html consists of something like this:</description>
     </item>
     
     <item>
@@ -220,7 +231,7 @@ Now I&amp;rsquo;ve been asked if something have changed.</description>
 Привожу письмо полностью (надеюсь, автор не против):
 Александр, здравствуйте! Не смог найти вашу электропочту, пишу через форму обратной связи вашего домена на рег.ру :)
 С огромным удовольствием читаю твой блог, очень жаль, что больше не обновляешь его.
-Помоги, пожалуйста, советом. У меня примерно 12 виртуальных серверов с небольшими микросервисами, на каждом из серверов поставил collectd и statsd, плюс на отдельном сервере развёрнул go-carbon - whisper - graphite-api - Grafana.</description>
+Помоги, пожалуйста, советом. У меня примерно 12 виртуальных серверов с небольшими микросервисами, на каждом из серверов поставил CollectD и StatsD, плюс на отдельном сервере развёрнул go-carbon - whisper - graphite-api - Grafana.</description>
     </item>
     
     <item>
@@ -299,7 +310,7 @@ The main reason for the switch is simple - Fish shell is not POSIX-compatible. A
       <description>Появилась у меня на работе задачка - взять 3 относительно разных конфига HAProxy, ответвившихся когда-то от общего предка, и обратно унифицировать их в один.
 Конфиги хорошие, большие - 800 строк каждый.
 Приступил я к этой задаче, и сразу оступил - потому что в Atom, которым я пользуюсь для редактирования всего, не было подсветки синтаксиса конфигов HAProxy.
-Ну у нас же тут opensource, так что тут же был нагуглен архив с HAProxy.</description>
+Ну у нас же тут OpenSource, так что тут же был нагуглен архив с HAProxy.</description>
     </item>
     
     <item>
@@ -427,8 +438,8 @@ The main reason for the switch is simple - Fish shell is not POSIX-compatible. A
       <pubDate>Thu, 17 Sep 2015 00:00:00 +0000</pubDate>
       
       <guid>//bulimov.me/it/collectd-riakcs/</guid>
-      <description>На днях наконец-то дошли руки до модернизации той части мониторинга, которая отвечает за сбор метрик, и набивший оскомину Munin был окончательно заменен на Graphite + collectd. Теперь воцарилась идиллия - Icinga2 складывает метрики из perfdata в Graphite, и collectd отправляет все метрики туда же.
-Хочется отдельно отметить, что несмотря на то, что изначально collectd мне не очень понравился (кому может сейчас понравиться Apache-подобный конфиг?), при дальнейшем изучении я был приятно поражен богатством возможностей этого продукта и крайне бережным его отношением к ресурсам наблюдаемой системы.</description>
+      <description>На днях наконец-то дошли руки до модернизации той части мониторинга, которая отвечает за сбор метрик, и набивший оскомину Munin был окончательно заменен на Graphite + CollectD. Теперь воцарилась идиллия - Icinga2 складывает метрики из perfdata в Graphite, и CollectD отправляет все метрики туда же.
+Хочется отдельно отметить, что несмотря на то, что изначально CollectD мне не очень понравился (кому может сейчас понравиться Apache-подобный конфиг?), при дальнейшем изучении я был приятно поражен богатством возможностей этого продукта и крайне бережным его отношением к ресурсам наблюдаемой системы.</description>
     </item>
     
     <item>

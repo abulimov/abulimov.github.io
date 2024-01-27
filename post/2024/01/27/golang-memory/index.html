@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fun experiments with Go memory usage | Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="https://models.bulimov.me">Scale Models</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/reviews/">Reviews</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Fun experiments with Go memory usage</span></h1>
+
+<h2 class="date">2024/01/27</h2>
+
+</div>
+
+<main>
+<p>While working on a big Go program that processes data I began to wonder if our memory usage is adequate for the amount of data we deal with.</p>
+<p>My starting point was this question - <em>If the output of this service is a text file that is only few Gigabytes in size,
+why does it take significantly more memory to produce this file?</em></p>
+<p>This lead to a series of experiments which I hope will be interesting for anyone caring about writing efficient code.</p>
+<h2 id="initial-dataset-and-goal">Initial dataset and goal</h2>
+<p>Here is our test dataset (copied from service&rsquo;s output):</p>
+<pre tabindex="0"><code>wc -l ~/tmp/data-1696012970
+30084004 /home/abulimov/tmp/data-1696012970
+
+ls -lh ~/tmp/data-1696012970
+-rw-r--r-- 1 abulimov abulimov 936M Oct 2 14:32 /home/abulimov/tmp/data-1696012970
+</code></pre><p>Which gives us <strong>30M records in almost 1Gb</strong>, ~31 bytes per line.</p>
+<p>All lines are pure ASCII.</p>
+<p>The task we are experimenting with is based on the actual workload our service does.</p>
+<p><strong>Let&rsquo;s simply read those 30M lines into memory, each line stored separately, and see how much memory it will actually take.</strong></p>
+<h2 id="reference-c-program">Reference C program</h2>
+<p>Here is the most basic C program that does that, which will serve for us as a reference point:</p>
+<pre tabindex="0"><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;string.h&gt;
+
+int main(int argc, char* argv[])
+{
+    char const* const fileName = argv[1];
+    FILE* file = fopen(fileName, &#34;r&#34;);
+    size_t len = 0;
+    ssize_t read;
+    char *line = NULL;
+    char *realLine = NULL;
+    size_t charCount = 0;
+    size_t arraySize = 1;
+    char **lines = malloc(arraySize * sizeof(char *));
+
+    while ((read = getline(&amp;line, &amp;len, file)) != -1) {
+        realLine = malloc(sizeof(char) * read);
+        strncpy(realLine, line, read);
+        lines[charCount] = realLine;
+        charCount++;
+        if (charCount &gt;= arraySize) {
+            arraySize = 2 * arraySize;
+            char** myarray = realloc(lines, arraySize * sizeof(char *));
+            if (myarray) {
+                lines = myarray;
+            } else {
+                return 13;
+            }
+        }
+    }
+    printf(&#34;lines: %ld\n&#34;, charCount);
+    fclose(file);
+    return 0;
+}
+</code></pre><p>building it with <code>gcc -O2 -Wall main.c</code> and running with <code>time</code> gives us this result on my M1 MBP
+(here and later on I edited the time output to remove information that is not interesting to us):</p>
+<pre tabindex="0"><code>/usr/bin/time -l ./a.out ./data-1696014531
+lines: 30085159
+        1.90 real         1.59 user         0.28 sys
+          1410913216  peak memory footprint
+</code></pre><p><strong>So to store 30M C strings, each around 31 bytes long, we would need roughly 1.4Gb of memory.</strong></p>
+<p>Or around 47 bytes per line. Which makes sense when we think about what it takes to store data in memory - on a 64bit system we need at least 8 bytes for pointer + 8 bytes for each heap-allocated array size.</p>
+<p><em>These last 8 bytes can be a surprise (we won&rsquo;t see it in the code after all), but they make total sense when you think of it. Of course when we
+allocate memory, under the hood somewhere the size of this allocation must be tracked. Otherwise, how would the computer know what to do when you call
+free() without providing the size that needs to be freed?</em></p>
+<p>Summing it up, we get exactly 47 (31 + 16) bytes per line, so now we know the baseline values.</p>
+<h2 id="naive-go-code">Naive Go code</h2>
+<p>Let&rsquo;s look at the Go code to do the same:</p>
+<pre tabindex="0"><code>package main
+import (
+  &#34;os&#34;
+  &#34;io&#34;
+  &#34;bufio&#34;
+  &#34;fmt&#34;
+  &#34;runtime&#34;
+  &#34;log&#34;
+  &#34;time&#34;
+)
+
+func printMem() {
+  var m runtime.MemStats
+  runtime.GC()
+  runtime.ReadMemStats(&amp;m)
+  fmt.Printf(&#34;Alloc = %v MiB&#34;, m.Alloc/1024/1024)
+  fmt.Printf(&#34;\tTotalAlloc = %v MiB&#34;, m.TotalAlloc/1024/1024)
+  fmt.Printf(&#34;\tSys = %v MiB&#34;, m.Sys/1024/1024)
+  fmt.Printf(&#34;\tNumGC = %v\n&#34;, m.NumGC)
+}
+
+func main() {
+  f, err := os.Open(os.Args[1])
+  if err != nil {
+    log.Println(err)
+    os.Exit(1)
+  }
+  start := time.Now()
+  l := make([]string, 0)
+  scanner := bufio.NewScanner(f)
+  for scanner.Scan() {
+    line := scanner.Text()
+    l = append(l, line)
+  }
+  printMem()
+  log.Printf(&#34;done with %d lines in %v&#34;, len(l), time.Since(start))
+}
+</code></pre><p>Running it provides us with somewhat disappointing results:</p>
+<pre tabindex="0"><code>/usr/bin/time -l ./main_simple ./data-1696014531
+Alloc = 0 MiB	TotalAlloc = 3454 MiB	Sys = 2260 MiB	NumGC = 17
+2023/10/23 15:05:59 done with 30085159 lines in 1.912067292s
+        1.96 real         2.45 user         0.51 sys
+          2357941696  peak memory footprint
+</code></pre><p>Hm, <strong>2.3Gb for the same task</strong>, that&rsquo;s quite an overhead! Let us see why does this happen?</p>
+<h2 id="string-data-type-difference-and-mysterious-overhead">String data type difference, and mysterious overhead</h2>
+<p>First, let&rsquo;s compare how we deal with strings.</p>
+<p>In C, we have infamous <code>\0</code>-terminated byte sequences, no overhead and no safety.</p>
+<p>In Go, we have this type under the hood:</p>
+<pre tabindex="0"><code>type string struct {
+    data uintptr
+    len int
+}
+</code></pre><p>As you can see, it is much safer as we have <code>len</code> stored next to the byte sequence.</p>
+<p>However, this gives us extra 8 bytes per string, which when multiplied by 30M is a significant 230Mb increase in memory usage.
+Which is actually fine, because as you&rsquo;ve seen when we allocate things on the heap, we lose same 8 bytes implicitly anyway, just without any real safety guarantees.</p>
+<p>What is very interesting is that Go is clever enough to store structs in slices in contiguous memory, so simply putting things into slices doesn&rsquo;t have overhead of storing heap pointers.
+This example shows that you can happily allocate billions of empty structs in Go without OOMing:</p>
+<pre tabindex="0"><code>package main
+
+import &#34;math&#34;
+
+func main() {
+    a := make([]struct{}, math.MaxInt64)
+    println(len(a))
+}  
+</code></pre><p>This is why it is recommended to use <code>map[string]struct{}{}</code> instead of <code>map[string]bool{}</code> when implementing sets.</p>
+<p>Going back to the task at hand - despite Go&rsquo;s smart tricks around contiguous memory,
+my experiments show that whenever reading data into strings using standard library always leads to pointers escaping to the heap.</p>
+<p>Combining all this theorizing brings us to the anticipated memory usage of around 1.6Gb. Where did we lose the rest?</p>
+<p>I was quite puzzled with this question, and it took me some time to figure it out.</p>
+<h2 id="should-we-use-byte">Should we use <code>[]byte</code></h2>
+<p>While thinking about that lost memory, I experimented with different data structures. Surely when we use raw <code>[]byte</code> we should see better memory usage?</p>
+<p>Wrong!</p>
+<p>In Go, <code>[]byte</code> is actually bigger than <code>string</code>:</p>
+<pre tabindex="0"><code>type slice struct {
+    data uintptr
+    len int
+    cap int
+}
+</code></pre><p>We store extra 8 bytes of current capacity per <code>[]byte</code> instance!
+Which means that against our intuition, using raw bytes is less effective than strings. If you need experimental proof - please check out Appendix A.</p>
+<h2 id="blame-the-gc">Blame the GC?</h2>
+<p>Maybe we should blame the <em>Garbage Collector</em>? Let&rsquo;s turn it off and see!</p>
+<pre tabindex="0"><code>GOGC=off /usr/bin/time -l ./main_simple ./data-1696014531
+Alloc = 0 MiB	TotalAlloc = 3454 MiB	Sys = 3556 MiB	NumGC = 1
+2023/10/23 15:25:07 done with 30085159 lines in 2.486294584s
+        2.68 real         0.97 user         1.14 sys
+          3701334016  peak memory footprint
+</code></pre><p>Ouch, now we consume 3.6 Gb. What is going on here? What was it that we didn&rsquo;t collect?</p>
+<p>I have a suspicion, but let&rsquo;s check one more assumption around GC - maybe it&rsquo;s just lazy?</p>
+<p>Let&rsquo;s use <code>GOMEMLIMIT</code> environment variable and set it to our anticipated 1.7Gb to make GC sweat:</p>
+<pre tabindex="0"><code>GOMEMLIMIT=1700000000 /usr/bin/time -l ./main_simple ./data-1696014531
+Alloc = 0 MiB	TotalAlloc = 3454 MiB	Sys = 2259 MiB	NumGC = 22
+2023/10/23 15:39:48 done with 30085159 lines in 2.37959025s
+        2.44 real         3.94 user         0.74 sys
+          1888245120  peak memory footprint
+</code></pre><p>Well, it did sweat (before the <code>GOMEMLIMIT</code> we had <code>NumGC=17</code>, now it is <code>22</code>), but the result didn&rsquo;t change much&hellip;
+Also, <code>time</code> seem to have missed the brief moment when we consumed 2.2Gb, oh well. Something else must be at play.</p>
+<h2 id="answer-to-the-lost-memory-question">Answer to the lost memory question</h2>
+<p>I wrote a lot of Go code in my life, so quite quickly I had a suspicion about the &rsquo;lost&rsquo; memory. Let&rsquo;s see if it is correct.</p>
+<p>Let&rsquo;s pre-allocate the <code>[]string</code> slice to avoid growing it and copying the data over and over again to the new memory region, and change one line:</p>
+<pre tabindex="0"><code>l := make([]string, 0, 31*1000000)
+</code></pre><p>and then compile and run our tiny binary:</p>
+<pre tabindex="0"><code>/usr/bin/time -l ./main_simple ./data-1696014531
+Alloc = 0 MiB	TotalAlloc = 1518 MiB	Sys = 1590 MiB	NumGC = 3
+2023/10/23 15:46:03 done with 30085159 lines in 1.080537584s
+        1.10 real         1.02 user         0.42 sys
+          1662112000  peak memory footprint
+</code></pre><p>Yay, now the math makes sense! <strong>We use 1.6Gb</strong>, just as we expected. Also notice the run time and number of GC.
+We now execute twice as fast, and only ran GC 3 times. Finally, the numbers make sense.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>The mystery is solved, and we have a solid piece of advice to anyone writing efficient Go code - <strong>always pre-allocate your slices</strong>.</p>
+<p>Luckily, <a href="https://golangci-lint.run/"><code>golangci-lint</code></a> runs <code>prealloc</code> linter that warns you about missed pre-allocation opportunities.</p>
+<p>Also, now we know that to simply do anything with 30M of relatively short strings in memory,
+one would need around 2x the space they take on disk, and thus our service in question is vindicated - it uses reasonable amount of memory for the task at hand.</p>
+<h3 id="appendix-a-memory-arenas">Appendix A: Memory arenas</h3>
+<p>As we have already gone quite deep in the whole Go memory/GC thing, let&rsquo;s talk about <strong>ways to avoid GC overhead</strong>.
+Using <em>CGO</em> surely would be one of them, but recently another one was added.</p>
+<p>Enter the <strong>Arena</strong>! Or to be more specific, <a href="https://uptrace.dev/blog/golang-memory-arena.html">experimental Go 1.20 feature called &lsquo;memory arenas&rsquo;.</a></p>
+<p>As of now, arenas do not support storing strings in them, so let&rsquo;s rewrite our program to use bytes and measure the memory (with pre-allocated slice).</p>
+<p>We get <code>Sys = 1830 MiB</code>, so just as predicted around 200Mb overhead over strings.</p>
+<p>Now what if we use arenas? The whole premise is that you have a whole region of memory that is not touched by GC, and is allocated/deallocated at once.
+Which in our case means we should save around 200Mb on pointers, right? Let&rsquo;s see if this stands true.</p>
+<pre tabindex="0"><code>package main
+
+import (
+    &#34;bufio&#34;
+    &#34;fmt&#34;
+    &#34;log&#34;
+    &#34;os&#34;
+    &#34;runtime&#34;
+    &#34;time&#34;
+
+    &#34;arena&#34;
+)
+
+func printMem() {
+    var m runtime.MemStats
+    runtime.GC()
+    runtime.ReadMemStats(&amp;m)
+    fmt.Printf(&#34;Alloc = %v MiB&#34;, m.Alloc/1024/1024)
+    fmt.Printf(&#34;\tTotalAlloc = %v MiB&#34;, m.TotalAlloc/1024/1024)
+    fmt.Printf(&#34;\tSys = %v MiB&#34;, m.Sys/1024/1024)
+    fmt.Printf(&#34;\tNumGC = %v\n&#34;, m.NumGC)
+}
+
+func appendA[T any](data []T, v T, a *arena.Arena) []T {
+    if len(data) &gt;= cap(data) {
+        c := 2 * len(data)
+        if c == 0 {
+            c = 1
+        }
+        newData := arena.MakeSlice[T](a, len(data)+1, c)
+        copy(newData, data)
+        data = newData
+        data[len(data)-1] = v
+    } else {
+        data = append(data, v)
+    }
+    return data
+}
+
+func main() {
+    f, err := os.Open(os.Args[1])
+    if err != nil {
+        log.Println(err)
+        os.Exit(1)
+    }
+    start := time.Now()
+    mem := arena.NewArena()
+    defer mem.Free()
+    l := arena.MakeSlice[[]byte](mem, 0, 31*1000000)
+    scanner := bufio.NewScanner(f)
+    for scanner.Scan() {
+        line := scanner.Bytes()
+        lline := arena.MakeSlice[byte](mem, len(line), len(line))
+        copy(lline, line)
+        l = appendA(l, lline, mem)
+    }
+    printMem()
+    log.Printf(&#34;done with %d lines in %v&#34;, len(l), time.Since(start))
+}
+</code></pre><p>And just as we expected, using arenas takes same amount memory and run time is somewhat faster:</p>
+<pre tabindex="0"><code>/usr/bin/time -l ./main_arena ./data-1696014531
+Alloc = 912 MiB	TotalAlloc = 1621 MiB	Sys = 1661 MiB	NumGC = 4
+2023/10/23 16:08:08 done with 30085159 lines in 985.003042ms
+        1.02 real         0.97 user         0.46 sys
+          1733939584  peak memory footprint
+</code></pre><p>Sadly it is likely that <a href="https://github.com/golang/go/issues/51317">this feature will never be part of the language</a>,
+but that doesn&rsquo;t prevent us from playing with it, having fun and learning more about Go and GC.</p>
+<h3 id="appendix-b-test-environment">Appendix B: Test environment</h3>
+<p>All tests were conducted with Go 1.21.
+Initial set of experiments was done on Linux running on Intel CPU (where for example the arena speed-up was more prominent),
+and the final numbers for this note were collected on M1 MBP (macOS and ARM64).</p>
+
+</main>
+
+
+<p class="terms">
+<b>Tags:</b>
+
+  <a href="//bulimov.me/tags/golang/">Golang</a>
+
+  <a href="//bulimov.me/tags/programming/">Programming</a>
+
+
+</p>
+<p class="terms">
+
+<b>Categories:</b>
+
+  <a href="//bulimov.me/categories/it/">IT</a>
+
+
+</p>
+
+  <footer>
+  
+  
+  <hr/>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.me">Alexander Bulimov</a> 2013 &ndash; 2023 | <a href="https://github.com/abulimov">Github</a>
+  
+  </footer>
+  </body>
+</html>
+
