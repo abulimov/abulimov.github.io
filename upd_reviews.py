@@ -15,9 +15,9 @@ categories = {
 
 def matches_category(line: str) -> Tuple[str, int]:
     for k, v in categories.items():
-        match = re.match(r"^%s\s+(\d{4})$" % k, line)
+        match = re.match(r"^(%s|%s)\s+(\d{4})$" % (k, v), line)
         if match:
-            return (v, int(match.group(1)))
+            return (v, int(match.group(2)))
     return ("", 0)
 
 
@@ -30,6 +30,10 @@ def parse_reviews(lines: List[str]) -> List[Tuple[str, int]]:
             match = re.match(r"\*\*(.+)\*\*$", line)
             if match:
                 cur_title = match.group(1)
+            else:
+                match = re.match(r"## (.+)$", line)
+                if match:
+                    cur_title = match.group(1)
         if cur_title:
             match = re.search(r".+\s+([0-9.]+)/10.*", line)
             if match:
