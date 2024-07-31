@@ -5,6 +5,8 @@ Slug: meminfo-visualizer
 Url: it/meminfo-visualizer
 Tags: [Kernel, Python, Программирование, Книги]
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 Читая книгу ["Разработка ядра Linux"](http://www.williamspublishing.com/Books/5-8459-1085-4.html) за авторством Роберта Лава,

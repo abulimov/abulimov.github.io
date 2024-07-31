@@ -5,6 +5,8 @@ Tags:  [Книги, Жизнь, Мнение]
 Categories: [IT, Russian]
 Slug: Прочитал-the-phoenix-project-a-novel-about-devops-and-helping-your-business-win
 Url: it/Прочитал-the-phoenix-project-a-novel-about-devops-and-helping-your-business-win
+Build:
+  List: local
 ---
 
 Ну что тут скажешь - прекрасная книга. Написана живым языком, очень легко читается.

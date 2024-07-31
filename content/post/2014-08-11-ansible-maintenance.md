@@ -5,6 +5,8 @@ Tags:   [Ansible, Python, Monitoring]
 Categories: [IT, Russian]
 Slug: Модуль-zabbix_maintenance
 Url: it/Модуль-zabbix_maintenance
+Build:
+  List: local
 ---
 
 Свершилось чудо, и мой [модуль](https://github.com/ansible/ansible/blob/devel/library/monitoring/zabbix_maintenance)

@@ -5,6 +5,8 @@ Slug: infrastructure-as-a-code
 Url: it/infrastructure-as-a-code
 Tags: [Chef, Ansible, Мнение]
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 Есть такой тренд сейчас - работать с IT-инфраструктурой как с кодом.

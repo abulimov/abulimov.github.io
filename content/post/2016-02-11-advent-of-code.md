@@ -5,6 +5,8 @@ Tags: [Программирование, Жизнь, Golang]
 Slug: advent-of-code
 Url: it/advent-of-code
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 Закончил на днях решать задачи из замечательного набора программерских

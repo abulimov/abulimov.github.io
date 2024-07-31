@@ -5,6 +5,8 @@ Tags: [Graphite, Monitoring, Мнение, Опыт]
 Slug: graphite-experience
 Url: it/graphite-experience
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 На первый взгляд, кажется довольно странным, что сейчас, в 2015 году, все до сих пор используют

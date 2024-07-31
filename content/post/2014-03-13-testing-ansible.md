@@ -5,6 +5,8 @@ Tags:  [Ansible, Мнение]
 Categories: [IT, Russian]
 Slug: Тестирование-ansible-playbook
 Url: it/Тестирование-ansible-playbook
+Build:
+  List: local
 ---
 
 Давно хотел сделать авто-тестирование целостности развертывания, производимого

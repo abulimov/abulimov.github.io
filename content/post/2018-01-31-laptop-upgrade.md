@@ -5,6 +5,8 @@ Tags: Experience
 Categories: [Personal]
 Slug: laptop-upgrade
 Url: personal/laptop-upgrade
+Build:
+  Link: local
 ---
 
 I've been concerned by a low amount of memory in my **Asus UX310U** laptop for quite a long time,

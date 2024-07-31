@@ -5,6 +5,8 @@ Slug: ansible-sensu
 Url: it/ansible-sensu
 Tags: [Ansible, Sensu, Monitoring]
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 Так как я использую [Sensu](http://sensuapp.org/) для мониторинга,

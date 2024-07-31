@@ -5,6 +5,8 @@ Tags:  [tmux, Жизнь]
 Categories: [IT, Russian]
 Slug: Открыл-для-себя-плагины-к-tmux
 Url: it/Открыл-для-себя-плагины-к-tmux
+Build:
+  List: local
 ---
 
 Случилось чудесное - [LOR](http://linux.org.ru) принес мне пользу.

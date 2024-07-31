@@ -5,6 +5,8 @@ Tags: [Golang, Программирование, Atom, ES6]
 Slug: atom-gotests
 Url: it/atom-gotests
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 Поскольку последнее время я все больше пишу на [Go](http://golang.org),

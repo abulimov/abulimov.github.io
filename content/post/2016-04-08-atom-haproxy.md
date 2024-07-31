@@ -5,6 +5,8 @@ Tags: [Golang, Программирование, Atom, HAProxy]
 Slug: atom-HAProxy
 Url: it/atom-HAProxy
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 Появилась у меня на работе задачка - взять 3 относительно разных конфига

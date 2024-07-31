@@ -5,6 +5,8 @@ Tags: [Ruby, Sensu, Monitoring]
 Categories: [IT, Russian]
 Slug: Переписал-скрипты-на-ruby-для-sensu
 Url: it/Переписал-скрипты-на-ruby-для-sensu
+Build:
+  List: local
 ---
 
 Поскольку я перевел мониторинг с Zabbix на Sensu, пришлось переписать

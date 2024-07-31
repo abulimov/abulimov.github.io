@@ -5,6 +5,8 @@ Tags: [Monitoring, Icinga2, Graphite, Elasticsearch, Packetbeat]
 Slug: user-questions
 Url: it/user-questions
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 Пришло письмо от читателя по имени Денис по форме обратной связи.

@@ -5,6 +5,8 @@ Tags: [Zabbix, Python, Monitoring]
 Categories: [IT, Russian]
 Slug: Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware
 Url: it/Низкоуровневое-обнаружение-в-zabbix-ищем-диски-в-контроллере-от-3ware
+Build:
+  List: local
 ---
 
 Я уже [ писал ](/it/Низкоуровневое-обнаружение-в-zabbix) про [низкоуровневое обнаружение](https://www.zabbix.com/documentation/ru/2.0/manual/discovery/low_level_discovery)

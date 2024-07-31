@@ -5,6 +5,8 @@ Tags:  Жизнь
 Categories: [IT, Russian]
 Slug: О-животных-и-networkmanager
 Url: it/О-животных-и-networkmanager
+Build:
+  List: local
 ---
 
 В комментариях к [интервью с Алексеем Кузнецовым](http://www.opennet.ru/opennews/art.shtml?num=38016)

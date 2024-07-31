@@ -5,6 +5,8 @@ Tags: [Golang, Программирование]
 Slug: go-vendoring
 Url: it/go-vendoring
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 После недавнего [удаления модуля на 11 строк кода из npm](http://www.opennet.ru/opennews/art.shtml?num=44104),

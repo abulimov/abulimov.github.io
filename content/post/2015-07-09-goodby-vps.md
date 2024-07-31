@@ -5,6 +5,8 @@ Tags: [VPS, Жизнь]
 Slug: goodby-vps
 Url: it/goodby-vps
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 Больше года назад я [стал использовать свой виртуальный частный сервер(VPS)](/it/Личный-vps),

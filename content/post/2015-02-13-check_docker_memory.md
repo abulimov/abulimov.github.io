@@ -5,6 +5,8 @@ Tags:   [Python, Nagios, Icinga2, Monitoring]
 Slug: check-docker-memory
 Url: it/check-docker-memory
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 Я сегодня занимался мониторингом, а конкретно нашими докер-контейнерами.

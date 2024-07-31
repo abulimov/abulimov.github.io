@@ -6,6 +6,8 @@ Category: IT
 Slug: Плагин-к-ruhoh-для-рисования-графиков
 Url: it/Плагин-к-ruhoh-для-рисования-графиков
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 Еще планируя создание статического блога на Hakyll я хотел реализовать рисование

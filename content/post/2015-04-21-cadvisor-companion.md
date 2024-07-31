@@ -5,6 +5,8 @@ Tags: [Golang, cAdvisor, cAdvisor-companion, Программирование, M
 Slug: cadvisor-companion
 Url: it/cadvisor-companion
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 Слышали ли вы когда-нибудь о такой практике, как "Monitoring Events Enrichment"?

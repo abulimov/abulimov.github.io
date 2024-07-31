@@ -5,6 +5,8 @@ Tags: [CoreOS, Мнение]
 Slug: coreos-opinion
 Url: it/coreos-opinion
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 На волне популярности контейнерной виртуализации [Docker](http://docker.com)

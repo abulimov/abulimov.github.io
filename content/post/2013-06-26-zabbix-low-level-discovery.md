@@ -5,6 +5,8 @@ Tags: [Zabbix, Python, Monitoring]
 Slug: Низкоуровневое-обнаружение-в-zabbix
 Url: it/Низкоуровневое-обнаружение-в-zabbix
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 В используемой мной системе мониторинга Zabbix, начиная с версии 2.0,

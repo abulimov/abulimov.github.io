@@ -5,6 +5,8 @@ Tags: [Жизнь, Vim]
 Slug: chromium-vim
 Url: it/chromium-vim
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 Последние 4 года я использую Vim в качестве текстового редактора и IDE, и все это время

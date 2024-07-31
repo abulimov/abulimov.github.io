@@ -5,6 +5,8 @@ Tags:   [Python, Nagios, Icinga2, cAdvisor, Monitoring]
 Categories: [IT, Russian]
 Slug: check-cadvisor
 Url: it/check-cadvisor
+Build:
+  List: local
 ---
 
 После того, как я [научился мониторить память в Docker-контейнерах](/it/check-docker-memory),

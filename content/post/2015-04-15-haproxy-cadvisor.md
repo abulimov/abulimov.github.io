@@ -5,6 +5,8 @@ Tags: [HAProxy, cAdvisor, Python, Программирование]
 Slug: haproxy-cadvisor
 Url: it/haproxy-cadvisor
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 Для запуска Docker-контейнеров у меня в данный момент выделено достаточно много

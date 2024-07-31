@@ -5,6 +5,8 @@ Tags: [Packetbeat, Elasticsearch, Kibana, Monitoring]
 Slug: try-packetbeat
 Url: it/try-packetbeat
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 Вчера в [блоге Elasticsearch](https://www.elastic.co/blog) появилась отличная

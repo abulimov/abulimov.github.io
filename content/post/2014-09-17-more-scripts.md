@@ -5,6 +5,8 @@ Tags:   [Python, Zabbix, Nagios, Monitoring]
 Categories: [IT, Russian]
 Slug: Выложил-немного-полезностей
 Url: it/Выложил-немного-полезностей
+Build:
+  List: local
 ---
 
 Когда я писал про то, как [переписал скрипты для Sensu](/it/Переписал-скрипты-на-ruby-для-sensu),

@@ -6,6 +6,8 @@ Tags: [Zabbix, Sensu, Monitoring, Мнение]
 Categories: [IT, Russian]
 Slug: monitoring-sucks
 Url: it/monitoring-sucks
+Build:
+  List: local
 ---
 
 **TL;DR - тут я Sensu критиковал, но в 2014 году успешно заменил Zabbix на Sensu версии 0.12+**

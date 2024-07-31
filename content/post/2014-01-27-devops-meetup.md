@@ -5,6 +5,8 @@ Tags:  Жизнь
 Categories: [IT, Russian]
 Slug: Побывал-на-devops-meetup-25-января
 Url: it/Побывал-на-devops-meetup-25-января
+Build:
+  List: local
 ---
 
 Из четырех докладов именно доклад про Docker, ради которого

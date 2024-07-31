@@ -5,6 +5,8 @@ Tags:   [Ansible, serverspec, Мнение]
 Categories: [IT, Russian]
 Slug: ansible-и-serverspec
 Url: it/ansible-и-serverspec
+Build:
+  List: local
 ---
 
 Когда я готовил playbook для [своего VPS](/it/Личный-vps), я взял за основу

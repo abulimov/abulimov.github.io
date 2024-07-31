@@ -5,6 +5,8 @@ Tags: [Жизнь, MikroTik]
 Categories: [IT, Russian]
 Slug: Вернулся-из-отпуска
 Url: it/Вернулся-из-отпуска
+Build:
+  List: local
 ---
 
 Вернулись с женой из отпуска, который провели в Индонезии.

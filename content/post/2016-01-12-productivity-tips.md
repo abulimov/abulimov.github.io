@@ -5,6 +5,8 @@ Tags: [Жизнь, Опыт]
 Slug: productivity-tips
 Url: it/productivity-tips
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 Решил поделиться небольшим набором "капитанских" жизненных практик, каждая из которых

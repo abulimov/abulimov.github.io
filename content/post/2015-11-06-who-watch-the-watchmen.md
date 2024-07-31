@@ -5,6 +5,8 @@ Tags: [Icinga2, Monit, Monitoring, Опыт]
 Slug: who-watch-the-watchmen
 Url: it/who-watch-the-watchmen
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 #### [Кто же устережёт самих сторожей?](https://ru.wikipedia.org/wiki/Quis_custodiet_ipsos_custodes%3F), или как (и зачем) я мониторю мониторинг.

@@ -5,6 +5,8 @@ Tags: [Graphite, Monitoring, Logstash, StatsD, Опыт]
 Slug: logstash-graphite
 Url: it/logstash-graphite
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 Недавно читал серию постов от [Datadog](https://www.datadoghq.com) про сбор метрик,

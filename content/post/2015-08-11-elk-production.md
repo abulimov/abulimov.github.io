@@ -5,6 +5,8 @@ Tags: [Elasticsearch, Logstash, Kibana, Опыт]
 Slug: elk-production
 Url: it/elk-production
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 Я уже довольно давно и успешно использую

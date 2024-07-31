@@ -5,6 +5,8 @@ Tags: [Программирование, Golang, Nagios, Monitoring]
 Slug: db-checker
 Url: it/db-checker
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 Недавно я открыл код еще одного инструмента, который уже около года использую на работе -

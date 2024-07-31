@@ -5,6 +5,8 @@ Tags: [Golang, Hugo]
 Categories: [Personal]
 Slug: models-gallery
 Url: personal/models-gallery
+Build:
+  Link: local
 ---
 
 I've just published my new site - personal [Scale Models Gallery](//models.bulimov.me).

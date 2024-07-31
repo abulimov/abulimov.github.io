@@ -5,6 +5,8 @@ Tags:   [Chef, Мнение]
 Categories: [IT, Russian]
 Slug: Мнение-о-chef
 Url: it/Мнение-о-chef
+Build:
+  List: local
 ---
 
 Я использовал Chef для управления IT-инфраструктурой около полутора лет, начав с

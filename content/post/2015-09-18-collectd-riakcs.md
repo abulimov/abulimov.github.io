@@ -5,6 +5,8 @@ Tags: [Python, Riak CS, collectd, Программирование, Monitoring]
 Slug: collectd-riakcs
 Url: it/collectd-riakcs
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 На днях наконец-то дошли руки до модернизации той части мониторинга, которая

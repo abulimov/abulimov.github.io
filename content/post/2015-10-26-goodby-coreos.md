@@ -5,6 +5,8 @@ Tags: [CoreOS, Мнение, Опыт]
 Slug: goodby-coreos
 Url: it/goodby-coreos
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 С огромным облегчением сегодня убрал последний хост с [CoreOS](http://coreos.com).

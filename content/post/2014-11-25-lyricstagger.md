@@ -5,6 +5,8 @@ Slug: lyricstagger
 Url: it/lyricstagger
 Tags: [Python, Программирование]
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 ## Предыстория

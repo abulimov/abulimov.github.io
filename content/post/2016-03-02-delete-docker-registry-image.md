@@ -5,6 +5,8 @@ Tags: [Программирование, Python, Docker]
 Slug: delete-docker-registry-image
 Url: it/delete-docker-registry-image
 Categories: [IT, Russian]
+Build:
+  List: local
 ---
 
 В процессе организации авто-очистки [Docker Registry 2](https://github.com/docker/distribution),

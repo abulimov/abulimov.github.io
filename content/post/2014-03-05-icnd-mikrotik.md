@@ -5,6 +5,8 @@ Tags:  [Cisco, MikroTik]
 Categories: [IT, Russian]
 Slug: Влияние-курсов-cisco-на-психику
 Url: it/Влияние-курсов-cisco-на-психику
+Build:
+  List: local
 ---
 
 Закончил курсы Cisco ICND1 и ICND2, и сразу захотелось странного.
