@@ -13,12 +13,19 @@ I'm [writing my mini-reviews](/post/2021/05/23/taking-notes/) for games, books a
 ## Games
 | Name | Score |
 |------|-------|
+| **2024** |
+| The Case of the Golden Idol | 9 |
+| Chants of Sennaar | 9 |
+| Jedi Fallen Order | 9 |
+| Assassins Creed: Valhalla | 9 |
+| Little Kitty, Big City | 8 |
 | **2023** |
 | Yokus’s Island Express (Switch) | 10 |
 | Lunistice (Switch) | 10 |
 | Shadows Over Loathing (Switch) | 9 |
 | Return of the Obra Dinn (Switch) | 9 |
 | Starfield (Xbox Series S) | 9 |
+| Snowrunner Year 3 (Xbox Series S) | 9 |
 | Rise of the Third Power (Switch) | 9 |
 | Mario + Rabbids: Sparks of Hope (Switch) | 9 |
 | While The Iron’s Hot (Xbox Series S) | 8 |
@@ -191,6 +198,14 @@ I'm [writing my mini-reviews](/post/2021/05/23/taking-notes/) for games, books a
 |------|-------|
 | **2024** |
 | Paul Farrell - Tugboats Illustrated | 10 |
+| Richard Endsor - The Restoration Warship | 9 |
+| Ian McLaughlan - The Sloop of War: 1650-1763 | 9 |
+| Eric Clemens - USS Constitution A Midshipman's Pocket Manual 1814 | 9 |
+| N.K. Jemisin - The Shadowed Sun | 9 |
+| Nick Ball - Navy Board Ship Models | 8 |
+| N.A.M. Rodger - The Wooden World | 7 |
+| Arthur Conan Doyle - The Valley of Fear | 7 |
+| David McWilliams - The Pope's Children | 5 |
 | **2023** |
 | N.K. Jemisin - The Killing Moon | 10 |
 | Liam Clarke - Light in the Darkness: A History of Lightships and the People Who Served on Them | 8 |
@@ -219,6 +234,7 @@ I'm [writing my mini-reviews](/post/2021/05/23/taking-notes/) for games, books a
 | N.K. Jemisin - The Broken Kingdoms | 9 |
 | N.K. Jemisin - The Hundred Thousand Kingdoms | 9 |
 | D.K. Brown - Before the Ironclad | 9 |
+| Richard Endsor - The Warship Anne | 9 |
 | Ernest Shackleton - South | 9 |
 | Martha Wells - Exit Strategy | 9 |
 | Martha Wells - Rogue Protocol | 9 |
@@ -307,7 +323,12 @@ I'm [writing my mini-reviews](/post/2021/05/23/taking-notes/) for games, books a
 | Name | Score |
 |------|-------|
 | **2024** |
+| Dissimulator - Lower Form Resistance | 10 |
+| Ice Age - Waves of Loss and Power | 10 |
+| Majesties - Vast Reached Unclaimed | 9 |
 | Sacred Outcry - Towers of Gold | 9 |
+| Союз - Сила Ветра | 8 |
+| Smoulder - Violent Creed of Vengeance | 8 |
 | **2023** |
 | A Dying Planet - When the Skies are Grey | 10 |
 | Xoth - Exogalactic | 9 |
