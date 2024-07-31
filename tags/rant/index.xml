@@ -4,19 +4,16 @@
     <title>Rant on Alexander Bulimov: Production Engineer and Scale Modeller</title>
     <link>//bulimov.me/tags/rant/</link>
     <description>Recent content in Rant on Alexander Bulimov: Production Engineer and Scale Modeller</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Jul 2017 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/rant/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//bulimov.me/tags/rant/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Python 3.6 f-strings rant</title>
       <link>//bulimov.me/it/python3-fstrings/</link>
       <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/python3-fstrings/</guid>
-      <description>Python 3.6 introduced a new way to format strings, called Formatted string literals, or just f-strings. Everyone on the internet seem to be happy about it. I&amp;rsquo;m definitely not.
-For starters, Python 3 already had 3 built-in ways of doing it before. Just think about it&amp;hellip; 3 ways to format strings in language that declares simplicity as a goal:
-There should be one&amp;ndash; and preferably only one &amp;ndash;obvious way to do it.</description>
+      <description>Python 3.6 introduced a new way to format strings, called Formatted string literals, or just f-strings. Everyone on the internet seem to be happy about it. I&amp;rsquo;m definitely not.&#xA;For starters, Python 3 already had 3 built-in ways of doing it before. Just think about it&amp;hellip; 3 ways to format strings in language that declares simplicity as a goal:&#xA;There should be one&amp;ndash; and preferably only one &amp;ndash;obvious way to do it.</description>
     </item>
-    
   </channel>
 </rss>

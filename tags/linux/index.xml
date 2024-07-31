@@ -4,20 +4,16 @@
     <title>Linux on Alexander Bulimov: Production Engineer and Scale Modeller</title>
     <link>//bulimov.me/tags/linux/</link>
     <description>Recent content in Linux on Alexander Bulimov: Production Engineer and Scale Modeller</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Dec 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//bulimov.me/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Snooping on unix domain sockets traffic</title>
       <link>//bulimov.me/post/2021/12/02/unix-socket-snoop/</link>
       <pubDate>Thu, 02 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/post/2021/12/02/unix-socket-snoop/</guid>
-      <description>I often work with various binary protocol, with majority of work being implementing those protocols in Go or Rust.
-And when dealing with such tasks, I find it extremely useful to be able to snoop on the traffic between existing/reference implementations.
-When communication happens over network (even locally), it&amp;rsquo;s easy - just fire up some good old tcpdump and then maybe analyze the dump with Wireshark.
-But what if communication happens over the Unix domain sockets?</description>
+      <description>I often work with various binary protocol, with majority of work being implementing those protocols in Go or Rust.&#xA;And when dealing with such tasks, I find it extremely useful to be able to snoop on the traffic between existing/reference implementations.&#xA;When communication happens over network (even locally), it&amp;rsquo;s easy - just fire up some good old tcpdump and then maybe analyze the dump with Wireshark.&#xA;But what if communication happens over the Unix domain sockets?</description>
     </item>
-    
   </channel>
 </rss>

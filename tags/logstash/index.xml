@@ -4,27 +4,23 @@
     <title>Logstash on Alexander Bulimov: Production Engineer and Scale Modeller</title>
     <link>//bulimov.me/tags/logstash/</link>
     <description>Recent content in Logstash on Alexander Bulimov: Production Engineer and Scale Modeller</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 09 Oct 2015 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/logstash/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 09 Oct 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//bulimov.me/tags/logstash/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Logstash и Graphite</title>
       <link>//bulimov.me/it/logstash-graphite/</link>
       <pubDate>Fri, 09 Oct 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/logstash-graphite/</guid>
       <description>Недавно читал серию постов от Datadog про сбор метрик, и в частности статью про метрики Nginx (думал, вдруг что-то новое узнаю). Что меня в этой статье зацепило - так это то, что только версия Nginx Plus показывает статистику количества ответов, разделенную по HTTP-кодам. Поскольку я использую перед Nginx балансировщик HAProxy, который не жадный и показывает подробную статистику по кодам ответов для каждого бекенда и фронтенда, я о таком минусе статистики Nginx даже не думал.</description>
     </item>
-    
     <item>
       <title>Использование ELK в продакшне</title>
       <link>//bulimov.me/it/elk-production/</link>
       <pubDate>Tue, 11 Aug 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/elk-production/</guid>
-      <description>Я уже довольно давно и успешно использую Logstash + Elasticsearch с визуализацией данных в Kibana (общепринятое сокращение для этой тройки - ELK) для сбора, хранения и обработки логов, но для обретения счастья с этой связкой мне потребовалось несколько итераций.
-Поскольку в мире СПО все постоянно развивается и становится лучше, сразу хочу отметить, что все описанное актуально для Logstash версиий 1.4-1.5 и Elasticsearch версий 1.4 - 1.7 при нагрузке в ~20kk сообщений в день.</description>
+      <description>Я уже довольно давно и успешно использую Logstash + Elasticsearch с визуализацией данных в Kibana (общепринятое сокращение для этой тройки - ELK) для сбора, хранения и обработки логов, но для обретения счастья с этой связкой мне потребовалось несколько итераций.&#xA;Поскольку в мире СПО все постоянно развивается и становится лучше, сразу хочу отметить, что все описанное актуально для Logstash версиий 1.4-1.5 и Elasticsearch версий 1.4 - 1.7 при нагрузке в ~20kk сообщений в день.</description>
     </item>
-    
   </channel>
 </rss>

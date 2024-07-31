@@ -4,683 +4,534 @@
     <title>Tags on Alexander Bulimov: Production Engineer and Scale Modeller</title>
     <link>//bulimov.me/tags/</link>
     <description>Recent content in Tags on Alexander Bulimov: Production Engineer and Scale Modeller</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//bulimov.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blog</title>
+      <link>//bulimov.me/tags/blog/</link>
+      <pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/blog/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Golang</title>
       <link>//bulimov.me/tags/golang/</link>
       <pubDate>Sat, 27 Jan 2024 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/golang/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Programming</title>
       <link>//bulimov.me/tags/programming/</link>
       <pubDate>Sat, 27 Jan 2024 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/programming/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Home Automation</title>
       <link>//bulimov.me/tags/home-automation/</link>
       <pubDate>Sun, 13 Aug 2023 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/home-automation/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Vacuum Cleaner</title>
       <link>//bulimov.me/tags/vacuum-cleaner/</link>
       <pubDate>Sun, 13 Aug 2023 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/vacuum-cleaner/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Experience</title>
       <link>//bulimov.me/tags/experience/</link>
       <pubDate>Sun, 18 Jun 2023 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/experience/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Audio</title>
       <link>//bulimov.me/tags/audio/</link>
       <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/audio/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>HiFi</title>
       <link>//bulimov.me/tags/hifi/</link>
       <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/hifi/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>PlayStation</title>
       <link>//bulimov.me/tags/playstation/</link>
       <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/playstation/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Video Games</title>
       <link>//bulimov.me/tags/video-games/</link>
       <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/video-games/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Xbox</title>
       <link>//bulimov.me/tags/xbox/</link>
       <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/xbox/</guid>
       <description></description>
     </item>
-    
-    <item>
-      <title>Blog</title>
-      <link>//bulimov.me/tags/blog/</link>
-      <pubDate>Sun, 25 Sep 2022 00:00:00 +0000</pubDate>
-      
-      <guid>//bulimov.me/tags/blog/</guid>
-      <description></description>
-    </item>
-    
     <item>
       <title>Vale</title>
       <link>//bulimov.me/tags/vale/</link>
       <pubDate>Sun, 16 Jan 2022 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/vale/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>BPF</title>
       <link>//bulimov.me/tags/bpf/</link>
       <pubDate>Thu, 02 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/bpf/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Linux</title>
       <link>//bulimov.me/tags/linux/</link>
       <pubDate>Thu, 02 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/linux/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Python</title>
       <link>//bulimov.me/tags/python/</link>
       <pubDate>Thu, 02 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/python/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Joplin</title>
       <link>//bulimov.me/tags/joplin/</link>
       <pubDate>Sun, 23 May 2021 20:27:52 +0100</pubDate>
-      
       <guid>//bulimov.me/tags/joplin/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Evernote</title>
       <link>//bulimov.me/tags/evernote/</link>
       <pubDate>Sun, 23 May 2021 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/evernote/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>QOwnNotes</title>
       <link>//bulimov.me/tags/qownnotes/</link>
       <pubDate>Sun, 23 May 2021 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/qownnotes/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Electronics</title>
       <link>//bulimov.me/tags/electronics/</link>
       <pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/electronics/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Ergodox</title>
       <link>//bulimov.me/tags/ergodox/</link>
       <pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/ergodox/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Helix</title>
       <link>//bulimov.me/tags/helix/</link>
       <pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/helix/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Keyboard</title>
       <link>//bulimov.me/tags/keyboard/</link>
       <pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/keyboard/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Hugo</title>
       <link>//bulimov.me/tags/hugo/</link>
       <pubDate>Tue, 16 Feb 2021 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/hugo/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Pelican</title>
       <link>//bulimov.me/tags/pelican/</link>
       <pubDate>Tue, 16 Feb 2021 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/pelican/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Rant</title>
       <link>//bulimov.me/tags/rant/</link>
       <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/rant/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Blogs</title>
       <link>//bulimov.me/tags/blogs/</link>
       <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/blogs/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Elasticsearch</title>
       <link>//bulimov.me/tags/elasticsearch/</link>
       <pubDate>Sat, 27 May 2017 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/elasticsearch/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Graphite</title>
       <link>//bulimov.me/tags/graphite/</link>
       <pubDate>Sat, 27 May 2017 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/graphite/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Icinga2</title>
       <link>//bulimov.me/tags/icinga2/</link>
       <pubDate>Sat, 27 May 2017 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/icinga2/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Monitoring</title>
       <link>//bulimov.me/tags/monitoring/</link>
       <pubDate>Sat, 27 May 2017 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/monitoring/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Packetbeat</title>
       <link>//bulimov.me/tags/packetbeat/</link>
       <pubDate>Sat, 27 May 2017 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/packetbeat/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Board Games</title>
       <link>//bulimov.me/tags/board-games/</link>
       <pubDate>Wed, 31 Aug 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/board-games/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Fish</title>
       <link>//bulimov.me/tags/fish/</link>
       <pubDate>Fri, 06 May 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/fish/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Zsh</title>
       <link>//bulimov.me/tags/zsh/</link>
       <pubDate>Fri, 06 May 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/zsh/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Atom</title>
       <link>//bulimov.me/tags/atom/</link>
       <pubDate>Fri, 15 Apr 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/atom/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>ES6</title>
       <link>//bulimov.me/tags/es6/</link>
       <pubDate>Fri, 15 Apr 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/es6/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Программирование</title>
       <link>//bulimov.me/tags/%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/</link>
       <pubDate>Fri, 15 Apr 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>HAProxy</title>
       <link>//bulimov.me/tags/haproxy/</link>
       <pubDate>Fri, 08 Apr 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/haproxy/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Clair</title>
       <link>//bulimov.me/tags/clair/</link>
       <pubDate>Thu, 24 Mar 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/clair/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>CoreOS</title>
       <link>//bulimov.me/tags/coreos/</link>
       <pubDate>Thu, 24 Mar 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/coreos/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Docker</title>
       <link>//bulimov.me/tags/docker/</link>
       <pubDate>Thu, 24 Mar 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/docker/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Nagios</title>
       <link>//bulimov.me/tags/nagios/</link>
       <pubDate>Fri, 18 Mar 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/nagios/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Жизнь</title>
       <link>//bulimov.me/tags/%D0%B6%D0%B8%D0%B7%D0%BD%D1%8C/</link>
       <pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/%D0%B6%D0%B8%D0%B7%D0%BD%D1%8C/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>go-carbon</title>
+      <title>Go-Carbon</title>
       <link>//bulimov.me/tags/go-carbon/</link>
       <pubDate>Mon, 08 Feb 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/go-carbon/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Опыт</title>
       <link>//bulimov.me/tags/%D0%BE%D0%BF%D1%8B%D1%82/</link>
       <pubDate>Mon, 08 Feb 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/%D0%BE%D0%BF%D1%8B%D1%82/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Monit</title>
       <link>//bulimov.me/tags/monit/</link>
       <pubDate>Fri, 06 Nov 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/monit/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Мнение</title>
       <link>//bulimov.me/tags/%D0%BC%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5/</link>
       <pubDate>Mon, 26 Oct 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/%D0%BC%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Logstash</title>
       <link>//bulimov.me/tags/logstash/</link>
       <pubDate>Fri, 09 Oct 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/logstash/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>StatsD</title>
       <link>//bulimov.me/tags/statsd/</link>
       <pubDate>Fri, 09 Oct 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/statsd/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>collectd</title>
+      <title>Collectd</title>
       <link>//bulimov.me/tags/collectd/</link>
       <pubDate>Thu, 17 Sep 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/collectd/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Riak CS</title>
       <link>//bulimov.me/tags/riak-cs/</link>
       <pubDate>Thu, 17 Sep 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/riak-cs/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Kibana</title>
       <link>//bulimov.me/tags/kibana/</link>
       <pubDate>Tue, 11 Aug 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/kibana/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>VPS</title>
       <link>//bulimov.me/tags/vps/</link>
       <pubDate>Thu, 09 Jul 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/vps/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Vim</title>
       <link>//bulimov.me/tags/vim/</link>
       <pubDate>Thu, 21 May 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/vim/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>cAdvisor</title>
+      <title>CAdvisor</title>
       <link>//bulimov.me/tags/cadvisor/</link>
       <pubDate>Tue, 21 Apr 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/cadvisor/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>cAdvisor-companion</title>
+      <title>CAdvisor-Companion</title>
       <link>//bulimov.me/tags/cadvisor-companion/</link>
       <pubDate>Tue, 21 Apr 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/cadvisor-companion/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Ansible</title>
       <link>//bulimov.me/tags/ansible/</link>
       <pubDate>Thu, 13 Nov 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/ansible/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Sensu</title>
       <link>//bulimov.me/tags/sensu/</link>
       <pubDate>Thu, 13 Nov 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/sensu/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Kernel</title>
       <link>//bulimov.me/tags/kernel/</link>
       <pubDate>Thu, 09 Oct 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/kernel/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Книги</title>
       <link>//bulimov.me/tags/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/</link>
       <pubDate>Thu, 09 Oct 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Chef</title>
       <link>//bulimov.me/tags/chef/</link>
       <pubDate>Mon, 29 Sep 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/chef/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Zabbix</title>
       <link>//bulimov.me/tags/zabbix/</link>
       <pubDate>Wed, 17 Sep 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/zabbix/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Ruby</title>
       <link>//bulimov.me/tags/ruby/</link>
       <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/ruby/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>tmux</title>
+      <title>Tmux</title>
       <link>//bulimov.me/tags/tmux/</link>
       <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/tmux/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>serverspec</title>
+      <title>Serverspec</title>
       <link>//bulimov.me/tags/serverspec/</link>
       <pubDate>Thu, 22 May 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/serverspec/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Ubuntu</title>
       <link>//bulimov.me/tags/ubuntu/</link>
       <pubDate>Thu, 22 May 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/ubuntu/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Cisco</title>
       <link>//bulimov.me/tags/cisco/</link>
       <pubDate>Thu, 03 Apr 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/cisco/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>MikroTik</title>
       <link>//bulimov.me/tags/mikrotik/</link>
       <pubDate>Wed, 05 Mar 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/mikrotik/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Lua</title>
       <link>//bulimov.me/tags/lua/</link>
       <pubDate>Fri, 08 Nov 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/lua/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Nginx</title>
       <link>//bulimov.me/tags/nginx/</link>
       <pubDate>Fri, 08 Nov 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/nginx/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Juniper</title>
       <link>//bulimov.me/tags/juniper/</link>
       <pubDate>Fri, 01 Nov 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/juniper/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Rancid</title>
       <link>//bulimov.me/tags/rancid/</link>
       <pubDate>Fri, 01 Nov 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/rancid/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Ruhoh</title>
       <link>//bulimov.me/tags/ruhoh/</link>
       <pubDate>Fri, 18 Oct 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/ruhoh/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Юзвери</title>
       <link>//bulimov.me/tags/%D1%8E%D0%B7%D0%B2%D0%B5%D1%80%D0%B8/</link>
       <pubDate>Wed, 19 Jun 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/%D1%8E%D0%B7%D0%B2%D0%B5%D1%80%D0%B8/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Debian</title>
       <link>//bulimov.me/tags/debian/</link>
       <pubDate>Tue, 18 Jun 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/tags/debian/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

@@ -4,29 +4,23 @@
     <title>Vim on Alexander Bulimov: Production Engineer and Scale Modeller</title>
     <link>//bulimov.me/tags/vim/</link>
     <description>Recent content in Vim on Alexander Bulimov: Production Engineer and Scale Modeller</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 21 May 2015 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 21 May 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//bulimov.me/tags/vim/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Сменил Vim на Atom</title>
       <link>//bulimov.me/it/vim-atom/</link>
       <pubDate>Thu, 21 May 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/vim-atom/</guid>
-      <description>Вот уже почти два месяца, как я по совету коллеги сменил Vim, которым пользовался уже 5 лет, и который оброс у меня кучей плагинов, на Github Atom.
-Использую я его как раньше Vim - для всего. В основном это написание плейбуков Ansible, что включает в себя правку конфигов, и написание кода на Python и Go.
-Сразу скажу, что не будь для Atom вменяемого vim-режима, я бы вряд ли решился на переход.</description>
+      <description>Вот уже почти два месяца, как я по совету коллеги сменил Vim, которым пользовался уже 5 лет, и который оброс у меня кучей плагинов, на Github Atom.&#xA;Использую я его как раньше Vim - для всего. В основном это написание плейбуков Ansible, что включает в себя правку конфигов, и написание кода на Python и Go.&#xA;Сразу скажу, что не будь для Atom вменяемого vim-режима, я бы вряд ли решился на переход.</description>
     </item>
-    
     <item>
       <title>Открыл для себя cVim для Google Chrome</title>
       <link>//bulimov.me/it/chromium-vim/</link>
       <pubDate>Fri, 27 Feb 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/chromium-vim/</guid>
-      <description>Последние 4 года я использую Vim в качестве текстового редактора и IDE, и все это время я использовал браузер Mozilla Firefox с дополнением Vimperator, либо с его форком - Pentadactyl, для получения аналогичной навигации в браузере. Без функционала этих дополнений я как без рук, и потому никак не мог использовать Google Chrome/Chromium.
-Дополнения типа Vimium/Vrome/ViChrome, которые добавляют vi-like навигацию в Chrome, после Vimperator казались, мягко говоря, недоделанными, и не давали и половины того комфорта при использовании браузера, к которому я привык.</description>
+      <description>Последние 4 года я использую Vim в качестве текстового редактора и IDE, и все это время я использовал браузер Mozilla Firefox с дополнением Vimperator, либо с его форком - Pentadactyl, для получения аналогичной навигации в браузере. Без функционала этих дополнений я как без рук, и потому никак не мог использовать Google Chrome/Chromium.&#xA;Дополнения типа Vimium/Vrome/ViChrome, которые добавляют vi-like навигацию в Chrome, после Vimperator казались, мягко говоря, недоделанными, и не давали и половины того комфорта при использовании браузера, к которому я привык.</description>
     </item>
-    
   </channel>
 </rss>

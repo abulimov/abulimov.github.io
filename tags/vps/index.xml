@@ -4,29 +4,23 @@
     <title>VPS on Alexander Bulimov: Production Engineer and Scale Modeller</title>
     <link>//bulimov.me/tags/vps/</link>
     <description>Recent content in VPS on Alexander Bulimov: Production Engineer and Scale Modeller</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Jul 2015 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/vps/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Jul 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//bulimov.me/tags/vps/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Прощай, личный VPS</title>
       <link>//bulimov.me/it/goodby-vps/</link>
       <pubDate>Thu, 09 Jul 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/goodby-vps/</guid>
-      <description>Больше года назад я стал использовать свой виртуальный частный сервер(VPS), но недавно с полной ясностью осознал, что несмотря на то, что я регулярно пользуюсь многими сервисами на своем сервере, сам VPS приносит мне только негативные эмоции.
-Необходимость следить за этим сервером, обновлять на нем софт, решать мелкие проблемы после обновлений - все это стало меня бесить. Возможно, это возраст (ха-ха), но возни с серверами мне хватает на работе, причем задачи там большие и интересные, а с VPS всякая рутинная мелочь.</description>
+      <description>Больше года назад я стал использовать свой виртуальный частный сервер(VPS), но недавно с полной ясностью осознал, что несмотря на то, что я регулярно пользуюсь многими сервисами на своем сервере, сам VPS приносит мне только негативные эмоции.&#xA;Необходимость следить за этим сервером, обновлять на нем софт, решать мелкие проблемы после обновлений - все это стало меня бесить. Возможно, это возраст (ха-ха), но возни с серверами мне хватает на работе, причем задачи там большие и интересные, а с VPS всякая рутинная мелочь.</description>
     </item>
-    
     <item>
       <title>Личный VPS</title>
       <link>//bulimov.me/it/%D0%9B%D0%B8%D1%87%D0%BD%D1%8B%D0%B9-vps/</link>
       <pubDate>Thu, 22 May 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%9B%D0%B8%D1%87%D0%BD%D1%8B%D0%B9-vps/</guid>
-      <description>Уже 2 недели как я начал использовать свой личный VPS на DigitalOcean, и хочу поделиться впечатлениями. Это оказалось очень удобно - можно получать все удобства современного цифрового мира, но на своих условиях и с уверенностью в сохранности своих персональных данных.
-Раскатывал я все сервисы и конфиги с помощью Ansible, взяв за основу Sovereign. В качестве дистрибутива я ради эксперимента выбрал Ubuntu 14.04 LTS.
-Сейчас я использую VPS для следующих сервисов:</description>
+      <description>Уже 2 недели как я начал использовать свой личный VPS на DigitalOcean, и хочу поделиться впечатлениями. Это оказалось очень удобно - можно получать все удобства современного цифрового мира, но на своих условиях и с уверенностью в сохранности своих персональных данных.&#xA;Раскатывал я все сервисы и конфиги с помощью Ansible, взяв за основу Sovereign. В качестве дистрибутива я ради эксперимента выбрал Ubuntu 14.04 LTS.&#xA;Сейчас я использую VPS для следующих сервисов:</description>
     </item>
-    
   </channel>
 </rss>

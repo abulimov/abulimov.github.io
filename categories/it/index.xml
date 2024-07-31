@@ -4,751 +4,485 @@
     <title>IT on Alexander Bulimov: Production Engineer and Scale Modeller</title>
     <link>//bulimov.me/categories/it/</link>
     <description>Recent content in IT on Alexander Bulimov: Production Engineer and Scale Modeller</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/categories/it/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//bulimov.me/categories/it/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fun experiments with Go memory usage</title>
       <link>//bulimov.me/post/2024/01/27/golang-memory/</link>
       <pubDate>Sat, 27 Jan 2024 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/post/2024/01/27/golang-memory/</guid>
-      <description>While working on a big Go program that processes data I began to wonder if our memory usage is adequate for the amount of data we deal with.
-My starting point was this question - If the output of this service is a text file that is only few Gigabytes in size, why does it take significantly more memory to produce this file?
-This lead to a series of experiments which I hope will be interesting for anyone caring about writing efficient code.</description>
+      <description>While working on a big Go program that processes data I began to wonder if our memory usage is adequate for the amount of data we deal with.&#xA;My starting point was this question - If the output of this service is a text file that is only few Gigabytes in size, why does it take significantly more memory to produce this file?&#xA;This lead to a series of experiments which I hope will be interesting for anyone caring about writing efficient code.</description>
     </item>
-    
     <item>
       <title>You don’t need a business reason to feel amazing</title>
       <link>//bulimov.me/post/2023/06/18/no-business-reason/</link>
       <pubDate>Sun, 18 Jun 2023 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/post/2023/06/18/no-business-reason/</guid>
-      <description>My colleague Balint recently said this, and I absolutely love this mindset.
-Indeed, sometimes you do your best, and it doesn’t work out for the company. Maybe the project is not bringing the money or impact it was supposed to, maybe the business climate had changed. In any case, I’ve seen plenty of projects or even teams and companies that were shut down despite the most earnest and stellar effort from the people involved.</description>
+      <description>My colleague Balint recently said this, and I absolutely love this mindset.&#xA;Indeed, sometimes you do your best, and it doesn’t work out for the company. Maybe the project is not bringing the money or impact it was supposed to, maybe the business climate had changed. In any case, I’ve seen plenty of projects or even teams and companies that were shut down despite the most earnest and stellar effort from the people involved.</description>
     </item>
-    
     <item>
       <title>Moved to a new domain</title>
       <link>//bulimov.me/post/2022/09/25/moved-to-new-domain/</link>
       <pubDate>Sun, 25 Sep 2022 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/post/2022/09/25/moved-to-new-domain/</guid>
-      <description>This site just moved to a new domain bulimov.me. Long overdue move of course, I bought the new domain years ago&amp;hellip;
-Anyway, the only interesting bit about this is how I&amp;rsquo;m trying to keep the old links alive with a little bit of HTML magic.
-Using a very basic python script I&amp;rsquo;ve created a dedicated Github repo with a directory structure mirroring this site, where each index.html consists of something like this:</description>
+      <description>This site just moved to a new domain bulimov.me. Long overdue move of course, I bought the new domain years ago&amp;hellip;&#xA;Anyway, the only interesting bit about this is how I&amp;rsquo;m trying to keep the old links alive with a little bit of HTML magic.&#xA;Using a very basic python script I&amp;rsquo;ve created a dedicated Github repo with a directory structure mirroring this site, where each index.html consists of something like this:</description>
     </item>
-    
     <item>
       <title>Code-like linting for prose</title>
       <link>//bulimov.me/post/2022/01/16/prose-lint/</link>
       <pubDate>Sun, 16 Jan 2022 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/post/2022/01/16/prose-lint/</guid>
-      <description>I&amp;rsquo;m a big fan of static analysis and linting for code.
-If a computer can do it automatically - why rely on humans to do the same thing?
-That&amp;rsquo;s one of the reasons why I&amp;rsquo;m such a big proponent of static typing.
-I try to bring linting everywhere:
-When I had to deal with huge and complex HAProxy configs - I wrote a linter myself. When later at different place I had to deal with complicated business logic expressed as a state machine - I used Python AST to write a linter for it, and analyze cycles, dead ends and complexity.</description>
+      <description>I&amp;rsquo;m a big fan of static analysis and linting for code.&#xA;If a computer can do it automatically - why rely on humans to do the same thing?&#xA;That&amp;rsquo;s one of the reasons why I&amp;rsquo;m such a big proponent of static typing.&#xA;I try to bring linting everywhere:&#xA;When I had to deal with huge and complex HAProxy configs - I wrote a linter myself. When later at different place I had to deal with complicated business logic expressed as a state machine - I used Python AST to write a linter for it, and analyze cycles, dead ends and complexity.</description>
     </item>
-    
     <item>
       <title>Snooping on unix domain sockets traffic</title>
       <link>//bulimov.me/post/2021/12/02/unix-socket-snoop/</link>
       <pubDate>Thu, 02 Dec 2021 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/post/2021/12/02/unix-socket-snoop/</guid>
-      <description>I often work with various binary protocol, with majority of work being implementing those protocols in Go or Rust.
-And when dealing with such tasks, I find it extremely useful to be able to snoop on the traffic between existing/reference implementations.
-When communication happens over network (even locally), it&amp;rsquo;s easy - just fire up some good old tcpdump and then maybe analyze the dump with Wireshark.
-But what if communication happens over the Unix domain sockets?</description>
+      <description>I often work with various binary protocol, with majority of work being implementing those protocols in Go or Rust.&#xA;And when dealing with such tasks, I find it extremely useful to be able to snoop on the traffic between existing/reference implementations.&#xA;When communication happens over network (even locally), it&amp;rsquo;s easy - just fire up some good old tcpdump and then maybe analyze the dump with Wireshark.&#xA;But what if communication happens over the Unix domain sockets?</description>
     </item>
-    
     <item>
       <title>Python is not good for production</title>
       <link>//bulimov.me/post/2021/03/13/python-rewrite/</link>
       <pubDate>Sat, 13 Mar 2021 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/post/2021/03/13/python-rewrite/</guid>
-      <description>Here, I said it.
-Recently I read an excellent (opinionated) post by rachelbythebay describing things she cannot stand in programming language, and it resonated deeply with me and finally pushed me to write this.
-I feel quite strongly about using Python in production, and below I&amp;rsquo;ll summarize my experience and opinion.
-Everyone is entitled to their own opinion, this is mine.
-I&amp;rsquo;m not trying to offend anyone, so if you love Python - maybe try to see my side of things.</description>
+      <description>Here, I said it.&#xA;Recently I read an excellent (opinionated) post by rachelbythebay describing things she cannot stand in programming language, and it resonated deeply with me and finally pushed me to write this.&#xA;I feel quite strongly about using Python in production, and below I&amp;rsquo;ll summarize my experience and opinion.&#xA;Everyone is entitled to their own opinion, this is mine.&#xA;I&amp;rsquo;m not trying to offend anyone, so if you love Python - maybe try to see my side of things.</description>
     </item>
-    
     <item>
       <title>Python 3.6 f-strings rant</title>
       <link>//bulimov.me/it/python3-fstrings/</link>
       <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/python3-fstrings/</guid>
-      <description>Python 3.6 introduced a new way to format strings, called Formatted string literals, or just f-strings. Everyone on the internet seem to be happy about it. I&amp;rsquo;m definitely not.
-For starters, Python 3 already had 3 built-in ways of doing it before. Just think about it&amp;hellip; 3 ways to format strings in language that declares simplicity as a goal:
-There should be one&amp;ndash; and preferably only one &amp;ndash;obvious way to do it.</description>
+      <description>Python 3.6 introduced a new way to format strings, called Formatted string literals, or just f-strings. Everyone on the internet seem to be happy about it. I&amp;rsquo;m definitely not.&#xA;For starters, Python 3 already had 3 built-in ways of doing it before. Just think about it&amp;hellip; 3 ways to format strings in language that declares simplicity as a goal:&#xA;There should be one&amp;ndash; and preferably only one &amp;ndash;obvious way to do it.</description>
     </item>
-    
     <item>
       <title>Refreshing slow internet experience</title>
       <link>//bulimov.me/it/slow-internet/</link>
       <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/slow-internet/</guid>
-      <description>I&amp;rsquo;ve just returned from a vacation, and I&amp;rsquo;ve got quite refreshing experience of using slow internet there.
-The thing is, we, as engineers, are used to fast internet, fast development environment, powerful laptops/smartphones, etc.
-Unfortunately this is still not the case of a huge part of the world, and it&amp;rsquo;s really important for us to try and walk in their shoes from time to time. And one of my colleagues, being fed up with resource-wise inefficiency of modern software, suggested as a joke to use Raspberry Pi as a dev environment.</description>
+      <description>I&amp;rsquo;ve just returned from a vacation, and I&amp;rsquo;ve got quite refreshing experience of using slow internet there.&#xA;The thing is, we, as engineers, are used to fast internet, fast development environment, powerful laptops/smartphones, etc.&#xA;Unfortunately this is still not the case of a huge part of the world, and it&amp;rsquo;s really important for us to try and walk in their shoes from time to time. And one of my colleagues, being fed up with resource-wise inefficiency of modern software, suggested as a joke to use Raspberry Pi as a dev environment.</description>
     </item>
-    
     <item>
       <title>Вопросы от Дениса</title>
       <link>//bulimov.me/it/user-questions/</link>
       <pubDate>Sat, 27 May 2017 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/user-questions/</guid>
-      <description>Пришло письмо от читателя по имени Денис по форме обратной связи. Поскольку никаких данных для связи с ним Денис не оставил, отвечу здесь.
-Привожу письмо полностью (надеюсь, автор не против):
-Александр, здравствуйте! Не смог найти вашу электропочту, пишу через форму обратной связи вашего домена на рег.ру :)
-С огромным удовольствием читаю твой блог, очень жаль, что больше не обновляешь его.
-Помоги, пожалуйста, советом. У меня примерно 12 виртуальных серверов с небольшими микросервисами, на каждом из серверов поставил CollectD и StatsD, плюс на отдельном сервере развёрнул go-carbon - whisper - graphite-api - Grafana.</description>
+      <description>Пришло письмо от читателя по имени Денис по форме обратной связи. Поскольку никаких данных для связи с ним Денис не оставил, отвечу здесь.&#xA;Привожу письмо полностью (надеюсь, автор не против):&#xA;Александр, здравствуйте! Не смог найти вашу электропочту, пишу через форму обратной связи вашего домена на рег.ру :)&#xA;С огромным удовольствием читаю твой блог, очень жаль, что больше не обновляешь его.&#xA;Помоги, пожалуйста, советом. У меня примерно 12 виртуальных серверов с небольшими микросервисами, на каждом из серверов поставил CollectD и StatsD, плюс на отдельном сервере развёрнул go-carbon - whisper - graphite-api - Grafana.</description>
     </item>
-    
     <item>
       <title>Notes about type systems in popular languages</title>
       <link>//bulimov.me/it/more-typing/</link>
       <pubDate>Thu, 09 Jun 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/more-typing/</guid>
-      <description>I&amp;rsquo;ve been kind of out of my comfort zone last 3 weeks, and was trying to use as many new languages and technologies as possible.
-I&amp;rsquo;ve used C++, JavaScript, React, PHP and Hack to name a few, and I&amp;rsquo;ve noticed really cool thing - many popular programming languages are moving towards mixing best of static and dynamic typing.
-C++ (statically typed language) now has auto keyword, specifying that compiler should deduce type of variable or return type of function automatically; JavaScript has Flow - static type checker from Facebook, and there is TypeScript from Microsoft which compiles to JS; PHP has type hints since version 5, and they are greatly improved in PHP7; Hack has even more advanced type annotations than PHP; Python added type hints in 3.</description>
+      <description>I&amp;rsquo;ve been kind of out of my comfort zone last 3 weeks, and was trying to use as many new languages and technologies as possible.&#xA;I&amp;rsquo;ve used C++, JavaScript, React, PHP and Hack to name a few, and I&amp;rsquo;ve noticed really cool thing - many popular programming languages are moving towards mixing best of static and dynamic typing.&#xA;C++ (statically typed language) now has auto keyword, specifying that compiler should deduce type of variable or return type of function automatically; JavaScript has Flow - static type checker from Facebook, and there is TypeScript from Microsoft which compiles to JS; PHP has type hints since version 5, and they are greatly improved in PHP7; Hack has even more advanced type annotations than PHP; Python added type hints in 3.</description>
     </item>
-    
     <item>
       <title>Python Type Hints are awesome</title>
       <link>//bulimov.me/it/python-typing/</link>
       <pubDate>Thu, 12 May 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/python-typing/</guid>
-      <description>I really love Julia Evans&amp;rsquo;s blog, she writes with such excitement and enthusiasm about every new bit of technology she learns. For me, this is what makes our job so great - we can learn something new and cool almost every day.
-And recently I&amp;rsquo;ve felt very excited with some of new abilities Python now have. I&amp;rsquo;m talking about including of PEP 484, which describes Type Hints, in Python 3.5 (old news, I know).</description>
+      <description>I really love Julia Evans&amp;rsquo;s blog, she writes with such excitement and enthusiasm about every new bit of technology she learns. For me, this is what makes our job so great - we can learn something new and cool almost every day.&#xA;And recently I&amp;rsquo;ve felt very excited with some of new abilities Python now have. I&amp;rsquo;m talking about including of PEP 484, which describes Type Hints, in Python 3.5 (old news, I know).</description>
     </item>
-    
     <item>
       <title>Moving from Fish shell to zsh</title>
       <link>//bulimov.me/it/fish-zsh/</link>
       <pubDate>Fri, 06 May 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/fish-zsh/</guid>
-      <description>I&amp;rsquo;ve been using Fish shell as my daily driver for more than 2 years. I don&amp;rsquo;t want to insult Fish - this awesome shell provided me with wonderful out-of-the-box experience, introduced me to autosuggestions, and required almost no configuration.
-But now, after 2 years of heavy usage, I&amp;rsquo;ve dropped it in favor of zsh.
-The main reason for the switch is simple - Fish shell is not POSIX-compatible. And while many people keep repeating &amp;ldquo;If you don&amp;rsquo;t write shell scripts in Fish, why should you care about POSIX-compatibility?</description>
+      <description>I&amp;rsquo;ve been using Fish shell as my daily driver for more than 2 years. I don&amp;rsquo;t want to insult Fish - this awesome shell provided me with wonderful out-of-the-box experience, introduced me to autosuggestions, and required almost no configuration.&#xA;But now, after 2 years of heavy usage, I&amp;rsquo;ve dropped it in favor of zsh.&#xA;The main reason for the switch is simple - Fish shell is not POSIX-compatible. And while many people keep repeating &amp;ldquo;If you don&amp;rsquo;t write shell scripts in Fish, why should you care about POSIX-compatibility?</description>
     </item>
-    
     <item>
       <title>Утилита gotests и плагин для Atom</title>
       <link>//bulimov.me/it/atom-gotests/</link>
       <pubDate>Fri, 15 Apr 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/atom-gotests/</guid>
-      <description>Поскольку последнее время я все больше пишу на Go, мой workflow потихоньку обрастает различными полезными утилитами.
-Одним из лучших открытий (после изумительного go-plus для Atom, который превращает Atom в полнофункциональную IDE для Go) стала утилита gotests, которая позволяет генерировать табличные тесты. При этом для нее есть плагины для Sublime Text 3 и Emacs.
-Я большой сторонник юнит-тестирования, и потому возможность создавать шаблоны для тестов одной командой меня очень обрадовала.
-Выглядит это как-то так:</description>
+      <description>Поскольку последнее время я все больше пишу на Go, мой workflow потихоньку обрастает различными полезными утилитами.&#xA;Одним из лучших открытий (после изумительного go-plus для Atom, который превращает Atom в полнофункциональную IDE для Go) стала утилита gotests, которая позволяет генерировать табличные тесты. При этом для нее есть плагины для Sublime Text 3 и Emacs.&#xA;Я большой сторонник юнит-тестирования, и потому возможность создавать шаблоны для тестов одной командой меня очень обрадовала.&#xA;Выглядит это как-то так:</description>
     </item>
-    
     <item>
       <title>Все для HAProxy в Atom</title>
       <link>//bulimov.me/it/atom-HAProxy/</link>
       <pubDate>Fri, 08 Apr 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/atom-HAProxy/</guid>
-      <description>Появилась у меня на работе задачка - взять 3 относительно разных конфига HAProxy, ответвившихся когда-то от общего предка, и обратно унифицировать их в один.
-Конфиги хорошие, большие - 800 строк каждый.
-Приступил я к этой задаче, и сразу оступил - потому что в Atom, которым я пользуюсь для редактирования всего, не было подсветки синтаксиса конфигов HAProxy.
-Ну у нас же тут OpenSource, так что тут же был нагуглен архив с HAProxy.</description>
+      <description>Появилась у меня на работе задачка - взять 3 относительно разных конфига HAProxy, ответвившихся когда-то от общего предка, и обратно унифицировать их в один.&#xA;Конфиги хорошие, большие - 800 строк каждый.&#xA;Приступил я к этой задаче, и сразу оступил - потому что в Atom, которым я пользуюсь для редактирования всего, не было подсветки синтаксиса конфигов HAProxy.&#xA;Ну у нас же тут OpenSource, так что тут же был нагуглен архив с HAProxy.</description>
     </item>
-    
     <item>
       <title>Vendoring зависимостей в Go</title>
       <link>//bulimov.me/it/go-vendoring/</link>
       <pubDate>Thu, 31 Mar 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/go-vendoring/</guid>
-      <description>После недавнего удаления модуля на 11 строк кода из npm, которое сломало всю Node.js инфраструктуру, я по-новому взглянул на то, как в проектах на Go реализованы зависимости от других пакетов.
-Изначально, при знакомстве с go я был крайне недоволен отсутствием возможности задавать зависимости от конкретных версий (зависимость указывается только от репозитория, т.е. от master ветки) - ведь апстрим может ломать обратную совместимость, и твой проект просто не соберется. Причем я сам с этой проблемой столкнулся, и это было очень неприятно.</description>
+      <description>После недавнего удаления модуля на 11 строк кода из npm, которое сломало всю Node.js инфраструктуру, я по-новому взглянул на то, как в проектах на Go реализованы зависимости от других пакетов.&#xA;Изначально, при знакомстве с go я был крайне недоволен отсутствием возможности задавать зависимости от конкретных версий (зависимость указывается только от репозитория, т.е. от master ветки) - ведь апстрим может ломать обратную совместимость, и твой проект просто не соберется. Причем я сам с этой проблемой столкнулся, и это было очень неприятно.</description>
     </item>
-    
     <item>
       <title>Проверка образов Docker на уязвимости с Clair</title>
       <link>//bulimov.me/it/clair/</link>
       <pubDate>Thu, 24 Mar 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/clair/</guid>
-      <description>Ни для кого не секрет, что контейнеры (и в частности Docker) не только решают много проблем (configuration drift, scalability, dependency hell), но и привносят новые (в частности, обновление базовых образов).
-Я уже давно мониторил IT-мир на предмет появления хорошего инструмента для проверки Docker-образов на наличие известных CVE. До недавнего времени подходящего инструмента не было. Была парочка дистро-специфичных инструментов (например oscap-docker, с которым я помучался и забил), но ничего подходящего.
-Но недавно (19.</description>
+      <description>Ни для кого не секрет, что контейнеры (и в частности Docker) не только решают много проблем (configuration drift, scalability, dependency hell), но и привносят новые (в частности, обновление базовых образов).&#xA;Я уже давно мониторил IT-мир на предмет появления хорошего инструмента для проверки Docker-образов на наличие известных CVE. До недавнего времени подходящего инструмента не было. Была парочка дистро-специфичных инструментов (например oscap-docker, с которым я помучался и забил), но ничего подходящего.&#xA;Но недавно (19.</description>
     </item>
-    
     <item>
       <title>Открыл код db-checker</title>
       <link>//bulimov.me/it/db-checker/</link>
       <pubDate>Fri, 18 Mar 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/db-checker/</guid>
-      <description>Недавно я открыл код еще одного инструмента, который уже около года использую на работе - db-checker.
-Началось все с необходимости проводить регулярные проверки логической целостности данных в БД. Проще говоря - гонять мониторингом запросы к базе.
-Сначала это была часть проекта, который проверял данные на нашем CDN. Проект этот сразу планировался многопоточным, поэтому написан на Go. Затем мухи были отделены от котлет, и проверка базы выделилась в отдельную сущность, но несколько legacy-моментов осталось.</description>
+      <description>Недавно я открыл код еще одного инструмента, который уже около года использую на работе - db-checker.&#xA;Началось все с необходимости проводить регулярные проверки логической целостности данных в БД. Проще говоря - гонять мониторингом запросы к базе.&#xA;Сначала это была часть проекта, который проверял данные на нашем CDN. Проект этот сразу планировался многопоточным, поэтому написан на Go. Затем мухи были отделены от котлет, и проверка базы выделилась в отдельную сущность, но несколько legacy-моментов осталось.</description>
     </item>
-    
     <item>
       <title>О пользе Python и костылях с Docker</title>
       <link>//bulimov.me/it/delete-docker-registry-image/</link>
       <pubDate>Wed, 02 Mar 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/delete-docker-registry-image/</guid>
-      <description>В процессе организации авто-очистки Docker Registry 2, устав ждать в появления в нем столь &amp;ldquo;ненужного&amp;rdquo; функционала, как удаление образов с диска (DELETE запросы удаляют тег, но сами данные остаются на диске и жрут место), я в очередной раз прибег к помощи скрипта из delete-docker-registry-image, и уперся в то, что этот самый скрипт (написанный изначально на bash) невероятно медленно работает на большом Registry.
-К примеру, удаления одного тега для repository с 70 тегами, в каждом из которых много слоев, занимает 49 минут.</description>
+      <description>В процессе организации авто-очистки Docker Registry 2, устав ждать в появления в нем столь &amp;ldquo;ненужного&amp;rdquo; функционала, как удаление образов с диска (DELETE запросы удаляют тег, но сами данные остаются на диске и жрут место), я в очередной раз прибег к помощи скрипта из delete-docker-registry-image, и уперся в то, что этот самый скрипт (написанный изначально на bash) невероятно медленно работает на большом Registry.&#xA;К примеру, удаления одного тега для repository с 70 тегами, в каждом из которых много слоев, занимает 49 минут.</description>
     </item>
-    
     <item>
       <title>Рекомендую Advent Of Code</title>
       <link>//bulimov.me/it/advent-of-code/</link>
       <pubDate>Thu, 11 Feb 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/advent-of-code/</guid>
-      <description>Закончил на днях решать задачи из замечательного набора программерских пазлов Advent Of Code (да, я тормоз и даже пропустил начало этого конкурса), и могу уверенно рекомендовать его любому.
-Задачки веселые, разнообразные, в меру сложные, содержат много классических задач (задача коммивояжёра, задача о ранце и т.д.) в занятной обертке, так что их решение дает возможность отлично размять мозги.
-Так же эти задачки отлично подходят для изучения нового языка, чем я отчасти воспользовался - решал все на Go, освежив и укрепив свои знания.</description>
+      <description>Закончил на днях решать задачи из замечательного набора программерских пазлов Advent Of Code (да, я тормоз и даже пропустил начало этого конкурса), и могу уверенно рекомендовать его любому.&#xA;Задачки веселые, разнообразные, в меру сложные, содержат много классических задач (задача коммивояжёра, задача о ранце и т.д.) в занятной обертке, так что их решение дает возможность отлично размять мозги.&#xA;Так же эти задачки отлично подходят для изучения нового языка, чем я отчасти воспользовался - решал все на Go, освежив и укрепив свои знания.</description>
     </item>
-    
     <item>
       <title>Замена carbon-cache на go-carbon = Счастье</title>
       <link>//bulimov.me/it/go-carbon/</link>
       <pubDate>Mon, 08 Feb 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/go-carbon/</guid>
-      <description>Пришлось на собственном опыте опробовать, насколько Graphite модульный.
-При 200k metricsReceived наш Graphite, работающий на довольном старом сервере на обычных дисках, начал помирать. Carbon-cache постоянно был в топе потребления ресурсов, ни о какой отзывчивости в работе сервера речи вообще не шло.
-&amp;ldquo;Хватит это терпеть!&amp;rdquo; - подумал я, и начал в который раз искать советы по тюнингу carbon для высокой производительности. В очередной раз ничего нового не найдя, я решил попробовать давно приглянувшийся мне проект go-carbon.</description>
+      <description>Пришлось на собственном опыте опробовать, насколько Graphite модульный.&#xA;При 200k metricsReceived наш Graphite, работающий на довольном старом сервере на обычных дисках, начал помирать. Carbon-cache постоянно был в топе потребления ресурсов, ни о какой отзывчивости в работе сервера речи вообще не шло.&#xA;&amp;ldquo;Хватит это терпеть!&amp;rdquo; - подумал я, и начал в который раз искать советы по тюнингу carbon для высокой производительности. В очередной раз ничего нового не найдя, я решил попробовать давно приглянувшийся мне проект go-carbon.</description>
     </item>
-    
     <item>
       <title>Немного житейского опыта</title>
       <link>//bulimov.me/it/productivity-tips/</link>
       <pubDate>Tue, 12 Jan 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/productivity-tips/</guid>
-      <description>Решил поделиться небольшим набором &amp;ldquo;капитанских&amp;rdquo; жизненных практик, каждая из которых очень сильно упростила мне жизнь.
-Использование сервиса для чтения новостей/RSS.
-Я очень долго игнорировал RSS, считая его пережитком прошлого, но когда создавал свой VPS, поставил TT-RSS и попробовал попользоваться.
-Сложно даже описать, сколько это мне сэкономило времени. Это оказалось настолько удобно, что теперь я не представляю свою жизнь без подобного сервиса, хоть от tt-rss и отказался вместе с VPS.
-Теперь я избавлен от необходимости запоминать и время от времени обходить все интересные мне блоги, никогда не пропускаю новости и обновления софта, и всегда могу без проблем наверстать пропущенные (например в отпуске) события.</description>
+      <description>Решил поделиться небольшим набором &amp;ldquo;капитанских&amp;rdquo; жизненных практик, каждая из которых очень сильно упростила мне жизнь.&#xA;Использование сервиса для чтения новостей/RSS.&#xA;Я очень долго игнорировал RSS, считая его пережитком прошлого, но когда создавал свой VPS, поставил TT-RSS и попробовал попользоваться.&#xA;Сложно даже описать, сколько это мне сэкономило времени. Это оказалось настолько удобно, что теперь я не представляю свою жизнь без подобного сервиса, хоть от tt-rss и отказался вместе с VPS.&#xA;Теперь я избавлен от необходимости запоминать и время от времени обходить все интересные мне блоги, никогда не пропускаю новости и обновления софта, и всегда могу без проблем наверстать пропущенные (например в отпуске) события.</description>
     </item>
-    
     <item>
       <title>Quis custodiet ipsos custodes?</title>
       <link>//bulimov.me/it/who-watch-the-watchmen/</link>
       <pubDate>Fri, 06 Nov 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/who-watch-the-watchmen/</guid>
-      <description>Кто же устережёт самих сторожей?, или как (и зачем) я мониторю мониторинг. Как вы понимаете, современный сервис мониторинга это очень сложная штука. Некоторые, как Sensu, выносят всю сложность во внешние сервисы, и потому требуют установки и администрирования нескольких компонентов, таких как очередь и база данных.
-Остальные реализуют некоторый функционал этих компонентов сами, упрощая администрирование мониторинга, но усложняя его внутреннее устройство. К примеру, для работы Zabbix нужна только база, а очереди и транспорт он реализует сам.</description>
+      <description>Кто же устережёт самих сторожей?, или как (и зачем) я мониторю мониторинг. Как вы понимаете, современный сервис мониторинга это очень сложная штука. Некоторые, как Sensu, выносят всю сложность во внешние сервисы, и потому требуют установки и администрирования нескольких компонентов, таких как очередь и база данных.&#xA;Остальные реализуют некоторый функционал этих компонентов сами, упрощая администрирование мониторинга, но усложняя его внутреннее устройство. К примеру, для работы Zabbix нужна только база, а очереди и транспорт он реализует сам.</description>
     </item>
-    
     <item>
       <title>Избавился от CoreOS</title>
       <link>//bulimov.me/it/goodby-coreos/</link>
       <pubDate>Mon, 26 Oct 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/goodby-coreos/</guid>
-      <description>С огромным облегчением сегодня убрал последний хост с CoreOS.
-Я уже писал о своих впечатлениях от CoreoOS, но с тех пор впечатлений прибавилось.
-Частые атомарные обновления на бумаге выглядели вкусно (и в пользовательских ОС типа Android работают прекрасно), но вот на практике на серверах в том виде, в котором CoreOS их готовит, оказались совсем несъедобны.
-Объясню, в чем проблема: Docker достаточно часто что-то ломает в API, и свежие ядра Linux ломают всякие важные вещи тоже довольно часто, причем зачастую даже в рамках patch-level обновлений.</description>
+      <description>С огромным облегчением сегодня убрал последний хост с CoreOS.&#xA;Я уже писал о своих впечатлениях от CoreoOS, но с тех пор впечатлений прибавилось.&#xA;Частые атомарные обновления на бумаге выглядели вкусно (и в пользовательских ОС типа Android работают прекрасно), но вот на практике на серверах в том виде, в котором CoreOS их готовит, оказались совсем несъедобны.&#xA;Объясню, в чем проблема: Docker достаточно часто что-то ломает в API, и свежие ядра Linux ломают всякие важные вещи тоже довольно часто, причем зачастую даже в рамках patch-level обновлений.</description>
     </item>
-    
     <item>
       <title>Logstash и Graphite</title>
       <link>//bulimov.me/it/logstash-graphite/</link>
       <pubDate>Fri, 09 Oct 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/logstash-graphite/</guid>
       <description>Недавно читал серию постов от Datadog про сбор метрик, и в частности статью про метрики Nginx (думал, вдруг что-то новое узнаю). Что меня в этой статье зацепило - так это то, что только версия Nginx Plus показывает статистику количества ответов, разделенную по HTTP-кодам. Поскольку я использую перед Nginx балансировщик HAProxy, который не жадный и показывает подробную статистику по кодам ответов для каждого бекенда и фронтенда, я о таком минусе статистики Nginx даже не думал.</description>
     </item>
-    
     <item>
       <title>Заметка о Graphite</title>
       <link>//bulimov.me/it/graphite-experience/</link>
       <pubDate>Fri, 25 Sep 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/graphite-experience/</guid>
-      <description>На первый взгляд, кажется довольно странным, что сейчас, в 2015 году, все до сих пор используют для хранения time series такой старый и «не модный» инструмент, как Graphite. О ужас, о нем даже почти не пишут в твиттере/G+ и он написан на старом будничном Python, а не на популярном сейчас Go (хотя уже частично написан, но об этом потом).
-Но все равно многие используют его, и не сильно жалуются.
-Экскурс в историю До открытия кода Graphite в 2008 году был вездесущий RRDTool, использовавшийся (и используемый до сих пор) в таких инструментах как Cacti, Munin и еще в куче других.</description>
+      <description>На первый взгляд, кажется довольно странным, что сейчас, в 2015 году, все до сих пор используют для хранения time series такой старый и «не модный» инструмент, как Graphite. О ужас, о нем даже почти не пишут в твиттере/G+ и он написан на старом будничном Python, а не на популярном сейчас Go (хотя уже частично написан, но об этом потом).&#xA;Но все равно многие используют его, и не сильно жалуются.&#xA;Экскурс в историю До открытия кода Graphite в 2008 году был вездесущий RRDTool, использовавшийся (и используемый до сих пор) в таких инструментах как Cacti, Munin и еще в куче других.</description>
     </item>
-    
     <item>
       <title>Плагин к collectd для сбора метрик Riak CS</title>
       <link>//bulimov.me/it/collectd-riakcs/</link>
       <pubDate>Thu, 17 Sep 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/collectd-riakcs/</guid>
-      <description>На днях наконец-то дошли руки до модернизации той части мониторинга, которая отвечает за сбор метрик, и набивший оскомину Munin был окончательно заменен на Graphite + CollectD. Теперь воцарилась идиллия - Icinga2 складывает метрики из perfdata в Graphite, и CollectD отправляет все метрики туда же.
-Хочется отдельно отметить, что несмотря на то, что изначально CollectD мне не очень понравился (кому может сейчас понравиться Apache-подобный конфиг?), при дальнейшем изучении я был приятно поражен богатством возможностей этого продукта и крайне бережным его отношением к ресурсам наблюдаемой системы.</description>
+      <description>На днях наконец-то дошли руки до модернизации той части мониторинга, которая отвечает за сбор метрик, и набивший оскомину Munin был окончательно заменен на Graphite + CollectD. Теперь воцарилась идиллия - Icinga2 складывает метрики из perfdata в Graphite, и CollectD отправляет все метрики туда же.&#xA;Хочется отдельно отметить, что несмотря на то, что изначально CollectD мне не очень понравился (кому может сейчас понравиться Apache-подобный конфиг?), при дальнейшем изучении я был приятно поражен богатством возможностей этого продукта и крайне бережным его отношением к ресурсам наблюдаемой системы.</description>
     </item>
-    
     <item>
       <title>Использование ELK в продакшне</title>
       <link>//bulimov.me/it/elk-production/</link>
       <pubDate>Tue, 11 Aug 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/elk-production/</guid>
-      <description>Я уже довольно давно и успешно использую Logstash + Elasticsearch с визуализацией данных в Kibana (общепринятое сокращение для этой тройки - ELK) для сбора, хранения и обработки логов, но для обретения счастья с этой связкой мне потребовалось несколько итераций.
-Поскольку в мире СПО все постоянно развивается и становится лучше, сразу хочу отметить, что все описанное актуально для Logstash версиий 1.4-1.5 и Elasticsearch версий 1.4 - 1.7 при нагрузке в ~20kk сообщений в день.</description>
+      <description>Я уже довольно давно и успешно использую Logstash + Elasticsearch с визуализацией данных в Kibana (общепринятое сокращение для этой тройки - ELK) для сбора, хранения и обработки логов, но для обретения счастья с этой связкой мне потребовалось несколько итераций.&#xA;Поскольку в мире СПО все постоянно развивается и становится лучше, сразу хочу отметить, что все описанное актуально для Logstash версиий 1.4-1.5 и Elasticsearch версий 1.4 - 1.7 при нагрузке в ~20kk сообщений в день.</description>
     </item>
-    
     <item>
       <title>Впечатления от CoreOS</title>
       <link>//bulimov.me/it/coreos-opinion/</link>
       <pubDate>Wed, 29 Jul 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/coreos-opinion/</guid>
-      <description>На волне популярности контейнерной виртуализации Docker стали появляться специализированные дистрибутивы Linux, созданные специально для использования в роли базового хоста для Docker-контейнеров.
-Пионером среди них стал проект CoreOS, затем появились Project Atomic от RedHat и Ubuntu Snappy от Canonical.
-Чем они все отличаются от привычных дистрибутивов? Основным отличием является модель обновления дистрибутива. Все эти проекты предлагают атомарные обновления, подразумевающие сборку нового образа системы с последующей перезагрузкой в него. При этом образ монтируется в read-only режиме, и есть возможность откатиться на предыдущий образ системы.</description>
+      <description>На волне популярности контейнерной виртуализации Docker стали появляться специализированные дистрибутивы Linux, созданные специально для использования в роли базового хоста для Docker-контейнеров.&#xA;Пионером среди них стал проект CoreOS, затем появились Project Atomic от RedHat и Ubuntu Snappy от Canonical.&#xA;Чем они все отличаются от привычных дистрибутивов? Основным отличием является модель обновления дистрибутива. Все эти проекты предлагают атомарные обновления, подразумевающие сборку нового образа системы с последующей перезагрузкой в него. При этом образ монтируется в read-only режиме, и есть возможность откатиться на предыдущий образ системы.</description>
     </item>
-    
     <item>
       <title>Прощай, личный VPS</title>
       <link>//bulimov.me/it/goodby-vps/</link>
       <pubDate>Thu, 09 Jul 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/goodby-vps/</guid>
-      <description>Больше года назад я стал использовать свой виртуальный частный сервер(VPS), но недавно с полной ясностью осознал, что несмотря на то, что я регулярно пользуюсь многими сервисами на своем сервере, сам VPS приносит мне только негативные эмоции.
-Необходимость следить за этим сервером, обновлять на нем софт, решать мелкие проблемы после обновлений - все это стало меня бесить. Возможно, это возраст (ха-ха), но возни с серверами мне хватает на работе, причем задачи там большие и интересные, а с VPS всякая рутинная мелочь.</description>
+      <description>Больше года назад я стал использовать свой виртуальный частный сервер(VPS), но недавно с полной ясностью осознал, что несмотря на то, что я регулярно пользуюсь многими сервисами на своем сервере, сам VPS приносит мне только негативные эмоции.&#xA;Необходимость следить за этим сервером, обновлять на нем софт, решать мелкие проблемы после обновлений - все это стало меня бесить. Возможно, это возраст (ха-ха), но возни с серверами мне хватает на работе, причем задачи там большие и интересные, а с VPS всякая рутинная мелочь.</description>
     </item>
-    
     <item>
       <title>Попробуйте Packetbeat</title>
       <link>//bulimov.me/it/try-packetbeat/</link>
       <pubDate>Thu, 28 May 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/try-packetbeat/</guid>
-      <description>Вчера в блоге Elasticsearch появилась отличная новость - проект Packetbeat, развиваемый до этого энтузиастами, присоединился к Elastic.
-Я уже довольно давно слежу за этим проектом, и теперь, когда можно не беспокоиться о его будущем, хочу о нем рассказать.
-Packetbeat это такой инструмент мониторинга, который работает как анализатор сетевых пакетов, парсит различные протоколы (сейчас поддерживаются HTTP, MySQL, PostgreSQL, Redis, Thrift-RPC), получает нужные данные, и отсылает их либо напрямую в Elasticsearch, либо в Redis, из которого данные будет забирать Logstash и класть их все в тот же Elasticsearch.</description>
+      <description>Вчера в блоге Elasticsearch появилась отличная новость - проект Packetbeat, развиваемый до этого энтузиастами, присоединился к Elastic.&#xA;Я уже довольно давно слежу за этим проектом, и теперь, когда можно не беспокоиться о его будущем, хочу о нем рассказать.&#xA;Packetbeat это такой инструмент мониторинга, который работает как анализатор сетевых пакетов, парсит различные протоколы (сейчас поддерживаются HTTP, MySQL, PostgreSQL, Redis, Thrift-RPC), получает нужные данные, и отсылает их либо напрямую в Elasticsearch, либо в Redis, из которого данные будет забирать Logstash и класть их все в тот же Elasticsearch.</description>
     </item>
-    
     <item>
       <title>Сменил Vim на Atom</title>
       <link>//bulimov.me/it/vim-atom/</link>
       <pubDate>Thu, 21 May 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/vim-atom/</guid>
-      <description>Вот уже почти два месяца, как я по совету коллеги сменил Vim, которым пользовался уже 5 лет, и который оброс у меня кучей плагинов, на Github Atom.
-Использую я его как раньше Vim - для всего. В основном это написание плейбуков Ansible, что включает в себя правку конфигов, и написание кода на Python и Go.
-Сразу скажу, что не будь для Atom вменяемого vim-режима, я бы вряд ли решился на переход.</description>
+      <description>Вот уже почти два месяца, как я по совету коллеги сменил Vim, которым пользовался уже 5 лет, и который оброс у меня кучей плагинов, на Github Atom.&#xA;Использую я его как раньше Vim - для всего. В основном это написание плейбуков Ansible, что включает в себя правку конфигов, и написание кода на Python и Go.&#xA;Сразу скажу, что не будь для Atom вменяемого vim-режима, я бы вряд ли решился на переход.</description>
     </item>
-    
     <item>
       <title>Улучшаем сообщения от мониторинга с помощью cAdvisor-companion</title>
       <link>//bulimov.me/it/cadvisor-companion/</link>
       <pubDate>Tue, 21 Apr 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/cadvisor-companion/</guid>
-      <description>Слышали ли вы когда-нибудь о такой практике, как &amp;ldquo;Monitoring Events Enrichment&amp;rdquo;? Если вкратце, то это практика наполнения дополнительной информацией сообщений от мониторинга, так что на выяснение причины проблемы уходит меньше времени и телодвижений.
-Есть даже контора, которая помогает внедрять эту практику на коммерческой основе, у них на сайте есть неплохие примеры того, что и зачем можно добавить к обычному сообщению от Nagios.
-Сама эта идея мне очень нравится, и вот после очередного неинформативного сообщения от мониторинга, которое пришло тогда, когда я был далеко от компьютера, и гласило CheckDockerStats CRITICAL: 91% CPU Used!</description>
+      <description>Слышали ли вы когда-нибудь о такой практике, как &amp;ldquo;Monitoring Events Enrichment&amp;rdquo;? Если вкратце, то это практика наполнения дополнительной информацией сообщений от мониторинга, так что на выяснение причины проблемы уходит меньше времени и телодвижений.&#xA;Есть даже контора, которая помогает внедрять эту практику на коммерческой основе, у них на сайте есть неплохие примеры того, что и зачем можно добавить к обычному сообщению от Nagios.&#xA;Сама эта идея мне очень нравится, и вот после очередного неинформативного сообщения от мониторинга, которое пришло тогда, когда я был далеко от компьютера, и гласило CheckDockerStats CRITICAL: 91% CPU Used!</description>
     </item>
-    
     <item>
       <title>Балансировка в HAProxy на основе данных cAdvisor</title>
       <link>//bulimov.me/it/haproxy-cadvisor/</link>
       <pubDate>Wed, 15 Apr 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/haproxy-cadvisor/</guid>
-      <description>Для запуска Docker-контейнеров у меня в данный момент выделено достаточно много серверов, причем аппаратная часть у некоторых из них отличается друг от друга. Соответственно, при настройке на чудесном балансировщике HAProxy такого параметра балансировки как &amp;ldquo;вес сервера&amp;rdquo;, приходится это различие в аппаратной части учитывать.
-Можно, конечно, подобрать значения весов самостоятельно на основе данных мониторинга, а при появлении нагрузки от соседних Docker-контейнеров эти веса корректировать, но это не наш метод.
-Не так давно я писал о том, как использую данные из cAdvisor для мониторинга нагруженности контейнеров.</description>
+      <description>Для запуска Docker-контейнеров у меня в данный момент выделено достаточно много серверов, причем аппаратная часть у некоторых из них отличается друг от друга. Соответственно, при настройке на чудесном балансировщике HAProxy такого параметра балансировки как &amp;ldquo;вес сервера&amp;rdquo;, приходится это различие в аппаратной части учитывать.&#xA;Можно, конечно, подобрать значения весов самостоятельно на основе данных мониторинга, а при появлении нагрузки от соседних Docker-контейнеров эти веса корректировать, но это не наш метод.&#xA;Не так давно я писал о том, как использую данные из cAdvisor для мониторинга нагруженности контейнеров.</description>
     </item>
-    
     <item>
       <title>Открыл для себя cVim для Google Chrome</title>
       <link>//bulimov.me/it/chromium-vim/</link>
       <pubDate>Fri, 27 Feb 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/chromium-vim/</guid>
-      <description>Последние 4 года я использую Vim в качестве текстового редактора и IDE, и все это время я использовал браузер Mozilla Firefox с дополнением Vimperator, либо с его форком - Pentadactyl, для получения аналогичной навигации в браузере. Без функционала этих дополнений я как без рук, и потому никак не мог использовать Google Chrome/Chromium.
-Дополнения типа Vimium/Vrome/ViChrome, которые добавляют vi-like навигацию в Chrome, после Vimperator казались, мягко говоря, недоделанными, и не давали и половины того комфорта при использовании браузера, к которому я привык.</description>
+      <description>Последние 4 года я использую Vim в качестве текстового редактора и IDE, и все это время я использовал браузер Mozilla Firefox с дополнением Vimperator, либо с его форком - Pentadactyl, для получения аналогичной навигации в браузере. Без функционала этих дополнений я как без рук, и потому никак не мог использовать Google Chrome/Chromium.&#xA;Дополнения типа Vimium/Vrome/ViChrome, которые добавляют vi-like навигацию в Chrome, после Vimperator казались, мягко говоря, недоделанными, и не давали и половины того комфорта при использовании браузера, к которому я привык.</description>
     </item>
-    
     <item>
       <title>Мониторим Docker-контейнеры с cAdvisor и Nagios/Icinga2</title>
       <link>//bulimov.me/it/check-cadvisor/</link>
       <pubDate>Fri, 20 Feb 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/check-cadvisor/</guid>
-      <description>После того, как я научился мониторить память в Docker-контейнерах, я решил мониторить еще и нагрузку на CPU. Поскольку это дело не самое тривиальное, и хотелось не писать свой велосипед, а пользоваться чем-то популярным и поддерживаемым, я решил попробовать cAdvisor.
-И вот что я могу сказать - отличный инструмент! Ресурсов практически не потребляет (около 20 Мб оперативной памяти и неизмеримо мало CPU), обладает простым API для доступа к собираемой им информации, имеет красивый веб-интерфейс с realtime-графиками.</description>
+      <description>После того, как я научился мониторить память в Docker-контейнерах, я решил мониторить еще и нагрузку на CPU. Поскольку это дело не самое тривиальное, и хотелось не писать свой велосипед, а пользоваться чем-то популярным и поддерживаемым, я решил попробовать cAdvisor.&#xA;И вот что я могу сказать - отличный инструмент! Ресурсов практически не потребляет (около 20 Мб оперативной памяти и неизмеримо мало CPU), обладает простым API для доступа к собираемой им информации, имеет красивый веб-интерфейс с realtime-графиками.</description>
     </item>
-    
     <item>
       <title>Научился мониторить использование памяти в Docker-контейнерах</title>
       <link>//bulimov.me/it/check-docker-memory/</link>
       <pubDate>Fri, 13 Feb 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/check-docker-memory/</guid>
-      <description>Я сегодня занимался мониторингом, а конкретно нашими докер-контейнерами.
-Лирическое отступление: Для мониторинга я теперь (уже на другом месте работы) использую наследника Nagios - Icinga2. Пока все нравится, ребята очень круто переписали Nagios, реализовали гораздо более вменяемый формат конфигурации, и кучу новых возможностей.
-Используя Docker для автотестов я уже ловил проблемы, когда интерпретатор Ruby кушал всю выделенную память в контейнере и тихо умирал от рук OOM Killer.
-Поскольку теперь я использую Docker уже не только для тестов, но и &amp;ldquo;в бою&amp;rdquo;, меня сильно беспокоило то, что мы не можем мониторить использование памяти внутри контейнера.</description>
+      <description>Я сегодня занимался мониторингом, а конкретно нашими докер-контейнерами.&#xA;Лирическое отступление: Для мониторинга я теперь (уже на другом месте работы) использую наследника Nagios - Icinga2. Пока все нравится, ребята очень круто переписали Nagios, реализовали гораздо более вменяемый формат конфигурации, и кучу новых возможностей.&#xA;Используя Docker для автотестов я уже ловил проблемы, когда интерпретатор Ruby кушал всю выделенную память в контейнере и тихо умирал от рук OOM Killer.&#xA;Поскольку теперь я использую Docker уже не только для тестов, но и &amp;ldquo;в бою&amp;rdquo;, меня сильно беспокоило то, что мы не можем мониторить использование памяти внутри контейнера.</description>
     </item>
-    
     <item>
       <title>Lyrics Tagger</title>
       <link>//bulimov.me/it/lyricstagger/</link>
       <pubDate>Tue, 25 Nov 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/lyricstagger/</guid>
-      <description>Предыстория Я езжу на работу в общественном транспорте, и слушаю там музыку со смартфона. Достаточно часто хотелось почитать тексты прослушиваемых в данный момент песен, но искать их в интернете было не слишком удобно, да и вообще интернета до недавнего времени в метро не было.
-Решение выглядит очевидным - надо встроить тексты песен в сами музыкальные файлы. Благо, основные форматы это позволяют. Музыку я храню во FLAC, а на смартфон закидываю в Ogg Vorbis.</description>
+      <description>Предыстория Я езжу на работу в общественном транспорте, и слушаю там музыку со смартфона. Достаточно часто хотелось почитать тексты прослушиваемых в данный момент песен, но искать их в интернете было не слишком удобно, да и вообще интернета до недавнего времени в метро не было.&#xA;Решение выглядит очевидным - надо встроить тексты песен в сами музыкальные файлы. Благо, основные форматы это позволяют. Музыку я храню во FLAC, а на смартфон закидываю в Ogg Vorbis.</description>
     </item>
-    
     <item>
       <title>Удобная настройка Sensu с Ansible</title>
       <link>//bulimov.me/it/ansible-sensu/</link>
       <pubDate>Thu, 13 Nov 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/ansible-sensu/</guid>
-      <description>Так как я использую Sensu для мониторинга, и Ansible для управления конфигурациями, то конечно же я настраиваю Sensu с помощью Ansible.
-В этой связке меня смущало только одно - Sensu использует JSON для конфигов, в то время как Ansible использует YAML. Поскольку JSON является подмножеством YAML, и описывать конфигурации в YAML гораздо проще (никаких проблем с запятыми, скобочками), хотелось писать в YAML и транслировать в JSON.
-Начал я, конечно, с использования шаблонов Ansible:</description>
+      <description>Так как я использую Sensu для мониторинга, и Ansible для управления конфигурациями, то конечно же я настраиваю Sensu с помощью Ansible.&#xA;В этой связке меня смущало только одно - Sensu использует JSON для конфигов, в то время как Ansible использует YAML. Поскольку JSON является подмножеством YAML, и описывать конфигурации в YAML гораздо проще (никаких проблем с запятыми, скобочками), хотелось писать в YAML и транслировать в JSON.&#xA;Начал я, конечно, с использования шаблонов Ansible:</description>
     </item>
-    
     <item>
       <title>Разбирался с page-cache в Linux</title>
       <link>//bulimov.me/it/meminfo-visualizer/</link>
       <pubDate>Thu, 09 Oct 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/meminfo-visualizer/</guid>
-      <description>Читая книгу &amp;ldquo;Разработка ядра Linux&amp;rdquo; за авторством Роберта Лава, я решил поглубже разобраться в том, как работает кэш в Linux, и набрел на вот эту статью на Хабре от Яндекса.
-Сама статья весьма познавательна, особенно видео - рекомендую. Так вот, в этом видео Роман Гущин, с помощью простой утилиты, наглядно показывающей размер кэша, показывал как работает файловый кэш.
-Конечно, мне захотелось в образовательных целях написать такую утилиту для себя, чтобы можно было поиграться с кэшем и видеть изменения.</description>
+      <description>Читая книгу &amp;ldquo;Разработка ядра Linux&amp;rdquo; за авторством Роберта Лава, я решил поглубже разобраться в том, как работает кэш в Linux, и набрел на вот эту статью на Хабре от Яндекса.&#xA;Сама статья весьма познавательна, особенно видео - рекомендую. Так вот, в этом видео Роман Гущин, с помощью простой утилиты, наглядно показывающей размер кэша, показывал как работает файловый кэш.&#xA;Конечно, мне захотелось в образовательных целях написать такую утилиту для себя, чтобы можно было поиграться с кэшем и видеть изменения.</description>
     </item>
-    
     <item>
       <title>Инфраструктура как код</title>
       <link>//bulimov.me/it/infrastructure-as-a-code/</link>
       <pubDate>Mon, 29 Sep 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/infrastructure-as-a-code/</guid>
-      <description>Есть такой тренд сейчас - работать с IT-инфраструктурой как с кодом. Хорошо цель этого метода описывается этой цитатой:
-“Enable the reconstruction of the business from nothing but a source code repository, an application data backup, and bare metal resources”
-&amp;ndash; Jesse Robins
-Я полностью поддерживаю эту идею, причем именно в этой трактовке.
-Если говорить про парадигму, которую нам предлагает этот метод, то вот она:
-Поддерживать модульную, легко поддающуюся автоматизации инфраструктуру, и описывать эту инфраструктуру с помощью языка высокого уровня.</description>
+      <description>Есть такой тренд сейчас - работать с IT-инфраструктурой как с кодом. Хорошо цель этого метода описывается этой цитатой:&#xA;“Enable the reconstruction of the business from nothing but a source code repository, an application data backup, and bare metal resources”&#xA;&amp;ndash; Jesse Robins&#xA;Я полностью поддерживаю эту идею, причем именно в этой трактовке.&#xA;Если говорить про парадигму, которую нам предлагает этот метод, то вот она:&#xA;Поддерживать модульную, легко поддающуюся автоматизации инфраструктуру, и описывать эту инфраструктуру с помощью языка высокого уровня.</description>
     </item>
-    
     <item>
       <title>s/Ruhoh/Pelican/</title>
       <link>//bulimov.me/it/from-ruhoh-to-pelican/</link>
       <pubDate>Thu, 25 Sep 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/from-ruhoh-to-pelican/</guid>
-      <description>Переехал с Ruhoh на Pelican, потому что Python.
-А если подробнее - потому что Ruhoh написан на Ruby, и не особо развивается. А Pelican написан на Python, который является моим основным языком, и уже давно и активно развивается, и обладает обширной базой плагинов и тем.</description>
+      <description>Переехал с Ruhoh на Pelican, потому что Python.&#xA;А если подробнее - потому что Ruhoh написан на Ruby, и не особо развивается. А Pelican написан на Python, который является моим основным языком, и уже давно и активно развивается, и обладает обширной базой плагинов и тем.</description>
     </item>
-    
     <item>
       <title>Выложил немного полезностей</title>
       <link>//bulimov.me/it/%D0%92%D1%8B%D0%BB%D0%BE%D0%B6%D0%B8%D0%BB-%D0%BD%D0%B5%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9/</link>
       <pubDate>Wed, 17 Sep 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%92%D1%8B%D0%BB%D0%BE%D0%B6%D0%B8%D0%BB-%D0%BD%D0%B5%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9/</guid>
-      <description>Когда я писал про то, как переписал скрипты для Sensu, я слегка слукавил. Изначально, я написал эти скрипты на Python, и только потом на Ruby. Поскольку пользователям других Nagios-совместимых систем мониторинга может показаться неудобным использование ruby-скриптов, да еще и с зависимостью от гема Sensu-plugin, я решил выложить и Python-версии скриптов.
-Если кому хочется мониторить состояние дисков в raid-контроллерах от 3ware или HP SmartArray на чистом Python - милости просим, все в моем репозитории.</description>
+      <description>Когда я писал про то, как переписал скрипты для Sensu, я слегка слукавил. Изначально, я написал эти скрипты на Python, и только потом на Ruby. Поскольку пользователям других Nagios-совместимых систем мониторинга может показаться неудобным использование ruby-скриптов, да еще и с зависимостью от гема Sensu-plugin, я решил выложить и Python-версии скриптов.&#xA;Если кому хочется мониторить состояние дисков в raid-контроллерах от 3ware или HP SmartArray на чистом Python - милости просим, все в моем репозитории.</description>
     </item>
-    
     <item>
       <title>Открыл для себя плагины к tmux</title>
       <link>//bulimov.me/it/%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D0%BB-%D0%B4%D0%BB%D1%8F-%D1%81%D0%B5%D0%B1%D1%8F-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%D1%8B-%D0%BA-tmux/</link>
       <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D0%BB-%D0%B4%D0%BB%D1%8F-%D1%81%D0%B5%D0%B1%D1%8F-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%D1%8B-%D0%BA-tmux/</guid>
-      <description>Случилось чудесное - LOR принес мне пользу. Оттуда я узнал о плагине tmux-resurrect, а точнее, вообще о существовании плагинов для чудесного мультиплексора терминалов tmux.
-С помощью имеющихся плагинов можно привести конфигурацию в более понятный вид, а также заменить свои костыли на костыли, поддерживаемые сообществом.
-Я, к примеру:
-сильно сократил конфигурацию, используя tmux-sensible; с помощью tmux-yank выкинул свои костыли для копирования в буфер обмена; смог убрать настройки для vi-образной навигации между панелями благодаря tmux-pain-control; обрел поиск с помощью tmux-copycat; теперь могу открывать выделенные файлы либо URL с помощью tmux-open; наконец, могу сохранять все открытые окна и панели tmux с использованием tmux-resurrect; </description>
+      <description>Случилось чудесное - LOR принес мне пользу. Оттуда я узнал о плагине tmux-resurrect, а точнее, вообще о существовании плагинов для чудесного мультиплексора терминалов tmux.&#xA;С помощью имеющихся плагинов можно привести конфигурацию в более понятный вид, а также заменить свои костыли на костыли, поддерживаемые сообществом.&#xA;Я, к примеру:&#xA;сильно сократил конфигурацию, используя tmux-sensible; с помощью tmux-yank выкинул свои костыли для копирования в буфер обмена; смог убрать настройки для vi-образной навигации между панелями благодаря tmux-pain-control; обрел поиск с помощью tmux-copycat; теперь могу открывать выделенные файлы либо URL с помощью tmux-open; наконец, могу сохранять все открытые окна и панели tmux с использованием tmux-resurrect; </description>
     </item>
-    
     <item>
       <title>Переписал скрипты на Ruby для Sensu</title>
       <link>//bulimov.me/it/%D0%9F%D0%B5%D1%80%D0%B5%D0%BF%D0%B8%D1%81%D0%B0%D0%BB-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B-%D0%BD%D0%B0-ruby-%D0%B4%D0%BB%D1%8F-sensu/</link>
       <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%9F%D0%B5%D1%80%D0%B5%D0%BF%D0%B8%D1%81%D0%B0%D0%BB-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B-%D0%BD%D0%B0-ruby-%D0%B4%D0%BB%D1%8F-sensu/</guid>
-      <description>Поскольку я перевел мониторинг с Zabbix на Sensu, пришлось переписать свои скрипты проверки состояния жестких дисков в raid-контроллерах от 3ware и HP SmartArray для использования в Sensu. Ну а раз все равно переписывать - то писать я решил на Ruby, чтобы можно было без проблем заслать в Sensu-community-plugins
-Скрипты весьма просты, так что проблем при переписывании никаких не было.
-Если кому надо - все уже отдано сообществу, теперь Sensu может мониторить состояние дисков в контроллерах от 3ware и HP SmartArray.</description>
+      <description>Поскольку я перевел мониторинг с Zabbix на Sensu, пришлось переписать свои скрипты проверки состояния жестких дисков в raid-контроллерах от 3ware и HP SmartArray для использования в Sensu. Ну а раз все равно переписывать - то писать я решил на Ruby, чтобы можно было без проблем заслать в Sensu-community-plugins&#xA;Скрипты весьма просты, так что проблем при переписывании никаких не было.&#xA;Если кому надо - все уже отдано сообществу, теперь Sensu может мониторить состояние дисков в контроллерах от 3ware и HP SmartArray.</description>
     </item>
-    
     <item>
       <title>Модуль zabbix_maintenance</title>
       <link>//bulimov.me/it/%D0%9C%D0%BE%D0%B4%D1%83%D0%BB%D1%8C-zabbix_maintenance/</link>
       <pubDate>Mon, 11 Aug 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%9C%D0%BE%D0%B4%D1%83%D0%BB%D1%8C-zabbix_maintenance/</guid>
-      <description>Свершилось чудо, и мой модуль для Ansible, который умеет создавать и удалять периоды &amp;ldquo;в обслуживании&amp;rdquo; в Zabbix, наконец-то приняли в апстрим. Это уже третий мой модуль, принятый в апстрим Ansible.
-Краткая история:
-Модуль этот я запушил еще в 26 ноября 2013 года, но 21 декабря cove написал в комментарии к моему модулю, что планирует выложить целую пачку модулей для взаимодействия с Zabbix из Ansible. Это отложило принятие моего модуля в апстрим почти на 9 месяцев, поскольку мы согласовывали интерфейс наших модулей, тестировали и улучшали модули, выложенные cove, а очередь pull-requestов у Ansible выросла до 300+.</description>
+      <description>Свершилось чудо, и мой модуль для Ansible, который умеет создавать и удалять периоды &amp;ldquo;в обслуживании&amp;rdquo; в Zabbix, наконец-то приняли в апстрим. Это уже третий мой модуль, принятый в апстрим Ansible.&#xA;Краткая история:&#xA;Модуль этот я запушил еще в 26 ноября 2013 года, но 21 декабря cove написал в комментарии к моему модулю, что планирует выложить целую пачку модулей для взаимодействия с Zabbix из Ansible. Это отложило принятие моего модуля в апстрим почти на 9 месяцев, поскольку мы согласовывали интерфейс наших модулей, тестировали и улучшали модули, выложенные cove, а очередь pull-requestов у Ansible выросла до 300+.</description>
     </item>
-    
     <item>
       <title>Ansible и serverspec</title>
       <link>//bulimov.me/it/ansible-%D0%B8-serverspec/</link>
       <pubDate>Thu, 22 May 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/ansible-%D0%B8-serverspec/</guid>
-      <description>Когда я готовил playbook для своего VPS, я взял за основу Sovereign. В этом репозитории меня заинтересовал файл tests.py, содержащий тесты для результирующего сервера. У меня сразу же возник вопрос - почему тесты самописные, на голом Python, а не на каком-нибудь готовом решении. Я решил изучить, что же есть сейчас для TDD-администрирования. Оказалось, что толком ничего и нет, а то, что есть - для Ansible не особо нужно.
-Для начала, что есть.</description>
+      <description>Когда я готовил playbook для своего VPS, я взял за основу Sovereign. В этом репозитории меня заинтересовал файл tests.py, содержащий тесты для результирующего сервера. У меня сразу же возник вопрос - почему тесты самописные, на голом Python, а не на каком-нибудь готовом решении. Я решил изучить, что же есть сейчас для TDD-администрирования. Оказалось, что толком ничего и нет, а то, что есть - для Ansible не особо нужно.&#xA;Для начала, что есть.</description>
     </item>
-    
     <item>
       <title>Личный VPS</title>
       <link>//bulimov.me/it/%D0%9B%D0%B8%D1%87%D0%BD%D1%8B%D0%B9-vps/</link>
       <pubDate>Thu, 22 May 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%9B%D0%B8%D1%87%D0%BD%D1%8B%D0%B9-vps/</guid>
-      <description>Уже 2 недели как я начал использовать свой личный VPS на DigitalOcean, и хочу поделиться впечатлениями. Это оказалось очень удобно - можно получать все удобства современного цифрового мира, но на своих условиях и с уверенностью в сохранности своих персональных данных.
-Раскатывал я все сервисы и конфиги с помощью Ansible, взяв за основу Sovereign. В качестве дистрибутива я ради эксперимента выбрал Ubuntu 14.04 LTS.
-Сейчас я использую VPS для следующих сервисов:</description>
+      <description>Уже 2 недели как я начал использовать свой личный VPS на DigitalOcean, и хочу поделиться впечатлениями. Это оказалось очень удобно - можно получать все удобства современного цифрового мира, но на своих условиях и с уверенностью в сохранности своих персональных данных.&#xA;Раскатывал я все сервисы и конфиги с помощью Ansible, взяв за основу Sovereign. В качестве дистрибутива я ради эксперимента выбрал Ubuntu 14.04 LTS.&#xA;Сейчас я использую VPS для следующих сервисов:</description>
     </item>
-    
     <item>
       <title>Прочитал The Phoenix Project A Novel About DevOps, and Helping Your Business Win</title>
       <link>//bulimov.me/it/%D0%9F%D1%80%D0%BE%D1%87%D0%B8%D1%82%D0%B0%D0%BB-the-phoenix-project-a-novel-about-devops-and-helping-your-business-win/</link>
       <pubDate>Tue, 15 Apr 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%9F%D1%80%D0%BE%D1%87%D0%B8%D1%82%D0%B0%D0%BB-the-phoenix-project-a-novel-about-devops-and-helping-your-business-win/</guid>
-      <description>Ну что тут скажешь - прекрасная книга. Написана живым языком, очень легко читается. В увлекательной форме рассказывает о ключевых принципах DevOps, причем именно так, чтобы было понятно, в ответ на какие проблемы каждый из принципов был сформирован.
-Конечно, главная проблема книги в том, что DevOps преподносится как некая чудодейственная методология, и при этом не уделяется внимания главному вопросу - кадровому. В книге все сотрудники оказались достаточно квалифицированными и открытыми для того, чтобы успешно принять и реализовать парадигму DevOps, хотя в реальной жизни лично я наблюдаю жесточайший дефицит адекватных кадров, которых можно было бы хотя-бы переучить под DevOps, не говоря уже о том, чтоб они сами к этому пришли.</description>
+      <description>Ну что тут скажешь - прекрасная книга. Написана живым языком, очень легко читается. В увлекательной форме рассказывает о ключевых принципах DevOps, причем именно так, чтобы было понятно, в ответ на какие проблемы каждый из принципов был сформирован.&#xA;Конечно, главная проблема книги в том, что DevOps преподносится как некая чудодейственная методология, и при этом не уделяется внимания главному вопросу - кадровому. В книге все сотрудники оказались достаточно квалифицированными и открытыми для того, чтобы успешно принять и реализовать парадигму DevOps, хотя в реальной жизни лично я наблюдаю жесточайший дефицит адекватных кадров, которых можно было бы хотя-бы переучить под DevOps, не говоря уже о том, чтоб они сами к этому пришли.</description>
     </item>
-    
     <item>
       <title>Сдал экзамен Cisco ICND2, он же 200-101</title>
       <link>//bulimov.me/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-cisco-icnd2-%D0%BE%D0%BD-%D0%B6%D0%B5-200-101/</link>
       <pubDate>Thu, 03 Apr 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-cisco-icnd2-%D0%BE%D0%BD-%D0%B6%D0%B5-200-101/</guid>
-      <description>Теперь я CCNA.
-Сдал с трудом, 867 из 1000 при проходных 825. Экзамен очень мощный, сильно сложнее ICND1, на мой вкус. Надо было сдавать единый 200-120, было бы сильно проще. Еще больше уверился, что CCNA вполне подходит на роль критерия профпригодности для более-менее серьезной работы сисадмина.</description>
+      <description>Теперь я CCNA.&#xA;Сдал с трудом, 867 из 1000 при проходных 825. Экзамен очень мощный, сильно сложнее ICND1, на мой вкус. Надо было сдавать единый 200-120, было бы сильно проще. Еще больше уверился, что CCNA вполне подходит на роль критерия профпригодности для более-менее серьезной работы сисадмина.</description>
     </item>
-    
     <item>
       <title>Сдал экзамен Cisco ICND1, он же 100-101</title>
       <link>//bulimov.me/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-cisco-icnd1-%D0%BE%D0%BD-%D0%B6%D0%B5-100-101/</link>
       <pubDate>Thu, 20 Mar 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-cisco-icnd1-%D0%BE%D0%BD-%D0%B6%D0%B5-100-101/</guid>
       <description>Сдавал через месяц после курсов ICND1 и ICND2, набрал 907. Экзамен хороший, мощный. Теперь вполне понимаю, почему многими сданный CCNA расценивается как некое мерило профпригодности.</description>
     </item>
-    
     <item>
       <title>Тестирование Ansible Playbook</title>
       <link>//bulimov.me/it/%D0%A2%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-ansible-playbook/</link>
       <pubDate>Thu, 13 Mar 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%A2%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-ansible-playbook/</guid>
-      <description>Давно хотел сделать авто-тестирование целостности развертывания, производимого с помощью Ansible. Чтобы, значит, запушил я новую версию плейбука в репозитория, и CI проверила работоспособность системы. Причем не просто корректность синтаксиса, а работоспособность проводимого деплоя.
-Вот наконец до этого дошли руки.
-Точнее, руки до этого дошли еще в середине 2013 года, но тогда я собрал все это с помощью стройной системы костылей, взяв за основу заранее минимально сконфигуренные qemu-образы на LVM-снапшотах.
-Теперь я решил подойти к вопросу серьезнее, взять общепринятые инструменты и избавиться от костылей.</description>
+      <description>Давно хотел сделать авто-тестирование целостности развертывания, производимого с помощью Ansible. Чтобы, значит, запушил я новую версию плейбука в репозитория, и CI проверила работоспособность системы. Причем не просто корректность синтаксиса, а работоспособность проводимого деплоя.&#xA;Вот наконец до этого дошли руки.&#xA;Точнее, руки до этого дошли еще в середине 2013 года, но тогда я собрал все это с помощью стройной системы костылей, взяв за основу заранее минимально сконфигуренные qemu-образы на LVM-снапшотах.&#xA;Теперь я решил подойти к вопросу серьезнее, взять общепринятые инструменты и избавиться от костылей.</description>
     </item>
-    
     <item>
       <title>Влияние курсов Cisco на психику</title>
       <link>//bulimov.me/it/%D0%92%D0%BB%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5-%D0%BA%D1%83%D1%80%D1%81%D0%BE%D0%B2-cisco-%D0%BD%D0%B0-%D0%BF%D1%81%D0%B8%D1%85%D0%B8%D0%BA%D1%83/</link>
       <pubDate>Wed, 05 Mar 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%92%D0%BB%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5-%D0%BA%D1%83%D1%80%D1%81%D0%BE%D0%B2-cisco-%D0%BD%D0%B0-%D0%BF%D1%81%D0%B8%D1%85%D0%B8%D0%BA%D1%83/</guid>
-      <description>Закончил курсы Cisco ICND1 и ICND2, и сразу захотелось странного. Захотелось домой какую-нибудь интересную сетевую железяку. Быстрый поиск по каталогам серьезных фирм типа Cisco и Juniper показал, что ничего вменяемого для домашнего использования у них нет (Cisco Linksys я за вменяемое не считаю, та же фигня, что и D-Link или Asus). В итоге этих метаний, выбор пал на оборудование фирмы MikroTik.
-Движимый душевным порывом, я поменял свой древний WiFi роутер D-Link DIR-615 c DD-WRT на борту на MikroTik RouterBoard RB951G-2HnD.</description>
+      <description>Закончил курсы Cisco ICND1 и ICND2, и сразу захотелось странного. Захотелось домой какую-нибудь интересную сетевую железяку. Быстрый поиск по каталогам серьезных фирм типа Cisco и Juniper показал, что ничего вменяемого для домашнего использования у них нет (Cisco Linksys я за вменяемое не считаю, та же фигня, что и D-Link или Asus). В итоге этих метаний, выбор пал на оборудование фирмы MikroTik.&#xA;Движимый душевным порывом, я поменял свой древний WiFi роутер D-Link DIR-615 c DD-WRT на борту на MikroTik RouterBoard RB951G-2HnD.</description>
     </item>
-    
     <item>
       <title>Побывал на DevOps Meetup 25 января</title>
       <link>//bulimov.me/it/%D0%9F%D0%BE%D0%B1%D1%8B%D0%B2%D0%B0%D0%BB-%D0%BD%D0%B0-devops-meetup-25-%D1%8F%D0%BD%D0%B2%D0%B0%D1%80%D1%8F/</link>
       <pubDate>Mon, 27 Jan 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%9F%D0%BE%D0%B1%D1%8B%D0%B2%D0%B0%D0%BB-%D0%BD%D0%B0-devops-meetup-25-%D1%8F%D0%BD%D0%B2%D0%B0%D1%80%D1%8F/</guid>
-      <description>Из четырех докладов именно доклад про Docker, ради которого я и ходил на этот Meetup, оказался единственным плохим. Вышел какой-то мальчик из Яндекса, жутко заунывно рассказывал банальности про Docker, на все интересные вопросы отвечал &amp;ldquo;я не знаю&amp;rdquo;.
-Зато остальные доклады были весьма хороши. Лично меня особенно порадовал доклад Ивана Евтуховича про librarian и Berkshelf. Порадовал тем, что Иван выразил мою позицию по поводу community-кукбуков.
-Вячеслав Кузнецов прочитал отличный доклад о том, к какой методологии использования Chef они пришли.</description>
+      <description>Из четырех докладов именно доклад про Docker, ради которого я и ходил на этот Meetup, оказался единственным плохим. Вышел какой-то мальчик из Яндекса, жутко заунывно рассказывал банальности про Docker, на все интересные вопросы отвечал &amp;ldquo;я не знаю&amp;rdquo;.&#xA;Зато остальные доклады были весьма хороши. Лично меня особенно порадовал доклад Ивана Евтуховича про librarian и Berkshelf. Порадовал тем, что Иван выразил мою позицию по поводу community-кукбуков.&#xA;Вячеслав Кузнецов прочитал отличный доклад о том, к какой методологии использования Chef они пришли.</description>
     </item>
-    
     <item>
       <title>Расширяем возможности Nginx с помощью Lua</title>
       <link>//bulimov.me/it/%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D1%8F%D0%B5%D0%BC-%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8-nginx-%D1%81-%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E-lua/</link>
       <pubDate>Fri, 08 Nov 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D1%8F%D0%B5%D0%BC-%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8-nginx-%D1%81-%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E-lua/</guid>
-      <description>Встала некоторое время назад передо мной задача - фильтровать по полю Serial клиентские сертификаты, которые используются для авторизации на одном из сервисов. То есть не просто проверять сертификат, но еще и проверять наличие серийника в списке разрешенных, на случай утечки клиентского сертификата. Сертификаты выдаем не мы, так что отзывать не можем, и списка отозванных тоже нет.
-Решать я эту задачу стал с помощью Nginx, и почти сразу был слеплен вариант тупой вариант &amp;ldquo;в лоб&amp;rdquo;:</description>
+      <description>Встала некоторое время назад передо мной задача - фильтровать по полю Serial клиентские сертификаты, которые используются для авторизации на одном из сервисов. То есть не просто проверять сертификат, но еще и проверять наличие серийника в списке разрешенных, на случай утечки клиентского сертификата. Сертификаты выдаем не мы, так что отзывать не можем, и списка отозванных тоже нет.&#xA;Решать я эту задачу стал с помощью Nginx, и почти сразу был слеплен вариант тупой вариант &amp;ldquo;в лоб&amp;rdquo;:</description>
     </item>
-    
     <item>
       <title>Auto-backup конфигов активки через Rancid</title>
       <link>//bulimov.me/it/auto-backup-%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D0%BE%D0%B2-%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BA%D0%B8-%D1%87%D0%B5%D1%80%D0%B5%D0%B7-rancid/</link>
       <pubDate>Fri, 01 Nov 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/auto-backup-%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D0%BE%D0%B2-%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BA%D0%B8-%D1%87%D0%B5%D1%80%D0%B5%D0%B7-rancid/</guid>
-      <description>На днях помогал коллеге с настройкой автоматического бекапа для конфигураций нашей активки (Cisco, Juniper), и нашел весьма интересное решение (похоже, вообще единственное) - rancid.
-Точнее, его форк rancid-git, поскольку использую везде и всюду git, и ради бекапов городить CVS или Subversion было бы неудобно.
-Конечно, rancid этот - весьма оригинальный пример того, как с помощью expect и bash-скриптов соорудить исправно работающее решение, отлично выполняющее свою задачу. Если вкратце - оно по крону ходит через telnet/ssh по указанным хостам, и с помощью expect запрашивает с них информацию + конфиги, а потом вывод кладет в CVS/subversion/git.</description>
+      <description>На днях помогал коллеге с настройкой автоматического бекапа для конфигураций нашей активки (Cisco, Juniper), и нашел весьма интересное решение (похоже, вообще единственное) - rancid.&#xA;Точнее, его форк rancid-git, поскольку использую везде и всюду git, и ради бекапов городить CVS или Subversion было бы неудобно.&#xA;Конечно, rancid этот - весьма оригинальный пример того, как с помощью expect и bash-скриптов соорудить исправно работающее решение, отлично выполняющее свою задачу. Если вкратце - оно по крону ходит через telnet/ssh по указанным хостам, и с помощью expect запрашивает с них информацию + конфиги, а потом вывод кладет в CVS/subversion/git.</description>
     </item>
-    
     <item>
       <title>Включил комментарии</title>
       <link>//bulimov.me/it/%D0%92%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D0%BB-%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B8/</link>
       <pubDate>Fri, 18 Oct 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%92%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D0%BB-%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B8/</guid>
       <description>Включил комментирование через Disqus, может кто-то что-нибудь дельное напишет в комментариях.</description>
     </item>
-    
     <item>
       <title>Сдал экзамен на RHCE</title>
       <link>//bulimov.me/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-%D0%BD%D0%B0-rhce/</link>
       <pubDate>Mon, 14 Oct 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-%D0%BD%D0%B0-rhce/</guid>
-      <description>Наконец-то пришел результат экзамена, который сдавал в пятницу. 273 из 300 возможных при проходном балле в 210. Это, конечно, неприятно - ждать все выходные результата. На RHCSA результат пришел в ту же пятницу около 8 вечера.
-По самому курсу &amp;ldquo;Системное Администрирование&amp;rdquo; и экзамену: читал у меня все три части курса Илья Соболев. Курс весьма хорошо продуман и сбалансирован, ну и читает его Соболев отлично. С позиции человека, который до этих курсов уже 3 года занимался администрированием Linux-серверов (правда, не RHEL, а Debian), могу сказать, что хорошая подача материала позволяет осмыслить многие вещи, которыми пользуешься регулярно, но разобраться в сущности которых вечно некогда.</description>
+      <description>Наконец-то пришел результат экзамена, который сдавал в пятницу. 273 из 300 возможных при проходном балле в 210. Это, конечно, неприятно - ждать все выходные результата. На RHCSA результат пришел в ту же пятницу около 8 вечера.&#xA;По самому курсу &amp;ldquo;Системное Администрирование&amp;rdquo; и экзамену: читал у меня все три части курса Илья Соболев. Курс весьма хорошо продуман и сбалансирован, ну и читает его Соболев отлично. С позиции человека, который до этих курсов уже 3 года занимался администрированием Linux-серверов (правда, не RHEL, а Debian), могу сказать, что хорошая подача материала позволяет осмыслить многие вещи, которыми пользуешься регулярно, но разобраться в сущности которых вечно некогда.</description>
     </item>
-    
     <item>
       <title>О животных и NetworkManager</title>
       <link>//bulimov.me/it/%D0%9E-%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85-%D0%B8-networkmanager/</link>
       <pubDate>Wed, 02 Oct 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%9E-%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85-%D0%B8-networkmanager/</guid>
-      <description>В комментариях к интервью с Алексеем Кузнецовым прочитал прекрасное:
-&amp;gt;&amp;gt; NetworkManager плохой, а какая альтернатива? &amp;gt;ip addr add 12.34.56.78/24 dev eth0 &amp;gt;ip ro add default via 12.34.56.1 &amp;gt;Если кому-то нужен какой-то гуй для этого - то он просто животное™. </description>
+      <description>В комментариях к интервью с Алексеем Кузнецовым прочитал прекрасное:&#xA;&amp;gt;&amp;gt; NetworkManager плохой, а какая альтернатива? &amp;gt;ip addr add 12.34.56.78/24 dev eth0 &amp;gt;ip ro add default via 12.34.56.1 &amp;gt;Если кому-то нужен какой-то гуй для этого - то он просто животное™. </description>
     </item>
-    
     <item>
       <title>Вернулся из отпуска</title>
       <link>//bulimov.me/it/%D0%92%D0%B5%D1%80%D0%BD%D1%83%D0%BB%D1%81%D1%8F-%D0%B8%D0%B7-%D0%BE%D1%82%D0%BF%D1%83%D1%81%D0%BA%D0%B0/</link>
       <pubDate>Tue, 01 Oct 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%92%D0%B5%D1%80%D0%BD%D1%83%D0%BB%D1%81%D1%8F-%D0%B8%D0%B7-%D0%BE%D1%82%D0%BF%D1%83%D1%81%D0%BA%D0%B0/</guid>
-      <description>Вернулись с женой из отпуска, который провели в Индонезии. Из IT-наблюдений: во всех отелях и кафе на Бали, Гили и Ломбоке встречались мне только и исключительно железки MikroTik в роли HotSpot. Забавно видеть Linux-based решения от Латвийских разработчиков в далекой Индонезии. На ПК служащих - только Windows XP, никаких Вист и Семерок-восьмерок.
-Ну и самое ужасное - аэропорт города Денпасар, который на Бали - практически не компьютеризирован. На посадочных талонах номер рейса и номер места пишут от руки, проверка посадки осуществляется с использованием листка бумаги и ручки.</description>
+      <description>Вернулись с женой из отпуска, который провели в Индонезии. Из IT-наблюдений: во всех отелях и кафе на Бали, Гили и Ломбоке встречались мне только и исключительно железки MikroTik в роли HotSpot. Забавно видеть Linux-based решения от Латвийских разработчиков в далекой Индонезии. На ПК служащих - только Windows XP, никаких Вист и Семерок-восьмерок.&#xA;Ну и самое ужасное - аэропорт города Денпасар, который на Бали - практически не компьютеризирован. На посадочных талонах номер рейса и номер места пишут от руки, проверка посадки осуществляется с использованием листка бумаги и ручки.</description>
     </item>
-    
     <item>
       <title>Как я управляю серверами</title>
       <link>//bulimov.me/it/%D0%9A%D0%B0%D0%BA-%D1%8F-%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D1%8F%D1%8E-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%D0%BC%D0%B8/</link>
       <pubDate>Thu, 05 Sep 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%9A%D0%B0%D0%BA-%D1%8F-%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D1%8F%D1%8E-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%D0%BC%D0%B8/</guid>
-      <description>Решил вот описать принципы управления серверами, к которым пришел за эти 3 года.
-Итак:
-принцип №1 Все конфиги лежат в VCS, я сейчас использую Git. Я думаю, в комментариях принцип не нуждается, необходимость централизованного хранения конфигов, а также хранения истории изменений с возможностью отката обсуждалась не раз.
-принцип №2 Все ПО ставится только из пакетов, никаких ./configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install. Если пакета нужной версии нет в репозиториях дистрибутива - ищем готовый пакет, желательно от разработчиков, или от солидного стороннего репозитория типа dotdeb.</description>
+      <description>Решил вот описать принципы управления серверами, к которым пришел за эти 3 года.&#xA;Итак:&#xA;принцип №1 Все конфиги лежат в VCS, я сейчас использую Git. Я думаю, в комментариях принцип не нуждается, необходимость централизованного хранения конфигов, а также хранения истории изменений с возможностью отката обсуждалась не раз.&#xA;принцип №2 Все ПО ставится только из пакетов, никаких ./configure &amp;amp;&amp;amp; make &amp;amp;&amp;amp; make install. Если пакета нужной версии нет в репозиториях дистрибутива - ищем готовый пакет, желательно от разработчиков, или от солидного стороннего репозитория типа dotdeb.</description>
     </item>
-    
     <item>
       <title>Низкоуровневое обнаружение в Zabbix, ищем диски в контроллере от 3ware</title>
       <link>//bulimov.me/it/%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5-%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-zabbix-%D0%B8%D1%89%D0%B5%D0%BC-%D0%B4%D0%B8%D1%81%D0%BA%D0%B8-%D0%B2-%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D0%BB%D0%B5%D1%80%D0%B5-%D0%BE%D1%82-3ware/</link>
       <pubDate>Wed, 14 Aug 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5-%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-zabbix-%D0%B8%D1%89%D0%B5%D0%BC-%D0%B4%D0%B8%D1%81%D0%BA%D0%B8-%D0%B2-%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D0%BB%D0%B5%D1%80%D0%B5-%D0%BE%D1%82-3ware/</guid>
-      <description>Я уже писал про низкоуровневое обнаружение в Zabbix, так что повторять теорию не буду.
-Теперь мне понадобилось автоматом получать список хардов в массивах на контроллерах 3ware, которыми оборудованы у нас многие сервера.
-Вести руками шаблоны для каждого сервера с иным порядком или количеством дисков показалось мне плохой идеей, да и авто-обнаружение само напрашивалось.
-Вдохновлялся я утилитой 3ware-status, для работы авто-обнаружения нам потребуется установленная утилита tw-cli, взять ее для Debian/Ubuntu проще всего здесь .</description>
+      <description>Я уже писал про низкоуровневое обнаружение в Zabbix, так что повторять теорию не буду.&#xA;Теперь мне понадобилось автоматом получать список хардов в массивах на контроллерах 3ware, которыми оборудованы у нас многие сервера.&#xA;Вести руками шаблоны для каждого сервера с иным порядком или количеством дисков показалось мне плохой идеей, да и авто-обнаружение само напрашивалось.&#xA;Вдохновлялся я утилитой 3ware-status, для работы авто-обнаружения нам потребуется установленная утилита tw-cli, взять ее для Debian/Ubuntu проще всего здесь .</description>
     </item>
-    
     <item>
       <title>О любви к программированию</title>
       <link>//bulimov.me/it/%D0%9E-%D0%BB%D1%8E%D0%B1%D0%B2%D0%B8-%D0%BA-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8E/</link>
       <pubDate>Thu, 25 Jul 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%9E-%D0%BB%D1%8E%D0%B1%D0%B2%D0%B8-%D0%BA-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8E/</guid>
-      <description>Хоть я и выбрал своей профессией системное администрирование, программирование я люблю. Даже очень люблю.
-Вот решил написать историю моего знакомства с программированием.
-###Школа
-Началось все в школе. Одноклассник ходил на курсы программирования, готовясь поступать в какой-то технический вуз, и рассказывал про Delphi. Рассказы его так меня увлекли, что я даже сподобился установить этот самый Delphi, и даже создал какую-то форму, скопировав код из примеров, присланных одноклассником. По итогу этих действий, у меня сложилось впечатление, что программирование - это точно не для меня.</description>
+      <description>Хоть я и выбрал своей профессией системное администрирование, программирование я люблю. Даже очень люблю.&#xA;Вот решил написать историю моего знакомства с программированием.&#xA;###Школа&#xA;Началось все в школе. Одноклассник ходил на курсы программирования, готовясь поступать в какой-то технический вуз, и рассказывал про Delphi. Рассказы его так меня увлекли, что я даже сподобился установить этот самый Delphi, и даже создал какую-то форму, скопировав код из примеров, присланных одноклассником. По итогу этих действий, у меня сложилось впечатление, что программирование - это точно не для меня.</description>
     </item>
-    
     <item>
       <title>Monitoring sucks!</title>
       <link>//bulimov.me/it/monitoring-sucks/</link>
       <pubDate>Wed, 10 Jul 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/monitoring-sucks/</guid>
-      <description>TL;DR - тут я Sensu критиковал, но в 2014 году успешно заменил Zabbix на Sensu версии 0.12+
-В 2012 году появился в среде devops такой хештег, #monitoringsucks. В сообщения с этим тегом devopsы писали, что текущее положение дел в сфере мониторинга их не устраивает. Что именно - прекрасно иллюстрирует эта презентация Если вкратце - хочется людям некоего стандарта API для взаимодействия между компонентами утилит мониторинга, ну и появления самих этих компонент, чтоб из них строить гибкий и умный мониторинг.</description>
+      <description>TL;DR - тут я Sensu критиковал, но в 2014 году успешно заменил Zabbix на Sensu версии 0.12+&#xA;В 2012 году появился в среде devops такой хештег, #monitoringsucks. В сообщения с этим тегом devopsы писали, что текущее положение дел в сфере мониторинга их не устраивает. Что именно - прекрасно иллюстрирует эта презентация Если вкратце - хочется людям некоего стандарта API для взаимодействия между компонентами утилит мониторинга, ну и появления самих этих компонент, чтоб из них строить гибкий и умный мониторинг.</description>
     </item>
-    
     <item>
       <title>Низкоуровневое обнаружение в Zabbix</title>
       <link>//bulimov.me/it/%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5-%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-zabbix/</link>
       <pubDate>Wed, 26 Jun 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5-%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-zabbix/</guid>
-      <description>В используемой мной системе мониторинга Zabbix, начиная с версии 2.0, появилась такая любопытная штука, как низкоуровневое обнаружение
-Я не буду пересказывать содержимое документации, расскажу лучше о том, как я писал свой тип обнаружения для мониторинга очередей RabbitMQ.
-Проблема в том, что очередей в RabbitMQ может быть много, и, по мере развития веб-проекта, они меняются. Так что я решил обнаруживать их автоматически, и написал для этого свой провайдер данных для обнаружения заббикса.</description>
+      <description>В используемой мной системе мониторинга Zabbix, начиная с версии 2.0, появилась такая любопытная штука, как низкоуровневое обнаружение&#xA;Я не буду пересказывать содержимое документации, расскажу лучше о том, как я писал свой тип обнаружения для мониторинга очередей RabbitMQ.&#xA;Проблема в том, что очередей в RabbitMQ может быть много, и, по мере развития веб-проекта, они меняются. Так что я решил обнаруживать их автоматически, и написал для этого свой провайдер данных для обнаружения заббикса.</description>
     </item>
-    
     <item>
       <title>Плагин к Ruhoh для рисования графиков</title>
       <link>//bulimov.me/it/%D0%9F%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD-%D0%BA-ruhoh-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B8%D1%81%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%BE%D0%B2/</link>
       <pubDate>Fri, 21 Jun 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%9F%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD-%D0%BA-ruhoh-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B8%D1%81%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%BE%D0%B2/</guid>
-      <description>Еще планируя создание статического блога на Hakyll я хотел реализовать рисование графиков &amp;ldquo;на лету&amp;rdquo; из отдельно хранящихся данных. Но с Hakyll не сложилось, и после долгих поисков я остановился на Ruhoh.
-Все нижеописанное относится к Ruhoh 2.1
-###Цель
-Рисовать графики из данных, хранящихся в человеко-читаемом виде. Нужно мне это было для визуализации своих спортивных тренировок.
-###Решение
-Конечно, я решил оформить все в виде плагина к Ruhoh, благо возможность такая есть, да и программировать я люблю.</description>
+      <description>Еще планируя создание статического блога на Hakyll я хотел реализовать рисование графиков &amp;ldquo;на лету&amp;rdquo; из отдельно хранящихся данных. Но с Hakyll не сложилось, и после долгих поисков я остановился на Ruhoh.&#xA;Все нижеописанное относится к Ruhoh 2.1&#xA;###Цель&#xA;Рисовать графики из данных, хранящихся в человеко-читаемом виде. Нужно мне это было для визуализации своих спортивных тренировок.&#xA;###Решение&#xA;Конечно, я решил оформить все в виде плагина к Ruhoh, благо возможность такая есть, да и программировать я люблю.</description>
     </item>
-    
     <item>
       <title>И снова пользователи</title>
       <link>//bulimov.me/it/%D0%98-%D1%81%D0%BD%D0%BE%D0%B2%D0%B0-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D0%B8/</link>
       <pubDate>Wed, 19 Jun 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%98-%D1%81%D0%BD%D0%BE%D0%B2%D0%B0-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D0%B8/</guid>
-      <description>Я уже довольно давно понял, что не могу и не хочу работать с людьми, и уже около года поддержкой пользователей не занимаюсь. Однако сейчас наш офисный сисадмин в отпуске, и я вынужден снова этим заниматься.
-Вот, к примеру, сегодня подошла ко мне тетя с просьбой помочь в отправлении с МФУ скана на email. Сам я этого никогда не делал, но сложности в этом не видел, и потому заявил ей, что покажу, как это делается.</description>
+      <description>Я уже довольно давно понял, что не могу и не хочу работать с людьми, и уже около года поддержкой пользователей не занимаюсь. Однако сейчас наш офисный сисадмин в отпуске, и я вынужден снова этим заниматься.&#xA;Вот, к примеру, сегодня подошла ко мне тетя с просьбой помочь в отправлении с МФУ скана на email. Сам я этого никогда не делал, но сложности в этом не видел, и потому заявил ей, что покажу, как это делается.</description>
     </item>
-    
     <item>
       <title>Что я думаю о Debian на серверах</title>
       <link>//bulimov.me/it/%D0%A7%D1%82%D0%BE-%D1%8F-%D0%B4%D1%83%D0%BC%D0%B0%D1%8E-%D0%BE-debian-%D0%BD%D0%B0-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%D1%85/</link>
       <pubDate>Tue, 18 Jun 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%A7%D1%82%D0%BE-%D1%8F-%D0%B4%D1%83%D0%BC%D0%B0%D1%8E-%D0%BE-debian-%D0%BD%D0%B0-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%D1%85/</guid>
-      <description>С 2010 года, когда я только начал заниматься системным администрированием, я использовал как основной серверный дистрибутив Debian. Это был изначально осознанный выбор, и на момент написания заметки таковым и остается. Конечно, я работал и с другими дистрибутивами, и потому мне есть и было с чем сравнить. По итогам работы с Debian и написана эта заметка.
-#Негатив
-##Общесистемные лимиты
-В свое время, встала передо мной задача настройки под высокую нагрузку различных сервисов, в том числе PostgreSQL + pgbouncer.</description>
+      <description>С 2010 года, когда я только начал заниматься системным администрированием, я использовал как основной серверный дистрибутив Debian. Это был изначально осознанный выбор, и на момент написания заметки таковым и остается. Конечно, я работал и с другими дистрибутивами, и потому мне есть и было с чем сравнить. По итогам работы с Debian и написана эта заметка.&#xA;#Негатив&#xA;##Общесистемные лимиты&#xA;В свое время, встала передо мной задача настройки под высокую нагрузку различных сервисов, в том числе PostgreSQL + pgbouncer.</description>
     </item>
-    
     <item>
       <title>Мнение о Chef</title>
       <link>//bulimov.me/it/%D0%9C%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE-chef/</link>
       <pubDate>Mon, 17 Jun 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%9C%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE-chef/</guid>
-      <description>Я использовал Chef для управления IT-инфраструктурой около полутора лет, начав с версии 0.10. Сначала, где-то пол-года, использовал только для управления конфигурациями, без развертывания ПО с нуля. Затем, уже на другой работе, автоматизировал управления конфигурациями и развертывание с нуля веб-проекта (30+ серверов, Nginx, ruby, Riak, Redis, sphinx-search, RabbitMQ и т.п.). Это позволило мне составить собственное мнение o достоинствах и недостатках Chef, и в этой заметке я свое мнение излагаю.
-По итогу вышеописанной деятельности я был настолько утомлен недостатками Chef, что начал искать ему замену.</description>
+      <description>Я использовал Chef для управления IT-инфраструктурой около полутора лет, начав с версии 0.10. Сначала, где-то пол-года, использовал только для управления конфигурациями, без развертывания ПО с нуля. Затем, уже на другой работе, автоматизировал управления конфигурациями и развертывание с нуля веб-проекта (30+ серверов, Nginx, ruby, Riak, Redis, sphinx-search, RabbitMQ и т.п.). Это позволило мне составить собственное мнение o достоинствах и недостатках Chef, и в этой заметке я свое мнение излагаю.&#xA;По итогу вышеописанной деятельности я был настолько утомлен недостатками Chef, что начал искать ему замену.</description>
     </item>
-    
   </channel>
 </rss>

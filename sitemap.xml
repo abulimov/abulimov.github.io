@@ -2,8 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>//bulimov.me/post/2024/07/31/11-years-of-blogging/</loc>
+    <lastmod>2024-07-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/blog/</loc>
+    <lastmod>2024-07-31T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>//bulimov.me/categories/</loc>
-    <lastmod>2024-01-27T00:00:00+00:00</lastmod>
+    <lastmod>2024-07-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/</loc>
+    <lastmod>2024-07-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/categories/personal/</loc>
+    <lastmod>2024-07-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/post/</loc>
+    <lastmod>2024-07-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/</loc>
+    <lastmod>2024-07-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/post/2024/01/27/golang-memory/</loc>
     <lastmod>2024-01-27T00:00:00+00:00</lastmod>
@@ -11,25 +29,13 @@
     <loc>//bulimov.me/tags/golang/</loc>
     <lastmod>2024-01-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/</loc>
-    <lastmod>2024-01-27T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/categories/it/</loc>
-    <lastmod>2024-01-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/post/</loc>
     <lastmod>2024-01-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/programming/</loc>
     <lastmod>2024-01-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/tags/</loc>
-    <lastmod>2024-01-27T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/tags/home-automation/</loc>
-    <lastmod>2023-08-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/categories/personal/</loc>
     <lastmod>2023-08-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/post/2023/08/13/robot-vacuum-amazing/</loc>
@@ -64,9 +70,6 @@
   </url><url>
     <loc>//bulimov.me/tags/xbox/</loc>
     <lastmod>2022-10-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/tags/blog/</loc>
-    <lastmod>2022-09-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/post/2022/09/25/moved-to-new-domain/</loc>
     <lastmod>2022-09-25T00:00:00+00:00</lastmod>
@@ -173,9 +176,6 @@
     <loc>//bulimov.me/categories/russian/</loc>
     <lastmod>2017-05-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/it/user-questions/</loc>
-    <lastmod>2017-05-27T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/personal/how-i-became-a-programmer/</loc>
     <lastmod>2016-09-30T00:00:00+00:00</lastmod>
   </url><url>
@@ -209,17 +209,8 @@
     <loc>//bulimov.me/tags/%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/</loc>
     <lastmod>2016-04-15T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/it/atom-gotests/</loc>
-    <lastmod>2016-04-15T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/tags/haproxy/</loc>
     <lastmod>2016-04-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/atom-HAProxy/</loc>
-    <lastmod>2016-04-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/go-vendoring/</loc>
-    <lastmod>2016-03-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/clair/</loc>
     <lastmod>2016-03-24T00:00:00+00:00</lastmod>
@@ -230,44 +221,20 @@
     <loc>//bulimov.me/tags/docker/</loc>
     <lastmod>2016-03-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/it/clair/</loc>
-    <lastmod>2016-03-24T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/tags/nagios/</loc>
     <lastmod>2016-03-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/it/db-checker/</loc>
-    <lastmod>2016-03-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/delete-docker-registry-image/</loc>
-    <lastmod>2016-03-02T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/tags/%D0%B6%D0%B8%D0%B7%D0%BD%D1%8C/</loc>
-    <lastmod>2016-02-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/advent-of-code/</loc>
     <lastmod>2016-02-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/go-carbon/</loc>
     <lastmod>2016-02-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/it/go-carbon/</loc>
-    <lastmod>2016-02-08T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/tags/%D0%BE%D0%BF%D1%8B%D1%82/</loc>
     <lastmod>2016-02-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/it/productivity-tips/</loc>
-    <lastmod>2016-01-12T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/tags/monit/</loc>
     <lastmod>2015-11-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/who-watch-the-watchmen/</loc>
-    <lastmod>2015-11-06T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/goodby-coreos/</loc>
-    <lastmod>2015-10-26T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/%D0%BC%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5/</loc>
     <lastmod>2015-10-26T00:00:00+00:00</lastmod>
@@ -275,14 +242,8 @@
     <loc>//bulimov.me/tags/logstash/</loc>
     <lastmod>2015-10-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/it/logstash-graphite/</loc>
-    <lastmod>2015-10-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/tags/statsd/</loc>
     <lastmod>2015-10-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/graphite-experience/</loc>
-    <lastmod>2015-09-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/collectd/</loc>
     <lastmod>2015-09-17T00:00:00+00:00</lastmod>
@@ -290,31 +251,13 @@
     <loc>//bulimov.me/tags/riak-cs/</loc>
     <lastmod>2015-09-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/it/collectd-riakcs/</loc>
-    <lastmod>2015-09-17T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/tags/kibana/</loc>
     <lastmod>2015-08-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/elk-production/</loc>
-    <lastmod>2015-08-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/coreos-opinion/</loc>
-    <lastmod>2015-07-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/vps/</loc>
     <lastmod>2015-07-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/it/goodby-vps/</loc>
-    <lastmod>2015-07-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/try-packetbeat/</loc>
-    <lastmod>2015-05-28T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/tags/vim/</loc>
-    <lastmod>2015-05-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/vim-atom/</loc>
     <lastmod>2015-05-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/cadvisor/</loc>
@@ -323,31 +266,10 @@
     <loc>//bulimov.me/tags/cadvisor-companion/</loc>
     <lastmod>2015-04-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/it/cadvisor-companion/</loc>
-    <lastmod>2015-04-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/haproxy-cadvisor/</loc>
-    <lastmod>2015-04-15T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/chromium-vim/</loc>
-    <lastmod>2015-02-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/check-cadvisor/</loc>
-    <lastmod>2015-02-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/check-docker-memory/</loc>
-    <lastmod>2015-02-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/lyricstagger/</loc>
-    <lastmod>2014-11-25T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/tags/ansible/</loc>
     <lastmod>2014-11-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/sensu/</loc>
-    <lastmod>2014-11-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/ansible-sensu/</loc>
     <lastmod>2014-11-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/kernel/</loc>
@@ -356,22 +278,10 @@
     <loc>//bulimov.me/tags/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/</loc>
     <lastmod>2014-10-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/it/meminfo-visualizer/</loc>
-    <lastmod>2014-10-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/tags/chef/</loc>
     <lastmod>2014-09-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/it/infrastructure-as-a-code/</loc>
-    <lastmod>2014-09-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/from-ruhoh-to-pelican/</loc>
-    <lastmod>2014-09-25T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/tags/zabbix/</loc>
-    <lastmod>2014-09-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/%D0%92%D1%8B%D0%BB%D0%BE%D0%B6%D0%B8%D0%BB-%D0%BD%D0%B5%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9/</loc>
     <lastmod>2014-09-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/ruby/</loc>
@@ -380,62 +290,23 @@
     <loc>//bulimov.me/tags/tmux/</loc>
     <lastmod>2014-09-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/it/%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D0%BB-%D0%B4%D0%BB%D1%8F-%D1%81%D0%B5%D0%B1%D1%8F-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%D1%8B-%D0%BA-tmux/</loc>
-    <lastmod>2014-09-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/%D0%9F%D0%B5%D1%80%D0%B5%D0%BF%D0%B8%D1%81%D0%B0%D0%BB-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B-%D0%BD%D0%B0-ruby-%D0%B4%D0%BB%D1%8F-sensu/</loc>
-    <lastmod>2014-09-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/%D0%9C%D0%BE%D0%B4%D1%83%D0%BB%D1%8C-zabbix_maintenance/</loc>
-    <lastmod>2014-08-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/ansible-%D0%B8-serverspec/</loc>
-    <lastmod>2014-05-22T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/tags/serverspec/</loc>
     <lastmod>2014-05-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/ubuntu/</loc>
     <lastmod>2014-05-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/it/%D0%9B%D0%B8%D1%87%D0%BD%D1%8B%D0%B9-vps/</loc>
-    <lastmod>2014-05-22T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/%D0%9F%D1%80%D0%BE%D1%87%D0%B8%D1%82%D0%B0%D0%BB-the-phoenix-project-a-novel-about-devops-and-helping-your-business-win/</loc>
-    <lastmod>2014-04-15T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/tags/cisco/</loc>
     <lastmod>2014-04-03T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-cisco-icnd2-%D0%BE%D0%BD-%D0%B6%D0%B5-200-101/</loc>
-    <lastmod>2014-04-03T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-cisco-icnd1-%D0%BE%D0%BD-%D0%B6%D0%B5-100-101/</loc>
-    <lastmod>2014-03-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/%D0%A2%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5-ansible-playbook/</loc>
-    <lastmod>2014-03-13T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/tags/mikrotik/</loc>
     <lastmod>2014-03-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/%D0%92%D0%BB%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5-%D0%BA%D1%83%D1%80%D1%81%D0%BE%D0%B2-cisco-%D0%BD%D0%B0-%D0%BF%D1%81%D0%B8%D1%85%D0%B8%D0%BA%D1%83/</loc>
-    <lastmod>2014-03-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/%D0%9F%D0%BE%D0%B1%D1%8B%D0%B2%D0%B0%D0%BB-%D0%BD%D0%B0-devops-meetup-25-%D1%8F%D0%BD%D0%B2%D0%B0%D1%80%D1%8F/</loc>
-    <lastmod>2014-01-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/lua/</loc>
     <lastmod>2013-11-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/nginx/</loc>
     <lastmod>2013-11-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/%D0%A0%D0%B0%D1%81%D1%88%D0%B8%D1%80%D1%8F%D0%B5%D0%BC-%D0%B2%D0%BE%D0%B7%D0%BC%D0%BE%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8-nginx-%D1%81-%D0%BF%D0%BE%D0%BC%D0%BE%D1%89%D1%8C%D1%8E-lua/</loc>
-    <lastmod>2013-11-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/auto-backup-%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D0%BE%D0%B2-%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BA%D0%B8-%D1%87%D0%B5%D1%80%D0%B5%D0%B7-rancid/</loc>
-    <lastmod>2013-11-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/juniper/</loc>
     <lastmod>2013-11-01T00:00:00+00:00</lastmod>
@@ -446,50 +317,11 @@
     <loc>//bulimov.me/tags/ruhoh/</loc>
     <lastmod>2013-10-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/it/%D0%92%D0%BA%D0%BB%D1%8E%D1%87%D0%B8%D0%BB-%D0%BA%D0%BE%D0%BC%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%80%D0%B8%D0%B8/</loc>
-    <lastmod>2013-10-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-%D0%BD%D0%B0-rhce/</loc>
-    <lastmod>2013-10-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/%D0%9E-%D0%B6%D0%B8%D0%B2%D0%BE%D1%82%D0%BD%D1%8B%D1%85-%D0%B8-networkmanager/</loc>
-    <lastmod>2013-10-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/%D0%92%D0%B5%D1%80%D0%BD%D1%83%D0%BB%D1%81%D1%8F-%D0%B8%D0%B7-%D0%BE%D1%82%D0%BF%D1%83%D1%81%D0%BA%D0%B0/</loc>
-    <lastmod>2013-10-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/%D0%9A%D0%B0%D0%BA-%D1%8F-%D1%83%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D1%8F%D1%8E-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%D0%BC%D0%B8/</loc>
-    <lastmod>2013-09-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5-%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-zabbix-%D0%B8%D1%89%D0%B5%D0%BC-%D0%B4%D0%B8%D1%81%D0%BA%D0%B8-%D0%B2-%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D0%BB%D0%B5%D1%80%D0%B5-%D0%BE%D1%82-3ware/</loc>
-    <lastmod>2013-08-14T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/%D0%9E-%D0%BB%D1%8E%D0%B1%D0%B2%D0%B8-%D0%BA-%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8E/</loc>
-    <lastmod>2013-07-25T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/monitoring-sucks/</loc>
-    <lastmod>2014-06-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5-%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-zabbix/</loc>
-    <lastmod>2013-06-26T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/%D0%9F%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD-%D0%BA-ruhoh-%D0%B4%D0%BB%D1%8F-%D1%80%D0%B8%D1%81%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D1%8F-%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%BE%D0%B2/</loc>
-    <lastmod>2013-06-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/%D0%98-%D1%81%D0%BD%D0%BE%D0%B2%D0%B0-%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D0%B8/</loc>
-    <lastmod>2013-06-19T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/tags/%D1%8E%D0%B7%D0%B2%D0%B5%D1%80%D0%B8/</loc>
     <lastmod>2013-06-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/debian/</loc>
     <lastmod>2013-06-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/%D0%A7%D1%82%D0%BE-%D1%8F-%D0%B4%D1%83%D0%BC%D0%B0%D1%8E-%D0%BE-debian-%D0%BD%D0%B0-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80%D0%B0%D1%85/</loc>
-    <lastmod>2013-06-18T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/it/%D0%9C%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BE-chef/</loc>
-    <lastmod>2013-06-17T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/about/</loc>
   </url><url>

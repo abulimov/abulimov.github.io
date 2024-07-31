@@ -4,20 +4,16 @@
     <title>ES6 on Alexander Bulimov: Production Engineer and Scale Modeller</title>
     <link>//bulimov.me/tags/es6/</link>
     <description>Recent content in ES6 on Alexander Bulimov: Production Engineer and Scale Modeller</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 15 Apr 2016 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/es6/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 15 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//bulimov.me/tags/es6/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Утилита gotests и плагин для Atom</title>
       <link>//bulimov.me/it/atom-gotests/</link>
       <pubDate>Fri, 15 Apr 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/atom-gotests/</guid>
-      <description>Поскольку последнее время я все больше пишу на Go, мой workflow потихоньку обрастает различными полезными утилитами.
-Одним из лучших открытий (после изумительного go-plus для Atom, который превращает Atom в полнофункциональную IDE для Go) стала утилита gotests, которая позволяет генерировать табличные тесты. При этом для нее есть плагины для Sublime Text 3 и Emacs.
-Я большой сторонник юнит-тестирования, и потому возможность создавать шаблоны для тестов одной командой меня очень обрадовала.
-Выглядит это как-то так:</description>
+      <description>Поскольку последнее время я все больше пишу на Go, мой workflow потихоньку обрастает различными полезными утилитами.&#xA;Одним из лучших открытий (после изумительного go-plus для Atom, который превращает Atom в полнофункциональную IDE для Go) стала утилита gotests, которая позволяет генерировать табличные тесты. При этом для нее есть плагины для Sublime Text 3 и Emacs.&#xA;Я большой сторонник юнит-тестирования, и потому возможность создавать шаблоны для тестов одной командой меня очень обрадовала.&#xA;Выглядит это как-то так:</description>
     </item>
-    
   </channel>
 </rss>

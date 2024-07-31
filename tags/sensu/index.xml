@@ -4,40 +4,30 @@
     <title>Sensu on Alexander Bulimov: Production Engineer and Scale Modeller</title>
     <link>//bulimov.me/tags/sensu/</link>
     <description>Recent content in Sensu on Alexander Bulimov: Production Engineer and Scale Modeller</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Nov 2014 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/sensu/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 13 Nov 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//bulimov.me/tags/sensu/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Удобная настройка Sensu с Ansible</title>
       <link>//bulimov.me/it/ansible-sensu/</link>
       <pubDate>Thu, 13 Nov 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/ansible-sensu/</guid>
-      <description>Так как я использую Sensu для мониторинга, и Ansible для управления конфигурациями, то конечно же я настраиваю Sensu с помощью Ansible.
-В этой связке меня смущало только одно - Sensu использует JSON для конфигов, в то время как Ansible использует YAML. Поскольку JSON является подмножеством YAML, и описывать конфигурации в YAML гораздо проще (никаких проблем с запятыми, скобочками), хотелось писать в YAML и транслировать в JSON.
-Начал я, конечно, с использования шаблонов Ansible:</description>
+      <description>Так как я использую Sensu для мониторинга, и Ansible для управления конфигурациями, то конечно же я настраиваю Sensu с помощью Ansible.&#xA;В этой связке меня смущало только одно - Sensu использует JSON для конфигов, в то время как Ansible использует YAML. Поскольку JSON является подмножеством YAML, и описывать конфигурации в YAML гораздо проще (никаких проблем с запятыми, скобочками), хотелось писать в YAML и транслировать в JSON.&#xA;Начал я, конечно, с использования шаблонов Ansible:</description>
     </item>
-    
     <item>
       <title>Переписал скрипты на Ruby для Sensu</title>
       <link>//bulimov.me/it/%D0%9F%D0%B5%D1%80%D0%B5%D0%BF%D0%B8%D1%81%D0%B0%D0%BB-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B-%D0%BD%D0%B0-ruby-%D0%B4%D0%BB%D1%8F-sensu/</link>
       <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%9F%D0%B5%D1%80%D0%B5%D0%BF%D0%B8%D1%81%D0%B0%D0%BB-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B-%D0%BD%D0%B0-ruby-%D0%B4%D0%BB%D1%8F-sensu/</guid>
-      <description>Поскольку я перевел мониторинг с Zabbix на Sensu, пришлось переписать свои скрипты проверки состояния жестких дисков в raid-контроллерах от 3ware и HP SmartArray для использования в Sensu. Ну а раз все равно переписывать - то писать я решил на Ruby, чтобы можно было без проблем заслать в Sensu-community-plugins
-Скрипты весьма просты, так что проблем при переписывании никаких не было.
-Если кому надо - все уже отдано сообществу, теперь Sensu может мониторить состояние дисков в контроллерах от 3ware и HP SmartArray.</description>
+      <description>Поскольку я перевел мониторинг с Zabbix на Sensu, пришлось переписать свои скрипты проверки состояния жестких дисков в raid-контроллерах от 3ware и HP SmartArray для использования в Sensu. Ну а раз все равно переписывать - то писать я решил на Ruby, чтобы можно было без проблем заслать в Sensu-community-plugins&#xA;Скрипты весьма просты, так что проблем при переписывании никаких не было.&#xA;Если кому надо - все уже отдано сообществу, теперь Sensu может мониторить состояние дисков в контроллерах от 3ware и HP SmartArray.</description>
     </item>
-    
     <item>
       <title>Monitoring sucks!</title>
       <link>//bulimov.me/it/monitoring-sucks/</link>
       <pubDate>Wed, 10 Jul 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/monitoring-sucks/</guid>
-      <description>TL;DR - тут я Sensu критиковал, но в 2014 году успешно заменил Zabbix на Sensu версии 0.12+
-В 2012 году появился в среде devops такой хештег, #monitoringsucks. В сообщения с этим тегом devopsы писали, что текущее положение дел в сфере мониторинга их не устраивает. Что именно - прекрасно иллюстрирует эта презентация Если вкратце - хочется людям некоего стандарта API для взаимодействия между компонентами утилит мониторинга, ну и появления самих этих компонент, чтоб из них строить гибкий и умный мониторинг.</description>
+      <description>TL;DR - тут я Sensu критиковал, но в 2014 году успешно заменил Zabbix на Sensu версии 0.12+&#xA;В 2012 году появился в среде devops такой хештег, #monitoringsucks. В сообщения с этим тегом devopsы писали, что текущее положение дел в сфере мониторинга их не устраивает. Что именно - прекрасно иллюстрирует эта презентация Если вкратце - хочется людям некоего стандарта API для взаимодействия между компонентами утилит мониторинга, ну и появления самих этих компонент, чтоб из них строить гибкий и умный мониторинг.</description>
     </item>
-    
   </channel>
 </rss>

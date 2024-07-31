@@ -4,48 +4,37 @@
     <title>Cisco on Alexander Bulimov: Production Engineer and Scale Modeller</title>
     <link>//bulimov.me/tags/cisco/</link>
     <description>Recent content in Cisco on Alexander Bulimov: Production Engineer and Scale Modeller</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 03 Apr 2014 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/cisco/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Apr 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//bulimov.me/tags/cisco/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Сдал экзамен Cisco ICND2, он же 200-101</title>
       <link>//bulimov.me/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-cisco-icnd2-%D0%BE%D0%BD-%D0%B6%D0%B5-200-101/</link>
       <pubDate>Thu, 03 Apr 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-cisco-icnd2-%D0%BE%D0%BD-%D0%B6%D0%B5-200-101/</guid>
-      <description>Теперь я CCNA.
-Сдал с трудом, 867 из 1000 при проходных 825. Экзамен очень мощный, сильно сложнее ICND1, на мой вкус. Надо было сдавать единый 200-120, было бы сильно проще. Еще больше уверился, что CCNA вполне подходит на роль критерия профпригодности для более-менее серьезной работы сисадмина.</description>
+      <description>Теперь я CCNA.&#xA;Сдал с трудом, 867 из 1000 при проходных 825. Экзамен очень мощный, сильно сложнее ICND1, на мой вкус. Надо было сдавать единый 200-120, было бы сильно проще. Еще больше уверился, что CCNA вполне подходит на роль критерия профпригодности для более-менее серьезной работы сисадмина.</description>
     </item>
-    
     <item>
       <title>Сдал экзамен Cisco ICND1, он же 100-101</title>
       <link>//bulimov.me/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-cisco-icnd1-%D0%BE%D0%BD-%D0%B6%D0%B5-100-101/</link>
       <pubDate>Thu, 20 Mar 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-cisco-icnd1-%D0%BE%D0%BD-%D0%B6%D0%B5-100-101/</guid>
       <description>Сдавал через месяц после курсов ICND1 и ICND2, набрал 907. Экзамен хороший, мощный. Теперь вполне понимаю, почему многими сданный CCNA расценивается как некое мерило профпригодности.</description>
     </item>
-    
     <item>
       <title>Влияние курсов Cisco на психику</title>
       <link>//bulimov.me/it/%D0%92%D0%BB%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5-%D0%BA%D1%83%D1%80%D1%81%D0%BE%D0%B2-cisco-%D0%BD%D0%B0-%D0%BF%D1%81%D0%B8%D1%85%D0%B8%D0%BA%D1%83/</link>
       <pubDate>Wed, 05 Mar 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/%D0%92%D0%BB%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5-%D0%BA%D1%83%D1%80%D1%81%D0%BE%D0%B2-cisco-%D0%BD%D0%B0-%D0%BF%D1%81%D0%B8%D1%85%D0%B8%D0%BA%D1%83/</guid>
-      <description>Закончил курсы Cisco ICND1 и ICND2, и сразу захотелось странного. Захотелось домой какую-нибудь интересную сетевую железяку. Быстрый поиск по каталогам серьезных фирм типа Cisco и Juniper показал, что ничего вменяемого для домашнего использования у них нет (Cisco Linksys я за вменяемое не считаю, та же фигня, что и D-Link или Asus). В итоге этих метаний, выбор пал на оборудование фирмы MikroTik.
-Движимый душевным порывом, я поменял свой древний WiFi роутер D-Link DIR-615 c DD-WRT на борту на MikroTik RouterBoard RB951G-2HnD.</description>
+      <description>Закончил курсы Cisco ICND1 и ICND2, и сразу захотелось странного. Захотелось домой какую-нибудь интересную сетевую железяку. Быстрый поиск по каталогам серьезных фирм типа Cisco и Juniper показал, что ничего вменяемого для домашнего использования у них нет (Cisco Linksys я за вменяемое не считаю, та же фигня, что и D-Link или Asus). В итоге этих метаний, выбор пал на оборудование фирмы MikroTik.&#xA;Движимый душевным порывом, я поменял свой древний WiFi роутер D-Link DIR-615 c DD-WRT на борту на MikroTik RouterBoard RB951G-2HnD.</description>
     </item>
-    
     <item>
       <title>Auto-backup конфигов активки через Rancid</title>
       <link>//bulimov.me/it/auto-backup-%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D0%BE%D0%B2-%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BA%D0%B8-%D1%87%D0%B5%D1%80%D0%B5%D0%B7-rancid/</link>
       <pubDate>Fri, 01 Nov 2013 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/auto-backup-%D0%BA%D0%BE%D0%BD%D1%84%D0%B8%D0%B3%D0%BE%D0%B2-%D0%B0%D0%BA%D1%82%D0%B8%D0%B2%D0%BA%D0%B8-%D1%87%D0%B5%D1%80%D0%B5%D0%B7-rancid/</guid>
-      <description>На днях помогал коллеге с настройкой автоматического бекапа для конфигураций нашей активки (Cisco, Juniper), и нашел весьма интересное решение (похоже, вообще единственное) - rancid.
-Точнее, его форк rancid-git, поскольку использую везде и всюду git, и ради бекапов городить CVS или Subversion было бы неудобно.
-Конечно, rancid этот - весьма оригинальный пример того, как с помощью expect и bash-скриптов соорудить исправно работающее решение, отлично выполняющее свою задачу. Если вкратце - оно по крону ходит через telnet/ssh по указанным хостам, и с помощью expect запрашивает с них информацию + конфиги, а потом вывод кладет в CVS/subversion/git.</description>
+      <description>На днях помогал коллеге с настройкой автоматического бекапа для конфигураций нашей активки (Cisco, Juniper), и нашел весьма интересное решение (похоже, вообще единственное) - rancid.&#xA;Точнее, его форк rancid-git, поскольку использую везде и всюду git, и ради бекапов городить CVS или Subversion было бы неудобно.&#xA;Конечно, rancid этот - весьма оригинальный пример того, как с помощью expect и bash-скриптов соорудить исправно работающее решение, отлично выполняющее свою задачу. Если вкратце - оно по крону ходит через telnet/ssh по указанным хостам, и с помощью expect запрашивает с них информацию + конфиги, а потом вывод кладет в CVS/subversion/git.</description>
     </item>
-    
   </channel>
 </rss>

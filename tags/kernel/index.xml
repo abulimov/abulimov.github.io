@@ -4,19 +4,16 @@
     <title>Kernel on Alexander Bulimov: Production Engineer and Scale Modeller</title>
     <link>//bulimov.me/tags/kernel/</link>
     <description>Recent content in Kernel on Alexander Bulimov: Production Engineer and Scale Modeller</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 09 Oct 2014 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/kernel/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Oct 2014 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//bulimov.me/tags/kernel/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Разбирался с page-cache в Linux</title>
       <link>//bulimov.me/it/meminfo-visualizer/</link>
       <pubDate>Thu, 09 Oct 2014 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/meminfo-visualizer/</guid>
-      <description>Читая книгу &amp;ldquo;Разработка ядра Linux&amp;rdquo; за авторством Роберта Лава, я решил поглубже разобраться в том, как работает кэш в Linux, и набрел на вот эту статью на Хабре от Яндекса.
-Сама статья весьма познавательна, особенно видео - рекомендую. Так вот, в этом видео Роман Гущин, с помощью простой утилиты, наглядно показывающей размер кэша, показывал как работает файловый кэш.
-Конечно, мне захотелось в образовательных целях написать такую утилиту для себя, чтобы можно было поиграться с кэшем и видеть изменения.</description>
+      <description>Читая книгу &amp;ldquo;Разработка ядра Linux&amp;rdquo; за авторством Роберта Лава, я решил поглубже разобраться в том, как работает кэш в Linux, и набрел на вот эту статью на Хабре от Яндекса.&#xA;Сама статья весьма познавательна, особенно видео - рекомендую. Так вот, в этом видео Роман Гущин, с помощью простой утилиты, наглядно показывающей размер кэша, показывал как работает файловый кэш.&#xA;Конечно, мне захотелось в образовательных целях написать такую утилиту для себя, чтобы можно было поиграться с кэшем и видеть изменения.</description>
     </item>
-    
   </channel>
 </rss>

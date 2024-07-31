@@ -4,32 +4,30 @@
     <title>Blog on Alexander Bulimov: Production Engineer and Scale Modeller</title>
     <link>//bulimov.me/tags/blog/</link>
     <description>Recent content in Blog on Alexander Bulimov: Production Engineer and Scale Modeller</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//bulimov.me/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>11 years of blogging</title>
+      <link>//bulimov.me/post/2024/07/31/11-years-of-blogging/</link>
+      <pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/post/2024/07/31/11-years-of-blogging/</guid>
+      <description>Wow, time flies. Just realized that this blog turned 11 this summer.&#xA;wc -w tells me that I wrote almost 40k words in 81 posts over those years, not bad at all.&#xA;I managed to post at least once every year since 2013 except for 2019 and 2020 when I was too busy with work.&#xA;For me, writing is a very good exercise. It helps to better shape and express my thoughts, and writing technical things often highlights areas I don’t fully understand.</description>
+    </item>
     <item>
       <title>Moved to a new domain</title>
       <link>//bulimov.me/post/2022/09/25/moved-to-new-domain/</link>
       <pubDate>Sun, 25 Sep 2022 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/post/2022/09/25/moved-to-new-domain/</guid>
-      <description>This site just moved to a new domain bulimov.me. Long overdue move of course, I bought the new domain years ago&amp;hellip;
-Anyway, the only interesting bit about this is how I&amp;rsquo;m trying to keep the old links alive with a little bit of HTML magic.
-Using a very basic python script I&amp;rsquo;ve created a dedicated Github repo with a directory structure mirroring this site, where each index.html consists of something like this:</description>
+      <description>This site just moved to a new domain bulimov.me. Long overdue move of course, I bought the new domain years ago&amp;hellip;&#xA;Anyway, the only interesting bit about this is how I&amp;rsquo;m trying to keep the old links alive with a little bit of HTML magic.&#xA;Using a very basic python script I&amp;rsquo;ve created a dedicated Github repo with a directory structure mirroring this site, where each index.html consists of something like this:</description>
     </item>
-    
     <item>
       <title>Code-like linting for prose</title>
       <link>//bulimov.me/post/2022/01/16/prose-lint/</link>
       <pubDate>Sun, 16 Jan 2022 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/post/2022/01/16/prose-lint/</guid>
-      <description>I&amp;rsquo;m a big fan of static analysis and linting for code.
-If a computer can do it automatically - why rely on humans to do the same thing?
-That&amp;rsquo;s one of the reasons why I&amp;rsquo;m such a big proponent of static typing.
-I try to bring linting everywhere:
-When I had to deal with huge and complex HAProxy configs - I wrote a linter myself. When later at different place I had to deal with complicated business logic expressed as a state machine - I used Python AST to write a linter for it, and analyze cycles, dead ends and complexity.</description>
+      <description>I&amp;rsquo;m a big fan of static analysis and linting for code.&#xA;If a computer can do it automatically - why rely on humans to do the same thing?&#xA;That&amp;rsquo;s one of the reasons why I&amp;rsquo;m such a big proponent of static typing.&#xA;I try to bring linting everywhere:&#xA;When I had to deal with huge and complex HAProxy configs - I wrote a linter myself. When later at different place I had to deal with complicated business logic expressed as a state machine - I used Python AST to write a linter for it, and analyze cycles, dead ends and complexity.</description>
     </item>
-    
   </channel>
 </rss>

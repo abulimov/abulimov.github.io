@@ -4,18 +4,16 @@
     <title>Monit on Alexander Bulimov: Production Engineer and Scale Modeller</title>
     <link>//bulimov.me/tags/monit/</link>
     <description>Recent content in Monit on Alexander Bulimov: Production Engineer and Scale Modeller</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 Nov 2015 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/monit/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 06 Nov 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//bulimov.me/tags/monit/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Quis custodiet ipsos custodes?</title>
       <link>//bulimov.me/it/who-watch-the-watchmen/</link>
       <pubDate>Fri, 06 Nov 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/who-watch-the-watchmen/</guid>
-      <description>Кто же устережёт самих сторожей?, или как (и зачем) я мониторю мониторинг. Как вы понимаете, современный сервис мониторинга это очень сложная штука. Некоторые, как Sensu, выносят всю сложность во внешние сервисы, и потому требуют установки и администрирования нескольких компонентов, таких как очередь и база данных.
-Остальные реализуют некоторый функционал этих компонентов сами, упрощая администрирование мониторинга, но усложняя его внутреннее устройство. К примеру, для работы Zabbix нужна только база, а очереди и транспорт он реализует сам.</description>
+      <description>Кто же устережёт самих сторожей?, или как (и зачем) я мониторю мониторинг. Как вы понимаете, современный сервис мониторинга это очень сложная штука. Некоторые, как Sensu, выносят всю сложность во внешние сервисы, и потому требуют установки и администрирования нескольких компонентов, таких как очередь и база данных.&#xA;Остальные реализуют некоторый функционал этих компонентов сами, упрощая администрирование мониторинга, но усложняя его внутреннее устройство. К примеру, для работы Zabbix нужна только база, а очереди и транспорт он реализует сам.</description>
     </item>
-    
   </channel>
 </rss>

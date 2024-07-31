@@ -4,177 +4,121 @@
     <title>Personal on Alexander Bulimov: Production Engineer and Scale Modeller</title>
     <link>//bulimov.me/categories/personal/</link>
     <description>Recent content in Personal on Alexander Bulimov: Production Engineer and Scale Modeller</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/categories/personal/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//bulimov.me/categories/personal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>11 years of blogging</title>
+      <link>//bulimov.me/post/2024/07/31/11-years-of-blogging/</link>
+      <pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/post/2024/07/31/11-years-of-blogging/</guid>
+      <description>Wow, time flies. Just realized that this blog turned 11 this summer.&#xA;wc -w tells me that I wrote almost 40k words in 81 posts over those years, not bad at all.&#xA;I managed to post at least once every year since 2013 except for 2019 and 2020 when I was too busy with work.&#xA;For me, writing is a very good exercise. It helps to better shape and express my thoughts, and writing technical things often highlights areas I don’t fully understand.</description>
+    </item>
     <item>
       <title>Robot Vacuum Cleaner is an amazing invention</title>
       <link>//bulimov.me/post/2023/08/13/robot-vacuum-amazing/</link>
       <pubDate>Sun, 13 Aug 2023 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/post/2023/08/13/robot-vacuum-amazing/</guid>
-      <description>I have been using a robot vacuum cleaner for exactly one year now, so decided to summarize my thoughts.
-Generally I’m not a fan of all this &amp;lsquo;smart home&amp;rsquo; stuff, definitely very far from being a fanboy by all standards.
-But at the same time I’m a huge fan of automating everything, and thus was always interested in trying a robot vacuum cleaner. If anything, washing machine and a dishwasher already immensely help with other house chores, why not automate cleaning too?</description>
+      <description>I have been using a robot vacuum cleaner for exactly one year now, so decided to summarize my thoughts.&#xA;Generally I’m not a fan of all this &amp;lsquo;smart home&amp;rsquo; stuff, definitely very far from being a fanboy by all standards.&#xA;But at the same time I’m a huge fan of automating everything, and thus was always interested in trying a robot vacuum cleaner. If anything, washing machine and a dishwasher already immensely help with other house chores, why not automate cleaning too?</description>
     </item>
-    
     <item>
       <title>My Journey to HiFi audio</title>
       <link>//bulimov.me/post/2023/05/01/hifi-audio/</link>
       <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/post/2023/05/01/hifi-audio/</guid>
-      <description>This year I upgraded my audio setup, finally bringing it to the quality and convenience level that I&amp;rsquo;m happy with, and this positive change prompted the reminiscence.
-2000 - Humble beginnings Funny enough, my journey to HiFi audio started with no audio. I had a CD-ROM drive in my first PC in 2000, and back then CD-ROM drives had headphone outputs. I used it to play Dark Side of the Moon by Pink Floyd through the cheapest no name earplugs, and was completely floored by it.</description>
+      <description>This year I upgraded my audio setup, finally bringing it to the quality and convenience level that I&amp;rsquo;m happy with, and this positive change prompted the reminiscence.&#xA;2000 - Humble beginnings Funny enough, my journey to HiFi audio started with no audio. I had a CD-ROM drive in my first PC in 2000, and back then CD-ROM drives had headphone outputs. I used it to play Dark Side of the Moon by Pink Floyd through the cheapest no name earplugs, and was completely floored by it.</description>
     </item>
-    
     <item>
       <title>A Year With Xbox</title>
       <link>//bulimov.me/post/2022/10/03/year-with-xbox/</link>
       <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/post/2022/10/03/year-with-xbox/</guid>
-      <description>About a year ago I made a decision not to continue with PlayStation as my main console, and switch to Xbox Series instead. It was a risk, as I have been a reasonably happy PS customer through PS3 and PS4 eras.
-Now, after a year with Xbox Series S I can sum up my experience and compare notes.
-tldr; It is great and I’m very happy with this decision.
-I can safely say that all the hopes I put into switching to Xbox have realized!</description>
+      <description>About a year ago I made a decision not to continue with PlayStation as my main console, and switch to Xbox Series instead. It was a risk, as I have been a reasonably happy PS customer through PS3 and PS4 eras.&#xA;Now, after a year with Xbox Series S I can sum up my experience and compare notes.&#xA;tldr; It is great and I’m very happy with this decision.&#xA;I can safely say that all the hopes I put into switching to Xbox have realized!</description>
     </item>
-    
     <item>
       <title>Moved to a new domain</title>
       <link>//bulimov.me/post/2022/09/25/moved-to-new-domain/</link>
       <pubDate>Sun, 25 Sep 2022 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/post/2022/09/25/moved-to-new-domain/</guid>
-      <description>This site just moved to a new domain bulimov.me. Long overdue move of course, I bought the new domain years ago&amp;hellip;
-Anyway, the only interesting bit about this is how I&amp;rsquo;m trying to keep the old links alive with a little bit of HTML magic.
-Using a very basic python script I&amp;rsquo;ve created a dedicated Github repo with a directory structure mirroring this site, where each index.html consists of something like this:</description>
+      <description>This site just moved to a new domain bulimov.me. Long overdue move of course, I bought the new domain years ago&amp;hellip;&#xA;Anyway, the only interesting bit about this is how I&amp;rsquo;m trying to keep the old links alive with a little bit of HTML magic.&#xA;Using a very basic python script I&amp;rsquo;ve created a dedicated Github repo with a directory structure mirroring this site, where each index.html consists of something like this:</description>
     </item>
-    
     <item>
       <title>Code-like linting for prose</title>
       <link>//bulimov.me/post/2022/01/16/prose-lint/</link>
       <pubDate>Sun, 16 Jan 2022 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/post/2022/01/16/prose-lint/</guid>
-      <description>I&amp;rsquo;m a big fan of static analysis and linting for code.
-If a computer can do it automatically - why rely on humans to do the same thing?
-That&amp;rsquo;s one of the reasons why I&amp;rsquo;m such a big proponent of static typing.
-I try to bring linting everywhere:
-When I had to deal with huge and complex HAProxy configs - I wrote a linter myself. When later at different place I had to deal with complicated business logic expressed as a state machine - I used Python AST to write a linter for it, and analyze cycles, dead ends and complexity.</description>
+      <description>I&amp;rsquo;m a big fan of static analysis and linting for code.&#xA;If a computer can do it automatically - why rely on humans to do the same thing?&#xA;That&amp;rsquo;s one of the reasons why I&amp;rsquo;m such a big proponent of static typing.&#xA;I try to bring linting everywhere:&#xA;When I had to deal with huge and complex HAProxy configs - I wrote a linter myself. When later at different place I had to deal with complicated business logic expressed as a state machine - I used Python AST to write a linter for it, and analyze cycles, dead ends and complexity.</description>
     </item>
-    
     <item>
       <title>Why I’m picking Xbox for new generation</title>
       <link>//bulimov.me/post/2021/08/07/why-xbox/</link>
       <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/post/2021/08/07/why-xbox/</guid>
-      <description>Disclaimer: this is not an objective comparison, it&amp;rsquo;s my personal, extremely subjective choice.
-Here is why I’m not buying PS5, despite having PS3 since 2010 and PS4 since 2014.
-And no, it’s not because it too hard to get now :-)
-The main reason is simple: For me, PS5 brings no excitement. Now let me explain why.
-PS3 to PS4 transition was already kinda boring. I was quite ok with graphics level PS3 provided, and the main improvement that PS4 borough for me was normal digital store (where you don’t have to download patches after you just downloaded full game), and a slightly better controller (albeit with worse battery life).</description>
+      <description>Disclaimer: this is not an objective comparison, it&amp;rsquo;s my personal, extremely subjective choice.&#xA;Here is why I’m not buying PS5, despite having PS3 since 2010 and PS4 since 2014.&#xA;And no, it’s not because it too hard to get now :-)&#xA;The main reason is simple: For me, PS5 brings no excitement. Now let me explain why.&#xA;PS3 to PS4 transition was already kinda boring. I was quite ok with graphics level PS3 provided, and the main improvement that PS4 borough for me was normal digital store (where you don’t have to download patches after you just downloaded full game), and a slightly better controller (albeit with worse battery life).</description>
     </item>
-    
     <item>
       <title>Published all my mini-review scores</title>
       <link>//bulimov.me/post/2021/05/23/my-reviews/</link>
       <pubDate>Sun, 23 May 2021 20:27:52 +0100</pubDate>
-      
       <guid>//bulimov.me/post/2021/05/23/my-reviews/</guid>
-      <description>Thanks to the fact that I migrated from Evernote to Joplin all my notes are now stored in Dropbox as Markdown files.
-This allowed me to quickly create a dumb script to extract my scores for each item I reviewed over the years, and put them in a table.
-Now it&amp;rsquo;s all available here on Reviews page.
-Maybe I&amp;rsquo;ll add the actual mini-reviews as well some day, it&amp;rsquo;s just that it will require more effort from me to proof-read and clean them up.</description>
+      <description>Thanks to the fact that I migrated from Evernote to Joplin all my notes are now stored in Dropbox as Markdown files.&#xA;This allowed me to quickly create a dumb script to extract my scores for each item I reviewed over the years, and put them in a table.&#xA;Now it&amp;rsquo;s all available here on Reviews page.&#xA;Maybe I&amp;rsquo;ll add the actual mini-reviews as well some day, it&amp;rsquo;s just that it will require more effort from me to proof-read and clean them up.</description>
     </item>
-    
     <item>
       <title>Taking Notes</title>
       <link>//bulimov.me/post/2021/05/23/taking-notes/</link>
       <pubDate>Sun, 23 May 2021 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/post/2021/05/23/taking-notes/</guid>
-      <description>In the days of yore it was common for people to keep a diary. I myself was always a fan of this idea, but could never actually get started with it.
-My handwriting is absolutely terrible, to the point that I can&amp;rsquo;t decipher my own notes, which rules out writing diary in an old-fashioned way. And all diary-like mobile apps seem to add too much friction.
-I kinda solved this for my needs few years ago by writing an simple app that allows me to quickly collect each day stats and activities in under 1 minute, but that&amp;rsquo;s not the topic of this post, I&amp;rsquo;ll write about it someday later.</description>
+      <description>In the days of yore it was common for people to keep a diary. I myself was always a fan of this idea, but could never actually get started with it.&#xA;My handwriting is absolutely terrible, to the point that I can&amp;rsquo;t decipher my own notes, which rules out writing diary in an old-fashioned way. And all diary-like mobile apps seem to add too much friction.&#xA;I kinda solved this for my needs few years ago by writing an simple app that allows me to quickly collect each day stats and activities in under 1 minute, but that&amp;rsquo;s not the topic of this post, I&amp;rsquo;ll write about it someday later.</description>
     </item>
-    
     <item>
       <title>My split keyboards</title>
       <link>//bulimov.me/post/2021/02/20/split-keyboards/</link>
       <pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/post/2021/02/20/split-keyboards/</guid>
-      <description>Intro Thanks to RSI I&amp;rsquo;m quite literally forced to use ergonomic equipment.
-It&amp;rsquo;s not too bad, and I can use laptop&amp;rsquo;s keyboard and touchpad for few hours a day without much discomfort, but if I do it for a couple of full working days I get nasty pain in my wrists and fingers.
-How it all started Many years ago (I believe it was 2014) when I first started to have those symptoms I did a research which lead me to using Microsoft Natural Ergonomic Keyboard 4000, helpfully provided by a colleague of mine.</description>
+      <description>Intro Thanks to RSI I&amp;rsquo;m quite literally forced to use ergonomic equipment.&#xA;It&amp;rsquo;s not too bad, and I can use laptop&amp;rsquo;s keyboard and touchpad for few hours a day without much discomfort, but if I do it for a couple of full working days I get nasty pain in my wrists and fingers.&#xA;How it all started Many years ago (I believe it was 2014) when I first started to have those symptoms I did a research which lead me to using Microsoft Natural Ergonomic Keyboard 4000, helpfully provided by a colleague of mine.</description>
     </item>
-    
     <item>
       <title>Moving from Pelican to Hugo for this blog</title>
       <link>//bulimov.me/post/2021/02/16/pelical-to-hugo/</link>
       <pubDate>Tue, 16 Feb 2021 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/post/2021/02/16/pelical-to-hugo/</guid>
-      <description>Since I no longer enjoy working with Python in any shape or form, it was only a matter of time (mostly a matter of my free time) for this to happen. I&amp;rsquo;ve migrated this blog from Pelican static site generator (written in Python) to Hugo (written in Go).
-It by no means reflects on Pelican as a piece of software (it&amp;rsquo;s actually pretty good). It&amp;rsquo;s more about my disdain for Python, and awesome experience I had with Hugo and Go language in general.</description>
+      <description>Since I no longer enjoy working with Python in any shape or form, it was only a matter of time (mostly a matter of my free time) for this to happen. I&amp;rsquo;ve migrated this blog from Pelican static site generator (written in Python) to Hugo (written in Go).&#xA;It by no means reflects on Pelican as a piece of software (it&amp;rsquo;s actually pretty good). It&amp;rsquo;s more about my disdain for Python, and awesome experience I had with Hugo and Go language in general.</description>
     </item>
-    
     <item>
       <title>My new Scale Models gallery</title>
       <link>//bulimov.me/personal/models-gallery/</link>
       <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/personal/models-gallery/</guid>
-      <description>I&amp;rsquo;ve just published my new site - personal Scale Models Gallery.
-Model making is my main and favorite hobby, so I&amp;rsquo;ve decided to build a whole new site just to write about it.
-I just love doing something without the computer, it&amp;rsquo;s an awesome way to de-stress and detox.
-Also I love to make notes about things I do, read, watch or play. And one day I&amp;rsquo;ve just realized that I want to turn my notes about making scale models with all this wip photos and comments about quality or tools into something bigger.</description>
+      <description>I&amp;rsquo;ve just published my new site - personal Scale Models Gallery.&#xA;Model making is my main and favorite hobby, so I&amp;rsquo;ve decided to build a whole new site just to write about it.&#xA;I just love doing something without the computer, it&amp;rsquo;s an awesome way to de-stress and detox.&#xA;Also I love to make notes about things I do, read, watch or play. And one day I&amp;rsquo;ve just realized that I want to turn my notes about making scale models with all this wip photos and comments about quality or tools into something bigger.</description>
     </item>
-    
     <item>
       <title>Benefits of upgradable laptops</title>
       <link>//bulimov.me/personal/laptop-upgrade/</link>
       <pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/personal/laptop-upgrade/</guid>
-      <description>I&amp;rsquo;ve been concerned by a low amount of memory in my Asus UX310U laptop for quite a long time, but as I used it quite lightly at home, it never became a problem. It has perfectly capable Intel i3-6100U CPU, nice FullHD screen, 5h+ of battery life, so it made no sense to change the laptop just because of RAM.
-Obviously 4Gb of RAM is kind of low by modern standards, but when I bought it I wasn&amp;rsquo;t planning to use anything resource-heavy like IDE at home, just terminal and browser.</description>
+      <description>I&amp;rsquo;ve been concerned by a low amount of memory in my Asus UX310U laptop for quite a long time, but as I used it quite lightly at home, it never became a problem. It has perfectly capable Intel i3-6100U CPU, nice FullHD screen, 5h+ of battery life, so it made no sense to change the laptop just because of RAM.&#xA;Obviously 4Gb of RAM is kind of low by modern standards, but when I bought it I wasn&amp;rsquo;t planning to use anything resource-heavy like IDE at home, just terminal and browser.</description>
     </item>
-    
     <item>
       <title>What I read on the internet (2017 edition)</title>
       <link>//bulimov.me/personal/what-i-read-2017/</link>
       <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/personal/what-i-read-2017/</guid>
-      <description>About a year ago I was asked in comments what do I read on the internet. Back then, the list consisted from blogs of open-source products I&amp;rsquo;ve been using (like Atom, Elasticsearch, Icinga, Grafana), some personal blogs (Lennart Poettering, Aphyr, Julia Evans), some company blogs (Github Engineering) and basic tech press (Ars Technica, The Verge, Phoronix, LWN). And two mail lists - Devops Weekly and Golang Weekly.
-Now I&amp;rsquo;ve been asked if something have changed.</description>
+      <description>About a year ago I was asked in comments what do I read on the internet. Back then, the list consisted from blogs of open-source products I&amp;rsquo;ve been using (like Atom, Elasticsearch, Icinga, Grafana), some personal blogs (Lennart Poettering, Aphyr, Julia Evans), some company blogs (Github Engineering) and basic tech press (Ars Technica, The Verge, Phoronix, LWN). And two mail lists - Devops Weekly and Golang Weekly.&#xA;Now I&amp;rsquo;ve been asked if something have changed.</description>
     </item>
-    
     <item>
       <title>How I became a programmer</title>
       <link>//bulimov.me/personal/how-i-became-a-programmer/</link>
       <pubDate>Fri, 30 Sep 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/personal/how-i-became-a-programmer/</guid>
-      <description>After reading a lot of blog posts about becoming a programmer recently, I&amp;rsquo;ve decided to write my own.
-It will be a bit different because of two factors:
-I&amp;rsquo;m not a Software Engineer, but a Production Engineer/SRE/Admin; I&amp;rsquo;m from Russia, where CS education is vastly different. School years School in Russia is 10 or 11 years and you start at the age of ~7 and end it at ~17
-As far as I recall, my first programming experience was with LogoWriter in elementary school.</description>
+      <description>After reading a lot of blog posts about becoming a programmer recently, I&amp;rsquo;ve decided to write my own.&#xA;It will be a bit different because of two factors:&#xA;I&amp;rsquo;m not a Software Engineer, but a Production Engineer/SRE/Admin; I&amp;rsquo;m from Russia, where CS education is vastly different. School years School in Russia is 10 or 11 years and you start at the age of ~7 and end it at ~17&#xA;As far as I recall, my first programming experience was with LogoWriter in elementary school.</description>
     </item>
-    
     <item>
       <title>Board games are awesome</title>
       <link>//bulimov.me/personal/boardgames-love/</link>
       <pubDate>Wed, 31 Aug 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/personal/boardgames-love/</guid>
-      <description>I&amp;rsquo;s been awhile since I wrote anything in my blog, mostly because I was moving to Ireland and was busy at my new job at Big Company™.
-So as I can&amp;rsquo;t write about all the cool technical things we have there, I&amp;rsquo;ll try to make this blog less tech-savvy and more personal and fun.
-As a normal IT person I spend whole working day staring at the computer&amp;rsquo;s screen. While I love my job and all the high-tech stuff, I feel a great demand of something more physical.</description>
+      <description>I&amp;rsquo;s been awhile since I wrote anything in my blog, mostly because I was moving to Ireland and was busy at my new job at Big Company™.&#xA;So as I can&amp;rsquo;t write about all the cool technical things we have there, I&amp;rsquo;ll try to make this blog less tech-savvy and more personal and fun.&#xA;As a normal IT person I spend whole working day staring at the computer&amp;rsquo;s screen. While I love my job and all the high-tech stuff, I feel a great demand of something more physical.</description>
     </item>
-    
   </channel>
 </rss>

@@ -4,63 +4,44 @@
     <title>Programming on Alexander Bulimov: Production Engineer and Scale Modeller</title>
     <link>//bulimov.me/tags/programming/</link>
     <description>Recent content in Programming on Alexander Bulimov: Production Engineer and Scale Modeller</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 Jan 2024 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//bulimov.me/tags/programming/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fun experiments with Go memory usage</title>
       <link>//bulimov.me/post/2024/01/27/golang-memory/</link>
       <pubDate>Sat, 27 Jan 2024 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/post/2024/01/27/golang-memory/</guid>
-      <description>While working on a big Go program that processes data I began to wonder if our memory usage is adequate for the amount of data we deal with.
-My starting point was this question - If the output of this service is a text file that is only few Gigabytes in size, why does it take significantly more memory to produce this file?
-This lead to a series of experiments which I hope will be interesting for anyone caring about writing efficient code.</description>
+      <description>While working on a big Go program that processes data I began to wonder if our memory usage is adequate for the amount of data we deal with.&#xA;My starting point was this question - If the output of this service is a text file that is only few Gigabytes in size, why does it take significantly more memory to produce this file?&#xA;This lead to a series of experiments which I hope will be interesting for anyone caring about writing efficient code.</description>
     </item>
-    
     <item>
       <title>Python 3.6 f-strings rant</title>
       <link>//bulimov.me/it/python3-fstrings/</link>
       <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/python3-fstrings/</guid>
-      <description>Python 3.6 introduced a new way to format strings, called Formatted string literals, or just f-strings. Everyone on the internet seem to be happy about it. I&amp;rsquo;m definitely not.
-For starters, Python 3 already had 3 built-in ways of doing it before. Just think about it&amp;hellip; 3 ways to format strings in language that declares simplicity as a goal:
-There should be one&amp;ndash; and preferably only one &amp;ndash;obvious way to do it.</description>
+      <description>Python 3.6 introduced a new way to format strings, called Formatted string literals, or just f-strings. Everyone on the internet seem to be happy about it. I&amp;rsquo;m definitely not.&#xA;For starters, Python 3 already had 3 built-in ways of doing it before. Just think about it&amp;hellip; 3 ways to format strings in language that declares simplicity as a goal:&#xA;There should be one&amp;ndash; and preferably only one &amp;ndash;obvious way to do it.</description>
     </item>
-    
     <item>
       <title>How I became a programmer</title>
       <link>//bulimov.me/personal/how-i-became-a-programmer/</link>
       <pubDate>Fri, 30 Sep 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/personal/how-i-became-a-programmer/</guid>
-      <description>After reading a lot of blog posts about becoming a programmer recently, I&amp;rsquo;ve decided to write my own.
-It will be a bit different because of two factors:
-I&amp;rsquo;m not a Software Engineer, but a Production Engineer/SRE/Admin; I&amp;rsquo;m from Russia, where CS education is vastly different. School years School in Russia is 10 or 11 years and you start at the age of ~7 and end it at ~17
-As far as I recall, my first programming experience was with LogoWriter in elementary school.</description>
+      <description>After reading a lot of blog posts about becoming a programmer recently, I&amp;rsquo;ve decided to write my own.&#xA;It will be a bit different because of two factors:&#xA;I&amp;rsquo;m not a Software Engineer, but a Production Engineer/SRE/Admin; I&amp;rsquo;m from Russia, where CS education is vastly different. School years School in Russia is 10 or 11 years and you start at the age of ~7 and end it at ~17&#xA;As far as I recall, my first programming experience was with LogoWriter in elementary school.</description>
     </item>
-    
     <item>
       <title>Notes about type systems in popular languages</title>
       <link>//bulimov.me/it/more-typing/</link>
       <pubDate>Thu, 09 Jun 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/more-typing/</guid>
-      <description>I&amp;rsquo;ve been kind of out of my comfort zone last 3 weeks, and was trying to use as many new languages and technologies as possible.
-I&amp;rsquo;ve used C++, JavaScript, React, PHP and Hack to name a few, and I&amp;rsquo;ve noticed really cool thing - many popular programming languages are moving towards mixing best of static and dynamic typing.
-C++ (statically typed language) now has auto keyword, specifying that compiler should deduce type of variable or return type of function automatically; JavaScript has Flow - static type checker from Facebook, and there is TypeScript from Microsoft which compiles to JS; PHP has type hints since version 5, and they are greatly improved in PHP7; Hack has even more advanced type annotations than PHP; Python added type hints in 3.</description>
+      <description>I&amp;rsquo;ve been kind of out of my comfort zone last 3 weeks, and was trying to use as many new languages and technologies as possible.&#xA;I&amp;rsquo;ve used C++, JavaScript, React, PHP and Hack to name a few, and I&amp;rsquo;ve noticed really cool thing - many popular programming languages are moving towards mixing best of static and dynamic typing.&#xA;C++ (statically typed language) now has auto keyword, specifying that compiler should deduce type of variable or return type of function automatically; JavaScript has Flow - static type checker from Facebook, and there is TypeScript from Microsoft which compiles to JS; PHP has type hints since version 5, and they are greatly improved in PHP7; Hack has even more advanced type annotations than PHP; Python added type hints in 3.</description>
     </item>
-    
     <item>
       <title>Python Type Hints are awesome</title>
       <link>//bulimov.me/it/python-typing/</link>
       <pubDate>Thu, 12 May 2016 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/python-typing/</guid>
-      <description>I really love Julia Evans&amp;rsquo;s blog, she writes with such excitement and enthusiasm about every new bit of technology she learns. For me, this is what makes our job so great - we can learn something new and cool almost every day.
-And recently I&amp;rsquo;ve felt very excited with some of new abilities Python now have. I&amp;rsquo;m talking about including of PEP 484, which describes Type Hints, in Python 3.5 (old news, I know).</description>
+      <description>I really love Julia Evans&amp;rsquo;s blog, she writes with such excitement and enthusiasm about every new bit of technology she learns. For me, this is what makes our job so great - we can learn something new and cool almost every day.&#xA;And recently I&amp;rsquo;ve felt very excited with some of new abilities Python now have. I&amp;rsquo;m talking about including of PEP 484, which describes Type Hints, in Python 3.5 (old news, I know).</description>
     </item>
-    
   </channel>
 </rss>

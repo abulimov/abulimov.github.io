@@ -4,18 +4,16 @@
     <title>Riak CS on Alexander Bulimov: Production Engineer and Scale Modeller</title>
     <link>//bulimov.me/tags/riak-cs/</link>
     <description>Recent content in Riak CS on Alexander Bulimov: Production Engineer and Scale Modeller</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 17 Sep 2015 00:00:00 +0000</lastBuildDate><atom:link href="//bulimov.me/tags/riak-cs/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 17 Sep 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//bulimov.me/tags/riak-cs/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Плагин к collectd для сбора метрик Riak CS</title>
       <link>//bulimov.me/it/collectd-riakcs/</link>
       <pubDate>Thu, 17 Sep 2015 00:00:00 +0000</pubDate>
-      
       <guid>//bulimov.me/it/collectd-riakcs/</guid>
-      <description>На днях наконец-то дошли руки до модернизации той части мониторинга, которая отвечает за сбор метрик, и набивший оскомину Munin был окончательно заменен на Graphite + CollectD. Теперь воцарилась идиллия - Icinga2 складывает метрики из perfdata в Graphite, и CollectD отправляет все метрики туда же.
-Хочется отдельно отметить, что несмотря на то, что изначально CollectD мне не очень понравился (кому может сейчас понравиться Apache-подобный конфиг?), при дальнейшем изучении я был приятно поражен богатством возможностей этого продукта и крайне бережным его отношением к ресурсам наблюдаемой системы.</description>
+      <description>На днях наконец-то дошли руки до модернизации той части мониторинга, которая отвечает за сбор метрик, и набивший оскомину Munin был окончательно заменен на Graphite + CollectD. Теперь воцарилась идиллия - Icinga2 складывает метрики из perfdata в Graphite, и CollectD отправляет все метрики туда же.&#xA;Хочется отдельно отметить, что несмотря на то, что изначально CollectD мне не очень понравился (кому может сейчас понравиться Apache-подобный конфиг?), при дальнейшем изучении я был приятно поражен богатством возможностей этого продукта и крайне бережным его отношением к ресурсам наблюдаемой системы.</description>
     </item>
-    
   </channel>
 </rss>
