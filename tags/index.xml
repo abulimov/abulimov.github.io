@@ -6,8 +6,15 @@
     <description>Recent content in Tags on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 31 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="//bulimov.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Video Games</title>
+      <link>//bulimov.me/tags/video-games/</link>
+      <pubDate>Sun, 04 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/video-games/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Blog</title>
       <link>//bulimov.me/tags/blog/</link>
@@ -69,13 +76,6 @@
       <link>//bulimov.me/tags/playstation/</link>
       <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/tags/playstation/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Video Games</title>
-      <link>//bulimov.me/tags/video-games/</link>
-      <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
-      <guid>//bulimov.me/tags/video-games/</guid>
       <description></description>
     </item>
     <item>
