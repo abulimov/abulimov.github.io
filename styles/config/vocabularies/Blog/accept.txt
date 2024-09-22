@@ -240,3 +240,11 @@ Psychonauts
 Snowrunner
 Tinykin
 playthrough
+NeoVim
+zprezto
+Kakoune
+Zellij
+benchmarked
+catppuccin
+hostname
+tpm
