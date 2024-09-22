@@ -6,8 +6,43 @@
     <description>Recent content in Tags on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="//bulimov.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Neovim</title>
+      <link>//bulimov.me/tags/neovim/</link>
+      <pubDate>Sun, 22 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/neovim/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Tmux</title>
+      <link>//bulimov.me/tags/tmux/</link>
+      <pubDate>Sun, 22 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/tmux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Vim</title>
+      <link>//bulimov.me/tags/vim/</link>
+      <pubDate>Sun, 22 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/vim/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Zellij</title>
+      <link>//bulimov.me/tags/zellij/</link>
+      <pubDate>Sun, 22 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/zellij/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Zsh</title>
+      <link>//bulimov.me/tags/zsh/</link>
+      <pubDate>Sun, 22 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/zsh/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Video Games</title>
       <link>//bulimov.me/tags/video-games/</link>
@@ -240,13 +275,6 @@
       <description></description>
     </item>
     <item>
-      <title>Zsh</title>
-      <link>//bulimov.me/tags/zsh/</link>
-      <pubDate>Fri, 06 May 2016 00:00:00 +0000</pubDate>
-      <guid>//bulimov.me/tags/zsh/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Atom</title>
       <link>//bulimov.me/tags/atom/</link>
       <pubDate>Fri, 15 Apr 2016 00:00:00 +0000</pubDate>
@@ -380,13 +408,6 @@
       <description></description>
     </item>
     <item>
-      <title>Vim</title>
-      <link>//bulimov.me/tags/vim/</link>
-      <pubDate>Thu, 21 May 2015 00:00:00 +0000</pubDate>
-      <guid>//bulimov.me/tags/vim/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>CAdvisor</title>
       <link>//bulimov.me/tags/cadvisor/</link>
       <pubDate>Tue, 21 Apr 2015 00:00:00 +0000</pubDate>
@@ -447,13 +468,6 @@
       <link>//bulimov.me/tags/ruby/</link>
       <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/tags/ruby/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Tmux</title>
-      <link>//bulimov.me/tags/tmux/</link>
-      <pubDate>Thu, 04 Sep 2014 00:00:00 +0000</pubDate>
-      <guid>//bulimov.me/tags/tmux/</guid>
       <description></description>
     </item>
     <item>

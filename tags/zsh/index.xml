@@ -6,8 +6,15 @@
     <description>Recent content in Zsh on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 May 2016 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Sep 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="//bulimov.me/tags/zsh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Refreshing my CLI tools setup</title>
+      <link>//bulimov.me/post/2024/09/22/refreshing-cli-setup/</link>
+      <pubDate>Sun, 22 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/post/2024/09/22/refreshing-cli-setup/</guid>
+      <description>Recently I decided to get out of my shell (pun intended) and check out the latest and greatest in shells, terminal multiplexers and terminal-based text editors.&#xA;After all, It&amp;rsquo;s been 8 years since I took a fresh look at how I use those invaluable CLI tools.&#xA;I still remember how on one of my first jobs I got so engrossed in the work that for a first month or so I completely neglected setting up my work machine, and worked in a stock Debian shell and terminal, which sure looked like a dog&amp;rsquo;s dinner.</description>
+    </item>
     <item>
       <title>Moving from Fish shell to zsh</title>
       <link>//bulimov.me/it/fish-zsh/</link>

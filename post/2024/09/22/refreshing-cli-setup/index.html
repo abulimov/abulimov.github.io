@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Refreshing my CLI tools setup | Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="https://models.bulimov.me">Scale Models</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/reviews/">Reviews</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Refreshing my CLI tools setup</span></h1>
+
+<h2 class="date">2024/09/22</h2>
+
+</div>
+
+<main>
+<p>Recently I decided to get out of my shell (pun intended) and check out the latest and greatest in shells, terminal multiplexers and terminal-based text editors.</p>
+<p>After all, It&rsquo;s been 8 years since I took a fresh look at how I use those invaluable CLI tools.</p>
+<p>I still remember how on one of my first jobs I got so engrossed in the work that for a first month or so I completely neglected setting up my work machine,
+and worked in a stock Debian shell and terminal, which sure looked like a dog&rsquo;s dinner. All with default video driver, so fonts looked appropriately bad.</p>
+<p>Nowadays, I can&rsquo;t afford to subject myself to such torture. My tired eyes simply won&rsquo;t tolerate this, and nor will my wrists thank me if my CLI setup is not ergonomic.
+That&rsquo;s why I invest time in properly setting up my terminal environment.</p>
+<h2 id="starting-setup">Starting setup</h2>
+<p>I began this research with the following setup:</p>
+<ul>
+<li><code>zsh</code> + <a href="https://github.com/sorin-ionescu/prezto">zprezto</a> with a custom one-line theme</li>
+<li><code>tmux</code> with <a href="https://github.com/tmux-plugins/tpm"><em>tpm</em></a> and basic plugins like <a href="https://github.com/tmux-plugins/tmux-pain-control"><em>pain-control</em></a></li>
+<li><code>vim</code> with custom config and few basic plugins like <em>vim-sensible</em></li>
+</ul>
+<h2 id="motivation">Motivation</h2>
+<p>The original motivation was simple: at work, I often need to copy the commands I run + their output, as part of the code change test plan,
+or incident investigation timeline.</p>
+<p>Since I used a one-line shell theme <em>with</em> the time and VCS info in the right corner, the text I copied included this info which I then had to remove for clarity.
+Having the current time in each shell prompt is quite important, as it makes reconstructing the timeline of the executed commands very simple.
+And having a VCS info in your prompt is practically a necessity nowadays.</p>
+<p>Obviously I was not ready to cram both into the left side of the prompt, that would be quite inconvenient.</p>
+<p>The solution I came up with was using a two-line theme, but building a custom one is too much effort, plus I wanted to see what fellow engineers are up to in the year 2024.</p>
+<p>And since I got into the weeds of modern CLI setup, why not look at other stuff too?</p>
+<h2 id="shell">Shell</h2>
+<p>At first, I looked at Fish Shell once again. I used it for two years back in the days, and <a href="/it/fish-zsh/">dropped because lack of POSIX-compatibility is just too annoying</a>.
+While since 2016 Fish made good progress in becoming closer to the POSIX-compatible shells (with adding <code>&amp;&amp;</code>/<code>||</code> for example), I still couldn&rsquo;t cope with the other quirks.</p>
+<p>Back to zsh then, just with a different theme!</p>
+<p>I ended up trying quite a few prompts, including interesting approaches like <a href="https://github.com/starship/starship">Starship</a>, but ended up with <a href="https://github.com/romkatv/powerlevel10k">powerlevel10k</a>.</p>
+<p>The reason was simple - latency.
+In the case of <em>Starship</em> for example, while the idea of a cross-platform, compiled prompt is interesting, paying the cost of spawning a process (or multiple) each time is just absurd to me.
+Also, saying it&rsquo;s &ldquo;really really fast&rdquo; in the readme, but providing no proofs or benchmarks - that&rsquo;s lame, and there is even an <a href="https://github.com/starship/starship/issues/5593">issue open for this</a>.</p>
+<p><em>Powerlevel10k</em> won because it is native zsh, and is <a href="https://github.com/romkatv/zsh-bench">heavily benchmarked</a>, which is what I consider a proper scientific approach to the shell prompt latency problem.</p>
+<p>My new theme is similar to the old one, just split over two lines. Works a charm, and if necessary, I now have access to the more advanced plugins that powerlevel10k provides.</p>
+<p>Original theme:</p>
+<pre tabindex="0"><code>~/g/abulimov.github.io ❯                                    sources ✱ ◼ 21:38:16
+</code></pre><p>New one:</p>
+<pre tabindex="0"><code>~/github/abulimov.github.io sources !1 ?1                               21:38:16
+❯
+</code></pre><p>As you can see, it provides more information about the path and VCS status while allowing for easy copying of the command+output.</p>
+<h2 id="terminal-multiplexer">Terminal multiplexer</h2>
+<p>I&rsquo;ve been using tmux since times immemorial.
+Not a lot of competition in this area, I have to admit.</p>
+<p>Still, a new option appeared since 2016 - <a href="https://zellij.dev">Zellij</a>, and of course I gave it a spin.</p>
+<p>The mere fact that there is now a new, interesting, actively developed, and written in a sensible language terminal multiplexer genuinely makes me happy.</p>
+<p>And it&rsquo;s very pleasant to use - configurable, fast, user-friendly. It took me only a few minutes to tune the UI a bit and make it look and behave just like I want.
+The obvious advantage against <code>tmux</code> is how everything is a pane, including the status and tab bars, and so the layout is fully customizable.
+And on top of this, Zellij has advanced plugin support.</p>
+<p>The only problem so far - I found no use for all those advanced features, and ended up with it looking and behaving like <code>tmux</code> with pain-control.
+And I can already have all I need with tmux, which I can also easily install on any system I ssh into.</p>
+<p>So while I found Zellij to be very nice and even exciting, I couldn&rsquo;t (maybe yet?) find one reason to replace <code>tmux</code> with it.</p>
+<p>I will continue experimenting with Zellij on my home machine, since I already made it quite comfortable, while still using tmux at work.</p>
+<p>At least after this experiment, I refreshed my tmux config by switching to a <a href="https://catppuccin.com/"><em>catppuccin</em> theme</a> and adding a hostname into the status line (so that I can drop it from the shell prompt), so it looks quite modern now.</p>
+<h2 id="editor">Editor</h2>
+<p>Ever since the early days of my SysAdmin career, I&rsquo;ve been a <code>vim</code> guy. For a SysAdmin, it has the added benefit of being present pretty much anywhere - even the most dated and forgotten system will have at least the basic <code>vi</code> on it.</p>
+<p>That alone means that I have about 15 years of muscle memory for vim key bindings and motions.
+And while editors like <a href="https://helix-editor.com/">Helix</a> or <a href="https://kakoune.org/">Kakoune</a> are most definitely interesting in the way they try to modernize the modal editing, for me the burden of re-learning the motions is just too big.</p>
+<p>Still, experiments with Helix showed me how cool and user-friendly a modern terminal-based editor can be, with LSP support, floating windows and linter suggestions working out of the box.</p>
+<p>Sure enough, it turns out that all of this (and much more) can be easily achieved with NeoVim!</p>
+<p>Like with zsh, I found it easier to find a well-supported pre-made configuration that I can tweak to my needs, rather than building my ideal config from scratch.</p>
+<p>In case of NeoVim I settled on <a href="https://astronvim.com/">AstroVim</a> which provided sane defaults and proved to be a good staring point.</p>
+<p>Mind you - I don&rsquo;t use NeoVim for coding at work, only for small pet projects, configs, and this blog.</p>
+<p>Given that a relatively plain vim config sufficed for this for years, you can see how the default AstroVim setup is a massive improvement.</p>
+<h2 id="new-setup">New setup</h2>
+<ul>
+<li><code>zsh</code> + <a href="https://github.com/sorin-ionescu/prezto">zprezto</a> with <a href="https://github.com/romkatv/powerlevel10k">powerlevel10k</a> theme</li>
+<li><code>tmux</code> with <a href="https://github.com/tmux-plugins/tpm"><em>tpm</em></a>, <em>pain-control</em> and <em>catppuccin/tmux</em>, while Zellij is being evaluated</li>
+<li><code>neovim</code> with <a href="https://astronvim.com/">AstroVim</a></li>
+</ul>
+<p>Will it last for another 8 years? Who knows!</p>
+<p>Did this research and experimentation improve my CLI workflows? Absolutely!</p>
+<p>P.S. while refreshing the configs, I migrated from <code>homesick</code> to <a href="https://github.com/andsens/homeshick"><code>homeshick</code></a> since it provides similar functionality and doesn&rsquo;t need Ruby.
+It&rsquo;s been over a decade since I worked in a Ruby-on-Rails shop, and outside of Chef at work I have no need or desire to touch Ruby ever again.</p>
+
+</main>
+
+
+<p class="terms">
+<b>Tags:</b>
+
+  <a href="//bulimov.me/tags/zsh/">Zsh</a>
+
+  <a href="//bulimov.me/tags/tmux/">Tmux</a>
+
+  <a href="//bulimov.me/tags/vim/">Vim</a>
+
+  <a href="//bulimov.me/tags/neovim/">Neovim</a>
+
+  <a href="//bulimov.me/tags/zellij/">Zellij</a>
+
+
+</p>
+<p class="terms">
+
+<b>Categories:</b>
+
+  <a href="//bulimov.me/categories/it/">IT</a>
+
+  <a href="//bulimov.me/categories/personal/">Personal</a>
+
+
+</p>
+
+  <footer>
+  
+  
+  <hr/>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.me">Alexander Bulimov</a> 2013 &ndash; 2024 | <a href="https://github.com/abulimov">Github</a>
+  
+  </footer>
+  </body>
+</html>
+
