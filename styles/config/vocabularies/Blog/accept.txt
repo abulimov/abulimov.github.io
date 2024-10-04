@@ -248,3 +248,5 @@ benchmarked
 catppuccin
 hostname
 tpm
+oncall
+Garmin
