@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Smartwatch on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link>//bulimov.me/tags/smartwatch/</link>
+    <description>Recent content in Smartwatch on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 04 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//bulimov.me/tags/smartwatch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Switching to a dumber smartwatch</title>
+      <link>//bulimov.me/post/2024/10/04/dumber-smartwatch/</link>
+      <pubDate>Fri, 04 Oct 2024 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/post/2024/10/04/dumber-smartwatch/</guid>
+      <description>It all started when I read a piece from The Verge about a new Casio watch back in July. It described a simple digital watch that only shows time, counts steps and has Bluetooth to export steps data to the phone.&#xA;Now that really caught my attention because I myself was struggling with my Apple Watch for many months (years?) now. The way it negatively affected my mental health and anxiety was clear to me for quite some time, but yet I was not ready to part with the benefits of using it, mainly related to fitness.</description>
+    </item>
+  </channel>
+</rss>
