@@ -250,3 +250,6 @@ hostname
 tpm
 oncall
 Garmin
+Royale
+Jeraland
+SKXMOD
