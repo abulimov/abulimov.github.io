@@ -2,6 +2,7 @@
 import argparse
 import math
 import re
+import os
 import logging
 from collections import defaultdict
 from typing import Tuple, List
@@ -35,7 +36,7 @@ def parse_reviews(lines: List[str]) -> List[Tuple[str, int]]:
                 if match:
                     cur_title = match.group(1)
         if cur_title:
-            match = re.search(r".+\s+([0-9.]+)/10.*", line)
+            match = re.search(r".*?([0-9.]+)/10.*", line)
             if match:
                 cur_score = match.group(1)
                 results.append((cur_title, math.ceil(float(cur_score))))
@@ -62,8 +63,15 @@ def main():
 
     toWrite = defaultdict(lambda: defaultdict(list))
     for filename in args.files:
+        if os.path.isdir(filename):
+            logging.warning("skipping directory %s", filename)
+            continue
         with open(filename, 'r') as f:
-            data = f.readlines()
+            try:
+                data = f.readlines()
+            except Exception as e:
+                logging.error("failed to read %s: %s", filename, e)
+                continue
             if len(data) < 2:
                 continue
             category, year = matches_category(data[0])

@@ -14,11 +14,18 @@ I'm [writing my mini-reviews](/post/2021/05/23/taking-notes/) for games, books a
 | Name | Score |
 |------|-------|
 | **2024** |
-| The Case of the Golden Idol | 9 |
-| Chants of Sennaar | 9 |
-| Jedi Fallen Order | 9 |
-| Assassins Creed: Valhalla | 9 |
-| Little Kitty, Big City | 8 |
+| The Legend of Zelda: Tears of the Kingdom (Switch) | 11 |
+| The Case of the Golden Idol (Xbox Series S) | 9 |
+| Chants of Sennaar (Xbox Series S) | 9 |
+| Jedi Fallen Order (Xbox Series S) | 9 |
+| Assassins Creed: Valhalla (Xbox Series S) | 9 |
+| Tails of Iron (PC) | 8 |
+| Dredge (PC) | 8 |
+| Lacuna (Switch) | 8 |
+| FEZ (PC) | 8 |
+| Little Kitty, Big City (Xbox Series S) | 8 |
+| Iconoclasts (Switch) | 7 |
+| Railbound (Switch) | 7 |
 | **2023** |
 | Yokus’s Island Express (Switch) | 10 |
 | Lunistice (Switch) | 10 |
@@ -103,12 +110,12 @@ I'm [writing my mini-reviews](/post/2021/05/23/taking-notes/) for games, books a
 | Bastion (Switch) | 6 |
 | **2019** |
 | Assassins Creed Odyssey (PS4) | 10 |
-| Elex (PS4) | 10 |
 | God of War (PS4) | 10 |
 | West of Loathing (Switch) | 10 |
 | Wargroove (Switch) | 9 |
 | Greedfall (PS4) | 9 |
 | Mario + Rabbids Kingdom Battle. Donkey Kong DLC (Switch) | 9 |
+| Elex (PS4) | 9 |
 | Donut County (Switch) | 8 |
 | Stardew Valley (Switch) | 8 |
 | Captain Toad: Treasure Tracker (Switch) | 8 |
@@ -123,6 +130,7 @@ I'm [writing my mini-reviews](/post/2021/05/23/taking-notes/) for games, books a
 | Assassin’s Creed Origins (PS4) | 10 |
 | Steamworld Dig 2 (Switch) | 10 |
 | Super Mario Odissey (Switch) | 10 |
+| TES Skyrim (PS4) | 9 |
 | Golf Story (Switch) | 9 |
 | Steamworld Dig (Switch) | 9 |
 | Batman Arkham City (PS4) | 9 |
@@ -131,7 +139,6 @@ I'm [writing my mini-reviews](/post/2021/05/23/taking-notes/) for games, books a
 | Owlboy (Switch) | 8 |
 | Diablo 3 (Switch) | 7 |
 | Adventure Pals (Switch) | 7 |
-| TES Skyrim (PS4) | 7 |
 | Steamworld Heist (Switch) | 7 |
 | Battle Chef Brigade (Switch) | 7 |
 | Assassin’s Creed: Syndicate (PS4) | 7 |
@@ -197,12 +204,20 @@ I'm [writing my mini-reviews](/post/2021/05/23/taking-notes/) for games, books a
 | Name | Score |
 |------|-------|
 | **2024** |
+| John Harland - Seamanship in the Age of Sail | 10 |
+| Neil Price - Children of Ash and Elm | 10 |
 | Paul Farrell - Tugboats Illustrated | 10 |
+| Stephen Croad - The Thames Through Time | 9 |
 | Richard Endsor - The Restoration Warship | 9 |
 | Ian McLaughlan - The Sloop of War: 1650-1763 | 9 |
 | Eric Clemens - USS Constitution A Midshipman's Pocket Manual 1814 | 9 |
 | N.K. Jemisin - The Shadowed Sun | 9 |
+| David Grann - The Wager | 8 |
+| Darcy Lever - Young Sea Officer's Sheet Anchor | 8 |
+| Brian Lavery - The Ship of the Line: A history in ship models | 8 |
+| Eric Kentley - Cutty Sark: The Last of the Tea Clippers | 8 |
 | Nick Ball - Navy Board Ship Models | 8 |
+| Robert Louis Stevenson - Treasure Island | 7 |
 | N.A.M. Rodger - The Wooden World | 7 |
 | Arthur Conan Doyle - The Valley of Fear | 7 |
 | David McWilliams - The Pope's Children | 5 |
@@ -323,10 +338,13 @@ I'm [writing my mini-reviews](/post/2021/05/23/taking-notes/) for games, books a
 | Name | Score |
 |------|-------|
 | **2024** |
+| Sgàile - Traverse The Bealach | 10 |
 | Dissimulator - Lower Form Resistance | 10 |
 | Ice Age - Waves of Loss and Power | 10 |
+| Blood Incantation - Absolute Elsewhere | 9 |
 | Majesties - Vast Reached Unclaimed | 9 |
 | Sacred Outcry - Towers of Gold | 9 |
+| Bolt Gun - A Man is a Wolf to a Man | 8 |
 | Союз - Сила Ветра | 8 |
 | Smoulder - Violent Creed of Vengeance | 8 |
 | **2023** |
