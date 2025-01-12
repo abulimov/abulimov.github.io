@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Writing a custom Garmin Instinct 2 watch face | Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="https://models.bulimov.me">Scale Models</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/reviews/">Reviews</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Writing a custom Garmin Instinct 2 watch face</span></h1>
+
+<h2 class="date">2025/01/12</h2>
+
+</div>
+
+<main>
+<p><img src="/images/retrosimple_watchface.png" alt="watch face"></p>
+<h1 id="the-search-for-my-perfect-retro-watch-face">The search for my perfect retro watch face</h1>
+<p>I&rsquo;ve been enjoying my <a href="/post/2024/10/04/dumber-smartwatch/">Garmin Instinct 2</a> a great deal, but after getting a <a href="/post/2024/10/26/modding-casio-royale/">Casio Royale</a> I yearned to make my Garmin more &lsquo;retro&rsquo;.</p>
+<p>I found a great existing watch face called <a href="https://apps.garmin.com/apps/b7f055a4-9098-41ed-8c54-92e992a31139">&ldquo;7 Segments Simple&rdquo;</a> which imitates the look of classic <a href="https://en.wikipedia.org/wiki/Seven-segment_display">7-segment displays</a>.</p>
+<p>It was <em>almost</em> perfect for me, except that I wanted to see the current weather right on the watch face.</p>
+<p>Since I found no source code repo for this watch face to contribute this feature, I decided to play with Garmin&rsquo;s <strong>Connect IQ SDK</strong> and build my own, similar watch face.</p>
+<p>After all, the API seemed very simple, and customizing my watch by coding is right up my alley.</p>
+<p><em>Tangent: rant about Apple Watch</em></p>
+<p>Speaking of customizing a smartwatch&hellip;</p>
+<p>One of the things I really found lacking with the Apple Watch was being able to fully customize it.</p>
+<p>Just to make it clear, there are a couple of really serious obstacles to building <em>anything</em> for iPhone/Apple Watch:</p>
+<ul>
+<li>one needs a macOS system to build any mobile app (hate this limitation with passion).</li>
+<li>in order to get a dev licence that allows publishing apps, one needs to pay the greedy multi-billion company 99 USD per year.</li>
+</ul>
+<p>Both are annoying enough for me already&hellip;</p>
+<p>But the main answer to the question of &ldquo;why I didn&rsquo;t create a custom Apple Watch face?&rdquo; is even simpler:
+Apple forbids creating fully custom watch faces, and even goes as far as banning any app looking like a watch face from the App Store.</p>
+<p>Very developer-friendly and not annoying at all&hellip;</p>
+<p><em>Rant end</em></p>
+<h2 id="development-process">Development process</h2>
+<p>It took me only couple of hours to get familiar with the SDK, the API and Garmin&rsquo;s extension for VS Code.</p>
+<p>The SDK comes with a watch emulator, so testing the code is as streamlined as it gets.
+Really quick iteration cycles, when building and testing a watch face only takes few seconds.</p>
+<p>The language Garmin uses is called <a href="https://developer.garmin.com/connect-iq/monkey-c/">Monkey C</a>, and it is a C-like duck-typed language that is compiled into byte code.
+Nothing special, but it&rsquo;s good enough for the task at hand.</p>
+<p>Instead of painting the segments as polygons (my original plan), I found a beautiful font called <a href="https://www.keshikan.net/fonts-e.html">DSEG</a>.
+Garmin watches support using custom fonts, which allowed me to simply write any text styled as a 7-segment or 14-segment display on the watch screen.</p>
+<p>It proved to be a great approach, and allowed me to build the first prototype in one hour.</p>
+<p>From there it was simply a matter of migrating to &ldquo;layouts&rdquo; (XML files describing the elements, customized for each physical screen size) to add support for different watch models (normal and small versions of Instinct 2 for now), and the first version of the app was ready.</p>
+<p>By the way, side loading it into my watch was as simple as copy-pasting it over USB.</p>
+<h3 id="refreshing-every-second">Refreshing every second</h3>
+<p>The only tricky part in the whole watch face development process was dealing with the partial display updates to enable seconds &rsquo;ticking&rsquo; while the watch is in energy efficient state.</p>
+<p>Thankfully, the trick is <a href="https://developer.garmin.com/connect-iq/connect-iq-faq/how-do-i-get-my-watch-face-to-update-every-second/">well documented</a> and basically boils down to defining a <code>onPartialUpdate</code> function and inside it setting the screen clipping to only update the seconds area.</p>
+<h3 id="debugging">Debugging</h3>
+<p>I used my new watch face for a good few days before encountering a crash.</p>
+<p>Debugging proved very easy - the crash log (with a full stack trace, if the app was built in a development mode) is stored on the watch, and accessing it is again done over the USB.</p>
+<p>Turns out, I didn&rsquo;t handle the fact that the weather could be &rsquo;null&rsquo; in some cases, duh.</p>
+<h2 id="publishing-the-app">Publishing the app</h2>
+<p>Publishing my watch face was rather simple too. Use one command in VS Code, upload the file into a web form, wait for the review, and <a href="https://apps.garmin.com/apps/516e843d-6d26-4f48-9760-3d01989872c6">that&rsquo;s it</a>.</p>
+<p>No need to have a specific proprietary OS. No fees. And there is even an input field for the app source code repo!</p>
+<p>Did I mention that my watch face is fully <a href="https://github.com/abulimov/garmin-watchface-retrosimple">open-source</a>?</p>
+<p>I&rsquo;m a big proponent of open-source, it was only logical to make the watch face open under the MIT licence. If anything, it might be useful for someone to copy-paste some code in their own custom watch face.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>That was a fun little project. I&rsquo;m quite happy with the outcome, and use my custom watch face exclusively.</p>
+<p>Was the time investment (which I estimate around 4-5 hours) worth it? To me, the answer is a resounding &ldquo;yes&rdquo;, since I got to tailor my watch experience exactly to my current needs.</p>
+
+</main>
+
+
+<p class="terms">
+<b>Tags:</b>
+
+  <a href="//bulimov.me/tags/watch/">Watch</a>
+
+  <a href="//bulimov.me/tags/garmin/">Garmin</a>
+
+  <a href="//bulimov.me/tags/instinct-2/">Instinct 2</a>
+
+  <a href="//bulimov.me/tags/apple/">Apple</a>
+
+  <a href="//bulimov.me/tags/smartwatch/">Smartwatch</a>
+
+
+</p>
+<p class="terms">
+
+<b>Categories:</b>
+
+  <a href="//bulimov.me/categories/personal/">Personal</a>
+
+  <a href="//bulimov.me/categories/it/">IT</a>
+
+
+</p>
+
+  <footer>
+  
+  
+  <hr/>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.me">Alexander Bulimov</a> 2013 &ndash; 2025 | <a href="https://github.com/abulimov">Github</a>
+  
+  </footer>
+  </body>
+</html>
+

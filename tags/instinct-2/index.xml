@@ -6,8 +6,15 @@
     <description>Recent content in Instinct 2 on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 04 Oct 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 12 Jan 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="//bulimov.me/tags/instinct-2/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Writing a custom Garmin Instinct 2 watch face</title>
+      <link>//bulimov.me/post/2025/01/12/custom-garmin-watchface/</link>
+      <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/post/2025/01/12/custom-garmin-watchface/</guid>
+      <description>The search for my perfect retro watch face I&amp;rsquo;ve been enjoying my Garmin Instinct 2 a great deal, but after getting a Casio Royale I yearned to make my Garmin more &amp;lsquo;retro&amp;rsquo;.&#xA;I found a great existing watch face called &amp;ldquo;7 Segments Simple&amp;rdquo; which imitates the look of classic 7-segment displays.&#xA;It was almost perfect for me, except that I wanted to see the current weather right on the watch face.</description>
+    </item>
     <item>
       <title>Switching to a dumber smartwatch</title>
       <link>//bulimov.me/post/2024/10/04/dumber-smartwatch/</link>
