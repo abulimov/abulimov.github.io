@@ -57,7 +57,7 @@ things she cannot stand in programming language, and it resonated deeply with me
 <p>Here is what I think about this experience:</p>
 <h3 id="whole-py2-py3-thing-was-a-total-mess">Whole Py2-&gt;Py3 thing was a total mess</h3>
 <p>There are many posts about it, I&rsquo;ll just give one example:
-It took us quite significant effort to migrate pretty good quality code (~60kloc) with decent unittest coverage,
+It took us quite significant effort to migrate pretty good quality code (~60kloc) with decent unit test coverage,
 and we still stumbled on some bugs in prod for many weeks after the migration.</p>
 <p>And boy this breaking Py2-&gt;Py3 transition was so unnecessary!
 Making <code>print</code> a function and adding new type for strings was so not worth it&hellip; from my point of view it clearly didn&rsquo;t justify breaking the compatibility.</p>
@@ -103,7 +103,7 @@ I strongly believe that dynamic typing is not suited for services that need stab
 And yes, I know about Erlang, and yes, I&rsquo;m confident it would be much better with static typing.</p>
 <p>Sure, dynamic typing often enables faster prototyping, but if you don&rsquo;t throw the prototype away immediately it will cost you dearly.</p>
 <p>I saw my fair share of huge codebases in Python, with and without Type Annotations, and in every case the problems were similar.</p>
-<p>No amount of unittests (and don&rsquo;t even get me started on default testing module in Python)
+<p>No amount of unit tests (and don&rsquo;t even get me started on default testing module in Python)
 and no smart IDE saves you during refactoring, every time it&rsquo;s like walking on a minefield.</p>
 <p>Adding features without refactoring will increase technical debt, and refactoring will lead to runtime errors.</p>
 <p>Decent compiler and static typing save from all of this.</p>

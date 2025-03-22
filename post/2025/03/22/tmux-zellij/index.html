@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Switching from Tmux to Zellij | Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="https://models.bulimov.me">Scale Models</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/reviews/">Reviews</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Switching from Tmux to Zellij</span></h1>
+
+<h2 class="date">2025/03/22</h2>
+
+</div>
+
+<main>
+<p>When I wrote about <a href="/post/2024/09/22/refreshing-cli-setup/">refreshing my CLI setup</a>, I mentioned how I gave <a href="https://zellij.dev/">Zellij</a> a try,
+but couldn&rsquo;t find compelling reasons to replace tmux with it.</p>
+<p>I also said that I will continue to experiment with it to see if I change my mind.</p>
+<p>Well, I&rsquo;m happy to report that I found a couple of very good, if not immediately obvious, reasons that compelled me to switch to Zellij as my daily driver.</p>
+<h1 id="my-reasons-to-use-zellij-over-tmux">My reasons to use Zellij over tmux</h1>
+<h2 id="discoverability-of-the-features">Discoverability of the features</h2>
+<p>This is the main feature that won me over.</p>
+<p>I have been using tmux for well over a decade. Yet I always felt like learning about any of the features it has is hard.
+How can one learn about using <code>setw synchronize-panes</code> to send input to all panels at once, without looking up things online or digging through the manual?</p>
+<p>I know from the experience that when I&rsquo;m focused working, I most likely will not have time to research whatever functionality may be only occasionally useful.</p>
+<p>For example, I may know that tmux supports sending your key presses to all panes at once, but if I don&rsquo;t remember by heart how to do it - I won&rsquo;t use it in a pinch.</p>
+<p>Zellij authors clearly understand this problem, and that&rsquo;s why it has this truly great status bar with all the context-related shortcuts enabled by default.</p>
+<p>Let&rsquo;s see how this can be useful with a real-life example.</p>
+<p>I was working, and running commands to debug stuff. As a result, a tool dumped a bunch of useful information on the stderr which I wanted to process and save.</p>
+<p>Re-running the tool while re-directing the output was not an option since the state of the system already changed.</p>
+<p>The output was big enough to cause big pain when copying screen by screen with a mouse.</p>
+<p>Solution with Zellij: <code>Ctrl-s</code> to enter search mode (which you do anyway to look at the scroll back), look at the status bar that helpfully changes to say <code>e Edit scrollback in default editor</code>, press <code>e</code> and happily copy and edit the needed part of the output in Vim.</p>
+<p>Solution with tmux: <code>Ctrl-b + ?</code>, read through the list of all key bindings, fail to find anything relevant.
+Look up things online, read about copy mode and buffers.
+Finally, enter the copy mode, select the output, yank it, and use <code>:save-buffer</code>.</p>
+<p>Clearly, with both tools it&rsquo;s relatively easy to achieve the end goal. But, when doing this in a pinch, under pressure, or simply while tired - Zellij&rsquo;s approach has a clear advantage of being very easy to discover right in your terminal window, right when you need it.</p>
+<p>The same applies to other less frequently used features like floating tabs.
+Would I remember how to enable something like this if I need it once a month? Of course not!
+But if I can <em>see</em> a <code>Alt-f</code> shortcut to enable floating tab <em>right on screen</em> - that makes all the difference.</p>
+<h2 id="layouts">Layouts</h2>
+<p>Second feature that I use all the time.</p>
+<p>Zellij provides an expressive way to <a href="https://zellij.dev/documentation/layouts.html">define layouts</a>.</p>
+<p>At work, I use it to start a new session with three tabs open, one for each of the repositories I often work with, with each tab split into two horizontal panes.</p>
+<p>At home, I use a <a href="https://github.com/abulimov/dotfiles/blob/04331f1cff1a1a87a79f737e788fbdd6e75b9dd8/home/.config/zellij/layouts/default.kdl">simpler layout</a> which just puts tab bar at the bottom (that&rsquo;s how I&rsquo;m used to having it thanks to years with tmux) and status bar at the top.</p>
+<p>With tmux, I had a bash script sending commands to the tmux instance to achieve the same effect, but it&rsquo;s much easier and elegantly done with the layouts in Zellij.</p>
+<p>It&rsquo;s not that I start new sessions often (I mostly <code>attach</code> to the existing one), but it saves time whenever I need to start from scratch.</p>
+<h1 id="whats-missing-in-zellij-for-me">What&rsquo;s missing in Zellij for me</h1>
+<p>There is just one thing that I miss - automatically enabling &lsquo;scroll&rsquo; mode when scrolling pane content with mouse.
+The scrolling works just fine, but Zellij requires an extra <code>Ctrl-s</code> to enable search and navigation with PgUp/PgDown.</p>
+<p>There is an <a href="https://github.com/zellij-org/zellij/issues/605">open issue</a> about it, but sadly this feature is not yet implemented.</p>
+<h1 id="exciting-future-for-zellij">Exciting future for Zellij</h1>
+<p>I love the fact that Zellij is under active development.
+They keep adding cool stuff like the ability to pin floating tabs, or extensive Plugin API, or tips at startup.</p>
+<p>I can&rsquo;t imagine doing my work without a terminal multiplexer, and it&rsquo;s exciting to finally see progress and competition in this space.</p>
+
+</main>
+
+
+<p class="terms">
+<b>Tags:</b>
+
+  <a href="//bulimov.me/tags/tmux/">Tmux</a>
+
+  <a href="//bulimov.me/tags/zellij/">Zellij</a>
+
+
+</p>
+<p class="terms">
+
+<b>Categories:</b>
+
+  <a href="//bulimov.me/categories/it/">IT</a>
+
+  <a href="//bulimov.me/categories/personal/">Personal</a>
+
+
+</p>
+
+  <footer>
+  
+  
+  <hr/>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.me">Alexander Bulimov</a> 2013 &ndash; 2025 | <a href="https://github.com/abulimov">Github</a>
+  
+  </footer>
+  </body>
+</html>
+

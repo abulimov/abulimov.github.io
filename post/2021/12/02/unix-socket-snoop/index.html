@@ -73,7 +73,7 @@ we&rsquo;ll have to sift through all of the messages based on file descriptors.<
 <h3 id="bpftrace">bpftrace</h3>
 <p>Now we are getting to the truly passive solutions (although they are Linux-specific),
 thanks to the amazing power of <a href="https://www.kernel.org/doc/html/latest/bpf/index.html">BPF</a>.</p>
-<p>For example, we can snoop on same <code>sendto</code> syscall via <code>bpftrace</code>, which uses BPF with kernel tracepoints:</p>
+<p>For example, we can snoop on same <code>sendto</code> syscall via <code>bpftrace</code>, which uses BPF with kernel trace points:</p>
 <pre tabindex="0"><code>&gt; sudo bpftrace -e &#39;tracepoint:syscalls:sys_enter_sendto /comm == &#34;chronyc&#34;/ {printf(&#34;%r\n&#34;, buf(args-&gt;buff, args-&gt;len));}&#39;
 \x06\x01\x00\x00\x00\x0e\x00\x00\x02\x48\x5c\x29\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00
 ...
@@ -84,7 +84,7 @@ functions like <code>unix_stream_sendmsg</code> and capture everything regardles
 <p>This is exactly what nifty script called <a href="https://github.com/mechpen/sockdump"><code>sockdump</code></a> does under the hood!</p>
 <p>I find this tool extremely useful, and recently <a href="https://github.com/mechpen/sockdump/pull/8">contributed to it</a>
 support for DGRAM sockets and dumping data in escaped hex string format,
-which can be then used directly in Go or Python as for example an input for unittests.</p>
+which can be then used directly in Go or Python as for example an input for unit tests.</p>
 <p>Here is how it looks like for <code>pmc</code> talking to <code>ptp4l</code> (both are part of <a href="http://linuxptp.sourceforge.net">linuxptp</a> project):</p>
 <pre tabindex="0"><code>$ sudo ./sockdump.py &#39;/var/run/p*&#39; --format hexstring
 waiting for data
@@ -105,7 +105,7 @@ intricate details of the (often undocumented) protocols.</p>
 it in Go</a> I had exactly two options - reading the C source code and looking at the live traffic.</p>
 <p>Without the ability to see what&rsquo;s going on over the socket,
 it would have been very hard to implement parts of the protocol that are not allowed to be used over the network.</p>
-<p>And second, once code works, it&rsquo;s easy to collect data for extensive unittests with a tool like <code>sockdump.py</code>.
+<p>And second, once code works, it&rsquo;s easy to collect data for extensive unit tests with a tool like <code>sockdump.py</code>.
 You just fire up the script, perform various actions with commands that communicate over the socket,
 and use collected dumps as fixtures/data for table-driven tests.</p>
 <p>So while this is not something that most of the IT folks will use every day, for me it&rsquo;s a very useful tool in my toolbox,

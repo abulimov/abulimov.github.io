@@ -6,8 +6,15 @@
     <description>Recent content in Zellij on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 22 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 22 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="//bulimov.me/tags/zellij/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Switching from Tmux to Zellij</title>
+      <link>//bulimov.me/post/2025/03/22/tmux-zellij/</link>
+      <pubDate>Sat, 22 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/post/2025/03/22/tmux-zellij/</guid>
+      <description>When I wrote about refreshing my CLI setup, I mentioned how I gave Zellij a try, but couldn&amp;rsquo;t find compelling reasons to replace tmux with it.&#xA;I also said that I will continue to experiment with it to see if I change my mind.&#xA;Well, I&amp;rsquo;m happy to report that I found a couple of very good, if not immediately obvious, reasons that compelled me to switch to Zellij as my daily driver.</description>
+    </item>
     <item>
       <title>Refreshing my CLI tools setup</title>
       <link>//bulimov.me/post/2024/09/22/refreshing-cli-setup/</link>

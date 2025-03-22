@@ -62,7 +62,7 @@
 <a href="http://ceph.com">Ceph</a>, например.</p>
 <p>Сам Riak CS построен как надстройка над Riak, для которого в официальной
 документации <a href="http://docs.basho.com/riak/1.4.8/ops/running/monitoring/collectd/">есть пример конфига для CollectD</a>.</p>
-<p>К сожалению, для Riak CS такой фокус с плагином <em>curl_json</em> не пройдет - для
+<p>К сожалению, для Riak CS такой фокус с плагином <code>curl_json</code> не пройдет - для
 доступа к статистике HTTP-запрос должен быть подписан по всем правилам
 авторизации S3, поэтому пришлось писать свой плагин, благо CollectD
 <a href="https://collectd.org/documentation/manpages/collectd-python.5.shtml#writing_your_own_plugins">предоставляет</a>
@@ -71,7 +71,7 @@
 модуль для работы с S3 - <a href="https://github.com/tax/python-requests-aws">requests-aws</a>.</p>
 <p>Для написания простейшего плагина к CollectD надо реализовать и
 зарегистрировать всего одну функцию - read. То есть вот так выгладит минимальный
-плагин к Colletcd:</p>
+плагин к CollectD:</p>
 <p><em>Пример из официальной документации:</em></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#f92672">import</span> collectd
 </span></span><span style="display:flex;"><span>
@@ -91,7 +91,7 @@
 очень простым.</p>
 <p>Код плагина к CollectD для снятия метрик с Riak CS трационно опубликован под
 свободной лицензией <a href="https://opensource.org/licenses/MIT">MIT</a>
-на Github - <a href="https://github.com/abulimov/collectd-riakcs">collectd-riakcs</a>,
+на Github - <a href="https://github.com/abulimov/collectd-riakcs"><code>collectd-riakcs</code></a>,
 а сам плагин подготовлен к удобной <a href="https://github.com/abulimov/collectd-riakcs#setup">установке через pip</a>.</p>
 
 </main>

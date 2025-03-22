@@ -6,8 +6,22 @@
     <description>Recent content in Tags on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 12 Jan 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 22 Mar 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="//bulimov.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Tmux</title>
+      <link>//bulimov.me/tags/tmux/</link>
+      <pubDate>Sat, 22 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/tmux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Zellij</title>
+      <link>//bulimov.me/tags/zellij/</link>
+      <pubDate>Sat, 22 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/zellij/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Apple</title>
       <link>//bulimov.me/tags/apple/</link>
@@ -72,24 +86,10 @@
       <description></description>
     </item>
     <item>
-      <title>Tmux</title>
-      <link>//bulimov.me/tags/tmux/</link>
-      <pubDate>Sun, 22 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>//bulimov.me/tags/tmux/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Vim</title>
       <link>//bulimov.me/tags/vim/</link>
       <pubDate>Sun, 22 Sep 2024 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/tags/vim/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Zellij</title>
-      <link>//bulimov.me/tags/zellij/</link>
-      <pubDate>Sun, 22 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>//bulimov.me/tags/zellij/</guid>
       <description></description>
     </item>
     <item>

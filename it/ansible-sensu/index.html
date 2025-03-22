@@ -72,7 +72,7 @@
 Да еще и структура описания у Sensu в тот момент менялась от версии к версии.</p>
 <p>И тут я наткнулся на <a href="https://github.com/ansible/ansible/pull/2234">pull-request</a>,
 из которого узнал, что теперь в Ansible можно использовать =
-фильтры <em>to_json</em> и <em>to_nice_json</em>.</p>
+фильтры <code>to_json</code> и <code>to_nice_json</code>.</p>
 <p>А это дает нам возможность делать такие вещи:</p>
 <pre><code>:::yaml
 # task from sensu_client role
@@ -83,7 +83,7 @@
   notify:
     - restart sensu-client
 </code></pre>
-<p>А описание переменной <em>sensu_client</em> где-нибудь в <em>group_vars</em> выглядит так:</p>
+<p>А описание переменной <code>sensu_client</code> где-нибудь в <code>group_vars</code> выглядит так:</p>
 <pre><code>:::yaml
 sensu_client:
   client:
