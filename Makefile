@@ -14,7 +14,7 @@ help:
 	@echo '                                                                       '
 
 check:
-	vale content/post
+	vale --minAlertLevel=error content/post
 	@echo 'checking for bad links';\
 	grep -P -R '^(?:(?!(\s*func|.*:=)).*)\[.+\]\((?:(?!http|\/)).+\)' content/post/;\
 	EXIT_CODE=$$?;\

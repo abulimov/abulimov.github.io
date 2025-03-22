@@ -12,7 +12,7 @@ Build:
 
 **TL;DR - тут я Sensu критиковал, но в 2014 году успешно заменил Zabbix на Sensu версии 0.12+**
 
-В 2012 году появился в среде devops такой хештег, #monitoringsucks.
+В 2012 году появился в среде DevOps такой хештег, #monitoringsucks.
 В сообщения с этим тегом devopsы писали, что текущее положение дел
 в сфере мониторинга их не устраивает. Что именно - прекрасно иллюстрирует
 [эта презентация](https://speakerdeck.com/obfuscurity/the-state-of-open-source-monitoring)

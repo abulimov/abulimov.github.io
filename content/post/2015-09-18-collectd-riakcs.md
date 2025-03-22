@@ -37,7 +37,7 @@ Build:
 Сам Riak CS построен как надстройка над Riak, для которого в официальной
 документации [есть пример конфига для CollectD](http://docs.basho.com/riak/1.4.8/ops/running/monitoring/collectd/).
 
-К сожалению, для Riak CS такой фокус с плагином *curl_json* не пройдет - для
+К сожалению, для Riak CS такой фокус с плагином `curl_json` не пройдет - для
 доступа к статистике HTTP-запрос должен быть подписан по всем правилам
 авторизации S3, поэтому пришлось писать свой плагин, благо CollectD
 [предоставляет](https://collectd.org/documentation/manpages/collectd-python.5.shtml#writing_your_own_plugins)
@@ -47,7 +47,7 @@ Build:
 
 Для написания простейшего плагина к CollectD надо реализовать и
 зарегистрировать всего одну функцию - read. То есть вот так выгладит минимальный
-плагин к Colletcd:
+плагин к CollectD:
 
 *Пример из официальной документации:*
 ```Python
@@ -73,5 +73,5 @@ collectd.register_read(read)
 
 Код плагина к CollectD для снятия метрик с Riak CS трационно опубликован под
 свободной лицензией [MIT](https://opensource.org/licenses/MIT)
-на Github - [collectd-riakcs](https://github.com/abulimov/collectd-riakcs),
+на Github - [`collectd-riakcs`](https://github.com/abulimov/collectd-riakcs),
 а сам плагин подготовлен к удобной [установке через pip](https://github.com/abulimov/collectd-riakcs#setup).

@@ -43,7 +43,7 @@ Ubisoft games like Assassin's Creed are typically very good at this, with clever
 I often take long breaks between playing a particular game, lasting from days to months (and even years in rare cases),
 so having a good way to get back into the game is much appreciated.
 
-## Cutscenes are a plague
+## The cutscenes are a plague
 
 I'm a weird person who doesn't particularly like to watch movies or TV series. And this means I dislike games that have excessive amount of cutscenes.
 

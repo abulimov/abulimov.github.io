@@ -66,7 +66,7 @@ So this approach works well enough, but we can do better!
 Now we are getting to the truly passive solutions (although they are Linux-specific),
 thanks to the amazing power of [BPF](https://www.kernel.org/doc/html/latest/bpf/index.html).
 
-For example, we can snoop on same `sendto` syscall via `bpftrace`, which uses BPF with kernel tracepoints:
+For example, we can snoop on same `sendto` syscall via `bpftrace`, which uses BPF with kernel trace points:
 ```
 > sudo bpftrace -e 'tracepoint:syscalls:sys_enter_sendto /comm == "chronyc"/ {printf("%r\n", buf(args->buff, args->len));}'
 \x06\x01\x00\x00\x00\x0e\x00\x00\x02\x48\x5c\x29\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00
@@ -84,7 +84,7 @@ This is exactly what nifty script called [`sockdump`](https://github.com/mechpen
 
 I find this tool extremely useful, and recently [contributed to it](https://github.com/mechpen/sockdump/pull/8)
 support for DGRAM sockets and dumping data in escaped hex string format,
-which can be then used directly in Go or Python as for example an input for unittests.
+which can be then used directly in Go or Python as for example an input for unit tests.
 
 Here is how it looks like for `pmc` talking to `ptp4l` (both are part of [linuxptp](http://linuxptp.sourceforge.net) project):
 
@@ -116,7 +116,7 @@ it in Go](https://github.com/facebookincubator/ntp/tree/main/protocol/chrony) I 
 Without the ability to see what's going on over the socket,
 it would have been very hard to implement parts of the protocol that are not allowed to be used over the network.
 
-And second, once code works, it's easy to collect data for extensive unittests with a tool like `sockdump.py`.
+And second, once code works, it's easy to collect data for extensive unit tests with a tool like `sockdump.py`.
 You just fire up the script, perform various actions with commands that communicate over the socket,
 and use collected dumps as fixtures/data for table-driven tests.
 

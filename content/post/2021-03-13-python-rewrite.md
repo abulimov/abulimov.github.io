@@ -33,7 +33,7 @@ Here is what I think about this experience:
 ### Whole Py2->Py3 thing was a total mess
 
 There are many posts about it, I'll just give one example:
-It took us quite significant effort to migrate pretty good quality code (~60kloc) with decent unittest coverage,
+It took us quite significant effort to migrate pretty good quality code (~60kloc) with decent unit test coverage,
 and we still stumbled on some bugs in prod for many weeks after the migration.
 
 And boy this breaking Py2->Py3 transition was so unnecessary!
@@ -99,7 +99,7 @@ Sure, dynamic typing often enables faster prototyping, but if you don't throw th
 
 I saw my fair share of huge codebases in Python, with and without Type Annotations, and in every case the problems were similar.
 
-No amount of unittests (and don't even get me started on default testing module in Python)
+No amount of unit tests (and don't even get me started on default testing module in Python)
 and no smart IDE saves you during refactoring, every time it's like walking on a minefield.
 
 Adding features without refactoring will increase technical debt, and refactoring will lead to runtime errors.

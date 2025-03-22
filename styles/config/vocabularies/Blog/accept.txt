@@ -224,6 +224,7 @@ Koss
 Porta
 Microlab
 DAC
+DACs
 Balint
 impactful
 Numatic
@@ -255,3 +256,13 @@ Jeraland
 SKXMOD
 Woodie's
 Faithfull
+Discoverability 
+Starship
+configs
+Suunto
+cutscenes
+alphanums
+devs
+CollectD
+gotests
+SELinux

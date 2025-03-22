@@ -49,7 +49,7 @@ Build:
 
 И тут я наткнулся на [pull-request](https://github.com/ansible/ansible/pull/2234),
 из которого узнал, что теперь в Ansible можно использовать =
-фильтры *to_json* и *to_nice_json*.
+фильтры `to_json` и `to_nice_json`.
 
 А это дает нам возможность делать такие вещи:
 
@@ -62,7 +62,7 @@ Build:
       notify:
         - restart sensu-client
 
-А описание переменной *sensu_client* где-нибудь в *group_vars* выглядит так:
+А описание переменной `sensu_client` где-нибудь в `group_vars` выглядит так:
 
     :::yaml
     sensu_client:
