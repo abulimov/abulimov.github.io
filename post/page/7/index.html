@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8"><meta name="generator" content="Hugo 0.131.0"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><meta name="description" content=""><title>Posts&nbsp;&ndash;&nbsp;Alexander Bulimov: Production Engineer and Scale Modeller</title><link rel="stylesheet" href="/css/core.min.63f706677e61b4ee62b8daf083358d3bbf8ac8ab03c7d171af3180fab3a3ebb83efb79fb98674f13dde6db11de2bf694.css" integrity="sha384-Y/cGZ35htO5iuNrwgzWNO7&#43;KyKsDx9FxrzGA&#43;rOj67g&#43;&#43;3n7mGdPE93m2xHeK/aU"><link rel="alternate" type="application/rss+xml" href="/post/index.xml" title="Alexander Bulimov: Production Engineer and Scale Modeller" /><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Posts" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">Alexander Bulimov: Production Engineer and Scale Modeller</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/">Categories</a><a class="nav item" href="/tags/">Tags</a></nav></div></span></div></section><section id="content"><section class="article header"><h1>Posts</h1></section><ul class="note list"><li class="item">
+        
+        <a class="note" href="/it/infrastructure-as-a-code/">
+        
+            <p class="note title">Инфраструктура как код</p><p class="note date">2014-09-29</p><p class="note content">Есть такой тренд сейчас - работать с IT-инфраструктурой как с кодом. Хорошо цель этого метода описывается этой цитатой:
+“Enable the reconstruction of the business from nothing but a source code repository, an application data backup, and bare metal resources”
+&ndash; Jesse Robins
+Я полностью поддерживаю эту идею, причем именно в этой трактовке.
+Если говорить про парадигму, которую нам предлагает этот метод, то вот она:
+Поддерживать модульную, легко поддающуюся автоматизации инфраструктуру, и описывать эту инфраструктуру с помощью языка высокого уровня.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/chef/">Chef</a><a class="tag" href="/tags/ansible/">Ansible</a><a class="tag" href="/tags/%D0%BC%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5/">Мнение</a></p></li><li class="item">
+        
+        <a class="note" href="/it/from-ruhoh-to-pelican/">
+        
+            <p class="note title">s/Ruhoh/Pelican/</p><p class="note date">2014-09-25</p><p class="note content">Переехал с Ruhoh на Pelican, потому что Python.
+А если подробнее - потому что Ruhoh написан на Ruby, и не особо развивается. А Pelican написан на Python, который является моим основным языком, и уже давно и активно развивается, и обладает обширной базой плагинов и тем.</p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/pelican/">Pelican</a><a class="tag" href="/tags/python/">Python</a><a class="tag" href="/tags/%D0%B6%D0%B8%D0%B7%D0%BD%D1%8C/">Жизнь</a></p></li><li class="item">
+        
+        <a class="note" href="/it/%D0%92%D1%8B%D0%BB%D0%BE%D0%B6%D0%B8%D0%BB-%D0%BD%D0%B5%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9/">
+        
+            <p class="note title">Выложил немного полезностей</p><p class="note date">2014-09-17</p><p class="note content">Когда я писал про то, как переписал скрипты для Sensu, я слегка слукавил. Изначально, я написал эти скрипты на Python, и только потом на Ruby. Поскольку пользователям других Nagios-совместимых систем мониторинга может показаться неудобным использование ruby-скриптов, да еще и с зависимостью от гема Sensu-plugin, я решил выложить и Python-версии скриптов.
+Если кому хочется мониторить состояние дисков в raid-контроллерах от 3ware или HP SmartArray на чистом Python - милости просим, все в моем репозитории.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/python/">Python</a><a class="tag" href="/tags/zabbix/">Zabbix</a><a class="tag" href="/tags/nagios/">Nagios</a><a class="tag" href="/tags/monitoring/">Monitoring</a></p></li><li class="item">
+        
+        <a class="note" href="/it/%D0%9E%D1%82%D0%BA%D1%80%D1%8B%D0%BB-%D0%B4%D0%BB%D1%8F-%D1%81%D0%B5%D0%B1%D1%8F-%D0%BF%D0%BB%D0%B0%D0%B3%D0%B8%D0%BD%D1%8B-%D0%BA-tmux/">
+        
+            <p class="note title">Открыл для себя плагины к tmux</p><p class="note date">2014-09-04</p><p class="note content">Случилось чудесное - LOR принес мне пользу. Оттуда я узнал о плагине tmux-resurrect, а точнее, вообще о существовании плагинов для чудесного мультиплексора терминалов tmux.
+С помощью имеющихся плагинов можно привести конфигурацию в более понятный вид, а также заменить свои костыли на костыли, поддерживаемые сообществом.
+Я, к примеру:
+сильно сократил конфигурацию, используя tmux-sensible; с помощью tmux-yank выкинул свои костыли для копирования в буфер обмена; смог убрать настройки для vi-образной навигации между панелями благодаря tmux-pain-control; обрел поиск с помощью tmux-copycat; теперь могу открывать выделенные файлы либо URL с помощью tmux-open; наконец, могу сохранять все открытые окна и панели tmux с использованием tmux-resurrect; </p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/tmux/">tmux</a><a class="tag" href="/tags/%D0%B6%D0%B8%D0%B7%D0%BD%D1%8C/">Жизнь</a></p></li><li class="item">
+        
+        <a class="note" href="/it/%D0%9F%D0%B5%D1%80%D0%B5%D0%BF%D0%B8%D1%81%D0%B0%D0%BB-%D1%81%D0%BA%D1%80%D0%B8%D0%BF%D1%82%D1%8B-%D0%BD%D0%B0-ruby-%D0%B4%D0%BB%D1%8F-sensu/">
+        
+            <p class="note title">Переписал скрипты на Ruby для Sensu</p><p class="note date">2014-09-04</p><p class="note content">Поскольку я перевел мониторинг с Zabbix на Sensu, пришлось переписать свои скрипты проверки состояния жестких дисков в raid-контроллерах от 3ware и HP SmartArray для использования в Sensu. Ну а раз все равно переписывать - то писать я решил на Ruby, чтобы можно было без проблем заслать в Sensu-community-plugins
+Скрипты весьма просты, так что проблем при переписывании никаких не было.
+Если кому надо - все уже отдано сообществу, теперь Sensu может мониторить состояние дисков в контроллерах от 3ware и HP SmartArray.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/ruby/">Ruby</a><a class="tag" href="/tags/sensu/">Sensu</a><a class="tag" href="/tags/monitoring/">Monitoring</a></p></li><li class="item">
+        
+        <a class="note" href="/it/%D0%9C%D0%BE%D0%B4%D1%83%D0%BB%D1%8C-zabbix_maintenance/">
+        
+            <p class="note title">Модуль zabbix_maintenance</p><p class="note date">2014-08-11</p><p class="note content">Свершилось чудо, и мой модуль для Ansible, который умеет создавать и удалять периоды &ldquo;в обслуживании&rdquo; в Zabbix, наконец-то приняли в апстрим. Это уже третий мой модуль, принятый в апстрим Ansible.
+Краткая история:
+Модуль этот я запушил еще в 26 ноября 2013 года, но 21 декабря cove написал в комментарии к моему модулю, что планирует выложить целую пачку модулей для взаимодействия с Zabbix из Ansible. Это отложило принятие моего модуля в апстрим почти на 9 месяцев, поскольку мы согласовывали интерфейс наших модулей, тестировали и улучшали модули, выложенные cove, а очередь pull-requestов у Ansible выросла до 300+.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/ansible/">Ansible</a><a class="tag" href="/tags/python/">Python</a><a class="tag" href="/tags/monitoring/">Monitoring</a></p></li><li class="item">
+        
+        <a class="note" href="/it/ansible-%D0%B8-serverspec/">
+        
+            <p class="note title">Ansible и serverspec</p><p class="note date">2014-05-22</p><p class="note content">Когда я готовил playbook для своего VPS, я взял за основу Sovereign. В этом репозитории меня заинтересовал файл tests.py, содержащий тесты для результирующего сервера. У меня сразу же возник вопрос - почему тесты самописные, на голом Python, а не на каком-нибудь готовом решении. Я решил изучить, что же есть сейчас для TDD-администрирования. Оказалось, что толком ничего и нет, а то, что есть - для Ansible не особо нужно.
+Для начала, что есть.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/ansible/">Ansible</a><a class="tag" href="/tags/serverspec/">serverspec</a><a class="tag" href="/tags/%D0%BC%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5/">Мнение</a></p></li><li class="item">
+        
+        <a class="note" href="/it/%D0%9B%D0%B8%D1%87%D0%BD%D1%8B%D0%B9-vps/">
+        
+            <p class="note title">Личный VPS</p><p class="note date">2014-05-22</p><p class="note content">Уже 2 недели как я начал использовать свой личный VPS на DigitalOcean, и хочу поделиться впечатлениями. Это оказалось очень удобно - можно получать все удобства современного цифрового мира, но на своих условиях и с уверенностью в сохранности своих персональных данных.
+Раскатывал я все сервисы и конфиги с помощью Ansible, взяв за основу Sovereign. В качестве дистрибутива я ради эксперимента выбрал Ubuntu 14.04 LTS.
+Сейчас я использую VPS для следующих сервисов:<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/vps/">VPS</a><a class="tag" href="/tags/ubuntu/">Ubuntu</a></p></li><li class="item">
+        
+        <a class="note" href="/it/%D0%9F%D1%80%D0%BE%D1%87%D0%B8%D1%82%D0%B0%D0%BB-the-phoenix-project-a-novel-about-devops-and-helping-your-business-win/">
+        
+            <p class="note title">Прочитал The Phoenix Project A Novel About DevOps, and Helping Your Business Win</p><p class="note date">2014-04-15</p><p class="note content">Ну что тут скажешь - прекрасная книга. Написана живым языком, очень легко читается. В увлекательной форме рассказывает о ключевых принципах DevOps, причем именно так, чтобы было понятно, в ответ на какие проблемы каждый из принципов был сформирован.
+Конечно, главная проблема книги в том, что DevOps преподносится как некая чудодейственная методология, и при этом не уделяется внимания главному вопросу - кадровому. В книге все сотрудники оказались достаточно квалифицированными и открытыми для того, чтобы успешно принять и реализовать парадигму DevOps, хотя в реальной жизни лично я наблюдаю жесточайший дефицит адекватных кадров, которых можно было бы хотя-бы переучить под DevOps, не говоря уже о том, чтоб они сами к этому пришли.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/">Книги</a><a class="tag" href="/tags/%D0%B6%D0%B8%D0%B7%D0%BD%D1%8C/">Жизнь</a><a class="tag" href="/tags/%D0%BC%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5/">Мнение</a></p></li><li class="item">
+        
+        <a class="note" href="/it/%D0%A1%D0%B4%D0%B0%D0%BB-%D1%8D%D0%BA%D0%B7%D0%B0%D0%BC%D0%B5%D0%BD-cisco-icnd2-%D0%BE%D0%BD-%D0%B6%D0%B5-200-101/">
+        
+            <p class="note title">Сдал экзамен Cisco ICND2, он же 200-101</p><p class="note date">2014-04-03</p><p class="note content">Теперь я CCNA.
+Сдал с трудом, 867 из 1000 при проходных 825. Экзамен очень мощный, сильно сложнее ICND1, на мой вкус. Надо было сдавать единый 200-120, было бы сильно проще. Еще больше уверился, что CCNA вполне подходит на роль критерия профпригодности для более-менее серьезной работы сисадмина.</p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/cisco/">Cisco</a><a class="tag" href="/tags/%D0%B6%D0%B8%D0%B7%D0%BD%D1%8C/">Жизнь</a></p></li></ul><div class="pagination">
+    <ul><li><a href="/post/page/6/"><span class="iconfont icon-pagepreview"></span></a></li><li><a class="" href="/post/page/6/">6</a></li><li><a class="active" href="/post/page/7/">7</a></li><li><a class="" href="/post/page/8/">8</a></li><li><a class="" href="/post/page/9/">9</a></li></ul>
+</div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">Alexander Bulimov: Production Engineer and Scale Modeller</p>
+    <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
+        target="_blank" rel="noopener noreferrer">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank" rel="noopener noreferrer">Notepadium</a></p></div></section>
+  
+
+</body>
+
+</html>

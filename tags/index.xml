@@ -6,8 +6,29 @@
     <description>Recent content in Tags on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 May 2025 16:30:00 +0000</lastBuildDate>
     <atom:link href="//bulimov.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Starship</title>
+      <link>//bulimov.me/tags/starship/</link>
+      <pubDate>Sun, 11 May 2025 16:30:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/starship/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Zsh</title>
+      <link>//bulimov.me/tags/zsh/</link>
+      <pubDate>Sun, 11 May 2025 16:30:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/zsh/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Blog</title>
+      <link>//bulimov.me/tags/blog/</link>
+      <pubDate>Sun, 11 May 2025 16:00:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/blog/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Tmux</title>
       <link>//bulimov.me/tags/tmux/</link>
@@ -93,24 +114,10 @@
       <description></description>
     </item>
     <item>
-      <title>Zsh</title>
-      <link>//bulimov.me/tags/zsh/</link>
-      <pubDate>Sun, 22 Sep 2024 00:00:00 +0000</pubDate>
-      <guid>//bulimov.me/tags/zsh/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Video Games</title>
       <link>//bulimov.me/tags/video-games/</link>
       <pubDate>Sun, 04 Aug 2024 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/tags/video-games/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Blog</title>
-      <link>//bulimov.me/tags/blog/</link>
-      <pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate>
-      <guid>//bulimov.me/tags/blog/</guid>
       <description></description>
     </item>
     <item>

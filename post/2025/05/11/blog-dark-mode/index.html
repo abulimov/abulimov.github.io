@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Added Dark Mode support | Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <style>
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: white;
+  }
+  html, img, video, iframe {
+    filter: invert(1);
+  }
+}
+</style>
+
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="https://models.bulimov.me">Scale Models</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/reviews/">Reviews</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Added Dark Mode support</span></h1>
+
+<h2 class="date">2025/05/11</h2>
+
+</div>
+
+<main>
+<p>Now this blog supports Dark Mode, if the browser has it set as preferred.</p>
+<p>I myself switched to using Dark Mode on some of my devices, but only recently noticed that my very own blog didn&rsquo;t have the support for it.</p>
+<p>Thankfully adding it was super easy, and I didn&rsquo;t need to go much further than this blog&rsquo;s theme Issues on Github.</p>
+<p>The author of this lovely <a href="https://github.com/yihui/hugo-xmin"><code>xmin</code></a> theme provided an answer in the <a href="https://github.com/yihui/hugo-xmin/issues/67">issue #67</a>:</p>
+<pre tabindex="0"><code>@media (prefers-color-scheme: dark) {
+  body {
+    background-color: white;
+  }
+  html, img, video, iframe {
+    filter: invert(1);
+  }
+}
+</code></pre><p>I added this in a custom header partial override, and voilà! Nice enough dark mode, at least in my opinion.</p>
+<p>Enjoy!</p>
+
+</main>
+
+
+<p class="terms">
+<b>Tags:</b>
+
+  <a href="//bulimov.me/tags/blog/">Blog</a>
+
+
+</p>
+<p class="terms">
+
+<b>Categories:</b>
+
+  <a href="//bulimov.me/categories/personal/">Personal</a>
+
+
+</p>
+
+  <footer>
+  
+  
+  <hr/>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.me">Alexander Bulimov</a> 2013 &ndash; 2025 | <a href="https://github.com/abulimov">Github</a>
+  
+  </footer>
+  </body>
+</html>
+

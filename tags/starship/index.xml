@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Starship on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link>//bulimov.me/tags/starship/</link>
+    <description>Recent content in Starship on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 11 May 2025 16:30:00 +0000</lastBuildDate>
+    <atom:link href="//bulimov.me/tags/starship/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Moving from powerlevel10k to Starship for my zsh prompt</title>
+      <link>//bulimov.me/post/2025/05/11/powerlevel10k-to-starship/</link>
+      <pubDate>Sun, 11 May 2025 16:30:00 +0000</pubDate>
+      <guid>//bulimov.me/post/2025/05/11/powerlevel10k-to-starship/</guid>
+      <description>Last year, when I wrote about refreshing my CLI setup, I explained why I picked powerlevel10k over Starship.&#xA;Starship is a minimal, cross-shell prompt written in Rust.&#xA;Well, things have changed, I re-evaluated my choice and switched to Starship.&#xA;Back in September 2024 I wrote:&#xA;In the case of Starship for example, while the idea of a cross-platform, compiled prompt is interesting, paying the cost of spawning a process (or multiple) each time is just absurd to me.</description>
+    </item>
+  </channel>
+</rss>

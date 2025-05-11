@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8"><meta name="generator" content="Hugo 0.131.0"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><meta name="description" content=""><title>Posts&nbsp;&ndash;&nbsp;Alexander Bulimov: Production Engineer and Scale Modeller</title><link rel="stylesheet" href="/css/core.min.63f706677e61b4ee62b8daf083358d3bbf8ac8ab03c7d171af3180fab3a3ebb83efb79fb98674f13dde6db11de2bf694.css" integrity="sha384-Y/cGZ35htO5iuNrwgzWNO7&#43;KyKsDx9FxrzGA&#43;rOj67g&#43;&#43;3n7mGdPE93m2xHeK/aU"><link rel="alternate" type="application/rss+xml" href="/post/index.xml" title="Alexander Bulimov: Production Engineer and Scale Modeller" /><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Posts" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">Alexander Bulimov: Production Engineer and Scale Modeller</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/">Categories</a><a class="nav item" href="/tags/">Tags</a></nav></div></span></div></section><section id="content"><section class="article header"><h1>Posts</h1></section><ul class="note list"><li class="item">
+        
+        <a class="note" href="/it/more-typing/">
+        
+            <p class="note title">Notes about type systems in popular languages</p><p class="note date">2016-06-09</p><p class="note content">I&rsquo;ve been kind of out of my comfort zone last 3 weeks, and was trying to use as many new languages and technologies as possible.
+I&rsquo;ve used C++, JavaScript, React, PHP and Hack to name a few, and I&rsquo;ve noticed really cool thing - many popular programming languages are moving towards mixing best of static and dynamic typing.
+C++ (statically typed language) now has auto keyword, specifying that compiler should deduce type of variable or return type of function automatically; JavaScript has Flow - static type checker from Facebook, and there is TypeScript from Microsoft which compiles to JS; PHP has type hints since version 5, and they are greatly improved in PHP7; Hack has even more advanced type annotations than PHP; Python added type hints in 3.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="tag" href="/tags/programming/">Programming</a></p></li><li class="item">
+        
+        <a class="note" href="/it/python-typing/">
+        
+            <p class="note title">Python Type Hints are awesome</p><p class="note date">2016-05-12</p><p class="note content">I really love Julia Evans&rsquo;s blog, she writes with such excitement and enthusiasm about every new bit of technology she learns. For me, this is what makes our job so great - we can learn something new and cool almost every day.
+And recently I&rsquo;ve felt very excited with some of new abilities Python now have. I&rsquo;m talking about including of PEP 484, which describes Type Hints, in Python 3.5 (old news, I know).<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="tag" href="/tags/python/">Python</a><a class="tag" href="/tags/programming/">Programming</a></p></li><li class="item">
+        
+        <a class="note" href="/it/fish-zsh/">
+        
+            <p class="note title">Moving from Fish shell to zsh</p><p class="note date">2016-05-06</p><p class="note content">I&rsquo;ve been using Fish shell as my daily driver for more than 2 years. I don&rsquo;t want to insult Fish - this awesome shell provided me with wonderful out-of-the-box experience, introduced me to autosuggestions, and required almost no configuration.
+But now, after 2 years of heavy usage, I&rsquo;ve dropped it in favor of zsh.
+The main reason for the switch is simple - Fish shell is not POSIX-compatible. And while many people keep repeating &ldquo;If you don&rsquo;t write shell scripts in Fish, why should you care about POSIX-compatibility?<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="tag" href="/tags/fish/">Fish</a><a class="tag" href="/tags/zsh/">Zsh</a></p></li><li class="item">
+        
+        <a class="note" href="/it/atom-gotests/">
+        
+            <p class="note title">Утилита gotests и плагин для Atom</p><p class="note date">2016-04-15</p><p class="note content">Поскольку последнее время я все больше пишу на Go, мой workflow потихоньку обрастает различными полезными утилитами.
+Одним из лучших открытий (после изумительного go-plus для Atom, который превращает Atom в полнофункциональную IDE для Go) стала утилита gotests, которая позволяет генерировать табличные тесты. При этом для нее есть плагины для Sublime Text 3 и Emacs.
+Я большой сторонник юнит-тестирования, и потому возможность создавать шаблоны для тестов одной командой меня очень обрадовала.
+Выглядит это как-то так:<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/golang/">Golang</a><a class="tag" href="/tags/%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/">Программирование</a><a class="tag" href="/tags/atom/">Atom</a><a class="tag" href="/tags/es6/">ES6</a></p></li><li class="item">
+        
+        <a class="note" href="/it/atom-HAProxy/">
+        
+            <p class="note title">Все для HAProxy в Atom</p><p class="note date">2016-04-08</p><p class="note content">Появилась у меня на работе задачка - взять 3 относительно разных конфига HAProxy, ответвившихся когда-то от общего предка, и обратно унифицировать их в один.
+Конфиги хорошие, большие - 800 строк каждый.
+Приступил я к этой задаче, и сразу оступил - потому что в Atom, которым я пользуюсь для редактирования всего, не было подсветки синтаксиса конфигов HAProxy.
+Ну у нас же тут OpenSource, так что тут же был нагуглен архив с HAProxy.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/golang/">Golang</a><a class="tag" href="/tags/%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/">Программирование</a><a class="tag" href="/tags/atom/">Atom</a><a class="tag" href="/tags/haproxy/">HAProxy</a></p></li><li class="item">
+        
+        <a class="note" href="/it/go-vendoring/">
+        
+            <p class="note title">Vendoring зависимостей в Go</p><p class="note date">2016-03-31</p><p class="note content">После недавнего удаления модуля на 11 строк кода из npm, которое сломало всю Node.js инфраструктуру, я по-новому взглянул на то, как в проектах на Go реализованы зависимости от других пакетов.
+Изначально, при знакомстве с go я был крайне недоволен отсутствием возможности задавать зависимости от конкретных версий (зависимость указывается только от репозитория, т.е. от master ветки) - ведь апстрим может ломать обратную совместимость, и твой проект просто не соберется. Причем я сам с этой проблемой столкнулся, и это было очень неприятно.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/golang/">Golang</a><a class="tag" href="/tags/%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/">Программирование</a></p></li><li class="item">
+        
+        <a class="note" href="/it/clair/">
+        
+            <p class="note title">Проверка образов Docker на уязвимости с Clair</p><p class="note date">2016-03-24</p><p class="note content">Ни для кого не секрет, что контейнеры (и в частности Docker) не только решают много проблем (configuration drift, scalability, dependency hell), но и привносят новые (в частности, обновление базовых образов).
+Я уже давно мониторил IT-мир на предмет появления хорошего инструмента для проверки Docker-образов на наличие известных CVE. До недавнего времени подходящего инструмента не было. Была парочка дистро-специфичных инструментов (например oscap-docker, с которым я помучался и забил), но ничего подходящего.
+Но недавно (19.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/clair/">Clair</a><a class="tag" href="/tags/docker/">Docker</a><a class="tag" href="/tags/coreos/">CoreOS</a></p></li><li class="item">
+        
+        <a class="note" href="/it/db-checker/">
+        
+            <p class="note title">Открыл код db-checker</p><p class="note date">2016-03-18</p><p class="note content">Недавно я открыл код еще одного инструмента, который уже около года использую на работе - db-checker.
+Началось все с необходимости проводить регулярные проверки логической целостности данных в БД. Проще говоря - гонять мониторингом запросы к базе.
+Сначала это была часть проекта, который проверял данные на нашем CDN. Проект этот сразу планировался многопоточным, поэтому написан на Go. Затем мухи были отделены от котлет, и проверка базы выделилась в отдельную сущность, но несколько legacy-моментов осталось.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/">Программирование</a><a class="tag" href="/tags/golang/">Golang</a><a class="tag" href="/tags/nagios/">Nagios</a><a class="tag" href="/tags/monitoring/">Monitoring</a></p></li><li class="item">
+        
+        <a class="note" href="/it/delete-docker-registry-image/">
+        
+            <p class="note title">О пользе Python и костылях с Docker</p><p class="note date">2016-03-02</p><p class="note content">В процессе организации авто-очистки Docker Registry 2, устав ждать в появления в нем столь &ldquo;ненужного&rdquo; функционала, как удаление образов с диска (DELETE запросы удаляют тег, но сами данные остаются на диске и жрут место), я в очередной раз прибег к помощи скрипта из delete-docker-registry-image, и уперся в то, что этот самый скрипт (написанный изначально на bash) невероятно медленно работает на большом Registry.
+К примеру, удаления одного тега для repository с 70 тегами, в каждом из которых много слоев, занимает 49 минут.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/">Программирование</a><a class="tag" href="/tags/python/">Python</a><a class="tag" href="/tags/docker/">Docker</a></p></li><li class="item">
+        
+        <a class="note" href="/it/advent-of-code/">
+        
+            <p class="note title">Рекомендую Advent Of Code</p><p class="note date">2016-02-11</p><p class="note content">Закончил на днях решать задачи из замечательного набора программерских пазлов Advent Of Code (да, я тормоз и даже пропустил начало этого конкурса), и могу уверенно рекомендовать его любому.
+Задачки веселые, разнообразные, в меру сложные, содержат много классических задач (задача коммивояжёра, задача о ранце и т.д.) в занятной обертке, так что их решение дает возможность отлично размять мозги.
+Так же эти задачки отлично подходят для изучения нового языка, чем я отчасти воспользовался - решал все на Go, освежив и укрепив свои знания.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/">Программирование</a><a class="tag" href="/tags/%D0%B6%D0%B8%D0%B7%D0%BD%D1%8C/">Жизнь</a><a class="tag" href="/tags/golang/">Golang</a></p></li></ul><div class="pagination">
+    <ul><li><a class="" href="/post/">1</a></li><li><a class="" href="/post/page/2/">2</a></li><li><a class="" href="/post/page/3/">3</a></li><li><a class="active" href="/post/page/4/">4</a></li><li><a class="" href="/post/page/5/">5</a></li><li><a href="/post/page/5/"><span class="iconfont icon-pagenext"></span></a></li></ul>
+</div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">Alexander Bulimov: Production Engineer and Scale Modeller</p>
+    <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
+        target="_blank" rel="noopener noreferrer">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank" rel="noopener noreferrer">Notepadium</a></p></div></section>
+  
+
+</body>
+
+</html>

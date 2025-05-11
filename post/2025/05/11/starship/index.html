@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Moving from powerlevel10k to Starship for my zsh prompt | Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <style>
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: white;
+  }
+  html, img, video, iframe {
+    filter: invert(1);
+  }
+}
+</style>
+
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="https://models.bulimov.me">Scale Models</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/reviews/">Reviews</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Moving from powerlevel10k to Starship for my zsh prompt</span></h1>
+
+<h2 class="date">2025/05/11</h2>
+
+</div>
+
+<main>
+<p>Last year, when I wrote about <a href="/post/2024/09/22/refreshing-cli-setup/">refreshing my CLI setup</a>, I explained why I picked <a href="https://github.com/romkatv/powerlevel10k">powerlevel10k</a> over <a href="https://starship.rs/">Starship</a>.</p>
+<p>Well, things have changed, I re-evaluated my choice and switched to Starship.</p>
+<p>Back in September 2024 I wrote:</p>
+<blockquote>
+<p>In the case of <em>Starship</em> for example, while the idea of a cross-platform, compiled prompt is interesting, paying the cost of spawning a process (or multiple) each time is just absurd to me.
+Also, saying it&rsquo;s &ldquo;really really fast&rdquo; in the readme, but providing no proofs or benchmarks - that&rsquo;s lame, and there is even an <a href="https://github.com/starship/starship/issues/5593">issue open for this</a>.</p>
+</blockquote>
+<p>And I still think that saying &lsquo;really really fast&rsquo; without any proof is silly!
+But I sure changed my mind regarding the latency, plus another factor came into play.</p>
+<p>It started with a simple thing - I wanted to customize my prompt just a bit, so that it shows the hostname <em>only</em> when it&rsquo;s not running in <a href="/post/2025/03/22/tmux-zellij/">Zellij</a> (simply checking if <code>$ZELLIJ</code> environment variable is set).
+A convenience thing really, I already had hostname as a part of tmux (and now Zellij) status bar, but wanted to see it when in the bare shell.
+All because at work all my development happens on the remove server, and I often have more than one of those, so need to be able to distinguish them instantly with and without a terminal multiplexer running.</p>
+<p>Anyway, wanting this customization made me look at powerlevel10k closely, and oh boy the code is inscrutable.</p>
+<p>The author did an amazing job writing the thing, but the nature of writing anything in an obscure shell dialect is such that no matter how hard you try it still will be horrible to read.</p>
+<p>Sure enough, powerlevel10k did not have a way to do what I want outside of writing a custom prompt segment.
+Not a big deal, I&rsquo;ve already done it before to support showing the branch name from a special VCS we use at work.</p>
+<p>However, reading all that zsh code made me realize how fragile and convoluted it is.
+Which in combination with my love for strongly and statically typed languages made me try Starship once again, just to see if there is a simple way to achieve what I want there.</p>
+<p>And there was, as simple as it gets:</p>
+<pre tabindex="0"><code>[hostname]
+ssh_only = false
+detect_env_vars = [&#39;!ZELLIJ&#39;]
+</code></pre><p>Porting my custom VCS branch command was also trivial, and so was replicating my prompt visuals.</p>
+<p>Once I was sure it works just as I want, I decided to see how bad the latency is - after all, we still have to fork-exec a new process every time!</p>
+<p>Turns out, it&rsquo;s not noticeable at all.</p>
+<p>And <code>starship</code> provides a lovely breakdown of how long each prompt segment took.</p>
+<p>Here is what it looks like on my personal laptop running WSL2 where I write this blog:</p>
+<pre tabindex="0"><code>❯ starship timings
+
+ Here are the timings of modules in your prompt (&gt;=1ms or output):
+ git_status  -   8ms  -   &#34;[?⇡] &#34;
+ directory   -  &lt;1ms  -   &#34;abulimov.github.io &#34;
+ git_branch  -  &lt;1ms  -   &#34;on  sources &#34;
+ character   -  &lt;1ms  -   &#34;❯ &#34;
+ fill        -  &lt;1ms  -   &#34; &#34;
+ line_break  -  &lt;1ms  -   &#34;\n&#34;
+ time        -  &lt;1ms  -   &#34;at 16:58:14 &#34;
+</code></pre><p>That&rsquo;s actually pretty good to me. Sure it doesn&rsquo;t account for the actual spawning of the process, but modern Linux kernel ensures it&rsquo;s as fast as it gets.</p>
+<p>I have to admit - sane, short and declarative config won me over.
+The confidence in software written in a modern compiled language is also a nice bonus, not gonna lie.</p>
+<p>And if I ever move away from zsh, I won&rsquo;t need to change a thing regarding my prompt, since Starship is shell-agnostic.</p>
+
+</main>
+
+
+<p class="terms">
+<b>Tags:</b>
+
+  <a href="http://localhost:1313/tags/zsh/">Zsh</a>
+
+  <a href="http://localhost:1313/tags/starship/">Starship</a>
+
+
+</p>
+<p class="terms">
+
+<b>Categories:</b>
+
+  <a href="http://localhost:1313/categories/it/">IT</a>
+
+  <a href="http://localhost:1313/categories/personal/">Personal</a>
+
+
+</p>
+
+  <footer>
+  
+  
+  <hr/>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.me">Alexander Bulimov</a> 2013 &ndash; 2025 | <a href="https://github.com/abulimov">Github</a>
+  
+  </footer>
+  </body>
+</html>
+

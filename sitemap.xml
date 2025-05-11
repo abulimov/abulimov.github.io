@@ -3,24 +3,39 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>//bulimov.me/categories/</loc>
-    <lastmod>2025-03-22T00:00:00+00:00</lastmod>
+    <lastmod>2025-05-11T16:30:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/</loc>
-    <lastmod>2025-03-22T00:00:00+00:00</lastmod>
+    <lastmod>2025-05-11T16:30:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/categories/it/</loc>
-    <lastmod>2025-03-22T00:00:00+00:00</lastmod>
+    <lastmod>2025-05-11T16:30:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/post/2025/05/11/powerlevel10k-to-starship/</loc>
+    <lastmod>2025-05-11T16:30:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/categories/personal/</loc>
-    <lastmod>2025-03-22T00:00:00+00:00</lastmod>
+    <lastmod>2025-05-11T16:30:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/post/</loc>
-    <lastmod>2025-03-22T00:00:00+00:00</lastmod>
+    <lastmod>2025-05-11T16:30:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/post/2025/03/22/tmux-zellij/</loc>
-    <lastmod>2025-03-22T00:00:00+00:00</lastmod>
+    <loc>//bulimov.me/tags/starship/</loc>
+    <lastmod>2025-05-11T16:30:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/</loc>
+    <lastmod>2025-05-11T16:30:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/zsh/</loc>
+    <lastmod>2025-05-11T16:30:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/post/2025/05/11/blog-dark-mode/</loc>
+    <lastmod>2025-05-11T16:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/blog/</loc>
+    <lastmod>2025-05-11T16:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/post/2025/03/22/tmux-zellij/</loc>
     <lastmod>2025-03-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/tmux/</loc>
@@ -74,9 +89,6 @@
     <loc>//bulimov.me/tags/vim/</loc>
     <lastmod>2024-09-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/tags/zsh/</loc>
-    <lastmod>2024-09-22T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/post/2024/08/04/busy-adult-gaming/</loc>
     <lastmod>2024-08-04T00:00:00+00:00</lastmod>
   </url><url>
@@ -84,9 +96,6 @@
     <lastmod>2024-08-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/post/2024/07/31/11-years-of-blogging/</loc>
-    <lastmod>2024-07-31T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/tags/blog/</loc>
     <lastmod>2024-07-31T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/post/2024/01/27/golang-memory/</loc>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8"><meta name="generator" content="Hugo 0.131.0"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><meta name="description" content=""><title>Python&nbsp;&ndash;&nbsp;Alexander Bulimov: Production Engineer and Scale Modeller</title><link rel="stylesheet" href="/css/core.min.63f706677e61b4ee62b8daf083358d3bbf8ac8ab03c7d171af3180fab3a3ebb83efb79fb98674f13dde6db11de2bf694.css" integrity="sha384-Y/cGZ35htO5iuNrwgzWNO7&#43;KyKsDx9FxrzGA&#43;rOj67g&#43;&#43;3n7mGdPE93m2xHeK/aU"><link rel="alternate" type="application/rss+xml" href="/tags/python/index.xml" title="Alexander Bulimov: Production Engineer and Scale Modeller" /><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Python" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">Alexander Bulimov: Production Engineer and Scale Modeller</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/">Categories</a><a class="nav item" href="/tags/">Tags</a></nav></div></span></div></section><section id="content"><section class="article header"><h1>Python</h1></section><ul class="note list"><li class="item">
+        
+        <a class="note" href="/it/meminfo-visualizer/">
+        
+            <p class="note title">Разбирался с page-cache в Linux</p><p class="note date">2014-10-09</p><p class="note content">Читая книгу &ldquo;Разработка ядра Linux&rdquo; за авторством Роберта Лава, я решил поглубже разобраться в том, как работает кэш в Linux, и набрел на вот эту статью на Хабре от Яндекса.
+Сама статья весьма познавательна, особенно видео - рекомендую. Так вот, в этом видео Роман Гущин, с помощью простой утилиты, наглядно показывающей размер кэша, показывал как работает файловый кэш.
+Конечно, мне захотелось в образовательных целях написать такую утилиту для себя, чтобы можно было поиграться с кэшем и видеть изменения.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/kernel/">Kernel</a><a class="tag" href="/tags/python/">Python</a><a class="tag" href="/tags/%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/">Программирование</a><a class="tag" href="/tags/%D0%BA%D0%BD%D0%B8%D0%B3%D0%B8/">Книги</a></p></li><li class="item">
+        
+        <a class="note" href="/it/from-ruhoh-to-pelican/">
+        
+            <p class="note title">s/Ruhoh/Pelican/</p><p class="note date">2014-09-25</p><p class="note content">Переехал с Ruhoh на Pelican, потому что Python.
+А если подробнее - потому что Ruhoh написан на Ruby, и не особо развивается. А Pelican написан на Python, который является моим основным языком, и уже давно и активно развивается, и обладает обширной базой плагинов и тем.</p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/pelican/">Pelican</a><a class="tag" href="/tags/python/">Python</a><a class="tag" href="/tags/%D0%B6%D0%B8%D0%B7%D0%BD%D1%8C/">Жизнь</a></p></li><li class="item">
+        
+        <a class="note" href="/it/%D0%92%D1%8B%D0%BB%D0%BE%D0%B6%D0%B8%D0%BB-%D0%BD%D0%B5%D0%BC%D0%BD%D0%BE%D0%B3%D0%BE-%D0%BF%D0%BE%D0%BB%D0%B5%D0%B7%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9/">
+        
+            <p class="note title">Выложил немного полезностей</p><p class="note date">2014-09-17</p><p class="note content">Когда я писал про то, как переписал скрипты для Sensu, я слегка слукавил. Изначально, я написал эти скрипты на Python, и только потом на Ruby. Поскольку пользователям других Nagios-совместимых систем мониторинга может показаться неудобным использование ruby-скриптов, да еще и с зависимостью от гема Sensu-plugin, я решил выложить и Python-версии скриптов.
+Если кому хочется мониторить состояние дисков в raid-контроллерах от 3ware или HP SmartArray на чистом Python - милости просим, все в моем репозитории.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/python/">Python</a><a class="tag" href="/tags/zabbix/">Zabbix</a><a class="tag" href="/tags/nagios/">Nagios</a><a class="tag" href="/tags/monitoring/">Monitoring</a></p></li><li class="item">
+        
+        <a class="note" href="/it/%D0%9C%D0%BE%D0%B4%D1%83%D0%BB%D1%8C-zabbix_maintenance/">
+        
+            <p class="note title">Модуль zabbix_maintenance</p><p class="note date">2014-08-11</p><p class="note content">Свершилось чудо, и мой модуль для Ansible, который умеет создавать и удалять периоды &ldquo;в обслуживании&rdquo; в Zabbix, наконец-то приняли в апстрим. Это уже третий мой модуль, принятый в апстрим Ansible.
+Краткая история:
+Модуль этот я запушил еще в 26 ноября 2013 года, но 21 декабря cove написал в комментарии к моему модулю, что планирует выложить целую пачку модулей для взаимодействия с Zabbix из Ansible. Это отложило принятие моего модуля в апстрим почти на 9 месяцев, поскольку мы согласовывали интерфейс наших модулей, тестировали и улучшали модули, выложенные cove, а очередь pull-requestов у Ansible выросла до 300+.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/ansible/">Ansible</a><a class="tag" href="/tags/python/">Python</a><a class="tag" href="/tags/monitoring/">Monitoring</a></p></li><li class="item">
+        
+        <a class="note" href="/it/%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5-%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-zabbix-%D0%B8%D1%89%D0%B5%D0%BC-%D0%B4%D0%B8%D1%81%D0%BA%D0%B8-%D0%B2-%D0%BA%D0%BE%D0%BD%D1%82%D1%80%D0%BE%D0%BB%D0%BB%D0%B5%D1%80%D0%B5-%D0%BE%D1%82-3ware/">
+        
+            <p class="note title">Низкоуровневое обнаружение в Zabbix, ищем диски в контроллере от 3ware</p><p class="note date">2013-08-14</p><p class="note content">Я уже писал про низкоуровневое обнаружение в Zabbix, так что повторять теорию не буду.
+Теперь мне понадобилось автоматом получать список хардов в массивах на контроллерах 3ware, которыми оборудованы у нас многие сервера.
+Вести руками шаблоны для каждого сервера с иным порядком или количеством дисков показалось мне плохой идеей, да и авто-обнаружение само напрашивалось.
+Вдохновлялся я утилитой 3ware-status, для работы авто-обнаружения нам потребуется установленная утилита tw-cli, взять ее для Debian/Ubuntu проще всего здесь .<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/zabbix/">Zabbix</a><a class="tag" href="/tags/python/">Python</a><a class="tag" href="/tags/monitoring/">Monitoring</a></p></li><li class="item">
+        
+        <a class="note" href="/it/%D0%9D%D0%B8%D0%B7%D0%BA%D0%BE%D1%83%D1%80%D0%BE%D0%B2%D0%BD%D0%B5%D0%B2%D0%BE%D0%B5-%D0%BE%D0%B1%D0%BD%D0%B0%D1%80%D1%83%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5-%D0%B2-zabbix/">
+        
+            <p class="note title">Низкоуровневое обнаружение в Zabbix</p><p class="note date">2013-06-26</p><p class="note content">В используемой мной системе мониторинга Zabbix, начиная с версии 2.0, появилась такая любопытная штука, как низкоуровневое обнаружение
+Я не буду пересказывать содержимое документации, расскажу лучше о том, как я писал свой тип обнаружения для мониторинга очередей RabbitMQ.
+Проблема в том, что очередей в RabbitMQ может быть много, и, по мере развития веб-проекта, они меняются. Так что я решил обнаруживать их автоматически, и написал для этого свой провайдер данных для обнаружения заббикса.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/zabbix/">Zabbix</a><a class="tag" href="/tags/python/">Python</a><a class="tag" href="/tags/monitoring/">Monitoring</a></p></li></ul><div class="pagination">
+    <ul><li><a class="" href="/tags/python/">1</a></li><li><a class="active" href="/tags/python/page/2/">2</a></li></ul>
+</div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">Alexander Bulimov: Production Engineer and Scale Modeller</p>
+    <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
+        target="_blank" rel="noopener noreferrer">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank" rel="noopener noreferrer">Notepadium</a></p></div></section>
+  
+
+</body>
+
+</html>

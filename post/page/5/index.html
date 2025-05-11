@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8"><meta name="generator" content="Hugo 0.131.0"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark"><meta name="description" content=""><title>Posts&nbsp;&ndash;&nbsp;Alexander Bulimov: Production Engineer and Scale Modeller</title><link rel="stylesheet" href="/css/core.min.63f706677e61b4ee62b8daf083358d3bbf8ac8ab03c7d171af3180fab3a3ebb83efb79fb98674f13dde6db11de2bf694.css" integrity="sha384-Y/cGZ35htO5iuNrwgzWNO7&#43;KyKsDx9FxrzGA&#43;rOj67g&#43;&#43;3n7mGdPE93m2xHeK/aU"><link rel="alternate" type="application/rss+xml" href="/post/index.xml" title="Alexander Bulimov: Production Engineer and Scale Modeller" /><meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Posts" /><body><section id="header">
+    <div class="header wrap"><span class="header left-side"><a class="site home" href="/"><span class="site name">Alexander Bulimov: Production Engineer and Scale Modeller</span></a></span>
+        <span class="header right-side"><div class="nav wrap"><nav class="nav"><a class="nav item" href="/categories/">Categories</a><a class="nav item" href="/tags/">Tags</a></nav></div></span></div></section><section id="content"><section class="article header"><h1>Posts</h1></section><ul class="note list"><li class="item">
+        
+        <a class="note" href="/it/go-carbon/">
+        
+            <p class="note title">Замена carbon-cache на go-carbon = Счастье</p><p class="note date">2016-02-08</p><p class="note content">Пришлось на собственном опыте опробовать, насколько Graphite модульный.
+При 200k metricsReceived наш Graphite, работающий на довольном старом сервере на обычных дисках, начал помирать. Carbon-cache постоянно был в топе потребления ресурсов, ни о какой отзывчивости в работе сервера речи вообще не шло.
+&ldquo;Хватит это терпеть!&rdquo; - подумал я, и начал в который раз искать советы по тюнингу carbon для высокой производительности. В очередной раз ничего нового не найдя, я решил попробовать давно приглянувшийся мне проект go-carbon.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/graphite/">Graphite</a><a class="tag" href="/tags/go-carbon/">go-carbon</a><a class="tag" href="/tags/%D0%BE%D0%BF%D1%8B%D1%82/">Опыт</a></p></li><li class="item">
+        
+        <a class="note" href="/it/productivity-tips/">
+        
+            <p class="note title">Немного житейского опыта</p><p class="note date">2016-01-12</p><p class="note content">Решил поделиться небольшим набором &ldquo;капитанских&rdquo; жизненных практик, каждая из которых очень сильно упростила мне жизнь.
+Использование сервиса для чтения новостей/RSS.
+Я очень долго игнорировал RSS, считая его пережитком прошлого, но когда создавал свой VPS, поставил TT-RSS и попробовал попользоваться.
+Сложно даже описать, сколько это мне сэкономило времени. Это оказалось настолько удобно, что теперь я не представляю свою жизнь без подобного сервиса, хоть от tt-rss и отказался вместе с VPS.
+Теперь я избавлен от необходимости запоминать и время от времени обходить все интересные мне блоги, никогда не пропускаю новости и обновления софта, и всегда могу без проблем наверстать пропущенные (например в отпуске) события.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/%D0%B6%D0%B8%D0%B7%D0%BD%D1%8C/">Жизнь</a><a class="tag" href="/tags/%D0%BE%D0%BF%D1%8B%D1%82/">Опыт</a></p></li><li class="item">
+        
+        <a class="note" href="/it/who-watch-the-watchmen/">
+        
+            <p class="note title">Quis custodiet ipsos custodes?</p><p class="note date">2015-11-06</p><p class="note content">Кто же устережёт самих сторожей?, или как (и зачем) я мониторю мониторинг. Как вы понимаете, современный сервис мониторинга это очень сложная штука. Некоторые, как Sensu, выносят всю сложность во внешние сервисы, и потому требуют установки и администрирования нескольких компонентов, таких как очередь и база данных.
+Остальные реализуют некоторый функционал этих компонентов сами, упрощая администрирование мониторинга, но усложняя его внутреннее устройство. К примеру, для работы Zabbix нужна только база, а очереди и транспорт он реализует сам.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/icinga2/">Icinga2</a><a class="tag" href="/tags/monit/">Monit</a><a class="tag" href="/tags/monitoring/">Monitoring</a><a class="tag" href="/tags/%D0%BE%D0%BF%D1%8B%D1%82/">Опыт</a></p></li><li class="item">
+        
+        <a class="note" href="/it/goodby-coreos/">
+        
+            <p class="note title">Избавился от CoreOS</p><p class="note date">2015-10-26</p><p class="note content">С огромным облегчением сегодня убрал последний хост с CoreOS.
+Я уже писал о своих впечатлениях от CoreoOS, но с тех пор впечатлений прибавилось.
+Частые атомарные обновления на бумаге выглядели вкусно (и в пользовательских ОС типа Android работают прекрасно), но вот на практике на серверах в том виде, в котором CoreOS их готовит, оказались совсем несъедобны.
+Объясню, в чем проблема: Docker достаточно часто что-то ломает в API, и свежие ядра Linux ломают всякие важные вещи тоже довольно часто, причем зачастую даже в рамках patch-level обновлений.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/coreos/">CoreOS</a><a class="tag" href="/tags/%D0%BC%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5/">Мнение</a><a class="tag" href="/tags/%D0%BE%D0%BF%D1%8B%D1%82/">Опыт</a></p></li><li class="item">
+        
+        <a class="note" href="/it/logstash-graphite/">
+        
+            <p class="note title">Logstash и Graphite</p><p class="note date">2015-10-09</p><p class="note content">Недавно читал серию постов от Datadog про сбор метрик, и в частности статью про метрики Nginx (думал, вдруг что-то новое узнаю). Что меня в этой статье зацепило - так это то, что только версия Nginx Plus показывает статистику количества ответов, разделенную по HTTP-кодам. Поскольку я использую перед Nginx балансировщик HAProxy, который не жадный и показывает подробную статистику по кодам ответов для каждого бекенда и фронтенда, я о таком минусе статистики Nginx даже не думал.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/graphite/">Graphite</a><a class="tag" href="/tags/monitoring/">Monitoring</a><a class="tag" href="/tags/logstash/">Logstash</a><a class="tag" href="/tags/statsd/">StatsD</a><a class="tag" href="/tags/%D0%BE%D0%BF%D1%8B%D1%82/">Опыт</a></p></li><li class="item">
+        
+        <a class="note" href="/it/graphite-experience/">
+        
+            <p class="note title">Заметка о Graphite</p><p class="note date">2015-09-25</p><p class="note content">На первый взгляд, кажется довольно странным, что сейчас, в 2015 году, все до сих пор используют для хранения time series такой старый и «не модный» инструмент, как Graphite. О ужас, о нем даже почти не пишут в твиттере/G+ и он написан на старом будничном Python, а не на популярном сейчас Go (хотя уже частично написан, но об этом потом).
+Но все равно многие используют его, и не сильно жалуются.
+Экскурс в историю До открытия кода Graphite в 2008 году был вездесущий RRDTool, использовавшийся (и используемый до сих пор) в таких инструментах как Cacti, Munin и еще в куче других.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/graphite/">Graphite</a><a class="tag" href="/tags/monitoring/">Monitoring</a><a class="tag" href="/tags/%D0%BC%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5/">Мнение</a><a class="tag" href="/tags/%D0%BE%D0%BF%D1%8B%D1%82/">Опыт</a></p></li><li class="item">
+        
+        <a class="note" href="/it/collectd-riakcs/">
+        
+            <p class="note title">Плагин к collectd для сбора метрик Riak CS</p><p class="note date">2015-09-17</p><p class="note content">На днях наконец-то дошли руки до модернизации той части мониторинга, которая отвечает за сбор метрик, и набивший оскомину Munin был окончательно заменен на Graphite + CollectD. Теперь воцарилась идиллия - Icinga2 складывает метрики из perfdata в Graphite, и CollectD отправляет все метрики туда же.
+Хочется отдельно отметить, что несмотря на то, что изначально CollectD мне не очень понравился (кому может сейчас понравиться Apache-подобный конфиг?), при дальнейшем изучении я был приятно поражен богатством возможностей этого продукта и крайне бережным его отношением к ресурсам наблюдаемой системы.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/python/">Python</a><a class="tag" href="/tags/riak-cs/">Riak CS</a><a class="tag" href="/tags/collectd/">collectd</a><a class="tag" href="/tags/%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5/">Программирование</a><a class="tag" href="/tags/monitoring/">Monitoring</a></p></li><li class="item">
+        
+        <a class="note" href="/it/elk-production/">
+        
+            <p class="note title">Использование ELK в продакшне</p><p class="note date">2015-08-11</p><p class="note content">Я уже довольно давно и успешно использую Logstash + Elasticsearch с визуализацией данных в Kibana (общепринятое сокращение для этой тройки - ELK) для сбора, хранения и обработки логов, но для обретения счастья с этой связкой мне потребовалось несколько итераций.
+Поскольку в мире СПО все постоянно развивается и становится лучше, сразу хочу отметить, что все описанное актуально для Logstash версиий 1.4-1.5 и Elasticsearch версий 1.4 - 1.7 при нагрузке в ~20kk сообщений в день.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/elasticsearch/">Elasticsearch</a><a class="tag" href="/tags/logstash/">Logstash</a><a class="tag" href="/tags/kibana/">Kibana</a><a class="tag" href="/tags/%D0%BE%D0%BF%D1%8B%D1%82/">Опыт</a></p></li><li class="item">
+        
+        <a class="note" href="/it/coreos-opinion/">
+        
+            <p class="note title">Впечатления от CoreOS</p><p class="note date">2015-07-29</p><p class="note content">На волне популярности контейнерной виртуализации Docker стали появляться специализированные дистрибутивы Linux, созданные специально для использования в роли базового хоста для Docker-контейнеров.
+Пионером среди них стал проект CoreOS, затем появились Project Atomic от RedHat и Ubuntu Snappy от Canonical.
+Чем они все отличаются от привычных дистрибутивов? Основным отличием является модель обновления дистрибутива. Все эти проекты предлагают атомарные обновления, подразумевающие сборку нового образа системы с последующей перезагрузкой в него. При этом образ монтируется в read-only режиме, и есть возможность откатиться на предыдущий образ системы.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/coreos/">CoreOS</a><a class="tag" href="/tags/%D0%BC%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5/">Мнение</a></p></li><li class="item">
+        
+        <a class="note" href="/it/goodby-vps/">
+        
+            <p class="note title">Прощай, личный VPS</p><p class="note date">2015-07-09</p><p class="note content">Больше года назад я стал использовать свой виртуальный частный сервер(VPS), но недавно с полной ясностью осознал, что несмотря на то, что я регулярно пользуюсь многими сервисами на своем сервере, сам VPS приносит мне только негативные эмоции.
+Необходимость следить за этим сервером, обновлять на нем софт, решать мелкие проблемы после обновлений - все это стало меня бесить. Возможно, это возраст (ха-ха), но возни с серверами мне хватает на работе, причем задачи там большие и интересные, а с VPS всякая рутинная мелочь.<span class="mldr">&mldr;</span></p></a><p class="note labels"><a class="category" href="/categories/it/">IT</a><a class="category" href="/categories/russian/">Russian</a><a class="tag" href="/tags/vps/">VPS</a><a class="tag" href="/tags/%D0%B6%D0%B8%D0%B7%D0%BD%D1%8C/">Жизнь</a></p></li></ul><div class="pagination">
+    <ul><li><a class="" href="/post/">1</a></li><li><a class="" href="/post/page/2/">2</a></li><li><a class="" href="/post/page/3/">3</a></li><li><a class="" href="/post/page/4/">4</a></li><li><a class="active" href="/post/page/5/">5</a></li><li><a href="/post/page/6/"><span class="iconfont icon-pagenext"></span></a></li></ul>
+</div></section><section id="footer"><div class="footer-wrap">
+    <p class="copyright">Alexander Bulimov: Production Engineer and Scale Modeller</p>
+    <p class="powerby"><span>Powered&nbsp;by&nbsp;</span><a href="https://gohugo.io" 
+        target="_blank" rel="noopener noreferrer">Hugo</a><span>&nbsp;&amp;&nbsp;</span><a href="https://themes.gohugo.io/hugo-notepadium/" 
+        target="_blank" rel="noopener noreferrer">Notepadium</a></p></div></section>
+  
+
+</body>
+
+</html>

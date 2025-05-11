@@ -6,8 +6,15 @@
     <description>Recent content in Blog on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 31 Jul 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 May 2025 16:00:00 +0000</lastBuildDate>
     <atom:link href="//bulimov.me/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Added Dark Mode support</title>
+      <link>//bulimov.me/post/2025/05/11/blog-dark-mode/</link>
+      <pubDate>Sun, 11 May 2025 16:00:00 +0000</pubDate>
+      <guid>//bulimov.me/post/2025/05/11/blog-dark-mode/</guid>
+      <description>Now this blog supports Dark Mode, if the browser has it set as preferred.&#xA;I myself switched to using Dark Mode on some of my devices, but only recently noticed that my very own blog didn&amp;rsquo;t have the support for it.&#xA;Thankfully adding it was super easy, and I didn&amp;rsquo;t need to go much further than this blog&amp;rsquo;s theme Issues on Github.&#xA;The author of this lovely xmin theme provided an answer in the issue #67:</description>
+    </item>
     <item>
       <title>11 years of blogging</title>
       <link>//bulimov.me/post/2024/07/31/11-years-of-blogging/</link>
