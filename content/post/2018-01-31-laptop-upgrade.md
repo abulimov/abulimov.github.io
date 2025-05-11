@@ -1,7 +1,7 @@
 ---
 Title: Benefits of upgradable laptops
 Date: 2018-01-31
-Tags: Experience
+Tags: [Experience]
 Categories: [Personal]
 Slug: laptop-upgrade
 Url: personal/laptop-upgrade

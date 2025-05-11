@@ -1,7 +1,7 @@
 ---
 Title: О животных и NetworkManager
 Date: 2013-10-02
-Tags:  Жизнь
+Tags:  [Жизнь]
 Categories: [IT, Russian]
 Slug: О-животных-и-networkmanager
 Url: it/О-животных-и-networkmanager

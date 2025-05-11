@@ -1,7 +1,7 @@
 ---
 Title: Refreshing slow internet experience
 Date: 2017-07-23
-Tags: Experience
+Tags: [Experience]
 Slug: slow-internet
 Url: it/slow-internet
 Categories: [IT]

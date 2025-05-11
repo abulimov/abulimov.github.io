@@ -1,7 +1,7 @@
 ---
 Title: Побывал на DevOps Meetup 25 января
 Date: 2014-01-27
-Tags:  Жизнь
+Tags:  [Жизнь]
 Categories: [IT, Russian]
 Slug: Побывал-на-devops-meetup-25-января
 Url: it/Побывал-на-devops-meetup-25-января

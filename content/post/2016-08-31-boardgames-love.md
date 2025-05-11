@@ -1,7 +1,7 @@
 ---
 Title: Board games are awesome
 Date: 2016-08-31
-Tags: Board Games
+Tags: [Board Games]
 Slug: boardgames-love
 Url: personal/boardgames-love
 Categories: [Personal]

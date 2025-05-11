@@ -1,7 +1,7 @@
 ---
 Title: Notes about type systems in popular languages
 Date: 2016-06-09
-Tags: Programming
+Tags: [Programming]
 Slug: more-typing
 Url: it/more-typing
 Categories: [IT]
