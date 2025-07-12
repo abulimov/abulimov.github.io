@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Upgrading the CLI experience | Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <style>
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: white;
+  }
+  html, img, video, iframe {
+    filter: invert(1);
+  }
+}
+</style>
+
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="https://models.bulimov.me">Scale Models</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/reviews/">Reviews</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Upgrading the CLI experience</span></h1>
+
+<h2 class="date">2025/07/12</h2>
+
+</div>
+
+<main>
+<p>I spend <em>a lot of time</em> in the terminal.</p>
+<p>I practically live in the terminal at work, that&rsquo;s kind of a given.</p>
+<p>But even this very post is written in <a href="https://helix-editor.com/">Helix</a>, running in <a href="https://wezterm.org/">Wezterm</a>.</p>
+<p>And it&rsquo;s been like this (and even more so in my SysAdmin days) for close to 20 years.</p>
+<p>I already wrote about <a href="/post/2024/09/22/refreshing-cli-setup/">refreshing my CLI setup</a>,
+and how I <a href="/post/2025/03/22/tmux-zellij/">moved from tmux to Zellij</a> to improve my CLI experience.</p>
+<p>It&rsquo;s now time to talk about small tools that make a big difference.</p>
+<p>A full disclaimer - as a true SysAdmin, I thought all of them to be of little value, something superficial,
+something that a hipster, with a MacBook, would use while drinking pumpkin latte in a café somewhere in Palo Alto.</p>
+<p>I&rsquo;m happy to admit that I was wrong.</p>
+<p>Anyway, let&rsquo;s start with the basics!</p>
+<h2 id="bathttpsgithubcomsharkdpbat"><a href="https://github.com/sharkdp/bat">bat</a></h2>
+<p>I never thought I needed a better version of <code>cat</code> until I tried it.
+Makes a huge difference thanks to the line numbers, syntax highlighting, and pagination.</p>
+<p>Even more useful to use for file previews, for example in conjunction with <code>fzf</code> (more about it later).</p>
+<p>I aliased <code>cat</code> to <code>bat</code> long time ago, never regretted this decision.</p>
+<p>Although I still often pipe things to <code>less</code> out of habit, I realize that have I tried <em>bat</em> earlier in my life I&rsquo;d probably just <code>cat</code> everything now.</p>
+<h2 id="ezahttpsgithubcomeza-communityeza"><a href="https://github.com/eza-community/eza">eza</a></h2>
+<p><code>eza</code> is a modern <code>ls</code> and <code>tree</code> alternative with colours and icons.</p>
+<p>Just as with <code>bat</code>, I aliased <code>ls</code> and <code>tree</code> to <code>eza</code> and never looked back.</p>
+<p>Colourful, legible <code>ls</code> output makes my life in the terminal much more pleasant.
+And given the fact that I never got used to the actual CLI file managers, I still rely on <code>ls</code> very often.</p>
+<h2 id="ripgrephttpsgithubcomburntsushiripgrep"><a href="https://github.com/BurntSushi/ripgrep">ripgrep</a></h2>
+<p>This one is has nothing to do with the nice colourful output.</p>
+<p><code>rg</code> is a much faster modern <code>grep</code>, with saner flags as a bonus. I think it&rsquo;s an absolute no-brainer to switch to it.</p>
+<p>Really, I can&rsquo;t believe I did not give it a try years ago.</p>
+<p>I search inside big files (we are talking multiple gigabytes big) very often at work, so it hurts to think just how much time I wasted waiting for <code>grep</code> to finish!</p>
+<p>You&rsquo;d think it is a small thing - sure, finding stuff takes one or two seconds instead of 30 - not a big deal.
+But in fact because it is so fast, it doesn&rsquo;t interrupt the flow (you don&rsquo;t need to context switch or zone out while waiting for the results),
+so it makes a massive impact on the overall productivity.</p>
+<h2 id="fdhttpsgithubcomsharkdpfd"><a href="https://github.com/sharkdp/fd">fd</a></h2>
+<p><code>fd</code> is a better version of <code>find</code>.</p>
+<p>Granted, I don&rsquo;t use it too often (neither did I use <code>find</code> often),
+but it&rsquo;s frequently used by other tools and even editor plugins for picking files,
+so doesn&rsquo;t hurt having it installed.</p>
+<p>And unlike <code>find</code>, flag names make sense.</p>
+<h2 id="fzfhttpsgithubcomjunegunnfzf"><a href="https://github.com/junegunn/fzf">fzf</a></h2>
+<p>This tool alone deserves a dedicated post, and luckily there are plenty written about already.</p>
+<p>It&rsquo;s unbelievable how much can be built with it to enhance the CLI experience.</p>
+<p>I use it for several things:</p>
+<ul>
+<li>fuzzy file selection with <code>zsh</code>, with the excelled <code>**</code>+<code>Tab</code> shortcut. Absolute must for anyone using <code>zsh</code>.</li>
+<li>fuzzy history search with <code>zsh</code>.</li>
+<li>custom file picker with content preview.
+At work, we have a tool to search the big monorepo content, think <code>grep</code> but distributed and over a very large repo.
+With <code>fzf</code> + <code>bat</code> I can use it while having a nice syntax-highlighted preview of the file, down to the exact position inside the file.
+Massive improvement to my workflow.</li>
+</ul>
+<p>I&rsquo;m still learning this amazing tool, but the examples you can find on the internet are absolutely mad.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Discovering tools like these is precious to me, and the improvements they made in my experience is what
+drives me to continue the experimentation and search for better tools.</p>
+<p>That&rsquo;s how I discovered and eventually <a href="/post/2025/03/22/tmux-zellij/">migrated to Zellij</a>.</p>
+<p>That&rsquo;s why I wrote this post in <code>helix</code> and not <code>vim</code>.</p>
+<p>I think it&rsquo;s paramount to keep experimenting, trying new tools, even if your setup already seems fine.</p>
+<p>I also admit that it can be very hard to find the energy or mental capacity to do it,
+especially when facing time and performance pressure at work.</p>
+<p>Sometimes it may take months or even years for me to dedicate a bit of resources for the experimentation,
+but every time I do it I&rsquo;m rewarded with some meaningful discovery, and it keeps me motivated to <em>try</em> and find the time to continue doing this.</p>
+
+</main>
+
+
+<p class="terms">
+<b>Tags:</b>
+
+  <a href="//bulimov.me/tags/zsh/">Zsh</a>
+
+  <a href="//bulimov.me/tags/fzf/">Fzf</a>
+
+  <a href="//bulimov.me/tags/bat/">Bat</a>
+
+  <a href="//bulimov.me/tags/eza/">Eza</a>
+
+  <a href="//bulimov.me/tags/ripgrep/">Ripgrep</a>
+
+  <a href="//bulimov.me/tags/fd/">Fd</a>
+
+
+</p>
+<p class="terms">
+
+<b>Categories:</b>
+
+  <a href="//bulimov.me/categories/it/">IT</a>
+
+  <a href="//bulimov.me/categories/personal/">Personal</a>
+
+
+</p>
+
+  <footer>
+  
+  
+  <hr/>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.me">Alexander Bulimov</a> 2013 &ndash; 2025 | <a href="https://github.com/abulimov">Github</a>
+  
+  </footer>
+  </body>
+</html>
+

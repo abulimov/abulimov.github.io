@@ -6,20 +6,55 @@
     <description>Recent content in Tags on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 11 May 2025 16:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 12 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="//bulimov.me/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Starship</title>
-      <link>//bulimov.me/tags/starship/</link>
-      <pubDate>Sun, 11 May 2025 16:30:00 +0000</pubDate>
-      <guid>//bulimov.me/tags/starship/</guid>
+      <title>Bat</title>
+      <link>//bulimov.me/tags/bat/</link>
+      <pubDate>Sat, 12 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/bat/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Eza</title>
+      <link>//bulimov.me/tags/eza/</link>
+      <pubDate>Sat, 12 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/eza/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fd</title>
+      <link>//bulimov.me/tags/fd/</link>
+      <pubDate>Sat, 12 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/fd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Fzf</title>
+      <link>//bulimov.me/tags/fzf/</link>
+      <pubDate>Sat, 12 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/fzf/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Ripgrep</title>
+      <link>//bulimov.me/tags/ripgrep/</link>
+      <pubDate>Sat, 12 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/ripgrep/</guid>
       <description></description>
     </item>
     <item>
       <title>Zsh</title>
       <link>//bulimov.me/tags/zsh/</link>
-      <pubDate>Sun, 11 May 2025 16:30:00 +0000</pubDate>
+      <pubDate>Sat, 12 Jul 2025 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/tags/zsh/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Starship</title>
+      <link>//bulimov.me/tags/starship/</link>
+      <pubDate>Sun, 11 May 2025 16:30:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/starship/</guid>
       <description></description>
     </item>
     <item>

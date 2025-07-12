@@ -6,8 +6,15 @@
     <description>Recent content in IT on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 11 May 2025 16:30:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 12 Jul 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="//bulimov.me/categories/it/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Upgrading the CLI experience</title>
+      <link>//bulimov.me/post/2025/07/12/upgrading-cli-experience/</link>
+      <pubDate>Sat, 12 Jul 2025 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/post/2025/07/12/upgrading-cli-experience/</guid>
+      <description>I spend a lot of time in the terminal.&#xA;I practically live in the terminal at work, that&amp;rsquo;s kind of a given.&#xA;But even this very post is written in Helix, running in Wezterm.&#xA;And it&amp;rsquo;s been like this (and even more so in my SysAdmin days) for close to 20 years.&#xA;I already wrote about refreshing my CLI setup, and how I moved from tmux to Zellij to improve my CLI experience.</description>
+    </item>
     <item>
       <title>Moving from powerlevel10k to Starship for my zsh prompt</title>
       <link>//bulimov.me/post/2025/05/11/powerlevel10k-to-starship/</link>

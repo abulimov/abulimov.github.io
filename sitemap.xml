@@ -2,31 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>//bulimov.me/tags/bat/</loc>
+    <lastmod>2025-07-12T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>//bulimov.me/categories/</loc>
-    <lastmod>2025-05-11T16:30:00+00:00</lastmod>
+    <lastmod>2025-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/eza/</loc>
+    <lastmod>2025-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/fd/</loc>
+    <lastmod>2025-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/fzf/</loc>
+    <lastmod>2025-07-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/</loc>
-    <lastmod>2025-05-11T16:30:00+00:00</lastmod>
+    <lastmod>2025-07-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/categories/it/</loc>
-    <lastmod>2025-05-11T16:30:00+00:00</lastmod>
+    <lastmod>2025-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/categories/personal/</loc>
+    <lastmod>2025-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/post/</loc>
+    <lastmod>2025-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/ripgrep/</loc>
+    <lastmod>2025-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/</loc>
+    <lastmod>2025-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/post/2025/07/12/upgrading-cli-experience/</loc>
+    <lastmod>2025-07-12T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/zsh/</loc>
+    <lastmod>2025-07-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/post/2025/05/11/powerlevel10k-to-starship/</loc>
     <lastmod>2025-05-11T16:30:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/categories/personal/</loc>
-    <lastmod>2025-05-11T16:30:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/post/</loc>
-    <lastmod>2025-05-11T16:30:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/tags/starship/</loc>
-    <lastmod>2025-05-11T16:30:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/tags/</loc>
-    <lastmod>2025-05-11T16:30:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/tags/zsh/</loc>
     <lastmod>2025-05-11T16:30:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/post/2025/05/11/blog-dark-mode/</loc>
