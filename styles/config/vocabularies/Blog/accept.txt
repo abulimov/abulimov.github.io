@@ -266,3 +266,10 @@ devs
 CollectD
 gotests
 SELinux
+fzf
+ripgrep
+monorepo
+fd
+eza
+Wezterm
+Palo
