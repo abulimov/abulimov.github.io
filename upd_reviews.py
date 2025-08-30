@@ -6,19 +6,77 @@ import os
 import logging
 from collections import defaultdict
 from typing import Tuple, List
+from dataclasses import dataclass
 
+COMMON_TEXT="""
+*I'm [writing my mini-reviews](/post/2021/05/23/taking-notes/) since 2013, just for fun.*
+*The reviews are not published (yet?), but the scores are.*
 
-categories = {
-    "Игры": "Games",
-    "Музыка": "Music",
-    "Книги": "Books",
-}
+*All scores are given on a scale from 0 to 10, with exceptional titles given 11 (because why not?).*
+"""
+
+@dataclass
+class Category:
+    name: str
+    alt_name: str
+    header: str
+    output_filename: str
+
+categories = [
+    Category(
+        name="Games",
+        alt_name="Игры",
+        header=f"""
+---
+title: Video Game Reviews
+---
+
+Here you can find my review scores for video games I played.
+
+{COMMON_TEXT}
+""",
+        output_filename="video-games.md",
+    ),
+    Category(
+        name="Music",
+        alt_name="Музыка",
+        header=f"""
+---
+title: Music Album Reviews
+---
+
+Here you can find my review scores for the music albums I extensively listened to.
+
+Which almost always means that I [bought them on Bandcamp](https://bandcamp.com/lazywolf0).
+
+{COMMON_TEXT}
+""",
+        output_filename="music.md",
+    ),
+    Category(
+        name="Books",
+        alt_name="Книги",
+        header=f"""
+---
+title: Book Reviews
+---
+
+Here you can find my review scores for the books I read.
+
+I largely read e-books on my Kindle, although almost all of the books related to ships and sailing are part of my small but dear to me **maritime library**.
+
+{COMMON_TEXT}
+""",
+        output_filename="books.md",
+    ),
+]
+
 
 def matches_category(line: str) -> Tuple[str, int]:
-    for k, v in categories.items():
-        match = re.match(r"^(%s|%s)\s+(\d{4})$" % (k, v), line)
+    for cat in categories:
+        match = re.match(r"^(%s|%s)\s+(\d{4})$" % (cat.name, cat.alt_name), line)
         if match:
-            return (v, int(match.group(2)))
+            return (cat.name, int(match.group(2)))
     return ("", 0)
 
 
@@ -54,10 +112,8 @@ def main():
     parser = argparse.ArgumentParser(description="Update reviews page")
     parser.add_argument("files", metavar='file', type=str, nargs='*',
                             help='file to convert')
-    parser.add_argument("--output", default="./content/reviews.md", type=str,
+    parser.add_argument("--output", default="./content/reviews", type=str,
                             help='output')
-    parser.add_argument("--header", default="./content/reviews_head.md.txt", type=str,
-                            help='header to prepend to the output')
 
     args = parser.parse_args()
 
@@ -81,21 +137,24 @@ def main():
                 for name, score in reviews:
                     toWrite[category][year].append("| {} | {} |".format(name, score))
 
-    with open(args.header, 'r') as f:
-        head = f.read()
-
-    with open(args.output, "w") as f:
-        f.write(head)
-        for cat in ["Games", "Books", "Music"]:
-            f.write("## {}\n".format(cat))
-            f.write("| Name | Score |\n")
-            f.write("|------|-------|\n")
-            years = sorted(toWrite[cat].keys(), reverse=True)
+    for cat in categories:
+        if not toWrite[cat.name]:
+            continue
+        out = os.path.join(args.output, cat.output_filename)
+        with open(out, "w") as f:
+            f.write(cat.header+"\n\n")
+            years = sorted(toWrite[cat.name].keys(), reverse=True)
+            f.write("Reviews per year: ")
+            f.write(", ".join([f"[{year}](#{year})" for year in years]))
+                
             for year in years:
-                if toWrite[cat][year]:
-                    f.write("| **{}** |\n".format(year))
-                    for line in toWrite[cat][year]:
+                if toWrite[cat.name][year]:
+                    f.write(f'<h2 id="{year}" style="text-align: center;">{year}</h2>\n\n')
+                    f.write("| Name | Score |\n")
+                    f.write("|------|-------|\n")
+                    for line in toWrite[cat.name][year]:
                         f.write(line+"\n")
+                    f.write("\n")
 
     logging.info("done")
 
