@@ -261,13 +261,6 @@
       <description>$ whoami Alexander Bulimov, Production Engineer/Scale Modeller $ cowsay &amp;lt; about.txt _________________________________________ / In IT since 2010. \ | | | Worked on both ends of the spectrum, | | from tiny startups to FAANG. | | | | * Built infrastructure from the ground | | up for 3 startups using only | | open-source software | | * Worked on ancient services with | | legacy codebase, refactored and | | elevated them to modern standards | | * Wrote plenty of distributed services | | * Fluent in Go and Python | \ / ----------------------------------------- \ ^__^ \ (oo)\_______ (__)\ )\/\ ||----w | || || </description>
     </item>
     <item>
-      <title>Book Reviews</title>
-      <link>//bulimov.me/reviews/books/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//bulimov.me/reviews/books/</guid>
-      <description>Here you can find my review scores for the books I read.&#xA;I largely read e-books on my Kindle, although almost all of the books related to ships and sailing are part of my small but dear to me maritime library.&#xA;I&amp;rsquo;m writing my mini-reviews since 2013, just for fun. The reviews are not published (yet?), but the scores are.&#xA;All scores are given on a scale from 0 to 10, with exceptional titles given 11 (because why not?</description>
-    </item>
-    <item>
       <title>Everything else</title>
       <link>//bulimov.me/etc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -275,25 +268,11 @@
       <description>Reviews I&amp;rsquo;m writing my mini-reviews for games, books and music since 2013, just for fun. The reviews are not published (yet?), but the scores are.&#xA;Video Games Books Music Lists Lists are fun, and help me to keep things organized.&#xA;Keyboards Video Game Consoles Headphones </description>
     </item>
     <item>
-      <title>Music Album Reviews</title>
-      <link>//bulimov.me/reviews/music/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//bulimov.me/reviews/music/</guid>
-      <description>Here you can find my review scores for the music albums I extensively listened to.&#xA;Which almost always means that I bought them on Bandcamp.&#xA;I&amp;rsquo;m writing my mini-reviews since 2013, just for fun. The reviews are not published (yet?), but the scores are.&#xA;All scores are given on a scale from 0 to 10, with exceptional titles given 11 (because why not?).&#xA;Reviews per year: 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 20132025</description>
-    </item>
-    <item>
       <title>Reviews</title>
       <link>//bulimov.me/reviews/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/reviews/</guid>
       <description>I&amp;rsquo;m writing my mini-reviews for games, books and music since 2013, just for fun. The reviews are not published (yet?), but the scores are.&#xA;Here you can find my review scores for:&#xA;Video Games Books Music </description>
-    </item>
-    <item>
-      <title>Video Game Reviews</title>
-      <link>//bulimov.me/reviews/video-games/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//bulimov.me/reviews/video-games/</guid>
-      <description>Here you can find my review scores for video games I played.&#xA;I&amp;rsquo;m writing my mini-reviews since 2013, just for fun. The reviews are not published (yet?), but the scores are.&#xA;All scores are given on a scale from 0 to 10, with exceptional titles given 11 (because why not?).&#xA;Reviews per year: 2025, 2024, 2023, 2022, 2021, 2020, 2019, 2018, 2017, 2016, 2015, 2014, 20132025&#xA;Name Score The Forgotten City (PC) 9 Robocop (Xbox Series S) 9 Indiana Jones and the Golden Circle (Xbox Series S) 9 Jedi Survivor (Xbox Series S) 9 Phoenix Wright: Ace Attorney (Switch) 9 Sherlock Holmes: Chapter One (Xbox Series S) 9 Tangle Tower (PC) 8 Detective Grimoir (PC) 8 Citizen Sleeper (Switch) 8 TES Oblivion Remastered (Xbox Series S) 8 Alba: A Wildlife Adventure (Switch) 8 Sherlock Holmes: Crimes and Punishments (Switch) 8 A Hand With Many Fingers (PC) 7 Between Horizons (Switch) 7 Nuclear Blaze (Switch) 7 Sherlock Holmes: Devil&amp;rsquo;s Daughter (Switch) 7 The Testament of Sherlock Holmes (PC) 6 Disco Elysium (PC) 6 TErrorBane (Switch) 6 2024 Name Score The Legend of Zelda: Tears of the Kingdom (Switch) 11 The Case of the Golden Idol (Xbox Series S) 9 Chants of Sennaar (Xbox Series S) 9 Jedi Fallen Order (Xbox Series S) 9 Assassins Creed: Valhalla (Xbox Series S) 9 Tails of Iron (PC) 8 Dredge (PC) 8 Lacuna (Switch) 8 FEZ (PC) 8 Little Kitty, Big City (Xbox Series S) 8 Iconoclasts (Switch) 7 Railbound (Switch) 7 2023 Name Score Yokus’s Island Express (Switch) 10 Lunistice (Switch) 10 Shadows Over Loathing (Switch) 9 Return of the Obra Dinn (Switch) 9 Starfield (Xbox Series S) 9 Snowrunner Year 3 (Xbox Series S) 9 Rise of the Third Power (Switch) 9 Mario + Rabbids: Sparks of Hope (Switch) 9 While The Iron’s Hot (Xbox Series S) 8 Minute of Islands (Switch) 8 A Short Hike (Switch) 8 Regions of Ruin (Switch) 7 Tiny Lands (Switch) 7 Sea of Stars (Xbox Series S) 7 DEX (Switch) 7 Islanders (Switch) 7 Planet of Lana (Xbox Series S) 7 LEGO Builder’s Journey (Switch) 6 Ori and The Blind Forest (Xbox Series S) 6 For the Vast Future (Switch) 6 Turnip Boy Commits Tax Evasion (Xbox Series S) 6 Mechstermination Force (Switch) 6 Super Mario 3D World (Switch) 6 Mars Power Industries (Switch) 6 Golf Club Wasteland (Switch) 5 Subsurface Circular (Switch) 3 2022 Name Score Chained Echoes (Switch) 10 Tinykin (Xbox Series S) 10 Kirby and the Forgotten Land (Switch) 10 Wintermoor Tactics Club (Switch) 10 The Last Campfire (Switch) 9 Snowrunner Year 1 (Xbox Series S) 9 HOB Definitive Edition (Switch) 9 Phoenotopia: Awakening (Switch) 8 Snowrunner Year 2 (Xbox Series S) 8 Fallout 3 (Xbox Series S) 7 Pathway (Switch) 7 Battle Chasers: Nightwar (Switch) 7 Psychonauts 2 (Xbox Series S) 6 Inmost (Switch) 6 Nobody Saves The World (Xbox Series S) 6 Death’s Door (Xbox Series S) 6 Radical Rabbit Stew (Switch) 3 2021 Name Score Forza Horizon 4 (Xbox Series S) 10 Wasteland 3 (Xbox Series S) 9 Fallout: New Vegas (Xbox Series S) 9 The Ascent (Xbox Series S) 9 Cosmic Star Heroine (Switch) 9 Children of Morta (Switch) 9 Ara Fell: Enhanced Edition (Switch) 8 Sable (Xbox Series S) 8 Octopath Traveller (Switch) 8 Hellblade: Senua&amp;rsquo;s Sacrifice (PS4) 8 Shadows of Adam (Switch) 8 Valkyria Chronicles 4 (Switch) 8 The Outer Worlds (PS4) 8 Legend of Zelda: Link’s Awakening (Switch) 8 Luigi’s Mansion 3 (Switch) 7 The Technomancer (PS4) 7 Spaceland (Switch) 6 Fable Anniversary (Xbox Series S) 6 Metro Last Light (PS4) 6 Cthulhu Saves Christmas (Switch) 5 Dragon Quest XI demo (Switch) 5 Transistor (Switch) 3 2020 Name Score Snowrunner (PS4) 11 Spintires: Mudrunner (Switch) 9 Moonlighter (Switch) 9 Marvel’s Spider-Man (PS4) 8 Far Cry Primal (PS4) 8 Batman: Arkham Knight (PS4) 8 Firewatch (PS4) 8 Far Cry New Dawn (PS4) 7 Ratchet and Clank (PS4) 7 Vampyr (PS4) 7 Far Cry 3 (PS4) 7 Far Cry 5 DLC (Lost on Mars, Vietnam) 6 Bastion (Switch) 6 2019 Name Score Assassins Creed Odyssey (PS4) 10 God of War (PS4) 10 West of Loathing (Switch) 10 Wargroove (Switch) 9 Greedfall (PS4) 9 Mario + Rabbids Kingdom Battle.</description>
     </item>
   </channel>
 </rss>
