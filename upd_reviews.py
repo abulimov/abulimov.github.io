@@ -8,6 +8,9 @@ from collections import defaultdict
 from typing import Tuple, List
 from dataclasses import dataclass
 
+COMMON_FRONT_MATTER="""build:
+  list: never
+"""
 COMMON_TEXT="""
 *I'm [writing my mini-reviews](/post/2021/05/23/taking-notes/) since 2013, just for fun.*
 *The reviews are not published (yet?), but the scores are.*
@@ -26,9 +29,9 @@ categories = [
     Category(
         name="Games",
         alt_name="Игры",
-        header=f"""
----
+        header=f"""---
 title: Video Game Reviews
+{COMMON_FRONT_MATTER}
 ---
 
 Here you can find my review scores for video games I played.
@@ -40,9 +43,9 @@ Here you can find my review scores for video games I played.
     Category(
         name="Music",
         alt_name="Музыка",
-        header=f"""
----
+        header=f"""---
 title: Music Album Reviews
+{COMMON_FRONT_MATTER}
 ---
 
 Here you can find my review scores for the music albums I extensively listened to.
@@ -56,9 +59,9 @@ Which almost always means that I [bought them on Bandcamp](https://bandcamp.com/
     Category(
         name="Books",
         alt_name="Книги",
-        header=f"""
----
+        header=f"""---
 title: Book Reviews
+{COMMON_FRONT_MATTER}
 ---
 
 Here you can find my review scores for the books I read.

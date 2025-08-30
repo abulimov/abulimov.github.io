@@ -1,6 +1,8 @@
-
 ---
 title: Video Game Reviews
+build:
+  list: never
+
 ---
 
 Here you can find my review scores for video games I played.

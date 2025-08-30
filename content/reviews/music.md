@@ -1,6 +1,8 @@
-
 ---
 title: Music Album Reviews
+build:
+  list: never
+
 ---
 
 Here you can find my review scores for the music albums I extensively listened to.

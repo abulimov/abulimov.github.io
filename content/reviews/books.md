@@ -1,6 +1,8 @@
-
 ---
 title: Book Reviews
+build:
+  list: never
+
 ---
 
 Here you can find my review scores for the books I read.
