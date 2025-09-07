@@ -71,7 +71,7 @@
 <li><strong>сохранять состояние прошлой проверки и выводить алерты только для новых проблем</strong></li>
 </ul>
 <p>Пройдемся по каждому пункту отдельно.</p>
-<h4 id="читать-описание-проверок-из-простых-yamlhttpyamlorg-файлов">Читать описание проверок из простых <a href="http://yaml.org">YAML</a>-файлов</h4>
+<h4 id="читать-описание-проверок-из-простых-yaml-файлов">Читать описание проверок из простых <a href="http://yaml.org">YAML</a>-файлов</h4>
 <p>Я очень люблю <a href="http://yaml.org">YAML</a> как формат для конфигов, и описание
 проверок в нем выглядят крайне лаконично и просто (примеры в следующем пункте).
 При этом хранение проверок отдельно от инструмента очень удобно и дает возможность
@@ -105,7 +105,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      ) AND blockedl.pid != blockingl.pid)
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    JOIN pg_stat_activity blockinga ON blockingl.pid = blockinga.pid
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      AND blockinga.datid = blockeda.datid
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    WHERE NOT blockedl.granted;</span>    
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    WHERE NOT blockedl.granted;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">description</span>: <span style="color:#ae81ff">Locks in database</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">assert</span>: <span style="color:#ae81ff">absent</span>
 </span></span></code></pre></div><p>Таким образом, если блокировок нет - все отлично, а если есть - выводим их список.</p>
@@ -117,7 +117,7 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    jlgjobid=(
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    SELECT jobid FROM pgagent.pga_job WHERE jobname = &#39;job_name&#39;
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    )
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    ORDER BY jlgstart DESC LIMIT 1;</span>    
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    ORDER BY jlgstart DESC LIMIT 1;</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">description</span>: <span style="color:#ae81ff">Не было успешных запусков job_name за прошедший час</span>
 </span></span><span style="display:flex;"><span><span style="color:#f92672">assert</span>: <span style="color:#ae81ff">present</span>
 </span></span></code></pre></div><p>В этом случае мы ждем, что Query вернет нам список задач, а если нет - алерт.</p>

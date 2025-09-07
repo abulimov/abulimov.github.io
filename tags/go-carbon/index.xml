@@ -13,7 +13,7 @@
       <link>//bulimov.me/it/go-carbon/</link>
       <pubDate>Mon, 08 Feb 2016 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/it/go-carbon/</guid>
-      <description>Пришлось на собственном опыте опробовать, насколько Graphite модульный.&#xA;При 200k metricsReceived наш Graphite, работающий на довольном старом сервере на обычных дисках, начал помирать. Carbon-cache постоянно был в топе потребления ресурсов, ни о какой отзывчивости в работе сервера речи вообще не шло.&#xA;&amp;ldquo;Хватит это терпеть!&amp;rdquo; - подумал я, и начал в который раз искать советы по тюнингу carbon для высокой производительности. В очередной раз ничего нового не найдя, я решил попробовать давно приглянувшийся мне проект go-carbon.</description>
+      <description>&lt;p&gt;Пришлось на собственном опыте опробовать, насколько&#xA;&lt;a href=&#34;//bulimov.me/it/graphite-experience&#34;&gt;Graphite модульный&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;При 200k &lt;code&gt;metricsReceived&lt;/code&gt; наш Graphite, работающий на довольном старом сервере&#xA;на обычных дисках, начал помирать. &lt;strong&gt;Carbon-cache&lt;/strong&gt; постоянно был в топе потребления&#xA;ресурсов, ни о какой отзывчивости в работе сервера речи вообще не шло.&lt;/p&gt;&#xA;&lt;p&gt;&amp;ldquo;Хватит это терпеть!&amp;rdquo; - подумал я, и начал в который раз искать советы по&#xA;тюнингу carbon для высокой производительности. В очередной раз ничего нового&#xA;не найдя, я решил попробовать давно приглянувшийся мне проект&#xA;&lt;a href=&#34;https://github.com/lomik/go-carbon&#34;&gt;go-carbon&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

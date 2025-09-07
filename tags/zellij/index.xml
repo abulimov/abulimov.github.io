@@ -13,14 +13,14 @@
       <link>//bulimov.me/post/2025/03/22/tmux-zellij/</link>
       <pubDate>Sat, 22 Mar 2025 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2025/03/22/tmux-zellij/</guid>
-      <description>When I wrote about refreshing my CLI setup, I mentioned how I gave Zellij a try, but couldn&amp;rsquo;t find compelling reasons to replace tmux with it.&#xA;I also said that I will continue to experiment with it to see if I change my mind.&#xA;Well, I&amp;rsquo;m happy to report that I found a couple of very good, if not immediately obvious, reasons that compelled me to switch to Zellij as my daily driver.</description>
+      <description>&lt;p&gt;When I wrote about &lt;a href=&#34;//bulimov.me/post/2024/09/22/refreshing-cli-setup/&#34;&gt;refreshing my CLI setup&lt;/a&gt;, I mentioned how I gave &lt;a href=&#34;https://zellij.dev/&#34;&gt;Zellij&lt;/a&gt; a try,&#xA;but couldn&amp;rsquo;t find compelling reasons to replace tmux with it.&lt;/p&gt;&#xA;&lt;p&gt;I also said that I will continue to experiment with it to see if I change my mind.&lt;/p&gt;&#xA;&lt;p&gt;Well, I&amp;rsquo;m happy to report that I found a couple of very good, if not immediately obvious, reasons that compelled me to switch to Zellij as my daily driver.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Refreshing my CLI tools setup</title>
       <link>//bulimov.me/post/2024/09/22/refreshing-cli-setup/</link>
       <pubDate>Sun, 22 Sep 2024 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2024/09/22/refreshing-cli-setup/</guid>
-      <description>Recently I decided to get out of my shell (pun intended) and check out the latest and greatest in shells, terminal multiplexers and terminal-based text editors.&#xA;After all, It&amp;rsquo;s been 8 years since I took a fresh look at how I use those invaluable CLI tools.&#xA;I still remember how on one of my first jobs I got so engrossed in the work that for a first month or so I completely neglected setting up my work machine, and worked in a stock Debian shell and terminal, which sure looked like a dog&amp;rsquo;s dinner.</description>
+      <description>&lt;p&gt;Recently I decided to get out of my shell (pun intended) and check out the latest and greatest in shells, terminal multiplexers and terminal-based text editors.&lt;/p&gt;&#xA;&lt;p&gt;After all, It&amp;rsquo;s been 8 years since I took a fresh look at how I use those invaluable CLI tools.&lt;/p&gt;&#xA;&lt;p&gt;I still remember how on one of my first jobs I got so engrossed in the work that for a first month or so I completely neglected setting up my work machine,&#xA;and worked in a stock Debian shell and terminal, which sure looked like a dog&amp;rsquo;s dinner. All with default video driver, so fonts looked appropriately bad.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

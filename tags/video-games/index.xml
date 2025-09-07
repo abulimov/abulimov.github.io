@@ -6,28 +6,35 @@
     <description>Recent content in Video Games on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 07 Sep 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="//bulimov.me/tags/video-games/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Revamped reviews section &#43; a little retrospective</title>
+      <link>//bulimov.me/post/2025/09/07/better-reviews-and-retrospective/</link>
+      <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/post/2025/09/07/better-reviews-and-retrospective/</guid>
+      <description>&lt;h2 id=&#34;better-reviews-section&#34;&gt;Better reviews section&lt;/h2&gt;&#xA;&lt;p&gt;When I added the &lt;a href=&#34;//bulimov.me/reviews&#34;&gt;reviews&lt;/a&gt; section &lt;a href=&#34;//bulimov.me/post/2021/05/23/my-reviews/&#34;&gt;back in 2021&lt;/a&gt;,&#xA;it was somewhat readable, if a bit messy.&lt;/p&gt;&#xA;&lt;p&gt;Four years after, with the addition of 4 * 3 new tables (one per year per category),&#xA;it became completely unusable.&lt;/p&gt;&#xA;&lt;p&gt;Thankfully the content of that page was always generated programmatically, so all it took&#xA;to make it better was a bit of Python followed by re-generation of the page.&lt;/p&gt;&#xA;&lt;p&gt;Main change is that I split each category (&lt;a href=&#34;//bulimov.me/reviews/video-games/&#34;&gt;Video Games&lt;/a&gt;, &lt;a href=&#34;//bulimov.me/reviews/music/&#34;&gt;Music&lt;/a&gt; and &lt;a href=&#34;//bulimov.me/reviews/books/&#34;&gt;Books&lt;/a&gt; into a&#xA;dedicated page, and turned the information for each year into a separate table.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Busy Adult Gaming</title>
       <link>//bulimov.me/post/2024/08/04/busy-adult-gaming/</link>
       <pubDate>Sun, 04 Aug 2024 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2024/08/04/busy-adult-gaming/</guid>
-      <description>In this note I wanted to capture my thoughts on video games and how I approach this hobby while living a busy adult life.&#xA;The Framework Over the years - I&amp;rsquo;ve been playing video games since the year 2000 - I developed a set of basic criteria that I use to filter potential games.&#xA;They all revolve around one simple concept - A game must respect my time.&#xA;I have a lot to deal with, as all of us do.</description>
+      <description>&lt;p&gt;In this note I wanted to capture my thoughts on video games and how I approach this hobby while living a busy adult life.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-framework&#34;&gt;The Framework&lt;/h2&gt;&#xA;&lt;p&gt;Over the years - I&amp;rsquo;ve been playing video games since the year 2000 - I developed a set of basic criteria that I use to filter potential games.&lt;/p&gt;&#xA;&lt;p&gt;They all revolve around one simple concept - &lt;strong&gt;A game must respect my time&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I have a lot to deal with, as all of us do.&#xA;Family, work, &lt;a href=&#34;https://models.bulimov.me&#34;&gt;modelling&lt;/a&gt; - it&amp;rsquo;s not easy to find time for video games. So when I do have time to play a game, I want it to be spent wisely.&lt;/p&gt;</description>
     </item>
     <item>
       <title>A Year With Xbox</title>
       <link>//bulimov.me/post/2022/10/03/year-with-xbox/</link>
       <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2022/10/03/year-with-xbox/</guid>
-      <description>About a year ago I made a decision not to continue with PlayStation as my main console, and switch to Xbox Series instead. It was a risk, as I have been a reasonably happy PS customer through PS3 and PS4 eras.&#xA;Now, after a year with Xbox Series S I can sum up my experience and compare notes.&#xA;tldr; It is great and I’m very happy with this decision.&#xA;I can safely say that all the hopes I put into switching to Xbox have realized!</description>
+      <description>&lt;p&gt;About a year ago &lt;a href=&#34;//bulimov.me/post/2021/08/07/why-xbox&#34;&gt;I made a decision&lt;/a&gt; not to continue with &lt;strong&gt;PlayStation&lt;/strong&gt; as my main console, and switch to &lt;strong&gt;Xbox Series&lt;/strong&gt; instead. It was a risk, as I have been a reasonably happy PS customer through PS3 and PS4 eras.&lt;/p&gt;&#xA;&lt;p&gt;Now, after a year with &lt;strong&gt;Xbox Series S&lt;/strong&gt; I can sum up my experience and compare notes.&lt;/p&gt;&#xA;&lt;p&gt;tldr; It is great and I’m very happy with this decision.&lt;/p&gt;&#xA;&lt;p&gt;I can safely say that all the hopes I put into switching to Xbox have realized!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Why I’m picking Xbox for new generation</title>
       <link>//bulimov.me/post/2021/08/07/why-xbox/</link>
       <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2021/08/07/why-xbox/</guid>
-      <description>Disclaimer: this is not an objective comparison, it&amp;rsquo;s my personal, extremely subjective choice.&#xA;Here is why I’m not buying PS5, despite having PS3 since 2010 and PS4 since 2014.&#xA;And no, it’s not because it too hard to get now :-)&#xA;The main reason is simple: For me, PS5 brings no excitement. Now let me explain why.&#xA;PS3 to PS4 transition was already kinda boring. I was quite ok with graphics level PS3 provided, and the main improvement that PS4 borough for me was normal digital store (where you don’t have to download patches after you just downloaded full game), and a slightly better controller (albeit with worse battery life).</description>
+      <description>&lt;p&gt;&lt;em&gt;Disclaimer: this is not an objective comparison, it&amp;rsquo;s my personal, extremely subjective choice.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Here is why I’m not buying PS5, despite having PS3 since 2010 and PS4 since 2014.&lt;/p&gt;&#xA;&lt;p&gt;And no, it’s not because it too hard to get now :-)&lt;/p&gt;&#xA;&lt;p&gt;The main reason is simple:&#xA;&lt;strong&gt;For me, PS5 brings no excitement.&lt;/strong&gt; Now let me explain why.&lt;/p&gt;&#xA;&lt;p&gt;PS3 to PS4 transition was already kinda boring. I was quite ok with graphics level PS3 provided, and the main improvement that PS4 borough for me was normal digital store (where you don’t have to download patches after you just downloaded full game), and a slightly better controller (albeit with worse battery life).&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

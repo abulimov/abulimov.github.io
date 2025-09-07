@@ -2,10 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//bulimov.me/tags/bat/</loc>
-    <lastmod>2025-07-12T00:00:00+00:00</lastmod>
+    <loc>//bulimov.me/tags/blog/</loc>
+    <lastmod>2025-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/books/</loc>
+    <lastmod>2025-09-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/categories/</loc>
+    <lastmod>2025-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/</loc>
+    <lastmod>2025-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/music/</loc>
+    <lastmod>2025-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/categories/personal/</loc>
+    <lastmod>2025-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/post/</loc>
+    <lastmod>2025-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/post/2025/09/07/better-reviews-and-retrospective/</loc>
+    <lastmod>2025-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/</loc>
+    <lastmod>2025-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/video-games/</loc>
+    <lastmod>2025-09-07T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/bat/</loc>
     <lastmod>2025-07-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/eza/</loc>
@@ -17,22 +44,10 @@
     <loc>//bulimov.me/tags/fzf/</loc>
     <lastmod>2025-07-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/</loc>
-    <lastmod>2025-07-12T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/categories/it/</loc>
     <lastmod>2025-07-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/categories/personal/</loc>
-    <lastmod>2025-07-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/post/</loc>
-    <lastmod>2025-07-12T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/tags/ripgrep/</loc>
-    <lastmod>2025-07-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/tags/</loc>
     <lastmod>2025-07-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/post/2025/07/12/upgrading-cli-experience/</loc>
@@ -48,9 +63,6 @@
     <lastmod>2025-05-11T16:30:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/post/2025/05/11/blog-dark-mode/</loc>
-    <lastmod>2025-05-11T16:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/tags/blog/</loc>
     <lastmod>2025-05-11T16:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/post/2025/03/22/tmux-zellij/</loc>
@@ -108,9 +120,6 @@
     <lastmod>2024-09-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/post/2024/08/04/busy-adult-gaming/</loc>
-    <lastmod>2024-08-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/tags/video-games/</loc>
     <lastmod>2024-08-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/post/2024/07/31/11-years-of-blogging/</loc>
@@ -402,8 +411,6 @@
     <lastmod>2013-06-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/about/</loc>
-  </url><url>
-    <loc>//bulimov.me/etc/</loc>
   </url><url>
     <loc>//bulimov.me/reviews/</loc>
   </url>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Books on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link>//bulimov.me/tags/books/</link>
+    <description>Recent content in Books on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 07 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//bulimov.me/tags/books/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Revamped reviews section &#43; a little retrospective</title>
+      <link>//bulimov.me/post/2025/09/07/better-reviews-and-retrospective/</link>
+      <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/post/2025/09/07/better-reviews-and-retrospective/</guid>
+      <description>&lt;h2 id=&#34;better-reviews-section&#34;&gt;Better reviews section&lt;/h2&gt;&#xA;&lt;p&gt;When I added the &lt;a href=&#34;//bulimov.me/reviews&#34;&gt;reviews&lt;/a&gt; section &lt;a href=&#34;//bulimov.me/post/2021/05/23/my-reviews/&#34;&gt;back in 2021&lt;/a&gt;,&#xA;it was somewhat readable, if a bit messy.&lt;/p&gt;&#xA;&lt;p&gt;Four years after, with the addition of 4 * 3 new tables (one per year per category),&#xA;it became completely unusable.&lt;/p&gt;&#xA;&lt;p&gt;Thankfully the content of that page was always generated programmatically, so all it took&#xA;to make it better was a bit of Python followed by re-generation of the page.&lt;/p&gt;&#xA;&lt;p&gt;Main change is that I split each category (&lt;a href=&#34;//bulimov.me/reviews/video-games/&#34;&gt;Video Games&lt;/a&gt;, &lt;a href=&#34;//bulimov.me/reviews/music/&#34;&gt;Music&lt;/a&gt; and &lt;a href=&#34;//bulimov.me/reviews/books/&#34;&gt;Books&lt;/a&gt; into a&#xA;dedicated page, and turned the information for each year into a separate table.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

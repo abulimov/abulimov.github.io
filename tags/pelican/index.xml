@@ -13,14 +13,14 @@
       <link>//bulimov.me/post/2021/02/16/pelical-to-hugo/</link>
       <pubDate>Tue, 16 Feb 2021 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2021/02/16/pelical-to-hugo/</guid>
-      <description>Since I no longer enjoy working with Python in any shape or form, it was only a matter of time (mostly a matter of my free time) for this to happen. I&amp;rsquo;ve migrated this blog from Pelican static site generator (written in Python) to Hugo (written in Go).&#xA;It by no means reflects on Pelican as a piece of software (it&amp;rsquo;s actually pretty good). It&amp;rsquo;s more about my disdain for Python, and awesome experience I had with Hugo and Go language in general.</description>
+      <description>&lt;p&gt;Since I no longer enjoy working with Python in any shape or form, it was only a matter of time (mostly a matter of &lt;em&gt;my free time&lt;/em&gt;)&#xA;for this to happen. I&amp;rsquo;ve migrated this blog from Pelican static site generator (written in Python) to Hugo (written in Go).&lt;/p&gt;&#xA;&lt;p&gt;It by no means reflects on Pelican as a piece of software (it&amp;rsquo;s actually pretty good).&#xA;It&amp;rsquo;s more about my disdain for Python, and awesome experience I had with Hugo and Go language in general.&lt;/p&gt;</description>
     </item>
     <item>
       <title>s/Ruhoh/Pelican/</title>
       <link>//bulimov.me/it/from-ruhoh-to-pelican/</link>
       <pubDate>Thu, 25 Sep 2014 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/it/from-ruhoh-to-pelican/</guid>
-      <description>Переехал с Ruhoh на Pelican, потому что Python.&#xA;А если подробнее - потому что Ruhoh написан на Ruby, и не особо развивается. А Pelican написан на Python, который является моим основным языком, и уже давно и активно развивается, и обладает обширной базой плагинов и тем.</description>
+      <description>&lt;p&gt;Переехал с &lt;a href=&#34;http://ruhoh.com&#34;&gt;Ruhoh&lt;/a&gt; на &lt;a href=&#34;http://getpelican.com&#34;&gt;Pelican&lt;/a&gt;,&#xA;потому что Python.&lt;/p&gt;&#xA;&lt;p&gt;А если подробнее - потому что Ruhoh написан на Ruby, и не особо развивается.&#xA;А Pelican написан на Python, который является моим основным языком,&#xA;и уже давно и активно развивается, и обладает обширной базой&#xA;&lt;a href=&#34;https://github.com/getpelican/pelican-plugins&#34;&gt;плагинов&lt;/a&gt; и&#xA;&lt;a href=&#34;https://github.com/getpelican/pelican-themes&#34;&gt;тем&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

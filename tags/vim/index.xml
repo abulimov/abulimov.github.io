@@ -13,21 +13,21 @@
       <link>//bulimov.me/post/2024/09/22/refreshing-cli-setup/</link>
       <pubDate>Sun, 22 Sep 2024 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2024/09/22/refreshing-cli-setup/</guid>
-      <description>Recently I decided to get out of my shell (pun intended) and check out the latest and greatest in shells, terminal multiplexers and terminal-based text editors.&#xA;After all, It&amp;rsquo;s been 8 years since I took a fresh look at how I use those invaluable CLI tools.&#xA;I still remember how on one of my first jobs I got so engrossed in the work that for a first month or so I completely neglected setting up my work machine, and worked in a stock Debian shell and terminal, which sure looked like a dog&amp;rsquo;s dinner.</description>
+      <description>&lt;p&gt;Recently I decided to get out of my shell (pun intended) and check out the latest and greatest in shells, terminal multiplexers and terminal-based text editors.&lt;/p&gt;&#xA;&lt;p&gt;After all, It&amp;rsquo;s been 8 years since I took a fresh look at how I use those invaluable CLI tools.&lt;/p&gt;&#xA;&lt;p&gt;I still remember how on one of my first jobs I got so engrossed in the work that for a first month or so I completely neglected setting up my work machine,&#xA;and worked in a stock Debian shell and terminal, which sure looked like a dog&amp;rsquo;s dinner. All with default video driver, so fonts looked appropriately bad.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Сменил Vim на Atom</title>
       <link>//bulimov.me/it/vim-atom/</link>
       <pubDate>Thu, 21 May 2015 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/it/vim-atom/</guid>
-      <description>Вот уже почти два месяца, как я по совету коллеги сменил Vim, которым пользовался уже 5 лет, и который оброс у меня кучей плагинов, на Github Atom.&#xA;Использую я его как раньше Vim - для всего. В основном это написание плейбуков Ansible, что включает в себя правку конфигов, и написание кода на Python и Go.&#xA;Сразу скажу, что не будь для Atom вменяемого vim-режима, я бы вряд ли решился на переход.</description>
+      <description>&lt;p&gt;Вот уже почти два месяца, как я по совету коллеги сменил Vim, которым&#xA;пользовался уже 5 лет, и который оброс у меня кучей плагинов,&#xA;на &lt;a href=&#34;http://atom.io&#34;&gt;Github Atom&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Использую я его как раньше Vim - для всего. В основном это написание&#xA;плейбуков &lt;a href=&#34;http://www.ansible.com/&#34;&gt;Ansible&lt;/a&gt;, что включает в себя правку конфигов,&#xA;и написание кода на &lt;a href=&#34;https://www.python.org/&#34;&gt;Python&lt;/a&gt; и &lt;a href=&#34;http://golang.org/&#34;&gt;Go&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Сразу скажу, что не будь для Atom вменяемого vim-режима, я бы вряд ли&#xA;решился на переход. В свое время, когда я знакомился с миром&#xA;Emacs, я в итоге все равно пришел к использованию Evil Mode.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Открыл для себя cVim для Google Chrome</title>
       <link>//bulimov.me/it/chromium-vim/</link>
       <pubDate>Fri, 27 Feb 2015 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/it/chromium-vim/</guid>
-      <description>Последние 4 года я использую Vim в качестве текстового редактора и IDE, и все это время я использовал браузер Mozilla Firefox с дополнением Vimperator, либо с его форком - Pentadactyl, для получения аналогичной навигации в браузере. Без функционала этих дополнений я как без рук, и потому никак не мог использовать Google Chrome/Chromium.&#xA;Дополнения типа Vimium/Vrome/ViChrome, которые добавляют vi-like навигацию в Chrome, после Vimperator казались, мягко говоря, недоделанными, и не давали и половины того комфорта при использовании браузера, к которому я привык.</description>
+      <description>&lt;p&gt;Последние 4 года я использую Vim в качестве текстового редактора и IDE, и все это время&#xA;я использовал браузер Mozilla Firefox с дополнением &lt;a href=&#34;http://www.vimperator.org/vimperator&#34;&gt;Vimperator&lt;/a&gt;,&#xA;либо с его форком - &lt;a href=&#34;http://5digits.org/pentadactyl/&#34;&gt;Pentadactyl&lt;/a&gt;, для получения&#xA;аналогичной навигации в браузере. Без функционала этих дополнений я как без рук,&#xA;и потому никак не мог использовать Google Chrome/Chromium.&lt;/p&gt;&#xA;&lt;p&gt;Дополнения типа Vimium/Vrome/ViChrome, которые добавляют vi-like навигацию&#xA;в Chrome, после Vimperator казались, мягко говоря, недоделанными,&#xA;и не давали и половины того комфорта при использовании браузера, к которому я привык.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

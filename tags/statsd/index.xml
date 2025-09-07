@@ -13,7 +13,7 @@
       <link>//bulimov.me/it/logstash-graphite/</link>
       <pubDate>Fri, 09 Oct 2015 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/it/logstash-graphite/</guid>
-      <description>Недавно читал серию постов от Datadog про сбор метрик, и в частности статью про метрики Nginx (думал, вдруг что-то новое узнаю). Что меня в этой статье зацепило - так это то, что только версия Nginx Plus показывает статистику количества ответов, разделенную по HTTP-кодам. Поскольку я использую перед Nginx балансировщик HAProxy, который не жадный и показывает подробную статистику по кодам ответов для каждого бекенда и фронтенда, я о таком минусе статистики Nginx даже не думал.</description>
+      <description>&lt;p&gt;Недавно читал серию постов от &lt;a href=&#34;https://www.datadoghq.com&#34;&gt;Datadog&lt;/a&gt; про сбор метрик,&#xA;и в частности &lt;a href=&#34;https://www.datadoghq.com/blog/how-to-collect-nginx-metrics/&#34;&gt;статью про метрики Nginx&lt;/a&gt;&#xA;(думал, вдруг что-то новое узнаю). Что меня в этой статье зацепило - так это то, что только версия&#xA;&lt;a href=&#34;https://www.nginx.com/products/&#34;&gt;Nginx Plus&lt;/a&gt; показывает статистику количества&#xA;ответов, разделенную по HTTP-кодам. Поскольку я использую перед Nginx балансировщик&#xA;&lt;a href=&#34;http://www.haproxy.org&#34;&gt;HAProxy&lt;/a&gt;, который не жадный и показывает подробную статистику&#xA;по кодам ответов для каждого бекенда и фронтенда, я о таком минусе статистики Nginx даже не думал.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

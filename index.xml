@@ -6,273 +6,273 @@
     <description>Recent content in Home on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Jul 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 07 Sep 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="//bulimov.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Revamped reviews section &#43; a little retrospective</title>
+      <link>//bulimov.me/post/2025/09/07/better-reviews-and-retrospective/</link>
+      <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/post/2025/09/07/better-reviews-and-retrospective/</guid>
+      <description>&lt;h2 id=&#34;better-reviews-section&#34;&gt;Better reviews section&lt;/h2&gt;&#xA;&lt;p&gt;When I added the &lt;a href=&#34;//bulimov.me/reviews&#34;&gt;reviews&lt;/a&gt; section &lt;a href=&#34;//bulimov.me/post/2021/05/23/my-reviews/&#34;&gt;back in 2021&lt;/a&gt;,&#xA;it was somewhat readable, if a bit messy.&lt;/p&gt;&#xA;&lt;p&gt;Four years after, with the addition of 4 * 3 new tables (one per year per category),&#xA;it became completely unusable.&lt;/p&gt;&#xA;&lt;p&gt;Thankfully the content of that page was always generated programmatically, so all it took&#xA;to make it better was a bit of Python followed by re-generation of the page.&lt;/p&gt;&#xA;&lt;p&gt;Main change is that I split each category (&lt;a href=&#34;//bulimov.me/reviews/video-games/&#34;&gt;Video Games&lt;/a&gt;, &lt;a href=&#34;//bulimov.me/reviews/music/&#34;&gt;Music&lt;/a&gt; and &lt;a href=&#34;//bulimov.me/reviews/books/&#34;&gt;Books&lt;/a&gt; into a&#xA;dedicated page, and turned the information for each year into a separate table.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Upgrading the CLI experience</title>
       <link>//bulimov.me/post/2025/07/12/upgrading-cli-experience/</link>
       <pubDate>Sat, 12 Jul 2025 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2025/07/12/upgrading-cli-experience/</guid>
-      <description>I spend a lot of time in the terminal.&#xA;I practically live in the terminal at work, that&amp;rsquo;s kind of a given.&#xA;But even this very post is written in Helix, running in Wezterm.&#xA;And it&amp;rsquo;s been like this (and even more so in my SysAdmin days) for close to 20 years.&#xA;I already wrote about refreshing my CLI setup, and how I moved from tmux to Zellij to improve my CLI experience.</description>
+      <description>&lt;p&gt;I spend &lt;em&gt;a lot of time&lt;/em&gt; in the terminal.&lt;/p&gt;&#xA;&lt;p&gt;I practically live in the terminal at work, that&amp;rsquo;s kind of a given.&lt;/p&gt;&#xA;&lt;p&gt;But even this very post is written in &lt;a href=&#34;https://helix-editor.com/&#34;&gt;Helix&lt;/a&gt;, running in &lt;a href=&#34;https://wezterm.org/&#34;&gt;Wezterm&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;And it&amp;rsquo;s been like this (and even more so in my SysAdmin days) for close to 20 years.&lt;/p&gt;&#xA;&lt;p&gt;I already wrote about &lt;a href=&#34;//bulimov.me/post/2024/09/22/refreshing-cli-setup/&#34;&gt;refreshing my CLI setup&lt;/a&gt;,&#xA;and how I &lt;a href=&#34;//bulimov.me/post/2025/03/22/tmux-zellij/&#34;&gt;moved from tmux to Zellij&lt;/a&gt; to improve my CLI experience.&lt;/p&gt;&#xA;&lt;p&gt;It&amp;rsquo;s now time to talk about small tools that make a big difference.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Moving from powerlevel10k to Starship for my zsh prompt</title>
       <link>//bulimov.me/post/2025/05/11/powerlevel10k-to-starship/</link>
       <pubDate>Sun, 11 May 2025 16:30:00 +0000</pubDate>
       <guid>//bulimov.me/post/2025/05/11/powerlevel10k-to-starship/</guid>
-      <description>Last year, when I wrote about refreshing my CLI setup, I explained why I picked powerlevel10k over Starship.&#xA;Starship is a minimal, cross-shell prompt written in Rust.&#xA;Well, things have changed, I re-evaluated my choice and switched to Starship.&#xA;Back in September 2024 I wrote:&#xA;In the case of Starship for example, while the idea of a cross-platform, compiled prompt is interesting, paying the cost of spawning a process (or multiple) each time is just absurd to me.</description>
+      <description>&lt;p&gt;Last year, when I wrote about &lt;a href=&#34;//bulimov.me/post/2024/09/22/refreshing-cli-setup/&#34;&gt;refreshing my CLI setup&lt;/a&gt;, I explained why I picked &lt;a href=&#34;https://github.com/romkatv/powerlevel10k&#34;&gt;powerlevel10k&lt;/a&gt; over &lt;a href=&#34;https://starship.rs/&#34;&gt;Starship&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Starship is a minimal, cross-shell prompt written in Rust.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Well, things have changed, I re-evaluated my choice and switched to Starship.&lt;/p&gt;&#xA;&lt;p&gt;Back in September 2024 I wrote:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;In the case of &lt;em&gt;Starship&lt;/em&gt; for example, while the idea of a cross-platform, compiled prompt is interesting, paying the cost of spawning a process (or multiple) each time is just absurd to me.&#xA;Also, saying it&amp;rsquo;s &amp;ldquo;really really fast&amp;rdquo; in the readme, but providing no proofs or benchmarks - that&amp;rsquo;s lame, and there is even an &lt;a href=&#34;https://github.com/starship/starship/issues/5593&#34;&gt;issue open for this&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Added Dark Mode support</title>
       <link>//bulimov.me/post/2025/05/11/blog-dark-mode/</link>
       <pubDate>Sun, 11 May 2025 16:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2025/05/11/blog-dark-mode/</guid>
-      <description>Now this blog supports Dark Mode, if the browser has it set as preferred.&#xA;I myself switched to using Dark Mode on some of my devices, but only recently noticed that my very own blog didn&amp;rsquo;t have the support for it.&#xA;Thankfully adding it was super easy, and I didn&amp;rsquo;t need to go much further than this blog&amp;rsquo;s theme Issues on Github.&#xA;The author of this lovely xmin theme provided an answer in the issue #67:</description>
+      <description>&lt;p&gt;Now this blog supports Dark Mode, if the browser has it set as preferred.&lt;/p&gt;&#xA;&lt;p&gt;I myself switched to using Dark Mode on some of my devices, but only recently noticed that my very own blog didn&amp;rsquo;t have the support for it.&lt;/p&gt;&#xA;&lt;p&gt;Thankfully adding it was super easy, and I didn&amp;rsquo;t need to go much further than this blog&amp;rsquo;s theme Issues on Github.&lt;/p&gt;&#xA;&lt;p&gt;The author of this lovely &lt;a href=&#34;https://github.com/yihui/hugo-xmin&#34;&gt;&lt;code&gt;xmin&lt;/code&gt;&lt;/a&gt; theme provided an answer in the &lt;a href=&#34;https://github.com/yihui/hugo-xmin/issues/67&#34;&gt;issue #67&lt;/a&gt;:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Switching from Tmux to Zellij</title>
       <link>//bulimov.me/post/2025/03/22/tmux-zellij/</link>
       <pubDate>Sat, 22 Mar 2025 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2025/03/22/tmux-zellij/</guid>
-      <description>When I wrote about refreshing my CLI setup, I mentioned how I gave Zellij a try, but couldn&amp;rsquo;t find compelling reasons to replace tmux with it.&#xA;I also said that I will continue to experiment with it to see if I change my mind.&#xA;Well, I&amp;rsquo;m happy to report that I found a couple of very good, if not immediately obvious, reasons that compelled me to switch to Zellij as my daily driver.</description>
+      <description>&lt;p&gt;When I wrote about &lt;a href=&#34;//bulimov.me/post/2024/09/22/refreshing-cli-setup/&#34;&gt;refreshing my CLI setup&lt;/a&gt;, I mentioned how I gave &lt;a href=&#34;https://zellij.dev/&#34;&gt;Zellij&lt;/a&gt; a try,&#xA;but couldn&amp;rsquo;t find compelling reasons to replace tmux with it.&lt;/p&gt;&#xA;&lt;p&gt;I also said that I will continue to experiment with it to see if I change my mind.&lt;/p&gt;&#xA;&lt;p&gt;Well, I&amp;rsquo;m happy to report that I found a couple of very good, if not immediately obvious, reasons that compelled me to switch to Zellij as my daily driver.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Writing a custom Garmin Instinct 2 watch face</title>
       <link>//bulimov.me/post/2025/01/12/custom-garmin-watchface/</link>
       <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2025/01/12/custom-garmin-watchface/</guid>
-      <description>The search for my perfect retro watch face I&amp;rsquo;ve been enjoying my Garmin Instinct 2 a great deal, but after getting a Casio Royale I yearned to make my Garmin more &amp;lsquo;retro&amp;rsquo;.&#xA;I found a great existing watch face called &amp;ldquo;7 Segments Simple&amp;rdquo; which imitates the look of classic 7-segment displays.&#xA;It was almost perfect for me, except that I wanted to see the current weather right on the watch face.</description>
+      <description>&lt;p&gt;&lt;img src=&#34;//bulimov.me/images/retrosimple_watchface.png&#34; alt=&#34;watch face&#34;&gt;&lt;/p&gt;&#xA;&lt;h1 id=&#34;the-search-for-my-perfect-retro-watch-face&#34;&gt;The search for my perfect retro watch face&lt;/h1&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve been enjoying my &lt;a href=&#34;//bulimov.me/post/2024/10/04/dumber-smartwatch/&#34;&gt;Garmin Instinct 2&lt;/a&gt; a great deal, but after getting a &lt;a href=&#34;//bulimov.me/post/2024/10/26/modding-casio-royale/&#34;&gt;Casio Royale&lt;/a&gt; I yearned to make my Garmin more &amp;lsquo;retro&amp;rsquo;.&lt;/p&gt;&#xA;&lt;p&gt;I found a great existing watch face called &lt;a href=&#34;https://apps.garmin.com/apps/b7f055a4-9098-41ed-8c54-92e992a31139&#34;&gt;&amp;ldquo;7 Segments Simple&amp;rdquo;&lt;/a&gt; which imitates the look of classic &lt;a href=&#34;https://en.wikipedia.org/wiki/Seven-segment_display&#34;&gt;7-segment displays&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;It was &lt;em&gt;almost&lt;/em&gt; perfect for me, except that I wanted to see the current weather right on the watch face.&lt;/p&gt;&#xA;&lt;p&gt;Since I found no source code repo for this watch face to contribute this feature, I decided to play with Garmin&amp;rsquo;s &lt;strong&gt;Connect IQ SDK&lt;/strong&gt; and build my own, similar watch face.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Making a wooden Watch Box with hand tools only</title>
       <link>//bulimov.me/post/2025/01/11/making-watch-box/</link>
       <pubDate>Sat, 11 Jan 2025 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2025/01/11/making-watch-box/</guid>
-      <description>I have a very modest watch collection, and my wife also has a couple of watches. Over the last few years, I returned to wearing non-smartwatches more and more.&#xA;Naturally, I was not happy with my watches lying in the cupboard where we forget about their existence and hence seldom wear them.&#xA;In an attempt to solve this, I went ahead and bought the most basic watch box from Amazon for 15GBP.</description>
+      <description>&lt;p&gt;I have a very modest watch collection, and my wife also has a couple of watches.&#xA;Over the last few years, I &lt;a href=&#34;//bulimov.me/post/2024/10/04/dumber-smartwatch/&#34;&gt;returned to wearing non-smartwatches more and more&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Naturally, I was not happy with my watches lying in the cupboard where we forget about their existence and hence seldom wear them.&lt;/p&gt;&#xA;&lt;p&gt;In an attempt to solve this, I went ahead and bought the most basic watch box from Amazon for 15GBP.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Modding my Casio Royale (AE1200) Watch</title>
       <link>//bulimov.me/post/2024/10/26/modding-casio-royale/</link>
       <pubDate>Sat, 26 Oct 2024 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2024/10/26/modding-casio-royale/</guid>
-      <description>In the previous post, I mentioned that I prefer to wear &amp;lsquo;dumb&amp;rsquo; watches over the weekend, mainly for reasons related to mental health and hygiene.&#xA;At that moment, my one and only weekend watch remained a wonderful mechanical piece from Hamilton, Khaki Officer Mechanical, with truly old-school ETA6497 movement originating from pocket watches. I had it for over ten years for sure, wore it exclusively for over half of those years.</description>
+      <description>&lt;p&gt;In the &lt;a href=&#34;//bulimov.me/post/2024/10/04/dumber-smartwatch/&#34;&gt;previous post&lt;/a&gt;, I mentioned that I prefer to wear &amp;lsquo;dumb&amp;rsquo; watches over the weekend,&#xA;mainly for reasons related to mental health and hygiene.&lt;/p&gt;&#xA;&lt;p&gt;At that moment, my one and only weekend watch remained a wonderful mechanical piece from Hamilton, &lt;a href=&#34;https://www.hamiltonwatch.com/en-ie/h69619533-khaki-field-officer-mechanical.html&#34;&gt;&lt;strong&gt;Khaki Officer Mechanical&lt;/strong&gt;&lt;/a&gt;, with truly old-school &lt;em&gt;ETA6497&lt;/em&gt; movement originating from pocket watches.&#xA;I had it for over ten years for sure, wore it exclusively for over half of those years.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;//bulimov.me/images/hamilton_h69619533.jpg&#34; alt=&#34;Hamilton Khaki Field Officer Mechanical&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Switching to a dumber smartwatch</title>
       <link>//bulimov.me/post/2024/10/04/dumber-smartwatch/</link>
       <pubDate>Fri, 04 Oct 2024 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2024/10/04/dumber-smartwatch/</guid>
-      <description>It all started when I read a piece from The Verge about a new Casio watch back in July. It described a simple digital watch that only shows time, counts steps and has Bluetooth to export steps data to the phone.&#xA;Now that really caught my attention because I myself was struggling with my Apple Watch for many months (years?) now. The way it negatively affected my mental health and anxiety was clear to me for quite some time, but yet I was not ready to part with the benefits of using it, mainly related to fitness.</description>
+      <description>&lt;p&gt;It all started when I read a &lt;a href=&#34;https://www.theverge.com/24206037/casio-ws-b1000-review-smartwatch-wearable&#34;&gt;piece from The Verge about a new Casio watch&lt;/a&gt; back in July. It described a simple digital watch that only shows time, counts steps and has Bluetooth to export steps data to the phone.&lt;/p&gt;&#xA;&lt;p&gt;Now that really caught my attention because I myself was struggling with my Apple Watch for many months (years?) now. The way it negatively affected my mental health and anxiety was clear to me for quite some time, but yet I was not ready to part with the benefits of using it, mainly related to fitness.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Refreshing my CLI tools setup</title>
       <link>//bulimov.me/post/2024/09/22/refreshing-cli-setup/</link>
       <pubDate>Sun, 22 Sep 2024 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2024/09/22/refreshing-cli-setup/</guid>
-      <description>Recently I decided to get out of my shell (pun intended) and check out the latest and greatest in shells, terminal multiplexers and terminal-based text editors.&#xA;After all, It&amp;rsquo;s been 8 years since I took a fresh look at how I use those invaluable CLI tools.&#xA;I still remember how on one of my first jobs I got so engrossed in the work that for a first month or so I completely neglected setting up my work machine, and worked in a stock Debian shell and terminal, which sure looked like a dog&amp;rsquo;s dinner.</description>
+      <description>&lt;p&gt;Recently I decided to get out of my shell (pun intended) and check out the latest and greatest in shells, terminal multiplexers and terminal-based text editors.&lt;/p&gt;&#xA;&lt;p&gt;After all, It&amp;rsquo;s been 8 years since I took a fresh look at how I use those invaluable CLI tools.&lt;/p&gt;&#xA;&lt;p&gt;I still remember how on one of my first jobs I got so engrossed in the work that for a first month or so I completely neglected setting up my work machine,&#xA;and worked in a stock Debian shell and terminal, which sure looked like a dog&amp;rsquo;s dinner. All with default video driver, so fonts looked appropriately bad.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Busy Adult Gaming</title>
       <link>//bulimov.me/post/2024/08/04/busy-adult-gaming/</link>
       <pubDate>Sun, 04 Aug 2024 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2024/08/04/busy-adult-gaming/</guid>
-      <description>In this note I wanted to capture my thoughts on video games and how I approach this hobby while living a busy adult life.&#xA;The Framework Over the years - I&amp;rsquo;ve been playing video games since the year 2000 - I developed a set of basic criteria that I use to filter potential games.&#xA;They all revolve around one simple concept - A game must respect my time.&#xA;I have a lot to deal with, as all of us do.</description>
+      <description>&lt;p&gt;In this note I wanted to capture my thoughts on video games and how I approach this hobby while living a busy adult life.&lt;/p&gt;&#xA;&lt;h2 id=&#34;the-framework&#34;&gt;The Framework&lt;/h2&gt;&#xA;&lt;p&gt;Over the years - I&amp;rsquo;ve been playing video games since the year 2000 - I developed a set of basic criteria that I use to filter potential games.&lt;/p&gt;&#xA;&lt;p&gt;They all revolve around one simple concept - &lt;strong&gt;A game must respect my time&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;I have a lot to deal with, as all of us do.&#xA;Family, work, &lt;a href=&#34;https://models.bulimov.me&#34;&gt;modelling&lt;/a&gt; - it&amp;rsquo;s not easy to find time for video games. So when I do have time to play a game, I want it to be spent wisely.&lt;/p&gt;</description>
     </item>
     <item>
       <title>11 years of blogging</title>
       <link>//bulimov.me/post/2024/07/31/11-years-of-blogging/</link>
       <pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2024/07/31/11-years-of-blogging/</guid>
-      <description>Wow, time flies. Just realized that this blog turned 11 this summer.&#xA;wc -w tells me that I wrote almost 40k words in 81 posts over those years, not bad at all.&#xA;I managed to post at least once every year since 2013 except for 2019 and 2020 when I was too busy with work.&#xA;For me, writing is a very good exercise. It helps to better shape and express my thoughts, and writing technical things often highlights areas I don’t fully understand.</description>
+      <description>&lt;p&gt;Wow, time flies. Just realized that this blog turned 11 this summer.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;wc -w&lt;/code&gt; tells me that I wrote almost &lt;strong&gt;40k words in 81 posts&lt;/strong&gt; over those years, not bad at all.&lt;/p&gt;&#xA;&lt;p&gt;I managed to post at least once every year since 2013 except for 2019 and 2020 when I was too busy with work.&lt;/p&gt;&#xA;&lt;p&gt;For me, writing is a very good exercise.&#xA;It helps to better shape and express my thoughts, and writing technical things often highlights areas I don’t fully understand.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Fun experiments with Go memory usage</title>
       <link>//bulimov.me/post/2024/01/27/golang-memory/</link>
       <pubDate>Sat, 27 Jan 2024 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2024/01/27/golang-memory/</guid>
-      <description>While working on a big Go program that processes data I began to wonder if our memory usage is adequate for the amount of data we deal with.&#xA;My starting point was this question - If the output of this service is a text file that is only few Gigabytes in size, why does it take significantly more memory to produce this file?&#xA;This lead to a series of experiments which I hope will be interesting for anyone caring about writing efficient code.</description>
+      <description>&lt;p&gt;While working on a big Go program that processes data I began to wonder if our memory usage is adequate for the amount of data we deal with.&lt;/p&gt;&#xA;&lt;p&gt;My starting point was this question - &lt;em&gt;If the output of this service is a text file that is only few Gigabytes in size,&#xA;why does it take significantly more memory to produce this file?&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;This lead to a series of experiments which I hope will be interesting for anyone caring about writing efficient code.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Robot Vacuum Cleaner is an amazing invention</title>
       <link>//bulimov.me/post/2023/08/13/robot-vacuum-amazing/</link>
       <pubDate>Sun, 13 Aug 2023 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2023/08/13/robot-vacuum-amazing/</guid>
-      <description>I have been using a robot vacuum cleaner for exactly one year now, so decided to summarize my thoughts.&#xA;Generally I’m not a fan of all this &amp;lsquo;smart home&amp;rsquo; stuff, definitely very far from being a fanboy by all standards.&#xA;But at the same time I’m a huge fan of automating everything, and thus was always interested in trying a robot vacuum cleaner. If anything, washing machine and a dishwasher already immensely help with other house chores, why not automate cleaning too?</description>
+      <description>&lt;p&gt;I have been using a robot vacuum cleaner for exactly one year now, so decided to summarize my thoughts.&lt;/p&gt;&#xA;&lt;p&gt;Generally I’m not a fan of all this &amp;lsquo;smart home&amp;rsquo; stuff, definitely very far from being a fanboy by all standards.&lt;/p&gt;&#xA;&lt;p&gt;But at the same time I’m a huge fan of automating everything, and thus was always interested in trying a robot vacuum cleaner. If anything, washing machine and a dishwasher already immensely help with other house chores, why not automate cleaning too?&lt;/p&gt;</description>
     </item>
     <item>
       <title>You don’t need a business reason to feel amazing</title>
       <link>//bulimov.me/post/2023/06/18/no-business-reason/</link>
       <pubDate>Sun, 18 Jun 2023 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2023/06/18/no-business-reason/</guid>
-      <description>My colleague Balint recently said this, and I absolutely love this mindset.&#xA;Indeed, sometimes you do your best, and it doesn’t work out for the company. Maybe the project is not bringing the money or impact it was supposed to, maybe the business climate had changed. In any case, I’ve seen plenty of projects or even teams and companies that were shut down despite the most earnest and stellar effort from the people involved.</description>
+      <description>&lt;p&gt;My colleague Balint recently said this, and I absolutely love this mindset.&lt;/p&gt;&#xA;&lt;p&gt;Indeed, sometimes you do your best, and it doesn’t work out for the company. Maybe the project is not bringing the money or impact it was supposed to, maybe the business climate had changed. In any case, I’ve seen plenty of projects or even teams and companies that were shut down despite the most earnest and stellar effort from the people involved.&lt;/p&gt;</description>
     </item>
     <item>
       <title>My Journey to HiFi audio</title>
       <link>//bulimov.me/post/2023/05/01/hifi-audio/</link>
       <pubDate>Mon, 01 May 2023 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2023/05/01/hifi-audio/</guid>
-      <description>This year I upgraded my audio setup, finally bringing it to the quality and convenience level that I&amp;rsquo;m happy with, and this positive change prompted the reminiscence.&#xA;2000 - Humble beginnings Funny enough, my journey to HiFi audio started with no audio. I had a CD-ROM drive in my first PC in 2000, and back then CD-ROM drives had headphone outputs. I used it to play Dark Side of the Moon by Pink Floyd through the cheapest no name earplugs, and was completely floored by it.</description>
+      <description>&lt;p&gt;This year I upgraded my audio setup, finally bringing it to the quality and convenience level that I&amp;rsquo;m happy with, and this positive change prompted the reminiscence.&lt;/p&gt;&#xA;&lt;h2 id=&#34;2000---humble-beginnings&#34;&gt;2000 - Humble beginnings&lt;/h2&gt;&#xA;&lt;p&gt;Funny enough, my journey to HiFi audio started with no audio. I had a CD-ROM drive in my first PC in 2000, and back then CD-ROM drives had headphone outputs. I used it to play &lt;em&gt;Dark Side of the Moon&lt;/em&gt; by Pink Floyd through the cheapest no name earplugs, and was completely floored by it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>A Year With Xbox</title>
       <link>//bulimov.me/post/2022/10/03/year-with-xbox/</link>
       <pubDate>Mon, 03 Oct 2022 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2022/10/03/year-with-xbox/</guid>
-      <description>About a year ago I made a decision not to continue with PlayStation as my main console, and switch to Xbox Series instead. It was a risk, as I have been a reasonably happy PS customer through PS3 and PS4 eras.&#xA;Now, after a year with Xbox Series S I can sum up my experience and compare notes.&#xA;tldr; It is great and I’m very happy with this decision.&#xA;I can safely say that all the hopes I put into switching to Xbox have realized!</description>
+      <description>&lt;p&gt;About a year ago &lt;a href=&#34;//bulimov.me/post/2021/08/07/why-xbox&#34;&gt;I made a decision&lt;/a&gt; not to continue with &lt;strong&gt;PlayStation&lt;/strong&gt; as my main console, and switch to &lt;strong&gt;Xbox Series&lt;/strong&gt; instead. It was a risk, as I have been a reasonably happy PS customer through PS3 and PS4 eras.&lt;/p&gt;&#xA;&lt;p&gt;Now, after a year with &lt;strong&gt;Xbox Series S&lt;/strong&gt; I can sum up my experience and compare notes.&lt;/p&gt;&#xA;&lt;p&gt;tldr; It is great and I’m very happy with this decision.&lt;/p&gt;&#xA;&lt;p&gt;I can safely say that all the hopes I put into switching to Xbox have realized!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Moved to a new domain</title>
       <link>//bulimov.me/post/2022/09/25/moved-to-new-domain/</link>
       <pubDate>Sun, 25 Sep 2022 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2022/09/25/moved-to-new-domain/</guid>
-      <description>This site just moved to a new domain bulimov.me. Long overdue move of course, I bought the new domain years ago&amp;hellip;&#xA;Anyway, the only interesting bit about this is how I&amp;rsquo;m trying to keep the old links alive with a little bit of HTML magic.&#xA;Using a very basic python script I&amp;rsquo;ve created a dedicated Github repo with a directory structure mirroring this site, where each index.html consists of something like this:</description>
+      <description>&lt;p&gt;This site just moved to a new domain bulimov.me.&#xA;Long overdue move of course, I bought the new domain years ago&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;Anyway, the only interesting bit about this is how I&amp;rsquo;m trying to keep the old links&#xA;alive with a little bit of HTML magic.&lt;/p&gt;&#xA;&lt;p&gt;Using a very basic python script I&amp;rsquo;ve created a dedicated Github repo&#xA;with a directory structure mirroring this site,&#xA;where each &lt;code&gt;index.html&lt;/code&gt; consists of something like this:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Code-like linting for prose</title>
       <link>//bulimov.me/post/2022/01/16/prose-lint/</link>
       <pubDate>Sun, 16 Jan 2022 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2022/01/16/prose-lint/</guid>
-      <description>I&amp;rsquo;m a big fan of static analysis and linting for code.&#xA;If a computer can do it automatically - why rely on humans to do the same thing?&#xA;That&amp;rsquo;s one of the reasons why I&amp;rsquo;m such a big proponent of static typing.&#xA;I try to bring linting everywhere:&#xA;When I had to deal with huge and complex HAProxy configs - I wrote a linter myself. When later at different place I had to deal with complicated business logic expressed as a state machine - I used Python AST to write a linter for it, and analyze cycles, dead ends and complexity.</description>
+      <description>&lt;p&gt;I&amp;rsquo;m a big fan of static analysis and linting for code.&lt;/p&gt;&#xA;&lt;p&gt;If a computer can do it automatically - why rely on humans to do the same thing?&lt;/p&gt;&#xA;&lt;p&gt;That&amp;rsquo;s one of the reasons why I&amp;rsquo;m such a big proponent of static typing.&lt;/p&gt;&#xA;&lt;p&gt;I try to bring linting everywhere:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;When I had to deal with huge and complex&#xA;HAProxy configs  - I &lt;a href=&#34;https://github.com/abulimov/HAProxy-lint&#34;&gt;wrote a linter&lt;/a&gt; myself.&lt;/li&gt;&#xA;&lt;li&gt;When later at different place I had to deal with complicated business logic expressed&#xA;as a state machine - I used Python AST to write a linter for it, and analyze cycles, dead ends and complexity.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;And of course I use existing open-source linters whenever possible.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Snooping on unix domain sockets traffic</title>
       <link>//bulimov.me/post/2021/12/02/unix-socket-snoop/</link>
       <pubDate>Thu, 02 Dec 2021 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2021/12/02/unix-socket-snoop/</guid>
-      <description>I often work with various binary protocol, with majority of work being implementing those protocols in Go or Rust.&#xA;And when dealing with such tasks, I find it extremely useful to be able to snoop on the traffic between existing/reference implementations.&#xA;When communication happens over network (even locally), it&amp;rsquo;s easy - just fire up some good old tcpdump and then maybe analyze the dump with Wireshark.&#xA;But what if communication happens over the Unix domain sockets?</description>
+      <description>&lt;p&gt;I often work with various binary protocol, with majority of work being implementing those protocols in Go or Rust.&lt;/p&gt;&#xA;&lt;p&gt;And when dealing with such tasks, I find it extremely useful to be able to snoop on&#xA;the traffic between existing/reference implementations.&lt;/p&gt;&#xA;&lt;p&gt;When communication happens over network (even locally), it&amp;rsquo;s easy - just fire up some&#xA;good old &lt;code&gt;tcpdump&lt;/code&gt; and then maybe analyze the dump with Wireshark.&lt;/p&gt;&#xA;&lt;p&gt;But what if communication happens over the &lt;a href=&#34;https://man7.org/linux/man-pages/man7/unix.7.html&#34;&gt;Unix domain sockets&lt;/a&gt;?&lt;/p&gt;</description>
     </item>
     <item>
       <title>Why I’m picking Xbox for new generation</title>
       <link>//bulimov.me/post/2021/08/07/why-xbox/</link>
       <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2021/08/07/why-xbox/</guid>
-      <description>Disclaimer: this is not an objective comparison, it&amp;rsquo;s my personal, extremely subjective choice.&#xA;Here is why I’m not buying PS5, despite having PS3 since 2010 and PS4 since 2014.&#xA;And no, it’s not because it too hard to get now :-)&#xA;The main reason is simple: For me, PS5 brings no excitement. Now let me explain why.&#xA;PS3 to PS4 transition was already kinda boring. I was quite ok with graphics level PS3 provided, and the main improvement that PS4 borough for me was normal digital store (where you don’t have to download patches after you just downloaded full game), and a slightly better controller (albeit with worse battery life).</description>
+      <description>&lt;p&gt;&lt;em&gt;Disclaimer: this is not an objective comparison, it&amp;rsquo;s my personal, extremely subjective choice.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Here is why I’m not buying PS5, despite having PS3 since 2010 and PS4 since 2014.&lt;/p&gt;&#xA;&lt;p&gt;And no, it’s not because it too hard to get now :-)&lt;/p&gt;&#xA;&lt;p&gt;The main reason is simple:&#xA;&lt;strong&gt;For me, PS5 brings no excitement.&lt;/strong&gt; Now let me explain why.&lt;/p&gt;&#xA;&lt;p&gt;PS3 to PS4 transition was already kinda boring. I was quite ok with graphics level PS3 provided, and the main improvement that PS4 borough for me was normal digital store (where you don’t have to download patches after you just downloaded full game), and a slightly better controller (albeit with worse battery life).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Published all my mini-review scores</title>
       <link>//bulimov.me/post/2021/05/23/my-reviews/</link>
       <pubDate>Sun, 23 May 2021 20:27:52 +0100</pubDate>
       <guid>//bulimov.me/post/2021/05/23/my-reviews/</guid>
-      <description>Thanks to the fact that I migrated from Evernote to Joplin all my notes are now stored in Dropbox as Markdown files.&#xA;This allowed me to quickly create a dumb script to extract my scores for each item I reviewed over the years, and put them in a table.&#xA;Now it&amp;rsquo;s all available here on Reviews page.&#xA;Maybe I&amp;rsquo;ll add the actual mini-reviews as well some day, it&amp;rsquo;s just that it will require more effort from me to proof-read and clean them up.</description>
+      <description>&lt;p&gt;Thanks to the fact that I &lt;a href=&#34;//bulimov.me/post/2021/05/23/taking-notes/&#34;&gt;migrated from Evernote to Joplin&lt;/a&gt;&#xA;all my notes are now stored in Dropbox as Markdown files.&lt;/p&gt;&#xA;&lt;p&gt;This allowed me to quickly create a dumb script to extract my scores for each item I reviewed over the years,&#xA;and put them in a table.&lt;/p&gt;&#xA;&lt;p&gt;Now it&amp;rsquo;s all available here on &lt;a href=&#34;//bulimov.me/reviews/&#34;&gt;Reviews&lt;/a&gt; page.&lt;/p&gt;&#xA;&lt;p&gt;Maybe I&amp;rsquo;ll add the actual mini-reviews as well some day, it&amp;rsquo;s just that it will require more effort from me to&#xA;proof-read and clean them up.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Taking Notes</title>
       <link>//bulimov.me/post/2021/05/23/taking-notes/</link>
       <pubDate>Sun, 23 May 2021 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2021/05/23/taking-notes/</guid>
-      <description>In the days of yore it was common for people to keep a diary. I myself was always a fan of this idea, but could never actually get started with it.&#xA;My handwriting is absolutely terrible, to the point that I can&amp;rsquo;t decipher my own notes, which rules out writing diary in an old-fashioned way. And all diary-like mobile apps seem to add too much friction.&#xA;I kinda solved this for my needs few years ago by writing an simple app that allows me to quickly collect each day stats and activities in under 1 minute, but that&amp;rsquo;s not the topic of this post, I&amp;rsquo;ll write about it someday later.</description>
+      <description>&lt;p&gt;In the &lt;em&gt;days of yore&lt;/em&gt; it was common for people to keep a diary.&#xA;I myself was always a fan of this idea, but could never actually get started with it.&lt;/p&gt;&#xA;&lt;p&gt;My handwriting is absolutely terrible, to the point that I can&amp;rsquo;t decipher my own notes,&#xA;which rules out writing diary in an old-fashioned way.&#xA;And all diary-like mobile apps seem to add too much friction.&lt;/p&gt;&#xA;&lt;p&gt;I kinda solved this for my needs few years ago by writing an simple app that allows me to quickly collect each day stats and activities in under 1 minute,&#xA;but that&amp;rsquo;s not the topic of this post, I&amp;rsquo;ll write about it someday later.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Python is not good for production</title>
       <link>//bulimov.me/post/2021/03/13/python-rewrite/</link>
       <pubDate>Sat, 13 Mar 2021 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2021/03/13/python-rewrite/</guid>
-      <description>Here, I said it.&#xA;Recently I read an excellent (opinionated) post by rachelbythebay describing things she cannot stand in programming language, and it resonated deeply with me and finally pushed me to write this.&#xA;I feel quite strongly about using Python in production, and below I&amp;rsquo;ll summarize my experience and opinion.&#xA;Everyone is entitled to their own opinion, this is mine.&#xA;I&amp;rsquo;m not trying to offend anyone, so if you love Python - maybe try to see my side of things.</description>
+      <description>&lt;p&gt;Here, I said it.&lt;/p&gt;&#xA;&lt;p&gt;Recently I read an excellent (opinionated) &lt;a href=&#34;http://rachelbythebay.com/w/2021/02/22/lang/&#34;&gt;post by rachelbythebay&lt;/a&gt; describing&#xA;things she cannot stand in programming language, and it resonated deeply with me and finally pushed me to write this.&lt;/p&gt;&#xA;&lt;p&gt;I feel quite strongly about using Python in production, and below I&amp;rsquo;ll summarize my experience and opinion.&lt;/p&gt;&#xA;&lt;p&gt;Everyone is entitled to their own opinion, this is mine.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;m not trying to offend anyone, so if you love Python - maybe try to see my side of things.&lt;/p&gt;</description>
     </item>
     <item>
       <title>My split keyboards</title>
       <link>//bulimov.me/post/2021/02/20/split-keyboards/</link>
       <pubDate>Sat, 20 Feb 2021 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2021/02/20/split-keyboards/</guid>
-      <description>Intro Thanks to RSI I&amp;rsquo;m quite literally forced to use ergonomic equipment.&#xA;It&amp;rsquo;s not too bad, and I can use laptop&amp;rsquo;s keyboard and touchpad for few hours a day without much discomfort, but if I do it for a couple of full working days I get nasty pain in my wrists and fingers.&#xA;How it all started Many years ago (I believe it was 2014) when I first started to have those symptoms I did a research which lead me to using Microsoft Natural Ergonomic Keyboard 4000, helpfully provided by a colleague of mine.</description>
+      <description>&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;&#xA;&lt;p&gt;Thanks to &lt;a href=&#34;https://en.wikipedia.org/wiki/Repetitive_strain_injury&#34;&gt;RSI&lt;/a&gt; I&amp;rsquo;m quite literally forced to use ergonomic equipment.&lt;/p&gt;&#xA;&lt;p&gt;It&amp;rsquo;s not too bad, and I can use laptop&amp;rsquo;s keyboard and touchpad for few hours a day without much discomfort,&#xA;but if I do it for a couple of full working days I get nasty pain in my wrists and fingers.&lt;/p&gt;&#xA;&lt;h2 id=&#34;how-it-all-started&#34;&gt;How it all started&lt;/h2&gt;&#xA;&lt;p&gt;Many years ago (I believe it was 2014) when I first started to have those symptoms I did a research which lead me to using&#xA;&lt;strong&gt;Microsoft Natural Ergonomic Keyboard 4000&lt;/strong&gt;, helpfully provided by a colleague of mine.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Moving from Pelican to Hugo for this blog</title>
       <link>//bulimov.me/post/2021/02/16/pelical-to-hugo/</link>
       <pubDate>Tue, 16 Feb 2021 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2021/02/16/pelical-to-hugo/</guid>
-      <description>Since I no longer enjoy working with Python in any shape or form, it was only a matter of time (mostly a matter of my free time) for this to happen. I&amp;rsquo;ve migrated this blog from Pelican static site generator (written in Python) to Hugo (written in Go).&#xA;It by no means reflects on Pelican as a piece of software (it&amp;rsquo;s actually pretty good). It&amp;rsquo;s more about my disdain for Python, and awesome experience I had with Hugo and Go language in general.</description>
+      <description>&lt;p&gt;Since I no longer enjoy working with Python in any shape or form, it was only a matter of time (mostly a matter of &lt;em&gt;my free time&lt;/em&gt;)&#xA;for this to happen. I&amp;rsquo;ve migrated this blog from Pelican static site generator (written in Python) to Hugo (written in Go).&lt;/p&gt;&#xA;&lt;p&gt;It by no means reflects on Pelican as a piece of software (it&amp;rsquo;s actually pretty good).&#xA;It&amp;rsquo;s more about my disdain for Python, and awesome experience I had with Hugo and Go language in general.&lt;/p&gt;</description>
     </item>
     <item>
       <title>My new Scale Models gallery</title>
       <link>//bulimov.me/personal/models-gallery/</link>
       <pubDate>Thu, 01 Feb 2018 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/personal/models-gallery/</guid>
-      <description>I&amp;rsquo;ve just published my new site - personal Scale Models Gallery.&#xA;Model making is my main and favorite hobby, so I&amp;rsquo;ve decided to build a whole new site just to write about it.&#xA;I just love doing something without the computer, it&amp;rsquo;s an awesome way to de-stress and detox.&#xA;Also I love to make notes about things I do, read, watch or play. And one day I&amp;rsquo;ve just realized that I want to turn my notes about making scale models with all this wip photos and comments about quality or tools into something bigger.</description>
+      <description>&lt;p&gt;I&amp;rsquo;ve just published my new site - personal &lt;a href=&#34;//models.bulimov.me&#34;&gt;Scale Models Gallery&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Model_building&#34;&gt;Model making&lt;/a&gt; is my main and favorite hobby, so I&amp;rsquo;ve decided to build a whole new site just to write about it.&lt;/p&gt;&#xA;&lt;p&gt;I just love doing something without the computer, it&amp;rsquo;s an awesome way to de-stress and detox.&lt;/p&gt;&#xA;&lt;p&gt;Also I love to make notes about things I do, read, watch or play. And one day I&amp;rsquo;ve just realized that I want to turn&#xA;my notes about making scale models with all this &lt;em&gt;wip&lt;/em&gt; photos and comments about quality or tools into something bigger.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Benefits of upgradable laptops</title>
       <link>//bulimov.me/personal/laptop-upgrade/</link>
       <pubDate>Wed, 31 Jan 2018 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/personal/laptop-upgrade/</guid>
-      <description>I&amp;rsquo;ve been concerned by a low amount of memory in my Asus UX310U laptop for quite a long time, but as I used it quite lightly at home, it never became a problem. It has perfectly capable Intel i3-6100U CPU, nice FullHD screen, 5h+ of battery life, so it made no sense to change the laptop just because of RAM.&#xA;Obviously 4Gb of RAM is kind of low by modern standards, but when I bought it I wasn&amp;rsquo;t planning to use anything resource-heavy like IDE at home, just terminal and browser.</description>
+      <description>&lt;p&gt;I&amp;rsquo;ve been concerned by a low amount of memory in my &lt;strong&gt;Asus UX310U&lt;/strong&gt; laptop for quite a long time,&#xA;but as I used it quite lightly at home, it never became a problem. It has perfectly capable Intel i3-6100U CPU,&#xA;nice FullHD screen, 5h+ of battery life, so it made no sense to change the laptop just because of RAM.&lt;/p&gt;&#xA;&lt;p&gt;Obviously 4Gb of RAM is kind of low by modern standards, but when I bought it I wasn&amp;rsquo;t planning to use anything resource-heavy like IDE at home, just terminal and browser.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Python 3.6 f-strings rant</title>
       <link>//bulimov.me/it/python3-fstrings/</link>
       <pubDate>Mon, 24 Jul 2017 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/it/python3-fstrings/</guid>
-      <description>Python 3.6 introduced a new way to format strings, called Formatted string literals, or just f-strings. Everyone on the internet seem to be happy about it. I&amp;rsquo;m definitely not.&#xA;For starters, Python 3 already had 3 built-in ways of doing it before. Just think about it&amp;hellip; 3 ways to format strings in language that declares simplicity as a goal:&#xA;There should be one&amp;ndash; and preferably only one &amp;ndash;obvious way to do it.</description>
+      <description>&lt;p&gt;Python 3.6 introduced a new way to format strings, called&#xA;&lt;a href=&#34;https://docs.python.org/3.6/reference/lexical_analysis.html#f-strings&#34;&gt;&lt;strong&gt;Formatted string literals&lt;/strong&gt;&lt;/a&gt;,&#xA;or just &lt;em&gt;f-strings&lt;/em&gt;. Everyone on the internet&#xA;seem to be happy about it. I&amp;rsquo;m definitely not.&lt;/p&gt;&#xA;&lt;p&gt;For starters, Python 3 already had 3 built-in ways of doing it before.&#xA;Just think about it&amp;hellip; 3 ways to &lt;em&gt;format strings&lt;/em&gt; in language that declares simplicity as a goal:&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;There should be one&amp;ndash; and preferably only one &amp;ndash;obvious way to do it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Refreshing slow internet experience</title>
       <link>//bulimov.me/it/slow-internet/</link>
       <pubDate>Sun, 23 Jul 2017 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/it/slow-internet/</guid>
-      <description>I&amp;rsquo;ve just returned from a vacation, and I&amp;rsquo;ve got quite refreshing experience of using slow internet there.&#xA;The thing is, we, as engineers, are used to fast internet, fast development environment, powerful laptops/smartphones, etc.&#xA;Unfortunately this is still not the case of a huge part of the world, and it&amp;rsquo;s really important for us to try and walk in their shoes from time to time. And one of my colleagues, being fed up with resource-wise inefficiency of modern software, suggested as a joke to use Raspberry Pi as a dev environment.</description>
+      <description>&lt;p&gt;I&amp;rsquo;ve just returned from a vacation, and I&amp;rsquo;ve got quite refreshing experience&#xA;of using slow internet there.&lt;/p&gt;&#xA;&lt;p&gt;The thing is, we, as engineers, are used to fast internet, fast development environment, powerful laptops/smartphones, etc.&lt;/p&gt;&#xA;&lt;p&gt;Unfortunately this is still not the case of a huge part of the world,&#xA;and it&amp;rsquo;s really important for us to try and walk in their shoes&#xA;from time to time. And one of my colleagues, being fed up with resource-wise inefficiency of modern software, suggested as a joke to use Raspberry Pi as a dev environment.&lt;/p&gt;</description>
     </item>
     <item>
       <title>What I read on the internet (2017 edition)</title>
       <link>//bulimov.me/personal/what-i-read-2017/</link>
       <pubDate>Thu, 01 Jun 2017 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/personal/what-i-read-2017/</guid>
-      <description>About a year ago I was asked in comments what do I read on the internet. Back then, the list consisted from blogs of open-source products I&amp;rsquo;ve been using (like Atom, Elasticsearch, Icinga, Grafana), some personal blogs (Lennart Poettering, Aphyr, Julia Evans), some company blogs (Github Engineering) and basic tech press (Ars Technica, The Verge, Phoronix, LWN). And two mail lists - DevOps Weekly and Golang Weekly.&#xA;Now I&amp;rsquo;ve been asked if something have changed.</description>
+      <description>&lt;p&gt;About a year ago I was asked in comments what do I read on the internet.&#xA;Back then, the list consisted from blogs of open-source products I&amp;rsquo;ve been using (like Atom, Elasticsearch, Icinga, Grafana), some personal blogs (Lennart Poettering, Aphyr, Julia Evans), some company blogs (Github Engineering) and basic tech press (Ars Technica, The Verge, Phoronix, LWN). And two mail lists - DevOps Weekly and Golang Weekly.&lt;/p&gt;&#xA;&lt;p&gt;Now I&amp;rsquo;ve been asked if something have changed.&lt;/p&gt;</description>
     </item>
     <item>
       <title>How I became a programmer</title>
       <link>//bulimov.me/personal/how-i-became-a-programmer/</link>
       <pubDate>Fri, 30 Sep 2016 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/personal/how-i-became-a-programmer/</guid>
-      <description>After reading a lot of blog posts about becoming a programmer recently, I&amp;rsquo;ve decided to write my own.&#xA;It will be a bit different because of two factors:&#xA;I&amp;rsquo;m not a Software Engineer, but a Production Engineer/SRE/Admin; I&amp;rsquo;m from Russia, where CS education is vastly different. School years School in Russia is 10 or 11 years and you start at the age of ~7 and end it at ~17&#xA;As far as I recall, my first programming experience was with LogoWriter in elementary school.</description>
+      <description>&lt;p&gt;After reading a lot of blog posts about becoming a programmer recently, I&amp;rsquo;ve decided to write my own.&lt;/p&gt;&#xA;&lt;p&gt;It will be a bit different because of two factors:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;I&amp;rsquo;m not a Software Engineer, but a Production Engineer/SRE/Admin;&lt;/li&gt;&#xA;&lt;li&gt;I&amp;rsquo;m from Russia, where CS education is vastly different.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;school-years&#34;&gt;School years&lt;/h2&gt;&#xA;&lt;p&gt;&lt;em&gt;School in Russia is 10 or 11 years and you start at the age of ~7  and end it at ~17&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;As far as I recall, my first programming experience was with&#xA;&lt;a href=&#34;https://en.wikipedia.org/wiki/Logo_(programming_language)&#34;&gt;LogoWriter&lt;/a&gt; in elementary school.&#xA;I wasn&amp;rsquo;t bad at it, and even enjoyed it a lot, but our LogoWriter course ended quite fast,&#xA;and since then I can&amp;rsquo;t remember anything useful related to programming in my school courses.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Board games are awesome</title>
       <link>//bulimov.me/personal/boardgames-love/</link>
       <pubDate>Wed, 31 Aug 2016 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/personal/boardgames-love/</guid>
-      <description>I&amp;rsquo;s been awhile since I wrote anything in my blog, mostly because I was moving to Ireland and was busy at my new job at Big Company™.&#xA;So as I can&amp;rsquo;t write about all the cool technical things we have there, I&amp;rsquo;ll try to make this blog less tech-savvy and more personal and fun.&#xA;As a normal IT person I spend whole working day staring at the computer&amp;rsquo;s screen. While I love my job and all the high-tech stuff, I feel a great demand of something more physical.</description>
+      <description>&lt;p&gt;&lt;em&gt;I&amp;rsquo;s been awhile since I wrote anything in my blog, mostly because&#xA;I was moving to Ireland and was busy at my new job at Big Company™.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;So as I can&amp;rsquo;t write about all the cool technical things we have there,&#xA;I&amp;rsquo;ll try to make this blog less tech-savvy and more personal and fun.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;As a normal IT person I spend whole working day staring at the computer&amp;rsquo;s&#xA;screen. While I love my job and all the high-tech stuff, I feel a great demand of&#xA;something more physical.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Notes about type systems in popular languages</title>
       <link>//bulimov.me/it/more-typing/</link>
       <pubDate>Thu, 09 Jun 2016 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/it/more-typing/</guid>
-      <description>I&amp;rsquo;ve been kind of out of my comfort zone last 3 weeks, and was trying to use as many new languages and technologies as possible.&#xA;I&amp;rsquo;ve used C++, JavaScript, React, PHP and Hack to name a few, and I&amp;rsquo;ve noticed really cool thing - many popular programming languages are moving towards mixing best of static and dynamic typing.&#xA;C++ (statically typed language) now has auto keyword, specifying that compiler should deduce type of variable or return type of function automatically; JavaScript has Flow - static type checker from Facebook, and there is TypeScript from Microsoft which compiles to JS; PHP has type hints since version 5, and they are greatly improved in PHP7; Hack has even more advanced type annotations than PHP; Python added type hints in 3.</description>
+      <description>&lt;p&gt;I&amp;rsquo;ve been kind of out of my comfort zone last 3 weeks,&#xA;and was trying to use as many new languages and technologies as possible.&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve used C++, JavaScript, React, PHP and &lt;a href=&#34;http://hacklang.org&#34;&gt;Hack&lt;/a&gt; to name a few,&#xA;and I&amp;rsquo;ve noticed really cool thing - many popular programming&#xA;languages are moving towards mixing best of static and dynamic typing.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;C++ (statically typed language) now has &lt;code&gt;auto&lt;/code&gt; keyword, specifying that compiler&#xA;should deduce type of variable or return type of function automatically;&lt;/li&gt;&#xA;&lt;li&gt;JavaScript has &lt;a href=&#34;https://flowtype.org&#34;&gt;Flow&lt;/a&gt; - static type checker from Facebook,&#xA;and there is &lt;a href=&#34;https://www.typescriptlang.org&#34;&gt;TypeScript&lt;/a&gt; from Microsoft which compiles to JS;&lt;/li&gt;&#xA;&lt;li&gt;PHP has type hints since version 5, and they are greatly improved in PHP7;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;http://hacklang.org&#34;&gt;Hack&lt;/a&gt; has even more advanced type annotations than PHP;&lt;/li&gt;&#xA;&lt;li&gt;Python added type hints in 3.5, which recently &lt;a href=&#34;//bulimov.me/it/python-typing&#34;&gt;made me very excited&lt;/a&gt;.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;And it looks like all big companies are using this stuff extensively!&#xA;Isn&amp;rsquo;t it awesome? After mainly using &lt;a href=&#34;http://golang.org&#34;&gt;Go&lt;/a&gt; for last year,&#xA;I&amp;rsquo;m super excited seeing how dynamically typed languages become safer&#xA;with type hints, and how C++ brings convenience and ease of dynamic typing to its users.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Python Type Hints are awesome</title>
       <link>//bulimov.me/it/python-typing/</link>
       <pubDate>Thu, 12 May 2016 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/it/python-typing/</guid>
-      <description>I really love Julia Evans&amp;rsquo;s blog, she writes with such excitement and enthusiasm about every new bit of technology she learns. For me, this is what makes our job so great - we can learn something new and cool almost every day.&#xA;And recently I&amp;rsquo;ve felt very excited with some of new abilities Python now have. I&amp;rsquo;m talking about including of PEP 484, which describes Type Hints, in Python 3.5 (old news, I know).</description>
+      <description>&lt;p&gt;I really love &lt;a href=&#34;http://jvns.ca&#34;&gt;Julia Evans&amp;rsquo;s blog&lt;/a&gt;, she writes with such excitement&#xA;and enthusiasm about every new bit of technology she learns. For me, this is what&#xA;makes our job so great - we can learn something new and cool almost every day.&lt;/p&gt;&#xA;&lt;p&gt;And recently I&amp;rsquo;ve felt very excited with some of new abilities Python&#xA;now have. I&amp;rsquo;m talking about including of &lt;a href=&#34;https://www.python.org/dev/peps/pep-0484/&#34;&gt;PEP 484&lt;/a&gt;,&#xA;which describes Type Hints, in Python 3.5 (old news, I know).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Moving from Fish shell to zsh</title>
       <link>//bulimov.me/it/fish-zsh/</link>
       <pubDate>Fri, 06 May 2016 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/it/fish-zsh/</guid>
-      <description>I&amp;rsquo;ve been using Fish shell as my daily driver for more than 2 years. I don&amp;rsquo;t want to insult Fish - this awesome shell provided me with wonderful out-of-the-box experience, introduced me to autosuggestions, and required almost no configuration.&#xA;But now, after 2 years of heavy usage, I&amp;rsquo;ve dropped it in favor of zsh.&#xA;The main reason for the switch is simple - Fish shell is not POSIX-compatible. And while many people keep repeating &amp;ldquo;If you don&amp;rsquo;t write shell scripts in Fish, why should you care about POSIX-compatibility?</description>
+      <description>&lt;p&gt;I&amp;rsquo;ve been using &lt;a href=&#34;http://fishshell.com&#34;&gt;Fish shell&lt;/a&gt; as my daily driver for&#xA;more than 2 years. I don&amp;rsquo;t want to insult Fish - this awesome shell provided me&#xA;with wonderful out-of-the-box experience, introduced me to autosuggestions,&#xA;and required almost no configuration.&lt;/p&gt;&#xA;&lt;p&gt;But now, after 2 years of heavy usage, I&amp;rsquo;ve dropped it in favor of &lt;a href=&#34;https://en.wikipedia.org/wiki/Z_shell&#34;&gt;zsh&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The main reason for the switch is simple - Fish shell is not POSIX-compatible.&#xA;And while many people keep repeating &amp;ldquo;If you don&amp;rsquo;t write shell scripts in Fish,&#xA;why should you care about POSIX-compatibility?&amp;rdquo; like some sort of mantra,&#xA;in fact you&amp;rsquo;ll face this non-compatibility very often, and in very&#xA;frustrating way.&lt;/p&gt;</description>
     </item>
     <item>
       <title>About Me</title>
       <link>//bulimov.me/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/about/</guid>
-      <description>$ whoami Alexander Bulimov, Production Engineer/Scale Modeller $ cowsay &amp;lt; about.txt _________________________________________ / In IT since 2010. \ | | | Worked on both ends of the spectrum, | | from tiny startups to FAANG. | | | | * Built infrastructure from the ground | | up for 3 startups using only | | open-source software | | * Worked on ancient services with | | legacy codebase, refactored and | | elevated them to modern standards | | * Wrote plenty of distributed services | | * Fluent in Go and Python | \ / ----------------------------------------- \ ^__^ \ (oo)\_______ (__)\ )\/\ ||----w | || || </description>
-    </item>
-    <item>
-      <title>Everything else</title>
-      <link>//bulimov.me/etc/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//bulimov.me/etc/</guid>
-      <description>Reviews I&amp;rsquo;m writing my mini-reviews for games, books and music since 2013, just for fun. The reviews are not published (yet?), but the scores are.&#xA;Video Games Books Music Lists Lists are fun, and help me to keep things organized.&#xA;Keyboards Video Game Consoles Headphones </description>
+      <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ whoami&#xA;Alexander Bulimov, Production Engineer/Scale Modeller&#xA;&#xA;$ cowsay &amp;lt; about.txt&#xA; _________________________________________&#xA;/ In IT since 2010.                       \&#xA;|                                         |&#xA;| Worked on both ends of the spectrum,    | &#xA;| from tiny startups to FAANG.            |&#xA;|                                         |&#xA;| * Built infrastructure from the ground  |&#xA;|   up for 3 startups using only          | &#xA;|   open-source software                  |&#xA;| * Worked on ancient services with       |&#xA;|   legacy codebase, refactored and       |&#xA;|   elevated them to modern standards     |&#xA;| * Wrote plenty of distributed services  |&#xA;| * Fluent in Go and Python               |&#xA;\                                         /&#xA; -----------------------------------------&#xA;       \   ^__^&#xA;        \  (oo)\_______&#xA;           (__)\       )\/\&#xA;               ||----w |&#xA;               ||     ||&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
     </item>
     <item>
       <title>Reviews</title>
       <link>//bulimov.me/reviews/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/reviews/</guid>
-      <description>I&amp;rsquo;m writing my mini-reviews for games, books and music since 2013, just for fun. The reviews are not published (yet?), but the scores are.&#xA;Here you can find my review scores for:&#xA;Video Games Books Music </description>
+      <description>&lt;p&gt;I&amp;rsquo;m &lt;a href=&#34;//bulimov.me/post/2021/05/23/taking-notes/&#34;&gt;writing my mini-reviews&lt;/a&gt; for games, books and music since 2013, just for fun.&#xA;The reviews are not published (yet?), but the scores are.&lt;/p&gt;&#xA;&lt;p&gt;Here you can find my review scores for:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/reviews/video-games&#34;&gt;Video Games&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/reviews/books&#34;&gt;Books&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/reviews/music&#34;&gt;Music&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>
 </rss>

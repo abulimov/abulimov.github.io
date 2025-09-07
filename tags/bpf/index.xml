@@ -13,7 +13,7 @@
       <link>//bulimov.me/post/2021/12/02/unix-socket-snoop/</link>
       <pubDate>Thu, 02 Dec 2021 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2021/12/02/unix-socket-snoop/</guid>
-      <description>I often work with various binary protocol, with majority of work being implementing those protocols in Go or Rust.&#xA;And when dealing with such tasks, I find it extremely useful to be able to snoop on the traffic between existing/reference implementations.&#xA;When communication happens over network (even locally), it&amp;rsquo;s easy - just fire up some good old tcpdump and then maybe analyze the dump with Wireshark.&#xA;But what if communication happens over the Unix domain sockets?</description>
+      <description>&lt;p&gt;I often work with various binary protocol, with majority of work being implementing those protocols in Go or Rust.&lt;/p&gt;&#xA;&lt;p&gt;And when dealing with such tasks, I find it extremely useful to be able to snoop on&#xA;the traffic between existing/reference implementations.&lt;/p&gt;&#xA;&lt;p&gt;When communication happens over network (even locally), it&amp;rsquo;s easy - just fire up some&#xA;good old &lt;code&gt;tcpdump&lt;/code&gt; and then maybe analyze the dump with Wireshark.&lt;/p&gt;&#xA;&lt;p&gt;But what if communication happens over the &lt;a href=&#34;https://man7.org/linux/man-pages/man7/unix.7.html&#34;&gt;Unix domain sockets&lt;/a&gt;?&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

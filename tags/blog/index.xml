@@ -6,35 +6,42 @@
     <description>Recent content in Blog on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 11 May 2025 16:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 07 Sep 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="//bulimov.me/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Revamped reviews section &#43; a little retrospective</title>
+      <link>//bulimov.me/post/2025/09/07/better-reviews-and-retrospective/</link>
+      <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/post/2025/09/07/better-reviews-and-retrospective/</guid>
+      <description>&lt;h2 id=&#34;better-reviews-section&#34;&gt;Better reviews section&lt;/h2&gt;&#xA;&lt;p&gt;When I added the &lt;a href=&#34;//bulimov.me/reviews&#34;&gt;reviews&lt;/a&gt; section &lt;a href=&#34;//bulimov.me/post/2021/05/23/my-reviews/&#34;&gt;back in 2021&lt;/a&gt;,&#xA;it was somewhat readable, if a bit messy.&lt;/p&gt;&#xA;&lt;p&gt;Four years after, with the addition of 4 * 3 new tables (one per year per category),&#xA;it became completely unusable.&lt;/p&gt;&#xA;&lt;p&gt;Thankfully the content of that page was always generated programmatically, so all it took&#xA;to make it better was a bit of Python followed by re-generation of the page.&lt;/p&gt;&#xA;&lt;p&gt;Main change is that I split each category (&lt;a href=&#34;//bulimov.me/reviews/video-games/&#34;&gt;Video Games&lt;/a&gt;, &lt;a href=&#34;//bulimov.me/reviews/music/&#34;&gt;Music&lt;/a&gt; and &lt;a href=&#34;//bulimov.me/reviews/books/&#34;&gt;Books&lt;/a&gt; into a&#xA;dedicated page, and turned the information for each year into a separate table.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Added Dark Mode support</title>
       <link>//bulimov.me/post/2025/05/11/blog-dark-mode/</link>
       <pubDate>Sun, 11 May 2025 16:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2025/05/11/blog-dark-mode/</guid>
-      <description>Now this blog supports Dark Mode, if the browser has it set as preferred.&#xA;I myself switched to using Dark Mode on some of my devices, but only recently noticed that my very own blog didn&amp;rsquo;t have the support for it.&#xA;Thankfully adding it was super easy, and I didn&amp;rsquo;t need to go much further than this blog&amp;rsquo;s theme Issues on Github.&#xA;The author of this lovely xmin theme provided an answer in the issue #67:</description>
+      <description>&lt;p&gt;Now this blog supports Dark Mode, if the browser has it set as preferred.&lt;/p&gt;&#xA;&lt;p&gt;I myself switched to using Dark Mode on some of my devices, but only recently noticed that my very own blog didn&amp;rsquo;t have the support for it.&lt;/p&gt;&#xA;&lt;p&gt;Thankfully adding it was super easy, and I didn&amp;rsquo;t need to go much further than this blog&amp;rsquo;s theme Issues on Github.&lt;/p&gt;&#xA;&lt;p&gt;The author of this lovely &lt;a href=&#34;https://github.com/yihui/hugo-xmin&#34;&gt;&lt;code&gt;xmin&lt;/code&gt;&lt;/a&gt; theme provided an answer in the &lt;a href=&#34;https://github.com/yihui/hugo-xmin/issues/67&#34;&gt;issue #67&lt;/a&gt;:&lt;/p&gt;</description>
     </item>
     <item>
       <title>11 years of blogging</title>
       <link>//bulimov.me/post/2024/07/31/11-years-of-blogging/</link>
       <pubDate>Wed, 31 Jul 2024 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2024/07/31/11-years-of-blogging/</guid>
-      <description>Wow, time flies. Just realized that this blog turned 11 this summer.&#xA;wc -w tells me that I wrote almost 40k words in 81 posts over those years, not bad at all.&#xA;I managed to post at least once every year since 2013 except for 2019 and 2020 when I was too busy with work.&#xA;For me, writing is a very good exercise. It helps to better shape and express my thoughts, and writing technical things often highlights areas I don’t fully understand.</description>
+      <description>&lt;p&gt;Wow, time flies. Just realized that this blog turned 11 this summer.&lt;/p&gt;&#xA;&lt;p&gt;&lt;code&gt;wc -w&lt;/code&gt; tells me that I wrote almost &lt;strong&gt;40k words in 81 posts&lt;/strong&gt; over those years, not bad at all.&lt;/p&gt;&#xA;&lt;p&gt;I managed to post at least once every year since 2013 except for 2019 and 2020 when I was too busy with work.&lt;/p&gt;&#xA;&lt;p&gt;For me, writing is a very good exercise.&#xA;It helps to better shape and express my thoughts, and writing technical things often highlights areas I don’t fully understand.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Moved to a new domain</title>
       <link>//bulimov.me/post/2022/09/25/moved-to-new-domain/</link>
       <pubDate>Sun, 25 Sep 2022 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2022/09/25/moved-to-new-domain/</guid>
-      <description>This site just moved to a new domain bulimov.me. Long overdue move of course, I bought the new domain years ago&amp;hellip;&#xA;Anyway, the only interesting bit about this is how I&amp;rsquo;m trying to keep the old links alive with a little bit of HTML magic.&#xA;Using a very basic python script I&amp;rsquo;ve created a dedicated Github repo with a directory structure mirroring this site, where each index.html consists of something like this:</description>
+      <description>&lt;p&gt;This site just moved to a new domain bulimov.me.&#xA;Long overdue move of course, I bought the new domain years ago&amp;hellip;&lt;/p&gt;&#xA;&lt;p&gt;Anyway, the only interesting bit about this is how I&amp;rsquo;m trying to keep the old links&#xA;alive with a little bit of HTML magic.&lt;/p&gt;&#xA;&lt;p&gt;Using a very basic python script I&amp;rsquo;ve created a dedicated Github repo&#xA;with a directory structure mirroring this site,&#xA;where each &lt;code&gt;index.html&lt;/code&gt; consists of something like this:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Code-like linting for prose</title>
       <link>//bulimov.me/post/2022/01/16/prose-lint/</link>
       <pubDate>Sun, 16 Jan 2022 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2022/01/16/prose-lint/</guid>
-      <description>I&amp;rsquo;m a big fan of static analysis and linting for code.&#xA;If a computer can do it automatically - why rely on humans to do the same thing?&#xA;That&amp;rsquo;s one of the reasons why I&amp;rsquo;m such a big proponent of static typing.&#xA;I try to bring linting everywhere:&#xA;When I had to deal with huge and complex HAProxy configs - I wrote a linter myself. When later at different place I had to deal with complicated business logic expressed as a state machine - I used Python AST to write a linter for it, and analyze cycles, dead ends and complexity.</description>
+      <description>&lt;p&gt;I&amp;rsquo;m a big fan of static analysis and linting for code.&lt;/p&gt;&#xA;&lt;p&gt;If a computer can do it automatically - why rely on humans to do the same thing?&lt;/p&gt;&#xA;&lt;p&gt;That&amp;rsquo;s one of the reasons why I&amp;rsquo;m such a big proponent of static typing.&lt;/p&gt;&#xA;&lt;p&gt;I try to bring linting everywhere:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;When I had to deal with huge and complex&#xA;HAProxy configs  - I &lt;a href=&#34;https://github.com/abulimov/HAProxy-lint&#34;&gt;wrote a linter&lt;/a&gt; myself.&lt;/li&gt;&#xA;&lt;li&gt;When later at different place I had to deal with complicated business logic expressed&#xA;as a state machine - I used Python AST to write a linter for it, and analyze cycles, dead ends and complexity.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;And of course I use existing open-source linters whenever possible.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

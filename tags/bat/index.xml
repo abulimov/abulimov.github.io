@@ -13,7 +13,7 @@
       <link>//bulimov.me/post/2025/07/12/upgrading-cli-experience/</link>
       <pubDate>Sat, 12 Jul 2025 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2025/07/12/upgrading-cli-experience/</guid>
-      <description>I spend a lot of time in the terminal.&#xA;I practically live in the terminal at work, that&amp;rsquo;s kind of a given.&#xA;But even this very post is written in Helix, running in Wezterm.&#xA;And it&amp;rsquo;s been like this (and even more so in my SysAdmin days) for close to 20 years.&#xA;I already wrote about refreshing my CLI setup, and how I moved from tmux to Zellij to improve my CLI experience.</description>
+      <description>&lt;p&gt;I spend &lt;em&gt;a lot of time&lt;/em&gt; in the terminal.&lt;/p&gt;&#xA;&lt;p&gt;I practically live in the terminal at work, that&amp;rsquo;s kind of a given.&lt;/p&gt;&#xA;&lt;p&gt;But even this very post is written in &lt;a href=&#34;https://helix-editor.com/&#34;&gt;Helix&lt;/a&gt;, running in &lt;a href=&#34;https://wezterm.org/&#34;&gt;Wezterm&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;And it&amp;rsquo;s been like this (and even more so in my SysAdmin days) for close to 20 years.&lt;/p&gt;&#xA;&lt;p&gt;I already wrote about &lt;a href=&#34;//bulimov.me/post/2024/09/22/refreshing-cli-setup/&#34;&gt;refreshing my CLI setup&lt;/a&gt;,&#xA;and how I &lt;a href=&#34;//bulimov.me/post/2025/03/22/tmux-zellij/&#34;&gt;moved from tmux to Zellij&lt;/a&gt; to improve my CLI experience.&lt;/p&gt;&#xA;&lt;p&gt;It&amp;rsquo;s now time to talk about small tools that make a big difference.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

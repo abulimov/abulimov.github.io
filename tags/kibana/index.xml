@@ -13,14 +13,14 @@
       <link>//bulimov.me/it/elk-production/</link>
       <pubDate>Tue, 11 Aug 2015 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/it/elk-production/</guid>
-      <description>Я уже довольно давно и успешно использую Logstash + Elasticsearch с визуализацией данных в Kibana (общепринятое сокращение для этой тройки - ELK) для сбора, хранения и обработки логов, но для обретения счастья с этой связкой мне потребовалось несколько итераций.&#xA;Поскольку в мире СПО все постоянно развивается и становится лучше, сразу хочу отметить, что все описанное актуально для Logstash версиий 1.4-1.5 и Elasticsearch версий 1.4 - 1.7 при нагрузке в ~20kk сообщений в день.</description>
+      <description>&lt;p&gt;Я уже довольно давно и успешно использую&#xA;&lt;a href=&#34;https://www.elastic.co/products/logstash&#34;&gt;Logstash&lt;/a&gt; + &lt;a href=&#34;https://www.elastic.co/products/elasticsearch&#34;&gt;Elasticsearch&lt;/a&gt;&#xA;с визуализацией данных в &lt;a href=&#34;https://www.elastic.co/products/kibana&#34;&gt;Kibana&lt;/a&gt;&#xA;(общепринятое сокращение для этой тройки - ELK) для сбора, хранения и обработки логов,&#xA;но для обретения счастья с этой связкой мне потребовалось несколько итераций.&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Поскольку в мире СПО все постоянно развивается и становится лучше, сразу хочу&#xA;отметить, что все описанное актуально для Logstash версиий 1.4-1.5 и&#xA;Elasticsearch версий 1.4 - 1.7 при нагрузке в ~20kk сообщений в день.&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Попробуйте Packetbeat</title>
       <link>//bulimov.me/it/try-packetbeat/</link>
       <pubDate>Thu, 28 May 2015 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/it/try-packetbeat/</guid>
-      <description>Вчера в блоге Elasticsearch появилась отличная новость - проект Packetbeat, развиваемый до этого энтузиастами, присоединился к Elastic.&#xA;Я уже довольно давно слежу за этим проектом, и теперь, когда можно не беспокоиться о его будущем, хочу о нем рассказать.&#xA;Packetbeat это такой инструмент мониторинга, который работает как анализатор сетевых пакетов, парсит различные протоколы (сейчас поддерживаются HTTP, MySQL, PostgreSQL, Redis, Thrift-RPC), получает нужные данные, и отсылает их либо напрямую в Elasticsearch, либо в Redis, из которого данные будет забирать Logstash и класть их все в тот же Elasticsearch.</description>
+      <description>&lt;p&gt;Вчера в &lt;a href=&#34;https://www.elastic.co/blog&#34;&gt;блоге Elasticsearch&lt;/a&gt; появилась отличная&#xA;новость - проект &lt;a href=&#34;https://www.elastic.co/products/beats/packetbeat&#34;&gt;Packetbeat&lt;/a&gt;,&#xA;развиваемый до этого энтузиастами, присоединился к &lt;a href=&#34;https://www.elastic.co&#34;&gt;Elastic&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Я уже довольно давно слежу за этим проектом, и теперь, когда можно не&#xA;беспокоиться о его будущем, хочу о нем рассказать.&lt;/p&gt;&#xA;&lt;p&gt;Packetbeat это такой инструмент мониторинга, который работает как анализатор&#xA;сетевых пакетов, парсит различные протоколы (сейчас поддерживаются HTTP, MySQL,&#xA;PostgreSQL, Redis, Thrift-RPC), получает нужные данные, и отсылает их либо напрямую&#xA;в Elasticsearch, либо в Redis, из которого данные будет забирать Logstash и&#xA;класть их все в тот же Elasticsearch.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
