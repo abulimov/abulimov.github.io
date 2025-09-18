@@ -29,6 +29,7 @@ Reviews per year: [2025](#2025), [2024](#2024), [2023](#2023), [2022](#2022), [2
 | Hampton Sides - The Wide Wide Sea | 9 |
 | Jason Schreier - Play Nice: The Rise, Fall, and Future of Blizzard Entertainment | 8 |
 | David Johnson - Brickmaking: History and Heritage | 8 |
+| Emily Wilson - Iliad | 8 |
 | Ruth Delany - The Grand Canal of Ireland | 8 |
 | Pat Sweeney - Liffey Ships & Shipbuilding | 8 |
 | Lady Augusta Gregory - Irish Myths and Legends | 8 |

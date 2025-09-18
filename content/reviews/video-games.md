@@ -255,8 +255,10 @@ Reviews per year: [2025](#2025), [2024](#2024), [2023](#2023), [2022](#2022), [2
 | Dragon Age II (PS3) | 8 |
 | Uncharted 3 (PS3) | 8 |
 | Assassins Creed 4 Black Flag (PS3) | 8 |
+| Infamous Second Son (PS4) | 8 |
 | Ni No Kuni (PS3) | 7 |
 | Кодекс войны (PC) | 7 |
+| Tomb Raider (2013) (PC) | 6 |
 
 <h2 id="2013" style="text-align: center;">2013</h2>
 

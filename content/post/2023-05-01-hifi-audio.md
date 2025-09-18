@@ -74,3 +74,5 @@ To sum it up, this is the current setup that leaves me very satisfied:
 While for work I use **Sony WH-1000XM3** wireless over-the-ear headphones because of their excellent noise cancellation and decent audio quality.
 
 The difference between Sony and HD6XX is pretty significant (even my old ATH M50 sound better than Sony), so whenever I really mindfully listen to music - I do it on HD6XX with an amp conveniently plugged into the iPhone.
+
+**UPD 2025** - I now have a [timeline of my headphones here](/lists/headphones).
