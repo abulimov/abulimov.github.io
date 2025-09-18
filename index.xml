@@ -6,8 +6,15 @@
     <description>Recent content in Home on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 18 Sep 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="//bulimov.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Added &#39;lists&#39; section</title>
+      <link>//bulimov.me/post/2025/09/18/added-lists/</link>
+      <pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/post/2025/09/18/added-lists/</guid>
+      <description>&lt;p&gt;I recently discovered &lt;strong&gt;Sophie Koonin&lt;/strong&gt;&amp;rsquo;s excellent &lt;a href=&#34;https://localghost.dev/&#34;&gt;personal website&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Her writing resonates with me quite a bit, especially the latest &lt;a href=&#34;https://localghost.dev/blog/this-website-is-for-humans/&#34;&gt;This Website is for Humans&lt;/a&gt; entry.&lt;/p&gt;&#xA;&lt;p&gt;But what prompted me to give more attention to my own personal website is this &lt;a href=&#34;https://localghost.dev/blog/this-page-is-under-construction/&#34;&gt;love letter to the personal websites&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Her &lt;a href=&#34;https://localghost.dev/&#34;&gt;website&lt;/a&gt; is definitely a prime example in this category, with beautiful styles and different themes.&lt;/p&gt;&#xA;&lt;p&gt;Mine is not. At the time of writing, I&amp;rsquo;m using a slightly customized &lt;a href=&#34;https://github.com/yihui/hugo-xmin&#34;&gt;xmin theme&lt;/a&gt; with &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;,&#xA;not very original I&amp;rsquo;m afraid.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Revamped reviews section &#43; a little retrospective</title>
       <link>//bulimov.me/post/2025/09/07/better-reviews-and-retrospective/</link>
@@ -153,7 +160,7 @@
       <link>//bulimov.me/post/2021/08/07/why-xbox/</link>
       <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2021/08/07/why-xbox/</guid>
-      <description>&lt;p&gt;&lt;em&gt;Disclaimer: this is not an objective comparison, it&amp;rsquo;s my personal, extremely subjective choice.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Here is why I’m not buying PS5, despite having PS3 since 2010 and PS4 since 2014.&lt;/p&gt;&#xA;&lt;p&gt;And no, it’s not because it too hard to get now :-)&lt;/p&gt;&#xA;&lt;p&gt;The main reason is simple:&#xA;&lt;strong&gt;For me, PS5 brings no excitement.&lt;/strong&gt; Now let me explain why.&lt;/p&gt;&#xA;&lt;p&gt;PS3 to PS4 transition was already kinda boring. I was quite ok with graphics level PS3 provided, and the main improvement that PS4 borough for me was normal digital store (where you don’t have to download patches after you just downloaded full game), and a slightly better controller (albeit with worse battery life).&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;em&gt;Disclaimer: this is not an objective comparison, it&amp;rsquo;s my personal, extremely subjective choice.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Here is why I’m not buying PS5, despite &lt;a href=&#34;//bulimov.me/lists/consoles/&#34;&gt;having PS3 since 2011 and PS4 since 2014&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;And no, it’s not because it is too hard to get one now :-)&lt;/p&gt;&#xA;&lt;p&gt;The main reason is simple:&#xA;&lt;strong&gt;For me, PS5 brings no excitement.&lt;/strong&gt; Now let me explain why.&lt;/p&gt;&#xA;&lt;p&gt;PS3 to PS4 transition was already kinda boring. I was quite ok with graphics level PS3 provided, and the main improvement that PS4 borough for me was normal digital store (where you don’t have to download patches after you just downloaded full game), and a slightly better controller (albeit with worse battery life).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Published all my mini-review scores</title>
@@ -266,6 +273,20 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/about/</guid>
       <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;$ whoami&#xA;Alexander Bulimov, Production Engineer/Scale Modeller&#xA;&#xA;$ cowsay &amp;lt; about.txt&#xA; _________________________________________&#xA;/ In IT since 2010.                       \&#xA;|                                         |&#xA;| Worked on both ends of the spectrum,    | &#xA;| from tiny startups to FAANG.            |&#xA;|                                         |&#xA;| * Built infrastructure from the ground  |&#xA;|   up for 3 startups using only          | &#xA;|   open-source software                  |&#xA;| * Worked on ancient services with       |&#xA;|   legacy codebase, refactored and       |&#xA;|   elevated them to modern standards     |&#xA;| * Wrote plenty of distributed services  |&#xA;| * Fluent in Go and Python               |&#xA;\                                         /&#xA; -----------------------------------------&#xA;       \   ^__^&#xA;        \  (oo)\_______&#xA;           (__)\       )\/\&#xA;               ||----w |&#xA;               ||     ||&#xA;&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    <item>
+      <title>Everything else</title>
+      <link>//bulimov.me/etc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/etc/</guid>
+      <description>&lt;h1 id=&#34;reviews&#34;&gt;Reviews&lt;/h1&gt;&#xA;&lt;p&gt;I&amp;rsquo;m &lt;a href=&#34;//bulimov.me/post/2021/05/23/taking-notes/&#34;&gt;writing&lt;/a&gt; my mini reviews for games, books and music since 2013, just for fun.&#xA;The reviews are not published (yet?), but the &lt;a href=&#34;//bulimov.me/reviews&#34;&gt;scores are&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/reviews/video-games&#34;&gt;Video Games&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/reviews/books&#34;&gt;Books&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/reviews/music&#34;&gt;Music&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;lists&#34;&gt;Lists&lt;/h1&gt;&#xA;&lt;p&gt;Lists are fun, and help me keep things organized.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/lists/consoles&#34;&gt;Video Game Consoles&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/lists/headphones&#34;&gt;Headphones&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Lists</title>
+      <link>//bulimov.me/lists/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/lists/</guid>
+      <description>&lt;p&gt;Lists are fun, and help me keep things organized.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/lists/consoles&#34;&gt;Video Game Consoles&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/lists/headphones&#34;&gt;Headphones&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
     <item>
       <title>Reviews</title>

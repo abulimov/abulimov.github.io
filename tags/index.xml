@@ -6,13 +6,20 @@
     <description>Recent content in Tags on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 18 Sep 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="//bulimov.me/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blog</title>
       <link>//bulimov.me/tags/blog/</link>
-      <pubDate>Sun, 07 Sep 2025 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/tags/blog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mermaid</title>
+      <link>//bulimov.me/tags/mermaid/</link>
+      <pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/mermaid/</guid>
       <description></description>
     </item>
     <item>

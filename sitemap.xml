@@ -2,31 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>//bulimov.me/tags/blog/</loc>
-    <lastmod>2025-09-07T00:00:00+00:00</lastmod>
+    <loc>//bulimov.me/post/2025/09/18/added-lists/</loc>
+    <lastmod>2025-09-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/tags/books/</loc>
-    <lastmod>2025-09-07T00:00:00+00:00</lastmod>
+    <loc>//bulimov.me/tags/blog/</loc>
+    <lastmod>2025-09-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/categories/</loc>
-    <lastmod>2025-09-07T00:00:00+00:00</lastmod>
+    <lastmod>2025-09-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/</loc>
+    <lastmod>2025-09-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/mermaid/</loc>
+    <lastmod>2025-09-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/categories/personal/</loc>
+    <lastmod>2025-09-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/post/</loc>
+    <lastmod>2025-09-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/</loc>
+    <lastmod>2025-09-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/books/</loc>
     <lastmod>2025-09-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/music/</loc>
     <lastmod>2025-09-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/categories/personal/</loc>
-    <lastmod>2025-09-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/post/</loc>
-    <lastmod>2025-09-07T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/post/2025/09/07/better-reviews-and-retrospective/</loc>
-    <lastmod>2025-09-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/tags/</loc>
     <lastmod>2025-09-07T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/video-games/</loc>
@@ -411,6 +417,10 @@
     <lastmod>2013-06-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/about/</loc>
+  </url><url>
+    <loc>//bulimov.me/etc/</loc>
+  </url><url>
+    <loc>//bulimov.me/lists/</loc>
   </url><url>
     <loc>//bulimov.me/reviews/</loc>
   </url>

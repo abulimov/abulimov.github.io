@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mermaid on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link>//bulimov.me/tags/mermaid/</link>
+    <description>Recent content in Mermaid on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//bulimov.me/tags/mermaid/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Added &#39;lists&#39; section</title>
+      <link>//bulimov.me/post/2025/09/18/added-lists/</link>
+      <pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/post/2025/09/18/added-lists/</guid>
+      <description>&lt;p&gt;I recently discovered &lt;strong&gt;Sophie Koonin&lt;/strong&gt;&amp;rsquo;s excellent &lt;a href=&#34;https://localghost.dev/&#34;&gt;personal website&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Her writing resonates with me quite a bit, especially the latest &lt;a href=&#34;https://localghost.dev/blog/this-website-is-for-humans/&#34;&gt;This Website is for Humans&lt;/a&gt; entry.&lt;/p&gt;&#xA;&lt;p&gt;But what prompted me to give more attention to my own personal website is this &lt;a href=&#34;https://localghost.dev/blog/this-page-is-under-construction/&#34;&gt;love letter to the personal websites&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Her &lt;a href=&#34;https://localghost.dev/&#34;&gt;website&lt;/a&gt; is definitely a prime example in this category, with beautiful styles and different themes.&lt;/p&gt;&#xA;&lt;p&gt;Mine is not. At the time of writing, I&amp;rsquo;m using a slightly customized &lt;a href=&#34;https://github.com/yihui/hugo-xmin&#34;&gt;xmin theme&lt;/a&gt; with &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;,&#xA;not very original I&amp;rsquo;m afraid.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

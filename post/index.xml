@@ -6,8 +6,15 @@
     <description>Recent content in Posts on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 18 Sep 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="//bulimov.me/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Added &#39;lists&#39; section</title>
+      <link>//bulimov.me/post/2025/09/18/added-lists/</link>
+      <pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/post/2025/09/18/added-lists/</guid>
+      <description>&lt;p&gt;I recently discovered &lt;strong&gt;Sophie Koonin&lt;/strong&gt;&amp;rsquo;s excellent &lt;a href=&#34;https://localghost.dev/&#34;&gt;personal website&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Her writing resonates with me quite a bit, especially the latest &lt;a href=&#34;https://localghost.dev/blog/this-website-is-for-humans/&#34;&gt;This Website is for Humans&lt;/a&gt; entry.&lt;/p&gt;&#xA;&lt;p&gt;But what prompted me to give more attention to my own personal website is this &lt;a href=&#34;https://localghost.dev/blog/this-page-is-under-construction/&#34;&gt;love letter to the personal websites&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Her &lt;a href=&#34;https://localghost.dev/&#34;&gt;website&lt;/a&gt; is definitely a prime example in this category, with beautiful styles and different themes.&lt;/p&gt;&#xA;&lt;p&gt;Mine is not. At the time of writing, I&amp;rsquo;m using a slightly customized &lt;a href=&#34;https://github.com/yihui/hugo-xmin&#34;&gt;xmin theme&lt;/a&gt; with &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;,&#xA;not very original I&amp;rsquo;m afraid.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Revamped reviews section &#43; a little retrospective</title>
       <link>//bulimov.me/post/2025/09/07/better-reviews-and-retrospective/</link>
@@ -153,7 +160,7 @@
       <link>//bulimov.me/post/2021/08/07/why-xbox/</link>
       <pubDate>Sat, 07 Aug 2021 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2021/08/07/why-xbox/</guid>
-      <description>&lt;p&gt;&lt;em&gt;Disclaimer: this is not an objective comparison, it&amp;rsquo;s my personal, extremely subjective choice.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Here is why I’m not buying PS5, despite having PS3 since 2010 and PS4 since 2014.&lt;/p&gt;&#xA;&lt;p&gt;And no, it’s not because it too hard to get now :-)&lt;/p&gt;&#xA;&lt;p&gt;The main reason is simple:&#xA;&lt;strong&gt;For me, PS5 brings no excitement.&lt;/strong&gt; Now let me explain why.&lt;/p&gt;&#xA;&lt;p&gt;PS3 to PS4 transition was already kinda boring. I was quite ok with graphics level PS3 provided, and the main improvement that PS4 borough for me was normal digital store (where you don’t have to download patches after you just downloaded full game), and a slightly better controller (albeit with worse battery life).&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;em&gt;Disclaimer: this is not an objective comparison, it&amp;rsquo;s my personal, extremely subjective choice.&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Here is why I’m not buying PS5, despite &lt;a href=&#34;//bulimov.me/lists/consoles/&#34;&gt;having PS3 since 2011 and PS4 since 2014&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;And no, it’s not because it is too hard to get one now :-)&lt;/p&gt;&#xA;&lt;p&gt;The main reason is simple:&#xA;&lt;strong&gt;For me, PS5 brings no excitement.&lt;/strong&gt; Now let me explain why.&lt;/p&gt;&#xA;&lt;p&gt;PS3 to PS4 transition was already kinda boring. I was quite ok with graphics level PS3 provided, and the main improvement that PS4 borough for me was normal digital store (where you don’t have to download patches after you just downloaded full game), and a slightly better controller (albeit with worse battery life).&lt;/p&gt;</description>
     </item>
     <item>
       <title>Published all my mini-review scores</title>
