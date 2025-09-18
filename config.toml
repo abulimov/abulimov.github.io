@@ -33,8 +33,8 @@ url = "tags/"
 weight = 5
 
 [[menu.main]]
-name = "Reviews"
-url = "reviews/"
+name = "Etc"
+url = "etc/"
 weight = 6
 
 [[menu.main]]
