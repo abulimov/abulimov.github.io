@@ -6,8 +6,15 @@
     <description>Recent content in Home on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 18 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Oct 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="//bulimov.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Repairing a robot vacuum cleaner</title>
+      <link>//bulimov.me/post/2025/10/04/repairing-robot-vacuum/</link>
+      <pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/post/2025/10/04/repairing-robot-vacuum/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m pleased to report that modern robot vacuum cleaners are fairly easy to repair, at least from the mechanical standpoint.&lt;/p&gt;&#xA;&lt;p&gt;I guess the relatively large form factor allows for components to be big enough, and that there is no clear need to miniaturize everything.&lt;/p&gt;&#xA;&lt;p&gt;Debugging the robot vacuums from a software standpoint is a completely different affair, and not in a good way.&lt;/p&gt;&#xA;&lt;p&gt;In my particular case, my trusty &lt;a href=&#34;//bulimov.me/post/2023/08/13/robot-vacuum-amazing&#34;&gt;ECOVACS T8&lt;/a&gt; developed a problem with one of the driving wheels,&#xA;probably after being stuck on a cable or a sock way too often.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Added &#39;lists&#39; section</title>
       <link>//bulimov.me/post/2025/09/18/added-lists/</link>

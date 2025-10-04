@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Repairing a robot vacuum cleaner | Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <style>
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: white;
+  }
+  html, img, video, iframe {
+    filter: invert(1);
+  }
+}
+</style>
+
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Home</a></li>
+      
+      <li><a href="/about/">About</a></li>
+      
+      <li><a href="https://models.bulimov.me">Scale Models</a></li>
+      
+      <li><a href="/categories/">Categories</a></li>
+      
+      <li><a href="/tags/">Tags</a></li>
+      
+      <li><a href="/etc/">Etc</a></li>
+      
+      <li><a href="/index.xml">Subscribe</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Repairing a robot vacuum cleaner</span></h1>
+
+<h2 class="date">2025/10/04</h2>
+
+</div>
+
+<main>
+<p>I&rsquo;m pleased to report that modern robot vacuum cleaners are fairly easy to repair, at least from the mechanical standpoint.</p>
+<p>I guess the relatively large form factor allows for components to be big enough, and that there is no clear need to miniaturize everything.</p>
+<p>Debugging the robot vacuums from a software standpoint is a completely different affair, and not in a good way.</p>
+<p>In my particular case, my trusty <a href="/post/2023/08/13/robot-vacuum-amazing">ECOVACS T8</a> developed a problem with one of the driving wheels,
+probably after being stuck on a cable or a sock way too often.</p>
+<p>In any case, it began to only turn around one side, and became completely useless.</p>
+<p>I ordered a replacement wheel assembly from AliExpress for 16EUR with shipping, and in a couple of weeks it got delivered.</p>
+<p>Thankfully, there are few videos of people servicing such robots, so I had no issues getting to the wheels.
+Tons of screws to undo though, and at the time I didn&rsquo;t have anything outside a regular screwdriver to help with this process.</p>
+<p>Anyway, I managed to replace the wheel, and put back the bare minimum of the robot parts to verify that the replacement works.</p>
+<p>To my delight, robot was able to move around freely again!</p>
+<p>However, it <strong>started to complain about the drop sensor being dirty</strong>.</p>
+<p>That&rsquo;s where the software side of debugging came to light - outside the error in the app,
+and the annoying voice announcement repeating the same thing about the &lsquo;drop sensor needing to be cleaned&rsquo;, there were zero pointers.</p>
+<p>Why did it frustrate me? Because for one, the robot has six of those sensors, and nowhere could I see which one it was not happy about.</p>
+<p>I struggled with this for a few hours, re-connecting and cleaning the sensors over and over again,
+and eventually grew so frustrated that I shelved the half-disassembled robot for a better time.</p>
+<p>In a few weeks, I could no longer look at this lifeless carcass of a vacuum cleaner any more, so I resumed the repair.</p>
+<p>I re-connected all sensors again, and then a bright idea came to me -
+<strong>I thought that I could use my phone&rsquo;s camera to see if any of the sensors are not emitting the infra-red light</strong> when the robot was on.</p>
+<p>To my surprise, none of them did!</p>
+<p>Quick search on the Internet showed me a reddit thread where a user had issues with sensors after some kind of a problem with the bumper.</p>
+<p>I was puzzled to say the least, since the bumper was one of the last things I planned to connect back,
+and was not connected with the drop sensors in any way I could see.</p>
+<p>Still I gave it a try and connected it back.</p>
+<p>To my greatest surprise, I could instantly see (through my phone&rsquo;s camera) all of the drop sensor diodes emitting light.
+And when asked to vacuum, the robot happily obliged.</p>
+<p>I was off course rejoiced with this miraculous fix, but again this brought to light just how incredibly easier such repair would have been,
+have the robot had any proper debug mode, or some debug software I could use.</p>
+<p>Anyway, this story got a happy ending after all, and with the repair costing me only 16EUR I&rsquo;m pretty chuffed.</p>
+<p>Granted, after finishing the reassembly I found few extra screws, but that didn&rsquo;t affect the robot functionality at all.</p>
+<p>And after partially assembling and disassembling this vacuum so many times,
+I bought myself a nice precision electric screwdriver from Hoto.</p>
+<p>I simply figured out that in the future if I need to repair it again (which is quite likely),
+I won&rsquo;t be able to bring myself to deal with all those endless screws without some help.</p>
+
+</main>
+
+
+<p class="terms">
+<b>Tags:</b>
+
+  <a href="//bulimov.me/tags/vacuum-cleaner/">Vacuum Cleaner</a>
+
+
+</p>
+<p class="terms">
+
+<b>Categories:</b>
+
+  <a href="//bulimov.me/categories/personal/">Personal</a>
+
+
+</p>
+
+
+
+
+  <footer>
+  
+  
+  <hr/>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.me">Alexander Bulimov</a> 2013 &ndash; 2025 | <a href="https://github.com/abulimov">Github</a>
+  
+  </footer>
+  </body>
+</html>
+
