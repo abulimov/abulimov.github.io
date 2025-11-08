@@ -6,20 +6,27 @@
     <description>Recent content in Tags on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 04 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 08 Nov 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="//bulimov.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Blog</title>
+      <link>//bulimov.me/tags/blog/</link>
+      <pubDate>Sat, 08 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/blog/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>DIY</title>
+      <link>//bulimov.me/tags/diy/</link>
+      <pubDate>Sat, 08 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/diy/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Vacuum Cleaner</title>
       <link>//bulimov.me/tags/vacuum-cleaner/</link>
       <pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/tags/vacuum-cleaner/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Blog</title>
-      <link>//bulimov.me/tags/blog/</link>
-      <pubDate>Thu, 18 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>//bulimov.me/tags/blog/</guid>
       <description></description>
     </item>
     <item>
@@ -146,13 +153,6 @@
       <link>//bulimov.me/tags/watch/</link>
       <pubDate>Sun, 12 Jan 2025 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/tags/watch/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>DIY</title>
-      <link>//bulimov.me/tags/diy/</link>
-      <pubDate>Sat, 11 Jan 2025 00:00:00 +0000</pubDate>
-      <guid>//bulimov.me/tags/diy/</guid>
       <description></description>
     </item>
     <item>

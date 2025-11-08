@@ -6,8 +6,15 @@
     <description>Recent content in Personal on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 04 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 08 Nov 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="//bulimov.me/categories/personal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Added a &#39;DIY&#39; section</title>
+      <link>//bulimov.me/post/2025/11/08/added-diy/</link>
+      <pubDate>Sat, 08 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/post/2025/11/08/added-diy/</guid>
+      <description>&lt;p&gt;Following my &lt;a href=&#34;//bulimov.me/post/2025/09/18/added-lists&#34;&gt;plan&lt;/a&gt; to make this website a better representation of &lt;strong&gt;me&lt;/strong&gt; on the Internet,&#xA;I&amp;rsquo;ve added a &lt;a href=&#34;//bulimov.me/lists/diy&#34;&gt;new page listing all my DIY projects&lt;/a&gt; to date.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Do_it_yourself&#34;&gt;DIY&lt;/a&gt; was always close to my heart, it&amp;rsquo;s not terribly far from &lt;a href=&#34;https://models.bulimov.me&#34;&gt;my favourite hobby&lt;/a&gt;, and is something&#xA;very physical, grounded in the real world.&lt;/p&gt;&#xA;&lt;p&gt;All I do at work is purely digital.&#xA;At best, it may end up open source, so that other people could see it,&#xA;but most will stay proprietary - just a some bits stored on servers I&amp;rsquo;ll never ever see.&#xA;And I know from the experience that the code I write today will be rewritten or deprecated sooner or later.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Repairing a robot vacuum cleaner</title>
       <link>//bulimov.me/post/2025/10/04/repairing-robot-vacuum/</link>

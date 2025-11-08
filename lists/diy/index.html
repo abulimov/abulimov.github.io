@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DIY | Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <style>
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: white;
+  }
+  html, img, video, iframe {
+    filter: invert(1);
+  }
+}
+</style>
+
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Blog</a></li>
+      
+      <li><a href="https://models.bulimov.me">Scale Models</a></li>
+      
+      <li><a href="/etc/">Etc</a></li>
+      
+      <li><a href="/about/">About Me</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">DIY</span></h1>
+
+
+
+</div>
+
+<main>
+<p>All I do at work is purely digital.
+At best, it may end up open source, so that other people could see it,
+but most will stay proprietary - just a some bits stored on servers I&rsquo;ll never ever see.</p>
+<p>Probably that&rsquo;s why I had the need to work with my hands for well over a decade now.</p>
+<p>In particular, I love woodworking, but also tinker with electronics and 3D Printing.</p>
+<p>I don&rsquo;t do it nearly as much as I would like to, primarily because of the space constraints not allowing me to set up a proper workshop.</p>
+<p>Still, I built a good few things that I&rsquo;m proud of.</p>
+<p>Of course, I&rsquo;m not listing a regular DIY stuff one has to do around the house, like fixing shelves, painting walls, or changing light fixtures.</p>
+<p>I did have a lot of fun with it, namely with adding Zigbee-enabled switches everywhere,
+so that I can control the lighting and other things from <a href="https://www.home-assistant.io/">Home Assistant</a>.
+But that&rsquo;s outside the scope of this write-up.</p>
+<p>Here is all the stuff I built over the years.</p>
+<h2 id="binary-clock">Binary clock</h2>
+<p><img src="/images/diy/binclock.jpg" alt="binary clock"></p>
+<p><em>(the clock above shows 10:46 in a 24 hour format)</em></p>
+<p>As a nerd, I like weird things like showing time in binary.</p>
+<p>One of my first public posts was about coding a Binary Clock widget in Lua for the <a href="https://awesomewm.org/">Awesome tiling window manager</a>.</p>
+<p>So when I got access to a laser cutter, the first thing I wanted to build was a physical Binary Clock.
+To make things more interesting, I wanted it to measure temperature and humidity, and show both in binary at a press of a button.</p>
+<p>Given that I still use it every day, I would call this a success.</p>
+<p>A lot of my firsts here:</p>
+<ul>
+<li>programming an Arduino board</li>
+<li>designing and soldering a custom electronic circuit</li>
+<li>designing anything to make on a Laser Cutter</li>
+</ul>
+<p>I actually learned to solder electronic components while working on this project,
+thanks to a good friend a colleague who was kind enough to teach me how to do it,
+and even supplied me with a good set of flux and solder.</p>
+<h2 id="cribbage-board">Cribbage board</h2>
+<p><img src="/images/diy/cribbage_board.jpg" alt="cribbage board"></p>
+<p><a href="https://en.wikipedia.org/wiki/Cribbage">Cribbage</a> is by far my favourite card game.
+My wife and me have been playing it for many years, so it was only logical to upgrade
+our experience with a real scoring board.</p>
+<p>I found a beautiful map of Ireland (we have just recently moved here back then),
+and artfully arranged all holes for all 121 points for three players on it.</p>
+<p>The board is made of two 3 mm birch plywood sheets, since the laser cutter I had
+access to couldn&rsquo;t deal with thicker material.</p>
+<p>Engraving took around one hour, and cutting all the holes took even more.</p>
+<p>The board is finished with some hardcore yacht varnish for longevity,
+and the pegs are simply painted rivets of some kind from a local DIY store.</p>
+<h2 id="captains-of-crush-grippers-stand">Captains of Crush grippers stand</h2>
+<p><img src="/images/diy/coc_stand.jpg" alt="grippers stand"></p>
+<p>Around 2015 I got into practicing with the strength grippers thanks to one of my colleagues who did that all the time.
+Once I got my own <a href="https://en.wikipedia.org/wiki/Captains_of_Crush_Grippers">Captains of Crush</a> set (strengths 1, 1.5 and 2),
+I needed a way to keep them on my desk, organized and easily accessible.</p>
+<p>As a life-long Fallout fan, I adorned a simple laser cut stand with Vault Boy pictures.</p>
+<p>Sadly I never got strong enough to close the #2, but maybe one day?</p>
+<h2 id="ship-modelling-cabinet">Ship Modelling Cabinet</h2>
+<p><img src="/images/diy/modelling_cabinet.jpg" alt="modelling cabinet"></p>
+<p>I was inspired by <a href="https://www.occre.com/mueble-taller-portatil.html">similar items</a> from modelling companies.
+With the space limitations I had, all commercial cabinets were too big, so I designed my own version from scratch, and <a href="https://www.thingiverse.com/thing:3724395">made it available on Thingiverse</a>.</p>
+<p>By far my most advanced laser-cutter project, fully designed from scratch in InkScape.</p>
+<p>I still use it, and I know that other people built it from my design, which makes me very happy.</p>
+<h2 id="display-cases-for-my-models">Display cases for my models</h2>
+<p><img src="/images/diy/display_case.jpg" alt="display case"></p>
+<p>After I got access to the laser cutter, and discovered that you can buy transparent acrylic sheets on Amazon,
+I was delighted to start making my own display cases. Not only is this much cheaper, but I also could design perfectly fitting cases for each new model.</p>
+<p>To simplify things, I used a wonderful <a href="https://github.com/florianfesti/boxes">Boxes.py</a> generator,
+and then contributed a <a href="https://boxes.hackerspace-bamberg.de/DisplayCase?language=en">dedicated display case script</a> that I wrote.</p>
+<p>Since then, I have made cases for all but the biggest of my models.</p>
+<h2 id="go-board-9x9">Go board 9x9</h2>
+<p><img src="/images/diy/goban_9x9.jpg" alt="go board"></p>
+<p>My wife and I wanted to play Go, so I found a free printable design for a 9x9 practice board, and engraved it on a sheet of 3 mm birch plywood.
+Finished with Danish Oil, turned out nicely.</p>
+<p>We don&rsquo;t play often, but at least we have the option.</p>
+<h2 id="knife-display-case">Knife display case</h2>
+<p><img src="/images/diy/knife_display_case.jpg" alt="knife display case"></p>
+<p>I used to collect folding knives. I don&rsquo;t do it any more, because you can&rsquo;t carry them in Ireland anyway.</p>
+<p>But a small part of the collection remains, and to use it around the house I built a simple laser-cut display case,
+inspired by some commercial offerings.</p>
+<p>Since it seemed generally useful, I made it <a href="https://www.thingiverse.com/thing:6553751">available on Thingiverse</a>.</p>
+<h2 id="multi-tool-display-case">Multi-tool display case</h2>
+<p><img src="/images/diy/multitool_display_case.jpg" alt="multi-tool display case"></p>
+<p>Same idea as with the knife display case, adjusted to common multi-tool sizes. <a href="https://www.thingiverse.com/thing:6553806">Available on Thingiverse</a>.</p>
+<h2 id="radiator-shelf">Radiator shelf</h2>
+<p><img src="/images/diy/radiator_shelf.jpg" alt="radiator shelf"></p>
+<p>We wanted to have a shelf in the hallway, in a rustic style.</p>
+<p>I had some pallet wood to use for the legs, and bought a nice long plank from Woodies for the shelf itself.
+Didn&rsquo;t bother with the finish of the legs since we wanted it to look rustic.</p>
+<p>The top is finished with oak stain and acrylic varnish.</p>
+<p>Turned out great in my opinion, and cost like 30 EUR.</p>
+<h2 id="vault-tec-door-sign">Vault-Tec door sign</h2>
+<p><img src="/images/diy/door_sign.jpg" alt="door sign"></p>
+<p>As I&rsquo;ve said, I&rsquo;m a life-long Fallout fan.</p>
+<p>One day I decided it would be cool to put a funny sign on my study&rsquo;s door,
+given how my wife always calls it a man-cave.</p>
+<p>Couple of hours with InkScape, and the design was ready.</p>
+<p>One of the trickiest parts was finding an appropriate font. I settled on <em>Roboto</em>, as a good and free <em>Futura</em> substitute.</p>
+<p>Each letter is fully cut, so that it is much easier to stain wood in batches.</p>
+<p>The stains are Oak and Mahogany, the original plywood is poplar.</p>
+<h2 id="watch-box">Watch box</h2>
+<p><img src="/images/watch_box_finished_01.jpg" alt="watch box"></p>
+<p>A pinnacle of my woodworking projects.</p>
+<p>Fully made from scratch with only hand tools.</p>
+<p>Very proud of it, use it daily.</p>
+<p>I <a href="/post/2025/01/11/making-watch-box/">posted a full build log here</a>.</p>
+<h2 id="rgb-headphone-stand">RGB headphone stand</h2>
+<p><img src="/images/diy/headphone_stand.jpg" alt="headphone stand"></p>
+<p><strong>Not my original design</strong>, instead it&rsquo;s a <a href="https://www.thingiverse.com/thing:7155765">fork</a> of a <a href="https://www.thingiverse.com/thing:4722406">fork</a>.</p>
+<p>Basically, someone designed a <a href="https://www.thingiverse.com/thing:3534573">really great looking headphone stand</a>,
+then another person made an <a href="https://www.thingiverse.com/thing:4722406">RGB lit version of it</a>,
+and then I made an <a href="https://www.thingiverse.com/thing:7155765">XL version</a> of the RGB lit stand, using parts from both projects, and designing some more.</p>
+<p>Took me a good few hours in TinkerCad to take the XL sides of the original stand, and design a version of
+side diffusers and front and back panels similar to the RGB stand.</p>
+<p>Normally I would use OnShape to design anything for 3D Printing, but here since I was building on top of existing STL files,
+it seemed easier to use TinkerCad.</p>
+<h2 id="framed-meteorite">Framed meteorite</h2>
+<p><img src="/images/diy/framed_meteorite.jpg" alt="meteorite"></p>
+<p>Made as a present for my wife, who loves all things space.</p>
+<p>A real <em>Pallasite</em> meteorite slice, which I framed and back lit.</p>
+<p>The frame is just a regular picture frame, and the meteorite is surrounded by black card stock from an arts store,
+with a thin white outline, which is a layer of regular paper below the card stock.</p>
+<p>Each translucent olivine node is back lit by a dedicated white LED, all individually controlled by an Arduino board.</p>
+<p>A single button on the back changes modes, from steady glow to shimmering, waves, pulse, and of course &lsquo;off&rsquo; mode.</p>
+
+</main>
+
+
+</p>
+<p class="terms">
+
+</p>
+
+
+
+
+  <footer>
+  
+  
+  <hr/>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.me">Alexander Bulimov</a> 2013 &ndash; 2025 | <a href="https://github.com/abulimov">Github</a>
+  
+  </footer>
+  </body>
+</html>
+

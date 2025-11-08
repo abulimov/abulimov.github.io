@@ -6,8 +6,15 @@
     <description>Recent content in Home on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 04 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 08 Nov 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="//bulimov.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Added a &#39;DIY&#39; section</title>
+      <link>//bulimov.me/post/2025/11/08/added-diy/</link>
+      <pubDate>Sat, 08 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/post/2025/11/08/added-diy/</guid>
+      <description>&lt;p&gt;Following my &lt;a href=&#34;//bulimov.me/post/2025/09/18/added-lists&#34;&gt;plan&lt;/a&gt; to make this website a better representation of &lt;strong&gt;me&lt;/strong&gt; on the Internet,&#xA;I&amp;rsquo;ve added a &lt;a href=&#34;//bulimov.me/lists/diy&#34;&gt;new page listing all my DIY projects&lt;/a&gt; to date.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Do_it_yourself&#34;&gt;DIY&lt;/a&gt; was always close to my heart, it&amp;rsquo;s not terribly far from &lt;a href=&#34;https://models.bulimov.me&#34;&gt;my favourite hobby&lt;/a&gt;, and is something&#xA;very physical, grounded in the real world.&lt;/p&gt;&#xA;&lt;p&gt;All I do at work is purely digital.&#xA;At best, it may end up open source, so that other people could see it,&#xA;but most will stay proprietary - just a some bits stored on servers I&amp;rsquo;ll never ever see.&#xA;And I know from the experience that the code I write today will be rewritten or deprecated sooner or later.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Repairing a robot vacuum cleaner</title>
       <link>//bulimov.me/post/2025/10/04/repairing-robot-vacuum/</link>
@@ -286,7 +293,7 @@
       <link>//bulimov.me/etc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/etc/</guid>
-      <description>&lt;h1 id=&#34;reviews&#34;&gt;Reviews&lt;/h1&gt;&#xA;&lt;p&gt;I&amp;rsquo;m &lt;a href=&#34;//bulimov.me/post/2021/05/23/taking-notes/&#34;&gt;writing&lt;/a&gt; my mini reviews for games, books and music since 2013, just for fun.&#xA;The reviews are not published (yet?), but the &lt;a href=&#34;//bulimov.me/reviews&#34;&gt;scores are&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/reviews/video-games&#34;&gt;Video Games&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/reviews/books&#34;&gt;Books&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/reviews/music&#34;&gt;Music&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h1 id=&#34;lists&#34;&gt;Lists&lt;/h1&gt;&#xA;&lt;p&gt;Lists are fun, and help me keep things organized.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/lists/consoles&#34;&gt;Video Game Consoles&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/lists/headphones&#34;&gt;Headphones&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+      <description>&lt;h1 id=&#34;scale-models&#34;&gt;Scale models&lt;/h1&gt;&#xA;&lt;p&gt;I build models for fun, it’s my main and favourite hobby since the 90s.&lt;/p&gt;&#xA;&lt;p&gt;I set up a nice little gallery of my models, along with build logs, on &lt;a href=&#34;https://models.bulimov.me&#34;&gt;models.bulimov.me&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h1 id=&#34;diy&#34;&gt;DIY&lt;/h1&gt;&#xA;&lt;p&gt;I love woodworking, but also tinker with electronics, Laser Cutter/Engraver and 3D Printing.&lt;/p&gt;&#xA;&lt;p&gt;Here you can find &lt;a href=&#34;//bulimov.me/lists/diy&#34;&gt;&lt;strong&gt;all the things I made&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h1 id=&#34;reviews&#34;&gt;Reviews&lt;/h1&gt;&#xA;&lt;p&gt;I&amp;rsquo;m &lt;a href=&#34;//bulimov.me/post/2021/05/23/taking-notes/&#34;&gt;writing&lt;/a&gt; my mini reviews for games, books and music since 2013, just for fun.&#xA;The reviews are not published (yet?), but the &lt;a href=&#34;//bulimov.me/reviews&#34;&gt;scores are&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Lists</title>
