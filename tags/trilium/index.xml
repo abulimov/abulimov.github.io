@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Trilium on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link>//bulimov.me/tags/trilium/</link>
+    <description>Recent content in Trilium on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 23 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="//bulimov.me/tags/trilium/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Moving from Joplin to Trilium for note-taking</title>
+      <link>//bulimov.me/post/2026/08/23/joplin-to-trilium/</link>
+      <pubDate>Sun, 23 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/post/2026/08/23/joplin-to-trilium/</guid>
+      <description>&lt;p&gt;Back in 2021 I &lt;a href=&#34;//bulimov.me/post/2021/05/23/taking-notes/&#34;&gt;wrote about my note-taking setup&lt;/a&gt;,&#xA;and described how I settled on &lt;a href=&#34;https://joplinapp.org/&#34;&gt;Joplin&lt;/a&gt; at the time.&lt;/p&gt;&#xA;&lt;p&gt;However, I moved to &lt;a href=&#34;https://triliumnotes.org&#34;&gt;Trilium&lt;/a&gt; about 6 months ago, and will explain why in this post.&lt;/p&gt;&#xA;&lt;h2 id=&#34;brief-description-of-my-note-taking-setup-in-joplin&#34;&gt;Brief description of my note-taking setup in Joplin&lt;/h2&gt;&#xA;&lt;p&gt;Since then until beginning of 2026 I kept using Joplin for all my personal notes:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;daily diary&lt;/li&gt;&#xA;&lt;li&gt;notes on my pet projects (mostly &lt;a href=&#34;//models.bulimov.me&#34;&gt;scale models&lt;/a&gt;)&lt;/li&gt;&#xA;&lt;li&gt;documentation on the house - what we did, what paint is used where, etc&lt;/li&gt;&#xA;&lt;li&gt;list of all the international travels we did&lt;/li&gt;&#xA;&lt;li&gt;list of stuff I own or want&lt;/li&gt;&#xA;&lt;li&gt;list of stuff I did, or visited, or attended, such as concerts&lt;/li&gt;&#xA;&lt;li&gt;address book for postcards&lt;/li&gt;&#xA;&lt;li&gt;random thoughts, ideas and stuff&lt;/li&gt;&#xA;&lt;li&gt;mini-reviews and ratings of:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;books I read&lt;/li&gt;&#xA;&lt;li&gt;music albums I enjoyed&lt;/li&gt;&#xA;&lt;li&gt;video games I played&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I organized my notes as follows:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -6,8 +6,29 @@
     <description>Recent content in Tags on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 08 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 23 Aug 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="//bulimov.me/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Diary</title>
+      <link>//bulimov.me/tags/diary/</link>
+      <pubDate>Sun, 23 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/diary/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Joplin</title>
+      <link>//bulimov.me/tags/joplin/</link>
+      <pubDate>Sun, 23 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/joplin/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Trilium</title>
+      <link>//bulimov.me/tags/trilium/</link>
+      <pubDate>Sun, 23 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/tags/trilium/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Blog</title>
       <link>//bulimov.me/tags/blog/</link>
@@ -265,13 +286,6 @@
       <link>//bulimov.me/tags/python/</link>
       <pubDate>Thu, 02 Dec 2021 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/tags/python/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Joplin</title>
-      <link>//bulimov.me/tags/joplin/</link>
-      <pubDate>Sun, 23 May 2021 20:27:52 +0100</pubDate>
-      <guid>//bulimov.me/tags/joplin/</guid>
       <description></description>
     </item>
     <item>

@@ -65,8 +65,8 @@
 <p>Для обычных проверок <code>check_load</code> и <code>check_memory</code> из пакета Nagios-plugins
 я добавил топ-5 потребителей ресурсов достаточно легко - обернул стандратные
 плагины в простенький wrapper на bash, получилось примерно так:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e"># check_memory wrapper</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"># check_memory wrapper</span>
 </span></span><span style="display:flex;"><span>output<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>/usr/lib/nagios/plugins/check_memory <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span><span style="color:#66d9ef">)</span>
 </span></span><span style="display:flex;"><span>status<span style="color:#f92672">=</span>$?
 </span></span><span style="display:flex;"><span>message<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo <span style="color:#e6db74">&#34;</span>$output<span style="color:#e6db74">&#34;</span> | cut -d<span style="color:#ae81ff">\|</span> -f 1<span style="color:#66d9ef">)</span>
@@ -79,7 +79,7 @@
 </span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#34; | </span>$perfdata<span style="color:#e6db74">&#34;</span>
 </span></span><span style="display:flex;"><span>exit $status
 </span></span></code></pre></div><p>При превышении заданных лимитов вывод этого wrapperа получается такой:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>root@host:~# /usr/lib/nagios/plugins/check_memory_wrapper.sh -f -C -w <span style="color:#ae81ff">15</span> -c <span style="color:#ae81ff">10</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>root@host:~# /usr/lib/nagios/plugins/check_memory_wrapper.sh -f -C -w <span style="color:#ae81ff">15</span> -c <span style="color:#ae81ff">10</span>
 </span></span><span style="display:flex;"><span>CRITICAL - 4.9% <span style="color:#f92672">(</span><span style="color:#ae81ff">1198364</span> kB<span style="color:#f92672">)</span> free!
 </span></span><span style="display:flex;"><span>USER       PID %CPU %MEM    VSZ   RSS      TTY  STAT START   TIME COMMAND
 </span></span><span style="display:flex;"><span>traffic+ <span style="color:#ae81ff">28086</span> 11.3 91.7 <span style="color:#ae81ff">25970900</span> <span style="color:#ae81ff">22651436</span> ?    Sl   Mar18 5553:57 /usr/bin/traffic_server -M --httpport 8080:fd<span style="color:#f92672">=</span><span style="color:#ae81ff">9</span>
@@ -125,7 +125,7 @@ read-only доступ к <code>/proc</code>, и который по HTTP API о
 случае сообщений от мониторинга, и вывожу вместе с алертом. Теперь сообщение
 из начала статьи, которое и побудило меня к написанию своего сервиса,
 выглядит примерно так:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>CheckDockerStats WARNING: 83.32% CPU used!
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>CheckDockerStats WARNING: 83.32% CPU used!
 </span></span><span style="display:flex;"><span> USER   PID  %CPU  %MEM      VSZ      RSS   STAT COMMAND
 </span></span><span style="display:flex;"><span><span style="color:#ae81ff">65534</span>  <span style="color:#ae81ff">1285</span>  18.3   0.0    <span style="color:#ae81ff">18396</span>     <span style="color:#ae81ff">1632</span>      S /usr/sbin/nutcracker -v <span style="color:#ae81ff">11</span> -c /etc/twemproxy/config.yml
 </span></span><span style="display:flex;"><span> <span style="color:#ae81ff">1000</span> <span style="color:#ae81ff">24891</span>   7.5   1.4   <span style="color:#ae81ff">299524</span>    <span style="color:#ae81ff">99200</span>      S python /path/to/program.py
@@ -191,7 +191,7 @@ read-only доступ к <code>/proc</code>, и который по HTTP API о
   
   
   <hr/>
-  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.me">Alexander Bulimov</a> 2013 &ndash; 2025 | <a href="https://github.com/abulimov">Github</a>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.me">Alexander Bulimov</a> 2013 &ndash; 2026 | <a href="https://github.com/abulimov">Github</a>
   
   </footer>
   </body>

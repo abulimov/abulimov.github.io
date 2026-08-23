@@ -6,8 +6,15 @@
     <description>Recent content in Home on Alexander Bulimov: Production Engineer and Scale Modeller</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 08 Nov 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 23 Aug 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="//bulimov.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Moving from Joplin to Trilium for note-taking</title>
+      <link>//bulimov.me/post/2026/08/23/joplin-to-trilium/</link>
+      <pubDate>Sun, 23 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>//bulimov.me/post/2026/08/23/joplin-to-trilium/</guid>
+      <description>&lt;p&gt;Back in 2021 I &lt;a href=&#34;//bulimov.me/post/2021/05/23/taking-notes/&#34;&gt;wrote about my note-taking setup&lt;/a&gt;,&#xA;and described how I settled on &lt;a href=&#34;https://joplinapp.org/&#34;&gt;Joplin&lt;/a&gt; at the time.&lt;/p&gt;&#xA;&lt;p&gt;However, I moved to &lt;a href=&#34;https://triliumnotes.org&#34;&gt;Trilium&lt;/a&gt; about 6 months ago, and will explain why in this post.&lt;/p&gt;&#xA;&lt;h2 id=&#34;brief-description-of-my-note-taking-setup-in-joplin&#34;&gt;Brief description of my note-taking setup in Joplin&lt;/h2&gt;&#xA;&lt;p&gt;Since then until beginning of 2026 I kept using Joplin for all my personal notes:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;daily diary&lt;/li&gt;&#xA;&lt;li&gt;notes on my pet projects (mostly &lt;a href=&#34;//models.bulimov.me&#34;&gt;scale models&lt;/a&gt;)&lt;/li&gt;&#xA;&lt;li&gt;documentation on the house - what we did, what paint is used where, etc&lt;/li&gt;&#xA;&lt;li&gt;list of all the international travels we did&lt;/li&gt;&#xA;&lt;li&gt;list of stuff I own or want&lt;/li&gt;&#xA;&lt;li&gt;list of stuff I did, or visited, or attended, such as concerts&lt;/li&gt;&#xA;&lt;li&gt;address book for postcards&lt;/li&gt;&#xA;&lt;li&gt;random thoughts, ideas and stuff&lt;/li&gt;&#xA;&lt;li&gt;mini-reviews and ratings of:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;books I read&lt;/li&gt;&#xA;&lt;li&gt;music albums I enjoyed&lt;/li&gt;&#xA;&lt;li&gt;video games I played&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I organized my notes as follows:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Added a &#39;DIY&#39; section</title>
       <link>//bulimov.me/post/2025/11/08/added-diy/</link>
@@ -188,7 +195,7 @@
       <link>//bulimov.me/post/2021/05/23/taking-notes/</link>
       <pubDate>Sun, 23 May 2021 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/post/2021/05/23/taking-notes/</guid>
-      <description>&lt;p&gt;In the &lt;em&gt;days of yore&lt;/em&gt; it was common for people to keep a diary.&#xA;I myself was always a fan of this idea, but could never actually get started with it.&lt;/p&gt;&#xA;&lt;p&gt;My handwriting is absolutely terrible, to the point that I can&amp;rsquo;t decipher my own notes,&#xA;which rules out writing diary in an old-fashioned way.&#xA;And all diary-like mobile apps seem to add too much friction.&lt;/p&gt;&#xA;&lt;p&gt;I kinda solved this for my needs few years ago by writing an simple app that allows me to quickly collect each day stats and activities in under 1 minute,&#xA;but that&amp;rsquo;s not the topic of this post, I&amp;rsquo;ll write about it someday later.&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;strong&gt;UPDATE from 2026: I moved to Trilium for note-taking, see the details in &lt;a href=&#34;//bulimov.me/post/2026/08/23/joplin-to-trilium/&#34;&gt;this post&lt;/a&gt;.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;In the &lt;em&gt;days of yore&lt;/em&gt; it was common for people to keep a diary.&#xA;I myself was always a fan of this idea, but could never actually get started with it.&lt;/p&gt;&#xA;&lt;p&gt;My handwriting is absolutely terrible, to the point that I can&amp;rsquo;t decipher my own notes,&#xA;which rules out writing diary in an old-fashioned way.&#xA;And all diary-like mobile apps seem to add too much friction.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Python is not good for production</title>
@@ -294,20 +301,6 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>//bulimov.me/etc/</guid>
       <description>&lt;h1 id=&#34;scale-models&#34;&gt;Scale models&lt;/h1&gt;&#xA;&lt;p&gt;I build models for fun, it’s my main and favourite hobby since the 90s.&lt;/p&gt;&#xA;&lt;p&gt;I set up a nice little gallery of my models, along with build logs, on &lt;a href=&#34;https://models.bulimov.me&#34;&gt;models.bulimov.me&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h1 id=&#34;diy&#34;&gt;DIY&lt;/h1&gt;&#xA;&lt;p&gt;I love woodworking, but also tinker with electronics, Laser Cutter/Engraver and 3D Printing.&lt;/p&gt;&#xA;&lt;p&gt;Here you can find &lt;a href=&#34;//bulimov.me/lists/diy&#34;&gt;&lt;strong&gt;all the things I made&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h1 id=&#34;reviews&#34;&gt;Reviews&lt;/h1&gt;&#xA;&lt;p&gt;I&amp;rsquo;m &lt;a href=&#34;//bulimov.me/post/2021/05/23/taking-notes/&#34;&gt;writing&lt;/a&gt; my mini reviews for games, books and music since 2013, just for fun.&#xA;The reviews are not published (yet?), but the &lt;a href=&#34;//bulimov.me/reviews&#34;&gt;scores are&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Lists</title>
-      <link>//bulimov.me/lists/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//bulimov.me/lists/</guid>
-      <description>&lt;p&gt;Lists are fun, and help me keep things organized.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/lists/consoles&#34;&gt;Video Game Consoles&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/lists/headphones&#34;&gt;Headphones&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
-    </item>
-    <item>
-      <title>Reviews</title>
-      <link>//bulimov.me/reviews/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>//bulimov.me/reviews/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m &lt;a href=&#34;//bulimov.me/post/2021/05/23/taking-notes/&#34;&gt;writing my mini-reviews&lt;/a&gt; for games, books and music since 2013, just for fun.&#xA;The reviews are not published (yet?), but the scores are.&lt;/p&gt;&#xA;&lt;p&gt;Here you can find my review scores for:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/reviews/video-games&#34;&gt;Video Games&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/reviews/books&#34;&gt;Books&lt;/a&gt;&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/reviews/music&#34;&gt;Music&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
     </item>
   </channel>
 </rss>

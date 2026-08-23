@@ -2,28 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>//bulimov.me/categories/</loc>
+    <lastmod>2026-08-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/diary/</loc>
+    <lastmod>2026-08-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/</loc>
+    <lastmod>2026-08-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/joplin/</loc>
+    <lastmod>2026-08-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/post/2026/08/23/joplin-to-trilium/</loc>
+    <lastmod>2026-08-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/categories/personal/</loc>
+    <lastmod>2026-08-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/post/</loc>
+    <lastmod>2026-08-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/</loc>
+    <lastmod>2026-08-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/trilium/</loc>
+    <lastmod>2026-08-23T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>//bulimov.me/post/2025/11/08/added-diy/</loc>
     <lastmod>2025-11-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/blog/</loc>
     <lastmod>2025-11-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/categories/</loc>
-    <lastmod>2025-11-08T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/tags/diy/</loc>
-    <lastmod>2025-11-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/</loc>
-    <lastmod>2025-11-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/categories/personal/</loc>
-    <lastmod>2025-11-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/post/</loc>
-    <lastmod>2025-11-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/tags/</loc>
     <lastmod>2025-11-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/post/2025/10/04/repairing-robot-vacuum/</loc>
@@ -202,9 +214,6 @@
   </url><url>
     <loc>//bulimov.me/post/2021/08/07/why-xbox/</loc>
     <lastmod>2021-08-07T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/tags/joplin/</loc>
-    <lastmod>2021-05-23T20:27:52+01:00</lastmod>
   </url><url>
     <loc>//bulimov.me/post/2021/05/23/my-reviews/</loc>
     <lastmod>2021-05-23T20:27:52+01:00</lastmod>

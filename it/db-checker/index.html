@@ -83,7 +83,7 @@
 список того, чего быть не должно, и тогда мы проверяем <em>отсутствие</em> данных
 в ответе на запрос, а при наличии - выводим их в отчете.</p>
 <p>Например, наличие блокировок в PostgreSQL можно проверять так:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">query</span>: |<span style="color:#e6db74">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">query</span>: |<span style="color:#e6db74">
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    SELECT
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      COALESCE(blockingl.relation::regclass::text,blockingl.locktype) as locked_item,
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      (now() - blockeda.query_start)::time AS waiting_duration,
@@ -104,7 +104,7 @@
 </span></span><span style="display:flex;"><span><span style="color:#f92672">assert</span>: <span style="color:#ae81ff">absent</span>
 </span></span></code></pre></div><p>Таким образом, если блокировок нет - все отлично, а если есть - выводим их список.</p>
 <p>Другой пример - проверка успешных задач <code>job_name</code> PGAgent за 4 часа:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">query</span>: |<span style="color:#e6db74">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">query</span>: |<span style="color:#e6db74">
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    SELECT jlgstatus
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    FROM pgagent.pga_joblog
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    WHERE jlgstart &gt; (now() - interval &#39;4 hours&#39;) AND jlgstatus = &#39;s&#39; AND
@@ -120,7 +120,7 @@
 сразу было все понятно, поэтому ASCII-таблица с проблемными значениями подходит
 как нельзя лучше.</p>
 <p>Пример:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>nagios@example.com:~$ ./db-checker --dbname movies --dbuser=checker --dbhost=localhost --dbpassword=SomePassword --checks /opt/checks/movies --critical
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>nagios@example.com:~$ ./db-checker --dbname movies --dbuser=checker --dbhost=localhost --dbpassword=SomePassword --checks /opt/checks/movies --critical
 </span></span><span style="display:flex;"><span>CRITICAL:
 </span></span><span style="display:flex;"><span>* Found movies with zero duration
 </span></span><span style="display:flex;"><span>N. ¦ column1 ¦ orig_title                ¦ rus_title
@@ -182,7 +182,7 @@
   
   
   <hr/>
-  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.me">Alexander Bulimov</a> 2013 &ndash; 2025 | <a href="https://github.com/abulimov">Github</a>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.me">Alexander Bulimov</a> 2013 &ndash; 2026 | <a href="https://github.com/abulimov">Github</a>
   
   </footer>
   </body>
