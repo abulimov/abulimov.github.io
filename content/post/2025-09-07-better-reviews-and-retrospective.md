@@ -105,7 +105,7 @@ Truly standout games, where exploration is king. Just a joy to play, despite som
 Never expected to like this type of games, but ended up falling in love with them.
 In turn it started my journey into the world of deduction games, from **Chants of Sennaar** to *Frogware's* **Sherlock Holmes** games.
 
-#### Lunistice, Tinykin, Yokus’s Island Express
+#### Lunistice, Tinykin, Yoku’s Island Express
 I'm not good with platformers, never played them as a kid, have no nostalgic feelings whatsoever.
 But those games are pure concentrated joy! I absolutely loved **Lunistice**, even more than **Super Mario Odyssey**.
 And **Tinykin** is one of very few games which made me stay up late to keep playing. Can't recommend it enough!
