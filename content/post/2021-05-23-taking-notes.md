@@ -3,8 +3,10 @@ title: "Taking Notes"
 date: 2021-05-23
 slug: taking-notes
 Categories: [Personal]
-tags: [Evernote, QOwnNotes, Joplin]
+tags: [Evernote, QOwnNotes, Joplin, Diary]
 ---
+
+**UPDATE from 2026: I moved to Trilium for note-taking, see the details in [this post](/post/2026/08/23/joplin-to-trilium/).**
 
 In the *days of yore* it was common for people to keep a diary.
 I myself was always a fan of this idea, but could never actually get started with it.

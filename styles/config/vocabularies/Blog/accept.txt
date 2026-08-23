@@ -300,3 +300,5 @@ Beyerdynamic
 PlayStation
 Hoto
 Thingiverse
+Trilium
+Nominatim
