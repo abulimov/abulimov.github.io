@@ -30,7 +30,7 @@ clean:
 	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)
 
 publish: check
-	hugo -b //bulimov.me/
+	hugo --cleanDestinationDir -b //bulimov.me/
 
 github: publish
 	ghp-import -m 'Updated blog' -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
