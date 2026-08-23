@@ -21,7 +21,9 @@ Install 'Wand' module for python with `pip3 install Wand`, and use provided scri
 
 ### Refreshing reviews
 
-`./upd_reviews.py /path/to/notes/*.md`
+Make sure that the Trilium API key is in the env vars, then
+
+`./upd_reviews.py`
 
 ## Linting
 
