@@ -28,7 +28,7 @@ url = "about/"
 weight = 4
 
 [params]
-footer = "[![License: CC BY-SA 4.0](https://i.creativecommons.org/l/by-sa/4.0/80x15.png)](https://creativecommons.org/licenses/by-sa/4.0/) &copy; [Alexander Bulimov](http://bulimov.me) 2013 -- 2025 | [Github](https://github.com/abulimov)"
+footer = "[![License: CC BY-SA 4.0](https://i.creativecommons.org/l/by-sa/4.0/80x15.png)](https://creativecommons.org/licenses/by-sa/4.0/) &copy; [Alexander Bulimov](http://bulimov.me) 2013 -- 2026 | [Github](https://github.com/abulimov)"
 
 [markup.goldmark.renderer]
 unsafe = true
