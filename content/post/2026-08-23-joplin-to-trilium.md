@@ -16,7 +16,7 @@ However, I moved to [Trilium](https://triliumnotes.org) about 6 months ago, and 
 Since then until beginning of 2026 I kept using Joplin for all my personal notes:
 
 * daily diary
-* notes on my pet projects (mostly [scale models](//models.bulimov.me))
+* notes on my pet projects (mostly [scale models](https://models.bulimov.me))
 * documentation on the house - what we did, what paint is used where, etc
 * list of all the international travels we did
 * list of stuff I own or want

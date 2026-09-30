@@ -13,26 +13,19 @@ help:
 	@echo '                                                                       '
 	@echo '                                                                       '
 
-check:
+check: publish
 	vale --minAlertLevel=error content/post content/lists
-	@echo 'checking for bad links';\
-	grep -P -R '^(?:(?!(\s*func|.*:=)).*)\[.+\]\((?:(?!http|\/)).+\)' content/post/ content/lists;\
-	EXIT_CODE=$$?;\
-	if [ $$EXIT_CODE -eq 0 ]; \
-	then \
-		echo "found some bad links"; \
-		exit 1; \
-	else \
-		echo "No bad links found"; \
-	fi
+	@echo
+	@echo "Checking for bad links"
+	./check_links.py content/post/* content/lists/*
 
 clean:
 	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)
 
-publish: check
+publish:
 	hugo --cleanDestinationDir -b //bulimov.me/
 
-github: publish
+github: check publish
 	ghp-import -m 'Updated blog' -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
 	git push origin $(GITHUB_PAGES_BRANCH)
 

@@ -9,7 +9,7 @@ Build:
   Link: local
 ---
 
-I've just published my new site - personal [Scale Models Gallery](//models.bulimov.me).
+I've just published my new site - personal [Scale Models Gallery](https://models.bulimov.me).
 
 [Model making](https://en.wikipedia.org/wiki/Model_building) is my main and favorite hobby, so I've decided to build a whole new site just to write about it.
 
@@ -28,7 +28,7 @@ and it seems to be more flexible.
 Once I chose the generator and a [theme](https://github.com/eueung/hugo-casper-two), which is a port of
 *Casper* theme from **Ghost** blogging platform, I just had to convert my Evernote notes into a proper site, which I did in a couple of evenings.
 
-I'm pretty happy with the result so far, [models.bulimov.me](//models.bulimov.me) looks nice both on desktop and mobile, and does basically
+I'm pretty happy with the result so far, [models.bulimov.me](https://models.bulimov.me) looks nice both on desktop and mobile, and does basically
 everything I wanted from it, which is just picture-heavy posts and aggregation by tags per scale and make.
 
 I still have to add Google Analytics and Discuss to it, but even now my ego is pretty much satisfied.
