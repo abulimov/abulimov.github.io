@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Vacuum Cleaner on Alexander Bulimov: Production Engineer and Scale Modeller</title>
-    <link>//bulimov.me/tags/vacuum-cleaner/</link>
-    <description>Recent content in Vacuum Cleaner on Alexander Bulimov: Production Engineer and Scale Modeller</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 04 Oct 2025 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//bulimov.me/tags/vacuum-cleaner/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Repairing a robot vacuum cleaner</title>
-      <link>//bulimov.me/post/2025/10/04/repairing-robot-vacuum/</link>
-      <pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>//bulimov.me/post/2025/10/04/repairing-robot-vacuum/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m pleased to report that modern robot vacuum cleaners are fairly easy to repair, at least from the mechanical standpoint.&lt;/p&gt;&#xA;&lt;p&gt;I guess the relatively large form factor allows for components to be big enough, and that there is no clear need to miniaturize everything.&lt;/p&gt;&#xA;&lt;p&gt;Debugging the robot vacuums from a software standpoint is a completely different affair, and not in a good way.&lt;/p&gt;&#xA;&lt;p&gt;In my particular case, my trusty &lt;a href=&#34;//bulimov.me/post/2023/08/13/robot-vacuum-amazing&#34;&gt;ECOVACS T8&lt;/a&gt; developed a problem with one of the driving wheels,&#xA;probably after being stuck on a cable or a sock way too often.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Robot Vacuum Cleaner is an amazing invention</title>
-      <link>//bulimov.me/post/2023/08/13/robot-vacuum-amazing/</link>
-      <pubDate>Sun, 13 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>//bulimov.me/post/2023/08/13/robot-vacuum-amazing/</guid>
-      <description>&lt;p&gt;I have been using a robot vacuum cleaner for exactly one year now, so decided to summarize my thoughts.&lt;/p&gt;&#xA;&lt;p&gt;Generally I’m not a fan of all this &amp;lsquo;smart home&amp;rsquo; stuff, definitely very far from being a fanboy by all standards.&lt;/p&gt;&#xA;&lt;p&gt;But at the same time I’m a huge fan of automating everything, and thus was always interested in trying a robot vacuum cleaner. If anything, washing machine and a dishwasher already immensely help with other house chores, why not automate cleaning too?&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Vacuum Cleaner on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+		<link>//bulimov.me/tags/vacuum-cleaner/</link>
+		<description>Recent content in Vacuum Cleaner on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Sat, 04 Oct 2025 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="//bulimov.me/tags/vacuum-cleaner/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Repairing a robot vacuum cleaner</title>
+				<link>//bulimov.me/post/2025/10/04/repairing-robot-vacuum/</link>
+				<pubDate>Sat, 04 Oct 2025 00:00:00 +0000</pubDate>
+				<guid>//bulimov.me/post/2025/10/04/repairing-robot-vacuum/</guid>
+				<description>&lt;p&gt;I&amp;rsquo;m pleased to report that modern robot vacuum cleaners are fairly easy to repair, at least from the mechanical standpoint.&lt;/p&gt;&#xA;&lt;p&gt;I guess the relatively large form factor allows for components to be big enough, and that there is no clear need to miniaturize everything.&lt;/p&gt;&#xA;&lt;p&gt;Debugging the robot vacuums from a software standpoint is a completely different affair, and not in a good way.&lt;/p&gt;&#xA;&lt;p&gt;In my particular case, my trusty &lt;a href=&#34;//bulimov.me/post/2023/08/13/robot-vacuum-amazing&#34;&gt;ECOVACS T8&lt;/a&gt; developed a problem with one of the driving wheels,&#xA;probably after being stuck on a cable or a sock way too often.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Robot Vacuum Cleaner is an amazing invention</title>
+				<link>//bulimov.me/post/2023/08/13/robot-vacuum-amazing/</link>
+				<pubDate>Sun, 13 Aug 2023 00:00:00 +0000</pubDate>
+				<guid>//bulimov.me/post/2023/08/13/robot-vacuum-amazing/</guid>
+				<description>&lt;p&gt;I have been using a robot vacuum cleaner for exactly one year now, so decided to summarize my thoughts.&lt;/p&gt;&#xA;&lt;p&gt;Generally I’m not a fan of all this &amp;lsquo;smart home&amp;rsquo; stuff, definitely very far from being a fanboy by all standards.&lt;/p&gt;&#xA;&lt;p&gt;But at the same time I’m a huge fan of automating everything, and thus was always interested in trying a robot vacuum cleaner. If anything, washing machine and a dishwasher already immensely help with other house chores, why not automate cleaning too?&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Vale on Alexander Bulimov: Production Engineer and Scale Modeller</title>
-    <link>//bulimov.me/tags/vale/</link>
-    <description>Recent content in Vale on Alexander Bulimov: Production Engineer and Scale Modeller</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 16 Jan 2022 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//bulimov.me/tags/vale/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Code-like linting for prose</title>
-      <link>//bulimov.me/post/2022/01/16/prose-lint/</link>
-      <pubDate>Sun, 16 Jan 2022 00:00:00 +0000</pubDate>
-      <guid>//bulimov.me/post/2022/01/16/prose-lint/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m a big fan of static analysis and linting for code.&lt;/p&gt;&#xA;&lt;p&gt;If a computer can do it automatically - why rely on humans to do the same thing?&lt;/p&gt;&#xA;&lt;p&gt;That&amp;rsquo;s one of the reasons why I&amp;rsquo;m such a big proponent of static typing.&lt;/p&gt;&#xA;&lt;p&gt;I try to bring linting everywhere:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;When I had to deal with huge and complex&#xA;HAProxy configs  - I &lt;a href=&#34;https://github.com/abulimov/HAProxy-lint&#34;&gt;wrote a linter&lt;/a&gt; myself.&lt;/li&gt;&#xA;&lt;li&gt;When later at different place I had to deal with complicated business logic expressed&#xA;as a state machine - I used Python AST to write a linter for it, and analyze cycles, dead ends and complexity.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;And of course I use existing open-source linters whenever possible.&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Vale on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+		<link>//bulimov.me/tags/vale/</link>
+		<description>Recent content in Vale on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Sun, 16 Jan 2022 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="//bulimov.me/tags/vale/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Code-like linting for prose</title>
+				<link>//bulimov.me/post/2022/01/16/prose-lint/</link>
+				<pubDate>Sun, 16 Jan 2022 00:00:00 +0000</pubDate>
+				<guid>//bulimov.me/post/2022/01/16/prose-lint/</guid>
+				<description>&lt;p&gt;I&amp;rsquo;m a big fan of static analysis and linting for code.&lt;/p&gt;&#xA;&lt;p&gt;If a computer can do it automatically - why rely on humans to do the same thing?&lt;/p&gt;&#xA;&lt;p&gt;That&amp;rsquo;s one of the reasons why I&amp;rsquo;m such a big proponent of static typing.&lt;/p&gt;&#xA;&lt;p&gt;I try to bring linting everywhere:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;When I had to deal with huge and complex&#xA;HAProxy configs  - I &lt;a href=&#34;https://github.com/abulimov/HAProxy-lint&#34;&gt;wrote a linter&lt;/a&gt; myself.&lt;/li&gt;&#xA;&lt;li&gt;When later at different place I had to deal with complicated business logic expressed&#xA;as a state machine - I used Python AST to write a linter for it, and analyze cycles, dead ends and complexity.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;And of course I use existing open-source linters whenever possible.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Go-Carbon on Alexander Bulimov: Production Engineer and Scale Modeller</title>
-    <link>//bulimov.me/tags/go-carbon/</link>
-    <description>Recent content in Go-Carbon on Alexander Bulimov: Production Engineer and Scale Modeller</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Mon, 08 Feb 2016 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//bulimov.me/tags/go-carbon/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Замена carbon-cache на go-carbon = Счастье</title>
-      <link>//bulimov.me/it/go-carbon/</link>
-      <pubDate>Mon, 08 Feb 2016 00:00:00 +0000</pubDate>
-      <guid>//bulimov.me/it/go-carbon/</guid>
-      <description>&lt;p&gt;Пришлось на собственном опыте опробовать, насколько&#xA;&lt;a href=&#34;//bulimov.me/it/graphite-experience&#34;&gt;Graphite модульный&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;При 200k &lt;code&gt;metricsReceived&lt;/code&gt; наш Graphite, работающий на довольном старом сервере&#xA;на обычных дисках, начал помирать. &lt;strong&gt;Carbon-cache&lt;/strong&gt; постоянно был в топе потребления&#xA;ресурсов, ни о какой отзывчивости в работе сервера речи вообще не шло.&lt;/p&gt;&#xA;&lt;p&gt;&amp;ldquo;Хватит это терпеть!&amp;rdquo; - подумал я, и начал в который раз искать советы по&#xA;тюнингу carbon для высокой производительности. В очередной раз ничего нового&#xA;не найдя, я решил попробовать давно приглянувшийся мне проект&#xA;&lt;a href=&#34;https://github.com/lomik/go-carbon&#34;&gt;go-carbon&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Go-Carbon on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+		<link>//bulimov.me/tags/go-carbon/</link>
+		<description>Recent content in Go-Carbon on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Mon, 08 Feb 2016 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="//bulimov.me/tags/go-carbon/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Замена carbon-cache на go-carbon = Счастье</title>
+				<link>//bulimov.me/it/go-carbon/</link>
+				<pubDate>Mon, 08 Feb 2016 00:00:00 +0000</pubDate>
+				<guid>//bulimov.me/it/go-carbon/</guid>
+				<description>&lt;p&gt;Пришлось на собственном опыте опробовать, насколько&#xA;&lt;a href=&#34;//bulimov.me/it/graphite-experience&#34;&gt;Graphite модульный&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;При 200k &lt;code&gt;metricsReceived&lt;/code&gt; наш Graphite, работающий на довольном старом сервере&#xA;на обычных дисках, начал помирать. &lt;strong&gt;Carbon-cache&lt;/strong&gt; постоянно был в топе потребления&#xA;ресурсов, ни о какой отзывчивости в работе сервера речи вообще не шло.&lt;/p&gt;&#xA;&lt;p&gt;&amp;ldquo;Хватит это терпеть!&amp;rdquo; - подумал я, и начал в который раз искать советы по&#xA;тюнингу carbon для высокой производительности. В очередной раз ничего нового&#xA;не найдя, я решил попробовать давно приглянувшийся мне проект&#xA;&lt;a href=&#34;https://github.com/lomik/go-carbon&#34;&gt;go-carbon&lt;/a&gt;.&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>

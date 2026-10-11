@@ -1,26 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Logstash on Alexander Bulimov: Production Engineer and Scale Modeller</title>
-    <link>//bulimov.me/tags/logstash/</link>
-    <description>Recent content in Logstash on Alexander Bulimov: Production Engineer and Scale Modeller</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Fri, 09 Oct 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="//bulimov.me/tags/logstash/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Logstash и Graphite</title>
-      <link>//bulimov.me/it/logstash-graphite/</link>
-      <pubDate>Fri, 09 Oct 2015 00:00:00 +0000</pubDate>
-      <guid>//bulimov.me/it/logstash-graphite/</guid>
-      <description>&lt;p&gt;Недавно читал серию постов от &lt;a href=&#34;https://www.datadoghq.com&#34;&gt;Datadog&lt;/a&gt; про сбор метрик,&#xA;и в частности &lt;a href=&#34;https://www.datadoghq.com/blog/how-to-collect-nginx-metrics/&#34;&gt;статью про метрики Nginx&lt;/a&gt;&#xA;(думал, вдруг что-то новое узнаю). Что меня в этой статье зацепило - так это то, что только версия&#xA;&lt;a href=&#34;https://www.nginx.com/products/&#34;&gt;Nginx Plus&lt;/a&gt; показывает статистику количества&#xA;ответов, разделенную по HTTP-кодам. Поскольку я использую перед Nginx балансировщик&#xA;&lt;a href=&#34;http://www.haproxy.org&#34;&gt;HAProxy&lt;/a&gt;, который не жадный и показывает подробную статистику&#xA;по кодам ответов для каждого бекенда и фронтенда, я о таком минусе статистики Nginx даже не думал.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Использование ELK в продакшне</title>
-      <link>//bulimov.me/it/elk-production/</link>
-      <pubDate>Tue, 11 Aug 2015 00:00:00 +0000</pubDate>
-      <guid>//bulimov.me/it/elk-production/</guid>
-      <description>&lt;p&gt;Я уже довольно давно и успешно использую&#xA;&lt;a href=&#34;https://www.elastic.co/products/logstash&#34;&gt;Logstash&lt;/a&gt; + &lt;a href=&#34;https://www.elastic.co/products/elasticsearch&#34;&gt;Elasticsearch&lt;/a&gt;&#xA;с визуализацией данных в &lt;a href=&#34;https://www.elastic.co/products/kibana&#34;&gt;Kibana&lt;/a&gt;&#xA;(общепринятое сокращение для этой тройки - ELK) для сбора, хранения и обработки логов,&#xA;но для обретения счастья с этой связкой мне потребовалось несколько итераций.&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Поскольку в мире СПО все постоянно развивается и становится лучше, сразу хочу&#xA;отметить, что все описанное актуально для Logstash версиий 1.4-1.5 и&#xA;Elasticsearch версий 1.4 - 1.7 при нагрузке в ~20kk сообщений в день.&lt;/em&gt;&lt;/p&gt;</description>
-    </item>
-  </channel>
+	<channel>
+		<title>Logstash on Alexander Bulimov: Production Engineer and Scale Modeller</title>
+		<link>//bulimov.me/tags/logstash/</link>
+		<description>Recent content in Logstash on Alexander Bulimov: Production Engineer and Scale Modeller</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<lastBuildDate>Fri, 09 Oct 2015 00:00:00 +0000</lastBuildDate>
+		
+			<atom:link href="//bulimov.me/tags/logstash/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Logstash и Graphite</title>
+				<link>//bulimov.me/it/logstash-graphite/</link>
+				<pubDate>Fri, 09 Oct 2015 00:00:00 +0000</pubDate>
+				<guid>//bulimov.me/it/logstash-graphite/</guid>
+				<description>&lt;p&gt;Недавно читал серию постов от &lt;a href=&#34;https://www.datadoghq.com&#34;&gt;Datadog&lt;/a&gt; про сбор метрик,&#xA;и в частности &lt;a href=&#34;https://www.datadoghq.com/blog/how-to-collect-nginx-metrics/&#34;&gt;статью про метрики Nginx&lt;/a&gt;&#xA;(думал, вдруг что-то новое узнаю). Что меня в этой статье зацепило - так это то, что только версия&#xA;&lt;a href=&#34;https://www.nginx.com/products/&#34;&gt;Nginx Plus&lt;/a&gt; показывает статистику количества&#xA;ответов, разделенную по HTTP-кодам. Поскольку я использую перед Nginx балансировщик&#xA;&lt;a href=&#34;http://www.haproxy.org&#34;&gt;HAProxy&lt;/a&gt;, который не жадный и показывает подробную статистику&#xA;по кодам ответов для каждого бекенда и фронтенда, я о таком минусе статистики Nginx даже не думал.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Использование ELK в продакшне</title>
+				<link>//bulimov.me/it/elk-production/</link>
+				<pubDate>Tue, 11 Aug 2015 00:00:00 +0000</pubDate>
+				<guid>//bulimov.me/it/elk-production/</guid>
+				<description>&lt;p&gt;Я уже довольно давно и успешно использую&#xA;&lt;a href=&#34;https://www.elastic.co/products/logstash&#34;&gt;Logstash&lt;/a&gt; + &lt;a href=&#34;https://www.elastic.co/products/elasticsearch&#34;&gt;Elasticsearch&lt;/a&gt;&#xA;с визуализацией данных в &lt;a href=&#34;https://www.elastic.co/products/kibana&#34;&gt;Kibana&lt;/a&gt;&#xA;(общепринятое сокращение для этой тройки - ELK) для сбора, хранения и обработки логов,&#xA;но для обретения счастья с этой связкой мне потребовалось несколько итераций.&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Поскольку в мире СПО все постоянно развивается и становится лучше, сразу хочу&#xA;отметить, что все описанное актуально для Logstash версиий 1.4-1.5 и&#xA;Elasticsearch версий 1.4 - 1.7 при нагрузке в ~20kk сообщений в день.&lt;/em&gt;&lt;/p&gt;</description>
+			</item>
+	</channel>
 </rss>
