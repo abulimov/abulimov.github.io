@@ -28,7 +28,7 @@ Nowadays with suspend mode supported by all modern consoles this requirement is 
 * **Skippable dialogues and cutscenes**. I may never use this if writing is good, but I want to be able to skip useless wordy dialogues at will.
 * **Minimal amount of grind**. I value my time and simply have no desire to repeat the same basic actions to grind more levels.
 
-This doesn't mean that I ignore action games - [top games](/reviews) from last year for me include *Lunistice* and *Yoku's Island Express* which are very fast-paced.
+This doesn't mean that I ignore action games - [top games](/reviews/video-games/#2023) from last year for me include *Lunistice* and *Yoku's Island Express* which are very fast-paced.
 But it is undeniable that I really enjoy turn-based games, since they allow me to approach them at my pace.
 
 Of course, those rules are just a *framework* that I use when weighing potential purchases.

@@ -75,4 +75,5 @@ It turned out to be a great little device, I have zero complaints. Plus, the con
 
 ## Asus ROG Ally (2025-now)
 
-Here I am, coming a full circle back to PC. I'll do a separate blog post on how I picked this device, but so far I'm very happy with it.
+Here I am, coming a full circle back to PC.
+I wrote a [separate blog post on why I picked this device](/post/2026/10/11/switch-to-handheld-pc/), and so far I'm very happy with it.
