@@ -22,9 +22,15 @@ Reviews per year: [2026](#2026), [2025](#2025), [2024](#2024), [2023](#2023), [2
 | Name | Score |
 |------|-------|
 | Валериан Альбанов - На Юг, к Земле Франца-Иосифа | 10 |
+| Angus Konstam - British Motor Gun Boat 1939-45 | 9 |
+| Angus Konstam - British Motor Torpedo Boat 1939-45 | 9 |
 | Brian Aldiss - Non-Stop | 9 |
+| Chris Wraight - Bloodlines | 9 |
 | Dan Abnett - Hereticus (Eisenhorn #3) | 9 |
+| Ed Armston-Sheret - The Grip of the Ice: Scott, Shackleton and Survival in the Frozen Frontier | 9 |
 | Julian Sancton - Madhouse at the end of the Earth | 9 |
+| Przemyslaw Budzbon - Soviet Motor Gunboats of World War II | 9 |
+| Przemyslaw Budzbon - Soviet Motor Torpedo Boats of World War II | 9 |
 | Richard de Kerbrech and David Williams - Harland & Wolff and Workman, Clark | 9 |
 | Tom Nancollas - Seashaken Houses | 9 |
 | William Barr - Tragedies and Triumph in the North: Russian Exploration of the Arctic 1910-1915 | 9 |
@@ -32,11 +38,14 @@ Reviews per year: [2026](#2026), [2025](#2025), [2024](#2024), [2023](#2023), [2
 | Ben Counter - Galaxy In Flames | 8 |
 | Dan Abnett - Horus Rising | 8 |
 | Dan Abnett - Maleus (Eisenhorn #2) | 8 |
+| Martin Kelly and David Griffiths - Coastal Motor Boats: Thornycroft and the Origins of Fast Attack Craft | 8 |
 | Michael English - Sailing the Irish Famine Tall Ship Jeanie Johnston | 8 |
 | Nikki Girvan - To Save Every One: 200 Years of RNLI courage | 8 |
 | Walter Miller - A Canticle for Leibowitz | 8 |
 | Dan Abnett - Xenos (Eisenhorn #1) | 7 |
+| Gordon Williamson - German E-boats 1939-45 | 7 |
 | Graham McNeill - False Gods | 7 |
+| Helen Doe - One Crew: The RNLI's Official 200-Year History | 7 |
 | Howard Clarke, Sheila Dooley, Ruth Johnson - Dublin and the Viking World | 7 |
 | Frank Herbert - Dune | 6 |
 | Tom McCluskie - The Rise and Fall of Harland and Wolff | 6 |

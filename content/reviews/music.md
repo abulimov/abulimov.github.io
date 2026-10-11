@@ -21,7 +21,10 @@ Reviews per year: [2026](#2026), [2025](#2025), [2024](#2024), [2023](#2023), [2
 
 | Name | Score |
 |------|-------|
+| Bolt Gun - The Tower | 9 |
 | Dormant Ordeal - Tooth and Nail | 9 |
+| MASTER BOOT RECORD - REALTIME EXECUTION | 9 |
+| Musk Ox - Inheritance | 9 |
 | Sacred Outcry - Towers of Gold | 9 |
 | Morke - To Carry On | 8 |
 | Psychotic Waltz - A God-Shaped Void | 8 |

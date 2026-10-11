@@ -22,6 +22,8 @@ Reviews per year: [2026](#2026), [2025](#2025), [2024](#2024), [2023](#2023), [2
 | WH40k: Rogue Trader | 11 |
 | Strange Jigsaws | 10 |
 | WH40k: Space Marine 2 | 10 |
+| 20 More, Somehow Even Smaller, Mazes | 9 |
+| 20 Small Mazes | 8 |
 | Fallout: London | 8 |
 | Star Wars Outlaws | 8 |
 | WH40k: Boltgun | 8 |
