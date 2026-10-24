@@ -7,7 +7,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in {
       devShells.${system}.default = pkgs.mkShell {
-        packages = [ pkgs.hugo pkgs.vale pkgs.python3 pkgs.ghp-import ];
+        packages = [ pkgs.hugo pkgs.vale pkgs.python3 pkgs.ghp-import pkgs.pagefind ];
         shellHook = ''
           hugo version
           vale --version

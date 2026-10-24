@@ -24,6 +24,7 @@ clean:
 
 publish:
 	hugo --cleanDestinationDir -b //bulimov.me/
+	pagefind --site public
 
 github: check publish
 	ghp-import -m 'Updated blog' -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
