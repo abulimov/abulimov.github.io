@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Sun, 11 Oct 2026 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Sat, 24 Oct 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="//bulimov.me/categories/personal/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Added search</title>
+				<link>//bulimov.me/post/2026/10/24/added-search/</link>
+				<pubDate>Sat, 24 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>//bulimov.me/post/2026/10/24/added-search/</guid>
+				<description>&lt;p&gt;After 13 years of blogging, this blog grew relatively big.&lt;/p&gt;&#xA;&lt;p&gt;At least big enough that I myself can&amp;rsquo;t always remember what I wrote about, and where.&lt;/p&gt;&#xA;&lt;p&gt;The solution is of course obvious - just add a search feature!&lt;/p&gt;&#xA;&lt;p&gt;However, this is a statically generated website.&lt;/p&gt;&#xA;&lt;p&gt;All the pages are converted from Markdown to HTML by &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt; and pushed to Github Pages.&lt;/p&gt;&#xA;&lt;p&gt;Which means there is no backend that normally runs the search for us.&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>Why I sold my Nintendo Switch for a handheld PC</title>
 				<link>//bulimov.me/post/2026/10/11/switch-to-handheld-pc/</link>

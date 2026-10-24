@@ -10,9 +10,23 @@
 		
 		
 		
-			<lastBuildDate>Sun, 11 Oct 2026 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Sat, 24 Oct 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="//bulimov.me/tags/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Blog</title>
+				<link>//bulimov.me/tags/blog/</link>
+				<pubDate>Sat, 24 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>//bulimov.me/tags/blog/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>Pagefind</title>
+				<link>//bulimov.me/tags/pagefind/</link>
+				<pubDate>Sat, 24 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>//bulimov.me/tags/pagefind/</guid>
+				<description></description>
+			</item>
 			<item>
 				<title>Nintendo Switch</title>
 				<link>//bulimov.me/tags/nintendo-switch/</link>
@@ -53,13 +67,6 @@
 				<link>//bulimov.me/tags/trilium/</link>
 				<pubDate>Sun, 23 Aug 2026 00:00:00 +0000</pubDate>
 				<guid>//bulimov.me/tags/trilium/</guid>
-				<description></description>
-			</item>
-			<item>
-				<title>Blog</title>
-				<link>//bulimov.me/tags/blog/</link>
-				<pubDate>Sat, 08 Nov 2025 00:00:00 +0000</pubDate>
-				<guid>//bulimov.me/tags/blog/</guid>
 				<description></description>
 			</item>
 			<item>

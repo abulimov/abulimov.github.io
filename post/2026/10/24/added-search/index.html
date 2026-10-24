@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Added search | Alexander Bulimov: Production Engineer and Scale Modeller</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <style>
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: white;
+  }
+  html, img, video, iframe {
+    filter: invert(1);
+  }
+}
+</style>
+
+  </head>
+
+  <body>
+    <nav>
+    <ul class="menu">
+      
+      <li><a href="/">Blog</a></li>
+      
+      <li><a href="https://models.bulimov.me">Scale Models</a></li>
+      
+      <li><a href="/etc/">Etc</a></li>
+      
+      <li><a href="/search/">Search</a></li>
+      
+      <li><a href="/about/">About Me</a></li>
+      
+    </ul>
+    <hr/>
+    </nav>
+
+<div class="article-meta">
+<h1><span class="title">Added search</span></h1>
+
+<h2 class="date">2026/10/24</h2>
+
+</div>
+
+<main data-pagefind-body>
+<p>After 13 years of blogging, this blog grew relatively big.</p>
+<p>At least big enough that I myself can&rsquo;t always remember what I wrote about, and where.</p>
+<p>The solution is of course obvious - just add a search feature!</p>
+<p>However, this is a statically generated website.</p>
+<p>All the pages are converted from Markdown to HTML by <a href="https://gohugo.io">Hugo</a> and pushed to Github Pages.</p>
+<p>Which means there is no backend that normally runs the search for us.</p>
+<p>Thankfully, there are client-side search libraries, and some quick research
+led me to <a href="https://pagefind.app/">Pagefind</a>.</p>
+<p>It is a client-side JS library plus a Rust CLI to build the index for any website.</p>
+<p>The <a href="https://pagefind.app/docs/">documentation</a> is superb, and it took me only a couple of minutes to add
+the search page to this blog.</p>
+<p>The only question was how to incorporate this new functionality into the existing blog.</p>
+<p>Currently, my philosophy for this website is to keep it as lightweight and minimalistic
+as possible.</p>
+<p>Hence, there is no JavaScript loaded anywhere except on a few pages that use Mermaid diagrams.</p>
+<p>And the main CSS is 58 lines.</p>
+<p>So instead of adding a JS lib to every page, <strong>I limited the damage to a single
+<a href="/search/">/search</a> page</strong>.</p>
+<p>This way, when you are reading this post, it remains pure HTML
+plus a tiny bit of styling. But on a dedicated page there is now an interactive site-wide search thanks to Pagefind.</p>
+<p>Pretty neat if you ask me!</p>
+
+</main>
+
+
+<p class="terms">
+<b>Tags:</b>
+
+  <a href="//bulimov.me/tags/blog/">Blog</a>
+
+  <a href="//bulimov.me/tags/pagefind/">Pagefind</a>
+
+
+</p>
+<p class="terms">
+
+<b>Categories:</b>
+
+  <a href="//bulimov.me/categories/personal/">Personal</a>
+
+
+</p>
+
+
+
+
+  <footer>
+  
+  
+  <hr/>
+  <a href="https://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" alt="License: CC BY-SA 4.0"></a> © <a href="http://bulimov.me">Alexander Bulimov</a> 2013 &ndash; 2026 | <a href="https://github.com/abulimov">Github</a>
+  
+  </footer>
+  </body>
+</html>
+

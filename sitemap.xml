@@ -2,25 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>//bulimov.me/post/2026/10/24/added-search/</loc>
+    <lastmod>2026-10-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/blog/</loc>
+    <lastmod>2026-10-24T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>//bulimov.me/categories/</loc>
-    <lastmod>2026-10-11T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/</loc>
-    <lastmod>2026-10-11T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/pagefind/</loc>
+    <lastmod>2026-10-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/categories/personal/</loc>
+    <lastmod>2026-10-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/post/</loc>
+    <lastmod>2026-10-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/</loc>
+    <lastmod>2026-10-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/nintendo-switch/</loc>
     <lastmod>2026-10-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/categories/personal/</loc>
-    <lastmod>2026-10-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/post/</loc>
-    <lastmod>2026-10-11T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/tags/rog-ally/</loc>
-    <lastmod>2026-10-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/tags/</loc>
     <lastmod>2026-10-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/video-games/</loc>
@@ -42,9 +51,6 @@
     <lastmod>2026-08-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/post/2025/11/08/added-diy/</loc>
-    <lastmod>2025-11-08T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/tags/blog/</loc>
     <lastmod>2025-11-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/diy/</loc>
