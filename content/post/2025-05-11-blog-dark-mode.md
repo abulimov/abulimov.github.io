@@ -14,7 +14,7 @@ Thankfully adding it was super easy, and I didn't need to go much further than t
 
 The author of this lovely [`xmin`](https://github.com/yihui/hugo-xmin) theme provided an answer in the [issue #67](https://github.com/yihui/hugo-xmin/issues/67):
 
-```
+```css
 @media (prefers-color-scheme: dark) {
   body {
     background-color: white;

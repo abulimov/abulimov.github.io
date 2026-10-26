@@ -37,3 +37,7 @@ footer = "[![License: CC BY-SA 4.0](https://i.creativecommons.org/l/by-sa/4.0/80
 
 [markup.goldmark.renderer]
 unsafe = true
+
+[markup]
+  [markup.highlight]
+    noClasses = false

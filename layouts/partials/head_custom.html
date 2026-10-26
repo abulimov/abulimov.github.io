@@ -1,4 +1,7 @@
+{{- $syntaxlight := resources.Get "syntax/highlight.css" | minify -}}
+{{- $syntaxdark := resources.Get "syntax/highlight-dark.css" | minify  -}}
 <style>
+{{ $syntaxlight.Content | safeCSS }}
 @media (prefers-color-scheme: dark) {
   body {
     background-color: white;
@@ -6,5 +9,12 @@
   html, img, video, iframe {
     filter: invert(1);
   }
+  /* undo the forced dark mode for syntax highlighting */
+  pre.chroma {
+    background: none;
+    filter: invert(1);
+  }
+  /* include proper dark syntax highlights css */
+  {{ $syntaxdark.Content | safeCSS }}
 }
 </style>

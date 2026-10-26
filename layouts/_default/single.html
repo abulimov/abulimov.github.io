@@ -3,9 +3,19 @@
 <h1><span class="title">{{ .Title | markdownify }}</span></h1>
 {{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
 {{ if (gt .Params.date 0) }}<h2 class="date">{{ .Date.Format "2006/01/02" }}</h2>{{ end }}
-
+{{ if (eq .Section "post") }}<i>{{ printf "Estimated reading time: %d minutes" .ReadingTime }}</i>{{ end }}
 </div>
 
+{{ if in .TableOfContents "li" }}
+<div class="table-of-contents">
+    <aside class="toc">
+        <details>
+        <summary>Table of contents</summary>
+            {{ .TableOfContents }}
+        </details>
+    </aside>
+    </div>
+{{ end }}
 <main data-pagefind-body>
 {{ .Content }}
 </main>

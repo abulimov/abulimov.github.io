@@ -36,7 +36,7 @@ However, reading all that zsh code made me realize how fragile and convoluted it
 Which in combination with my love for strongly and statically typed languages made me try Starship once again, just to see if there is a simple way to achieve what I want there.
 
 And there was, as simple as it gets:
-```
+```toml
 [hostname]
 ssh_only = false
 detect_env_vars = ['!ZELLIJ']
@@ -51,7 +51,7 @@ Turns out, it's not noticeable at all.
 And `starship` provides a lovely breakdown of how long each prompt segment took.
 
 Here is what it looks like on my personal laptop running WSL2, where I write this blog:
-```
+```bash
 ❯ starship timings
 
  Here are the timings of modules in your prompt (>=1ms or output):

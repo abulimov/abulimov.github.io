@@ -37,7 +37,7 @@ which has permissions set in a way that unprivileged user won't even be able to 
 It's often possible to have `socat` set up the socket and dump everything that gets sent to it, or redirect it to network.
 
 For example, here is what might be used to snoop on some process and send it's traffic to network, where it could be dumped by `tpcdump`.
-```
+```shell
 sudo socat -v UNIX-LISTEN:/path/to/some.sock,fork TCP-CONNECT:127.0.0.1:8090
 ```
 
@@ -49,7 +49,7 @@ It is of course possible to see what is being sent to the socket using any form 
 In fact, that was my go-to approach before I did my research and found better ways to do it.
 
 Here is how one can see what `chronyc` sends to `chronyd` over the socket when asked for 'ntpdata'
-```
+```shell
 > sudo strace -xx -e sendto,recvfrom -v -s 10000 chronyc ntpdata
 sendto(3, "\x06\x01\x00\x00\x00\x0e\x00\x00\x02\x48\x5c\x29\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00", 32, 0, NULL, 0) = 32
 ...
@@ -67,7 +67,7 @@ Now we are getting to the truly passive solutions (although they are Linux-speci
 thanks to the amazing power of [BPF](https://www.kernel.org/doc/html/latest/bpf/index.html).
 
 For example, we can snoop on same `sendto` syscall via `bpftrace`, which uses BPF with kernel trace points:
-```
+```shell
 > sudo bpftrace -e 'tracepoint:syscalls:sys_enter_sendto /comm == "chronyc"/ {printf("%r\n", buf(args->buff, args->len));}'
 \x06\x01\x00\x00\x00\x0e\x00\x00\x02\x48\x5c\x29\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00
 ...
@@ -88,7 +88,7 @@ which can be then used directly in Go or Python as for example an input for unit
 
 Here is how it looks like for `pmc` talking to `ptp4l` (both are part of [linuxptp](http://linuxptp.sourceforge.net) project):
 
-```
+```shell
 $ sudo ./sockdump.py '/var/run/p*' --format hexstring
 waiting for data
 10:11:28.968 >>> process pmc [1108317 -> 0] len 74(74)

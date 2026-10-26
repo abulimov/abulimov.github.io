@@ -16,7 +16,7 @@ This lead to a series of experiments which I hope will be interesting for anyone
 ## Initial dataset and goal
 Here is our test dataset (copied from service's output):
 
-```
+```shell
 wc -l ~/tmp/data-1696012970
 30084004 /home/abulimov/tmp/data-1696012970
 
@@ -36,7 +36,7 @@ The task we are experimenting with is based on the actual workload our service d
 
 Here is the most basic C program that does that, which will serve for us as a reference point:
 
-```
+```c
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -77,7 +77,7 @@ int main(int argc, char* argv[])
 building it with `gcc -O2 -Wall main.c` and running with `time` gives us this result on my M1 MBP
 (here and later on I edited the time output to remove information that is not interesting to us):
 
-```
+```shell
 /usr/bin/time -l ./a.out ./data-1696014531
 lines: 30085159
         1.90 real         1.59 user         0.28 sys
@@ -99,7 +99,7 @@ Summing it up, we get exactly 47 (31 + 16) bytes per line, so now we know the ba
 
 Let's look at the Go code to do the same:
 
-```
+```go
 package main
 import (
   "os"
@@ -141,7 +141,7 @@ func main() {
 
 Running it provides us with somewhat disappointing results:
 
-```
+```shell
 /usr/bin/time -l ./main_simple ./data-1696014531
 Alloc = 0 MiB	TotalAlloc = 3454 MiB	Sys = 2260 MiB	NumGC = 17
 2023/10/23 15:05:59 done with 30085159 lines in 1.912067292s
@@ -159,7 +159,7 @@ In C, we have infamous `\0`-terminated byte sequences, no overhead and no safety
 
 In Go, we have this type under the hood:
 
-```
+```go
 type string struct {
     data uintptr
     len int
@@ -174,7 +174,7 @@ Which is actually fine, because as you've seen when we allocate things on the he
 What is very interesting is that Go is clever enough to store structs in slices in contiguous memory, so simply putting things into slices doesn't have overhead of storing heap pointers.
 This example shows that you can happily allocate billions of empty structs in Go without OOMing:
 
-```
+```go
 package main
 
 import "math"
@@ -202,7 +202,7 @@ Wrong!
 
 In Go, `[]byte` is actually bigger than `string`:
 
-```
+```go
 type slice struct {
     data uintptr
     len int
@@ -217,7 +217,7 @@ Which means that against our intuition, using raw bytes is less effective than s
 
 Maybe we should blame the *Garbage Collector*? Let's turn it off and see!
 
-```
+```shell
 GOGC=off /usr/bin/time -l ./main_simple ./data-1696014531
 Alloc = 0 MiB	TotalAlloc = 3454 MiB	Sys = 3556 MiB	NumGC = 1
 2023/10/23 15:25:07 done with 30085159 lines in 2.486294584s
@@ -231,7 +231,7 @@ I have a suspicion, but let's check one more assumption around GC - maybe it's j
 
 Let's use `GOMEMLIMIT` environment variable and set it to our anticipated 1.7Gb to make GC sweat:
 
-```
+```shell
 GOMEMLIMIT=1700000000 /usr/bin/time -l ./main_simple ./data-1696014531
 Alloc = 0 MiB	TotalAlloc = 3454 MiB	Sys = 2259 MiB	NumGC = 22
 2023/10/23 15:39:48 done with 30085159 lines in 2.37959025s
@@ -248,13 +248,13 @@ I wrote a lot of Go code in my life, so quite quickly I had a suspicion about th
 
 Let's pre-allocate the `[]string` slice to avoid growing it and copying the data over and over again to the new memory region, and change one line:
 
-```
+```go
 l := make([]string, 0, 31*1000000)
 ```
 
 and then compile and run our tiny binary:
 
-```
+```shell
 /usr/bin/time -l ./main_simple ./data-1696014531
 Alloc = 0 MiB	TotalAlloc = 1518 MiB	Sys = 1590 MiB	NumGC = 3
 2023/10/23 15:46:03 done with 30085159 lines in 1.080537584s
@@ -288,7 +288,7 @@ We get `Sys = 1830 MiB`, so just as predicted around 200Mb overhead over strings
 Now what if we use arenas? The whole premise is that you have a whole region of memory that is not touched by GC, and is allocated/deallocated at once.
 Which in our case means we should save around 200Mb on pointers, right? Let's see if this stands true.
 
-```
+```go
 package main
 
 import (
@@ -352,7 +352,7 @@ func main() {
   
 And just as we expected, using arenas takes same amount memory and run time is somewhat faster:
 
-```
+```shell
 /usr/bin/time -l ./main_arena ./data-1696014531
 Alloc = 912 MiB	TotalAlloc = 1621 MiB	Sys = 1661 MiB	NumGC = 4
 2023/10/23 16:08:08 done with 30085159 lines in 985.003042ms
