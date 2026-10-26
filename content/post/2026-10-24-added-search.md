@@ -3,7 +3,7 @@ title: "Added search"
 date: 2026-10-24
 slug: added-search
 Categories: [Personal]
-tags: [Blog, Pagefind]
+tags: [Blog, Hugo, Pagefind]
 ---
 
 After 13 years of blogging, this blog grew relatively big.
