@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <style>
+.bg{color:#4c4f69;background-color:#eff1f5}.chroma{color:#4c4f69;background-color:#eff1f5;-webkit-text-size-adjust:none}.chroma .x{color:#4c4f69}.chroma .err{color:#d20f39}.chroma .cl{color:#4c4f69}.chroma .lnlinks{outline:none;text-decoration:none;color:inherit}.chroma .lntd{vertical-align:top;padding:0;margin:0;border:0}.chroma .lntable{border-spacing:0;padding:0;margin:0;border:0}.chroma .hl{background-color:#bcc0cc}.chroma .lnt{white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#8c8fa1}.chroma .ln{white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#8c8fa1}.chroma .line{display:flex}.chroma .k{color:#8839ef}.chroma .kc{color:#fe640b}.chroma .kd{color:#d20f39}.chroma .kn{color:#179299}.chroma .kp{color:#8839ef}.chroma .kr{color:#8839ef}.chroma .kt{color:#d20f39}.chroma .na{color:#1e66f5}.chroma .nc{color:#df8e1d}.chroma .no{color:#df8e1d}.chroma .nd{color:#1e66f5;font-weight:700}.chroma .ni{color:#179299}.chroma .ne{color:#fe640b}.chroma .nl{color:#04a5e5}.chroma .nn{color:#fe640b}.chroma .nx{color:#4c4f69}.chroma .py{color:#fe640b}.chroma .nt{color:#8839ef}.chroma .nb{color:#04a5e5}.chroma .bp{color:#04a5e5}.chroma .nv{color:#dc8a78}.chroma .vc{color:#dc8a78}.chroma .vg{color:#dc8a78}.chroma .vi{color:#dc8a78}.chroma .vm{color:#dc8a78}.chroma .nf{color:#1e66f5}.chroma .fm{color:#1e66f5}.chroma .ld{color:#4c4f69}.chroma .s{color:#40a02b}.chroma .sa{color:#d20f39}.chroma .sb{color:#40a02b}.chroma .sc{color:#40a02b}.chroma .dl{color:#1e66f5}.chroma .sd{color:#9ca0b0}.chroma .s2{color:#40a02b}.chroma .se{color:#1e66f5}.chroma .sh{color:#9ca0b0}.chroma .si{color:#40a02b}.chroma .sx{color:#40a02b}.chroma .sr{color:#179299}.chroma .s1{color:#40a02b}.chroma .ss{color:#40a02b}.chroma .m{color:#fe640b}.chroma .mb{color:#fe640b}.chroma .mf{color:#fe640b}.chroma .mh{color:#fe640b}.chroma .mi{color:#fe640b}.chroma .il{color:#fe640b}.chroma .mo{color:#fe640b}.chroma .o{color:#04a5e5;font-weight:700}.chroma .ow{color:#04a5e5;font-weight:700}.chroma .or{color:#04a5e5;font-weight:700}.chroma .c{color:#9ca0b0;font-style:italic}.chroma .ch{color:#acb0be;font-style:italic}.chroma .cm{color:#9ca0b0;font-style:italic}.chroma .c1{color:#9ca0b0;font-style:italic}.chroma .cs{color:#9ca0b0;font-style:italic}.chroma .cp{color:#9ca0b0;font-style:italic}.chroma .cpf{color:#9ca0b0;font-weight:700;font-style:italic}.chroma .gd{color:#d20f39;background-color:#ccd0da}.chroma .ge{font-style:italic}.chroma .gr{color:#d20f39}.chroma .gh{color:#fe640b;font-weight:700}.chroma .gi{color:#40a02b;background-color:#ccd0da}.chroma .go{color:#4c4f69}.chroma .gp{color:#4c4f69}.chroma .gs{font-weight:700}.chroma .gu{color:#fe640b;font-weight:700}.chroma .gt{color:#d20f39}.chroma .gl{text-decoration:underline}
 @media (prefers-color-scheme: dark) {
   body {
     background-color: white;
@@ -14,6 +15,13 @@
   html, img, video, iframe {
     filter: invert(1);
   }
+   
+  pre.chroma {
+    background: none;
+    filter: invert(1);
+  }
+   
+  .bg{color:#cdd6f4;background-color:#1e1e2e}.chroma{color:#cdd6f4;background-color:#1e1e2e;-webkit-text-size-adjust:none}.chroma .x{color:#cdd6f4}.chroma .err{color:#f38ba8}.chroma .cl{color:#cdd6f4}.chroma .lnlinks{outline:none;text-decoration:none;color:inherit}.chroma .lntd{vertical-align:top;padding:0;margin:0;border:0}.chroma .lntable{border-spacing:0;padding:0;margin:0;border:0}.chroma .hl{background-color:#45475a}.chroma .lnt{white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c}.chroma .ln{white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c}.chroma .line{display:flex}.chroma .k{color:#cba6f7}.chroma .kc{color:#fab387}.chroma .kd{color:#f38ba8}.chroma .kn{color:#94e2d5}.chroma .kp{color:#cba6f7}.chroma .kr{color:#cba6f7}.chroma .kt{color:#f38ba8}.chroma .na{color:#89b4fa}.chroma .nc{color:#f9e2af}.chroma .no{color:#f9e2af}.chroma .nd{color:#89b4fa;font-weight:700}.chroma .ni{color:#94e2d5}.chroma .ne{color:#fab387}.chroma .nl{color:#89dceb}.chroma .nn{color:#fab387}.chroma .nx{color:#cdd6f4}.chroma .py{color:#fab387}.chroma .nt{color:#cba6f7}.chroma .nb{color:#89dceb}.chroma .bp{color:#89dceb}.chroma .nv{color:#f5e0dc}.chroma .vc{color:#f5e0dc}.chroma .vg{color:#f5e0dc}.chroma .vi{color:#f5e0dc}.chroma .vm{color:#f5e0dc}.chroma .nf{color:#89b4fa}.chroma .fm{color:#89b4fa}.chroma .ld{color:#cdd6f4}.chroma .s{color:#a6e3a1}.chroma .sa{color:#f38ba8}.chroma .sb{color:#a6e3a1}.chroma .sc{color:#a6e3a1}.chroma .dl{color:#89b4fa}.chroma .sd{color:#6c7086}.chroma .s2{color:#a6e3a1}.chroma .se{color:#89b4fa}.chroma .sh{color:#6c7086}.chroma .si{color:#a6e3a1}.chroma .sx{color:#a6e3a1}.chroma .sr{color:#94e2d5}.chroma .s1{color:#a6e3a1}.chroma .ss{color:#a6e3a1}.chroma .m{color:#fab387}.chroma .mb{color:#fab387}.chroma .mf{color:#fab387}.chroma .mh{color:#fab387}.chroma .mi{color:#fab387}.chroma .il{color:#fab387}.chroma .mo{color:#fab387}.chroma .o{color:#89dceb;font-weight:700}.chroma .ow{color:#89dceb;font-weight:700}.chroma .or{color:#89dceb;font-weight:700}.chroma .c{color:#6c7086;font-style:italic}.chroma .ch{color:#585b70;font-style:italic}.chroma .cm{color:#6c7086;font-style:italic}.chroma .c1{color:#6c7086;font-style:italic}.chroma .cs{color:#6c7086;font-style:italic}.chroma .cp{color:#6c7086;font-style:italic}.chroma .cpf{color:#6c7086;font-weight:700;font-style:italic}.chroma .gd{color:#f38ba8;background-color:#313244}.chroma .ge{font-style:italic}.chroma .gr{color:#f38ba8}.chroma .gh{color:#fab387;font-weight:700}.chroma .gi{color:#a6e3a1;background-color:#313244}.chroma .go{color:#cdd6f4}.chroma .gp{color:#cdd6f4}.chroma .gs{font-weight:700}.chroma .gu{color:#fab387;font-weight:700}.chroma .gt{color:#f38ba8}.chroma .gl{text-decoration:underline}
 }
 </style>
 
@@ -41,8 +49,31 @@
 <h1><span class="title">Snooping on unix domain sockets traffic</span></h1>
 
 <h2 class="date">2021/12/02</h2>
-
+<i>Estimated reading time: 5 minutes</i>
 </div>
+
+
+<div class="table-of-contents">
+    <aside class="toc">
+        <details>
+        <summary>Table of contents</summary>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#available-solutions">Available solutions</a>
+      <ul>
+        <li><a href="#reconfigure-the-reference-implementation-to-use-network">Reconfigure the reference implementation to use network</a></li>
+        <li><a href="#socat">socat</a></li>
+        <li><a href="#strace">strace</a></li>
+        <li><a href="#bpftrace">bpftrace</a></li>
+        <li><a href="#sockdumppy">sockdump.py</a></li>
+      </ul>
+    </li>
+    <li><a href="#use-case">Use-case</a></li>
+  </ul>
+</nav>
+        </details>
+    </aside>
+    </div>
 
 <main data-pagefind-body>
 <p>I often work with various binary protocol, with majority of work being implementing those protocols in Go or Rust.</p>
@@ -63,16 +94,16 @@ which has permissions set in a way that unprivileged user won&rsquo;t even be ab
 <h3 id="socat">socat</h3>
 <p>It&rsquo;s often possible to have <code>socat</code> set up the socket and dump everything that gets sent to it, or redirect it to network.</p>
 <p>For example, here is what might be used to snoop on some process and send it&rsquo;s traffic to network, where it could be dumped by <code>tpcdump</code>.</p>
-<pre tabindex="0"><code>sudo socat -v UNIX-LISTEN:/path/to/some.sock,fork TCP-CONNECT:127.0.0.1:8090
-</code></pre><p>However, this action is disruptive to the running processes, and I personally never had success with this approach.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo socat -v UNIX-LISTEN:/path/to/some.sock,fork TCP-CONNECT:127.0.0.1:8090
+</span></span></code></pre></div><p>However, this action is disruptive to the running processes, and I personally never had success with this approach.</p>
 <h3 id="strace">strace</h3>
 <p>It is of course possible to see what is being sent to the socket using any form of syscall tracing.
 In fact, that was my go-to approach before I did my research and found better ways to do it.</p>
 <p>Here is how one can see what <code>chronyc</code> sends to <code>chronyd</code> over the socket when asked for &rsquo;ntpdata'</p>
-<pre tabindex="0"><code>&gt; sudo strace -xx -e sendto,recvfrom -v -s 10000 chronyc ntpdata
-sendto(3, &#34;\x06\x01\x00\x00\x00\x0e\x00\x00\x02\x48\x5c\x29\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00&#34;, 32, 0, NULL, 0) = 32
-...
-</code></pre><p>Again, the problem here is that it&rsquo;s disruptive and requires changing how the reference app is being run.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">&gt; sudo strace -xx -e sendto,recvfrom -v -s <span class="m">10000</span> chronyc ntpdata
+</span></span><span class="line"><span class="cl">sendto<span class="o">(</span>3, <span class="s2">&#34;\x06\x01\x00\x00\x00\x0e\x00\x00\x02\x48\x5c\x29\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00&#34;</span>, 32, 0, NULL, 0<span class="o">)</span> <span class="o">=</span> <span class="m">32</span>
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></div><p>Again, the problem here is that it&rsquo;s disruptive and requires changing how the reference app is being run.
 And of course if the app does more communication with same syscall, like <code>sendto</code> in chronyc example -
 we&rsquo;ll have to sift through all of the messages based on file descriptors.</p>
 <p>So this approach works well enough, but we can do better!</p>
@@ -80,10 +111,10 @@ we&rsquo;ll have to sift through all of the messages based on file descriptors.<
 <p>Now we are getting to the truly passive solutions (although they are Linux-specific),
 thanks to the amazing power of <a href="https://www.kernel.org/doc/html/latest/bpf/index.html">BPF</a>.</p>
 <p>For example, we can snoop on same <code>sendto</code> syscall via <code>bpftrace</code>, which uses BPF with kernel trace points:</p>
-<pre tabindex="0"><code>&gt; sudo bpftrace -e &#39;tracepoint:syscalls:sys_enter_sendto /comm == &#34;chronyc&#34;/ {printf(&#34;%r\n&#34;, buf(args-&gt;buff, args-&gt;len));}&#39;
-\x06\x01\x00\x00\x00\x0e\x00\x00\x02\x48\x5c\x29\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00
-...
-</code></pre><p>This is pretty neat, but we still need to know exactly what syscall is used to send data over the socket.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">&gt; sudo bpftrace -e <span class="s1">&#39;tracepoint:syscalls:sys_enter_sendto /comm == &#34;chronyc&#34;/ {printf(&#34;%r\n&#34;, buf(args-&gt;buff, args-&gt;len));}&#39;</span>
+</span></span><span class="line"><span class="cl"><span class="se">\x</span>06<span class="se">\x</span>01<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>0e<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>02<span class="se">\x</span>48<span class="se">\x</span>5c<span class="se">\x</span>29<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span><span class="m">00</span>
+</span></span><span class="line"><span class="cl">...
+</span></span></code></pre></div><p>This is pretty neat, but we still need to know exactly what syscall is used to send data over the socket.</p>
 <h3 id="sockdumppy">sockdump.py</h3>
 <p>Finally, if we dig more into how the Unix sockets are done in Linux kernel, we can hook <em>kprobe</em> to kernel
 functions like <code>unix_stream_sendmsg</code> and capture everything regardless of the method the app uses to send data to the socket.</p>
@@ -92,15 +123,15 @@ functions like <code>unix_stream_sendmsg</code> and capture everything regardles
 support for DGRAM sockets and dumping data in escaped hex string format,
 which can be then used directly in Go or Python as for example an input for unit tests.</p>
 <p>Here is how it looks like for <code>pmc</code> talking to <code>ptp4l</code> (both are part of <a href="http://linuxptp.sourceforge.net">linuxptp</a> project):</p>
-<pre tabindex="0"><code>$ sudo ./sockdump.py &#39;/var/run/p*&#39; --format hexstring
-waiting for data
-10:11:28.968 &gt;&gt;&gt; process pmc [1108317 -&gt; 0] len 74(74)
-\x0d\x12\x00\x4a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xe9\x5d\x00\x00\x04\x7f\xff\xff\xff\xff\xff\xff\xff\xff\xff\xff\x00\x00\x00\x00\x00\x01\x00\x16\x20\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00
-10:11:28.968 &gt;&gt;&gt; process ptp4l [896569 -&gt; 0] len 74(74)
-\x0d\x12\x00\x4a\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x48\x57\xdd\xff\xfe\x07\x93\x21\x00\x00\x00\x00\x04\x7f\x00\x00\x00\x00\x00\x00\x00\x00\xe9\x5d\x00\x00\x02\x00\x00\x01\x00\x16\x20\x00\x01\x00\x00\x01\x80\xf8\xfe\xff\xff\x80\x48\x57\xdd\xff\xfe\x07\x93\x21\x00\x00
-^C
-2 packets captured
-</code></pre><p>Also, if one is being curious - now it supports prefix-based socket path matching, and specifying &lsquo;*&rsquo; as a socket path
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">$ sudo ./sockdump.py <span class="s1">&#39;/var/run/p*&#39;</span> --format hexstring
+</span></span><span class="line"><span class="cl">waiting <span class="k">for</span> data
+</span></span><span class="line"><span class="cl">10:11:28.968 &gt;&gt;&gt; process pmc <span class="o">[</span><span class="m">1108317</span> -&gt; 0<span class="o">]</span> len 74<span class="o">(</span>74<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="se">\x</span>0d<span class="se">\x</span>12<span class="se">\x</span>00<span class="se">\x</span>4a<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>e9<span class="se">\x</span>5d<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>04<span class="se">\x</span>7f<span class="se">\x</span>ff<span class="se">\x</span>ff<span class="se">\x</span>ff<span class="se">\x</span>ff<span class="se">\x</span>ff<span class="se">\x</span>ff<span class="se">\x</span>ff<span class="se">\x</span>ff<span class="se">\x</span>ff<span class="se">\x</span>ff<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>01<span class="se">\x</span>00<span class="se">\x</span>16<span class="se">\x</span>20<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span><span class="m">00</span>
+</span></span><span class="line"><span class="cl">10:11:28.968 &gt;&gt;&gt; process ptp4l <span class="o">[</span><span class="m">896569</span> -&gt; 0<span class="o">]</span> len 74<span class="o">(</span>74<span class="o">)</span>
+</span></span><span class="line"><span class="cl"><span class="se">\x</span>0d<span class="se">\x</span>12<span class="se">\x</span>00<span class="se">\x</span>4a<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>48<span class="se">\x</span>57<span class="se">\x</span>dd<span class="se">\x</span>ff<span class="se">\x</span>fe<span class="se">\x</span>07<span class="se">\x</span>93<span class="se">\x</span>21<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>04<span class="se">\x</span>7f<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>e9<span class="se">\x</span>5d<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>02<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>01<span class="se">\x</span>00<span class="se">\x</span>16<span class="se">\x</span>20<span class="se">\x</span>00<span class="se">\x</span>01<span class="se">\x</span>00<span class="se">\x</span>00<span class="se">\x</span>01<span class="se">\x</span>80<span class="se">\x</span>f8<span class="se">\x</span>fe<span class="se">\x</span>ff<span class="se">\x</span>ff<span class="se">\x</span>80<span class="se">\x</span>48<span class="se">\x</span>57<span class="se">\x</span>dd<span class="se">\x</span>ff<span class="se">\x</span>fe<span class="se">\x</span>07<span class="se">\x</span>93<span class="se">\x</span>21<span class="se">\x</span>00<span class="se">\x</span><span class="m">00</span>
+</span></span><span class="line"><span class="cl">^C
+</span></span><span class="line"><span class="cl"><span class="m">2</span> packets captured
+</span></span></code></pre></div><p>Also, if one is being curious - now it supports prefix-based socket path matching, and specifying &lsquo;*&rsquo; as a socket path
 allows to dump <strong>all</strong> the communications happening over Unix sockets on the system.
 Spoiler alert: <em>systemd</em> does a lot of stuff there.</p>
 <h2 id="use-case">Use-case</h2>

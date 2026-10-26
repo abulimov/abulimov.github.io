@@ -10,9 +10,16 @@
 		
 		
 		
-			<lastBuildDate>Sat, 24 Oct 2026 00:00:00 +0000</lastBuildDate>
+			<lastBuildDate>Mon, 26 Oct 2026 00:00:00 +0000</lastBuildDate>
 		
 			<atom:link href="//bulimov.me/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>More nice things for this blog</title>
+				<link>//bulimov.me/post/2026/10/26/blog-nice-things/</link>
+				<pubDate>Mon, 26 Oct 2026 00:00:00 +0000</pubDate>
+				<guid>//bulimov.me/post/2026/10/26/blog-nice-things/</guid>
+				<description>&lt;p&gt;I continue to improve this website to make it a &lt;a href=&#34;//bulimov.me/post/2025/09/18/added-lists/&#34;&gt;better representation of me on the Internet&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;In the past year and a half, I have:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/post/2025/05/11/blog-dark-mode/&#34;&gt;added dark mode support&lt;/a&gt;. I myself use dark mode exclusively at work, so it was long overdue.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/post/2025/09/07/better-reviews-and-retrospective/&#34;&gt;revamped the reviews&lt;/a&gt;. This section grew unwieldy over time, and needed a better structure.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/post/2025/09/18/added-lists/&#34;&gt;added a &amp;rsquo;lists&amp;rsquo; section&lt;/a&gt;. More things about me, with nice Mermaid timelines.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/post/2025/11/08/added-diy/&#34;&gt;added a &amp;lsquo;DIY&amp;rsquo; section&lt;/a&gt;. A simple gallery of things I&amp;rsquo;ve built over the years.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;//bulimov.me/post/2026/10/24/added-search/&#34;&gt;added site-wide search&lt;/a&gt;. Easy way to search this website without ripgrep.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;This time I added a few more things (all made easy thanks to &lt;a href=&#34;https://gohugo.io&#34;&gt;Hugo&lt;/a&gt;).&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>Added search</title>
 				<link>//bulimov.me/post/2026/10/24/added-search/</link>

@@ -2,28 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>//bulimov.me/tags/blog/</loc>
+    <lastmod>2026-10-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/categories/</loc>
+    <lastmod>2026-10-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/</loc>
+    <lastmod>2026-10-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/hugo/</loc>
+    <lastmod>2026-10-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/post/2026/10/26/blog-nice-things/</loc>
+    <lastmod>2026-10-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/categories/personal/</loc>
+    <lastmod>2026-10-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/post/</loc>
+    <lastmod>2026-10-26T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>//bulimov.me/tags/</loc>
+    <lastmod>2026-10-26T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>//bulimov.me/post/2026/10/24/added-search/</loc>
     <lastmod>2026-10-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>//bulimov.me/tags/blog/</loc>
-    <lastmod>2026-10-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/categories/</loc>
-    <lastmod>2026-10-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/</loc>
-    <lastmod>2026-10-24T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>//bulimov.me/tags/pagefind/</loc>
-    <lastmod>2026-10-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/categories/personal/</loc>
-    <lastmod>2026-10-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/post/</loc>
-    <lastmod>2026-10-24T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/tags/</loc>
     <lastmod>2026-10-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/tags/nintendo-switch/</loc>
@@ -259,9 +265,6 @@
   </url><url>
     <loc>//bulimov.me/post/2021/02/20/split-keyboards/</loc>
     <lastmod>2021-02-20T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>//bulimov.me/tags/hugo/</loc>
-    <lastmod>2021-02-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>//bulimov.me/post/2021/02/16/pelical-to-hugo/</loc>
     <lastmod>2021-02-16T00:00:00+00:00</lastmod>

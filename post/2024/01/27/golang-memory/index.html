@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <style>
+.bg{color:#4c4f69;background-color:#eff1f5}.chroma{color:#4c4f69;background-color:#eff1f5;-webkit-text-size-adjust:none}.chroma .x{color:#4c4f69}.chroma .err{color:#d20f39}.chroma .cl{color:#4c4f69}.chroma .lnlinks{outline:none;text-decoration:none;color:inherit}.chroma .lntd{vertical-align:top;padding:0;margin:0;border:0}.chroma .lntable{border-spacing:0;padding:0;margin:0;border:0}.chroma .hl{background-color:#bcc0cc}.chroma .lnt{white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#8c8fa1}.chroma .ln{white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#8c8fa1}.chroma .line{display:flex}.chroma .k{color:#8839ef}.chroma .kc{color:#fe640b}.chroma .kd{color:#d20f39}.chroma .kn{color:#179299}.chroma .kp{color:#8839ef}.chroma .kr{color:#8839ef}.chroma .kt{color:#d20f39}.chroma .na{color:#1e66f5}.chroma .nc{color:#df8e1d}.chroma .no{color:#df8e1d}.chroma .nd{color:#1e66f5;font-weight:700}.chroma .ni{color:#179299}.chroma .ne{color:#fe640b}.chroma .nl{color:#04a5e5}.chroma .nn{color:#fe640b}.chroma .nx{color:#4c4f69}.chroma .py{color:#fe640b}.chroma .nt{color:#8839ef}.chroma .nb{color:#04a5e5}.chroma .bp{color:#04a5e5}.chroma .nv{color:#dc8a78}.chroma .vc{color:#dc8a78}.chroma .vg{color:#dc8a78}.chroma .vi{color:#dc8a78}.chroma .vm{color:#dc8a78}.chroma .nf{color:#1e66f5}.chroma .fm{color:#1e66f5}.chroma .ld{color:#4c4f69}.chroma .s{color:#40a02b}.chroma .sa{color:#d20f39}.chroma .sb{color:#40a02b}.chroma .sc{color:#40a02b}.chroma .dl{color:#1e66f5}.chroma .sd{color:#9ca0b0}.chroma .s2{color:#40a02b}.chroma .se{color:#1e66f5}.chroma .sh{color:#9ca0b0}.chroma .si{color:#40a02b}.chroma .sx{color:#40a02b}.chroma .sr{color:#179299}.chroma .s1{color:#40a02b}.chroma .ss{color:#40a02b}.chroma .m{color:#fe640b}.chroma .mb{color:#fe640b}.chroma .mf{color:#fe640b}.chroma .mh{color:#fe640b}.chroma .mi{color:#fe640b}.chroma .il{color:#fe640b}.chroma .mo{color:#fe640b}.chroma .o{color:#04a5e5;font-weight:700}.chroma .ow{color:#04a5e5;font-weight:700}.chroma .or{color:#04a5e5;font-weight:700}.chroma .c{color:#9ca0b0;font-style:italic}.chroma .ch{color:#acb0be;font-style:italic}.chroma .cm{color:#9ca0b0;font-style:italic}.chroma .c1{color:#9ca0b0;font-style:italic}.chroma .cs{color:#9ca0b0;font-style:italic}.chroma .cp{color:#9ca0b0;font-style:italic}.chroma .cpf{color:#9ca0b0;font-weight:700;font-style:italic}.chroma .gd{color:#d20f39;background-color:#ccd0da}.chroma .ge{font-style:italic}.chroma .gr{color:#d20f39}.chroma .gh{color:#fe640b;font-weight:700}.chroma .gi{color:#40a02b;background-color:#ccd0da}.chroma .go{color:#4c4f69}.chroma .gp{color:#4c4f69}.chroma .gs{font-weight:700}.chroma .gu{color:#fe640b;font-weight:700}.chroma .gt{color:#d20f39}.chroma .gl{text-decoration:underline}
 @media (prefers-color-scheme: dark) {
   body {
     background-color: white;
@@ -14,6 +15,13 @@
   html, img, video, iframe {
     filter: invert(1);
   }
+   
+  pre.chroma {
+    background: none;
+    filter: invert(1);
+  }
+   
+  .bg{color:#cdd6f4;background-color:#1e1e2e}.chroma{color:#cdd6f4;background-color:#1e1e2e;-webkit-text-size-adjust:none}.chroma .x{color:#cdd6f4}.chroma .err{color:#f38ba8}.chroma .cl{color:#cdd6f4}.chroma .lnlinks{outline:none;text-decoration:none;color:inherit}.chroma .lntd{vertical-align:top;padding:0;margin:0;border:0}.chroma .lntable{border-spacing:0;padding:0;margin:0;border:0}.chroma .hl{background-color:#45475a}.chroma .lnt{white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c}.chroma .ln{white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c}.chroma .line{display:flex}.chroma .k{color:#cba6f7}.chroma .kc{color:#fab387}.chroma .kd{color:#f38ba8}.chroma .kn{color:#94e2d5}.chroma .kp{color:#cba6f7}.chroma .kr{color:#cba6f7}.chroma .kt{color:#f38ba8}.chroma .na{color:#89b4fa}.chroma .nc{color:#f9e2af}.chroma .no{color:#f9e2af}.chroma .nd{color:#89b4fa;font-weight:700}.chroma .ni{color:#94e2d5}.chroma .ne{color:#fab387}.chroma .nl{color:#89dceb}.chroma .nn{color:#fab387}.chroma .nx{color:#cdd6f4}.chroma .py{color:#fab387}.chroma .nt{color:#cba6f7}.chroma .nb{color:#89dceb}.chroma .bp{color:#89dceb}.chroma .nv{color:#f5e0dc}.chroma .vc{color:#f5e0dc}.chroma .vg{color:#f5e0dc}.chroma .vi{color:#f5e0dc}.chroma .vm{color:#f5e0dc}.chroma .nf{color:#89b4fa}.chroma .fm{color:#89b4fa}.chroma .ld{color:#cdd6f4}.chroma .s{color:#a6e3a1}.chroma .sa{color:#f38ba8}.chroma .sb{color:#a6e3a1}.chroma .sc{color:#a6e3a1}.chroma .dl{color:#89b4fa}.chroma .sd{color:#6c7086}.chroma .s2{color:#a6e3a1}.chroma .se{color:#89b4fa}.chroma .sh{color:#6c7086}.chroma .si{color:#a6e3a1}.chroma .sx{color:#a6e3a1}.chroma .sr{color:#94e2d5}.chroma .s1{color:#a6e3a1}.chroma .ss{color:#a6e3a1}.chroma .m{color:#fab387}.chroma .mb{color:#fab387}.chroma .mf{color:#fab387}.chroma .mh{color:#fab387}.chroma .mi{color:#fab387}.chroma .il{color:#fab387}.chroma .mo{color:#fab387}.chroma .o{color:#89dceb;font-weight:700}.chroma .ow{color:#89dceb;font-weight:700}.chroma .or{color:#89dceb;font-weight:700}.chroma .c{color:#6c7086;font-style:italic}.chroma .ch{color:#585b70;font-style:italic}.chroma .cm{color:#6c7086;font-style:italic}.chroma .c1{color:#6c7086;font-style:italic}.chroma .cs{color:#6c7086;font-style:italic}.chroma .cp{color:#6c7086;font-style:italic}.chroma .cpf{color:#6c7086;font-weight:700;font-style:italic}.chroma .gd{color:#f38ba8;background-color:#313244}.chroma .ge{font-style:italic}.chroma .gr{color:#f38ba8}.chroma .gh{color:#fab387;font-weight:700}.chroma .gi{color:#a6e3a1;background-color:#313244}.chroma .go{color:#cdd6f4}.chroma .gp{color:#cdd6f4}.chroma .gs{font-weight:700}.chroma .gu{color:#fab387;font-weight:700}.chroma .gt{color:#f38ba8}.chroma .gl{text-decoration:underline}
 }
 </style>
 
@@ -41,8 +49,34 @@
 <h1><span class="title">Fun experiments with Go memory usage</span></h1>
 
 <h2 class="date">2024/01/27</h2>
-
+<i>Estimated reading time: 9 minutes</i>
 </div>
+
+
+<div class="table-of-contents">
+    <aside class="toc">
+        <details>
+        <summary>Table of contents</summary>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#initial-dataset-and-goal">Initial dataset and goal</a></li>
+    <li><a href="#reference-c-program">Reference C program</a></li>
+    <li><a href="#naive-go-code">Naive Go code</a></li>
+    <li><a href="#string-data-type-difference-and-mysterious-overhead">String data type difference, and mysterious overhead</a></li>
+    <li><a href="#should-we-use-byte">Should we use <code>[]byte</code></a></li>
+    <li><a href="#blame-the-gc">Blame the GC?</a></li>
+    <li><a href="#answer-to-the-lost-memory-question">Answer to the lost memory question</a></li>
+    <li><a href="#conclusion">Conclusion</a>
+      <ul>
+        <li><a href="#appendix-a-memory-arenas">Appendix A: Memory arenas</a></li>
+        <li><a href="#appendix-b-test-environment">Appendix B: Test environment</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </details>
+    </aside>
+    </div>
 
 <main data-pagefind-body>
 <p>While working on a big Go program that processes data I began to wonder if our memory usage is adequate for the amount of data we deal with.</p>
@@ -51,59 +85,59 @@ why does it take significantly more memory to produce this file?</em></p>
 <p>This lead to a series of experiments which I hope will be interesting for anyone caring about writing efficient code.</p>
 <h2 id="initial-dataset-and-goal">Initial dataset and goal</h2>
 <p>Here is our test dataset (copied from service&rsquo;s output):</p>
-<pre tabindex="0"><code>wc -l ~/tmp/data-1696012970
-30084004 /home/abulimov/tmp/data-1696012970
-
-ls -lh ~/tmp/data-1696012970
--rw-r--r-- 1 abulimov abulimov 936M Oct 2 14:32 /home/abulimov/tmp/data-1696012970
-</code></pre><p>Which gives us <strong>30M records in almost 1Gb</strong>, ~31 bytes per line.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">wc -l ~/tmp/data-1696012970
+</span></span><span class="line"><span class="cl"><span class="m">30084004</span> /home/abulimov/tmp/data-1696012970
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ls -lh ~/tmp/data-1696012970
+</span></span><span class="line"><span class="cl">-rw-r--r-- <span class="m">1</span> abulimov abulimov 936M Oct <span class="m">2</span> 14:32 /home/abulimov/tmp/data-1696012970
+</span></span></code></pre></div><p>Which gives us <strong>30M records in almost 1Gb</strong>, ~31 bytes per line.</p>
 <p>All lines are pure ASCII.</p>
 <p>The task we are experimenting with is based on the actual workload our service does.</p>
 <p><strong>Let&rsquo;s simply read those 30M lines into memory, each line stored separately, and see how much memory it will actually take.</strong></p>
 <h2 id="reference-c-program">Reference C program</h2>
 <p>Here is the most basic C program that does that, which will serve for us as a reference point:</p>
-<pre tabindex="0"><code>#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-#include &lt;string.h&gt;
-
-int main(int argc, char* argv[])
-{
-    char const* const fileName = argv[1];
-    FILE* file = fopen(fileName, &#34;r&#34;);
-    size_t len = 0;
-    ssize_t read;
-    char *line = NULL;
-    char *realLine = NULL;
-    size_t charCount = 0;
-    size_t arraySize = 1;
-    char **lines = malloc(arraySize * sizeof(char *));
-
-    while ((read = getline(&amp;line, &amp;len, file)) != -1) {
-        realLine = malloc(sizeof(char) * read);
-        strncpy(realLine, line, read);
-        lines[charCount] = realLine;
-        charCount++;
-        if (charCount &gt;= arraySize) {
-            arraySize = 2 * arraySize;
-            char** myarray = realloc(lines, arraySize * sizeof(char *));
-            if (myarray) {
-                lines = myarray;
-            } else {
-                return 13;
-            }
-        }
-    }
-    printf(&#34;lines: %ld\n&#34;, charCount);
-    fclose(file);
-    return 0;
-}
-</code></pre><p>building it with <code>gcc -O2 -Wall main.c</code> and running with <code>time</code> gives us this result on my M1 MBP
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl"><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span><span class="o">*</span> <span class="n">argv</span><span class="p">[])</span>
+</span></span><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="k">const</span><span class="o">*</span> <span class="k">const</span> <span class="n">fileName</span> <span class="o">=</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl">    <span class="n">FILE</span><span class="o">*</span> <span class="n">file</span> <span class="o">=</span> <span class="nf">fopen</span><span class="p">(</span><span class="n">fileName</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">size_t</span> <span class="n">len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">ssize_t</span> <span class="n">read</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">line</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="o">*</span><span class="n">realLine</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">size_t</span> <span class="n">charCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">size_t</span> <span class="n">arraySize</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">char</span> <span class="o">**</span><span class="n">lines</span> <span class="o">=</span> <span class="nf">malloc</span><span class="p">(</span><span class="n">arraySize</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">while</span> <span class="p">((</span><span class="n">read</span> <span class="o">=</span> <span class="nf">getline</span><span class="p">(</span><span class="o">&amp;</span><span class="n">line</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">len</span><span class="p">,</span> <span class="n">file</span><span class="p">))</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="n">realLine</span> <span class="o">=</span> <span class="nf">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span> <span class="o">*</span> <span class="n">read</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="nf">strncpy</span><span class="p">(</span><span class="n">realLine</span><span class="p">,</span> <span class="n">line</span><span class="p">,</span> <span class="n">read</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">        <span class="n">lines</span><span class="p">[</span><span class="n">charCount</span><span class="p">]</span> <span class="o">=</span> <span class="n">realLine</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="n">charCount</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">        <span class="k">if</span> <span class="p">(</span><span class="n">charCount</span> <span class="o">&gt;=</span> <span class="n">arraySize</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">            <span class="n">arraySize</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">arraySize</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="kt">char</span><span class="o">**</span> <span class="n">myarray</span> <span class="o">=</span> <span class="nf">realloc</span><span class="p">(</span><span class="n">lines</span><span class="p">,</span> <span class="n">arraySize</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">            <span class="k">if</span> <span class="p">(</span><span class="n">myarray</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="n">lines</span> <span class="o">=</span> <span class="n">myarray</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">                <span class="k">return</span> <span class="mi">13</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">            <span class="p">}</span>
+</span></span><span class="line"><span class="cl">        <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="p">}</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;lines: %ld</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">charCount</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="nf">fclose</span><span class="p">(</span><span class="n">file</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>building it with <code>gcc -O2 -Wall main.c</code> and running with <code>time</code> gives us this result on my M1 MBP
 (here and later on I edited the time output to remove information that is not interesting to us):</p>
-<pre tabindex="0"><code>/usr/bin/time -l ./a.out ./data-1696014531
-lines: 30085159
-        1.90 real         1.59 user         0.28 sys
-          1410913216  peak memory footprint
-</code></pre><p><strong>So to store 30M C strings, each around 31 bytes long, we would need roughly 1.4Gb of memory.</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">/usr/bin/time -l ./a.out ./data-1696014531
+</span></span><span class="line"><span class="cl">lines: <span class="m">30085159</span>
+</span></span><span class="line"><span class="cl">        1.90 real         1.59 user         0.28 sys
+</span></span><span class="line"><span class="cl">          <span class="m">1410913216</span>  peak memory footprint
+</span></span></code></pre></div><p><strong>So to store 30M C strings, each around 31 bytes long, we would need roughly 1.4Gb of memory.</strong></p>
 <p>Or around 47 bytes per line. Which makes sense when we think about what it takes to store data in memory - on a 64bit system we need at least 8 bytes for pointer + 8 bytes for each heap-allocated array size.</p>
 <p><em>These last 8 bytes can be a surprise (we won&rsquo;t see it in the code after all), but they make total sense when you think of it. Of course when we
 allocate memory, under the hood somewhere the size of this allocation must be tracked. Otherwise, how would the computer know what to do when you call
@@ -111,72 +145,72 @@ free() without providing the size that needs to be freed?</em></p>
 <p>Summing it up, we get exactly 47 (31 + 16) bytes per line, so now we know the baseline values.</p>
 <h2 id="naive-go-code">Naive Go code</h2>
 <p>Let&rsquo;s look at the Go code to do the same:</p>
-<pre tabindex="0"><code>package main
-import (
-  &#34;os&#34;
-  &#34;io&#34;
-  &#34;bufio&#34;
-  &#34;fmt&#34;
-  &#34;runtime&#34;
-  &#34;log&#34;
-  &#34;time&#34;
-)
-
-func printMem() {
-  var m runtime.MemStats
-  runtime.GC()
-  runtime.ReadMemStats(&amp;m)
-  fmt.Printf(&#34;Alloc = %v MiB&#34;, m.Alloc/1024/1024)
-  fmt.Printf(&#34;\tTotalAlloc = %v MiB&#34;, m.TotalAlloc/1024/1024)
-  fmt.Printf(&#34;\tSys = %v MiB&#34;, m.Sys/1024/1024)
-  fmt.Printf(&#34;\tNumGC = %v\n&#34;, m.NumGC)
-}
-
-func main() {
-  f, err := os.Open(os.Args[1])
-  if err != nil {
-    log.Println(err)
-    os.Exit(1)
-  }
-  start := time.Now()
-  l := make([]string, 0)
-  scanner := bufio.NewScanner(f)
-  for scanner.Scan() {
-    line := scanner.Text()
-    l = append(l, line)
-  }
-  printMem()
-  log.Printf(&#34;done with %d lines in %v&#34;, len(l), time.Since(start))
-}
-</code></pre><p>Running it provides us with somewhat disappointing results:</p>
-<pre tabindex="0"><code>/usr/bin/time -l ./main_simple ./data-1696014531
-Alloc = 0 MiB	TotalAlloc = 3454 MiB	Sys = 2260 MiB	NumGC = 17
-2023/10/23 15:05:59 done with 30085159 lines in 1.912067292s
-        1.96 real         2.45 user         0.51 sys
-          2357941696  peak memory footprint
-</code></pre><p>Hm, <strong>2.3Gb for the same task</strong>, that&rsquo;s quite an overhead! Let us see why does this happen?</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s">&#34;os&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s">&#34;io&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s">&#34;bufio&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s">&#34;fmt&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s">&#34;runtime&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s">&#34;log&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="s">&#34;time&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">printMem</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="nx">runtime</span><span class="p">.</span><span class="nx">MemStats</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nx">runtime</span><span class="p">.</span><span class="nf">GC</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nx">runtime</span><span class="p">.</span><span class="nf">ReadMemStats</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">m</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Alloc = %v MiB&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">Alloc</span><span class="o">/</span><span class="mi">1024</span><span class="o">/</span><span class="mi">1024</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;\tTotalAlloc = %v MiB&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">TotalAlloc</span><span class="o">/</span><span class="mi">1024</span><span class="o">/</span><span class="mi">1024</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;\tSys = %v MiB&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">Sys</span><span class="o">/</span><span class="mi">1024</span><span class="o">/</span><span class="mi">1024</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;\tNumGC = %v\n&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">NumGC</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nx">f</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">os</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">os</span><span class="p">.</span><span class="nf">Exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nx">start</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nx">l</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">([]</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nx">scanner</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">bufio</span><span class="p">.</span><span class="nf">NewScanner</span><span class="p">(</span><span class="nx">f</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="nx">scanner</span><span class="p">.</span><span class="nf">Scan</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">line</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">scanner</span><span class="p">.</span><span class="nf">Text</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">l</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">l</span><span class="p">,</span><span class="w"> </span><span class="nx">line</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nf">printMem</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;done with %d lines in %v&#34;</span><span class="p">,</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">l</span><span class="p">),</span><span class="w"> </span><span class="nx">time</span><span class="p">.</span><span class="nf">Since</span><span class="p">(</span><span class="nx">start</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>Running it provides us with somewhat disappointing results:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">/usr/bin/time -l ./main_simple ./data-1696014531
+</span></span><span class="line"><span class="cl"><span class="nv">Alloc</span> <span class="o">=</span> <span class="m">0</span> MiB	<span class="nv">TotalAlloc</span> <span class="o">=</span> <span class="m">3454</span> MiB	<span class="nv">Sys</span> <span class="o">=</span> <span class="m">2260</span> MiB	<span class="nv">NumGC</span> <span class="o">=</span> <span class="m">17</span>
+</span></span><span class="line"><span class="cl">2023/10/23 15:05:59 <span class="k">done</span> with <span class="m">30085159</span> lines in 1.912067292s
+</span></span><span class="line"><span class="cl">        1.96 real         2.45 user         0.51 sys
+</span></span><span class="line"><span class="cl">          <span class="m">2357941696</span>  peak memory footprint
+</span></span></code></pre></div><p>Hm, <strong>2.3Gb for the same task</strong>, that&rsquo;s quite an overhead! Let us see why does this happen?</p>
 <h2 id="string-data-type-difference-and-mysterious-overhead">String data type difference, and mysterious overhead</h2>
 <p>First, let&rsquo;s compare how we deal with strings.</p>
 <p>In C, we have infamous <code>\0</code>-terminated byte sequences, no overhead and no safety.</p>
 <p>In Go, we have this type under the hood:</p>
-<pre tabindex="0"><code>type string struct {
-    data uintptr
-    len int
-}
-</code></pre><p>As you can see, it is much safer as we have <code>len</code> stored next to the byte sequence.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">data</span><span class="w"> </span><span class="kt">uintptr</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">len</span><span class="w"> </span><span class="kt">int</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>As you can see, it is much safer as we have <code>len</code> stored next to the byte sequence.</p>
 <p>However, this gives us extra 8 bytes per string, which when multiplied by 30M is a significant 230Mb increase in memory usage.
 Which is actually fine, because as you&rsquo;ve seen when we allocate things on the heap, we lose same 8 bytes implicitly anyway, just without any real safety guarantees.</p>
 <p>What is very interesting is that Go is clever enough to store structs in slices in contiguous memory, so simply putting things into slices doesn&rsquo;t have overhead of storing heap pointers.
 This example shows that you can happily allocate billions of empty structs in Go without OOMing:</p>
-<pre tabindex="0"><code>package main
-
-import &#34;math&#34;
-
-func main() {
-    a := make([]struct{}, math.MaxInt64)
-    println(len(a))
-}  
-</code></pre><p>This is why it is recommended to use <code>map[string]struct{}{}</code> instead of <code>map[string]bool{}</code> when implementing sets.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="s">&#34;math&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">a</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">([]</span><span class="kd">struct</span><span class="p">{},</span><span class="w"> </span><span class="nx">math</span><span class="p">.</span><span class="nx">MaxInt64</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nb">println</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nx">a</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">  
+</span></span></span></code></pre></div><p>This is why it is recommended to use <code>map[string]struct{}{}</code> instead of <code>map[string]bool{}</code> when implementing sets.</p>
 <p>Going back to the task at hand - despite Go&rsquo;s smart tricks around contiguous memory,
 my experiments show that whenever reading data into strings using standard library always leads to pointers escaping to the heap.</p>
 <p>Combining all this theorizing brings us to the anticipated memory usage of around 1.6Gb. Where did we lose the rest?</p>
@@ -185,41 +219,41 @@ my experiments show that whenever reading data into strings using standard libra
 <p>While thinking about that lost memory, I experimented with different data structures. Surely when we use raw <code>[]byte</code> we should see better memory usage?</p>
 <p>Wrong!</p>
 <p>In Go, <code>[]byte</code> is actually bigger than <code>string</code>:</p>
-<pre tabindex="0"><code>type slice struct {
-    data uintptr
-    len int
-    cap int
-}
-</code></pre><p>We store extra 8 bytes of current capacity per <code>[]byte</code> instance!
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kd">type</span><span class="w"> </span><span class="nx">slice</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">data</span><span class="w"> </span><span class="kt">uintptr</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">len</span><span class="w"> </span><span class="kt">int</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">cap</span><span class="w"> </span><span class="kt">int</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>We store extra 8 bytes of current capacity per <code>[]byte</code> instance!
 Which means that against our intuition, using raw bytes is less effective than strings. If you need experimental proof - please check out Appendix A.</p>
 <h2 id="blame-the-gc">Blame the GC?</h2>
 <p>Maybe we should blame the <em>Garbage Collector</em>? Let&rsquo;s turn it off and see!</p>
-<pre tabindex="0"><code>GOGC=off /usr/bin/time -l ./main_simple ./data-1696014531
-Alloc = 0 MiB	TotalAlloc = 3454 MiB	Sys = 3556 MiB	NumGC = 1
-2023/10/23 15:25:07 done with 30085159 lines in 2.486294584s
-        2.68 real         0.97 user         1.14 sys
-          3701334016  peak memory footprint
-</code></pre><p>Ouch, now we consume 3.6 Gb. What is going on here? What was it that we didn&rsquo;t collect?</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">GOGC</span><span class="o">=</span>off /usr/bin/time -l ./main_simple ./data-1696014531
+</span></span><span class="line"><span class="cl"><span class="nv">Alloc</span> <span class="o">=</span> <span class="m">0</span> MiB	<span class="nv">TotalAlloc</span> <span class="o">=</span> <span class="m">3454</span> MiB	<span class="nv">Sys</span> <span class="o">=</span> <span class="m">3556</span> MiB	<span class="nv">NumGC</span> <span class="o">=</span> <span class="m">1</span>
+</span></span><span class="line"><span class="cl">2023/10/23 15:25:07 <span class="k">done</span> with <span class="m">30085159</span> lines in 2.486294584s
+</span></span><span class="line"><span class="cl">        2.68 real         0.97 user         1.14 sys
+</span></span><span class="line"><span class="cl">          <span class="m">3701334016</span>  peak memory footprint
+</span></span></code></pre></div><p>Ouch, now we consume 3.6 Gb. What is going on here? What was it that we didn&rsquo;t collect?</p>
 <p>I have a suspicion, but let&rsquo;s check one more assumption around GC - maybe it&rsquo;s just lazy?</p>
 <p>Let&rsquo;s use <code>GOMEMLIMIT</code> environment variable and set it to our anticipated 1.7Gb to make GC sweat:</p>
-<pre tabindex="0"><code>GOMEMLIMIT=1700000000 /usr/bin/time -l ./main_simple ./data-1696014531
-Alloc = 0 MiB	TotalAlloc = 3454 MiB	Sys = 2259 MiB	NumGC = 22
-2023/10/23 15:39:48 done with 30085159 lines in 2.37959025s
-        2.44 real         3.94 user         0.74 sys
-          1888245120  peak memory footprint
-</code></pre><p>Well, it did sweat (before the <code>GOMEMLIMIT</code> we had <code>NumGC=17</code>, now it is <code>22</code>), but the result didn&rsquo;t change much&hellip;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="nv">GOMEMLIMIT</span><span class="o">=</span><span class="m">1700000000</span> /usr/bin/time -l ./main_simple ./data-1696014531
+</span></span><span class="line"><span class="cl"><span class="nv">Alloc</span> <span class="o">=</span> <span class="m">0</span> MiB	<span class="nv">TotalAlloc</span> <span class="o">=</span> <span class="m">3454</span> MiB	<span class="nv">Sys</span> <span class="o">=</span> <span class="m">2259</span> MiB	<span class="nv">NumGC</span> <span class="o">=</span> <span class="m">22</span>
+</span></span><span class="line"><span class="cl">2023/10/23 15:39:48 <span class="k">done</span> with <span class="m">30085159</span> lines in 2.37959025s
+</span></span><span class="line"><span class="cl">        2.44 real         3.94 user         0.74 sys
+</span></span><span class="line"><span class="cl">          <span class="m">1888245120</span>  peak memory footprint
+</span></span></code></pre></div><p>Well, it did sweat (before the <code>GOMEMLIMIT</code> we had <code>NumGC=17</code>, now it is <code>22</code>), but the result didn&rsquo;t change much&hellip;
 Also, <code>time</code> seem to have missed the brief moment when we consumed 2.2Gb, oh well. Something else must be at play.</p>
 <h2 id="answer-to-the-lost-memory-question">Answer to the lost memory question</h2>
 <p>I wrote a lot of Go code in my life, so quite quickly I had a suspicion about the &rsquo;lost&rsquo; memory. Let&rsquo;s see if it is correct.</p>
 <p>Let&rsquo;s pre-allocate the <code>[]string</code> slice to avoid growing it and copying the data over and over again to the new memory region, and change one line:</p>
-<pre tabindex="0"><code>l := make([]string, 0, 31*1000000)
-</code></pre><p>and then compile and run our tiny binary:</p>
-<pre tabindex="0"><code>/usr/bin/time -l ./main_simple ./data-1696014531
-Alloc = 0 MiB	TotalAlloc = 1518 MiB	Sys = 1590 MiB	NumGC = 3
-2023/10/23 15:46:03 done with 30085159 lines in 1.080537584s
-        1.10 real         1.02 user         0.42 sys
-          1662112000  peak memory footprint
-</code></pre><p>Yay, now the math makes sense! <strong>We use 1.6Gb</strong>, just as we expected. Also notice the run time and number of GC.
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="nx">l</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">([]</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">31</span><span class="o">*</span><span class="mi">1000000</span><span class="p">)</span><span class="w">
+</span></span></span></code></pre></div><p>and then compile and run our tiny binary:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">/usr/bin/time -l ./main_simple ./data-1696014531
+</span></span><span class="line"><span class="cl"><span class="nv">Alloc</span> <span class="o">=</span> <span class="m">0</span> MiB	<span class="nv">TotalAlloc</span> <span class="o">=</span> <span class="m">1518</span> MiB	<span class="nv">Sys</span> <span class="o">=</span> <span class="m">1590</span> MiB	<span class="nv">NumGC</span> <span class="o">=</span> <span class="m">3</span>
+</span></span><span class="line"><span class="cl">2023/10/23 15:46:03 <span class="k">done</span> with <span class="m">30085159</span> lines in 1.080537584s
+</span></span><span class="line"><span class="cl">        1.10 real         1.02 user         0.42 sys
+</span></span><span class="line"><span class="cl">          <span class="m">1662112000</span>  peak memory footprint
+</span></span></code></pre></div><p>Yay, now the math makes sense! <strong>We use 1.6Gb</strong>, just as we expected. Also notice the run time and number of GC.
 We now execute twice as fast, and only ran GC 3 times. Finally, the numbers make sense.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>The mystery is solved, and we have a solid piece of advice to anyone writing efficient Go code - <strong>always pre-allocate your slices</strong>.</p>
@@ -234,72 +268,72 @@ Using <em>CGO</em> surely would be one of them, but recently another one was add
 <p>We get <code>Sys = 1830 MiB</code>, so just as predicted around 200Mb overhead over strings.</p>
 <p>Now what if we use arenas? The whole premise is that you have a whole region of memory that is not touched by GC, and is allocated/deallocated at once.
 Which in our case means we should save around 200Mb on pointers, right? Let&rsquo;s see if this stands true.</p>
-<pre tabindex="0"><code>package main
-
-import (
-    &#34;bufio&#34;
-    &#34;fmt&#34;
-    &#34;log&#34;
-    &#34;os&#34;
-    &#34;runtime&#34;
-    &#34;time&#34;
-
-    &#34;arena&#34;
-)
-
-func printMem() {
-    var m runtime.MemStats
-    runtime.GC()
-    runtime.ReadMemStats(&amp;m)
-    fmt.Printf(&#34;Alloc = %v MiB&#34;, m.Alloc/1024/1024)
-    fmt.Printf(&#34;\tTotalAlloc = %v MiB&#34;, m.TotalAlloc/1024/1024)
-    fmt.Printf(&#34;\tSys = %v MiB&#34;, m.Sys/1024/1024)
-    fmt.Printf(&#34;\tNumGC = %v\n&#34;, m.NumGC)
-}
-
-func appendA[T any](data []T, v T, a *arena.Arena) []T {
-    if len(data) &gt;= cap(data) {
-        c := 2 * len(data)
-        if c == 0 {
-            c = 1
-        }
-        newData := arena.MakeSlice[T](a, len(data)+1, c)
-        copy(newData, data)
-        data = newData
-        data[len(data)-1] = v
-    } else {
-        data = append(data, v)
-    }
-    return data
-}
-
-func main() {
-    f, err := os.Open(os.Args[1])
-    if err != nil {
-        log.Println(err)
-        os.Exit(1)
-    }
-    start := time.Now()
-    mem := arena.NewArena()
-    defer mem.Free()
-    l := arena.MakeSlice[[]byte](mem, 0, 31*1000000)
-    scanner := bufio.NewScanner(f)
-    for scanner.Scan() {
-        line := scanner.Bytes()
-        lline := arena.MakeSlice[byte](mem, len(line), len(line))
-        copy(lline, line)
-        l = appendA(l, lline, mem)
-    }
-    printMem()
-    log.Printf(&#34;done with %d lines in %v&#34;, len(l), time.Since(start))
-}
-</code></pre><p>And just as we expected, using arenas takes same amount memory and run time is somewhat faster:</p>
-<pre tabindex="0"><code>/usr/bin/time -l ./main_arena ./data-1696014531
-Alloc = 912 MiB	TotalAlloc = 1621 MiB	Sys = 1661 MiB	NumGC = 4
-2023/10/23 16:08:08 done with 30085159 lines in 985.003042ms
-        1.02 real         0.97 user         0.46 sys
-          1733939584  peak memory footprint
-</code></pre><p>Sadly it is likely that <a href="https://github.com/golang/go/issues/51317">this feature will never be part of the language</a>,
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="line"><span class="cl"><span class="kn">package</span><span class="w"> </span><span class="nx">main</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kn">import</span><span class="w"> </span><span class="p">(</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;bufio&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;fmt&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;log&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;os&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;runtime&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;time&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="s">&#34;arena&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">printMem</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="nx">runtime</span><span class="p">.</span><span class="nx">MemStats</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">runtime</span><span class="p">.</span><span class="nf">GC</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">runtime</span><span class="p">.</span><span class="nf">ReadMemStats</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">m</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;Alloc = %v MiB&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">Alloc</span><span class="o">/</span><span class="mi">1024</span><span class="o">/</span><span class="mi">1024</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;\tTotalAlloc = %v MiB&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">TotalAlloc</span><span class="o">/</span><span class="mi">1024</span><span class="o">/</span><span class="mi">1024</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;\tSys = %v MiB&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">Sys</span><span class="o">/</span><span class="mi">1024</span><span class="o">/</span><span class="mi">1024</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;\tNumGC = %v\n&#34;</span><span class="p">,</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">NumGC</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nx">appendA</span><span class="p">[</span><span class="nx">T</span><span class="w"> </span><span class="kt">any</span><span class="p">](</span><span class="nx">data</span><span class="w"> </span><span class="p">[]</span><span class="nx">T</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="nx">T</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">*</span><span class="nx">arena</span><span class="p">.</span><span class="nx">Arena</span><span class="p">)</span><span class="w"> </span><span class="p">[]</span><span class="nx">T</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="nb">cap</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">c</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nx">c</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">newData</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">arena</span><span class="p">.</span><span class="nx">MakeSlice</span><span class="p">[</span><span class="nx">T</span><span class="p">](</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="nx">c</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nb">copy</span><span class="p">(</span><span class="nx">newData</span><span class="p">,</span><span class="w"> </span><span class="nx">data</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">newData</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">data</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">v</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">data</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="kd">func</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">f</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">os</span><span class="p">.</span><span class="nf">Open</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Args</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">log</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">os</span><span class="p">.</span><span class="nf">Exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">start</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">mem</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">arena</span><span class="p">.</span><span class="nf">NewArena</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">mem</span><span class="p">.</span><span class="nf">Free</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">l</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">arena</span><span class="p">.</span><span class="nx">MakeSlice</span><span class="p">[[]</span><span class="kt">byte</span><span class="p">](</span><span class="nx">mem</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">31</span><span class="o">*</span><span class="mi">1000000</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">scanner</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">bufio</span><span class="p">.</span><span class="nf">NewScanner</span><span class="p">(</span><span class="nx">f</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">scanner</span><span class="p">.</span><span class="nf">Scan</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">line</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">scanner</span><span class="p">.</span><span class="nf">Bytes</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">lline</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">arena</span><span class="p">.</span><span class="nx">MakeSlice</span><span class="p">[</span><span class="kt">byte</span><span class="p">](</span><span class="nx">mem</span><span class="p">,</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">line</span><span class="p">),</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">line</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nb">copy</span><span class="p">(</span><span class="nx">lline</span><span class="p">,</span><span class="w"> </span><span class="nx">line</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nx">l</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nf">appendA</span><span class="p">(</span><span class="nx">l</span><span class="p">,</span><span class="w"> </span><span class="nx">lline</span><span class="p">,</span><span class="w"> </span><span class="nx">mem</span><span class="p">)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="p">}</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nf">printMem</span><span class="p">()</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nx">log</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;done with %d lines in %v&#34;</span><span class="p">,</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">l</span><span class="p">),</span><span class="w"> </span><span class="nx">time</span><span class="p">.</span><span class="nf">Since</span><span class="p">(</span><span class="nx">start</span><span class="p">))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>And just as we expected, using arenas takes same amount memory and run time is somewhat faster:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">/usr/bin/time -l ./main_arena ./data-1696014531
+</span></span><span class="line"><span class="cl"><span class="nv">Alloc</span> <span class="o">=</span> <span class="m">912</span> MiB	<span class="nv">TotalAlloc</span> <span class="o">=</span> <span class="m">1621</span> MiB	<span class="nv">Sys</span> <span class="o">=</span> <span class="m">1661</span> MiB	<span class="nv">NumGC</span> <span class="o">=</span> <span class="m">4</span>
+</span></span><span class="line"><span class="cl">2023/10/23 16:08:08 <span class="k">done</span> with <span class="m">30085159</span> lines in 985.003042ms
+</span></span><span class="line"><span class="cl">        1.02 real         0.97 user         0.46 sys
+</span></span><span class="line"><span class="cl">          <span class="m">1733939584</span>  peak memory footprint
+</span></span></code></pre></div><p>Sadly it is likely that <a href="https://github.com/golang/go/issues/51317">this feature will never be part of the language</a>,
 but that doesn&rsquo;t prevent us from playing with it, having fun and learning more about Go and GC.</p>
 <h3 id="appendix-b-test-environment">Appendix B: Test environment</h3>
 <p>All tests were conducted with Go 1.21.

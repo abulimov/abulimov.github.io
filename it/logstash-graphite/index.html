@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <style>
+.bg{color:#4c4f69;background-color:#eff1f5}.chroma{color:#4c4f69;background-color:#eff1f5;-webkit-text-size-adjust:none}.chroma .x{color:#4c4f69}.chroma .err{color:#d20f39}.chroma .cl{color:#4c4f69}.chroma .lnlinks{outline:none;text-decoration:none;color:inherit}.chroma .lntd{vertical-align:top;padding:0;margin:0;border:0}.chroma .lntable{border-spacing:0;padding:0;margin:0;border:0}.chroma .hl{background-color:#bcc0cc}.chroma .lnt{white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#8c8fa1}.chroma .ln{white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#8c8fa1}.chroma .line{display:flex}.chroma .k{color:#8839ef}.chroma .kc{color:#fe640b}.chroma .kd{color:#d20f39}.chroma .kn{color:#179299}.chroma .kp{color:#8839ef}.chroma .kr{color:#8839ef}.chroma .kt{color:#d20f39}.chroma .na{color:#1e66f5}.chroma .nc{color:#df8e1d}.chroma .no{color:#df8e1d}.chroma .nd{color:#1e66f5;font-weight:700}.chroma .ni{color:#179299}.chroma .ne{color:#fe640b}.chroma .nl{color:#04a5e5}.chroma .nn{color:#fe640b}.chroma .nx{color:#4c4f69}.chroma .py{color:#fe640b}.chroma .nt{color:#8839ef}.chroma .nb{color:#04a5e5}.chroma .bp{color:#04a5e5}.chroma .nv{color:#dc8a78}.chroma .vc{color:#dc8a78}.chroma .vg{color:#dc8a78}.chroma .vi{color:#dc8a78}.chroma .vm{color:#dc8a78}.chroma .nf{color:#1e66f5}.chroma .fm{color:#1e66f5}.chroma .ld{color:#4c4f69}.chroma .s{color:#40a02b}.chroma .sa{color:#d20f39}.chroma .sb{color:#40a02b}.chroma .sc{color:#40a02b}.chroma .dl{color:#1e66f5}.chroma .sd{color:#9ca0b0}.chroma .s2{color:#40a02b}.chroma .se{color:#1e66f5}.chroma .sh{color:#9ca0b0}.chroma .si{color:#40a02b}.chroma .sx{color:#40a02b}.chroma .sr{color:#179299}.chroma .s1{color:#40a02b}.chroma .ss{color:#40a02b}.chroma .m{color:#fe640b}.chroma .mb{color:#fe640b}.chroma .mf{color:#fe640b}.chroma .mh{color:#fe640b}.chroma .mi{color:#fe640b}.chroma .il{color:#fe640b}.chroma .mo{color:#fe640b}.chroma .o{color:#04a5e5;font-weight:700}.chroma .ow{color:#04a5e5;font-weight:700}.chroma .or{color:#04a5e5;font-weight:700}.chroma .c{color:#9ca0b0;font-style:italic}.chroma .ch{color:#acb0be;font-style:italic}.chroma .cm{color:#9ca0b0;font-style:italic}.chroma .c1{color:#9ca0b0;font-style:italic}.chroma .cs{color:#9ca0b0;font-style:italic}.chroma .cp{color:#9ca0b0;font-style:italic}.chroma .cpf{color:#9ca0b0;font-weight:700;font-style:italic}.chroma .gd{color:#d20f39;background-color:#ccd0da}.chroma .ge{font-style:italic}.chroma .gr{color:#d20f39}.chroma .gh{color:#fe640b;font-weight:700}.chroma .gi{color:#40a02b;background-color:#ccd0da}.chroma .go{color:#4c4f69}.chroma .gp{color:#4c4f69}.chroma .gs{font-weight:700}.chroma .gu{color:#fe640b;font-weight:700}.chroma .gt{color:#d20f39}.chroma .gl{text-decoration:underline}
 @media (prefers-color-scheme: dark) {
   body {
     background-color: white;
@@ -14,6 +15,13 @@
   html, img, video, iframe {
     filter: invert(1);
   }
+   
+  pre.chroma {
+    background: none;
+    filter: invert(1);
+  }
+   
+  .bg{color:#cdd6f4;background-color:#1e1e2e}.chroma{color:#cdd6f4;background-color:#1e1e2e;-webkit-text-size-adjust:none}.chroma .x{color:#cdd6f4}.chroma .err{color:#f38ba8}.chroma .cl{color:#cdd6f4}.chroma .lnlinks{outline:none;text-decoration:none;color:inherit}.chroma .lntd{vertical-align:top;padding:0;margin:0;border:0}.chroma .lntable{border-spacing:0;padding:0;margin:0;border:0}.chroma .hl{background-color:#45475a}.chroma .lnt{white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c}.chroma .ln{white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c}.chroma .line{display:flex}.chroma .k{color:#cba6f7}.chroma .kc{color:#fab387}.chroma .kd{color:#f38ba8}.chroma .kn{color:#94e2d5}.chroma .kp{color:#cba6f7}.chroma .kr{color:#cba6f7}.chroma .kt{color:#f38ba8}.chroma .na{color:#89b4fa}.chroma .nc{color:#f9e2af}.chroma .no{color:#f9e2af}.chroma .nd{color:#89b4fa;font-weight:700}.chroma .ni{color:#94e2d5}.chroma .ne{color:#fab387}.chroma .nl{color:#89dceb}.chroma .nn{color:#fab387}.chroma .nx{color:#cdd6f4}.chroma .py{color:#fab387}.chroma .nt{color:#cba6f7}.chroma .nb{color:#89dceb}.chroma .bp{color:#89dceb}.chroma .nv{color:#f5e0dc}.chroma .vc{color:#f5e0dc}.chroma .vg{color:#f5e0dc}.chroma .vi{color:#f5e0dc}.chroma .vm{color:#f5e0dc}.chroma .nf{color:#89b4fa}.chroma .fm{color:#89b4fa}.chroma .ld{color:#cdd6f4}.chroma .s{color:#a6e3a1}.chroma .sa{color:#f38ba8}.chroma .sb{color:#a6e3a1}.chroma .sc{color:#a6e3a1}.chroma .dl{color:#89b4fa}.chroma .sd{color:#6c7086}.chroma .s2{color:#a6e3a1}.chroma .se{color:#89b4fa}.chroma .sh{color:#6c7086}.chroma .si{color:#a6e3a1}.chroma .sx{color:#a6e3a1}.chroma .sr{color:#94e2d5}.chroma .s1{color:#a6e3a1}.chroma .ss{color:#a6e3a1}.chroma .m{color:#fab387}.chroma .mb{color:#fab387}.chroma .mf{color:#fab387}.chroma .mh{color:#fab387}.chroma .mi{color:#fab387}.chroma .il{color:#fab387}.chroma .mo{color:#fab387}.chroma .o{color:#89dceb;font-weight:700}.chroma .ow{color:#89dceb;font-weight:700}.chroma .or{color:#89dceb;font-weight:700}.chroma .c{color:#6c7086;font-style:italic}.chroma .ch{color:#585b70;font-style:italic}.chroma .cm{color:#6c7086;font-style:italic}.chroma .c1{color:#6c7086;font-style:italic}.chroma .cs{color:#6c7086;font-style:italic}.chroma .cp{color:#6c7086;font-style:italic}.chroma .cpf{color:#6c7086;font-weight:700;font-style:italic}.chroma .gd{color:#f38ba8;background-color:#313244}.chroma .ge{font-style:italic}.chroma .gr{color:#f38ba8}.chroma .gh{color:#fab387;font-weight:700}.chroma .gi{color:#a6e3a1;background-color:#313244}.chroma .go{color:#cdd6f4}.chroma .gp{color:#cdd6f4}.chroma .gs{font-weight:700}.chroma .gu{color:#fab387;font-weight:700}.chroma .gt{color:#f38ba8}.chroma .gl{text-decoration:underline}
 }
 </style>
 
@@ -41,8 +49,26 @@
 <h1><span class="title">Logstash и Graphite</span></h1>
 
 <h2 class="date">2015/10/09</h2>
-
+<i>Estimated reading time: 4 minutes</i>
 </div>
+
+
+<div class="table-of-contents">
+    <aside class="toc">
+        <details>
+        <summary>Table of contents</summary>
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </details>
+    </aside>
+    </div>
 
 <main data-pagefind-body>
 <p>Недавно читал серию постов от <a href="https://www.datadoghq.com">Datadog</a> про сбор метрик,
@@ -70,9 +96,9 @@
 </ul>
 <p>Итак, мы хотим знать, сколько же и каких мы отдаем бедным пользователям HTTP-ответов.
 Nginx пишет по-умолчанию access-log в формате <em>combined</em>, который определен так:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-nginx" data-lang="nginx"><span style="display:flex;"><span><span style="color:#66d9ef">log_format</span> <span style="color:#e6db74">combined</span> <span style="color:#e6db74">&#39;</span>$remote_addr <span style="color:#e6db74">-</span> $remote_user <span style="color:#e6db74">[</span>$time_local] <span style="color:#e6db74">&#39;</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;&#34;</span>$request&#34; $status $body_bytes_sent <span style="color:#e6db74">&#39;</span>
-</span></span><span style="display:flex;"><span>                    <span style="color:#e6db74">&#39;&#34;</span>$http_referer&#34; <span style="color:#e6db74">&#34;</span>$http_user_agent&#34;&#39;;
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="line"><span class="cl"><span class="k">log_format</span> <span class="s">combined</span> <span class="s">&#39;</span><span class="nv">$remote_addr</span> <span class="s">-</span> <span class="nv">$remote_user</span> <span class="s">[</span><span class="nv">$time_local]</span> <span class="s">&#39;</span>
+</span></span><span class="line"><span class="cl">                    <span class="s">&#39;&#34;</span><span class="nv">$request&#34;</span> <span class="nv">$status</span> <span class="nv">$body_bytes_sent</span> <span class="s">&#39;</span>
+</span></span><span class="line"><span class="cl">                    <span class="s">&#39;&#34;</span><span class="nv">$http_referer&#34;</span> <span class="s">&#34;</span><span class="nv">$http_user_agent&#34;&#39;</span><span class="p">;</span>
 </span></span></code></pre></div><p>Для нас это отлично, поскольку</p>
 <ol>
 <li>этот формат совместим с логом Apache2,</li>
@@ -83,8 +109,8 @@ Nginx пишет по-умолчанию access-log в формате <em>combin
 <p>Нужный нам паттерн называется <strong>COMBINEDAPACHELOG</strong>, актуальную версию можно посмотреть
 в <a href="https://github.com/logstash-plugins/logstash-patterns-core/blob/master/patterns/grok-patterns">репозитории Logstash-plugins</a>,
 на момент написания этой статьи он выглядел так:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#66d9ef">COMMONAPACHELOG</span> <span style="color:#e6db74">%{IPORHOST:clientip}</span> <span style="color:#e6db74">%{HTTPDUSER:ident}</span> <span style="color:#e6db74">%{USER:auth}</span> \<span style="color:#f92672">[</span><span style="color:#e6db74">%{HTTPDATE:timestamp}</span>\<span style="color:#f92672">]</span> <span style="color:#e6db74">&#34;(?:%{WORD:verb} %{NOTSPACE:request}(?: HTTP/%{NUMBER:httpversion})?|%{DATA:rawrequest})&#34;</span> <span style="color:#e6db74">%{NUMBER:response}</span> (<span style="color:#e6db74">?:</span><span style="color:#e6db74">%{NUMBER:bytes}</span><span style="color:#f92672">|-</span>)
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">COMBINEDAPACHELOG</span> <span style="color:#e6db74">%{COMMONAPACHELOG}</span> <span style="color:#e6db74">%{QS:referrer}</span> <span style="color:#e6db74">%{QS:agent}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="no">COMMONAPACHELOG</span> <span class="sx">%{IPORHOST:clientip}</span> <span class="sx">%{HTTPDUSER:ident}</span> <span class="sx">%{USER:auth}</span> <span class="p">\</span><span class="o">[</span><span class="sx">%{HTTPDATE:timestamp}</span><span class="p">\</span><span class="o">]</span> <span class="s2">&#34;(?:%{WORD:verb} %{NOTSPACE:request}(?: HTTP/%{NUMBER:httpversion})?|%{DATA:rawrequest})&#34;</span> <span class="sx">%{NUMBER:response}</span> <span class="p">(</span><span class="sc">?:</span><span class="sx">%{NUMBER:bytes}</span><span class="o">|-</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="no">COMBINEDAPACHELOG</span> <span class="sx">%{COMMONAPACHELOG}</span> <span class="sx">%{QS:referrer}</span> <span class="sx">%{QS:agent}</span>
 </span></span></code></pre></div><p><em>Кстати, в документации к плагину grok указана ссылка на <a href="http://grokdebug.herokuapp.com">отличный онлайн-инструмент</a>
 для проверки grok-паттернов.</em></p>
 <p>Как мы видим, интересующая нас переменная зовется в Logstash <strong>response</strong>, так что
@@ -136,7 +162,7 @@ output {
 <ul>
 <li>Написать свой grok-паттерн для парсинга логов ATS</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#66d9ef">TRAFFICSERVER_ACCESS</span> <span style="color:#e6db74">%{NUMBER:ats_timestamp}</span>\s<span style="color:#f92672">+</span><span style="color:#e6db74">%{NUMBER:request_msec:int}</span> <span style="color:#e6db74">%{IPORHOST:client_ip}</span> <span style="color:#e6db74">%{WORD:cache_result}</span><span style="color:#f92672">/</span><span style="color:#e6db74">%{NUMBER:http_status_code:int}</span> <span style="color:#e6db74">%{NUMBER:bytes_read:int}</span> <span style="color:#e6db74">%{WORD:http_verb}</span> (<span style="color:#e6db74">%{URIPROTO:http_proto}</span><span style="color:#e6db74">:/</span><span style="color:#f92672">/</span>)<span style="color:#e6db74">?%</span>{<span style="color:#e6db74">IPORHOST</span>:dst_host}(<span style="color:#e6db74">?:</span><span style="color:#e6db74">:%</span>{<span style="color:#e6db74">POSINT</span>:<span style="color:#e6db74">port</span>:int})<span style="color:#e6db74">?(?:</span><span style="color:#e6db74">%{URIPATHPARAM:http_request}</span>)? <span style="color:#e6db74">%{DATA:cache_user}</span> <span style="color:#e6db74">%{WORD:request_route}</span><span style="color:#f92672">/</span>(<span style="color:#e6db74">%{IPORHOST:forwarded_to}</span><span style="color:#f92672">|-</span>) <span style="color:#e6db74">%{GREEDYDATA:content_type}</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ruby" data-lang="ruby"><span class="line"><span class="cl"><span class="no">TRAFFICSERVER_ACCESS</span> <span class="sx">%{NUMBER:ats_timestamp}</span><span class="p">\</span><span class="n">s</span><span class="o">+</span><span class="sx">%{NUMBER:request_msec:int}</span> <span class="sx">%{IPORHOST:client_ip}</span> <span class="sx">%{WORD:cache_result}</span><span class="o">/</span><span class="sx">%{NUMBER:http_status_code:int}</span> <span class="sx">%{NUMBER:bytes_read:int}</span> <span class="sx">%{WORD:http_verb}</span> <span class="p">(</span><span class="sx">%{URIPROTO:http_proto}</span><span class="ss">:/</span><span class="o">/</span><span class="p">)</span><span class="sc">?%</span><span class="p">{</span><span class="ss">IPORHOST</span><span class="p">:</span><span class="n">dst_host</span><span class="p">}(</span><span class="sc">?:</span><span class="ss">:%</span><span class="p">{</span><span class="ss">POSINT</span><span class="p">:</span><span class="ss">port</span><span class="p">:</span><span class="n">int</span><span class="p">})</span><span class="sc">?(?:</span><span class="sx">%{URIPATHPARAM:http_request}</span><span class="p">)?</span> <span class="sx">%{DATA:cache_user}</span> <span class="sx">%{WORD:request_route}</span><span class="o">/</span><span class="p">(</span><span class="sx">%{IPORHOST:forwarded_to}</span><span class="o">|-</span><span class="p">)</span> <span class="sx">%{GREEDYDATA:content_type}</span>
 </span></span></code></pre></div><ul>
 <li>Научить rsyslog тейлить и слать логи ATS в Logstash</li>
 </ul>

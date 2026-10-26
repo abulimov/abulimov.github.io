@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <style>
+.bg{color:#4c4f69;background-color:#eff1f5}.chroma{color:#4c4f69;background-color:#eff1f5;-webkit-text-size-adjust:none}.chroma .x{color:#4c4f69}.chroma .err{color:#d20f39}.chroma .cl{color:#4c4f69}.chroma .lnlinks{outline:none;text-decoration:none;color:inherit}.chroma .lntd{vertical-align:top;padding:0;margin:0;border:0}.chroma .lntable{border-spacing:0;padding:0;margin:0;border:0}.chroma .hl{background-color:#bcc0cc}.chroma .lnt{white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#8c8fa1}.chroma .ln{white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#8c8fa1}.chroma .line{display:flex}.chroma .k{color:#8839ef}.chroma .kc{color:#fe640b}.chroma .kd{color:#d20f39}.chroma .kn{color:#179299}.chroma .kp{color:#8839ef}.chroma .kr{color:#8839ef}.chroma .kt{color:#d20f39}.chroma .na{color:#1e66f5}.chroma .nc{color:#df8e1d}.chroma .no{color:#df8e1d}.chroma .nd{color:#1e66f5;font-weight:700}.chroma .ni{color:#179299}.chroma .ne{color:#fe640b}.chroma .nl{color:#04a5e5}.chroma .nn{color:#fe640b}.chroma .nx{color:#4c4f69}.chroma .py{color:#fe640b}.chroma .nt{color:#8839ef}.chroma .nb{color:#04a5e5}.chroma .bp{color:#04a5e5}.chroma .nv{color:#dc8a78}.chroma .vc{color:#dc8a78}.chroma .vg{color:#dc8a78}.chroma .vi{color:#dc8a78}.chroma .vm{color:#dc8a78}.chroma .nf{color:#1e66f5}.chroma .fm{color:#1e66f5}.chroma .ld{color:#4c4f69}.chroma .s{color:#40a02b}.chroma .sa{color:#d20f39}.chroma .sb{color:#40a02b}.chroma .sc{color:#40a02b}.chroma .dl{color:#1e66f5}.chroma .sd{color:#9ca0b0}.chroma .s2{color:#40a02b}.chroma .se{color:#1e66f5}.chroma .sh{color:#9ca0b0}.chroma .si{color:#40a02b}.chroma .sx{color:#40a02b}.chroma .sr{color:#179299}.chroma .s1{color:#40a02b}.chroma .ss{color:#40a02b}.chroma .m{color:#fe640b}.chroma .mb{color:#fe640b}.chroma .mf{color:#fe640b}.chroma .mh{color:#fe640b}.chroma .mi{color:#fe640b}.chroma .il{color:#fe640b}.chroma .mo{color:#fe640b}.chroma .o{color:#04a5e5;font-weight:700}.chroma .ow{color:#04a5e5;font-weight:700}.chroma .or{color:#04a5e5;font-weight:700}.chroma .c{color:#9ca0b0;font-style:italic}.chroma .ch{color:#acb0be;font-style:italic}.chroma .cm{color:#9ca0b0;font-style:italic}.chroma .c1{color:#9ca0b0;font-style:italic}.chroma .cs{color:#9ca0b0;font-style:italic}.chroma .cp{color:#9ca0b0;font-style:italic}.chroma .cpf{color:#9ca0b0;font-weight:700;font-style:italic}.chroma .gd{color:#d20f39;background-color:#ccd0da}.chroma .ge{font-style:italic}.chroma .gr{color:#d20f39}.chroma .gh{color:#fe640b;font-weight:700}.chroma .gi{color:#40a02b;background-color:#ccd0da}.chroma .go{color:#4c4f69}.chroma .gp{color:#4c4f69}.chroma .gs{font-weight:700}.chroma .gu{color:#fe640b;font-weight:700}.chroma .gt{color:#d20f39}.chroma .gl{text-decoration:underline}
 @media (prefers-color-scheme: dark) {
   body {
     background-color: white;
@@ -14,6 +15,13 @@
   html, img, video, iframe {
     filter: invert(1);
   }
+   
+  pre.chroma {
+    background: none;
+    filter: invert(1);
+  }
+   
+  .bg{color:#cdd6f4;background-color:#1e1e2e}.chroma{color:#cdd6f4;background-color:#1e1e2e;-webkit-text-size-adjust:none}.chroma .x{color:#cdd6f4}.chroma .err{color:#f38ba8}.chroma .cl{color:#cdd6f4}.chroma .lnlinks{outline:none;text-decoration:none;color:inherit}.chroma .lntd{vertical-align:top;padding:0;margin:0;border:0}.chroma .lntable{border-spacing:0;padding:0;margin:0;border:0}.chroma .hl{background-color:#45475a}.chroma .lnt{white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c}.chroma .ln{white-space:pre;-webkit-user-select:none;user-select:none;margin-right:.4em;padding:0 .4em;color:#7f849c}.chroma .line{display:flex}.chroma .k{color:#cba6f7}.chroma .kc{color:#fab387}.chroma .kd{color:#f38ba8}.chroma .kn{color:#94e2d5}.chroma .kp{color:#cba6f7}.chroma .kr{color:#cba6f7}.chroma .kt{color:#f38ba8}.chroma .na{color:#89b4fa}.chroma .nc{color:#f9e2af}.chroma .no{color:#f9e2af}.chroma .nd{color:#89b4fa;font-weight:700}.chroma .ni{color:#94e2d5}.chroma .ne{color:#fab387}.chroma .nl{color:#89dceb}.chroma .nn{color:#fab387}.chroma .nx{color:#cdd6f4}.chroma .py{color:#fab387}.chroma .nt{color:#cba6f7}.chroma .nb{color:#89dceb}.chroma .bp{color:#89dceb}.chroma .nv{color:#f5e0dc}.chroma .vc{color:#f5e0dc}.chroma .vg{color:#f5e0dc}.chroma .vi{color:#f5e0dc}.chroma .vm{color:#f5e0dc}.chroma .nf{color:#89b4fa}.chroma .fm{color:#89b4fa}.chroma .ld{color:#cdd6f4}.chroma .s{color:#a6e3a1}.chroma .sa{color:#f38ba8}.chroma .sb{color:#a6e3a1}.chroma .sc{color:#a6e3a1}.chroma .dl{color:#89b4fa}.chroma .sd{color:#6c7086}.chroma .s2{color:#a6e3a1}.chroma .se{color:#89b4fa}.chroma .sh{color:#6c7086}.chroma .si{color:#a6e3a1}.chroma .sx{color:#a6e3a1}.chroma .sr{color:#94e2d5}.chroma .s1{color:#a6e3a1}.chroma .ss{color:#a6e3a1}.chroma .m{color:#fab387}.chroma .mb{color:#fab387}.chroma .mf{color:#fab387}.chroma .mh{color:#fab387}.chroma .mi{color:#fab387}.chroma .il{color:#fab387}.chroma .mo{color:#fab387}.chroma .o{color:#89dceb;font-weight:700}.chroma .ow{color:#89dceb;font-weight:700}.chroma .or{color:#89dceb;font-weight:700}.chroma .c{color:#6c7086;font-style:italic}.chroma .ch{color:#585b70;font-style:italic}.chroma .cm{color:#6c7086;font-style:italic}.chroma .c1{color:#6c7086;font-style:italic}.chroma .cs{color:#6c7086;font-style:italic}.chroma .cp{color:#6c7086;font-style:italic}.chroma .cpf{color:#6c7086;font-weight:700;font-style:italic}.chroma .gd{color:#f38ba8;background-color:#313244}.chroma .ge{font-style:italic}.chroma .gr{color:#f38ba8}.chroma .gh{color:#fab387;font-weight:700}.chroma .gi{color:#a6e3a1;background-color:#313244}.chroma .go{color:#cdd6f4}.chroma .gp{color:#cdd6f4}.chroma .gs{font-weight:700}.chroma .gu{color:#fab387;font-weight:700}.chroma .gt{color:#f38ba8}.chroma .gl{text-decoration:underline}
 }
 </style>
 
@@ -41,8 +49,28 @@
 <h1><span class="title">Открыл код db-checker</span></h1>
 
 <h2 class="date">2016/03/18</h2>
-
+<i>Estimated reading time: 4 minutes</i>
 </div>
+
+
+<div class="table-of-contents">
+    <aside class="toc">
+        <details>
+        <summary>Table of contents</summary>
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#db-checker">db-checker</a></li>
+        <li><a href="#альтернативы">Альтернативы</a></li>
+        <li><a href="#заключение">Заключение</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </details>
+    </aside>
+    </div>
 
 <main data-pagefind-body>
 <p>Недавно я открыл код еще одного инструмента, который уже около года использую на работе -
@@ -85,52 +113,52 @@
 список того, чего быть не должно, и тогда мы проверяем <em>отсутствие</em> данных
 в ответе на запрос, а при наличии - выводим их в отчете.</p>
 <p>Например, наличие блокировок в PostgreSQL можно проверять так:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">query</span>: |<span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    SELECT
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      COALESCE(blockingl.relation::regclass::text,blockingl.locktype) as locked_item,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      (now() - blockeda.query_start)::time AS waiting_duration,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      blockeda.pid AS blocked_pid,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      blockeda.query as blocked_query, blockedl.mode as blocked_mode,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      blockinga.pid AS blocking_pid, blockinga.query as blocking_query,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      blockingl.mode as blocking_mode
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    FROM pg_catalog.pg_locks blockedl
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    JOIN pg_stat_activity blockeda ON blockedl.pid = blockeda.pid
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    JOIN pg_catalog.pg_locks blockingl ON(
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      ( (blockingl.transactionid=blockedl.transactionid) OR
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      (blockingl.relation=blockedl.relation AND blockingl.locktype=blockedl.locktype)
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      ) AND blockedl.pid != blockingl.pid)
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    JOIN pg_stat_activity blockinga ON blockingl.pid = blockinga.pid
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      AND blockinga.datid = blockeda.datid
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    WHERE NOT blockedl.granted;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">description</span>: <span style="color:#ae81ff">Locks in database</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">assert</span>: <span style="color:#ae81ff">absent</span>
-</span></span></code></pre></div><p>Таким образом, если блокировок нет - все отлично, а если есть - выводим их список.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">    SELECT
+</span></span></span><span class="line"><span class="cl"><span class="sd">      COALESCE(blockingl.relation::regclass::text,blockingl.locktype) as locked_item,
+</span></span></span><span class="line"><span class="cl"><span class="sd">      (now() - blockeda.query_start)::time AS waiting_duration,
+</span></span></span><span class="line"><span class="cl"><span class="sd">      blockeda.pid AS blocked_pid,
+</span></span></span><span class="line"><span class="cl"><span class="sd">      blockeda.query as blocked_query, blockedl.mode as blocked_mode,
+</span></span></span><span class="line"><span class="cl"><span class="sd">      blockinga.pid AS blocking_pid, blockinga.query as blocking_query,
+</span></span></span><span class="line"><span class="cl"><span class="sd">      blockingl.mode as blocking_mode
+</span></span></span><span class="line"><span class="cl"><span class="sd">    FROM pg_catalog.pg_locks blockedl
+</span></span></span><span class="line"><span class="cl"><span class="sd">    JOIN pg_stat_activity blockeda ON blockedl.pid = blockeda.pid
+</span></span></span><span class="line"><span class="cl"><span class="sd">    JOIN pg_catalog.pg_locks blockingl ON(
+</span></span></span><span class="line"><span class="cl"><span class="sd">      ( (blockingl.transactionid=blockedl.transactionid) OR
+</span></span></span><span class="line"><span class="cl"><span class="sd">      (blockingl.relation=blockedl.relation AND blockingl.locktype=blockedl.locktype)
+</span></span></span><span class="line"><span class="cl"><span class="sd">      ) AND blockedl.pid != blockingl.pid)
+</span></span></span><span class="line"><span class="cl"><span class="sd">    JOIN pg_stat_activity blockinga ON blockingl.pid = blockinga.pid
+</span></span></span><span class="line"><span class="cl"><span class="sd">      AND blockinga.datid = blockeda.datid
+</span></span></span><span class="line"><span class="cl"><span class="sd">    WHERE NOT blockedl.granted;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Locks in database</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">assert</span><span class="p">:</span><span class="w"> </span><span class="l">absent</span><span class="w">
+</span></span></span></code></pre></div><p>Таким образом, если блокировок нет - все отлично, а если есть - выводим их список.</p>
 <p>Другой пример - проверка успешных задач <code>job_name</code> PGAgent за 4 часа:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">query</span>: |<span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    SELECT jlgstatus
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    FROM pgagent.pga_joblog
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    WHERE jlgstart &gt; (now() - interval &#39;4 hours&#39;) AND jlgstatus = &#39;s&#39; AND
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    jlgjobid=(
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    SELECT jobid FROM pgagent.pga_job WHERE jobname = &#39;job_name&#39;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    )
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    ORDER BY jlgstart DESC LIMIT 1;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">description</span>: <span style="color:#ae81ff">Не было успешных запусков job_name за прошедший час</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">assert</span>: <span style="color:#ae81ff">present</span>
-</span></span></code></pre></div><p>В этом случае мы ждем, что Query вернет нам список задач, а если нет - алерт.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">query</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">    SELECT jlgstatus
+</span></span></span><span class="line"><span class="cl"><span class="sd">    FROM pgagent.pga_joblog
+</span></span></span><span class="line"><span class="cl"><span class="sd">    WHERE jlgstart &gt; (now() - interval &#39;4 hours&#39;) AND jlgstatus = &#39;s&#39; AND
+</span></span></span><span class="line"><span class="cl"><span class="sd">    jlgjobid=(
+</span></span></span><span class="line"><span class="cl"><span class="sd">    SELECT jobid FROM pgagent.pga_job WHERE jobname = &#39;job_name&#39;
+</span></span></span><span class="line"><span class="cl"><span class="sd">    )
+</span></span></span><span class="line"><span class="cl"><span class="sd">    ORDER BY jlgstart DESC LIMIT 1;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Не было успешных запусков job_name за прошедший час</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">assert</span><span class="p">:</span><span class="w"> </span><span class="l">present</span><span class="w">
+</span></span></span></code></pre></div><p>В этом случае мы ждем, что Query вернет нам список задач, а если нет - алерт.</p>
 <h4 id="выводить-полученные-данные-в-удобной-табличной-форме">Выводить полученные данные в удобной табличной форме</h4>
 <p>Поскольку сообщения из алертов читают люди, надо показывать проблему так, чтобы
 сразу было все понятно, поэтому ASCII-таблица с проблемными значениями подходит
 как нельзя лучше.</p>
 <p>Пример:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-console" data-lang="console"><span style="display:flex;"><span>nagios@example.com:~$ ./db-checker --dbname movies --dbuser=checker --dbhost=localhost --dbpassword=SomePassword --checks /opt/checks/movies --critical
-</span></span><span style="display:flex;"><span>CRITICAL:
-</span></span><span style="display:flex;"><span>* Found movies with zero duration
-</span></span><span style="display:flex;"><span>N. ¦ column1 ¦ orig_title                ¦ rus_title
-</span></span><span style="display:flex;"><span>1. ¦ 1346    ¦ Midnight Express          ¦ Полуночный экспресс
-</span></span><span style="display:flex;"><span>2. ¦ 2165    ¦ In the Loop               ¦ В петле
-</span></span><span style="display:flex;"><span>3. ¦ 2254    ¦ Sex &amp; Drugs &amp; Rock &amp; Roll ¦ Секс, наркотики и рок-н-ролл
-</span></span><span style="display:flex;"><span>4. ¦ 2534    ¦ Resident Evil: Damnation  ¦ Обитель Зла: Проклятие
-</span></span></code></pre></div><h4 id="сохранять-состояние-прошлой-проверки-и-выводить-алерты-только-для-новых-проблем">Сохранять состояние прошлой проверки и выводить алерты только для новых проблем</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-console" data-lang="console"><span class="line"><span class="cl"><span class="go">nagios@example.com:~$ ./db-checker --dbname movies --dbuser=checker --dbhost=localhost --dbpassword=SomePassword --checks /opt/checks/movies --critical
+</span></span></span><span class="line"><span class="cl"><span class="go">CRITICAL:
+</span></span></span><span class="line"><span class="cl"><span class="go">* Found movies with zero duration
+</span></span></span><span class="line"><span class="cl"><span class="go">N. ¦ column1 ¦ orig_title                ¦ rus_title
+</span></span></span><span class="line"><span class="cl"><span class="go">1. ¦ 1346    ¦ Midnight Express          ¦ Полуночный экспресс
+</span></span></span><span class="line"><span class="cl"><span class="go">2. ¦ 2165    ¦ In the Loop               ¦ В петле
+</span></span></span><span class="line"><span class="cl"><span class="go">3. ¦ 2254    ¦ Sex &amp; Drugs &amp; Rock &amp; Roll ¦ Секс, наркотики и рок-н-ролл
+</span></span></span><span class="line"><span class="cl"><span class="go">4. ¦ 2534    ¦ Resident Evil: Damnation  ¦ Обитель Зла: Проклятие
+</span></span></span></code></pre></div><h4 id="сохранять-состояние-прошлой-проверки-и-выводить-алерты-только-для-новых-проблем">Сохранять состояние прошлой проверки и выводить алерты только для новых проблем</h4>
 <p>Предположим, у нас есть некая таблица биллинга, в которой содержатся записи
 о транзакциях пользователей. Иногда случаются подозрительные повторные платежи,
 о каждом из которых стоит слать уведомление, но лишь единожды. При этом
